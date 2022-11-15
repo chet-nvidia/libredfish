@@ -192,6 +192,20 @@ impl Redfish {
         self.set_bios_attribute("RedirAfterBoot".to_string(), "Enabled".to_string())
     }
 
+    pub fn enable_tpm(&self) -> Result<(), reqwest::Error> {
+        self.set_bios_attribute("TpmSecurity".to_string(), "On".to_string())?;
+        self.set_bios_attribute("Tpm2Hierarchy".to_string(), "Enabled".to_string())
+    }
+
+    pub fn reset_tpm(&self) -> Result<(), reqwest::Error> {
+        self.set_bios_attribute("Tpm2Hierarchy".to_string(), "Clear".to_string())
+    }
+
+    pub fn disable_tpm(&self) -> Result<(), reqwest::Error> {
+        self.set_bios_attribute("Tpm2Hierarchy".to_string(), "Disabled".to_string())?;
+        self.set_bios_attribute("TpmSecurity".to_string(), "Off".to_string())
+    }
+
     pub fn get_array_controller(
         &self,
         controller_id: u64,
