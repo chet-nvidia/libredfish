@@ -1,6 +1,7 @@
 #[macro_use]
 extern crate serde_derive;
 
+pub mod bios;
 pub mod common;
 pub mod manager;
 pub mod power;
@@ -11,6 +12,8 @@ pub mod system;
 use std::collections::HashMap;
 use reqwest::{header::HeaderValue, header::ACCEPT, header::CONTENT_TYPE, blocking::Client};
 use serde::de::DeserializeOwned;
+use serde_json::json;
+
 const REDFISH_ENDPOINT: &str = "redfish/v1/";
 
 pub struct Config {
@@ -92,6 +95,35 @@ impl Redfish {
         Ok(())
     }
 
+    pub fn patch(&self, api: &str, data: serde_json::Value) -> Result<(), reqwest::Error>
+    {
+        let url = match self.config.port {
+            Some(p) => format!("https://{}:{}/{}/{}", self.config.endpoint, p, REDFISH_ENDPOINT, api),
+            None => format!("https://{}/{}/{}", self.config.endpoint, REDFISH_ENDPOINT, api),
+        };
+
+        match &self.config.user {
+            Some(user) => self
+                .client
+                .patch(&url)
+                .header(ACCEPT, HeaderValue::from_static("application/json"))
+                .header(CONTENT_TYPE, HeaderValue::from_static("application/json"))
+                .basic_auth(&user, self.config.password.as_ref())
+                .json(&data)
+                .send()?
+                .error_for_status()?,
+            None => self
+                .client
+                .patch(&url)
+                .header(ACCEPT, HeaderValue::from_static("application/json"))
+                .header(CONTENT_TYPE, HeaderValue::from_static("application/json"))
+                .json(&data)
+                .send()?
+                .error_for_status()?,
+        };
+        Ok(())
+    }
+
     pub fn get_system_id(&mut self) -> Result<String, String> {
         let url = "Systems/";
         match self.get(url) {
@@ -122,6 +154,30 @@ impl Redfish {
         self.post(&url, arg)
     }
 
+    pub fn get_bios_data(&self) -> Result<bios::OemDellBios, reqwest::Error> {
+        let url = format!("Systems/{}/Bios", self.config.system);
+        let bios: bios::OemDellBios = self.get(&url)?;
+        Ok(bios)
+    }
+
+    pub fn set_bios_attribute(&self, attribute: String, value: String) -> Result<(), reqwest::Error> {
+        let url = format!("Systems/{}/Bios/Settings/", self.config.system);
+        let attr = json!({
+            "@Redfish.SettingsApplyTime": {
+                "ApplyTime": "OnReset"
+            },
+            "Attributes": {
+                attribute: value
+            }
+        });
+        self.patch(&url, attr)
+    }
+
+    pub fn enable_bios_lockdown(&self) -> Result<(), reqwest::Error> {
+        self.set_bios_attribute("InBandManageabilityInterface".to_string(), "Disabled".to_string())?;
+        self.set_bios_attribute("UefiVariableAccess".to_string(), "Controlled".to_string())
+    }
+
     pub fn get_array_controller(
         &self,
         controller_id: u64,
@@ -145,15 +201,15 @@ impl Redfish {
 
     /// Query the power status from the server
     pub fn get_power_status(&self) -> Result<power::Power, reqwest::Error> {
-        let url = "Chassis/1/Power/";
-        let p: power::Power = self.get(url)?;
+        let url = format!("Chassis/{}/Power/", self.config.system);
+        let p: power::Power = self.get(&url)?;
         Ok(p)
     }
 
     /// Query the thermal status from the server
     pub fn get_thermal_status(&self) -> Result<thermal::Thermal, reqwest::Error> {
-        let url = "Chassis/1/Thermal/";
-        let t: thermal::Thermal = self.get(url)?;
+        let url = format!("Chassis/{}/Thermal/", self.config.system);
+        let t: thermal::Thermal = self.get(&url)?;
         Ok(t)
     }
 
