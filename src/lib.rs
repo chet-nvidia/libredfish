@@ -178,6 +178,20 @@ impl Redfish {
         self.set_bios_attribute("UefiVariableAccess".to_string(), "Controlled".to_string())
     }
 
+    pub fn disable_bios_lockdown(&self) -> Result<(), reqwest::Error> {
+        self.set_bios_attribute("InBandManageabilityInterface".to_string(), "Enabled".to_string())?;
+        self.set_bios_attribute("UefiVariableAccess".to_string(), "Standard".to_string())
+    }
+
+    pub fn setup_serial_console(&self) -> Result<(), reqwest::Error> {
+        self.set_bios_attribute("SerialComm".to_string(), "OnConRedir".to_string())?;
+        self.set_bios_attribute("SerialPortAddress".to_string(), "Com1".to_string())?;
+        self.set_bios_attribute("ExtSerialConnector".to_string(), "Serial1".to_string())?;
+        self.set_bios_attribute("FailSafeBaud".to_string(), "115200".to_string())?;
+        self.set_bios_attribute("ConTermType".to_string(), "Vt100Vt220".to_string())?;
+        self.set_bios_attribute("RedirAfterBoot".to_string(), "Enabled".to_string())
+    }
+
     pub fn get_array_controller(
         &self,
         controller_id: u64,
