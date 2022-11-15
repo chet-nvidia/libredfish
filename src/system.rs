@@ -121,8 +121,6 @@ pub struct Systems {
     pub name: String,
 }
 
-
-
 #[test]
 fn test_system_parser() {
     let test_data1 = include_str!("../tests/systems.json");

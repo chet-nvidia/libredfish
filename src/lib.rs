@@ -10,11 +10,11 @@ pub mod thermal;
 pub mod system;
 
 use std::collections::HashMap;
-use reqwest::{header::HeaderValue, header::ACCEPT, header::CONTENT_TYPE, blocking::Client};
+use reqwest::{header::HeaderValue, header::ACCEPT, header::CONTENT_TYPE, blocking::Client, blocking::ClientBuilder};
 use serde::de::DeserializeOwned;
 use serde_json::json;
 
-const REDFISH_ENDPOINT: &str = "redfish/v1/";
+const REDFISH_ENDPOINT: &str = "redfish/v1";
 
 pub struct Config {
     pub user: Option<String>,
@@ -31,8 +31,13 @@ pub struct Redfish {
 
 impl Redfish {
 
-    pub fn new(client: Client, config: Config) -> Self {
-        Redfish { client, config }
+    pub fn new(conf: Config) -> Self {
+        let builder = ClientBuilder::new();
+        let c = builder.danger_accept_invalid_certs(true).build().unwrap();
+        Redfish {
+            client: c,
+            config: conf,
+        }
     }
 
     pub fn get<T>(&self, api: &str) -> Result<T, reqwest::Error>
@@ -124,19 +129,17 @@ impl Redfish {
         Ok(())
     }
 
-    pub fn get_system_id(&mut self) -> Result<String, String> {
+    pub fn get_system_id(&mut self) -> Result<String, reqwest::Error> {
         let url = "Systems/";
         match self.get(url) {
             Ok(x) => {
                 let systems: system::Systems = x;
-                if systems.members.is_empty() {
-                    return Err(String::from("Invalid response"));
-                }
-                self.config.system = systems.members[0].odata_id.clone();
-                Ok(systems.members[0].odata_id.clone())
+                let v: Vec<&str> = systems.members[0].odata_id.split('/').collect();
+                self.config.system = v.last().unwrap().to_string();
+                Ok(self.config.system.clone())
             }
             Err(e) => {
-                Err(e.to_string())
+                Err(e)
             }
         }
     }
