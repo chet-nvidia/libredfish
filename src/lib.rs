@@ -10,6 +10,7 @@ pub mod thermal;
 pub mod system;
 
 use std::collections::HashMap;
+use std::time::Duration;
 use reqwest::{header::HeaderValue, header::ACCEPT, header::CONTENT_TYPE, blocking::Client, blocking::ClientBuilder};
 use serde::de::DeserializeOwned;
 use serde_json::json;
@@ -32,15 +33,19 @@ pub struct Redfish {
 impl Redfish {
 
     pub fn new(conf: Config) -> Self {
+        let timeout = Duration::from_secs(5);
         let builder = ClientBuilder::new();
-        let c = builder.danger_accept_invalid_certs(true).build().unwrap();
+        let c = builder
+            .danger_accept_invalid_certs(true)
+            .timeout(timeout)
+            .build().unwrap();
         Redfish {
             client: c,
             config: conf,
         }
     }
 
-    pub fn get<T>(&self, api: &str) -> Result<T, reqwest::Error>
+    fn get<T>(&self, api: &str) -> Result<T, reqwest::Error>
     where
         T: DeserializeOwned + ::std::fmt::Debug,
     {
@@ -71,7 +76,7 @@ impl Redfish {
         Ok(res)
     }
 
-    pub fn post(&self, api: &str, data: HashMap<&str, String>) -> Result<(), reqwest::Error>
+    fn post(&self, api: &str, data: HashMap<&str, String>) -> Result<(), reqwest::Error>
     {
         let url = match self.config.port {
             Some(p) => format!("https://{}:{}/{}/{}", self.config.endpoint, p, REDFISH_ENDPOINT, api),
@@ -100,7 +105,7 @@ impl Redfish {
         Ok(())
     }
 
-    pub fn patch(&self, api: &str, data: serde_json::Value) -> Result<(), reqwest::Error>
+    fn patch(&self, api: &str, data: serde_json::Value) -> Result<(), reqwest::Error>
     {
         let url = match self.config.port {
             Some(p) => format!("https://{}:{}/{}/{}", self.config.endpoint, p, REDFISH_ENDPOINT, api),
@@ -134,6 +139,10 @@ impl Redfish {
         match self.get(url) {
             Ok(x) => {
                 let systems: system::Systems = x;
+                if systems.members.is_empty() {
+                    self.config.system = "1".to_string();
+                    return Ok("1".to_string());
+                }
                 let v: Vec<&str> = systems.members[0].odata_id.split('/').collect();
                 self.config.system = v.last().unwrap().to_string();
                 Ok(self.config.system.clone())

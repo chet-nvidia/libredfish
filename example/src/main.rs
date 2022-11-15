@@ -1,7 +1,3 @@
-
-extern crate libredfish;
-extern crate reqwest;
-
 use libredfish::{Config, Redfish};
 
 fn main() -> Result<(), reqwest::Error> {
