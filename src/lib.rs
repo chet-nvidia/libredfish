@@ -13,7 +13,7 @@ use std::collections::HashMap;
 use std::time::Duration;
 use reqwest::{header::HeaderValue, header::ACCEPT, header::CONTENT_TYPE, blocking::Client, blocking::ClientBuilder};
 use serde::de::DeserializeOwned;
-use serde_json::json;
+use serde::Serialize;
 
 const REDFISH_ENDPOINT: &str = "redfish/v1";
 
@@ -105,7 +105,9 @@ impl Redfish {
         Ok(())
     }
 
-    fn patch(&self, api: &str, data: serde_json::Value) -> Result<(), reqwest::Error>
+    fn patch<T>(&self, api: &str, data: T) -> Result<(), reqwest::Error>
+    where
+        T: Serialize + ::std::fmt::Debug,
     {
         let url = match self.config.port {
             Some(p) => format!("https://{}:{}/{}/{}", self.config.endpoint, p, REDFISH_ENDPOINT, api),
@@ -174,48 +176,110 @@ impl Redfish {
 
     pub fn set_bios_attribute(&self, attribute: String, value: String) -> Result<(), reqwest::Error> {
         let url = format!("Systems/{}/Bios/Settings/", self.config.system);
-        let attr = json!({
-            "@Redfish.SettingsApplyTime": {
-                "ApplyTime": "OnReset"
-            },
-            "Attributes": {
-                attribute: value
-            }
-        });
+        let attr = format!("{{\"@Redfish.SettingsApplyTime\": {{\"ApplyTime\": \"OnReset\"}},\"Attributes\": {{\"{}\":\"{}\"}}}}", attribute, value);
         self.patch(&url, attr)
     }
 
     pub fn enable_bios_lockdown(&self) -> Result<(), reqwest::Error> {
-        self.set_bios_attribute("InBandManageabilityInterface".to_string(), "Disabled".to_string())?;
-        self.set_bios_attribute("UefiVariableAccess".to_string(), "Controlled".to_string())
+        let apply_time = bios::SetOemDellBiosSettingsApplyTime {
+            apply_time: bios::RedfishSettingsApplyTime::OnReset     // requires reboot to apply
+        };
+        let lockdown = bios::OemDellBiosLockdownAttrs {
+            in_band_manageability_interface: bios::EnabledDisabled::Disabled,
+            uefi_variable_access: bios::UefiVariableAccessSettings::Controlled,
+        };
+        let set_lockdown_attrs = bios::SetOemDellBiosLockdownAttrs {
+            redfish_settings_apply_time: apply_time,
+            attributes: lockdown,
+        };
+        let url = format!("Systems/{}/Bios/Settings/", self.config.system);
+        self.patch(&url, set_lockdown_attrs)
     }
 
     pub fn disable_bios_lockdown(&self) -> Result<(), reqwest::Error> {
-        self.set_bios_attribute("InBandManageabilityInterface".to_string(), "Enabled".to_string())?;
-        self.set_bios_attribute("UefiVariableAccess".to_string(), "Standard".to_string())
+        let apply_time = bios::SetOemDellBiosSettingsApplyTime {
+            apply_time: bios::RedfishSettingsApplyTime::OnReset     // requires reboot to apply
+        };
+        let lockdown = bios::OemDellBiosLockdownAttrs {
+            in_band_manageability_interface: bios::EnabledDisabled::Enabled,
+            uefi_variable_access: bios::UefiVariableAccessSettings::Standard,
+        };
+        let set_lockdown_attrs = bios::SetOemDellBiosLockdownAttrs {
+            redfish_settings_apply_time: apply_time,
+            attributes: lockdown,
+        };
+        let url = format!("Systems/{}/Bios/Settings/", self.config.system);
+        self.patch(&url, set_lockdown_attrs)
     }
 
     pub fn setup_serial_console(&self) -> Result<(), reqwest::Error> {
-        self.set_bios_attribute("SerialComm".to_string(), "OnConRedir".to_string())?;
-        self.set_bios_attribute("SerialPortAddress".to_string(), "Com1".to_string())?;
-        self.set_bios_attribute("ExtSerialConnector".to_string(), "Serial1".to_string())?;
-        self.set_bios_attribute("FailSafeBaud".to_string(), "115200".to_string())?;
-        self.set_bios_attribute("ConTermType".to_string(), "Vt100Vt220".to_string())?;
-        self.set_bios_attribute("RedirAfterBoot".to_string(), "Enabled".to_string())
+        let apply_time = bios::SetOemDellBiosSettingsApplyTime {
+            apply_time: bios::RedfishSettingsApplyTime::OnReset     // requires reboot to apply
+        };
+        let serial_console = bios::OemDellBiosSerialAttrs {
+            serial_comm: bios::SerialCommSettings::OnConRedir,
+            serial_port_address: bios::SerialPortSettings::Com1,
+            ext_serial_connector: bios::SerialPortExtSettings::Serial1,
+            fail_safe_baud: "115200".to_string(),
+            con_term_type: bios::SerialPortTermSettings::Vt100Vt220,
+            redir_after_boot: bios::EnabledDisabled::Enabled,
+        };
+        let set_serial_attrs = bios::SetOemDellBiosSerialAttrs {
+            redfish_settings_apply_time: apply_time,
+            attributes: serial_console,
+        };
+
+        let url = format!("Systems/{}/Bios/Settings/", self.config.system);
+        self.patch(&url, set_serial_attrs)
     }
 
     pub fn enable_tpm(&self) -> Result<(), reqwest::Error> {
-        self.set_bios_attribute("TpmSecurity".to_string(), "On".to_string())?;
-        self.set_bios_attribute("Tpm2Hierarchy".to_string(), "Enabled".to_string())
+        let apply_time = bios::SetOemDellBiosSettingsApplyTime {
+            apply_time: bios::RedfishSettingsApplyTime::OnReset     // requires reboot to apply
+        };
+        let tpm = bios::OemDellBiosTpmAttrs {
+            tpm_security: bios::OnOff::On,
+            tpm2_hierarchy: bios::Tpm2HierarchySettings::Enabled,
+        };
+        let set_tpm_enabled = bios::SetOemDellBiosTpmAttrs {
+            redfish_settings_apply_time: apply_time,
+            attributes: tpm,
+        };
+        let url = format!("Systems/{}/Bios/Settings/", self.config.system);
+        self.patch(&url, set_tpm_enabled)
     }
 
+    /// make sure the tpm is enabled after clear and reboot
     pub fn reset_tpm(&self) -> Result<(), reqwest::Error> {
-        self.set_bios_attribute("Tpm2Hierarchy".to_string(), "Clear".to_string())
+        let apply_time = bios::SetOemDellBiosSettingsApplyTime {
+            apply_time: bios::RedfishSettingsApplyTime::OnReset
+        };
+        let tpm = bios::OemDellBiosTpmAttrs {
+            tpm_security: bios::OnOff::On,
+            tpm2_hierarchy: bios::Tpm2HierarchySettings::Clear,
+        };
+        let set_tpm_clear = bios::SetOemDellBiosTpmAttrs {
+            redfish_settings_apply_time: apply_time,
+            attributes: tpm,
+        };
+        let url = format!("Systems/{}/Bios/Settings/", self.config.system);
+        self.patch(&url, set_tpm_clear)
     }
 
     pub fn disable_tpm(&self) -> Result<(), reqwest::Error> {
-        self.set_bios_attribute("Tpm2Hierarchy".to_string(), "Disabled".to_string())?;
-        self.set_bios_attribute("TpmSecurity".to_string(), "Off".to_string())
+       let apply_time = bios::SetOemDellBiosSettingsApplyTime {
+            apply_time: bios::RedfishSettingsApplyTime::OnReset     // requires reboot to apply
+        };
+        let tpm = bios::OemDellBiosTpmAttrs {
+            tpm_security: bios::OnOff::Off,
+            tpm2_hierarchy: bios::Tpm2HierarchySettings::Disabled,
+        };
+        let set_tpm_disabled = bios::SetOemDellBiosTpmAttrs {
+            redfish_settings_apply_time: apply_time,
+            attributes: tpm,
+        };
+        let url = format!("Systems/{}/Bios/Settings/", self.config.system);
+        self.patch(&url, set_tpm_disabled)
     }
 
     pub fn get_array_controller(

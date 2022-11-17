@@ -1,3 +1,5 @@
+use std::fmt;
+use std::fmt::Formatter;
 use crate::common::*;
 
 #[derive(Debug, Deserialize, Clone)]
@@ -199,6 +201,189 @@ pub struct OemDellBios {
     pub attribute_registry: String,
     pub attributes: OemDellBiosAttributes,
     pub links: OemDellSoftwareImage,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum RedfishSettingsApplyTime {
+    AtMaintenanceWindowStart,
+    Immediate,
+    InMaintenanceWindowOnReset,
+    OnReset,    // preferred
+}
+
+impl fmt::Display for RedfishSettingsApplyTime {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SetOemDellBiosSettingsApplyTime {
+    pub apply_time: RedfishSettingsApplyTime,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum SerialCommSettings {
+    OnConRedir,     // preferred
+    OnNoConRedir,
+    Off,
+}
+
+impl fmt::Display for SerialCommSettings {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum SerialPortSettings {
+    Com1,     // preferred
+    Com2,
+}
+
+impl fmt::Display for SerialPortSettings {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum SerialPortExtSettings {
+    Serial1,     // preferred
+    Serial2,
+    RemoteAccDevice,
+}
+
+impl fmt::Display for SerialPortExtSettings {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum SerialPortBaudSettings {
+    Speed115200bps = 115200,     // preferred
+    Speed57600bps = 57600,
+    Speed19200bps = 19200,
+    Speed9600bps = 9600,
+}
+
+impl fmt::Display for SerialPortBaudSettings {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum SerialPortTermSettings {
+    Vt100Vt220,     // preferred
+    Ansi,
+}
+
+impl fmt::Display for SerialPortTermSettings {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum EnabledDisabled {
+    Enabled,
+    Disabled,
+}
+
+impl fmt::Display for EnabledDisabled {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum OnOff {
+    On,
+    Off,
+}
+
+impl fmt::Display for OnOff {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct OemDellBiosSerialAttrs {
+    pub serial_comm: SerialCommSettings,
+    pub serial_port_address: SerialPortSettings,
+    pub ext_serial_connector: SerialPortExtSettings,
+    pub fail_safe_baud: String,
+    pub con_term_type: SerialPortTermSettings,
+    pub redir_after_boot: EnabledDisabled,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SetOemDellBiosSerialAttrs {
+    #[serde(rename = "@Redfish.SettingsApplyTime")]
+    pub redfish_settings_apply_time: SetOemDellBiosSettingsApplyTime,
+    pub attributes: OemDellBiosSerialAttrs,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum Tpm2HierarchySettings {
+    Enabled,
+    Disabled,
+    Clear,
+}
+
+impl fmt::Display for Tpm2HierarchySettings {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct OemDellBiosTpmAttrs {
+    pub tpm_security: OnOff,
+    pub tpm2_hierarchy: Tpm2HierarchySettings,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SetOemDellBiosTpmAttrs {
+    #[serde(rename = "@Redfish.SettingsApplyTime")]
+    pub redfish_settings_apply_time: SetOemDellBiosSettingsApplyTime,
+    pub attributes: OemDellBiosTpmAttrs
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum UefiVariableAccessSettings {
+    Standard,
+    Controlled,
+}
+
+impl fmt::Display for UefiVariableAccessSettings {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct OemDellBiosLockdownAttrs {
+    pub in_band_manageability_interface: EnabledDisabled,
+    pub uefi_variable_access: UefiVariableAccessSettings,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SetOemDellBiosLockdownAttrs {
+    #[serde(rename = "@Redfish.SettingsApplyTime")]
+    pub redfish_settings_apply_time: SetOemDellBiosSettingsApplyTime,
+    pub attributes: OemDellBiosLockdownAttrs,
 }
 
 #[test]
