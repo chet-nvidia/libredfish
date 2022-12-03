@@ -1,3 +1,6 @@
+use std::fmt;
+use std::fmt::Formatter;
+
 #[derive(Debug, Deserialize, Clone)]
 pub struct FirmwareCurrent {
     #[serde(rename = "VersionString")]
@@ -84,7 +87,7 @@ pub struct ODataLinks {
     #[serde(rename = "@odata.type")]
     pub odata_type: String,
     #[serde(rename = "links")]
-    pub links: LinkType,
+    pub links: Option<LinkType>,
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -152,4 +155,73 @@ impl Status for AllStatus {
 
 pub trait StatusVec {
     fn get_vec(&self) -> Vec<Box<dyn Status>>;
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum EnabledDisabled {
+    Enabled,
+    Disabled,
+}
+impl fmt::Display for EnabledDisabled {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum OnOff {
+    On,
+    Off,
+}
+
+impl fmt::Display for OnOff {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum YesNo {
+    Yes,
+    No,
+}
+
+impl fmt::Display for YesNo {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum RedfishSettingsApplyTime {
+    AtMaintenanceWindowStart,
+    Immediate,  // for idrac settings
+    InMaintenanceWindowOnReset,
+    OnReset,    // for bios settings
+}
+
+impl fmt::Display for RedfishSettingsApplyTime {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum SerialPortBaudSettings {
+    Speed115200bps = 115200, // preferred
+    Speed57600bps = 57600,
+    Speed19200bps = 19200,
+    Speed9600bps = 9600,
+}
+
+impl fmt::Display for SerialPortBaudSettings {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SetOemDellSettingsApplyTime {
+    pub apply_time: RedfishSettingsApplyTime,
 }

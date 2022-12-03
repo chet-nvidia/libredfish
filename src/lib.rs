@@ -17,8 +17,17 @@ use serde::de::DeserializeOwned;
 use serde::Serialize;
 use std::collections::HashMap;
 use std::time::Duration;
+use crate::common::{EnabledDisabled, OnOff, SetOemDellSettingsApplyTime, RedfishSettingsApplyTime};
 
 const REDFISH_ENDPOINT: &str = "redfish/v1";
+
+pub enum Vendor {
+    Dell,
+    Hpe,
+    Lenovo,
+    Supermicro,
+    Unknown,
+}
 
 pub struct Config {
     pub user: Option<String>,
@@ -26,6 +35,8 @@ pub struct Config {
     pub password: Option<String>,
     pub port: Option<u16>,
     pub system: String,
+    pub manager: String,
+    pub vendor: Vendor,
 }
 
 pub struct Redfish {
@@ -156,21 +167,42 @@ impl Redfish {
         Ok(())
     }
 
-    pub fn get_system_id(&mut self) -> Result<String, reqwest::Error> {
+    pub fn get_system_id(&mut self) -> Result<(), reqwest::Error> {
         let url = "Systems/";
         match self.get(url) {
             Ok(x) => {
                 let systems: system::Systems = x;
                 if systems.members.is_empty() {
-                    self.config.system = "1".to_string();
-                    return Ok("1".to_string());
+                    self.config.system = "1".to_string();   // default to dmtf standard suggested
+                    return Ok(());
                 }
                 let v: Vec<&str> = systems.members[0].odata_id.split('/').collect();
                 self.config.system = v.last().unwrap().to_string();
-                Ok(self.config.system.clone())
+                if self.config.system == "System.Embedded.1" {
+                    self.config.vendor = Vendor::Dell
+                }
             }
-            Err(e) => Err(e),
+            Err(e) => return Err(e),
         }
+        Ok(())
+    }
+
+    pub fn get_manager_id(&mut self) -> Result<(), reqwest::Error> {
+        let url = "Managers/";
+        match self.get(url) {
+            Ok(x) => {
+                let bmcs: manager::Managers = x;
+                if bmcs.members.is_empty() {
+                    self.config.manager = "1".to_string();   // default to dmtf standard suggested
+                    return Ok(());
+                }
+                let v: Vec<&str> = bmcs.members[0].odata_id.split('/').collect();
+                self.config.manager = v.last().unwrap().to_string();
+            }
+            Err(e) => return Err(e),
+        }
+        Ok(())
+
     }
 
     pub fn get_system(&self) -> Result<system::ComputerSystem, reqwest::Error> {
@@ -198,6 +230,12 @@ impl Redfish {
         Ok(bios)
     }
 
+    pub fn get_bmc_data(&self) -> Result<manager::OemDellAttributesResult, reqwest::Error> {
+        let url = format!("Managers/{}/Oem/Dell/DellAttributes/{}/", self.config.manager, self.config.manager);
+        let bmc_attrs: manager::OemDellAttributesResult = self.get(&url)?;
+        Ok(bmc_attrs)
+    }
+
     pub fn set_bios_attribute(
         &self,
         attribute: String,
@@ -209,11 +247,11 @@ impl Redfish {
     }
 
     pub fn enable_bios_lockdown(&self) -> Result<(), reqwest::Error> {
-        let apply_time = bios::SetOemDellBiosSettingsApplyTime {
-            apply_time: bios::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        let apply_time = SetOemDellSettingsApplyTime {
+            apply_time: RedfishSettingsApplyTime::OnReset, // requires reboot to apply
         };
         let lockdown = bios::OemDellBiosLockdownAttrs {
-            in_band_manageability_interface: bios::EnabledDisabled::Disabled,
+            in_band_manageability_interface: EnabledDisabled::Disabled,
             uefi_variable_access: bios::UefiVariableAccessSettings::Controlled,
         };
         let set_lockdown_attrs = bios::SetOemDellBiosLockdownAttrs {
@@ -225,11 +263,11 @@ impl Redfish {
     }
 
     pub fn disable_bios_lockdown(&self) -> Result<(), reqwest::Error> {
-        let apply_time = bios::SetOemDellBiosSettingsApplyTime {
-            apply_time: bios::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        let apply_time = SetOemDellSettingsApplyTime {
+            apply_time: RedfishSettingsApplyTime::OnReset, // requires reboot to apply
         };
         let lockdown = bios::OemDellBiosLockdownAttrs {
-            in_band_manageability_interface: bios::EnabledDisabled::Enabled,
+            in_band_manageability_interface: EnabledDisabled::Enabled,
             uefi_variable_access: bios::UefiVariableAccessSettings::Standard,
         };
         let set_lockdown_attrs = bios::SetOemDellBiosLockdownAttrs {
@@ -241,8 +279,8 @@ impl Redfish {
     }
 
     pub fn setup_serial_console(&self) -> Result<(), reqwest::Error> {
-        let apply_time = bios::SetOemDellBiosSettingsApplyTime {
-            apply_time: bios::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        let apply_time = SetOemDellSettingsApplyTime {
+            apply_time: RedfishSettingsApplyTime::OnReset, // requires reboot to apply
         };
         let serial_console = bios::OemDellBiosSerialAttrs {
             serial_comm: bios::SerialCommSettings::OnConRedir,
@@ -250,7 +288,7 @@ impl Redfish {
             ext_serial_connector: bios::SerialPortExtSettings::Serial1,
             fail_safe_baud: "115200".to_string(),
             con_term_type: bios::SerialPortTermSettings::Vt100Vt220,
-            redir_after_boot: bios::EnabledDisabled::Enabled,
+            redir_after_boot: EnabledDisabled::Enabled,
         };
         let set_serial_attrs = bios::SetOemDellBiosSerialAttrs {
             redfish_settings_apply_time: apply_time,
@@ -262,11 +300,11 @@ impl Redfish {
     }
 
     pub fn enable_tpm(&self) -> Result<(), reqwest::Error> {
-        let apply_time = bios::SetOemDellBiosSettingsApplyTime {
-            apply_time: bios::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        let apply_time = SetOemDellSettingsApplyTime {
+            apply_time: RedfishSettingsApplyTime::OnReset, // requires reboot to apply
         };
         let tpm = bios::OemDellBiosTpmAttrs {
-            tpm_security: bios::OnOff::On,
+            tpm_security: OnOff::On,
             tpm2_hierarchy: bios::Tpm2HierarchySettings::Enabled,
         };
         let set_tpm_enabled = bios::SetOemDellBiosTpmAttrs {
@@ -279,11 +317,11 @@ impl Redfish {
 
     /// make sure the tpm is enabled after clear and reboot
     pub fn reset_tpm(&self) -> Result<(), reqwest::Error> {
-        let apply_time = bios::SetOemDellBiosSettingsApplyTime {
-            apply_time: bios::RedfishSettingsApplyTime::OnReset,
+        let apply_time = SetOemDellSettingsApplyTime {
+            apply_time: RedfishSettingsApplyTime::OnReset,
         };
         let tpm = bios::OemDellBiosTpmAttrs {
-            tpm_security: bios::OnOff::On,
+            tpm_security: OnOff::On,
             tpm2_hierarchy: bios::Tpm2HierarchySettings::Clear,
         };
         let set_tpm_clear = bios::SetOemDellBiosTpmAttrs {
@@ -295,11 +333,11 @@ impl Redfish {
     }
 
     pub fn disable_tpm(&self) -> Result<(), reqwest::Error> {
-        let apply_time = bios::SetOemDellBiosSettingsApplyTime {
-            apply_time: bios::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        let apply_time = SetOemDellSettingsApplyTime {
+            apply_time: RedfishSettingsApplyTime::OnReset, // requires reboot to apply
         };
         let tpm = bios::OemDellBiosTpmAttrs {
-            tpm_security: bios::OnOff::Off,
+            tpm_security: OnOff::Off,
             tpm2_hierarchy: bios::Tpm2HierarchySettings::Disabled,
         };
         let set_tpm_disabled = bios::SetOemDellBiosTpmAttrs {
@@ -308,6 +346,36 @@ impl Redfish {
         };
         let url = format!("Systems/{}/Bios/Settings/", self.config.system);
         self.patch(&url, set_tpm_disabled)
+    }
+
+    pub fn enable_bmc_lockdown(&self) -> Result<(), reqwest::Error> {
+        let apply_time = SetOemDellSettingsApplyTime {
+            apply_time: RedfishSettingsApplyTime::Immediate, // bmc settings don't require reboot
+        };
+        let lockdown = manager::OemDellAttributeBmcLockdown {
+            system_lockdown: EnabledDisabled::Enabled,
+        };
+        let set_bmc_lockdown = manager::SetOemDellBmcLockdown {
+            redfish_settings_apply_time: apply_time,
+            attributes: lockdown,
+        };
+        let url = format!("Managers/{}/Attributes", self.config.manager);
+        self.patch(&url, set_bmc_lockdown)
+    }
+
+    pub fn disable_bmc_lockdown(&self) -> Result<(), reqwest::Error> {
+        let apply_time = SetOemDellSettingsApplyTime {
+            apply_time: RedfishSettingsApplyTime::Immediate, // bmc settings don't require reboot
+        };
+        let lockdown = manager::OemDellAttributeBmcLockdown {
+            system_lockdown: EnabledDisabled::Disabled,
+        };
+        let set_bmc_lockdown = manager::SetOemDellBmcLockdown {
+            redfish_settings_apply_time: apply_time,
+            attributes: lockdown,
+        };
+        let url = format!("Managers/{}/Attributes", self.config.manager);
+        self.patch(&url, set_bmc_lockdown)
     }
 
     pub fn get_array_controller(
@@ -331,9 +399,9 @@ impl Redfish {
     }
 
     /// Query the manager status from the server
-    pub fn get_manager_status(&self) -> Result<manager::Manager, reqwest::Error> {
-        let url = "Managers/";
-        let m: manager::Manager = self.get(url)?;
+    pub fn get_manager_status(&self) -> Result<manager::ManagerDell, reqwest::Error> {
+        let url = format!("Managers/{}", self.config.manager);
+        let m: manager::ManagerDell = self.get(&url)?;
         Ok(m)
     }
 

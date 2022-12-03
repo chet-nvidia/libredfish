@@ -8,13 +8,15 @@ fn main() -> Result<(), reqwest::Error> {
         endpoint: "".to_string(),
         password: None,
         port: None,
-        system: "".to_string()
+        system: "".to_string(),
+        manager: "".to_string(),
+        vendor: libredfish::Vendor::Unknown,
     };
 
     opts.optopt("H", "hostname", "specify hostname or IP address", "HOST");
     opts.optopt("U", "username", "specify authentication username", "USER");
     opts.optopt("P", "password", "specify authentication password", "PASS");
-    opts.optopt("c", "cmd", "specify the command to run: off/on/cycle/reset/shutdown(graceful)/restart(graceful)/status/tpm_enable/tpm_disable/tpm_reset/serial_enable/lockdown_enable/lockdown_disable", "CMD");
+    opts.optopt("c", "cmd", "specify the command to run: off/on/cycle/reset/shutdown(graceful)/restart(graceful)/status/tpm_enable/tpm_disable/tpm_reset/serial_enable/lockdown_enable/lockdown_disable/bios_attrs/bmc_attrs", "CMD");
 
     let args_given = opts.parse(&args[1..]).unwrap();
     if args_given.opt_present("H") {
@@ -30,6 +32,7 @@ fn main() -> Result<(), reqwest::Error> {
     let mut redfish = Redfish::new(conf);
 
     redfish.get_system_id()?;
+    redfish.get_manager_id()?;
 
     if args_given.opt_present("c") {
         match args_given.opt_str("c").unwrap().as_str() {
@@ -57,10 +60,9 @@ fn main() -> Result<(), reqwest::Error> {
                         println!("System power status: {}", system.power_state);
                     }
                     Err(e) => {
-                        eprintln!("Error: {}", e.to_string());
+                        eprintln!("Error: {}", e);
                     }
                 }
-
             }
             "tpm_enable" => {
                 redfish.enable_tpm()?;
@@ -76,9 +78,31 @@ fn main() -> Result<(), reqwest::Error> {
             }
             "lockdown_enable" => {
                 redfish.enable_bios_lockdown()?;
+                return redfish.enable_bmc_lockdown();
             }
             "lockdown_disable" => {
-                redfish.disable_bios_lockdown()?;
+                redfish.disable_bmc_lockdown()?;
+                return redfish.disable_bios_lockdown();
+            }
+            "bios_attrs" => {
+                match redfish.get_bios_data() {
+                    Ok(bios) => {
+                        println!("{:?}", bios);
+                    }
+                    Err(e) => {
+                        eprintln!("Error: {}", e);
+                    }
+                }
+            }
+            "bmc_attrs" => {
+                match redfish.get_bmc_data() {
+                    Ok(bmc) => {
+                        println!{"{:?}", bmc};
+                    }
+                    Err(e) => {
+                        eprintln!("Error: {}", e);
+                    }
+                }
             }
             _ => {
                 eprintln!("Unsupported command specified {}", args_given.opt_str("c").unwrap());
