@@ -157,21 +157,34 @@ pub trait StatusVec {
     fn get_vec(&self) -> Vec<Box<dyn Status>>;
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, PartialEq)]
 pub enum EnabledDisabled {
     Enabled,
     Disabled,
 }
+
+impl EnabledDisabled {
+    pub fn is_enabled(self) -> bool {
+        self == EnabledDisabled::Enabled
+    }
+}
+
 impl fmt::Display for EnabledDisabled {
     fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
         fmt::Debug::fmt(self, f)
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, PartialEq)]
 pub enum OnOff {
     On,
     Off,
+}
+
+impl OnOff {
+    pub fn is_enabled(self) -> bool {
+        self == OnOff::On
+    }
 }
 
 impl fmt::Display for OnOff {
@@ -180,10 +193,16 @@ impl fmt::Display for OnOff {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, PartialEq)]
 pub enum YesNo {
     Yes,
     No,
+}
+
+impl YesNo {
+    pub fn is_enabled(self) -> bool {
+        self == YesNo::Yes
+    }
 }
 
 impl fmt::Display for YesNo {
@@ -192,7 +211,7 @@ impl fmt::Display for YesNo {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone)]
 pub enum RedfishSettingsApplyTime {
     AtMaintenanceWindowStart,
     Immediate,  // for idrac settings
@@ -206,7 +225,7 @@ impl fmt::Display for RedfishSettingsApplyTime {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone)]
 pub enum SerialPortBaudSettings {
     Speed115200bps = 115200, // preferred
     Speed57600bps = 57600,
