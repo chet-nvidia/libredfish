@@ -2,7 +2,7 @@ use crate::common::*;
 use std::fmt;
 use std::fmt::Formatter;
 
-#[derive(Debug)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
 pub enum SystemPowerControl {
     On,
     ForceOff,
@@ -115,8 +115,9 @@ pub struct ComputerSystem {
 #[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Systems {
-    #[serde(rename = "@odata.context")]
-    pub odata_context: String,
+    #[serde(flatten)]
+    pub odata: ODataLinks,
+    pub description: String,
     pub members: Vec<ODataId>,
     pub name: String,
 }
