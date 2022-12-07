@@ -82,7 +82,7 @@ impl Redfish {
                 .get(&url)
                 .header(ACCEPT, HeaderValue::from_static("application/json"))
                 .header(CONTENT_TYPE, HeaderValue::from_static("application/json"))
-                .basic_auth(&user, self.config.password.as_ref())
+                .basic_auth(user, self.config.password.as_ref())
                 .send()?
                 .error_for_status()?
                 .json()?,
@@ -116,7 +116,7 @@ impl Redfish {
                 .post(&url)
                 .header(ACCEPT, HeaderValue::from_static("application/json"))
                 .header(CONTENT_TYPE, HeaderValue::from_static("application/json"))
-                .basic_auth(&user, self.config.password.as_ref())
+                .basic_auth(user, self.config.password.as_ref())
                 .json(&data)
                 .send()?
                 .error_for_status()?,
@@ -153,7 +153,7 @@ impl Redfish {
                 .patch(&url)
                 .header(ACCEPT, HeaderValue::from_static("application/json"))
                 .header(CONTENT_TYPE, HeaderValue::from_static("application/json"))
-                .basic_auth(&user, self.config.password.as_ref())
+                .basic_auth(user, self.config.password.as_ref())
                 .json(&data)
                 .send()?
                 .error_for_status()?,

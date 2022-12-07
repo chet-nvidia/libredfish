@@ -157,7 +157,7 @@ pub trait StatusVec {
     fn get_vec(&self) -> Vec<Box<dyn Status>>;
 }
 
-#[derive(Debug, Serialize, Deserialize, Copy, Clone, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum EnabledDisabled {
     Enabled,
     Disabled,
@@ -175,7 +175,7 @@ impl fmt::Display for EnabledDisabled {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Copy, Clone, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum OnOff {
     On,
     Off,
@@ -193,7 +193,7 @@ impl fmt::Display for OnOff {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Copy, Clone, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum YesNo {
     Yes,
     No,
