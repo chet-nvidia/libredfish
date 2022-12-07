@@ -16,7 +16,7 @@ fn main() -> Result<(), reqwest::Error> {
     opts.optopt("H", "hostname", "specify hostname or IP address", "HOST");
     opts.optopt("U", "username", "specify authentication username", "USER");
     opts.optopt("P", "password", "specify authentication password", "PASS");
-    opts.optopt("c", "cmd", "specify the command to run: off/on/cycle/reset/shutdown(graceful)/restart(graceful)/status/tpm_enable/tpm_disable/tpm_reset/serial_enable/lockdown_enable/lockdown_disable/bios_attrs/bmc_attrs", "CMD");
+    opts.optopt("c", "cmd", "specify the command to run: off/on/cycle/reset/shutdown(graceful)/restart(graceful)/status/tpm_enable/tpm_disable/tpm_reset/serial_enable/lockdown_enable/lockdown_disable/bios_attrs/bmc_attrs/boot_pxe/boot_hdd/boot_once_pxe/boot_once_hdd", "CMD");
 
     let args_given = opts.parse(&args[1..]).unwrap();
     if args_given.opt_present("H") {
@@ -107,6 +107,18 @@ fn main() -> Result<(), reqwest::Error> {
                     eprintln!("Error: {}", e);
                 }
             },
+            "boot_pxe" => {
+                return redfish.set_boot_first(libredfish::manager::OemDellBootDevices::PXE, false);
+            }
+            "boot_hdd" => {
+                return redfish.set_boot_first(libredfish::manager::OemDellBootDevices::HDD, false);
+            }
+            "boot_once_pxe" => {
+                return redfish.set_boot_first(libredfish::manager::OemDellBootDevices::PXE, true);
+            }
+            "boot_once_hdd" => {
+                return redfish.set_boot_first(libredfish::manager::OemDellBootDevices::HDD, true);
+            }
             _ => {
                 eprintln!(
                     "Unsupported command specified {}",

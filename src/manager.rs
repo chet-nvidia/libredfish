@@ -1,4 +1,6 @@
 use crate::common::*;
+use std::fmt;
+use std::fmt::Formatter;
 
 serde_with::with_prefix!(prefix_current_nic "CurrentNIC.1.");
 serde_with::with_prefix!(prefix_nic "NIC.1.");
@@ -564,11 +566,29 @@ pub struct OemDellSerial {
     pub command: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
+pub enum OemDellBootDevices {
+    Normal,
+    PXE,
+    HDD,
+    BIOS,
+    FDD,
+    SD,
+    F10,
+    F11,
+}
+
+impl fmt::Display for OemDellBootDevices {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellServerBoot {
-    pub boot_once: String,
-    pub first_boot_device: String,
+    pub boot_once: EnabledDisabled,
+    pub first_boot_device: OemDellBootDevices,
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -762,6 +782,20 @@ pub struct OemDellBmcRemoteAccess {
     #[serde(flatten, with = "prefix_ipmi_lan")]
     pub ipmi_sol: OemDellIpmiSol,
     // in future add virtualconsole, virtualmedia, vncserver if needed
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct OemDellServerBootAttrs {
+    #[serde(flatten, with = "prefix_server_boot")]
+    pub server_boot: OemDellServerBoot,
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SetOemDellFirstBootDevice {
+    pub redfish_settings_apply_time: SetOemDellSettingsApplyTime,
+    pub attributes: OemDellServerBootAttrs,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]

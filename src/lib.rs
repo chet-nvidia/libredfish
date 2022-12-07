@@ -411,6 +411,39 @@ impl Redfish {
         self.patch(&url, set_remote_access)
     }
 
+    pub fn get_boot_options(&self) -> Result<system::BootOptions, reqwest::Error> {
+        let url = format!("Systems/{}/BootOptions", self.config.system);
+        let boot_options: system::BootOptions = self.get(&url)?;
+        Ok(boot_options)
+    }
+
+    pub fn set_boot_first(
+        &self,
+        entry: manager::OemDellBootDevices,
+        once: bool,
+    ) -> Result<(), reqwest::Error> {
+        let apply_time = SetOemDellSettingsApplyTime {
+            apply_time: RedfishSettingsApplyTime::OnReset,
+        };
+        let boot_entry = manager::OemDellServerBoot {
+            first_boot_device: entry,
+            boot_once: if once {
+                EnabledDisabled::Enabled
+            } else {
+                EnabledDisabled::Disabled
+            },
+        };
+        let boot = manager::OemDellServerBootAttrs {
+            server_boot: boot_entry,
+        };
+        let set_boot = manager::SetOemDellFirstBootDevice {
+            redfish_settings_apply_time: apply_time,
+            attributes: boot,
+        };
+        let url = format!("Managers/{}/Attributes", self.config.manager);
+        self.patch(&url, set_boot)
+    }
+
     pub fn get_array_controller(
         &self,
         controller_id: u64,
