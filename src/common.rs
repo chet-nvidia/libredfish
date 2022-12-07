@@ -214,9 +214,9 @@ impl fmt::Display for YesNo {
 #[derive(Debug, Serialize, Deserialize, Copy, Clone)]
 pub enum RedfishSettingsApplyTime {
     AtMaintenanceWindowStart,
-    Immediate,  // for idrac settings
+    Immediate, // for idrac settings
     InMaintenanceWindowOnReset,
-    OnReset,    // for bios settings
+    OnReset, // for bios settings
 }
 
 impl fmt::Display for RedfishSettingsApplyTime {

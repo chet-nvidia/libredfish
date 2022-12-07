@@ -1,4 +1,6 @@
 use crate::common::*;
+use std::fmt;
+use std::fmt::Formatter;
 
 serde_with::with_prefix!(prefix_current_nic "CurrentNIC.1.");
 serde_with::with_prefix!(prefix_nic "NIC.1.");
@@ -51,7 +53,6 @@ serde_with::with_prefix!(prefix_users14 "Users.14.");
 serde_with::with_prefix!(prefix_users15 "Users.15.");
 serde_with::with_prefix!(prefix_users16 "Users.16.");
 
-
 #[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellSupportAssist {
@@ -75,7 +76,7 @@ pub struct OemDellSupportAssist {
     pub preferred_language: String,
     pub pro_support_plus_recommendations_report: String,
     pub request_technician_for_parts_dispatch: String,
-    pub support_assist_enable_state: String,   // ensure this is disabled
+    pub support_assist_enable_state: String, // ensure this is disabled
     #[serde(rename = "DefaultIPAddress")]
     pub default_ip_address: String,
     pub default_share_name: String,
@@ -94,7 +95,7 @@ pub struct OemDellBmcNic {
     #[serde(rename = "DedicatedNICScanTime")]
     pub dedicated_nic_scan_time: i64,
     #[serde(rename = "MTU")]
-    pub mtu: i64,                                       // ensure this is correct
+    pub mtu: i64, // ensure this is correct
     #[serde(rename = "NumberOfLOM")]
     pub number_of_lom: Option<i64>,
     #[serde(rename = "SharedNICScanTime")]
@@ -109,7 +110,7 @@ pub struct OemDellBmcNic {
     pub active_shared_lom: Option<String>,
     pub auto_config: Option<String>,
     pub auto_detect: String,
-    pub autoneg: String,                       // ensure this is enabled
+    pub autoneg: String, // ensure this is enabled
     #[serde(rename = "DNSDomainFromDHCP")]
     pub dns_domain_from_dhcp: String,
     #[serde(rename = "DNSDomainNameFromDHCP")]
@@ -121,7 +122,7 @@ pub struct OemDellBmcNic {
     #[serde(rename = "DiscoveryLLDP")]
     pub discovery_lldp: Option<String>,
     pub duplex: String,
-    pub enable: String,                        // ensure this is enabled
+    pub enable: String, // ensure this is enabled
     pub failover: String,
     pub link_status: Option<String>,
     pub ping_enable: String,
@@ -145,7 +146,6 @@ pub struct OemDellBmcNic {
     pub mgmt_iface_name: Option<String>,
     pub switch_connection: Option<String>,
     pub switch_port_connection: Option<String>,
-
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -194,7 +194,6 @@ pub struct OemDellBmcIpv6 {
     #[serde(rename = "DNSFromDHCP6")]
     pub dns_from_dhcp6: String,
     pub enable: String,
-
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -213,7 +212,6 @@ pub struct OemDellBmcIpv4 {
     #[serde(rename = "DNS2")]
     pub dns2: String,
     pub dup_addr_detected: Option<String>,
-
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -255,7 +253,7 @@ pub struct OemDellSysLog {
     pub port: i64,
     pub power_log_interval: i64,
     pub power_log_enable: String,
-    pub sys_log_enable: String,            // ensure this is disabled
+    pub sys_log_enable: String, // ensure this is disabled
     pub server1: String,
     pub server2: String,
     pub server3: String,
@@ -285,7 +283,6 @@ pub struct OemDellSsh {
     pub timeout: i64,
     pub enable: String,
     pub banner: String,
-
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -310,7 +307,6 @@ pub struct OemDellSecurity {
     pub csr_key_size: String,
     #[serde(rename = "FIPSVersion")]
     pub fips_version: String,
-
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -322,10 +318,10 @@ pub struct OemDellWebServer {
     pub timeout: i64,
     #[serde(rename = "BlockHTTPPort")]
     pub block_http_port: String,
-    pub enable: String,                    // ensure this is enabled
+    pub enable: String, // ensure this is enabled
     pub host_header_check: String,
     pub http2_enable: String,
-    pub https_redirection: String,         // ensure this is enabled
+    pub https_redirection: String, // ensure this is enabled
     pub lower_encryption_bit_length: String,
     #[serde(rename = "SSLEncryptionBitLength")]
     pub ssl_encryption_bit_length: String,
@@ -336,7 +332,6 @@ pub struct OemDellWebServer {
     pub custom_cipher_string: String,
     #[serde(rename = "ManualDNSEntry")]
     pub manual_dns_entry: String,
-
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -350,7 +345,7 @@ pub struct OemDellSecurityCertificate {
     pub issuer_organization: String,
     pub issuer_organizational_unit: String,
     pub issuer_state: String,
-    pub serial_number: String,                  // not an identifier
+    pub serial_number: String, // not an identifier
     pub subject_common_name: String,
     pub subject_country_code: String,
     pub subject_locality: String,
@@ -394,7 +389,6 @@ pub struct OemDellPlatformCapability {
     #[serde(rename = "vFlashCapable")]
     pub vflash_capable: String,
 }
-
 
 #[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
@@ -455,7 +449,7 @@ pub struct OemDellVirtualMedia {
     pub max_sessions: i64,
     pub attached: String,
     pub boot_once: String,
-    pub enable: String,             // ensure this is disabled
+    pub enable: String, // ensure this is disabled
     pub encrypt_enable: String,
     pub floppy_emulation: String,
     pub key_enable: String,
@@ -466,7 +460,7 @@ pub struct OemDellVirtualMedia {
 pub struct OemDellRacadm {
     pub max_sessions: i64,
     pub timeout: i64,
-    pub enable: String,                   // ensure this is disabled
+    pub enable: String, // ensure this is disabled
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -477,7 +471,7 @@ pub struct OemDellInfo {
     pub server_type: String,
     pub build: String,
     #[serde(rename = "CPLDVersion")]
-    pub cpld_version: String,                   // audit, ensure this is >= min required
+    pub cpld_version: String, // audit, ensure this is >= min required
     pub description: String,
     #[serde(rename = "HWRev")]
     pub hw_rev: String,
@@ -487,7 +481,7 @@ pub struct OemDellInfo {
     pub product: String,
     pub rollback_build: String,
     pub rollback_version: String,
-    pub version: String,                        // audit, ensure this is >= min required
+    pub version: String, // audit, ensure this is >= min required
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -500,21 +494,19 @@ pub struct OemDellIpmiLan {
     pub encryption_key: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellIpmiSol {
-    pub accumulate_interval: i64,
-    pub send_threshold: i64,
-    pub baud_rate: String,//SerialBaudRates,
-    pub enable: String,
+    pub baud_rate: String, //SerialBaudRates,
+    pub enable: EnabledDisabled,
     pub min_privilege: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellSerialRedirection {
-    pub enable: String,        // ensure this is enabled
-    pub quit_key: String,                // "^\\", set/store this in db for ssh proxy service
+    pub enable: EnabledDisabled, // ensure this is enabled
+    pub quit_key: String,        // "^\\", set/store this in db for ssh proxy service
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -524,7 +516,7 @@ pub struct OemDellVncServer {
     pub max_sessions: i64,
     pub port: i64,
     pub timeout: i64,
-    pub enable: String,                   // ensure this is disabled
+    pub enable: String, // ensure this is disabled
     pub lower_encryption_bit_length: String,
     #[serde(rename = "SSLEncryptionBitLength")]
     pub ssl_encryption_bit_length: String,
@@ -551,7 +543,7 @@ pub struct OemDellOsBmc {
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellRfs {
     pub attach_mode: String,
-    pub enable: String,                 // ensure this is disabled
+    pub enable: String, // ensure this is disabled
     pub ignore_cert_warning: String,
     pub media_attach_state: String,
     pub status: String,
@@ -574,11 +566,29 @@ pub struct OemDellSerial {
     pub command: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone)]
+pub enum OemDellBootDevices {
+    Normal,
+    PXE,
+    HDD,
+    BIOS,
+    FDD,
+    SD,
+    F10,
+    F11,
+}
+
+impl fmt::Display for OemDellBootDevices {
+    fn fmt(&self, f: &mut Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellServerBoot {
-    pub boot_once: String,
-    pub first_boot_device: String,
+    pub boot_once: EnabledDisabled,
+    pub first_boot_device: OemDellBootDevices,
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -610,16 +620,15 @@ pub struct OemDellUpdate {
 #[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellAttributes {
-
     #[serde(rename = "Lockdown.1.SystemLockdown")]
-    pub system_lockdown: String,                   // ensure this is set
+    pub system_lockdown: String, // ensure this is set
     #[serde(rename = "Redfish.1.Enable")]
     pub redfish_enable: String,
 
     #[serde(flatten, with = "prefix_ssh")]
-    pub ssh: OemDellSsh,                                    // ensure this is configured
+    pub ssh: OemDellSsh, // ensure this is configured
     #[serde(flatten, with = "prefix_serial_redirection")]
-    pub serial_redirection: OemDellSerialRedirection,       // ensure this is configured
+    pub serial_redirection: OemDellSerialRedirection, // ensure this is configured
 
     #[serde(rename = "PCIeVDM.1.Enable")]
     pub pcie_vdm_enable: String,
@@ -731,8 +740,6 @@ pub struct OemDellAttributes {
     pub users15: OemDellUsers,
     #[serde(flatten, with = "prefix_users16")]
     pub users16: OemDellUsers,
-
-
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -748,10 +755,11 @@ pub struct OemDellAttributesResult {
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct OemDellAttributeBmcLockdown {
+pub struct OemDellBmcLockdown {
     #[serde(rename = "Lockdown.1.SystemLockdown")]
     pub system_lockdown: EnabledDisabled,
-
+    #[serde(rename = "Racadm.1.Enable")]
+    pub racadm_enable: EnabledDisabled,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
@@ -759,7 +767,43 @@ pub struct OemDellAttributeBmcLockdown {
 pub struct SetOemDellBmcLockdown {
     #[serde(rename = "@Redfish.SettingsApplyTime")]
     pub redfish_settings_apply_time: SetOemDellSettingsApplyTime,
-    pub attributes: OemDellAttributeBmcLockdown,
+    pub attributes: OemDellBmcLockdown,
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct OemDellBmcRemoteAccess {
+    #[serde(rename = "SSH.1.Enable")]
+    pub ssh_enable: EnabledDisabled,
+    #[serde(flatten, with = "prefix_serial_redirection")]
+    pub serial_redirection: OemDellSerialRedirection,
+    #[serde(rename = "IPMILan.1.Enable")]
+    pub ipmi_lan_enable: EnabledDisabled,
+    #[serde(flatten, with = "prefix_ipmi_lan")]
+    pub ipmi_sol: OemDellIpmiSol,
+    // in future add virtualconsole, virtualmedia, vncserver if needed
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct OemDellServerBootAttrs {
+    #[serde(flatten, with = "prefix_server_boot")]
+    pub server_boot: OemDellServerBoot,
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SetOemDellFirstBootDevice {
+    pub redfish_settings_apply_time: SetOemDellSettingsApplyTime,
+    pub attributes: OemDellServerBootAttrs,
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SetOemDellBmcRemoteAccess {
+    #[serde(rename = "@Redfish.SettingsApplyTime")]
+    pub redfish_settings_apply_time: SetOemDellSettingsApplyTime,
+    pub attributes: OemDellBmcRemoteAccess,
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -1023,5 +1067,4 @@ fn test_manager_parser() {
     let test_data3 = include_str!("../tests/manager_dell_attrs.json");
     let result3: OemDellAttributesResult = serde_json::from_str(test_data3).unwrap();
     println!("result3: {:#?}", result3);
-
 }

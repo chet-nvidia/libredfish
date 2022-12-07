@@ -9,6 +9,9 @@ pub mod storage;
 pub mod system;
 pub mod thermal;
 
+use crate::common::{
+    EnabledDisabled, OnOff, RedfishSettingsApplyTime, SetOemDellSettingsApplyTime,
+};
 use reqwest::{
     blocking::Client, blocking::ClientBuilder, header::HeaderValue, header::ACCEPT,
     header::CONTENT_TYPE,
@@ -17,7 +20,6 @@ use serde::de::DeserializeOwned;
 use serde::Serialize;
 use std::collections::HashMap;
 use std::time::Duration;
-use crate::common::{EnabledDisabled, OnOff, SetOemDellSettingsApplyTime, RedfishSettingsApplyTime};
 
 const REDFISH_ENDPOINT: &str = "redfish/v1";
 
@@ -173,7 +175,7 @@ impl Redfish {
             Ok(x) => {
                 let systems: system::Systems = x;
                 if systems.members.is_empty() {
-                    self.config.system = "1".to_string();   // default to dmtf standard suggested
+                    self.config.system = "1".to_string(); // default to dmtf standard suggested
                     return Ok(());
                 }
                 let v: Vec<&str> = systems.members[0].odata_id.split('/').collect();
@@ -193,7 +195,7 @@ impl Redfish {
             Ok(x) => {
                 let bmcs: manager::Managers = x;
                 if bmcs.members.is_empty() {
-                    self.config.manager = "1".to_string();   // default to dmtf standard suggested
+                    self.config.manager = "1".to_string(); // default to dmtf standard suggested
                     return Ok(());
                 }
                 let v: Vec<&str> = bmcs.members[0].odata_id.split('/').collect();
@@ -202,7 +204,6 @@ impl Redfish {
             Err(e) => return Err(e),
         }
         Ok(())
-
     }
 
     pub fn get_system(&self) -> Result<system::ComputerSystem, reqwest::Error> {
@@ -231,7 +232,10 @@ impl Redfish {
     }
 
     pub fn get_bmc_data(&self) -> Result<manager::OemDellAttributesResult, reqwest::Error> {
-        let url = format!("Managers/{}/Oem/Dell/DellAttributes/{}/", self.config.manager, self.config.manager);
+        let url = format!(
+            "Managers/{}/Oem/Dell/DellAttributes/{}/",
+            self.config.manager, self.config.manager
+        );
         let bmc_attrs: manager::OemDellAttributesResult = self.get(&url)?;
         Ok(bmc_attrs)
     }
@@ -352,8 +356,9 @@ impl Redfish {
         let apply_time = SetOemDellSettingsApplyTime {
             apply_time: RedfishSettingsApplyTime::Immediate, // bmc settings don't require reboot
         };
-        let lockdown = manager::OemDellAttributeBmcLockdown {
+        let lockdown = manager::OemDellBmcLockdown {
             system_lockdown: EnabledDisabled::Enabled,
+            racadm_enable: EnabledDisabled::Disabled,
         };
         let set_bmc_lockdown = manager::SetOemDellBmcLockdown {
             redfish_settings_apply_time: apply_time,
@@ -367,8 +372,9 @@ impl Redfish {
         let apply_time = SetOemDellSettingsApplyTime {
             apply_time: RedfishSettingsApplyTime::Immediate, // bmc settings don't require reboot
         };
-        let lockdown = manager::OemDellAttributeBmcLockdown {
+        let lockdown = manager::OemDellBmcLockdown {
             system_lockdown: EnabledDisabled::Disabled,
+            racadm_enable: EnabledDisabled::Enabled,
         };
         let set_bmc_lockdown = manager::SetOemDellBmcLockdown {
             redfish_settings_apply_time: apply_time,
@@ -376,6 +382,66 @@ impl Redfish {
         };
         let url = format!("Managers/{}/Attributes", self.config.manager);
         self.patch(&url, set_bmc_lockdown)
+    }
+
+    pub fn setup_bmc_remote_access(&self) -> Result<(), reqwest::Error> {
+        let apply_time = SetOemDellSettingsApplyTime {
+            apply_time: RedfishSettingsApplyTime::Immediate,
+        };
+        let serial_redirect = manager::OemDellSerialRedirection {
+            enable: EnabledDisabled::Enabled,
+            quit_key: "~~.".to_string(),
+        };
+        let ipmi_sol_settings = manager::OemDellIpmiSol {
+            enable: EnabledDisabled::Enabled,
+            baud_rate: "11500".to_string(),
+            min_privilege: "Administrator".to_string(),
+        };
+        let remote_access = manager::OemDellBmcRemoteAccess {
+            ssh_enable: EnabledDisabled::Enabled,
+            serial_redirection: serial_redirect,
+            ipmi_lan_enable: EnabledDisabled::Enabled,
+            ipmi_sol: ipmi_sol_settings,
+        };
+        let set_remote_access = manager::SetOemDellBmcRemoteAccess {
+            redfish_settings_apply_time: apply_time,
+            attributes: remote_access,
+        };
+        let url = format!("Managers/{}/Attributes", self.config.manager);
+        self.patch(&url, set_remote_access)
+    }
+
+    pub fn get_boot_options(&self) -> Result<system::BootOptions, reqwest::Error> {
+        let url = format!("Systems/{}/BootOptions", self.config.system);
+        let boot_options: system::BootOptions = self.get(&url)?;
+        Ok(boot_options)
+    }
+
+    pub fn set_boot_first(
+        &self,
+        entry: manager::OemDellBootDevices,
+        once: bool,
+    ) -> Result<(), reqwest::Error> {
+        let apply_time = SetOemDellSettingsApplyTime {
+            apply_time: RedfishSettingsApplyTime::OnReset,
+        };
+        let boot_entry = manager::OemDellServerBoot {
+            first_boot_device: entry,
+            boot_once: if once {
+                EnabledDisabled::Enabled
+            } else {
+                EnabledDisabled::Disabled
+            },
+        };
+        let boot = manager::OemDellServerBootAttrs {
+            server_boot: boot_entry,
+        };
+        let set_boot = manager::SetOemDellFirstBootDevice {
+            redfish_settings_apply_time: apply_time,
+            attributes: boot,
+        };
+        let url = format!("Managers/{}/Attributes", self.config.manager);
+        self.patch(&url, set_boot)
     }
 
     pub fn get_array_controller(
