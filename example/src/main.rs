@@ -93,7 +93,7 @@ fn main() -> Result<(), reqwest::Error> {
             }
             "bios_attrs" => match redfish.get_bios_data() {
                 Ok(bios) => {
-                    println!("{:?}", bios);
+                    println!("{:#?}", bios);
                 }
                 Err(e) => {
                     eprintln!("Error: {}", e);
@@ -101,7 +101,7 @@ fn main() -> Result<(), reqwest::Error> {
             },
             "bmc_attrs" => match redfish.get_bmc_data() {
                 Ok(bmc) => {
-                    println! {"{:?}", bmc};
+                    println! {"{:#?}", bmc};
                 }
                 Err(e) => {
                     eprintln!("Error: {}", e);
