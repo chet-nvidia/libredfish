@@ -566,7 +566,7 @@ pub struct OemDellSerial {
     pub command: String,
 }
 
-#[derive(Debug, Deserialize, Serialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Copy, Clone, Eq, PartialEq)]
 pub enum OemDellBootDevices {
     Normal,
     PXE,
@@ -760,6 +760,8 @@ pub struct OemDellBmcLockdown {
     pub system_lockdown: EnabledDisabled,
     #[serde(rename = "Racadm.1.Enable")]
     pub racadm_enable: EnabledDisabled,
+    #[serde(flatten, with = "prefix_server_boot")]
+    pub server_boot: OemDellServerBoot,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
