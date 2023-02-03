@@ -2,7 +2,7 @@ use crate::common::*;
 use std::fmt;
 use std::fmt::Formatter;
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellBiosAttributes {
     pub system_model_name: String,
@@ -181,14 +181,14 @@ pub struct OemDellBiosAttributes {
     pub setup_password: Option<String>,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellSoftwareImage {
     pub software_images: Vec<ODataId>,
     pub active_software_image: ODataId,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellBios {
     #[serde(rename = "@odata.context")]

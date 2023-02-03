@@ -1,29 +1,29 @@
 use std::fmt;
 use std::fmt::Formatter;
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct FirmwareCurrent {
     #[serde(rename = "VersionString")]
     pub version: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Firmware {
     pub current: FirmwareCurrent,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Href {
     pub href: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ExtRef {
     pub extref: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(untagged, rename_all = "PascalCase")]
 pub enum LinkType {
     SelfLink {
@@ -78,7 +78,7 @@ pub enum LinkType {
     },
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ODataLinks {
     #[serde(rename = "@odata.context")]
     pub odata_context: String,
@@ -90,13 +90,13 @@ pub struct ODataLinks {
     pub links: Option<LinkType>,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ODataId {
     #[serde(rename = "@odata.id")]
     pub odata_id: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ODataContext {
     #[serde(rename = "@odata.context")]
     pub odata_context: String,
@@ -104,21 +104,21 @@ pub struct ODataContext {
     pub links: LinkType,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct AllStatus {
     pub health: String,
     pub state: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct SomeStatus {
     pub health: Option<String>,
     pub state: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct HpType {
     #[serde(rename = "@odata.type")]

@@ -53,7 +53,7 @@ serde_with::with_prefix!(prefix_users14 "Users.14.");
 serde_with::with_prefix!(prefix_users15 "Users.15.");
 serde_with::with_prefix!(prefix_users16 "Users.16.");
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellSupportAssist {
     pub default_protocol_port: i64,
@@ -89,7 +89,7 @@ pub struct OemDellSupportAssist {
     pub idrac_first_power_up_date_time: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellBmcNic {
     #[serde(rename = "DedicatedNICScanTime")]
@@ -148,7 +148,7 @@ pub struct OemDellBmcNic {
     pub switch_port_connection: Option<String>,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellSysInfo {
     pub local_console_lock_out: i64,
@@ -157,7 +157,7 @@ pub struct OemDellSysInfo {
     pub system_rev: i64,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellBmcIpv6 {
     #[serde(rename = "IPV6NumOfExtAddress")]
@@ -196,7 +196,7 @@ pub struct OemDellBmcIpv6 {
     pub enable: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellBmcIpv4 {
     #[serde(rename = "DHCPEnable")]
@@ -214,7 +214,7 @@ pub struct OemDellBmcIpv4 {
     pub dup_addr_detected: Option<String>,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellUsers {
     pub privilege: i64,
@@ -247,7 +247,7 @@ pub struct OemDellUsers {
     pub password: Option<String>,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellSysLog {
     pub port: i64,
@@ -259,7 +259,7 @@ pub struct OemDellSysLog {
     pub server3: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellRedfishEventing {
     pub delivery_retry_attempts: i64,
@@ -267,7 +267,7 @@ pub struct OemDellRedfishEventing {
     pub ignore_certificate_errors: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellTime {
     pub day_light_offset: i64,
@@ -275,7 +275,7 @@ pub struct OemDellTime {
     pub timezone: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellSsh {
     pub max_sessions: i64,
@@ -285,7 +285,7 @@ pub struct OemDellSsh {
     pub banner: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellSecurity {
     pub password_minimum_length: i64,
@@ -309,7 +309,7 @@ pub struct OemDellSecurity {
     pub fips_version: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellWebServer {
     pub http_port: i64,
@@ -334,7 +334,7 @@ pub struct OemDellWebServer {
     pub manual_dns_entry: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellSecurityCertificate {
     pub cert_valid_from: String,
@@ -356,7 +356,7 @@ pub struct OemDellSecurityCertificate {
     pub certificate_type: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellPlatformCapability {
     #[serde(rename = "ASHRAECapable")]
@@ -390,7 +390,7 @@ pub struct OemDellPlatformCapability {
     pub vflash_capable: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellServiceModule {
     #[serde(rename = "ChipsetSATASupported")]
@@ -423,7 +423,7 @@ pub struct OemDellServiceModule {
     pub watchdog_reset_time: i64,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellVirtualConsole {
     pub active_sessions: i64,
@@ -442,7 +442,7 @@ pub struct OemDellVirtualConsole {
     pub web_redirect: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellVirtualMedia {
     pub active_sessions: i64,
@@ -455,7 +455,7 @@ pub struct OemDellVirtualMedia {
     pub key_enable: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellRacadm {
     pub max_sessions: i64,
@@ -463,7 +463,7 @@ pub struct OemDellRacadm {
     pub enable: String, // ensure this is disabled
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellInfo {
     pub server_gen: String,
@@ -484,7 +484,7 @@ pub struct OemDellInfo {
     pub version: String, // audit, ensure this is >= min required
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellIpmiLan {
     pub alert_enable: String,
@@ -509,7 +509,7 @@ pub struct OemDellSerialRedirection {
     pub quit_key: String,        // "^\\", set/store this in db for ssh proxy service
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellVncServer {
     pub active_sessions: i64,
@@ -523,7 +523,7 @@ pub struct OemDellVncServer {
     pub password: Option<String>,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellOsBmc {
     pub admin_state: String,
@@ -539,7 +539,7 @@ pub struct OemDellOsBmc {
     pub usb_nic_ula: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellRfs {
     pub attach_mode: String,
@@ -553,7 +553,7 @@ pub struct OemDellRfs {
     pub password: Option<String>,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellSerial {
     // this is the idrac serial config, not for the x86
@@ -591,14 +591,14 @@ pub struct OemDellServerBoot {
     pub first_boot_device: OemDellBootDevices,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellLocalSecurity {
     pub local_config: String,
     pub preboot_config: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellLogging {
     #[serde(rename = "SELBufferType")]
@@ -607,7 +607,7 @@ pub struct OemDellLogging {
     pub sel_oem_event_filter_enable: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellUpdate {
     #[serde(rename = "FwUpdateTFTPEnable")]
@@ -617,7 +617,7 @@ pub struct OemDellUpdate {
     pub fw_update_path: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellAttributes {
     #[serde(rename = "Lockdown.1.SystemLockdown")]
@@ -742,7 +742,7 @@ pub struct OemDellAttributes {
     pub users16: OemDellUsers,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellAttributesResult {
     #[serde(flatten)]
@@ -808,25 +808,25 @@ pub struct SetOemDellBmcRemoteAccess {
     pub attributes: OemDellBmcRemoteAccess,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ActionsManagerReset {
     pub target: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Action {
     #[serde(rename = "#Manager.Reset")]
     pub manager_reset: ActionsManagerReset,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Availableaction {
     pub action: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Commandshell {
     pub connect_types_supported: Vec<String>,
@@ -835,14 +835,14 @@ pub struct Commandshell {
     pub service_enabled: bool,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct OemHpActionshpiloResetToFactoryDefault {
     #[serde(rename = "ResetType@Redfish.AllowableValues")]
     pub reset_type_redfish_allowable_values: Vec<String>,
     pub target: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct OemHpAction {
     #[serde(rename = "#HpiLO.ClearRestApiState")]
     pub hpi_lo_clear_rest_api_state: ActionsManagerReset,
@@ -852,21 +852,21 @@ pub struct OemHpAction {
     pub hpi_lo_i_lo_functionality: ActionsManagerReset,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemHpAvailableactionsCapability {
     pub allowable_values: Vec<String>,
     pub property_name: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemHpAvailableaction {
     pub action: String,
     pub capabilities: Vec<OemHpAvailableactionsCapability>,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemHpFederationconfig {
     #[serde(rename = "IPv6MulticastScope")]
@@ -878,7 +878,7 @@ pub struct OemHpFederationconfig {
     pub i_lo_federation_management: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemHpFirmwareCurrent {
     pub date: String,
@@ -889,13 +889,13 @@ pub struct OemHpFirmwareCurrent {
     pub version_string: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemHpFirmware {
     pub current: OemHpFirmwareCurrent,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemHpLicense {
     pub license_key: String,
@@ -903,7 +903,7 @@ pub struct OemHpLicense {
     pub license_type: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemHpIloselftestresult {
     pub notes: String,
@@ -920,7 +920,7 @@ impl crate::common::Status for OemHpIloselftestresult {
     }
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemHp {
     #[serde(flatten)]
@@ -945,7 +945,7 @@ pub struct OemHp {
     pub links: LinkType,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDelliDracCard {
     #[serde(flatten)]
@@ -961,32 +961,32 @@ pub struct OemDelliDracCard {
     pub url_string: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDell {
     #[serde(rename = "DelliDRACCard")]
     pub dell_idrac_card: OemDelliDracCard,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemHpWrapper {
     pub hp: OemHp,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellWrapper {
     pub dell: OemDell,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Status {
     pub state: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct ManagerHp {
     #[serde(flatten)]
@@ -1014,7 +1014,7 @@ pub struct ManagerHp {
     pub virtual_media: ODataId,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct ManagerDell {
     #[serde(flatten)]
@@ -1048,7 +1048,7 @@ impl StatusVec for ManagerHp {
     }
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Managers {
     #[serde(flatten)]
