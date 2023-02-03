@@ -1,29 +1,31 @@
-use crate::common::*;
 use std::fmt;
 use std::fmt::Formatter;
 
+use super::{Action, Commandshell, Status};
+use crate::common::{EnabledDisabled, ODataId, ODataLinks, SetOemDellSettingsApplyTime};
+
+serde_with::with_prefix!(prefix_ssh "SSH.1.");
+serde_with::with_prefix!(prefix_serial_redirection "SerialRedirection.1.");
 serde_with::with_prefix!(prefix_current_nic "CurrentNIC.1.");
 serde_with::with_prefix!(prefix_nic "NIC.1.");
 serde_with::with_prefix!(prefix_current_ipv6 "CurrentIPv6.1.");
 serde_with::with_prefix!(prefix_current_ipv4 "CurrentIPv4.1.");
 serde_with::with_prefix!(prefix_ipv6 "IPv6.1.");
 serde_with::with_prefix!(prefix_ipv4 "IPv4.1.");
-serde_with::with_prefix!(prefix_info "Info.1.");
-serde_with::with_prefix!(prefix_ipmi_lan "IPMILan.1.");
-serde_with::with_prefix!(prefix_ipmi_sol "IPMISOL.1.");
-serde_with::with_prefix!(prefix_local_security "LocalSecurity.1.");
 serde_with::with_prefix!(prefix_logging "Logging.1.");
 serde_with::with_prefix!(prefix_os_bmc "OS-BMC.1.");
+serde_with::with_prefix!(prefix_info "Info.1.");
+serde_with::with_prefix!(prefix_ipmi_lan "IPMILan.1.");
+serde_with::with_prefix!(prefix_local_security "LocalSecurity.1.");
+serde_with::with_prefix!(prefix_ipmi_sol "IPMISOL.1.");
 serde_with::with_prefix!(prefix_platform_capability "PlatformCapability.1.");
 serde_with::with_prefix!(prefix_racadm "Racadm.1.");
 serde_with::with_prefix!(prefix_redfish_eventing "RedfishEventing.1.");
 serde_with::with_prefix!(prefix_rfs "RFS.1.");
-serde_with::with_prefix!(prefix_ssh "SSH.1.");
 serde_with::with_prefix!(prefix_security "Security.1.");
 serde_with::with_prefix!(prefix_security_certificate1 "SecurityCertificate.1.");
 serde_with::with_prefix!(prefix_security_certificate2 "SecurityCertificate.2.");
 serde_with::with_prefix!(prefix_serial "Serial.1.");
-serde_with::with_prefix!(prefix_serial_redirection "SerialRedirection.1.");
 serde_with::with_prefix!(prefix_service_module "ServiceModule.1.");
 serde_with::with_prefix!(prefix_server_boot "ServerBoot.1.");
 serde_with::with_prefix!(prefix_support_assist "SupportAssist.1.");
@@ -809,143 +811,6 @@ pub struct SetOemDellBmcRemoteAccess {
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct ActionsManagerReset {
-    pub target: String,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct Action {
-    #[serde(rename = "#Manager.Reset")]
-    pub manager_reset: ActionsManagerReset,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct Availableaction {
-    pub action: String,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct Commandshell {
-    pub connect_types_supported: Vec<String>,
-    pub enabled: Option<bool>,
-    pub max_concurrent_sessions: i64,
-    pub service_enabled: bool,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct OemHpActionshpiloResetToFactoryDefault {
-    #[serde(rename = "ResetType@Redfish.AllowableValues")]
-    pub reset_type_redfish_allowable_values: Vec<String>,
-    pub target: String,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-pub struct OemHpAction {
-    #[serde(rename = "#HpiLO.ClearRestApiState")]
-    pub hpi_lo_clear_rest_api_state: ActionsManagerReset,
-    #[serde(rename = "#HpiLO.ResetToFactoryDefaults")]
-    pub hpi_lo_reset_to_factory_defaults: OemHpActionshpiloResetToFactoryDefault,
-    #[serde(rename = "#HpiLO.iLOFunctionality")]
-    pub hpi_lo_i_lo_functionality: ActionsManagerReset,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct OemHpAvailableactionsCapability {
-    pub allowable_values: Vec<String>,
-    pub property_name: String,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct OemHpAvailableaction {
-    pub action: String,
-    pub capabilities: Vec<OemHpAvailableactionsCapability>,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct OemHpFederationconfig {
-    #[serde(rename = "IPv6MulticastScope")]
-    pub i_pv6_multicast_scope: String,
-    pub multicast_announcement_interval: i64,
-    pub multicast_discovery: String,
-    pub multicast_time_to_live: i64,
-    #[serde(rename = "iLOFederationManagement")]
-    pub i_lo_federation_management: String,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct OemHpFirmwareCurrent {
-    pub date: String,
-    pub debug_build: bool,
-    pub major_version: i64,
-    pub minor_version: i64,
-    pub time: String,
-    pub version_string: String,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct OemHpFirmware {
-    pub current: OemHpFirmwareCurrent,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct OemHpLicense {
-    pub license_key: String,
-    pub license_string: String,
-    pub license_type: String,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct OemHpIloselftestresult {
-    pub notes: String,
-    pub self_test_name: String,
-    pub status: String,
-}
-impl crate::common::Status for OemHpIloselftestresult {
-    fn health(&self) -> String {
-        self.status.to_owned()
-    }
-
-    fn state(&self) -> String {
-        String::new()
-    }
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct OemHp {
-    #[serde(flatten)]
-    pub oem_type: HpType,
-    pub actions: OemHpAction,
-    pub available_actions: Vec<OemHpAvailableaction>,
-    pub clear_rest_api_status: String,
-    pub federation_config: OemHpFederationconfig,
-    pub firmware: OemHpFirmware,
-    pub license: OemHpLicense,
-    #[serde(rename = "RequiredLoginForiLORBSU")]
-    pub required_login_fori_lorbsu: bool,
-    #[serde(rename = "SerialCLISpeed")]
-    pub serial_cli_speed: i64,
-    #[serde(rename = "SerialCLIStatus")]
-    pub serial_cli_status: String,
-    #[serde(rename = "VSPLogDownloadEnabled")]
-    pub vsp_log_download_enabled: bool,
-    #[serde(rename = "iLOSelfTestResults")]
-    pub i_lo_self_test_results: Vec<OemHpIloselftestresult>,
-    #[serde(rename = "links", flatten)]
-    pub links: LinkType,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDelliDracCard {
     #[serde(flatten)]
@@ -970,48 +835,8 @@ pub struct OemDell {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct OemHpWrapper {
-    pub hp: OemHp,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
 pub struct OemDellWrapper {
     pub dell: OemDell,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct Status {
-    pub state: String,
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct ManagerHp {
-    #[serde(flatten)]
-    pub odata: ODataLinks,
-    pub actions: Action,
-    pub available_actions: Vec<Availableaction>,
-    pub command_shell: Commandshell,
-    pub description: String,
-    pub ethernet_interfaces: ODataId,
-    pub firmware: Firmware,
-    pub firmware_version: String,
-    pub graphical_console: Commandshell,
-    pub id: String,
-    pub log_services: ODataId,
-    pub manager_type: String,
-    pub name: String,
-    pub network_protocol: ODataId,
-    pub oem: OemHpWrapper,
-    pub serial_console: Commandshell,
-    pub status: Status,
-    #[serde(rename = "Type")]
-    pub root_type: String,
-    #[serde(rename = "UUID")]
-    pub uuid: String,
-    pub virtual_media: ODataId,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -1036,37 +861,4 @@ pub struct ManagerDell {
     #[serde(rename = "UUID")]
     pub uuid: String,
     pub virtual_media: ODataId,
-}
-
-impl StatusVec for ManagerHp {
-    fn get_vec(&self) -> Vec<Box<dyn crate::common::Status>> {
-        let mut v: Vec<Box<dyn crate::common::Status>> = Vec::new();
-        for res in &self.oem.hp.i_lo_self_test_results {
-            v.push(Box::new(res.clone()))
-        }
-        v
-    }
-}
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct Managers {
-    #[serde(flatten)]
-    pub odata: ODataLinks,
-    pub description: String,
-    pub members: Vec<ODataId>,
-    pub name: String,
-}
-
-#[test]
-fn test_manager_parser() {
-    let test_data = include_str!("../tests/manager.json");
-    let result: ManagerHp = serde_json::from_str(test_data).unwrap();
-    println!("result: {:#?}", result);
-    let test_data2 = include_str!("../tests/manager_dell.json");
-    let result2: ManagerDell = serde_json::from_str(test_data2).unwrap();
-    println!("result2: {:#?}", result2);
-    let test_data3 = include_str!("../tests/manager_dell_attrs.json");
-    let result3: OemDellAttributesResult = serde_json::from_str(test_data3).unwrap();
-    println!("result3: {:#?}", result3);
 }

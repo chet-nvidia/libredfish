@@ -9,19 +9,21 @@ pub mod storage;
 pub mod system;
 pub mod thermal;
 
-use crate::common::{
-    EnabledDisabled, OnOff, RedfishSettingsApplyTime, SetOemDellSettingsApplyTime,
-};
+use std::collections::HashMap;
+use std::time::Duration;
+
 use reqwest::{
     blocking::Client, blocking::ClientBuilder, header::HeaderValue, header::ACCEPT,
     header::CONTENT_TYPE,
 };
 use serde::de::DeserializeOwned;
 use serde::Serialize;
-use std::collections::HashMap;
-use std::time::Duration;
 
-const REDFISH_ENDPOINT: &str = "redfish/v1";
+use crate::common::{
+    EnabledDisabled, OnOff, RedfishSettingsApplyTime, SetOemDellSettingsApplyTime,
+};
+
+pub const REDFISH_ENDPOINT: &str = "redfish/v1";
 
 pub enum Vendor {
     Dell,
