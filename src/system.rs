@@ -19,13 +19,13 @@ impl fmt::Display for SystemPowerControl {
     }
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct StatusState {
     pub state: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDellSystem {
     #[serde(rename = "BIOSReleaseDate")]
@@ -57,19 +57,19 @@ pub struct OemDellSystem {
     pub volt_rollup_status: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemDell {
     pub dell_system: OemDellSystem,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct OemData {
     pub dell: OemDell,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct SystemStatus {
     pub health: String,
@@ -77,7 +77,7 @@ pub struct SystemStatus {
     pub state: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct SystemProcessors {
     pub count: i64,
@@ -86,7 +86,7 @@ pub struct SystemProcessors {
     pub status: SystemStatus,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct TrustedModule {
     pub firmware_version: String,
@@ -94,7 +94,7 @@ pub struct TrustedModule {
     pub status: StatusState,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct ComputerSystem {
     pub asset_tag: String,
@@ -112,7 +112,7 @@ pub struct ComputerSystem {
     pub trusted_modules: Vec<TrustedModule>,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Systems {
     #[serde(flatten)]
@@ -122,7 +122,7 @@ pub struct Systems {
     pub name: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct BootOptions {
     #[serde(flatten)]
@@ -132,7 +132,7 @@ pub struct BootOptions {
     pub name: String,
 }
 
-#[derive(Debug, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct BootOption {
     #[serde(flatten)]
