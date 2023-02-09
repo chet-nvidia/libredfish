@@ -1,9 +1,11 @@
-use super::{Action, ActionsManagerReset, Availableaction, Commandshell, Status};
-use crate::common::{Firmware, HpType, LinkType, ODataId, ODataLinks, StatusVec};
+use serde::{Deserialize, Serialize};
+
+use crate::model::{Action, ActionsManagerReset, Availableaction, Commandshell, Status, StatusT};
+use crate::model::{Firmware, LinkType, ODataId, ODataLinks, StatusVec};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct ManagerHp {
+pub struct HpManager {
     #[serde(flatten)]
     pub odata: ODataLinks,
     pub actions: Action,
@@ -29,9 +31,9 @@ pub struct ManagerHp {
     pub virtual_media: ODataId,
 }
 
-impl StatusVec for ManagerHp {
-    fn get_vec(&self) -> Vec<Box<dyn crate::common::Status>> {
-        let mut v: Vec<Box<dyn crate::common::Status>> = Vec::new();
+impl StatusVec for HpManager {
+    fn get_vec(&self) -> Vec<Box<dyn StatusT>> {
+        let mut v: Vec<Box<dyn StatusT>> = Vec::new();
         for res in &self.oem.hp.i_lo_self_test_results {
             v.push(Box::new(res.clone()))
         }
@@ -114,7 +116,7 @@ pub struct OemHpIloselftestresult {
     pub self_test_name: String,
     pub status: String,
 }
-impl crate::common::Status for OemHpIloselftestresult {
+impl StatusT for OemHpIloselftestresult {
     fn health(&self) -> String {
         self.status.to_owned()
     }
@@ -153,4 +155,13 @@ pub struct OemHp {
 #[serde(rename_all = "PascalCase")]
 pub struct OemHpWrapper {
     pub hp: OemHp,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct HpType {
+    #[serde(rename = "@odata.type")]
+    pub odata_type: String,
+    #[serde(rename = "Type")]
+    pub hp_type: String,
 }

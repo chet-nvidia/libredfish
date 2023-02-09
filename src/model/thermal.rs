@@ -1,10 +1,12 @@
-use crate::common::*;
+use serde::{Deserialize, Serialize};
+
+use super::{ODataLinks, SomeStatus, StatusT, StatusVec};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct FansOemHp {
     #[serde(flatten)]
-    pub fan_type: HpType,
+    pub fan_type: super::oem::hp::HpType,
     pub location: String,
 }
 
@@ -23,7 +25,7 @@ pub struct Fan {
     pub status: SomeStatus,
     pub units: String,
 }
-impl Status for Fan {
+impl StatusT for Fan {
     fn health(&self) -> String {
         self.status.health()
     }
@@ -37,7 +39,7 @@ impl Status for Fan {
 #[serde(rename_all = "PascalCase")]
 pub struct TemperaturesOemHp {
     #[serde(flatten)]
-    pub temp_type: HpType,
+    pub temp_type: super::oem::hp::HpType,
     pub location_xmm: i64,
     pub location_ymm: i64,
 }
@@ -64,7 +66,7 @@ pub struct Temperature {
     pub upper_threshold_critical: i64,
     pub upper_threshold_fatal: i64,
 }
-impl Status for Temperature {
+impl StatusT for Temperature {
     fn health(&self) -> String {
         self.status.health()
     }
@@ -88,8 +90,8 @@ pub struct Thermal {
 }
 
 impl StatusVec for Thermal {
-    fn get_vec(&self) -> Vec<Box<dyn Status>> {
-        let mut v: Vec<Box<dyn Status>> = Vec::new();
+    fn get_vec(&self) -> Vec<Box<dyn StatusT>> {
+        let mut v: Vec<Box<dyn StatusT>> = Vec::new();
         for res in &self.fans {
             v.push(Box::new(res.clone()))
         }
@@ -100,9 +102,12 @@ impl StatusVec for Thermal {
     }
 }
 
-#[test]
-fn test_thermal_parser() {
-    let test_data = include_str!("../tests/chassis-thermal.json");
-    let result: Thermal = serde_json::from_str(test_data).unwrap();
-    println!("result: {:#?}", result);
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test_thermal_parser() {
+        let test_data = include_str!("testdata/chassis-thermal.json");
+        let result: super::Thermal = serde_json::from_str(test_data).unwrap();
+        println!("result: {:#?}", result);
+    }
 }

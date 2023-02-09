@@ -1,4 +1,6 @@
-use crate::common::*;
+use serde::{Deserialize, Serialize};
+
+use super::{AllStatus, LinkType, ODataId, ODataLinks, StatusT, StatusVec};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
@@ -11,7 +13,7 @@ pub struct OemHpSnmppowerthresholdalert {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct OemHp {
     #[serde(flatten)]
-    pub oem_type: HpType,
+    pub oem_type: super::oem::hp::HpType,
     #[serde(rename = "SNMPPowerThresholdAlert")]
     pub snmp_power_threshold_alert: OemHpSnmppowerthresholdalert,
     #[serde(flatten)]
@@ -58,7 +60,7 @@ pub struct PowersuppliesOemHpPowersupplystatus {
 #[serde(rename_all = "PascalCase")]
 pub struct PowersuppliesOemHp {
     #[serde(flatten)]
-    pub power_type: HpType,
+    pub power_type: super::oem::hp::HpType,
     pub average_power_output_watts: i64,
     pub bay_number: i64,
     pub hotplug_capable: bool,
@@ -93,7 +95,7 @@ pub struct Powersupply {
     pub status: AllStatus,
 }
 
-impl Status for Powersupply {
+impl StatusT for Powersupply {
     fn health(&self) -> String {
         self.status.health()
     }
@@ -134,8 +136,8 @@ pub struct Power {
 }
 
 impl StatusVec for Power {
-    fn get_vec(&self) -> Vec<Box<dyn Status>> {
-        let mut v: Vec<Box<dyn Status>> = Vec::new();
+    fn get_vec(&self) -> Vec<Box<dyn StatusT>> {
+        let mut v: Vec<Box<dyn StatusT>> = Vec::new();
         for res in &self.power_supplies {
             v.push(Box::new(res.clone()))
         }
@@ -143,9 +145,12 @@ impl StatusVec for Power {
     }
 }
 
-#[test]
-fn test_power_parser() {
-    let test_data = include_str!("../tests/power.json");
-    let result: Power = serde_json::from_str(test_data).unwrap();
-    println!("result: {:#?}", result);
+#[cfg(test)]
+mod test {
+    #[test]
+    fn test_power_parser() {
+        let test_data = include_str!("testdata/power.json");
+        let result: super::Power = serde_json::from_str(test_data).unwrap();
+        println!("result: {:#?}", result);
+    }
 }

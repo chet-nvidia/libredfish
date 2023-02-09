@@ -7,3 +7,6 @@ edition = "2021"
 libredfish = { path = ".." }
 getopts = "0.2.21"
 reqwest = {version = "~0.11", features = ["blocking", "json"] }
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.16", features = ["env-filter"] }
+anyhow = { version = "1.0.69", registry = "cratesio" }
