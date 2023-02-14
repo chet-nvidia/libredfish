@@ -110,12 +110,7 @@ impl Redfish for Bmc {
             attributes: tpm,
         };
         let url = format!("Systems/{}/Bios/Settings/", self.s.system_id());
-        self.s
-            .net
-            .patch(&url, set_tpm_clear)
-            .map(|_status_code| ())?;
-
-        self.enable_tpm()
+        self.s.net.patch(&url, set_tpm_clear).map(|_status_code| ())
     }
 }
 
@@ -242,11 +237,10 @@ impl Bmc {
         };
         let serial_redirect = DellSerialRedirection {
             enable: EnabledDisabled::Enabled,
-            quit_key: "~~.".to_string(),
         };
         let ipmi_sol_settings = DellIpmiSol {
             enable: EnabledDisabled::Enabled,
-            baud_rate: "11500".to_string(),
+            baud_rate: "115200".to_string(),
             min_privilege: "Administrator".to_string(),
         };
         let remote_access = DellBmcRemoteAccess {
@@ -266,6 +260,8 @@ impl Bmc {
             .map(|_status_code| ())
     }
 
+    // TPM is enabled by default so we never call this.
+    #[allow(dead_code)]
     fn enable_tpm(&self) -> Result<(), RedfishError> {
         let apply_time = SetDellSettingsApplyTime {
             apply_time: RedfishSettingsApplyTime::OnReset, // requires reboot to apply

@@ -25,4 +25,7 @@ pub enum RedfishError {
 
     #[error("No such boot option {0}")]
     MissingBootOption(String),
+
+    #[error("UnnecessaryOperation such as trying to turn on a machine that is already on.")]
+    UnnecessaryOperation,
 }

@@ -126,18 +126,22 @@ impl Network {
         if let Some(b) = body_enc {
             req_b = req_b.body(b);
         }
-        let response = req_b
-            .send()
-            .map_err(|e| RedfishError::NetworkError {
-                url: url.clone(),
-                source: e,
-            })?
+        let response = req_b.send().map_err(|e| RedfishError::NetworkError {
+            url: url.clone(),
+            source: e,
+        })?;
+        let status_code = response.status();
+        if status_code == StatusCode::CONFLICT {
+            // 409 No Content is how Dell responds if we try to turn off a system that's already off, etc.
+            // Note that Lenovo accepts these unnecessary operations and returns '204 No Content'.
+            return Err(RedfishError::UnnecessaryOperation);
+        }
+        let response = response
             .error_for_status()
             .map_err(|e| RedfishError::HTTPError {
                 url: url.clone(),
                 source: e,
             })?;
-        let status_code = response.status();
         let response_body = response.text().map_err(|e| RedfishError::NetworkError {
             url: url.clone(),
             source: e,

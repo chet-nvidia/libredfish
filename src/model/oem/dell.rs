@@ -97,7 +97,7 @@ pub struct DellSystem {
     #[serde(rename = "EstimatedSystemAirflowCFM")]
     pub estimated_system_airflow_cfm: i64,
     pub express_service_code: String,
-    pub fan_rollup_status: String,
+    pub fan_rollup_status: Option<String>, // null->None if machine is off
     pub intrusion_rollup_status: String,
     pub managed_system_size: String,
     #[serde(rename = "MaxCPUSockets")]
@@ -310,7 +310,7 @@ pub struct DellBmcRemoteAccess {
     pub serial_redirection: DellSerialRedirection,
     #[serde(rename = "IPMILan.1.Enable")]
     pub ipmi_lan_enable: EnabledDisabled,
-    #[serde(flatten, with = "prefix_ipmi_lan")]
+    #[serde(flatten, with = "prefix_ipmi_sol")]
     pub ipmi_sol: DellIpmiSol,
     // in future add virtualconsole, virtualmedia, vncserver if needed
 }
@@ -327,7 +327,6 @@ pub struct DellIpmiSol {
 #[serde(rename_all = "PascalCase")]
 pub struct DellSerialRedirection {
     pub enable: EnabledDisabled, // ensure this is enabled
-    pub quit_key: String,        // "^\\", set/store this in db for ssh proxy service
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
