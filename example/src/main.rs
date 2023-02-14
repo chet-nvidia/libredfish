@@ -17,12 +17,7 @@ fn main() -> Result<(), anyhow::Error> {
 
     let args: Vec<String> = std::env::args().collect();
     let mut opts = getopts::Options::new();
-    let mut conf = libredfish::NetworkConfig {
-        user: None,
-        endpoint: "".to_string(),
-        password: None,
-        port: None,
-    };
+    let mut conf = libredfish::NetworkConfig::default();
 
     opts.optopt("H", "hostname", "specify hostname or IP address", "HOST");
     opts.optopt("U", "username", "specify authentication username", "USER");

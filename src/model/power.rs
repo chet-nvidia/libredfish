@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::{AllStatus, LinkType, ODataId, ODataLinks, StatusT, StatusVec};
+use super::{LinkType, ODataId, ODataLinks, ResourceStatus, StatusVec};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
@@ -91,18 +91,7 @@ pub struct Powersupply {
     pub power_supply_type: String,
     pub serial_number: String,
     pub spare_part_number: String,
-
-    pub status: AllStatus,
-}
-
-impl StatusT for Powersupply {
-    fn health(&self) -> String {
-        self.status.health()
-    }
-
-    fn state(&self) -> String {
-        self.status.state()
-    }
+    pub status: ResourceStatus,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -136,10 +125,10 @@ pub struct Power {
 }
 
 impl StatusVec for Power {
-    fn get_vec(&self) -> Vec<Box<dyn StatusT>> {
-        let mut v: Vec<Box<dyn StatusT>> = Vec::new();
+    fn get_vec(&self) -> Vec<ResourceStatus> {
+        let mut v: Vec<ResourceStatus> = Vec::new();
         for res in &self.power_supplies {
-            v.push(Box::new(res.clone()))
+            v.push(res.status)
         }
         v
     }

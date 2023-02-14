@@ -10,14 +10,30 @@ use tracing::debug;
 pub use crate::RedfishError;
 
 pub const REDFISH_ENDPOINT: &str = "redfish/v1";
+const DEFAULT_TIMEOUT: Duration = Duration::from_secs(5);
 
-#[derive(Default)]
 pub struct NetworkConfig {
     /// Hostname or IP address of BMC
     pub endpoint: String,
     pub port: Option<u16>,
     pub user: Option<String>,
     pub password: Option<String>,
+    pub timeout: Duration,
+    pub accept_invalid_certs: bool,
+}
+
+impl Default for NetworkConfig {
+    fn default() -> Self {
+        NetworkConfig {
+            endpoint: "".to_string(),
+            port: None,
+            user: None,
+            password: None,
+            timeout: DEFAULT_TIMEOUT,
+            // BMCs often have a self-signed cert, so usually this has to be true
+            accept_invalid_certs: true,
+        }
+    }
 }
 
 pub struct Network {
@@ -27,11 +43,10 @@ pub struct Network {
 
 impl Network {
     pub fn new(config: NetworkConfig) -> Self {
-        let timeout = Duration::from_secs(5);
         let builder = ClientBuilder::new();
         let c = builder
-            .danger_accept_invalid_certs(true)
-            .timeout(timeout)
+            .danger_accept_invalid_certs(config.accept_invalid_certs)
+            .timeout(config.timeout)
             .build()
             .unwrap();
         Self {

@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::{AllStatus, Firmware, ODataId, ODataLinks, StatusT};
+use super::{Firmware, ODataId, ODataLinks, ResourceStatus};
 
 pub trait Hardware {
     fn odata_context(&self) -> String;
@@ -14,7 +14,7 @@ pub trait Hardware {
     fn model(&self) -> String;
     fn name(&self) -> String;
     fn serial_number(&self) -> String;
-    fn status(&self) -> AllStatus;
+    fn status(&self) -> ResourceStatus;
     fn get_type(&self) -> HardwareType;
 }
 
@@ -39,7 +39,7 @@ pub struct HardwareCommon {
     pub model: String,
     pub name: String,
     pub serial_number: String,
-    pub status: AllStatus,
+    pub status: ResourceStatus,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -62,15 +62,6 @@ pub struct ArrayController {
 
     #[serde(rename = "Type")]
     pub controller_type: String,
-}
-impl StatusT for ArrayController {
-    fn health(&self) -> String {
-        self.hardware_common.status.health.to_owned()
-    }
-
-    fn state(&self) -> String {
-        self.hardware_common.status.state.to_owned()
-    }
 }
 
 impl Hardware for ArrayController {
@@ -112,8 +103,8 @@ impl Hardware for ArrayController {
     fn serial_number(&self) -> String {
         self.hardware_common.serial_number.to_owned()
     }
-    fn status(&self) -> AllStatus {
-        self.hardware_common.status.to_owned()
+    fn status(&self) -> ResourceStatus {
+        self.hardware_common.status
     }
     fn get_type(&self) -> HardwareType {
         HardwareType::ArrayController
@@ -163,15 +154,6 @@ pub struct SmartArray {
     #[serde(rename = "Type")]
     pub array_type: String,
 }
-impl StatusT for SmartArray {
-    fn health(&self) -> String {
-        self.hardware_common.status.health.to_owned()
-    }
-
-    fn state(&self) -> String {
-        self.hardware_common.status.state.to_owned()
-    }
-}
 
 impl Hardware for SmartArray {
     fn odata_context(&self) -> String {
@@ -212,8 +194,8 @@ impl Hardware for SmartArray {
     fn serial_number(&self) -> String {
         self.hardware_common.serial_number.to_owned()
     }
-    fn status(&self) -> AllStatus {
-        self.hardware_common.status.to_owned()
+    fn status(&self) -> ResourceStatus {
+        self.hardware_common.status
     }
     fn get_type(&self) -> HardwareType {
         HardwareType::SmartArray
@@ -228,15 +210,6 @@ pub struct StorageEnclosure {
     pub hardware_common: HardwareCommon,
     #[serde(rename = "Type")]
     pub enclosure_type: String,
-}
-impl StatusT for StorageEnclosure {
-    fn health(&self) -> String {
-        self.hardware_common.status.health.to_owned()
-    }
-
-    fn state(&self) -> String {
-        self.hardware_common.status.state.to_owned()
-    }
 }
 
 impl Hardware for StorageEnclosure {
@@ -278,8 +251,8 @@ impl Hardware for StorageEnclosure {
     fn serial_number(&self) -> String {
         self.hardware_common.serial_number.to_owned()
     }
-    fn status(&self) -> AllStatus {
-        self.hardware_common.status.to_owned()
+    fn status(&self) -> ResourceStatus {
+        self.hardware_common.status
     }
     fn get_type(&self) -> HardwareType {
         HardwareType::StorageEnclosure
@@ -319,15 +292,6 @@ pub struct DiskDrive {
     pub ssd_endurance_utilization_percentage: Option<f64>,
     #[serde(rename = "Type")]
     pub drive_type: String,
-}
-impl StatusT for DiskDrive {
-    fn health(&self) -> String {
-        self.hardware_common.status.health.to_owned()
-    }
-
-    fn state(&self) -> String {
-        self.hardware_common.status.state.to_owned()
-    }
 }
 
 impl Hardware for DiskDrive {
@@ -369,8 +333,8 @@ impl Hardware for DiskDrive {
     fn serial_number(&self) -> String {
         self.hardware_common.serial_number.to_owned()
     }
-    fn status(&self) -> AllStatus {
-        self.hardware_common.status.to_owned()
+    fn status(&self) -> ResourceStatus {
+        self.hardware_common.status
     }
     fn get_type(&self) -> HardwareType {
         HardwareType::DiskDrive

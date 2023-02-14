@@ -1,11 +1,14 @@
 use serde::{Deserialize, Serialize};
 
-use crate::model::{Action, ActionsManagerReset, Availableaction, Commandshell, Status, StatusT};
+use crate::model::{
+    Action, ActionsManagerReset, Availableaction, Commandshell, ResourceHealth, ResourceState,
+    ResourceStatus, Status,
+};
 use crate::model::{Firmware, LinkType, ODataId, ODataLinks, StatusVec};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct HpManager {
+pub struct Manager {
     #[serde(flatten)]
     pub odata: ODataLinks,
     pub actions: Action,
@@ -31,11 +34,11 @@ pub struct HpManager {
     pub virtual_media: ODataId,
 }
 
-impl StatusVec for HpManager {
-    fn get_vec(&self) -> Vec<Box<dyn StatusT>> {
-        let mut v: Vec<Box<dyn StatusT>> = Vec::new();
+impl StatusVec for Manager {
+    fn get_vec(&self) -> Vec<ResourceStatus> {
+        let mut v: Vec<ResourceStatus> = Vec::new();
         for res in &self.oem.hp.i_lo_self_test_results {
-            v.push(Box::new(res.clone()))
+            v.push(res.get_resource_status());
         }
         v
     }
@@ -114,15 +117,14 @@ pub struct OemHpLicense {
 pub struct OemHpIloselftestresult {
     pub notes: String,
     pub self_test_name: String,
-    pub status: String,
+    pub status: ResourceHealth,
 }
-impl StatusT for OemHpIloselftestresult {
-    fn health(&self) -> String {
-        self.status.to_owned()
-    }
-
-    fn state(&self) -> String {
-        String::new()
+impl OemHpIloselftestresult {
+    fn get_resource_status(&self) -> ResourceStatus {
+        ResourceStatus {
+            health: Some(self.status),
+            state: ResourceState::Enabled, // There is no 'unknown' option
+        }
     }
 }
 

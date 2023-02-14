@@ -151,45 +151,58 @@ pub struct Firmware {
 }
 
 pub trait StatusVec {
-    fn get_vec(&self) -> Vec<Box<dyn StatusT>>;
+    fn get_vec(&self) -> Vec<ResourceStatus>;
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct AllStatus {
-    pub health: String,
-    pub state: String,
+pub struct ResourceStatus {
+    pub health: Option<ResourceHealth>,
+    pub state: ResourceState,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct SomeStatus {
-    pub health: Option<String>,
-    pub state: String,
+/// Health and State of a disk drive, fan, power supply, etc
+/// Defined in Resource_v1.xml
+#[derive(Debug, Serialize, Deserialize, Copy, Clone)]
+pub enum ResourceHealth {
+    #[serde(rename = "OK")]
+    Ok,
+    Warning,
+    Critical,
+    Informational, // HP only, non-standard
 }
 
-pub trait StatusT {
-    fn health(&self) -> String;
-    fn state(&self) -> String;
-}
-
-impl StatusT for SomeStatus {
-    fn health(&self) -> String {
-        match &self.health {
-            Some(s) => s.clone(),
-            None => "OK".to_string(),
-        }
-    }
-    fn state(&self) -> String {
-        self.state.clone()
+impl Default for ResourceHealth {
+    fn default() -> Self {
+        ResourceHealth::Ok
     }
 }
 
-impl StatusT for AllStatus {
-    fn health(&self) -> String {
-        self.health.clone()
+impl fmt::Display for ResourceHealth {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
     }
-    fn state(&self) -> String {
-        self.state.clone()
+}
+
+// Defined in Resource_v1.xml
+#[derive(Debug, Serialize, Deserialize, Copy, Clone)]
+pub enum ResourceState {
+    Enabled,
+    Disabled,
+    StandbyOffline,
+    StandbySpare,
+    InTest,
+    Starting,
+    Absent,
+    UnavailableOffline,
+    Deferring,
+    Quiesced,
+    Updating,
+    Qualified,
+}
+
+impl fmt::Display for ResourceState {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
     }
 }

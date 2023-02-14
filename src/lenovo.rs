@@ -4,10 +4,7 @@ use reqwest::Method;
 use tracing::debug;
 
 use crate::{
-    model::{
-        oem::lenovo::{LenovoBootOptionName, LenovoBootSource, LenovoFrontPanelUSBMode},
-        BootOption,
-    },
+    model::{oem::lenovo, BootOption},
     network::{NetworkConfig, REDFISH_ENDPOINT},
     standard::RedfishStandard,
     Boot, EnabledDisabled, PowerState, Redfish, RedfishError, SystemPowerControl,
@@ -83,15 +80,15 @@ impl Redfish for Bmc {
 
     fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {
         match target {
-            Boot::Pxe => self.set_boot_override(LenovoBootSource::Pxe),
-            Boot::HardDisk => self.set_boot_override(LenovoBootSource::Hdd),
+            Boot::Pxe => self.set_boot_override(lenovo::BootSource::Pxe),
+            Boot::HardDisk => self.set_boot_override(lenovo::BootSource::Hdd),
         }
     }
 
     fn boot_first(&self, target: Boot) -> Result<(), RedfishError> {
         match target {
-            Boot::Pxe => self.set_boot_first(LenovoBootOptionName::Network),
-            Boot::HardDisk => self.set_boot_first(LenovoBootOptionName::HardDisk),
+            Boot::Pxe => self.set_boot_first(lenovo::BootOptionName::Network),
+            Boot::HardDisk => self.set_boot_first(lenovo::BootOptionName::HardDisk),
         }
     }
 
@@ -122,7 +119,7 @@ impl Bmc {
             debug!("Failed disabling Ethernet over USB");
             e
         })?;
-        self.set_front_panel_usb_lenovo(LenovoFrontPanelUSBMode::Server)
+        self.set_front_panel_usb_lenovo(lenovo::FrontPanelUSBMode::Server)
             .map_err(|e| {
                 debug!("Failed locking front panel USB to host-only.");
                 e
@@ -145,7 +142,7 @@ impl Bmc {
             debug!("Failed disabling Ethernet over USB");
             e
         })?;
-        self.set_front_panel_usb_lenovo(LenovoFrontPanelUSBMode::Shared)
+        self.set_front_panel_usb_lenovo(lenovo::FrontPanelUSBMode::Shared)
             .map_err(|e| {
                 debug!("Failed unlocking front panel USB to shared mode.");
                 e
@@ -173,7 +170,7 @@ impl Bmc {
 
     fn set_front_panel_usb_lenovo(
         &self,
-        mode: LenovoFrontPanelUSBMode,
+        mode: lenovo::FrontPanelUSBMode,
     ) -> Result<(), RedfishError> {
         let mut body = HashMap::new();
         body.insert(
@@ -196,7 +193,7 @@ impl Bmc {
         self.s.net.patch(&url, body).map(|_status_code| ())
     }
 
-    fn set_boot_override(&self, target: LenovoBootSource) -> Result<(), RedfishError> {
+    fn set_boot_override(&self, target: lenovo::BootSource) -> Result<(), RedfishError> {
         let target_str = &target.to_string();
         let body = HashMap::from([(
             "Boot",
@@ -214,7 +211,7 @@ impl Bmc {
     // Note that _within_ the type you choose you could also give the order. e.g for "Network"
     // see Systems/1/Oem/Lenovo/BootSettings/BootOrder.NetworkBootOrder
     // and for "HardDisk" see Systems/1/Oem/Lenovo/BootSettings/BootOrder.HardDiskBootOrder
-    fn set_boot_first(&self, name: LenovoBootOptionName) -> Result<(), RedfishError> {
+    fn set_boot_first(&self, name: lenovo::BootOptionName) -> Result<(), RedfishError> {
         let boot_array = match self.get_boot_options_ids_with_first(name)? {
             None => {
                 return Err(RedfishError::MissingBootOption(name.to_string()));
@@ -235,7 +232,7 @@ impl Bmc {
 
     // A Vec of string boot option names, with the one you want first.
     //
-    // Example: get_boot_options_ids_with_first(OemLenovoBootOptionName::Network) might return
+    // Example: get_boot_options_ids_with_first(lenovo::BootOptionName::Network) might return
     // ["Boot0003", "Boot0002", "Boot0001", "Boot0004"] where Boot0003 is Network. It has been
     // moved to the front ready for sending as an update.
     // The order of the other boot options does not change.
@@ -243,7 +240,7 @@ impl Bmc {
     // If the boot option you want is not found returns Ok(None)
     fn get_boot_options_ids_with_first(
         &self,
-        with_name: LenovoBootOptionName,
+        with_name: lenovo::BootOptionName,
     ) -> Result<Option<Vec<String>>, RedfishError> {
         let with_name_str = with_name.to_string();
         let mut with_name_match = None; // the ID of the option matching with_name

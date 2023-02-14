@@ -1,18 +1,7 @@
 use std::collections::HashMap;
 
 use crate::{
-    model::{
-        oem::dell::{
-            DellBiosLockdownAttrs, DellBiosSerialAttrs, DellBiosTpmAttrs, DellBmcLockdown,
-            DellBmcRemoteAccess, DellBootDevices, DellIpmiSol, DellSerialRedirection,
-            DellServerBoot, DellServerBootAttrs, RedfishSettingsApplyTime, SerialCommSettings,
-            SerialPortExtSettings, SerialPortSettings, SerialPortTermSettings,
-            SetDellBiosLockdownAttrs, SetDellBiosSerialAttrs, SetDellBiosTpmAttrs,
-            SetDellBmcLockdown, SetDellBmcRemoteAccess, SetDellFirstBootDevice,
-            SetDellSettingsApplyTime, Tpm2HierarchySettings, UefiVariableAccessSettings,
-        },
-        OnOff,
-    },
+    model::{oem::dell, OnOff},
     network::NetworkConfig,
     standard::RedfishStandard,
     Boot, EnabledDisabled, PowerState, Redfish, RedfishError, SystemPowerControl,
@@ -48,10 +37,10 @@ impl Redfish for Bmc {
         match target {
             Enabled => {
                 self.enable_bios_lockdown()?;
-                self.enable_bmc_lockdown(DellBootDevices::PXE, false)
+                self.enable_bmc_lockdown(dell::BootDevices::PXE, false)
             }
             Disabled => {
-                self.disable_bmc_lockdown(DellBootDevices::PXE, false)?;
+                self.disable_bmc_lockdown(dell::BootDevices::PXE, false)?;
                 self.disable_bios_lockdown()
             }
         }
@@ -60,18 +49,18 @@ impl Redfish for Bmc {
     fn setup_serial_console(&self) -> Result<(), RedfishError> {
         self.setup_bmc_remote_access()?;
 
-        let apply_time = SetDellSettingsApplyTime {
-            apply_time: RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
         };
-        let serial_console = DellBiosSerialAttrs {
-            serial_comm: SerialCommSettings::OnConRedir,
-            serial_port_address: SerialPortSettings::Com1,
-            ext_serial_connector: SerialPortExtSettings::Serial1,
+        let serial_console = dell::BiosSerialAttrs {
+            serial_comm: dell::SerialCommSettings::OnConRedir,
+            serial_port_address: dell::SerialPortSettings::Com1,
+            ext_serial_connector: dell::SerialPortExtSettings::Serial1,
             fail_safe_baud: "115200".to_string(),
-            con_term_type: SerialPortTermSettings::Vt100Vt220,
+            con_term_type: dell::SerialPortTermSettings::Vt100Vt220,
             redir_after_boot: EnabledDisabled::Enabled,
         };
-        let set_serial_attrs = SetDellBiosSerialAttrs {
+        let set_serial_attrs = dell::SetBiosSerialAttrs {
             redfish_settings_apply_time: apply_time,
             attributes: serial_console,
         };
@@ -85,27 +74,27 @@ impl Redfish for Bmc {
 
     fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {
         match target {
-            Boot::Pxe => self.set_boot_first(DellBootDevices::PXE, true),
-            Boot::HardDisk => self.set_boot_first(DellBootDevices::HDD, true),
+            Boot::Pxe => self.set_boot_first(dell::BootDevices::PXE, true),
+            Boot::HardDisk => self.set_boot_first(dell::BootDevices::HDD, true),
         }
     }
 
     fn boot_first(&self, target: Boot) -> Result<(), RedfishError> {
         match target {
-            Boot::Pxe => self.set_boot_first(DellBootDevices::PXE, false),
-            Boot::HardDisk => self.set_boot_first(DellBootDevices::HDD, false),
+            Boot::Pxe => self.set_boot_first(dell::BootDevices::PXE, false),
+            Boot::HardDisk => self.set_boot_first(dell::BootDevices::HDD, false),
         }
     }
 
     fn clear_tpm(&self) -> Result<(), RedfishError> {
-        let apply_time = SetDellSettingsApplyTime {
-            apply_time: RedfishSettingsApplyTime::OnReset,
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::OnReset,
         };
-        let tpm = DellBiosTpmAttrs {
+        let tpm = dell::BiosTpmAttrs {
             tpm_security: OnOff::On,
-            tpm2_hierarchy: Tpm2HierarchySettings::Clear,
+            tpm2_hierarchy: dell::Tpm2HierarchySettings::Clear,
         };
-        let set_tpm_clear = SetDellBiosTpmAttrs {
+        let set_tpm_clear = dell::SetBiosTpmAttrs {
             redfish_settings_apply_time: apply_time,
             attributes: tpm,
         };
@@ -115,11 +104,11 @@ impl Redfish for Bmc {
 }
 
 impl Bmc {
-    fn set_boot_first(&self, entry: DellBootDevices, once: bool) -> Result<(), RedfishError> {
-        let apply_time = SetDellSettingsApplyTime {
-            apply_time: RedfishSettingsApplyTime::OnReset,
+    fn set_boot_first(&self, entry: dell::BootDevices, once: bool) -> Result<(), RedfishError> {
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::OnReset,
         };
-        let boot_entry = DellServerBoot {
+        let boot_entry = dell::ServerBoot {
             first_boot_device: entry,
             boot_once: if once {
                 EnabledDisabled::Enabled
@@ -127,10 +116,10 @@ impl Bmc {
                 EnabledDisabled::Disabled
             },
         };
-        let boot = DellServerBootAttrs {
+        let boot = dell::ServerBootAttrs {
             server_boot: boot_entry,
         };
-        let set_boot = SetDellFirstBootDevice {
+        let set_boot = dell::SetFirstBootDevice {
             redfish_settings_apply_time: apply_time,
             attributes: boot,
         };
@@ -138,14 +127,14 @@ impl Bmc {
         self.s.net.patch(&url, set_boot).map(|_status_code| ())
     }
     fn enable_bios_lockdown(&self) -> Result<(), RedfishError> {
-        let apply_time = SetDellSettingsApplyTime {
-            apply_time: RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
         };
-        let lockdown = DellBiosLockdownAttrs {
+        let lockdown = dell::BiosLockdownAttrs {
             in_band_manageability_interface: EnabledDisabled::Disabled,
-            uefi_variable_access: UefiVariableAccessSettings::Controlled,
+            uefi_variable_access: dell::UefiVariableAccessSettings::Controlled,
         };
-        let set_lockdown_attrs = SetDellBiosLockdownAttrs {
+        let set_lockdown_attrs = dell::SetBiosLockdownAttrs {
             redfish_settings_apply_time: apply_time,
             attributes: lockdown,
         };
@@ -156,11 +145,15 @@ impl Bmc {
             .map(|_status_code| ())
     }
 
-    fn enable_bmc_lockdown(&self, entry: DellBootDevices, once: bool) -> Result<(), RedfishError> {
-        let apply_time = SetDellSettingsApplyTime {
-            apply_time: RedfishSettingsApplyTime::OnReset,
+    fn enable_bmc_lockdown(
+        &self,
+        entry: dell::BootDevices,
+        once: bool,
+    ) -> Result<(), RedfishError> {
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::OnReset,
         };
-        let boot_entry = DellServerBoot {
+        let boot_entry = dell::ServerBoot {
             first_boot_device: entry,
             boot_once: if once {
                 EnabledDisabled::Enabled
@@ -168,12 +161,12 @@ impl Bmc {
                 EnabledDisabled::Disabled
             },
         };
-        let lockdown = DellBmcLockdown {
+        let lockdown = dell::BmcLockdown {
             system_lockdown: EnabledDisabled::Enabled,
             racadm_enable: EnabledDisabled::Disabled,
             server_boot: boot_entry,
         };
-        let set_bmc_lockdown = SetDellBmcLockdown {
+        let set_bmc_lockdown = dell::SetBmcLockdown {
             redfish_settings_apply_time: apply_time,
             attributes: lockdown,
         };
@@ -185,14 +178,14 @@ impl Bmc {
     }
 
     fn disable_bios_lockdown(&self) -> Result<(), RedfishError> {
-        let apply_time = SetDellSettingsApplyTime {
-            apply_time: RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
         };
-        let lockdown = DellBiosLockdownAttrs {
+        let lockdown = dell::BiosLockdownAttrs {
             in_band_manageability_interface: EnabledDisabled::Enabled,
-            uefi_variable_access: UefiVariableAccessSettings::Standard,
+            uefi_variable_access: dell::UefiVariableAccessSettings::Standard,
         };
-        let set_lockdown_attrs = SetDellBiosLockdownAttrs {
+        let set_lockdown_attrs = dell::SetBiosLockdownAttrs {
             redfish_settings_apply_time: apply_time,
             attributes: lockdown,
         };
@@ -203,11 +196,15 @@ impl Bmc {
             .map(|_status_code| ())
     }
 
-    fn disable_bmc_lockdown(&self, entry: DellBootDevices, once: bool) -> Result<(), RedfishError> {
-        let apply_time = SetDellSettingsApplyTime {
-            apply_time: RedfishSettingsApplyTime::Immediate, // bmc settings don't require reboot
+    fn disable_bmc_lockdown(
+        &self,
+        entry: dell::BootDevices,
+        once: bool,
+    ) -> Result<(), RedfishError> {
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::Immediate, // bmc settings don't require reboot
         };
-        let boot_entry = DellServerBoot {
+        let boot_entry = dell::ServerBoot {
             first_boot_device: entry,
             boot_once: if once {
                 EnabledDisabled::Enabled
@@ -215,12 +212,12 @@ impl Bmc {
                 EnabledDisabled::Disabled
             },
         };
-        let lockdown = DellBmcLockdown {
+        let lockdown = dell::BmcLockdown {
             system_lockdown: EnabledDisabled::Disabled,
             racadm_enable: EnabledDisabled::Enabled,
             server_boot: boot_entry,
         };
-        let set_bmc_lockdown = SetDellBmcLockdown {
+        let set_bmc_lockdown = dell::SetBmcLockdown {
             redfish_settings_apply_time: apply_time,
             attributes: lockdown,
         };
@@ -232,24 +229,24 @@ impl Bmc {
     }
 
     fn setup_bmc_remote_access(&self) -> Result<(), RedfishError> {
-        let apply_time = SetDellSettingsApplyTime {
-            apply_time: RedfishSettingsApplyTime::Immediate,
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::Immediate,
         };
-        let serial_redirect = DellSerialRedirection {
+        let serial_redirect = dell::SerialRedirection {
             enable: EnabledDisabled::Enabled,
         };
-        let ipmi_sol_settings = DellIpmiSol {
+        let ipmi_sol_settings = dell::IpmiSol {
             enable: EnabledDisabled::Enabled,
             baud_rate: "115200".to_string(),
             min_privilege: "Administrator".to_string(),
         };
-        let remote_access = DellBmcRemoteAccess {
+        let remote_access = dell::BmcRemoteAccess {
             ssh_enable: EnabledDisabled::Enabled,
             serial_redirection: serial_redirect,
             ipmi_lan_enable: EnabledDisabled::Enabled,
             ipmi_sol: ipmi_sol_settings,
         };
-        let set_remote_access = SetDellBmcRemoteAccess {
+        let set_remote_access = dell::SetBmcRemoteAccess {
             redfish_settings_apply_time: apply_time,
             attributes: remote_access,
         };
@@ -263,14 +260,14 @@ impl Bmc {
     // TPM is enabled by default so we never call this.
     #[allow(dead_code)]
     fn enable_tpm(&self) -> Result<(), RedfishError> {
-        let apply_time = SetDellSettingsApplyTime {
-            apply_time: RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
         };
-        let tpm = DellBiosTpmAttrs {
+        let tpm = dell::BiosTpmAttrs {
             tpm_security: OnOff::On,
-            tpm2_hierarchy: Tpm2HierarchySettings::Enabled,
+            tpm2_hierarchy: dell::Tpm2HierarchySettings::Enabled,
         };
-        let set_tpm_enabled = SetDellBiosTpmAttrs {
+        let set_tpm_enabled = dell::SetBiosTpmAttrs {
             redfish_settings_apply_time: apply_time,
             attributes: tpm,
         };
@@ -285,14 +282,14 @@ impl Bmc {
     // Lenovo does not support disabling TPM2.0
     #[allow(dead_code)]
     fn disable_tpm(&self) -> Result<(), RedfishError> {
-        let apply_time = SetDellSettingsApplyTime {
-            apply_time: RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
         };
-        let tpm = DellBiosTpmAttrs {
+        let tpm = dell::BiosTpmAttrs {
             tpm_security: OnOff::Off,
-            tpm2_hierarchy: Tpm2HierarchySettings::Disabled,
+            tpm2_hierarchy: dell::Tpm2HierarchySettings::Disabled,
         };
-        let set_tpm_disabled = SetDellBiosTpmAttrs {
+        let set_tpm_disabled = dell::SetBiosTpmAttrs {
             redfish_settings_apply_time: apply_time,
             attributes: tpm,
         };

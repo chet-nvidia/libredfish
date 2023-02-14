@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::{ODataLinks, SomeStatus, StatusT, StatusVec};
+use super::{ODataLinks, ResourceStatus, StatusVec};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
@@ -22,17 +22,8 @@ pub struct Fan {
     pub current_reading: i64,
     pub fan_name: String,
     pub oem: FansOem,
-    pub status: SomeStatus,
+    pub status: ResourceStatus,
     pub units: String,
-}
-impl StatusT for Fan {
-    fn health(&self) -> String {
-        self.status.health()
-    }
-
-    fn state(&self) -> String {
-        self.status.state()
-    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -61,19 +52,10 @@ pub struct Temperature {
     pub oem: TemperaturesOem,
     pub physical_context: String,
     pub reading_celsius: i64,
-    pub status: SomeStatus,
+    pub status: ResourceStatus,
     pub units: String,
     pub upper_threshold_critical: i64,
     pub upper_threshold_fatal: i64,
-}
-impl StatusT for Temperature {
-    fn health(&self) -> String {
-        self.status.health()
-    }
-
-    fn state(&self) -> String {
-        self.status.state()
-    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -90,13 +72,13 @@ pub struct Thermal {
 }
 
 impl StatusVec for Thermal {
-    fn get_vec(&self) -> Vec<Box<dyn StatusT>> {
-        let mut v: Vec<Box<dyn StatusT>> = Vec::new();
+    fn get_vec(&self) -> Vec<ResourceStatus> {
+        let mut v = Vec::with_capacity(self.fans.len() + self.temperatures.len());
         for res in &self.fans {
-            v.push(Box::new(res.clone()))
+            v.push(res.status)
         }
         for res in &self.temperatures {
-            v.push(Box::new(res.clone()))
+            v.push(res.status)
         }
         v
     }

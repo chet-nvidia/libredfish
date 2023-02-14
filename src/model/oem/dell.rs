@@ -59,7 +59,7 @@ serde_with::with_prefix!(prefix_users16 "Users.16.");
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DelliDracCard {
+pub struct IDracCard {
     #[serde(flatten)]
     pub odata: ODataLinks,
     pub description: String,
@@ -75,20 +75,20 @@ pub struct DelliDracCard {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellManager {
+pub struct Manager {
     #[serde(rename = "DelliDRACCard")]
-    pub dell_idrac_card: DelliDracCard,
+    pub dell_idrac_card: IDracCard,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellSystemWrapper {
-    pub dell_system: DellSystem,
+pub struct SystemWrapper {
+    pub dell_system: System,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellSystem {
+pub struct System {
     #[serde(rename = "BIOSReleaseDate")]
     pub bios_release_date: String,
     pub chassis_service_tag: String,
@@ -120,7 +120,7 @@ pub struct DellSystem {
 
 #[derive(Debug, Deserialize, Serialize, Copy, Clone, Eq, PartialEq)]
 #[allow(clippy::upper_case_acronyms)]
-pub enum DellBootDevices {
+pub enum BootDevices {
     Normal,
     PXE,
     HDD,
@@ -131,7 +131,7 @@ pub enum DellBootDevices {
     F11,
 }
 
-impl fmt::Display for DellBootDevices {
+impl fmt::Display for BootDevices {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         fmt::Debug::fmt(self, f)
     }
@@ -139,28 +139,28 @@ impl fmt::Display for DellBootDevices {
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellServerBoot {
+pub struct ServerBoot {
     pub boot_once: EnabledDisabled,
-    pub first_boot_device: DellBootDevices,
+    pub first_boot_device: BootDevices,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellServerBootAttrs {
+pub struct ServerBootAttrs {
     #[serde(flatten, with = "prefix_server_boot")]
-    pub server_boot: DellServerBoot,
+    pub server_boot: ServerBoot,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct SetDellFirstBootDevice {
-    pub redfish_settings_apply_time: SetDellSettingsApplyTime,
-    pub attributes: DellServerBootAttrs,
+pub struct SetFirstBootDevice {
+    pub redfish_settings_apply_time: SetSettingsApplyTime,
+    pub attributes: ServerBootAttrs,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct SetDellSettingsApplyTime {
+pub struct SetSettingsApplyTime {
     pub apply_time: RedfishSettingsApplyTime,
 }
 
@@ -180,17 +180,17 @@ impl fmt::Display for RedfishSettingsApplyTime {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellBiosLockdownAttrs {
+pub struct BiosLockdownAttrs {
     pub in_band_manageability_interface: EnabledDisabled,
     pub uefi_variable_access: UefiVariableAccessSettings,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct SetDellBiosLockdownAttrs {
+pub struct SetBiosLockdownAttrs {
     #[serde(rename = "@Redfish.SettingsApplyTime")]
-    pub redfish_settings_apply_time: SetDellSettingsApplyTime,
-    pub attributes: DellBiosLockdownAttrs,
+    pub redfish_settings_apply_time: SetSettingsApplyTime,
+    pub attributes: BiosLockdownAttrs,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -207,26 +207,26 @@ impl fmt::Display for UefiVariableAccessSettings {
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellBmcLockdown {
+pub struct BmcLockdown {
     #[serde(rename = "Lockdown.1.SystemLockdown")]
     pub system_lockdown: EnabledDisabled,
     #[serde(rename = "Racadm.1.Enable")]
     pub racadm_enable: EnabledDisabled,
     #[serde(flatten, with = "prefix_server_boot")]
-    pub server_boot: DellServerBoot,
+    pub server_boot: ServerBoot,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct SetDellBmcLockdown {
+pub struct SetBmcLockdown {
     #[serde(rename = "@Redfish.SettingsApplyTime")]
-    pub redfish_settings_apply_time: SetDellSettingsApplyTime,
-    pub attributes: DellBmcLockdown,
+    pub redfish_settings_apply_time: SetSettingsApplyTime,
+    pub attributes: BmcLockdown,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellBiosSerialAttrs {
+pub struct BiosSerialAttrs {
     pub serial_comm: SerialCommSettings,
     pub serial_port_address: SerialPortSettings,
     pub ext_serial_connector: SerialPortExtSettings,
@@ -237,10 +237,10 @@ pub struct DellBiosSerialAttrs {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct SetDellBiosSerialAttrs {
+pub struct SetBiosSerialAttrs {
     #[serde(rename = "@Redfish.SettingsApplyTime")]
-    pub redfish_settings_apply_time: SetDellSettingsApplyTime,
-    pub attributes: DellBiosSerialAttrs,
+    pub redfish_settings_apply_time: SetSettingsApplyTime,
+    pub attributes: BiosSerialAttrs,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -295,29 +295,29 @@ impl fmt::Display for SerialPortTermSettings {
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct SetDellBmcRemoteAccess {
+pub struct SetBmcRemoteAccess {
     #[serde(rename = "@Redfish.SettingsApplyTime")]
-    pub redfish_settings_apply_time: SetDellSettingsApplyTime,
-    pub attributes: DellBmcRemoteAccess,
+    pub redfish_settings_apply_time: SetSettingsApplyTime,
+    pub attributes: BmcRemoteAccess,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellBmcRemoteAccess {
+pub struct BmcRemoteAccess {
     #[serde(rename = "SSH.1.Enable")]
     pub ssh_enable: EnabledDisabled,
     #[serde(flatten, with = "prefix_serial_redirection")]
-    pub serial_redirection: DellSerialRedirection,
+    pub serial_redirection: SerialRedirection,
     #[serde(rename = "IPMILan.1.Enable")]
     pub ipmi_lan_enable: EnabledDisabled,
     #[serde(flatten, with = "prefix_ipmi_sol")]
-    pub ipmi_sol: DellIpmiSol,
+    pub ipmi_sol: IpmiSol,
     // in future add virtualconsole, virtualmedia, vncserver if needed
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellIpmiSol {
+pub struct IpmiSol {
     pub baud_rate: String, //SerialBaudRates,
     pub enable: EnabledDisabled,
     pub min_privilege: String,
@@ -325,23 +325,23 @@ pub struct DellIpmiSol {
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellSerialRedirection {
+pub struct SerialRedirection {
     pub enable: EnabledDisabled, // ensure this is enabled
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellBiosTpmAttrs {
+pub struct BiosTpmAttrs {
     pub tpm_security: OnOff,
     pub tpm2_hierarchy: Tpm2HierarchySettings,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct SetDellBiosTpmAttrs {
+pub struct SetBiosTpmAttrs {
     #[serde(rename = "@Redfish.SettingsApplyTime")]
-    pub redfish_settings_apply_time: SetDellSettingsApplyTime,
-    pub attributes: DellBiosTpmAttrs,
+    pub redfish_settings_apply_time: SetSettingsApplyTime,
+    pub attributes: BiosTpmAttrs,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -359,17 +359,17 @@ impl fmt::Display for Tpm2HierarchySettings {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellBios {
+pub struct Bios {
     #[serde(flatten)]
     pub common: BiosCommon,
     #[serde(rename = "@odata.context")]
     pub odata_context: String,
-    pub attributes: DellBiosAttributes,
+    pub attributes: BiosAttributes,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellBiosAttributes {
+pub struct BiosAttributes {
     pub system_model_name: String,
     pub system_bios_version: String,
     pub system_me_version: String,
@@ -548,7 +548,7 @@ pub struct DellBiosAttributes {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellSupportAssist {
+pub struct SupportAssist {
     pub default_protocol_port: i64,
     #[serde(rename = "HostOSProxyAddress")]
     pub host_os_proxy_address: String,
@@ -584,7 +584,7 @@ pub struct DellSupportAssist {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellBmcNic {
+pub struct BmcNic {
     #[serde(rename = "DedicatedNICScanTime")]
     pub dedicated_nic_scan_time: i64,
     #[serde(rename = "MTU")]
@@ -643,7 +643,7 @@ pub struct DellBmcNic {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellSysInfo {
+pub struct SysInfo {
     pub local_console_lock_out: i64,
     #[serde(rename = "POSTCode")]
     pub post_code: i64,
@@ -652,7 +652,7 @@ pub struct DellSysInfo {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellBmcIpv6 {
+pub struct BmcIpv6 {
     #[serde(rename = "IPV6NumOfExtAddress")]
     pub num_of_ext_address: Option<i64>,
     pub prefix_length: i64,
@@ -691,7 +691,7 @@ pub struct DellBmcIpv6 {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellBmcIpv4 {
+pub struct BmcIpv4 {
     #[serde(rename = "DHCPEnable")]
     pub dhcp_enable: String,
     #[serde(rename = "DNSFromDHCP")]
@@ -709,7 +709,7 @@ pub struct DellBmcIpv4 {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellUsers {
+pub struct Users {
     pub privilege: i64,
     pub authentication_protocol: String,
     pub enable: String,
@@ -742,7 +742,7 @@ pub struct DellUsers {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellSysLog {
+pub struct SysLog {
     pub port: i64,
     pub power_log_interval: i64,
     pub power_log_enable: String,
@@ -754,7 +754,7 @@ pub struct DellSysLog {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellRedfishEventing {
+pub struct RedfishEventing {
     pub delivery_retry_attempts: i64,
     pub delivery_retry_interval_in_seconds: i64,
     pub ignore_certificate_errors: String,
@@ -762,7 +762,7 @@ pub struct DellRedfishEventing {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellTime {
+pub struct Time {
     pub day_light_offset: i64,
     pub time_zone_offset: i64,
     pub timezone: String,
@@ -770,7 +770,7 @@ pub struct DellTime {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellSsh {
+pub struct Ssh {
     pub max_sessions: i64,
     pub port: i64,
     pub timeout: i64,
@@ -780,7 +780,7 @@ pub struct DellSsh {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellSecurity {
+pub struct Security {
     pub password_minimum_length: i64,
     #[serde(rename = "FIPSMode")]
     pub fips_mode: String,
@@ -804,7 +804,7 @@ pub struct DellSecurity {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellWebServer {
+pub struct WebServer {
     pub http_port: i64,
     pub https_port: i64,
     pub max_number_of_sessions: i64,
@@ -829,7 +829,7 @@ pub struct DellWebServer {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellSecurityCertificate {
+pub struct SecurityCertificate {
     pub cert_valid_from: String,
     pub cert_valid_to: String,
     pub issuer_common_name: String,
@@ -851,7 +851,7 @@ pub struct DellSecurityCertificate {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellPlatformCapability {
+pub struct PlatformCapability {
     #[serde(rename = "ASHRAECapable")]
     pub ashrae_capable: String,
     pub backup_restore_capable: String,
@@ -885,7 +885,7 @@ pub struct DellPlatformCapability {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellServiceModule {
+pub struct ServiceModule {
     #[serde(rename = "ChipsetSATASupported")]
     pub chipset_sata_supported: String,
     #[serde(rename = "HostSNMPAlert")]
@@ -918,7 +918,7 @@ pub struct DellServiceModule {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellVirtualConsole {
+pub struct VirtualConsole {
     pub active_sessions: i64,
     pub max_sessions: i64,
     pub port: i64,
@@ -937,7 +937,7 @@ pub struct DellVirtualConsole {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellVirtualMedia {
+pub struct VirtualMedia {
     pub active_sessions: i64,
     pub max_sessions: i64,
     pub attached: String,
@@ -950,7 +950,7 @@ pub struct DellVirtualMedia {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellRacadm {
+pub struct Racadm {
     pub max_sessions: i64,
     pub timeout: i64,
     pub enable: String, // ensure this is disabled
@@ -958,7 +958,7 @@ pub struct DellRacadm {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellInfo {
+pub struct Info {
     pub server_gen: String,
     #[serde(rename = "Type")]
     pub server_type: String,
@@ -979,7 +979,7 @@ pub struct DellInfo {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellIpmiLan {
+pub struct IpmiLan {
     pub alert_enable: String,
     pub enable: String,
     pub priv_limit: String,
@@ -989,7 +989,7 @@ pub struct DellIpmiLan {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellVncServer {
+pub struct VncServer {
     pub active_sessions: i64,
     pub max_sessions: i64,
     pub port: i64,
@@ -1003,7 +1003,7 @@ pub struct DellVncServer {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellOsBmc {
+pub struct OsBmc {
     pub admin_state: String,
     #[serde(rename = "PTCapability")]
     pub pt_capability: String,
@@ -1019,7 +1019,7 @@ pub struct DellOsBmc {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellRfs {
+pub struct Rfs {
     pub attach_mode: String,
     pub enable: String, // ensure this is disabled
     pub ignore_cert_warning: String,
@@ -1033,7 +1033,7 @@ pub struct DellRfs {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellSerial {
+pub struct Serial {
     // this is the idrac serial config, not for the x86
     pub history_size: i64,
     pub idle_timeout: i64,
@@ -1046,14 +1046,14 @@ pub struct DellSerial {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellLocalSecurity {
+pub struct LocalSecurity {
     pub local_config: String,
     pub preboot_config: String,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellLogging {
+pub struct Logging {
     #[serde(rename = "SELBufferType")]
     pub sel_buffer_type: String,
     #[serde(rename = "SELOEMEventFilterEnable")]
@@ -1062,7 +1062,7 @@ pub struct DellLogging {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellUpdate {
+pub struct Update {
     #[serde(rename = "FwUpdateTFTPEnable")]
     pub fw_update_tftp_enable: String,
     #[serde(rename = "FwUpdateIPAddr")]
@@ -1072,16 +1072,16 @@ pub struct DellUpdate {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellAttributes {
+pub struct Attributes {
     #[serde(rename = "Lockdown.1.SystemLockdown")]
     pub system_lockdown: String, // ensure this is set
     #[serde(rename = "Redfish.1.Enable")]
     pub redfish_enable: String,
 
     #[serde(flatten, with = "prefix_ssh")]
-    pub ssh: DellSsh, // ensure this is configured
+    pub ssh: Ssh, // ensure this is configured
     #[serde(flatten, with = "prefix_serial_redirection")]
-    pub serial_redirection: DellSerialRedirection, // ensure this is configured
+    pub serial_redirection: SerialRedirection, // ensure this is configured
 
     #[serde(rename = "PCIeVDM.1.Enable")]
     pub pcie_vdm_enable: String,
@@ -1099,108 +1099,108 @@ pub struct DellAttributes {
     pub auto_os_lock_state: String,
 
     #[serde(flatten, with = "prefix_nic")]
-    pub nic: DellBmcNic,
+    pub nic: BmcNic,
     #[serde(flatten, with = "prefix_ipv4")]
-    pub ipv4: DellBmcIpv4,
+    pub ipv4: BmcIpv4,
     #[serde(flatten, with = "prefix_ipv6")]
-    pub ipv6: DellBmcIpv6,
+    pub ipv6: BmcIpv6,
 
     #[serde(flatten, with = "prefix_current_nic")]
-    pub current_nic: DellBmcNic,
+    pub current_nic: BmcNic,
     #[serde(flatten, with = "prefix_current_ipv4")]
-    pub current_ipv4: DellBmcIpv4,
+    pub current_ipv4: BmcIpv4,
     #[serde(flatten, with = "prefix_current_ipv6")]
-    pub current_ipv6: DellBmcIpv6,
+    pub current_ipv6: BmcIpv6,
 
     #[serde(flatten, with = "prefix_info")]
-    pub info: DellInfo,
+    pub info: Info,
     #[serde(flatten, with = "prefix_ipmi_lan")]
-    pub ipmi_lan: DellIpmiLan,
+    pub ipmi_lan: IpmiLan,
     #[serde(flatten, with = "prefix_local_security")]
-    pub local_security: DellLocalSecurity,
+    pub local_security: LocalSecurity,
     #[serde(flatten, with = "prefix_logging")]
-    pub logging: DellLogging,
+    pub logging: Logging,
     #[serde(flatten, with = "prefix_os_bmc")]
-    pub os_bmc: DellOsBmc,
+    pub os_bmc: OsBmc,
     #[serde(flatten, with = "prefix_platform_capability")]
-    pub platform_capability: DellPlatformCapability,
+    pub platform_capability: PlatformCapability,
     #[serde(flatten, with = "prefix_racadm")]
-    pub racadm: DellRacadm,
+    pub racadm: Racadm,
     #[serde(flatten, with = "prefix_redfish_eventing")]
-    pub redfish_eventing: DellRedfishEventing,
+    pub redfish_eventing: RedfishEventing,
     #[serde(flatten, with = "prefix_rfs")]
-    pub rfs: DellRfs,
+    pub rfs: Rfs,
     #[serde(flatten, with = "prefix_security")]
-    pub security: DellSecurity,
+    pub security: Security,
     #[serde(flatten, with = "prefix_security_certificate1")]
-    pub security_certificate1: DellSecurityCertificate,
+    pub security_certificate1: SecurityCertificate,
     #[serde(flatten, with = "prefix_security_certificate2")]
-    pub security_certificate2: DellSecurityCertificate,
+    pub security_certificate2: SecurityCertificate,
     #[serde(flatten, with = "prefix_service_module")]
-    pub service_module: DellServiceModule,
+    pub service_module: ServiceModule,
     #[serde(flatten, with = "prefix_serial")]
-    pub serial: DellSerial,
+    pub serial: Serial,
     #[serde(flatten, with = "prefix_server_boot")]
-    pub server_boot: DellServerBoot,
+    pub server_boot: ServerBoot,
     #[serde(flatten, with = "prefix_sys_info")]
-    pub sys_info: DellSysInfo,
+    pub sys_info: SysInfo,
     #[serde(flatten, with = "prefix_sys_log")]
-    pub sys_log: DellSysLog,
+    pub sys_log: SysLog,
     #[serde(flatten, with = "prefix_support_assist")]
-    pub support_assist: DellSupportAssist,
+    pub support_assist: SupportAssist,
     #[serde(flatten, with = "prefix_time")]
-    pub time: DellTime,
+    pub time: Time,
     #[serde(flatten, with = "prefix_update")]
-    pub update: DellUpdate,
+    pub update: Update,
     #[serde(flatten, with = "prefix_virtual_console")]
-    pub virtual_console: DellVirtualConsole,
+    pub virtual_console: VirtualConsole,
     #[serde(flatten, with = "prefix_virtual_media")]
-    pub virtual_media: DellVirtualMedia,
+    pub virtual_media: VirtualMedia,
     #[serde(flatten, with = "prefix_vnc_server")]
-    pub vnc_server: DellVncServer,
+    pub vnc_server: VncServer,
     #[serde(flatten, with = "prefix_web_server")]
-    pub web_server: DellWebServer,
+    pub web_server: WebServer,
 
     #[serde(flatten, with = "prefix_users1")]
-    pub users1: DellUsers,
+    pub users1: Users,
     #[serde(flatten, with = "prefix_users2")]
-    pub users2: DellUsers,
+    pub users2: Users,
     #[serde(flatten, with = "prefix_users3")]
-    pub users3: DellUsers,
+    pub users3: Users,
     #[serde(flatten, with = "prefix_users4")]
-    pub users4: DellUsers,
+    pub users4: Users,
     #[serde(flatten, with = "prefix_users5")]
-    pub users5: DellUsers,
+    pub users5: Users,
     #[serde(flatten, with = "prefix_users6")]
-    pub users6: DellUsers,
+    pub users6: Users,
     #[serde(flatten, with = "prefix_users7")]
-    pub users7: DellUsers,
+    pub users7: Users,
     #[serde(flatten, with = "prefix_users8")]
-    pub users8: DellUsers,
+    pub users8: Users,
     #[serde(flatten, with = "prefix_users9")]
-    pub users9: DellUsers,
+    pub users9: Users,
     #[serde(flatten, with = "prefix_users10")]
-    pub users10: DellUsers,
+    pub users10: Users,
     #[serde(flatten, with = "prefix_users11")]
-    pub users11: DellUsers,
+    pub users11: Users,
     #[serde(flatten, with = "prefix_users12")]
-    pub users12: DellUsers,
+    pub users12: Users,
     #[serde(flatten, with = "prefix_users13")]
-    pub users13: DellUsers,
+    pub users13: Users,
     #[serde(flatten, with = "prefix_users14")]
-    pub users14: DellUsers,
+    pub users14: Users,
     #[serde(flatten, with = "prefix_users15")]
-    pub users15: DellUsers,
+    pub users15: Users,
     #[serde(flatten, with = "prefix_users16")]
-    pub users16: DellUsers,
+    pub users16: Users,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
-pub struct DellAttributesResult {
+pub struct AttributesResult {
     #[serde(flatten)]
     pub odata: ODataLinks,
-    pub attributes: DellAttributes,
+    pub attributes: Attributes,
     pub description: String,
     pub id: String,
     pub name: String,
@@ -1211,7 +1211,7 @@ mod test {
     #[test]
     fn test_bios_parser() {
         let test_data = include_str!("../testdata/bios_dell.json");
-        let result: super::DellBios = serde_json::from_str(test_data).unwrap();
+        let result: super::Bios = serde_json::from_str(test_data).unwrap();
         println!("result: {:#?}", result);
     }
 }

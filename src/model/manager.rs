@@ -72,12 +72,12 @@ pub struct Availableaction {
 
 #[cfg(test)]
 mod test {
-    use crate::model::oem::{dell::DellAttributesResult, hp::HpManager};
+    use crate::model::oem::{dell, hp};
 
     #[test]
     fn test_manager_parser_hp() {
         let test_data = include_str!("testdata/manager_hp.json");
-        let result: HpManager = serde_json::from_str(test_data).unwrap();
+        let result: hp::Manager = serde_json::from_str(test_data).unwrap();
         println!("result: {:#?}", result);
     }
 
@@ -109,7 +109,7 @@ mod test {
     #[test]
     fn test_manager_parser_dell_attrs() {
         let test_data3 = include_str!("testdata/manager_dell_attrs.json");
-        let result3: DellAttributesResult = serde_json::from_str(test_data3).unwrap();
+        let result3: dell::AttributesResult = serde_json::from_str(test_data3).unwrap();
         println!("result3: {:#?}", result3);
     }
 }
