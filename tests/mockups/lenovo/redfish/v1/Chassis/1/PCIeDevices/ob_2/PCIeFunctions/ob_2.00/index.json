@@ -1,0 +1,29 @@
+{
+    "VendorId": "0x8086",
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_2/PCIeFunctions/ob_2.00",
+    "Links": {
+        "Drives": [],
+        "StorageControllers": [],
+        "PCIeDevice": {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_2"
+        }
+    },
+    "FunctionId": 0,
+    "SubsystemId": "0x010e",
+    "Description": "This resource represents the properties of a PCIeFunction attached to a System.",
+    "FunctionType": "Physical",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK",
+        "HealthRollup": "OK"
+    },
+    "DeviceClass": "MassStorageController",
+    "Name": "Intel(R) VROC SATA Controller 00:17:00",
+    "SubsystemVendorId": "0x1d49",
+    "@odata.type": "#PCIeFunction.v1_2_3.PCIeFunction",
+    "DeviceId": "0x2826",
+    "Id": "ob_2.00",
+    "@odata.etag": "\"4b1c975469dd25a9808\"",
+    "RevisionId": "0x0a",
+    "ClassCode": "0x010400"
+}

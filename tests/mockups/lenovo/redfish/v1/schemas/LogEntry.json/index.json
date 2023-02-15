@@ -1,0 +1,52 @@
+{
+    "$id": "http://redfish.dmtf.org/schemas/v1/LogEntry.json",
+    "$ref": "#/definitions/LogEntry",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2020 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "definitions": {
+        "LogEntry": {
+            "anyOf": [
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/idRef"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/LogEntry.v1_0_11.json#/definitions/LogEntry"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/LogEntry.v1_1_9.json#/definitions/LogEntry"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/LogEntry.v1_2_7.json#/definitions/LogEntry"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/LogEntry.v1_3_6.json#/definitions/LogEntry"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/LogEntry.v1_4_5.json#/definitions/LogEntry"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/LogEntry.v1_5_1.json#/definitions/LogEntry"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/LogEntry.v1_6_0.json#/definitions/LogEntry"
+                }
+            ],
+            "deletable": true,
+            "description": "The LogEntry schema defines the record format for a log.  It is designed for Redfish event logs, OEM-specific log formats, and the IPMI System Event Log (SEL).  The EntryType field indicates the type of log and the Resource includes several additional properties dependent on the EntryType.",
+            "insertable": false,
+            "longDescription": "This Resource shall represent the log format for Log Services in a Redfish implementation.",
+            "updatable": false,
+            "uris": [
+                "/redfish/v1/Managers/{ManagerId}/LogServices/{LogServiceId}/Entries/{LogEntryId}",
+                "/redfish/v1/Systems/{ComputerSystemId}/LogServices/{LogServiceId}/Entries/{LogEntryId}",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/LogServices/{LogServiceId}/Entries/{LogEntryId}",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/LogServices/{LogServiceId}/Entries/{LogEntryId}",
+                "/redfish/v1/Chassis/{ChassisId}/LogServices/{LogServiceId}/Entries/{LogEntryId}",
+                "/redfish/v1/JobService/Log/Entries/{LogEntryId}",
+                "/redfish/v1/TelemetryService/LogService/Entries/{LogEntryId}"
+            ]
+        }
+    },
+    "owningEntity": "DMTF",
+    "title": "#LogEntry.LogEntry"
+}

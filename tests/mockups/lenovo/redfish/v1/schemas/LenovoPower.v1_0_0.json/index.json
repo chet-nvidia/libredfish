@@ -1,0 +1,232 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoPower",
+    "definitions": {
+        "Capabilities": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "LocalPowerControlEnabled": {
+                    "type": "boolean",
+                    "readonly": true,
+                    "description": "This indicates whether local power control is enabled.",
+                    "longDescription": "The value of this property shall be a boolean indicating whether local power control is enabled."
+                },
+                "PowerOnPermissionEnabled": {
+                    "type": "boolean",
+                    "readonly": true,
+                    "description": "This indicates whether power on permission is enabled.",
+                    "longDescription": "The value of this property shall be a boolean indicating whether power on permission is enabled."
+                },
+                "WakeOnLANEnabled": {
+                    "type": "boolean",
+                    "readonly": true,
+                    "description": "This indicates whether Wake on LAN is enabled.",
+                    "longDescription": "The value of this property shall be a boolean indicating whether Wake on LAN is enabled."
+                },
+                "PowerRestorePolicy": {
+                    "$ref": "#/definitions/PowerRestorePolicy",
+                    "readonly": false,
+                    "description": "This indicates current power policy of the system.",
+                    "longDescription": "The power policy specifies that the system's power behavior after AC returns."
+                }
+            },
+            "description": "This is the schema definition for Oem Lenovo extended Power resource."
+        },
+        "PowerControl": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "PowerUtilization": {
+                    "$ref": "#/definitions/PowerUtilization",
+                    "description": "Represents the ability of a platform or component to perform autonomic management of its power utilization.",
+                    "longDescription": "The value of this property shall represent the ability of a platform or component to perform autonomic management of its power utilization."
+                },
+                "HistoryPowerMetric": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoHistoryMetricValue.json#/definitions/LenovoHistoryMetricValue",
+                    "readonly": true,
+                    "description": "A reference indicating power history metric values.",
+                    "longDescription": "The value of this property shall be a reference indicating power history metric values. In this reference shall contain: SystemInputPower, SystemOutputPower, CPUSubsystemPower, MemorySubsystemPower, CoolingSubsystemPower metric values."
+                }
+            },
+            "description": "This is the schema definition for Oem Lenovo extended Power control resource."
+        },
+        "PowerUtilization": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "UtilizationMode": {
+                    "$ref": "#/definitions/UtilizationMode",
+                    "readonly": false,
+                    "description": "UtilizationMode indicates the current power utilization mode implemented by the service.",
+                    "longDescription": "The value of this property shall indicate the current power utilization mode implemented by the service."
+                },
+                "EnablePowerCapping": {
+                    "type": "boolean",
+                    "readonly": false,
+                    "description": "EnablePowerCapping indicates current power capping is enabled or not.",
+                    "longDescription": "The value of this property shall indicate the current power capping is enabled or not."
+                },
+                "LimitMode": {
+                    "$ref": "#/definitions/LimitMode",
+                    "readonly": false,
+                    "description": "LimitMode indicates the current power limit mode implemented by the service.",
+                    "longDescription": "The value of this property shall indicate the current power limit mode implemented by the service."
+                },
+                "GuaranteedInWatts": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "GuaranteedInWatts indicate the guaranteed value of power limit is allowed by the service.",
+                    "longDescription": "The value of this property shall indicate the guaranteed value of power limit is allowed by the service."
+                },
+                "MinLimitInWatts": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "MinLimitInWatts indicates the minimum value of power limit is allowed by the service.",
+                    "longDescription": "The value of this property shall indicate the minimum value of power limit is allowed by the service."
+                },
+                "MaxLimitInWatts": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "MaxLimitInWatts indicates the maximal value of power limit is allowed by the service.",
+                    "longDescription": "The value of this property shall indicate the maximal value of power limit is allowed by the service."
+                },
+                "CapacityMinAC": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "CapacityMinAC indicates the minimum value of capacity AC is allowed by the service.",
+                    "longDescription": "The value of this property shall indicate the minimum value of capacity AC is allowed by the service."
+                },
+                "CapacityMaxAC": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "CapacityMaxAC indicates the maxiaml value of capacity AC is allowed by the service.",
+                    "longDescription": "The value of this property shall indicate the maxiaml value of capacity AC is allowed by the service."
+                },
+                "CapacityMinDC": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "CapacityMinDC indicates the minimum value of capacity DC is allowed by the service.",
+                    "longDescription": "The value of this property shall indicate the minimum value of capacity DC is allowed by the service."
+                },
+                "CapacityMaxDC": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "CapacityMaxDC indicates the maxiaml value of capacity DC is allowed by the service.",
+                    "longDescription": "The value of this property shall indicate the maxiaml value of capacity DC is allowed by the service."
+                }
+            },
+            "description": "This is the schema definition for Oem Lenovo extended Power Utilization resource."
+        },
+        "UtilizationMode": {
+            "type": "string",
+            "enum": [
+                "None",
+                "Static"
+            ]
+        },
+        "LimitMode": {
+            "type": "string",
+            "enum": [
+                "AC",
+                "DC"
+            ]
+        },
+        "PowerSupply": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "Location": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.v1_4_0.json#/definitions/Location",
+                    "readonly": true,
+                    "description": "This indicates PSU slot information.",
+                    "longDescription": "The value of this property shall indicate PSU slot information. The InfoFormat shall be Slot X, like Slot 1."
+                },
+                "HistoryPowerSupplyMetric": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoHistoryMetricValue.json#/definitions/LenovoHistoryMetricValue",
+                    "readonly": true,
+                    "description": "A reference indicating power supply history metric values.",
+                    "longDescription": "The value of this property shall be a reference indicating power supply history metric values. In this reference shall contain: PowerSupplyInputPower, PowerSupplyOutputPower metric values."
+                }
+            },
+            "description": "This is the schema definition for Oem Lenovo extended Power supply resource."
+        },
+        "PowerRestorePolicy": {
+            "type": "string",
+            "enum": [
+                "AlwaysOff",
+                "Restore",
+                "AlwaysOn",
+                "Unknown"
+            ],
+            "enumDescriptions": {
+                "AlwaysOff": "system stays powered off after AC/mains returns",
+                "Restore": "after AC returns, power is restored to the state that was in effect when AC/mains was lost",
+                "AlwaysOn": "system always powers on after AC/mains returns",
+                "Unknown": "unknown"
+            }
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

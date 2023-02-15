@@ -1,0 +1,80 @@
+{
+    "value": [
+        {
+            "url": "/redfish/v1/",
+            "name": "Service",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/TaskService",
+            "name": "Tasks",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/Chassis",
+            "name": "Chassis",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/Managers",
+            "name": "Managers",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/EventService",
+            "name": "EventService",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/JsonSchemas",
+            "name": "JsonSchemas",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/Systems",
+            "name": "Systems",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/UpdateService",
+            "name": "UpdateService",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/Registries",
+            "name": "Registries",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/SessionService",
+            "name": "SessionService",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/SessionService/Sessions",
+            "name": "Sessions",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/AccountService",
+            "name": "AccountService",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/CertificateService",
+            "name": "CertificateService",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/TelemetryService",
+            "name": "TelemetryService",
+            "kind": "Singleton"
+        },
+        {
+            "url": "/redfish/v1/JobService",
+            "name": "JobService",
+            "kind": "Singleton"
+        }
+    ],
+    "@odata.context": "/redfish/v1/$metadata"
+}

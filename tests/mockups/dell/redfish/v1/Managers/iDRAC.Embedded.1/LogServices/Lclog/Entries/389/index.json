@@ -1,0 +1,32 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/389",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-03-26T10:52:48-05:00",
+    "Description": "Log Entry 389",
+    "EntryType": "Oem",
+    "Id": "389",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/EthernetInterfaces/NIC.Embedded.1-1-1"
+        }
+    },
+    "Message": "The Embedded NIC 1 Port 1 network link is down.",
+    "MessageArgs": [
+        "Embedded NIC 1",
+        "1"
+    ],
+    "MessageArgs@odata.count": 2,
+    "MessageId": "IDRAC.2.7.NIC100",
+    "Name": "Log Entry 389",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "SystemHealth",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "Warning"
+}

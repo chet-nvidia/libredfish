@@ -1,0 +1,27 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/421",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-05-28T11:36:32-05:00",
+    "Description": "Log Entry 421",
+    "EntryType": "Oem",
+    "Id": "421",
+    "Links": {},
+    "Message": "The previous log entry was repeated 2 times.",
+    "MessageArgs": [
+        "2"
+    ],
+    "MessageArgs@odata.count": 1,
+    "MessageId": "IDRAC.2.7.LOG007",
+    "Name": "Log Entry 421",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

@@ -1,0 +1,9 @@
+{
+    "Members": [],
+    "@odata.type": "#NetworkDeviceFunctionCollection.NetworkDeviceFunctionCollection",
+    "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/slot-5/NetworkDeviceFunctions",
+    "Members@odata.count": 0,
+    "@odata.etag": "\"2e7674e0450724e65d2\"",
+    "Name": "NetworkDeviceFunctionCollection",
+    "Description": "A collection of NetworkDeviceFunction resource instances."
+}

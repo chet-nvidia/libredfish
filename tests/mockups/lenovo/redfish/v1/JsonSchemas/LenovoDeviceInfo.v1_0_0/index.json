@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoDeviceInfo.v1_0_0.LenovoDeviceInfo",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoDeviceInfo.v1_0_0",
+    "Name": "LenovoDeviceInfo JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoDeviceInfo.v1_0_0.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"9d7e711d\"",
+    "Id": "LenovoDeviceInfo.v1_0_0",
+    "Description": "This represents the LenovoDeviceInfo Schema File locator resource for a Redfish implementation."
+}

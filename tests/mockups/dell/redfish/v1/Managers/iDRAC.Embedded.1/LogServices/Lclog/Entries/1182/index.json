@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/1182",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-02-13T22:15:26-06:00",
+    "Description": "Log Entry 1182",
+    "EntryType": "Oem",
+    "Id": "1182",
+    "Links": {},
+    "Message": "System CPU Resetting.",
+    "MessageId": "IDRAC.2.7.SYS1003",
+    "Name": "Log Entry 1182",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

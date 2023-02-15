@@ -1,0 +1,469 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoComputerSystem",
+    "definitions": {
+        "LenovoSystemProperties": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "SystemStatus": {
+                    "$ref": "#/definitions/SystemStatus",
+                    "description": "Represents the status of the system."
+                },
+                "NumberOfWarrantiedPowerTransitions": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Represents the maximum number of power transistions the system can experience before system reliability may be compromised.",
+                    "longDescription": "It is the the maximum number of transitions from a non-S0 power state to the S0 power state before reliability of the system begins to degrade."
+                },
+                "NumberOfWakesFromS3": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Indicates the number of times the system has been restored from the S3 to the S0 power state.",
+                    "longDescription": "Indicates the number of times the system has been restored from the S3 to the S0 power state."
+                },
+                "NumberOfReboots": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "NumberOfReboots indicates the number of times the system has been rebooted.",
+                    "longDescription": "NumberOfReboots indicates the number of times the system has been rebooted."
+                },
+                "TotalPowerOnHours": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "The total amount of time that the host server has been powered on.",
+                    "longDescription": "The total amount of time that the host server has been powered on."
+                },
+                "AverageTimeToIPL": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "The static amount of time, in seconds, to go from system standby to powered on.",
+                    "longDescription": "The static amount of time, in seconds, to go from system standby to powered on."
+                },
+                "Memories": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoMemoryCollection.json#/definitions/LenovoMemoryCollection",
+                    "description": "This object describes the memory of the system in general detail.",
+                    "longDescription": "This is a reference to memory. This object shall contain properties which describes the memory for the current resource."
+                },
+                "Sensors": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoSensorCollection.json#/definitions/LenovoSensorCollection",
+                    "description": "This object describes the sensors of the system in general detail.",
+                    "longDescription": "This is a reference to sensor. This object shall contain properties which describes the sensors for the current resource."
+                },
+                "Adapters": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoAdapterCollection.json#/definitions/LenovoAdapterCollection",
+                    "description": "This object describes the adapter of the chassis in general detail.",
+                    "longDescription": "This is a reference to adapter. This object shall contain properties which describes the adapter for the current resource."
+                },
+                "FibreChannelInterfaces": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoFibreChannelInterfaceCollection.json#/definitions/LenovoFibreChannelInterfaceCollection",
+                    "description": "A reference to the collection of Fibre Channel interfaces associated with this system",
+                    "longDescription": "This is a reference to fibre channel interface. The value of this property shall be a link to a collection of type FibreChannelInterfaceCollection."
+                },
+                "InfinibandInterfaces": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoInfinibandInterfaceCollection.json#/definitions/LenovoInfinibandInterfaceCollection",
+                    "description": "A reference to the collection of Infiniband interfaces associated with this system",
+                    "longDescription": "This is a reference to infiniband interface. The value of this property shall be a link to a collection of type InfinibandInterfaceCollection."
+                },
+                "iSCSIInterfaces": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoiSCSIInterfaceCollection.json#/definitions/LenovoiSCSIInterfaceCollection",
+                    "description": "A reference to the collection of iSCSI Interfaces associated with this system",
+                    "longDescription": "This is a reference to iSCSI interface. The value of this property shall be a link to a collection of type iSCSIInterfaceCollection."
+                },
+                "TPMSettings": {
+                    "$ref": "#/definitions/TPMSettings",
+                    "description": "Represents the settings of TPM operations service.",
+                    "longDescription": "The value of this property shall represent the settings of TPM oprations service."
+                },
+                "BootSettings": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoBootManagerCollection.json#/definitions/LenovoBootManagerCollection",
+                    "readonly": false,
+                    "description": "A refernce to the collection of the boot settings for the server",
+                    "longDescription": "Use this field to describe the server boot settings. From the general classification, there are 3 collections. There are multiple boot sources in sequence in each collection."
+                },
+                "BiosConfigs": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoBiosConfigCollection.json#/definitions/LenovoBiosConfigCollection",
+                    "readonly": false,
+                    "description": "A refernce to the collection of the bios configs for the server",
+                    "longDescription": "Use this field to describe the bios configs, which are matched with f1 console."
+                },
+                "Metrics": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoHistoryMetricValueContainerCollection.json#/definitions/LenovoHistoryMetricValueContainerCollection",
+                    "readonly": true,
+                    "description": "A reference to the collection of the performance metrics in general detail."
+                },
+                "HistorySysPerf": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoHistoryMetricValue.json#/definitions/LenovoHistoryMetricValue",
+                    "readonly": true,
+                    "description": "A reference indicating system performance history metric values.",
+                    "longDescription": "The value of this property shall be a reference indicating system performance history metric values. In this reference shall contain: SystemPerformance, CPUSubsystemPerformance, MemorySubsystemPerformance, IOSubsystemPerformance metric values."
+                },
+                "PendingStates": {
+                    "$ref": "#/definitions/PendingPowerOn",
+                    "readonly": true,
+                    "description": "The properties for the server pending power on."
+                },
+                "ScheduledPowerActions": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoScheduledPowerActionCollection.json#/definitions/LenovoScheduledPowerActionCollection",
+                    "description": "A reference to the collection of the scheduled power actions of the system.",
+                    "longDescription": "This is a reference to scheduled power actions. This object shall contain properties which describes the scheduled power actions for the current resource."
+                },
+                "FrontPanelUSB": {
+                    "$ref": "#/definitions/FrontPanelUSBPort",
+                    "description": "The properties for the front panel USB port."
+                }
+            },
+            "description": "These properties shall be refered in /schemas/v1/ComputerSystem.v1_0_1.json#/definitions/ComputerSystem/properties/Oem."
+        },
+        "LenovoSystemLinks": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "FirmwareInfo@odata.count": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/count"
+                },
+                "FirmwareInfo@odata.navigationLink": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/idRef"
+                },
+                "FirmwareInfo": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "http://redfish.dmtf.org/schemas/v1/SoftwareInventory.json#/definitions/SoftwareInventory"
+                    },
+                    "readonly": true,
+                    "description": "This property is an array of references to the firmware that this system has installed(UEFI firmware information).",
+                    "longDescription": "This is a reference to firmware serivce. This property shall contain an array of references to firmware resources of which this system has installed(UEFI firmware information)."
+                }
+            },
+            "description": "These properties shall be refered in /schemas/v1/ComputerSystem.v1_0_0.json#/definitions/ComputerSystem/properties/Links/Oem."
+        },
+        "TPMSettings": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "AssertRPP": {
+                    "type": "boolean",
+                    "readonly": false,
+                    "description": "Get/set the BMC to assert or de-assert UEFI's remote physical presence signal.",
+                    "longDescription": "The value of this property shall get/set the BMC to assert or de-assert UEFI's physical presence signal.This property is get/set via an IPMI command which can only be exercised by IPMI users with Administrator privileges."
+                },
+                "EnableRPP": {
+                    "type": "boolean",
+                    "readonly": true,
+                    "description": "Represents the BMC's ability to assert UEFI remote physical presence.",
+                    "longDescription": "The value of this property shall represent the BMC's ability to assert UEFI remote physical presence."
+                },
+                "AssertDurationMins": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Represents assert physical presence of TPM for this duration.",
+                    "longDescription": "The value of this property shall represent assert physical presence of TPM for this duration."
+                }
+            },
+            "description": "This object is used to represent TPM operation settings."
+        },
+        "LenovoSystemActions": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "#LenovoComputerSystem.CustomizedReset": {
+                    "$ref": "#/definitions/CustomizedReset"
+                },
+                "#LenovoComputerSystem.SystemReset": {
+                    "$ref": "#/definitions/SystemReset"
+                },
+                "#LenovoComputerSystem.BootToBIOSSetup": {
+                    "$ref": "#/definitions/BootToBIOSSetup"
+                }
+            }
+        },
+        "CustomizedReset": {
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Friendly action name"
+                },
+                "target": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to invoke action"
+                },
+                "ResetType": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/ResetType",
+                    "description": "The type of reset to be performed",
+                    "longDescription": "This defines expected power action to the system by the caller. For the method, the supported power action is 'power on server'."
+                },
+                "Date": {
+                    "type": "string",
+                    "description": "Indicate the specified date for next power action, the format shoud be Month/Day/Year. By the parameter, user can set to automatically power on the server on specified day."
+                },
+                "Time": {
+                    "type": "string",
+                    "description": "Indicate the specified time for next power action, the format is 'Hour:Minute AM/PM'.By the parameter, user can set to automatically power on the server on specified moment."
+                }
+            }
+        },
+        "SystemReset": {
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Friendly action name"
+                },
+                "target": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to invoke action"
+                },
+                "ResetType": {
+                    "$ref": "#/definitions/ResetTypeItem",
+                    "description": "The type of reset to be performed",
+                    "longDescription": "This defines expected power action to the system by the caller."
+                }
+            },
+            "description": "This action shall reset the server.",
+            "longDescription": "This action shall reset the server represented by the resource."
+        },
+        "BootToBIOSSetup": {
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Friendly action name"
+                },
+                "target": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to invoke action"
+                }
+            },
+            "description": "Use the action to make the system boot to BIOS setup.",
+            "longDescription": "User can make the system boot to BIOS setup without middle human intervention such as enter 'DELETE', 'F2'."
+        },
+        "ResetTypeItem": {
+            "type": "string",
+            "enum": [
+                "ACPowerCycle"
+            ]
+        },
+        "SystemStatus": {
+            "type": "string",
+            "enum": [
+                "SystemPowerOff_StateUnknown",
+                "SystemOn_StartingUEFI",
+                "SystemRunningInUEFI",
+                "SystemStoppedInUEFI",
+                "BootingOSOrInUndetectedOS",
+                "OSBooted",
+                "SuspendToRAM",
+                "SystemRunningInSetup",
+                "SystemRunningInLXPM",
+                "SystemRunningInMemoryTest"
+            ]
+        },
+        "PendingPowerOn": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Pending": {
+                    "type": "boolean",
+                    "description": "This indicates whether server is on pending for power on."
+                },
+                "Date": {
+                    "type": "string",
+                    "description": "Indicate the specified date for next power action, the format shoud be Month/Day/Year. By the parameter, user can set to automatically power on the server on specified day."
+                },
+                "Time": {
+                    "type": "string",
+                    "description": "Indicate the specified time for next power action, the format is 'Hour:Minute AM/PM'.By the parameter, user can set to automatically power on the server on specified moment."
+                }
+            }
+        },
+        "FrontPanelUSBPort": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "FPMode": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "enum": [
+                        "Shared",
+                        "BMC",
+                        "Server"
+                    ],
+                    "enumDescriptions": {
+                        "Shared": "Shared mode.",
+                        "BMC": "The port is always connected to the BMC. It is never connected to the server.",
+                        "Server": "The port is always connected to the server. It is never connected to the BMC."
+                    },
+                    "description": "The mode configuration of the front panel USB port.",
+                    "longDescription": "Display and configure the front panel USB port mode."
+                },
+                "InactivityTimeoutMins": {
+                    "type": "number",
+                    "description": "Shared inactivity timeout minutes.",
+                    "longDescription": "The BMC will support an inactivity timeout that signals the BMC to automatically switch the USB port back from the BMC to the server when the USB port is in shared mode and server power is on and there has been no USB activity to the BMC for a period of time. This setting is hidden if Shared FPMode is not enabled for front panel USB port."
+                },
+                "IDButton": {
+                    "type": "string",
+                    "enum": [
+                        "On",
+                        "Off"
+                    ],
+                    "enumDescriptions": {
+                        "On": "Allow the ID (Locate) push button.",
+                        "Off": "Disable the ID (Locate) push button."
+                    },
+                    "description": "Enable/Disable using id button to toggle owner.",
+                    "longDescription": "The BMC will support a setting that allows the user to choose whether or not to allow the ID (Locate) push button to be used as a signal to the BMC to switch the port to or from the BMC. This setting is hidden if Shared FPMode is not enabled."
+                },
+                "PortSwitchingTo": {
+                    "type": "string",
+                    "enum": [
+                        "BMC",
+                        "Server"
+                    ],
+                    "enumDescriptions": {
+                        "BMC": "The front panel USB port is currently connected to the BMC/Request to switch the front panel USB port to the BMC.",
+                        "Server": "The front panel USB port is currently connected to the server/Request to switch the front panel USB port to the server."
+                    },
+                    "description": "Display and configure the front panel USB port owner.",
+                    "longDescription": "If the port configuration is set to Shared FPMode and the USB port is currently connected to the server, the BMC will support a request to switch the front panel USB port to the BMC. When this request is executed, the front panel USB connector will be switched immediately to the BMC. If the port configuration is set to Shared FPMode and the USB port is currently connected to the BMC, the BMC will support a request to switch the front panel USB port back to the server. When this request is executed, the front panel USB connector will be switched immediately to the server. This setting is hidden if Shared FPMode is not enabled."
+                }
+            }
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

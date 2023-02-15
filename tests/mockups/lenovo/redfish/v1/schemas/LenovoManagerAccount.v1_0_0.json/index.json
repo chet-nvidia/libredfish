@@ -1,0 +1,46 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoManagerAccount.v1_0_0.LenovoManagerAccount",
+    "definitions": {
+        "LenovoManagerAccount": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "SNMPv3Settings": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoAuthenticationAuthority.v1_0_0.json#/definitions/SNMPv3Settings",
+                    "readonly": false,
+                    "description": "Specify the SNMPv3 access setting for the user."
+                },
+                "SSHPublicKey": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoAuthenticationAuthority.v1_0_0.json#/definitions/SSHPublicKey",
+                    "readonly": false,
+                    "description": "Specify the SSH public key of the user in OpenSSH format.",
+                    "longDescription": "This property is used to specify the SSH public key of the user in OpenSSH format."
+                }
+            }
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

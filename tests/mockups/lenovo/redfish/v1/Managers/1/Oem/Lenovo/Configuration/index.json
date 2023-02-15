@@ -1,0 +1,36 @@
+{
+    "Id": "Configuration",
+    "BackupStatus": "No backup action",
+    "Name": "Configuration",
+    "@odata.type": "#LenovoConfigurationService.v1_0_0.LenovoConfigurationService",
+    "RestoreStatus": "No restore action",
+    "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/Configuration",
+    "@odata.etag": "\"b9fb5977140a32c73d6ce\"",
+    "Actions": {
+        "#LenovoConfigurationService.BackupConfiguration": {
+            "target": "/redfish/v1/Managers/1/Oem/Lenovo/Configuration/Actions/LenovoConfigurationService.BackupConfiguration",
+            "title": "BackupConfiguration",
+            "EncryptScope@Redfish.AllowableValues": [
+                "WholeFile",
+                "SensitiveInfo"
+            ]
+        },
+        "#LenovoConfigurationService.ResetToDefault": {
+            "title": "ResetToDefault",
+            "target": "/redfish/v1/Managers/1/Oem/Lenovo/Configuration/Actions/LenovoConfigurationService.ResetToDefault"
+        },
+        "#LenovoConfigurationService.BackupConfigurationDescriptor": {
+            "title": "BackupConfigurationDescriptor",
+            "target": "/redfish/v1/Managers/1/Oem/Lenovo/Configuration/Actions/LenovoConfigurationService.BackupConfigurationDescriptor"
+        },
+        "#LenovoConfigurationService.GetRestoreConfigurationDetails": {
+            "title": "GetRestoreConfigurationDetails",
+            "target": "/redfish/v1/Managers/1/Oem/Lenovo/Configuration/Actions/LenovoConfigurationService.GetRestoreConfigurationDetails"
+        },
+        "#LenovoConfigurationService.RestoreConfiguration": {
+            "title": "RestoreConfiguration",
+            "target": "/redfish/v1/Managers/1/Oem/Lenovo/Configuration/Actions/LenovoConfigurationService.RestoreConfiguration"
+        }
+    },
+    "Description": "This resource is used to represent a configuration service for the manager for a Redfish implementation."
+}

@@ -1,0 +1,19 @@
+{
+    "Schema": "#LenovoNetworkPort.v1_0_0.LenovoNetworkPort",
+    "Id": "LenovoNetworkPort.v1_0_0",
+    "Name": "LenovoNetworkPort JSON Schema File",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoNetworkPort.v1_0_0.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"75208ae7\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoNetworkPort.v1_0_0",
+    "Description": "This represents the LenovoNetworkPort Schema File locator resource for a Redfish implementation."
+}

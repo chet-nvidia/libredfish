@@ -1,0 +1,16 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/SessionService/Sessions/4"
+        },
+        {
+            "@odata.id": "/redfish/v1/SessionService/Sessions/37"
+        }
+    ],
+    "@odata.type": "#SessionCollection.SessionCollection",
+    "@odata.id": "/redfish/v1/SessionService/Sessions",
+    "Name": "SessionCollection",
+    "@odata.etag": "\"2955a8a53f902a2663e\"",
+    "Members@odata.count": 2,
+    "Description": "A collection of Session resource instances."
+}

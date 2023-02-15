@@ -1,0 +1,18 @@
+{
+    "Schema": "#SecureBoot.SecureBoot",
+    "@odata.id": "/redfish/v1/JsonSchemas/SecureBoot",
+    "Name": "SecureBoot JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/SecureBoot.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"98a2f4d6\"",
+    "Id": "SecureBoot",
+    "Description": "This represents the SecureBoot Schema File locator resource for a Redfish implementation."
+}

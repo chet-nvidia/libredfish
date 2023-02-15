@@ -1,0 +1,18 @@
+{
+    "Schema": "#Event.v1_4_2.Event",
+    "@odata.id": "/redfish/v1/JsonSchemas/Event.v1_4_2",
+    "Name": "Event JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/Event.v1_4_2.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"ecc9eb98\"",
+    "Id": "Event.v1_4_2",
+    "Description": "This represents the Event Schema File locator resource for a Redfish implementation."
+}

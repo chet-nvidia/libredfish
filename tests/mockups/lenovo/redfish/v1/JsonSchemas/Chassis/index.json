@@ -1,0 +1,18 @@
+{
+    "Schema": "#Chassis.Chassis",
+    "@odata.id": "/redfish/v1/JsonSchemas/Chassis",
+    "Name": "Chassis JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/Chassis.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"53a0ee9d\"",
+    "Id": "Chassis",
+    "Description": "This represents the Chassis Schema File locator resource for a Redfish implementation."
+}

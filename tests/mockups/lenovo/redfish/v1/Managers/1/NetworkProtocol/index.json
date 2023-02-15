@@ -1,0 +1,110 @@
+{
+    "FQDN": "XCC-7Z23-J101RZ43",
+    "SNMP": {
+        "EngineId": {
+            "ArchitectureId": "04 58 43 43 2D 37 5A 32 33 2D 4A 31 30 31 52 5A 34 33",
+            "PrivateEnterpriseId": "80 00 1f 88"
+        },
+        "Port": 161,
+        "EnableSNMPv3": false
+    },
+    "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol",
+    "HostName": "XCC-7Z23-J101RZ43",
+    "VirtualMedia": {
+        "ProtocolEnabled": true,
+        "Port": 3900
+    },
+    "Description": "The resource is used to represent the network service settings for the manager for a Redfish implementation.",
+    "KVMIP": {
+        "ProtocolEnabled": true,
+        "Port": 3900
+    },
+    "Id": "NetworkProtocol",
+    "HTTP": {
+        "ProtocolEnabled": true,
+        "Port": 80
+    },
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Name": "Manager Network Protocol",
+    "DHCP": {
+        "ProtocolEnabled": false
+    },
+    "SSH": {
+        "ProtocolEnabled": true,
+        "Port": 22
+    },
+    "HTTPS": {
+        "ProtocolEnabled": true,
+        "Port": 443,
+        "Certificates": {
+            "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/HTTPS/Certificates"
+        }
+    },
+    "SSDP": {
+        "ProtocolEnabled": true,
+        "NotifyMulticastIntervalSeconds": 60,
+        "NotifyTTL": 2,
+        "NotifyIPv6Scope": "Organization",
+        "Port": 1900
+    },
+    "@odata.type": "#ManagerNetworkProtocol.v1_6_0.ManagerNetworkProtocol",
+    "Oem": {
+        "Lenovo": {
+            "DNS": {
+                "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/Oem/Lenovo/DNS"
+            },
+            "SLP": {
+                "ProtocolEnabled": true,
+                "MulticastAddress": "239.255.255.253",
+                "AddressType": "Multicast",
+                "Port": 427
+            },
+            "@odata.type": "#LenovoManagerNetworkProtocol.v1_0_0.LenovoManagerNetworkProtocolProperties",
+            "SNMP": {
+                "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/Oem/Lenovo/SNMP"
+            },
+            "CimOverHTTPS": {
+                "ProtocolEnabled": false,
+                "Port": 5989,
+                "BackendEnabled": false
+            },
+            "SMTPClient": {
+                "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/Oem/Lenovo/SMTPClient"
+            },
+            "LDAPClient": {
+                "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/Oem/Lenovo/LDAPClient"
+            },
+            "OpenPorts": [
+                "22",
+                "80",
+                "115",
+                "427",
+                "443",
+                "546",
+                "623",
+                "1900",
+                "3900"
+            ]
+        }
+    },
+    "IPMI": {
+        "ProtocolEnabled": true,
+        "Port": 623
+    },
+    "@odata.etag": "\"d01b737b6ee62f043f8b6\"",
+    "DHCPv6": {
+        "ProtocolEnabled": true
+    },
+    "NTP": {
+        "NTPServers": [
+            "",
+            "",
+            "",
+            ""
+        ],
+        "ProtocolEnabled": false
+    }
+}

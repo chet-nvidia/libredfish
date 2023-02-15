@@ -1,0 +1,73 @@
+{
+    "Tasks": {
+        "@odata.id": "/redfish/v1/TaskService"
+    },
+    "Chassis": {
+        "@odata.id": "/redfish/v1/Chassis"
+    },
+    "@odata.id": "/redfish/v1/",
+    "ProtocolFeaturesSupported": {
+        "ExpandQuery": {
+            "Levels": true,
+            "NoLinks": true,
+            "Links": true,
+            "ExpandAll": true,
+            "MaxLevels": 2
+        },
+        "DeepOperations": {
+            "DeepPOST": false,
+            "DeepPATCH": false,
+            "MaxLevels": 2
+        },
+        "FilterQuery": true,
+        "OnlyMemberQuery": true,
+        "ExcerptQuery": true,
+        "SelectQuery": true
+    },
+    "Links": {
+        "Sessions": {
+            "@odata.id": "/redfish/v1/SessionService/Sessions"
+        }
+    },
+    "RedfishVersion": "1.10.0",
+    "EventService": {
+        "@odata.id": "/redfish/v1/EventService"
+    },
+    "JsonSchemas": {
+        "@odata.id": "/redfish/v1/JsonSchemas"
+    },
+    "Systems": {
+        "@odata.id": "/redfish/v1/Systems"
+    },
+    "TelemetryService": {
+        "@odata.id": "/redfish/v1/TelemetryService"
+    },
+    "Description": "This resource is used to represent a service root for a Redfish implementation.",
+    "Registries": {
+        "@odata.id": "/redfish/v1/Registries"
+    },
+    "CertificateService": {
+        "@odata.id": "/redfish/v1/CertificateService"
+    },
+    "UUID": "BC20D65A-1A53-11EC-8C43-7E8AE1D5A277",
+    "Vendor": "Lenovo",
+    "Name": "Root Service",
+    "JobService": {
+        "@odata.id": "/redfish/v1/JobService"
+    },
+    "Id": "RootService",
+    "@odata.type": "#ServiceRoot.v1_7_0.ServiceRoot",
+    "SessionService": {
+        "@odata.id": "/redfish/v1/SessionService"
+    },
+    "Managers": {
+        "@odata.id": "/redfish/v1/Managers"
+    },
+    "@odata.etag": "\"9d9eddf809b531da3493b\"",
+    "AccountService": {
+        "@odata.id": "/redfish/v1/AccountService"
+    },
+    "UpdateService": {
+        "@odata.id": "/redfish/v1/UpdateService"
+    }
+}

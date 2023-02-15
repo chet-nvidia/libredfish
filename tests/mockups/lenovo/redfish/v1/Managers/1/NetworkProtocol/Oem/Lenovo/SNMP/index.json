@@ -1,0 +1,54 @@
+{
+    "Id": "SNMP",
+    "Name": "SNMP Protocol",
+    "SNMPv3Agent": {
+        "ContactPerson": "",
+        "Location": "",
+        "Links": {
+            "UsersSNMPv3Settings": {
+                "@odata.id": "/redfish/v1/AccountService/Accounts"
+            }
+        },
+        "Port": 161,
+        "ProtocolEnabled": false
+    },
+    "@odata.type": "#LenovoSNMPProtocol.v1_0_0.LenovoSNMPProtocol",
+    "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/Oem/Lenovo/SNMP",
+    "CommunityNames": [
+        ""
+    ],
+    "SNMPTraps": {
+        "ProtocolEnabled": false,
+        "SNMPv1TrapEnabled": false,
+        "AlertRecipient": {
+            "WarningEvents": {
+                "Enabled": false,
+                "AcceptedEvents": [
+                    ""
+                ]
+            },
+            "SystemEvents": {
+                "Enabled": false,
+                "AcceptedEvents": [
+                    ""
+                ]
+            },
+            "CriticalEvents": {
+                "Enabled": false,
+                "AcceptedEvents": [
+                    ""
+                ]
+            }
+        },
+        "Targets": [
+            {
+                "Addresses": [
+                    ""
+                ]
+            }
+        ],
+        "Port": 162
+    },
+    "@odata.etag": "\"58243141da302aee461\"",
+    "Description": "This resource is used to represent SNMP protocol for the manager for a Redfish implementation."
+}

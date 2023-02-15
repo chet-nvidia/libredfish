@@ -1,0 +1,18 @@
+{
+    "Schema": "#AccountService.AccountService",
+    "@odata.id": "/redfish/v1/JsonSchemas/AccountService",
+    "Name": "AccountService JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/AccountService.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"c864fcf3\"",
+    "Id": "AccountService",
+    "Description": "This represents the AccountService Schema File locator resource for a Redfish implementation."
+}

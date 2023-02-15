@@ -1,0 +1,12 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/ToManager"
+        }
+    ],
+    "@odata.type": "#EthernetInterfaceCollection.EthernetInterfaceCollection",
+    "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1/HostEthernetInterfaces",
+    "@odata.etag": "\"277e05446a7928a3f63\"",
+    "Name": "EthernetInterfaceCollection",
+    "Members@odata.count": 1
+}

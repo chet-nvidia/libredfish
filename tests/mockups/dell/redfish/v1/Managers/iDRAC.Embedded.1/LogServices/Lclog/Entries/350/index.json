@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/350",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-01-18T22:28:49-06:00",
+    "Description": "Log Entry 350",
+    "EntryType": "Oem",
+    "Id": "350",
+    "Links": {},
+    "Message": "System is turning on.",
+    "MessageId": "IDRAC.2.7.SYS1000",
+    "Name": "Log Entry 350",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

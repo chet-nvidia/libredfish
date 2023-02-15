@@ -1,0 +1,26 @@
+{
+    "Version": "20E-1.40",
+    "Id": "BMC-Backup",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Managers/1"
+        }
+    ],
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC-Backup",
+    "Status": {
+        "HealthRollup": "OK",
+        "Health": "OK",
+        "State": "StandbySpare"
+    },
+    "RelatedItem@odata.count": 1,
+    "Name": "Firmware:BMC",
+    "ReleaseDate": "2021-05-17T00:00:00Z",
+    "LowestSupportedVersion": null,
+    "Manufacturer": "Lenovo",
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "WriteProtected": true,
+    "Updateable": true,
+    "@odata.etag": "\"4253c205b1dd25a904d\"",
+    "SoftwareId": "BMC-TGBT-10",
+    "Description": "The information of BMC (Backup) firmware."
+}

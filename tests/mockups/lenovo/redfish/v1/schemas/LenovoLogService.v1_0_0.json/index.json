@@ -1,0 +1,205 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoLogService",
+    "definitions": {
+        "LenovoLogServiceProperties": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "SupportedCategories": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Represents that the PFA (Predictable Failure Alert) event categories supported by the server.",
+                    "longDescription": "The value of this property shall represent the PFA (Predictable Failure Alert) event categories supported by the server."
+                },
+                "DesiredCategories": {
+                    "type": "number",
+                    "readonly": false,
+                    "description": "Represents that the desired PFA event categories which are to be processed by the system.",
+                    "longDescription": "The value of this property shall represent the desired PFA event categories which are to be processed by the system."
+                },
+                "VMMoveCategory": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/VMMoveCategoryItem"
+                    },
+                    "description": "Represents the PFA (Predictable Failure Alert) event categories supported by IMM no matter these events are supported on not by the server",
+                    "longDescription": "The value of this property shall be an array of objects used to represent the PFA event categories supported by IMM no matter these events are supported on not by the server"
+                },
+                "FirstSeqNum": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "The first sequence number of log entry in this log service.",
+                    "longDescription": "The value of this property shall be a number used to represent the first sequence number of log entry in this log service."
+                },
+                "LastSeqNum": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "The last sequence number of log entry in this log service.",
+                    "longDescription": "The value of this property shall be a number used to represent the last sequence number of log entry in this log service."
+                },
+                "HiddenFirstSeqNum": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "The first sequence number of hidden log in this log service.",
+                    "longDescription": "The value of this property shall be a number used to represent the first sequence number of hidden log in this log service."
+                },
+                "HiddenLastSeqNum": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "The last sequence number of hidden log in this log service.",
+                    "longDescription": "The value of this property shall be a number used to represent the last sequence number of hidden log in this log service."
+                }
+            },
+            "description": "This is Lenovo extended details of Log service properties."
+        },
+        "VMMoveCategoryItem": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "VMMoveCategoryBit": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Represents bits of each PFA event categories supported by IMM.",
+                    "longDescription": "The value of this property shall represent bits of the PFA event categories."
+                },
+                "VMMoveCategoryName": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents name of the PFA event categories supported by IMM.",
+                    "longDescription": "The value of this property shall represent name of the PFA event categories."
+                },
+                "VMMoveCategoryType": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents type of the PFA event categories supported by IMM.",
+                    "longDescription": "The value of this property shall represent type of the PFA event categories."
+                }
+            }
+        },
+        "LenovoLogServiceActions": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "#LenovoLogService.GetLogEntriesBySequenceNumber": {
+                    "$ref": "#/definitions/GetLogEntriesBySequenceNumber"
+                }
+            }
+        },
+        "GetLogEntriesBySequenceNumber": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Friendly action name"
+                },
+                "target": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to invoke action"
+                },
+                "Response": {
+                    "$ref": "#/definitions/MatchedLogEntries",
+                    "description": "Indicates what data will be response."
+                },
+                "FirstEventSequenceNumber": {
+                    "type": "number",
+                    "description": "This is the first (or only) sequence number value being requested. If it is not found, then no records will be output."
+                },
+                "NumberOfEntries": {
+                    "type": "number",
+                    "description": "This is the number of entries requested to be returned. If there are not enough entries in the log to satisfy NumberOfEntries input, then the available entries are returned with no error. A value of 0 for NmberOfEntries is invalid and fails with Invalid Parameter and no output."
+                }
+            },
+            "description": "This action shall return all matched Log entries, based on the two input parameters. The return code of this action shall be an unsigned int type."
+        },
+        "MatchedLogEntries": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "LogEntries": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/LogEntryCollection.json#/definitions/LogEntryCollection",
+                    "description": "Indicates the matched log entries.",
+                    "longDescription": "The value of this property shall indicate the matched log entries."
+                }
+            },
+            "description": "This object is used to represent the response of the action GetLogEntriesBySequenceNumber."
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

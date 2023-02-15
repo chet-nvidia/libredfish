@@ -1,0 +1,8 @@
+These folders were created by this tool: https://github.com/DMTF/Redfish-Mockup-Creator
+
+I ran it like this:
+```
+docker run --rm --user="$(id -u):$(id -g)" -v /home/graham/src/libredfish/tests/mockups/lenovo:/mockup dmtf/redfish-mockup-creator:latest -u Egxadmin -p <pw-go-here> -r <BMC-IP-ADDRESS-GO-BRR> -S
+```
+
+The mockup server which the integration test runs is https://github.com/DMTF/Redfish-Mockup-Server

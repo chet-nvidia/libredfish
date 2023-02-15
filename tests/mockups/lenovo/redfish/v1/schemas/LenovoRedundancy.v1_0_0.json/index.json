@@ -1,0 +1,99 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoRedundancy",
+    "definitions": {
+        "LenovoRedundancyProperties": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "PowerRedundancySettings": {
+                    "$ref": "#/definitions/PowerRedundancySettings",
+                    "description": "This property is used to change PSU redundancy policy and show configuration in this policy."
+                },
+                "NonRedundantAvailablePower": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Indicates the available non-redundant power when the server is running in a non-redundant mode of operation.",
+                    "longDescription": "The value of this property shall indicate the available non-redundant power when the server is running in a non-redundant mode of operation."
+                }
+            },
+            "description": "This is Lenovo extended redundancy properties."
+        },
+        "PowerRedundancySettings": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "PowerRedundancyPolicy": {
+                    "$ref": "#/definitions/PowerRedundancyPolicyOptions",
+                    "readonly": false,
+                    "description": "Indicates available power supply redundancy policies of this server.",
+                    "longDescription": "The value of this property shall indicate available power supply redundancy policies of this server."
+                },
+                "PowerFailureLimit": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Indicates the failure limit of power supply in this policy.",
+                    "longDescription": "The value of this property shall indicate the failure limit of power supply in this policy."
+                },
+                "MaxPowerLimitWatts": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Indicates the maximum power limit of the PSU redundancy in this policy.",
+                    "longDescription": "The value of this property shall indicate the maximum power limit of the PSU redundancy in this policy."
+                },
+                "EstimatedUsage": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Indicates the estimated usage is based on the maximum power limit allowed in this policy and the current aggregated power in use of all components.",
+                    "longDescription": "The value of this proerty shall indicate the estimated usage is based on the maximum power limit allowed in this policy and the current aggregated power in use of all components."
+                }
+            },
+            "description": "This object is used to change PSU redundancy policy and show configuration in this policy."
+        },
+        "PowerRedundancyPolicyOptions": {
+            "type": "string",
+            "enum": [
+                "RedundantWithoutThrottling",
+                "RedundantWithThrottling",
+                "NonRedundantWithThrottling",
+                "NonRedundantwithoutThrottling"
+            ]
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

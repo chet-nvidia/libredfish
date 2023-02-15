@@ -1,0 +1,16 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/NIC"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost"
+        }
+    ],
+    "@odata.type": "#EthernetInterfaceCollection.EthernetInterfaceCollection",
+    "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces",
+    "Members@odata.count": 2,
+    "@odata.etag": "\"34cd5d9a340525a62e0\"",
+    "Name": "EthernetInterfaceCollection",
+    "Description": "A collection of EthernetInterface resource instances."
+}

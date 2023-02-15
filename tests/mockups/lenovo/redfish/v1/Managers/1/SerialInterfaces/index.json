@@ -1,0 +1,13 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Managers/1/SerialInterfaces/1"
+        }
+    ],
+    "@odata.type": "#SerialInterfaceCollection.SerialInterfaceCollection",
+    "@odata.id": "/redfish/v1/Managers/1/SerialInterfaces",
+    "Members@odata.count": 1,
+    "@odata.etag": "\"2b3f338b6ef124262d7\"",
+    "Name": "SerialInterfaceCollection",
+    "Description": "A collection of SerialInterface resource instances."
+}

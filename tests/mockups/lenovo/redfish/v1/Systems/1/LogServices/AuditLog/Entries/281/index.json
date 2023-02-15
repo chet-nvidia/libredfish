@@ -1,0 +1,46 @@
+{
+    "Message": "The server was powered off by chassis control command.",
+    "@odata.etag": "\"ejUxX1N0YW5kYXJkTG9nRW50cnkK281\"",
+    "MessageArgs": [],
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/AuditLog/Entries/281",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "EntryType": "Oem",
+    "Name": "LogEntry",
+    "EventGroupId": 0,
+    "OemLogEntryCode": "Lenovo0179",
+    "Oem": {
+        "Lenovo": {
+            "ReportingChain": "XCC",
+            "IsLocalEvent": true,
+            "RawDebugLogURL": "",
+            "EventID@Redfish.Deprecated": "The property is deprecated. Please use EventId instead.",
+            "EventFlag": 0,
+            "AuxiliaryData": "",
+            "Source": "System",
+            "FailingFRU": [
+                {
+                    "FRUSerialNumber": "",
+                    "FRUNumber": ""
+                }
+            ],
+            "TSLVersion": "0",
+            "RelatedEventID": "",
+            "Serviceable": "Not Serviceable",
+            "EventID": "0x400000b300000000",
+            "EventSequenceNumber": 281,
+            "EventType": 0,
+            "@odata.type": "#LenovoLogEntry.v1_0_0.AuditLogEntry",
+            "LenovoMessageID": "Lenovo0179",
+            "AffectedIndicatorLEDs": [],
+            "TotalSequenceNumber": 318,
+            "CommonEventID": "FQXSPPP4035I",
+            "Hidden": false
+        }
+    },
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "281",
+    "Severity": "OK",
+    "EventId": "0x400000b300000000",
+    "Created": "2023-02-07T20:03:18.886+00:00"
+}

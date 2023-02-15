@@ -1,0 +1,11 @@
+{
+    "PortForwardingMap": {
+        "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost/Oem/Lenovo/PortForwarding/PortForwardingMap"
+    },
+    "@odata.type": "#LenovoPortForwarding.v1_0_0.LenovoPortForwarding",
+    "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost/Oem/Lenovo/PortForwarding",
+    "Id": "PortForwarding",
+    "@odata.etag": "\"2f3dd77b147327e3e82\"",
+    "Name": "Port Forwarding",
+    "USBPortForwardingEnabled": false
+}

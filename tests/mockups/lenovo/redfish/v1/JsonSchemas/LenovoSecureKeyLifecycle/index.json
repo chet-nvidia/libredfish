@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoSecureKeyLifecycle.LenovoSecureKeyLifecycle",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoSecureKeyLifecycle",
+    "Name": "LenovoSecureKeyLifecycle JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoSecureKeyLifecycle.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"bf046e85\"",
+    "Id": "LenovoSecureKeyLifecycle",
+    "Description": "This represents the LenovoSecureKeyLifecycle Schema File locator resource for a Redfish implementation."
+}

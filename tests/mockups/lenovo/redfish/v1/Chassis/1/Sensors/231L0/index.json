@@ -1,0 +1,47 @@
+{
+    "ReadingRangeMax": 0,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/231L0",
+    "ReadingRangeMin": -51,
+    "ReadingUnits": "",
+    "Thresholds": {
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": null
+        }
+    },
+    "PhysicalContext": "CPU",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Name": "CPU 1 DTS",
+    "Precision": 0,
+    "MinAllowableOperatingValue": -51,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "MaxAllowableOperatingValue": 0,
+    "Id": "231L0",
+    "@odata.etag": "\"614160535480273081d\"",
+    "ReadingType": "Temperature",
+    "Reading": -51
+}

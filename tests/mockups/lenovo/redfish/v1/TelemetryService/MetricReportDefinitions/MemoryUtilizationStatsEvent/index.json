@@ -1,0 +1,26 @@
+{
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/MemoryUtilizationStatsEvent",
+    "Metrics": [
+        {
+            "MetricId": "AverageMemoryUtilization",
+            "CollectionDuration": "PT30S",
+            "CollectionTimeScope": "Interval"
+        }
+    ],
+    "Name": "MemoryUtilizationStatsEvent",
+    "Id": "MemoryUtilizationStatsEvent",
+    "ReportActions": [
+        "RedfishEvent"
+    ],
+    "MetricReportDefinitionType": "Periodic",
+    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
+    "Status": {
+        "State": "Enabled"
+    },
+    "@odata.etag": "\"516524fabeca2aec46b\"",
+    "ReportTimespan": "PT10M",
+    "Schedule": {
+        "RecurrenceInterval": "PT10M"
+    },
+    "Description": "A set of metrics that are collected into a metric report."
+}

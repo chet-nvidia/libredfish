@@ -1,0 +1,11 @@
+{
+    "Id": "Boot0000",
+    "BootOptionReference": "Boot0000",
+    "Name": "ubuntu",
+    "UefiDevicePath": "HD_1_GPT_80230AA1_F37F_46CD_B99B_0B74B0EEBE35_0x800_0x219800_EFI_ubuntu_shimx64_efi",
+    "@odata.type": "#BootOption.v1_0_3.BootOption",
+    "@odata.id": "/redfish/v1/Systems/1/BootOptions/Boot0000",
+    "@odata.etag": "\"2e764207e14524e5989\"",
+    "DisplayName": "ubuntu",
+    "Description": "This resource shall be used to represent a single boot option contained within a system."
+}

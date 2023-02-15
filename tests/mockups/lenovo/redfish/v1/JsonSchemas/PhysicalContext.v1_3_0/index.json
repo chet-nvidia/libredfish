@@ -1,0 +1,18 @@
+{
+    "Schema": "#PhysicalContext.v1_3_0.PhysicalContext",
+    "@odata.id": "/redfish/v1/JsonSchemas/PhysicalContext.v1_3_0",
+    "Name": "PhysicalContext JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/PhysicalContext.v1_3_0.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"0c280fa8\"",
+    "Id": "PhysicalContext.v1_3_0",
+    "Description": "This represents the PhysicalContext Schema File locator resource for a Redfish implementation."
+}

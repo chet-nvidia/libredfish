@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoRemoteControlSession.LenovoRemoteControlSession",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoRemoteControlSession",
+    "Name": "LenovoRemoteControlSession JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoRemoteControlSession.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"a5d0e1e1\"",
+    "Id": "LenovoRemoteControlSession",
+    "Description": "This represents the LenovoRemoteControlSession Schema File locator resource for a Redfish implementation."
+}

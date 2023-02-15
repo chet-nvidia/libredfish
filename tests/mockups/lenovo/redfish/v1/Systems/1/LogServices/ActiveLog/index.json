@@ -1,0 +1,16 @@
+{
+    "DateTimeLocalOffset": "+00:00",
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/ActiveLog",
+    "Name": "LogService",
+    "ServiceEnabled": true,
+    "MaxNumberOfRecords": 1024,
+    "DateTime": "2023-02-13T17:35:34+00:00",
+    "@odata.type": "#LogService.v1_1_3.LogService",
+    "LogEntryType": "Multiple",
+    "Id": "ActiveLog",
+    "@odata.etag": "\"381c564abf1124e8f41\"",
+    "Entries": {
+        "@odata.id": "/redfish/v1/Systems/1/LogServices/ActiveLog/Entries"
+    },
+    "Description": "This resource is used to represent a log service for a Redfish implementation."
+}

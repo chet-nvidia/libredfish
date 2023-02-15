@@ -1,0 +1,40 @@
+{
+    "SNMP": {
+        "AuthenticationProtocol": "None",
+        "EncryptionKey": null,
+        "EncryptionKeySet": true,
+        "EncryptionProtocol": "None"
+    },
+    "Id": "2",
+    "Links": {
+        "Role": {
+            "@odata.id": "/redfish/v1/AccountService/Roles/Administrator"
+        }
+    },
+    "AccountTypes": [
+        "Redfish"
+    ],
+    "Password": null,
+    "PasswordChangeRequired": false,
+    "UserName": "Egxadmin",
+    "Name": "User2",
+    "@odata.id": "/redfish/v1/AccountService/Accounts/2",
+    "Description": "This resource is used to represent an account for the manager for a Redfish implementation.",
+    "Oem": {
+        "Lenovo": {
+            "@odata.type": "#LenovoManagerAccount.v1_0_0.LenovoManagerAccount",
+            "SSHPublicKey": [
+                "",
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+    "RoleId": "Administrator",
+    "@odata.etag": "\"5e3c4a41d3a0272a41e\"",
+    "PasswordExpiration": null,
+    "Enabled": true,
+    "Locked": false,
+    "@odata.type": "#ManagerAccount.v1_6_0.ManagerAccount"
+}

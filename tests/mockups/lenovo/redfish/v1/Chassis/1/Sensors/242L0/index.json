@@ -1,0 +1,48 @@
+{
+    "ReadingRangeMax": 0,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/242L0",
+    "ReadingRangeMin": 0,
+    "ReadingUnits": "V",
+    "Thresholds": {
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": 10.615
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": 13.2
+        }
+    },
+    "PhysicalContext": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Reading": 11.99,
+    "ReadingType": "Voltage",
+    "Precision": 0,
+    "VoltageType": "DC",
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "MaxAllowableOperatingValue": 14.025,
+    "Name": "SysBrd 12V",
+    "MinAllowableOperatingValue": 0,
+    "@odata.etag": "\"61c6daeef9e324eb864\"",
+    "Id": "242L0"
+}

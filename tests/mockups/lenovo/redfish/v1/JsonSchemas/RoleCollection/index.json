@@ -1,0 +1,18 @@
+{
+    "Schema": "#RoleCollection.RoleCollection",
+    "Id": "RoleCollection",
+    "Name": "RoleCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/RoleCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"b872d934\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/RoleCollection",
+    "Description": "This represents the RoleCollection Schema File locator resource for a Redfish implementation."
+}

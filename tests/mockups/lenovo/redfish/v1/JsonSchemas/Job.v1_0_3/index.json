@@ -1,0 +1,18 @@
+{
+    "Schema": "#Job.v1_0_3.Job",
+    "@odata.id": "/redfish/v1/JsonSchemas/Job.v1_0_3",
+    "Name": "Job JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/Job.v1_0_3.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"6088c726\"",
+    "Id": "Job.v1_0_3",
+    "Description": "This represents the Job Schema File locator resource for a Redfish implementation."
+}

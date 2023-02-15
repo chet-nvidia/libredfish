@@ -1,0 +1,13 @@
+{
+    "TimerExpired": false,
+    "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/Watchdogs/2",
+    "State": "Disabled",
+    "Name": "Watch dog",
+    "Id": "2",
+    "@odata.type": "#LenovoWatchdog.v1_0_0.LenovoWatchdog",
+    "TimerValueInSec": null,
+    "Type": "OS",
+    "@odata.etag": "\"3262d0542df627e2f37\"",
+    "TimeoutIntervalInSec": null,
+    "Description": "This resource is used to represent a watchdog of a system for a Redfish implementation."
+}

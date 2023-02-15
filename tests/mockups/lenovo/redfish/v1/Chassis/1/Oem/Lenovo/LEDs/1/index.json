@@ -1,0 +1,16 @@
+{
+    "Name": "BMC Heartbeat",
+    "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/LEDs/1",
+    "State": "Blink",
+    "PeriodInMillSec": 2000,
+    "DeviceEntity": "System Management Software",
+    "Id": "1",
+    "EntityInstance": 1,
+    "DutyCycle": 50,
+    "@odata.type": "#LenovoLED.v1_0_0.LenovoLED",
+    "EntityID": 33,
+    "Location": "Planar",
+    "@odata.etag": "\"32b01e3f202924e3836\"",
+    "Color": "Green",
+    "Description": "This resource is used to represent a LED sensor for a Redfish implementation."
+}

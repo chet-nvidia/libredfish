@@ -1,0 +1,16 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/188L0",
+    "Status": {
+        "State": "Disabled",
+        "Health": null
+    },
+    "ReadingUnits": "",
+    "Reading": null,
+    "PhysicalContext": null,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Id": "188L0",
+    "Name": "M2 Drive 1",
+    "@odata.etag": "\"27aa053f902e2962124\"",
+    "ReadingType": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+}

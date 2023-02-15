@@ -1,0 +1,14 @@
+{
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/MaintenanceLog/Entries/4",
+    "EntryType": "Oem",
+    "Message": "PSU1(SN: D1DG12N00HD) is added.",
+    "EventGroupId": 1,
+    "Severity": null,
+    "Name": "LogEntry",
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "4",
+    "@odata.etag": "\"31ed2e17313227e5c7b\"",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "Created": "2022-08-31T23:00:46Z"
+}

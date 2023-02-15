@@ -1,0 +1,33 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/929",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-02-08T01:15:07-06:00",
+    "Description": "Log Entry 929",
+    "EntryType": "Oem",
+    "Id": "929",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+        }
+    },
+    "Message": "The session for root from 10.180.37.2 using eHTML5 Virtual Console is logged off.",
+    "MessageArgs": [
+        "root",
+        "10.180.37.2",
+        "eHTML5 Virtual Console"
+    ],
+    "MessageArgs@odata.count": 3,
+    "MessageId": "IDRAC.2.7.USR0032",
+    "Name": "Log Entry 929",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

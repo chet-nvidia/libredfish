@@ -1,0 +1,31 @@
+{
+    "MaxExecutionTime": null,
+    "JobStatus": "OK",
+    "JobState": "Suspended",
+    "Id": "PowerOn",
+    "HidePayload": true,
+    "StepOrder": [],
+    "PercentComplete": null,
+    "Name": "Power On",
+    "@odata.type": "#Job.v1_0_3.Job",
+    "@odata.id": "/redfish/v1/JobService/Jobs/PowerOn",
+    "Messages": [],
+    "@odata.etag": "\"4c8c8fcf76c429696da\"",
+    "Schedule": {
+        "RecurrenceInterval": null,
+        "InitialStartTime": null,
+        "EnabledDaysOfWeek@Redfish.AllowableValues": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+            "Every"
+        ],
+        "EnabledDaysOfWeek": [],
+        "Name": "Lenovo:Power On"
+    },
+    "Description": "The resource is used to represent the settings of scheduled Power On actions for a Redfish implementation."
+}

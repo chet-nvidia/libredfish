@@ -1,0 +1,18 @@
+{
+    "Schema": "#NetworkDeviceFunctionCollection.NetworkDeviceFunctionCollection",
+    "@odata.id": "/redfish/v1/JsonSchemas/NetworkDeviceFunctionCollection",
+    "Name": "NetworkDeviceFunctionCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/NetworkDeviceFunctionCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"0a8b4a0f\"",
+    "Id": "NetworkDeviceFunctionCollection",
+    "Description": "This represents the NetworkDeviceFunctionCollection Schema File locator resource for a Redfish implementation."
+}

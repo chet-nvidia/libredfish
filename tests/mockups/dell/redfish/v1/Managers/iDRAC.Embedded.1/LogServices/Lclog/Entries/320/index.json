@@ -1,0 +1,31 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/320",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2021-12-16T19:05:57-06:00",
+    "Description": "Log Entry 320",
+    "EntryType": "Oem",
+    "Id": "320",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+        }
+    },
+    "Message": "The server power action is initiated because the host device initiated a warm-reset operation.",
+    "MessageArgs": [
+        "the host device initiated a warm-reset operation"
+    ],
+    "MessageArgs@odata.count": 1,
+    "MessageId": "IDRAC.2.7.SYS1005",
+    "Name": "Log Entry 320",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

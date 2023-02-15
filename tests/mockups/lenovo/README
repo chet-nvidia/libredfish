@@ -1,0 +1,9 @@
+Redfish service captured by the Redfish Mockup Creator, Version 1.1.9
+Created: 2023-02-13 17:30:49
+Service: https://10.153.145.92
+User: Egxadmin
+Description: 
+Total response time: 507.9639964103699
+Average response time: 0.2772729238047871
+Minimum response time: 0.08815407752990723, /redfish/v1/Systems/1/LogServices/AuditLog/Entries/261
+Maximum response time: 10.344699621200562, /redfish/v1/TelemetryService/MetricReports/PowerSupplyStats

@@ -1,0 +1,47 @@
+{
+    "ReadingRangeMax": 255,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/207L0",
+    "ReadingRangeMin": 255,
+    "ReadingUnits": "Watts",
+    "Thresholds": {
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": null
+        }
+    },
+    "PhysicalContext": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Reading": 12,
+    "Precision": 0,
+    "MinAllowableOperatingValue": 255,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "MaxAllowableOperatingValue": 255,
+    "Name": "Mem Power",
+    "@odata.etag": "\"639f9734770e2aebd59\"",
+    "Id": "207L0",
+    "ReadingType": "Current"
+}

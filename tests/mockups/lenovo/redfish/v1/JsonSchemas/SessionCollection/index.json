@@ -1,0 +1,18 @@
+{
+    "Schema": "#SessionCollection.SessionCollection",
+    "Id": "SessionCollection",
+    "Name": "SessionCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/SessionCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"6442e36e\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/SessionCollection",
+    "Description": "This represents the SessionCollection Schema File locator resource for a Redfish implementation."
+}

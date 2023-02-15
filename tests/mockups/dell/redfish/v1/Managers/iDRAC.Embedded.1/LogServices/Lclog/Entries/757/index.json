@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/757",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-01-19T03:38:46-06:00",
+    "Description": "Log Entry 757",
+    "EntryType": "Oem",
+    "Id": "757",
+    "Links": {},
+    "Message": "System is turning off.",
+    "MessageId": "IDRAC.2.7.SYS1001",
+    "Name": "Log Entry 757",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

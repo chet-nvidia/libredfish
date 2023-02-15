@@ -1,0 +1,28 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/553",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-11-15T17:04:15-06:00",
+    "Description": "Log Entry 553",
+    "EntryType": "Oem",
+    "Id": "553",
+    "Links": {},
+    "Message": "The System Configuration Check operation has detected a change in the configuration from Config 63 to 77.",
+    "MessageArgs": [
+        "63",
+        "77"
+    ],
+    "MessageArgs@odata.count": 2,
+    "MessageId": "IDRAC.2.7.HWC1110",
+    "Name": "Log Entry 553",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Configuration",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

@@ -1,0 +1,18 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoScheduledPowerAction.LenovoScheduledPowerAction",
+    "$ref": "#/definitions/LenovoScheduledPowerAction",
+    "definitions": {
+        "LenovoScheduledPowerAction": {
+            "anyOf": [
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/idRef"
+                },
+                {
+                    "$ref": "/schemas/v1/Lenovo/LenovoScheduledPowerAction.v1_0_0.json#/definitions/LenovoScheduledPowerAction"
+                }
+            ]
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

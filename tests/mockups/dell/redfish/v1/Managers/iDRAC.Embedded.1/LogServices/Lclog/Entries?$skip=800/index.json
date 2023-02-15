@@ -1,0 +1,1489 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntryCollection.LogEntryCollection",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries",
+    "@odata.type": "#LogEntryCollection.LogEntryCollection",
+    "Description": "LC Logs for this manager",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/390",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-03-26T10:52:58-05:00",
+            "Description": "Log Entry 390",
+            "EntryType": "Oem",
+            "Id": "390",
+            "Links": {},
+            "Message": "The iDRAC IP Address changed from 10.153.137.125 to 0.0.0.0.",
+            "MessageArgs": [
+                "10.153.137.125",
+                "0.0.0.0"
+            ],
+            "MessageArgs@odata.count": 2,
+            "MessageId": "IDRAC.2.7.IPA0100",
+            "Name": "Log Entry 390",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/389",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-03-26T10:52:48-05:00",
+            "Description": "Log Entry 389",
+            "EntryType": "Oem",
+            "Id": "389",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1/EthernetInterfaces/NIC.Embedded.1-1-1"
+                }
+            },
+            "Message": "The Embedded NIC 1 Port 1 network link is down.",
+            "MessageArgs": [
+                "Embedded NIC 1",
+                "1"
+            ],
+            "MessageArgs@odata.count": 2,
+            "MessageId": "IDRAC.2.7.NIC100",
+            "Name": "Log Entry 389",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/388",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-25T14:37:57-06:00",
+            "Description": "Log Entry 388",
+            "EntryType": "Oem",
+            "Id": "388",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for admin from 10.126.181.18 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "admin",
+                "10.126.181.18",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 388",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/387",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-25T14:37:57-06:00",
+            "Description": "Log Entry 387",
+            "EntryType": "Oem",
+            "Id": "387",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 387",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/386",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-25T14:37:51-06:00",
+            "Description": "Log Entry 386",
+            "EntryType": "Oem",
+            "Id": "386",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for admin from 10.126.181.18 using SSH.",
+            "MessageArgs": [
+                "admin",
+                "10.126.181.18",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 386",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/385",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-25T14:35:19-06:00",
+            "Description": "Log Entry 385",
+            "EntryType": "Oem",
+            "Id": "385",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for admin from 10.126.181.18 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "admin",
+                "10.126.181.18",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 385",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/384",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-25T14:35:19-06:00",
+            "Description": "Log Entry 384",
+            "EntryType": "Oem",
+            "Id": "384",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 384",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/383",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-25T14:35:13-06:00",
+            "Description": "Log Entry 383",
+            "EntryType": "Oem",
+            "Id": "383",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for admin from 10.126.181.18 using SSH.",
+            "MessageArgs": [
+                "admin",
+                "10.126.181.18",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 383",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/382",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-23T07:22:34-06:00",
+            "Description": "Log Entry 382",
+            "EntryType": "Oem",
+            "Id": "382",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for nvidia from 10.126.181.18 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "nvidia",
+                "10.126.181.18",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 382",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/381",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-23T07:22:34-06:00",
+            "Description": "Log Entry 381",
+            "EntryType": "Oem",
+            "Id": "381",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 381",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/380",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-23T07:22:27-06:00",
+            "Description": "Log Entry 380",
+            "EntryType": "Oem",
+            "Id": "380",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for nvidia from 10.126.181.18 using SSH.",
+            "MessageArgs": [
+                "nvidia",
+                "10.126.181.18",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 380",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/379",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-23T07:17:54-06:00",
+            "Description": "Log Entry 379",
+            "EntryType": "Oem",
+            "Id": "379",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for nvidia from 10.126.181.18 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "nvidia",
+                "10.126.181.18",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 379",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/378",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-23T07:17:54-06:00",
+            "Description": "Log Entry 378",
+            "EntryType": "Oem",
+            "Id": "378",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 378",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/377",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-23T07:17:48-06:00",
+            "Description": "Log Entry 377",
+            "EntryType": "Oem",
+            "Id": "377",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for nvidia from 10.126.181.18 using SSH.",
+            "MessageArgs": [
+                "nvidia",
+                "10.126.181.18",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 377",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/376",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-18T04:52:09-06:00",
+            "Description": "Log Entry 376",
+            "EntryType": "Oem",
+            "Id": "376",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for lab from 10.126.181.12 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "lab",
+                "10.126.181.12",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 376",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/375",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-18T04:52:09-06:00",
+            "Description": "Log Entry 375",
+            "EntryType": "Oem",
+            "Id": "375",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 375",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/374",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-18T04:52:03-06:00",
+            "Description": "Log Entry 374",
+            "EntryType": "Oem",
+            "Id": "374",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for lab from 10.126.181.12 using SSH.",
+            "MessageArgs": [
+                "lab",
+                "10.126.181.12",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 374",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/373",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-18T04:48:28-06:00",
+            "Description": "Log Entry 373",
+            "EntryType": "Oem",
+            "Id": "373",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for lab from 10.126.181.12 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "lab",
+                "10.126.181.12",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 373",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/372",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-18T04:48:28-06:00",
+            "Description": "Log Entry 372",
+            "EntryType": "Oem",
+            "Id": "372",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 372",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/371",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-18T04:48:22-06:00",
+            "Description": "Log Entry 371",
+            "EntryType": "Oem",
+            "Id": "371",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for lab from 10.126.181.12 using SSH.",
+            "MessageArgs": [
+                "lab",
+                "10.126.181.12",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 371",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/370",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-11T06:39:34-06:00",
+            "Description": "Log Entry 370",
+            "EntryType": "Oem",
+            "Id": "370",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for root from 10.126.181.18 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.18",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 370",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/369",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-11T06:39:34-06:00",
+            "Description": "Log Entry 369",
+            "EntryType": "Oem",
+            "Id": "369",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 369",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/368",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-11T06:39:28-06:00",
+            "Description": "Log Entry 368",
+            "EntryType": "Oem",
+            "Id": "368",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for root from 10.126.181.18 using SSH.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.18",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 368",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/367",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-11T06:35:25-06:00",
+            "Description": "Log Entry 367",
+            "EntryType": "Oem",
+            "Id": "367",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for root from 10.126.181.18 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.18",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 367",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/366",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-11T06:35:25-06:00",
+            "Description": "Log Entry 366",
+            "EntryType": "Oem",
+            "Id": "366",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 366",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/365",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-11T06:35:19-06:00",
+            "Description": "Log Entry 365",
+            "EntryType": "Oem",
+            "Id": "365",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for root from 10.126.181.18 using SSH.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.18",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 365",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/364",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-09T12:11:03-06:00",
+            "Description": "Log Entry 364",
+            "EntryType": "Oem",
+            "Id": "364",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for root from 10.126.181.12 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.12",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 364",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/363",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-09T12:11:03-06:00",
+            "Description": "Log Entry 363",
+            "EntryType": "Oem",
+            "Id": "363",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 363",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/362",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-09T12:10:57-06:00",
+            "Description": "Log Entry 362",
+            "EntryType": "Oem",
+            "Id": "362",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for root from 10.126.181.12 using SSH.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.12",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 362",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/361",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-09T12:06:24-06:00",
+            "Description": "Log Entry 361",
+            "EntryType": "Oem",
+            "Id": "361",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for root from 10.126.181.12 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.12",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 361",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/360",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-09T12:06:24-06:00",
+            "Description": "Log Entry 360",
+            "EntryType": "Oem",
+            "Id": "360",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 360",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/359",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-09T12:06:18-06:00",
+            "Description": "Log Entry 359",
+            "EntryType": "Oem",
+            "Id": "359",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for root from 10.126.181.12 using SSH.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.12",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 359",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/358",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-07T02:46:16-06:00",
+            "Description": "Log Entry 358",
+            "EntryType": "Oem",
+            "Id": "358",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for root from 10.126.181.6 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.6",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 358",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/357",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-07T02:46:16-06:00",
+            "Description": "Log Entry 357",
+            "EntryType": "Oem",
+            "Id": "357",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 357",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/356",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-07T02:46:09-06:00",
+            "Description": "Log Entry 356",
+            "EntryType": "Oem",
+            "Id": "356",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for root from 10.126.181.6 using SSH.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.6",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 356",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/355",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-07T02:42:05-06:00",
+            "Description": "Log Entry 355",
+            "EntryType": "Oem",
+            "Id": "355",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Login attempt alert for root from 10.126.181.6 using SSH, IP will be blocked for 60 seconds.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.6",
+                "SSH",
+                "60"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.USR0034",
+            "Name": "Log Entry 355",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/354",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-07T02:42:05-06:00",
+            "Description": "Log Entry 354",
+            "EntryType": "Oem",
+            "Id": "354",
+            "Links": {},
+            "Message": "The previous log entry was repeated 2 times.",
+            "MessageArgs": [
+                "2"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 354",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/353",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-02-07T02:41:59-06:00",
+            "Description": "Log Entry 353",
+            "EntryType": "Oem",
+            "Id": "353",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for root from 10.126.181.6 using SSH.",
+            "MessageArgs": [
+                "root",
+                "10.126.181.6",
+                "SSH"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 353",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/352",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-01-18T22:30:36-06:00",
+            "Description": "Log Entry 352",
+            "EntryType": "Oem",
+            "Id": "352",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "New PCI card(s) have been detected in the system. Fan speeds may have changed to add additional cooling to the cards.",
+            "MessageId": "IDRAC.2.7.PCI3030",
+            "Name": "Log Entry 352",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/351",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-01-18T22:29:01-06:00",
+            "Description": "Log Entry 351",
+            "EntryType": "Oem",
+            "Id": "351",
+            "Links": {},
+            "Message": "System CPU Resetting.",
+            "MessageId": "IDRAC.2.7.SYS1003",
+            "Name": "Log Entry 351",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/350",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-01-18T22:28:49-06:00",
+            "Description": "Log Entry 350",
+            "EntryType": "Oem",
+            "Id": "350",
+            "Links": {},
+            "Message": "System is turning on.",
+            "MessageId": "IDRAC.2.7.SYS1000",
+            "Name": "Log Entry 350",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/349",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-01-18T22:28:40-06:00",
+            "Description": "Log Entry 349",
+            "EntryType": "Oem",
+            "Id": "349",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Auto Discovery feature disabled.",
+            "MessageId": "IDRAC.2.7.DIS002",
+            "Name": "Log Entry 349",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/348",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-01-18T22:28:39-06:00",
+            "Description": "Log Entry 348",
+            "EntryType": "Oem",
+            "Id": "348",
+            "Links": {},
+            "Message": "The iDRAC firmware was rebooted with the following reason: ac.",
+            "MessageArgs": [
+                "ac"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.RAC0182",
+            "Name": "Log Entry 348",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/347",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-01-18T22:28:38-06:00",
+            "Description": "Log Entry 347",
+            "EntryType": "Oem",
+            "Id": "347",
+            "Links": {},
+            "Message": "The iDRAC IP Address changed from 0.0.0.0 to 10.153.137.125.",
+            "MessageArgs": [
+                "0.0.0.0",
+                "10.153.137.125"
+            ],
+            "MessageArgs@odata.count": 2,
+            "MessageId": "IDRAC.2.7.IPA0100",
+            "Name": "Log Entry 347",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/346",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-01-18T22:27:40-06:00",
+            "Description": "Log Entry 346",
+            "EntryType": "Oem",
+            "Id": "346",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Power Supply 2: Status = 0x1, IOUT = 0x0, VOUT= 0x0, TEMP= 0x0, FAN = 0x0, INPUT= 0x0.",
+            "MessageArgs": [
+                "2",
+                "1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+            ],
+            "MessageArgs@odata.count": 7,
+            "MessageId": "IDRAC.2.7.PSU0800",
+            "Name": "Log Entry 346",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/345",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-01-18T22:27:40-06:00",
+            "Description": "Log Entry 345",
+            "EntryType": "Oem",
+            "Id": "345",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Power Supply 1: Status = 0x1, IOUT = 0x0, VOUT= 0x0, TEMP= 0x0, FAN = 0x0, INPUT= 0x0.",
+            "MessageArgs": [
+                "1",
+                "1",
+                "0",
+                "0",
+                "0",
+                "0",
+                "0"
+            ],
+            "MessageArgs@odata.count": 7,
+            "MessageId": "IDRAC.2.7.PSU0800",
+            "Name": "Log Entry 345",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/344",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2022-01-18T22:27:40-06:00",
+            "Description": "Log Entry 344",
+            "EntryType": "Oem",
+            "Id": "344",
+            "Links": {},
+            "Message": "A bezel that has the iDRAC LCD panel feature is detected.",
+            "MessageId": "IDRAC.2.7.USR8514",
+            "Name": "Log Entry 344",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/343",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-22T17:11:58-06:00",
+            "Description": "Log Entry 343",
+            "EntryType": "Oem",
+            "Id": "343",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1/EthernetInterfaces/NIC.Embedded.1-1-1"
+                }
+            },
+            "Message": "The Embedded NIC 1 Port 1 network link is started.",
+            "MessageArgs": [
+                "Embedded NIC 1",
+                "1"
+            ],
+            "MessageArgs@odata.count": 2,
+            "MessageId": "IDRAC.2.7.NIC101",
+            "Name": "Log Entry 343",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/342",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-21T21:30:48-06:00",
+            "Description": "Log Entry 342",
+            "EntryType": "Oem",
+            "Id": "342",
+            "Links": {},
+            "Message": "The iDRAC IP Address changed from 0.0.0.0 to 10.153.131.155.",
+            "MessageArgs": [
+                "0.0.0.0",
+                "10.153.131.155"
+            ],
+            "MessageArgs@odata.count": 2,
+            "MessageId": "IDRAC.2.7.IPA0100",
+            "Name": "Log Entry 342",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/341",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-21T21:23:42-06:00",
+            "Description": "Log Entry 341",
+            "EntryType": "Oem",
+            "Id": "341",
+            "Links": {},
+            "Message": "The iDRAC IP Address changed from 10.153.131.155 to 0.0.0.0.",
+            "MessageArgs": [
+                "10.153.131.155",
+                "0.0.0.0"
+            ],
+            "MessageArgs@odata.count": 2,
+            "MessageId": "IDRAC.2.7.IPA0100",
+            "Name": "Log Entry 341",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        }
+    ],
+    "Members@odata.count": 1190,
+    "Members@odata.nextLink": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries?$skip=850",
+    "Name": "Log Entry Collection"
+}

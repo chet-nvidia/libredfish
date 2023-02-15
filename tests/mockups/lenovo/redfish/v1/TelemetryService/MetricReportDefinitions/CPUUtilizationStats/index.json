@@ -1,0 +1,28 @@
+{
+    "ReportUpdates": "AppendWrapsWhenFull",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/CPUUtilizationStats",
+    "Status": {
+        "State": "Enabled"
+    },
+    "Metrics": [
+        {
+            "MetricId": "AverageCPUUtilization",
+            "CollectionDuration": "PT30S",
+            "CollectionTimeScope": "Interval"
+        }
+    ],
+    "Name": "CPUUtilizationStats",
+    "Id": "CPUUtilizationStats",
+    "ReportActions": [
+        "LogToMetricReportsCollection"
+    ],
+    "MetricReportDefinitionType": "OnRequest",
+    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
+    "MetricReport": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReports/CPUUtilizationStats"
+    },
+    "AppendLimit": 2880,
+    "@odata.etag": "\"5c5554e1b8c32a2dc5b\"",
+    "ReportTimespan": "PT24H",
+    "Description": "A set of metrics that are collected into a metric report."
+}

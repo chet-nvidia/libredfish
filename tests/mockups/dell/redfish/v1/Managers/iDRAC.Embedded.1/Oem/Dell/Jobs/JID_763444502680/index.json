@@ -1,0 +1,21 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#DellJob.DellJob",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/Jobs/JID_763444502680",
+    "@odata.type": "#DellJob.v1_2_0.DellJob",
+    "ActualRunningStartTime": "2023-02-13T21:26:39",
+    "ActualRunningStopTime": "2023-02-13T21:31:37",
+    "CompletionTime": "2023-02-13T21:31:37",
+    "Description": "Job Instance",
+    "EndTime": "TIME_NA",
+    "Id": "JID_763444502680",
+    "JobState": "Completed",
+    "JobType": "BIOSConfiguration",
+    "Message": "Job completed successfully.",
+    "MessageArgs": [],
+    "MessageArgs@odata.count": 0,
+    "MessageId": "PR19",
+    "Name": "Configure: BIOS.Setup.1-1",
+    "PercentComplete": 100,
+    "StartTime": "2023-02-13T21:14:10",
+    "TargetSettingsURI": null
+}

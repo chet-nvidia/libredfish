@@ -1,0 +1,110 @@
+{
+    "Id": "PCIeSlots",
+    "@odata.type": "#PCIeSlots.v1_3_0.PCIeSlots",
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeSlots",
+    "Name": "PCIe Slots",
+    "@odata.etag": "\"eca7719654d52d2807bd4\"",
+    "Slots": [
+        {
+            "Status": {
+                "State": "Enabled",
+                "Health": "OK"
+            },
+            "Links": {
+                "PCIeDevice": [
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_3"
+                    }
+                ]
+            },
+            "HotPluggable": false,
+            "Location": {
+                "PartLocation": {
+                    "LocationType": "Slot",
+                    "ServiceLabel": "PCIe 3",
+                    "LocationOrdinalValue": 3
+                },
+                "InfoFormat": "Slot X",
+                "Info": "Slot 3",
+                "Info@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead.",
+                "InfoFormat@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead."
+            }
+        },
+        {
+            "Status": {
+                "State": "Enabled",
+                "Health": "OK"
+            },
+            "Links": {
+                "PCIeDevice": [
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_4"
+                    }
+                ]
+            },
+            "HotPluggable": false,
+            "Location": {
+                "PartLocation": {
+                    "LocationType": "Slot",
+                    "ServiceLabel": "PCIe 4",
+                    "LocationOrdinalValue": 4
+                },
+                "InfoFormat": "Slot X",
+                "Info": "Slot 4",
+                "Info@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead.",
+                "InfoFormat@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead."
+            }
+        },
+        {
+            "Status": {
+                "State": "Enabled",
+                "Health": "OK"
+            },
+            "Links": {
+                "PCIeDevice": [
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_5"
+                    }
+                ]
+            },
+            "HotPluggable": false,
+            "Location": {
+                "PartLocation": {
+                    "LocationType": "Slot",
+                    "ServiceLabel": "PCIe 5",
+                    "LocationOrdinalValue": 5
+                },
+                "InfoFormat": "Slot X",
+                "Info": "Slot 5",
+                "Info@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead.",
+                "InfoFormat@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead."
+            }
+        },
+        {
+            "Status": {
+                "State": "Enabled",
+                "Health": "OK"
+            },
+            "Links": {
+                "PCIeDevice": [
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_6"
+                    }
+                ]
+            },
+            "HotPluggable": false,
+            "Location": {
+                "PartLocation": {
+                    "LocationType": "Slot",
+                    "ServiceLabel": "PCIe 6",
+                    "LocationOrdinalValue": 6
+                },
+                "InfoFormat": "Slot X",
+                "Info": "Slot 6",
+                "Info@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead.",
+                "InfoFormat@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead."
+            }
+        }
+    ],
+    "Description": "This resource shall be used to represent an set of PCIe slot  information for a Redfish implementation."
+}

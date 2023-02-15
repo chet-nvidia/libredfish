@@ -1,0 +1,16 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/FoD/Keys/53-0EDEF3A3A1D688BB"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/FoD/Keys/52-690C4AD4BED6B149"
+        }
+    ],
+    "@odata.type": "#LenovoFoDKeyCollection.LenovoFoDKeyCollection",
+    "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/FoD/Keys",
+    "Members@odata.count": 2,
+    "@odata.etag": "\"2cf6f96e63f02ae5b63\"",
+    "Name": "LenovoFoDKeyCollection",
+    "Description": "A collection of FoD Key resource instances."
+}

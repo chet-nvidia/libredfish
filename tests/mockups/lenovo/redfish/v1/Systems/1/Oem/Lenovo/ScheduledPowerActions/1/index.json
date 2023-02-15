@@ -1,0 +1,12 @@
+{
+    "@odata.id": "/redfish/v1/Systems/1/Oem/Lenovo/ScheduledPowerActions/1",
+    "Type": "On",
+    "Time": "00:00",
+    "Name": "Scheduled Power Action",
+    "@odata.type": "#LenovoScheduledPowerAction.v1_0_0.LenovoScheduledPowerAction",
+    "Id": "1",
+    "Description": "This resource is used to represent settings of scheduled power action for a Redfish implementation.",
+    "@odata.etag": "\"2ee4e2cefa222a2313c\"",
+    "Activated": false,
+    "Interval": "Daily"
+}

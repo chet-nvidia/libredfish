@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoFoDKeyCollection.LenovoFoDKeyCollection",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoFoDKeyCollection",
+    "Name": "LenovoFoDKeyCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoFoDKeyCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"7fed2e2d\"",
+    "Id": "LenovoFoDKeyCollection",
+    "Description": "This represents the LenovoFoDKeyCollection Schema File locator resource for a Redfish implementation."
+}

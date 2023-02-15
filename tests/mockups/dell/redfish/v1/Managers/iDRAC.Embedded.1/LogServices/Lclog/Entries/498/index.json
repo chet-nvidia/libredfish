@@ -1,0 +1,31 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/498",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-11-09T22:44:30-06:00",
+    "Description": "Log Entry 498",
+    "EntryType": "Oem",
+    "Id": "498",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/EthernetInterfaces/NIC.Slot.5-1"
+        }
+    },
+    "Message": "New device detected: Mellanox Network Adapter - B8:3F:D2:90:95:D4(NIC in Slot 5 Port 1)",
+    "MessageArgs": [
+        "Mellanox Network Adapter - B8:3F:D2:90:95:D4(NIC in Slot 5 Port 1)"
+    ],
+    "MessageArgs@odata.count": 1,
+    "MessageId": "IDRAC.2.7.PR7",
+    "Name": "Log Entry 498",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Configuration",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

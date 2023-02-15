@@ -1,0 +1,16 @@
+{
+    "Name": "Power",
+    "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/LEDs/3",
+    "State": "On",
+    "PeriodInMillSec": 0,
+    "DeviceEntity": "front panel board",
+    "Id": "3",
+    "EntityInstance": 1,
+    "DutyCycle": 255,
+    "@odata.type": "#LenovoLED.v1_0_0.LenovoLED",
+    "EntityID": 12,
+    "Location": "Front Panel",
+    "@odata.etag": "\"3023cc1f1e0e2722063\"",
+    "Color": "Green",
+    "Description": "This resource is used to represent a LED sensor for a Redfish implementation."
+}

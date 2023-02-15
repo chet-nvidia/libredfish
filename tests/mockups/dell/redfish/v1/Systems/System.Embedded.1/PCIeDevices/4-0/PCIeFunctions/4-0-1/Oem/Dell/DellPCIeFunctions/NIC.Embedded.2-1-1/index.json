@@ -1,0 +1,13 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#DellPCIeFunction.DellPCIeFunction",
+    "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/4-0/PCIeFunctions/4-0-1/Oem/Dell/DellPCIeFunctions/NIC.Embedded.2-1-1",
+    "@odata.type": "#DellPCIeFunction.v1_4_0.DellPCIeFunction",
+    "DataBusWidth": "Unknown",
+    "Description": "An instance of DellPCIeFunction will have PCI device specific data.",
+    "Id": "NIC.Embedded.2-1-1",
+    "LastSystemInventoryTime": "2023-02-14T04:17:52+00:00",
+    "LastUpdateTime": "2022-11-15T23:07:12+00:00",
+    "Name": "DellPCIeFunction",
+    "SlotLength": "Unknown",
+    "SlotType": "Unknown"
+}

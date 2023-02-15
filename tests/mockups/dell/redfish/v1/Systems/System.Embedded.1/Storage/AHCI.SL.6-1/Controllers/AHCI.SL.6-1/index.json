@@ -1,0 +1,130 @@
+{
+    "@Redfish.Settings": {
+        "@odata.context": "/redfish/v1/$metadata#Settings.Settings",
+        "@odata.type": "#Settings.v1_3_3.Settings",
+        "SettingsObject": {
+            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/AHCI.SL.6-1/Controllers/AHCI.SL.6-1/Settings"
+        },
+        "SupportedApplyTimes": [
+            "Immediate",
+            "OnReset",
+            "AtMaintenanceWindowStart",
+            "InMaintenanceWindowOnReset"
+        ]
+    },
+    "@odata.context": "/redfish/v1/$metadata#StorageController.StorageController",
+    "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/AHCI.SL.6-1/Controllers/AHCI.SL.6-1",
+    "@odata.type": "#StorageController.v1_2_0.StorageController",
+    "Assembly": {
+        "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/AHCI.SL.6-1/Controllers/AHCI.SL.6-1/Assembly"
+    },
+    "CacheSummary": {
+        "TotalCacheSizeMiB": 0
+    },
+    "ControllerRates": {
+        "ConsistencyCheckRatePercent": null,
+        "RebuildRatePercent": null
+    },
+    "Description": "AHCI controller in SL 6",
+    "FirmwareVersion": "2.5.13.4008",
+    "Id": "AHCI.SL.6-1",
+    "Identifiers": [
+        {
+            "DurableName": null,
+            "DurableNameFormat": null
+        }
+    ],
+    "Identifiers@odata.count": 1,
+    "Links": {
+        "PCIeFunctions": [
+            {
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/5-0/PCIeFunctions/5-0-0"
+            }
+        ],
+        "PCIeFunctions@odata.count": 1
+    },
+    "Manufacturer": "DELL",
+    "Model": "BOSS-S2",
+    "Name": "BOSS-S2",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellOemStorageController.v1_0_0.DellOemStorageController",
+            "DellStorageController": {
+                "AlarmState": "AlarmNotSupported",
+                "AutoConfigBehavior": "NotApplicable",
+                "BackgroundInitializationRatePercent": null,
+                "BatteryLearnMode": null,
+                "BootVirtualDiskFQDD": null,
+                "CacheSizeInMB": 0,
+                "CachecadeCapability": "NotSupported",
+                "CheckConsistencyMode": null,
+                "ConnectorCount": 0,
+                "ControllerBootMode": null,
+                "ControllerFirmwareVersion": "2.5.13.4008",
+                "ControllerMode": null,
+                "CopybackMode": null,
+                "CurrentControllerMode": "NotSupported",
+                "Device": "0",
+                "DeviceCardDataBusWidth": "Unknown",
+                "DeviceCardSlotLength": "Unknown",
+                "DeviceCardSlotType": "Unknown",
+                "DriverVersion": null,
+                "EncryptionCapability": "None",
+                "EncryptionMode": "None",
+                "EnhancedAutoImportForeignConfigurationMode": null,
+                "KeyID": null,
+                "LastSystemInventoryTime": "2022-12-02T00:25:48+00:00",
+                "LastUpdateTime": "2022-11-15T23:07:12+00:00",
+                "LoadBalanceMode": null,
+                "MaxAvailablePCILinkSpeed": null,
+                "MaxDrivesInSpanCount": 2,
+                "MaxPossiblePCILinkSpeed": null,
+                "MaxSpansInVolumeCount": 1,
+                "MaxSupportedVolumesCount": 1,
+                "PCISlot": null,
+                "PatrolReadIterationsCount": 0,
+                "PatrolReadMode": null,
+                "PatrolReadRatePercent": null,
+                "PatrolReadState": "Unknown",
+                "PatrolReadUnconfiguredAreaMode": null,
+                "PersistentHotspare": "NotApplicable",
+                "RAIDMode": "None",
+                "RealtimeCapability": "Incapable",
+                "ReconstructRatePercent": null,
+                "RollupStatus": "OK",
+                "SASAddress": "0",
+                "SecurityStatus": "EncryptionNotCapable",
+                "SharedSlotAssignmentAllowed": "NotApplicable",
+                "SlicedVDCapability": "NotSupported",
+                "SpindownIdleTimeSeconds": 0,
+                "SupportControllerBootMode": "NotSupported",
+                "SupportEnhancedAutoForeignImport": "NotSupported",
+                "SupportRAID10UnevenSpans": "NotSupported",
+                "SupportedInitializationTypes": [
+                    "Fast"
+                ],
+                "SupportedInitializationTypes@odata.count": 1,
+                "SupportsLKMtoSEKMTransition": "No",
+                "T10PICapability": "NotSupported"
+            }
+        }
+    },
+    "SpeedGbps": 6,
+    "Status": {
+        "Health": "OK",
+        "HealthRollup": "OK",
+        "State": "Enabled"
+    },
+    "SupportedControllerProtocols": [
+        "PCIe"
+    ],
+    "SupportedControllerProtocols@odata.count": 1,
+    "SupportedDeviceProtocols": [
+        "SATA"
+    ],
+    "SupportedDeviceProtocols@odata.count": 1,
+    "SupportedRAIDTypes": [
+        "RAID1"
+    ],
+    "SupportedRAIDTypes@odata.count": 1
+}

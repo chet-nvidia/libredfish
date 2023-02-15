@@ -1,0 +1,32 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/610",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-11-22T19:57:37-06:00",
+    "Description": "Log Entry 610",
+    "EntryType": "Oem",
+    "Id": "610",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+        }
+    },
+    "Message": "System Input Power Cap changed from 32767W AC to 1378W AC.",
+    "MessageArgs": [
+        "32767",
+        "1378"
+    ],
+    "MessageArgs@odata.count": 2,
+    "MessageId": "IDRAC.2.7.PWR8507",
+    "Name": "Log Entry 610",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

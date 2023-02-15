@@ -1,0 +1,47 @@
+{
+    "DateTimeLocalOffset": "+00:00",
+    "ServiceEnabled": true,
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/PlatformLog",
+    "Id": "PlatformLog",
+    "Oem": {
+        "Lenovo": {
+            "HiddenFirstSeqNum": 1,
+            "VMMoveCategory": [
+                {
+                    "VMMoveCategoryName": "RAS event VM movement support",
+                    "VMMoveCategoryBit": 0,
+                    "VMMoveCategoryType": "VMEFlag"
+                }
+            ],
+            "@odata.type": "#LenovoLogService.v1_0_0.LenovoLogServiceProperties",
+            "FirstSeqNum": 1,
+            "SupportedCategories": 3087007930,
+            "HiddenLastSeqNum": 1,
+            "DesiredCategories": 2147483684,
+            "LastSeqNum": 30
+        }
+    },
+    "Name": "LogService",
+    "Entries": {
+        "@odata.id": "/redfish/v1/Systems/1/LogServices/PlatformLog/Entries"
+    },
+    "MaxNumberOfRecords": 1024,
+    "DateTime": "2023-02-13T17:34:10+00:00",
+    "@odata.type": "#LogService.v1_1_3.LogService",
+    "LogEntryType": "Multiple",
+    "OverWritePolicy": "WrapsWhenFull",
+    "@odata.etag": "\"93b01a23d5ef3595b2f04\"",
+    "Actions": {
+        "#LogService.ClearLog": {
+            "title": "ClearLog",
+            "target": "/redfish/v1/Systems/1/LogServices/PlatformLog/Actions/LogService.ClearLog"
+        },
+        "Oem": {
+            "#LenovoLogService.GetLogEntriesBySequenceNumber": {
+                "title": "GetLogEntriesBySequenceNumber",
+                "target": "/redfish/v1/Systems/1/LogServices/PlatformLog/Actions/Oem/LenovoLogService.GetLogEntriesBySequenceNumber"
+            }
+        }
+    },
+    "Description": "This resource is used to represent a log service for a Redfish implementation."
+}

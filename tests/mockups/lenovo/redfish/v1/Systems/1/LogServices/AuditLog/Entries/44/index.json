@@ -1,0 +1,51 @@
+{
+    "Message": "Security: Userid: root using default authentication had 1 login failures from an SSH client at IP address 10.126.181.7.",
+    "@odata.etag": "\"ejUxX1N0YW5kYXJkTG9nRW50cnkK44\"",
+    "MessageArgs": [
+        "root",
+        "default authentication",
+        "1",
+        "10.126.181.7"
+    ],
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/AuditLog/Entries/44",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "EntryType": "Oem",
+    "Name": "LogEntry",
+    "EventGroupId": 0,
+    "OemLogEntryCode": "Lenovo0041",
+    "Oem": {
+        "Lenovo": {
+            "ReportingChain": "XCC",
+            "IsLocalEvent": true,
+            "RawDebugLogURL": "",
+            "EventID@Redfish.Deprecated": "The property is deprecated. Please use EventId instead.",
+            "EventFlag": 0,
+            "AuxiliaryData": "",
+            "Source": "System",
+            "FailingFRU": [
+                {
+                    "FRUSerialNumber": "",
+                    "FRUNumber": ""
+                }
+            ],
+            "TSLVersion": "0",
+            "RelatedEventID": "",
+            "Serviceable": "Not Serviceable",
+            "EventID": "0x4000002900000000",
+            "EventSequenceNumber": 44,
+            "EventType": 0,
+            "@odata.type": "#LenovoLogEntry.v1_0_0.AuditLogEntry",
+            "LenovoMessageID": "Lenovo0041",
+            "AffectedIndicatorLEDs": [],
+            "TotalSequenceNumber": 64,
+            "CommonEventID": "FQXSPSE4007I",
+            "Hidden": false
+        }
+    },
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "44",
+    "Severity": "OK",
+    "EventId": "0x4000002900000000",
+    "Created": "2022-09-21T13:04:40.334+00:00"
+}

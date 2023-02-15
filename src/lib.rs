@@ -1,5 +1,6 @@
 mod model;
 use std::collections::HashMap;
+use std::fmt;
 
 pub use model::system::{PowerState, SystemPowerControl, Systems};
 pub use model::EnabledDisabled;
@@ -23,6 +24,12 @@ pub enum Vendor {
     Hpe,
     Supermicro,
     Unknown,
+}
+
+impl fmt::Display for Vendor {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
 }
 
 pub fn new(v: Vendor, config: network::NetworkConfig) -> Result<Box<dyn Redfish>, RedfishError> {

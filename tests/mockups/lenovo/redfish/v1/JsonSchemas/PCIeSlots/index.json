@@ -1,0 +1,18 @@
+{
+    "Schema": "#PCIeSlots.PCIeSlots",
+    "@odata.id": "/redfish/v1/JsonSchemas/PCIeSlots",
+    "Name": "PCIeSlots JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/PCIeSlots.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"003ee163\"",
+    "Id": "PCIeSlots",
+    "Description": "This represents the PCIeSlots Schema File locator resource for a Redfish implementation."
+}

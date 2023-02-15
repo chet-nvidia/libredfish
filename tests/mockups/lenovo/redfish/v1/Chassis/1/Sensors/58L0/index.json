@@ -1,0 +1,16 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/58L0",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "ReadingUnits": "",
+    "Reading": 0,
+    "PhysicalContext": null,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Id": "58L0",
+    "Name": "PSU3 PF Failure",
+    "@odata.etag": "\"247541ddfd4027e5535\"",
+    "ReadingType": "Power",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+}

@@ -1,0 +1,196 @@
+{
+    "SerialNumber": "J101RZ43",
+    "@odata.type": "#Chassis.v1_12_0.Chassis",
+    "PartNumber": "SB27A95339",
+    "@odata.id": "/redfish/v1/Chassis/1",
+    "Sensors": {
+        "@odata.id": "/redfish/v1/Chassis/1/Sensors"
+    },
+    "Links": {
+        "Drives": [
+            {
+                "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe/Drives/Drive.Bay_0"
+            },
+            {
+                "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe/Drives/Drive.Bay_1"
+            }
+        ],
+        "CooledBy": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Thermal#/Fans/0"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Thermal#/Fans/1"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Thermal#/Fans/2"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Thermal#/Fans/3"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Thermal#/Fans/4"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Thermal#/Fans/5"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Thermal#/Fans/6"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Thermal#/Fans/7"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Thermal#/Fans/8"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Thermal#/Fans/9"
+            }
+        ],
+        "ComputerSystems": [
+            {
+                "@odata.id": "/redfish/v1/Systems/1"
+            }
+        ],
+        "PCIeDevices": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_1"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_2"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_3"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_3"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_4"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_5"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_6"
+            }
+        ],
+        "PoweredBy": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/0"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/1"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/2"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/3"
+            }
+        ],
+        "Storage": [
+            {
+                "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe"
+            }
+        ],
+        "Processors": [
+            {
+                "@odata.id": "/redfish/v1/Systems/1/Processors/1"
+            },
+            {
+                "@odata.id": "/redfish/v1/Systems/1/Processors/2"
+            },
+            {
+                "@odata.id": "/redfish/v1/Systems/1/Processors/GPU1"
+            },
+            {
+                "@odata.id": "/redfish/v1/Systems/1/Processors/GPU2"
+            }
+        ],
+        "ManagedBy": [
+            {
+                "@odata.id": "/redfish/v1/Managers/1"
+            }
+        ],
+        "ManagersInChassis": [
+            {
+                "@odata.id": "/redfish/v1/Managers/1"
+            }
+        ]
+    },
+    "PowerState": "On",
+    "Memory": {
+        "@odata.id": "/redfish/v1/Systems/1/Memory"
+    },
+    "Name": "Chassis",
+    "EnvironmentalClass": "A4",
+    "Id": "1",
+    "ChassisType": "RackMount",
+    "Location": {
+        "PostalAddress": {
+            "Location": "",
+            "Room": "",
+            "Building": "",
+            "Name": ""
+        },
+        "PartLocation": {},
+        "Placement": {
+            "RackOffset": 0,
+            "Rack": "",
+            "RackOffsetUnits": "EIA_310"
+        },
+        "Contacts": [
+            {
+                "ContactName": ""
+            }
+        ]
+    },
+    "AssetTag": "",
+    "PCIeDevices": {
+        "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices"
+    },
+    "Description": "This resource is used to represent a chassis or other physical enclosure for a Redfish implementation.",
+    "Thermal": {
+        "@odata.id": "/redfish/v1/Chassis/1/Thermal"
+    },
+    "PCIeSlots": {
+        "@odata.id": "/redfish/v1/Chassis/1/PCIeSlots"
+    },
+    "Oem": {
+        "Lenovo": {
+            "@odata.type": "#LenovoChassis.v1_0_0.LenovoChassisProperties",
+            "SystemBoardSerialNumber": "C2KS18R000L",
+            "FruPartNumber": "02JK727",
+            "Slots": {
+                "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/Slots"
+            },
+            "ProductName": "ThinkSystem SR670 V2",
+            "LEDs": {
+                "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/LEDs"
+            }
+        }
+    },
+    "UUID": "BC20D65A-1A53-11EC-8C43-7E8AE1D5A277",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "MinPowerWatts": 0,
+    "MaxPowerWatts": 5760,
+    "HeightMm": 133.35,
+    "Power": {
+        "@odata.id": "/redfish/v1/Chassis/1/Power"
+    },
+    "SKU": "7Z23CTO1WW",
+    "NetworkAdapters": {
+        "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters"
+    },
+    "Model": "7Z23CTO1WW",
+    "Manufacturer": "Lenovo",
+    "@odata.etag": "\"16ec02451c0222f081ef02\"",
+    "LogServices": {
+        "@odata.id": "/redfish/v1/Systems/1/LogServices"
+    },
+    "IndicatorLED": "Off"
+}

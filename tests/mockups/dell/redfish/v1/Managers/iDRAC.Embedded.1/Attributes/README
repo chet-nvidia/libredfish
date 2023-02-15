@@ -1,0 +1,4 @@
+I created this directory manually, it is not part of the original download from Dell. We need this to exist so that
+`PATCH /redfish/v1/Managers/iDRAC.Embedded.1/Attributes` works. And it *does* work on real Dell BMCs.
+
+- Graham King grahamk@nvidia.com Feb 2023

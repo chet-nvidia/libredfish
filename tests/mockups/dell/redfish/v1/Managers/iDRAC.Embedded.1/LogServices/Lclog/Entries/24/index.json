@@ -1,0 +1,37 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/24",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2021-08-25T20:00:07-05:00",
+    "Description": "Log Entry 24",
+    "EntryType": "Oem",
+    "Id": "24",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+        }
+    },
+    "Message": "Power Supply 2: Status = 0x1, IOUT = 0x0, VOUT= 0x0, TEMP= 0x0, FAN = 0x0, INPUT= 0x0.",
+    "MessageArgs": [
+        "2",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+    ],
+    "MessageArgs@odata.count": 7,
+    "MessageId": "IDRAC.2.7.PSU0800",
+    "Name": "Log Entry 24",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "SystemHealth",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

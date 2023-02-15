@@ -1,0 +1,31 @@
+{
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/PowerSupplyStatsEvent",
+    "Status": {
+        "State": "Enabled"
+    },
+    "Name": "PowerSupplyStatsEvent",
+    "Id": "PowerSupplyStatsEvent",
+    "ReportActions": [
+        "RedfishEvent"
+    ],
+    "MetricReportDefinitionType": "Periodic",
+    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
+    "Metrics": [
+        {
+            "MetricId": "AveragePowerSupplyInput",
+            "CollectionDuration": "PT30S",
+            "CollectionTimeScope": "Interval"
+        },
+        {
+            "MetricId": "AveragePowerSupplyOutput",
+            "CollectionDuration": "PT30S",
+            "CollectionTimeScope": "Interval"
+        }
+    ],
+    "@odata.etag": "\"5b80c83260e1266c244\"",
+    "ReportTimespan": "PT10M",
+    "Schedule": {
+        "RecurrenceInterval": "PT10M"
+    },
+    "Description": "A set of metrics that are collected into a metric report."
+}

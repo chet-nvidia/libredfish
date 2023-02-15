@@ -1,0 +1,28 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_2_0.json",
+    "title": "#LenovoNetworkPort.v1_0_0.LenovoNetworkPort",
+    "definitions": {
+        "additionalProperties": false,
+        "properties": {
+            "@odata.context": {
+                "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+            },
+            "@odata.id": {
+                "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+            },
+            "@odata.type": {
+                "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+            },
+            "PortMaxSpeedbps": {
+                "type": [
+                    "number",
+                    "null"
+                ],
+                "readonly": true,
+                "description": "The maximum speed of the network port.",
+                "longDescription": "The value of this property shall be the maxumum speed of the network port."
+            }
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

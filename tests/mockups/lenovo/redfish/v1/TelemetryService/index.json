@@ -1,0 +1,34 @@
+{
+    "MetricReports": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReports"
+    },
+    "@odata.id": "/redfish/v1/TelemetryService",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "MetricReportDefinitions": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions"
+    },
+    "ServiceEnabled": true,
+    "SupportedCollectionFunctions": [
+        "Average",
+        "Minimum",
+        "Maximum"
+    ],
+    "Name": "Telemetry Service",
+    "@odata.type": "#TelemetryService.v1_2_0.TelemetryService",
+    "Id": "TelemetryService",
+    "MetricDefinitions": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions"
+    },
+    "@odata.etag": "\"72487fb6c7bb2af1e0d\"",
+    "Actions": {
+        "#TelemetryService.SubmitTestMetricReport": {
+            "target": "/redfish/v1/TelemetryService/Actions/TelemetryService.SubmitTestMetricReport",
+            "title": "SubmitTestMetricReport",
+            "@Redfish.ActionInfo": "/redfish/v1/TelemetryService/SubmitTestMetricReportActionInfo"
+        }
+    },
+    "Description": "This resource shall be used to represent a Metrics Service for a Redfish implementation."
+}

@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoRemoteMountMedia.LenovoRemoteMountMedia",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoRemoteMountMedia",
+    "Name": "LenovoRemoteMountMedia JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoRemoteMountMedia.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"12d2e3ed\"",
+    "Id": "LenovoRemoteMountMedia",
+    "Description": "This represents the LenovoRemoteMountMedia Schema File locator resource for a Redfish implementation."
+}

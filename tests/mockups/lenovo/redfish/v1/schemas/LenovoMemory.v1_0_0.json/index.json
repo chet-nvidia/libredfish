@@ -1,0 +1,199 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoMemory.v1_0_0.LenovoMemory",
+    "$ref": "#/definitions/LenovoMemory",
+    "definitions": {
+        "LenovoMemory": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "BankLabel": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The location of the memory",
+                    "longDescription": "A string identifying the physically labeled bank where the Memory is located - for example, 'Bank 0' or 'Bank A'."
+                },
+                "Location": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoSlot.json#/definitions/LenovoSlot",
+                    "description": "[URI] the slot info which the memory occupies."
+                },
+                "MemoryType": {
+                    "$ref": "#/definitions/MemoryType",
+                    "readonly": true,
+                    "description": "The type of memory",
+                    "longDescription": "This property shall contain the string which identifies the type of memory."
+                },
+                "FormFactor": {
+                    "$ref": "#/definitions/FormFactor",
+                    "readonly": true,
+                    "description": "The formfactor of the memory",
+                    "longDescription": "The implementation form factor for the Chip. For example, values such as SIMM (7), TSOP (9) or PGA (10) can be specified."
+                },
+                "Status": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Status",
+                    "readonly": true
+                },
+                "Manufacturer": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The memory manufacturer",
+                    "longDescription": "This property shall contain a string which identifies the manufacturer of the memory."
+                },
+                "SerialNumber": {
+                    "type": [
+                        "String",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The serial number for this memory",
+                    "longDescription": "The value of this property shall be a manufacturer-allocated number used to identify the memory."
+                },
+                "PartNumber": {
+                    "type": [
+                        "String",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The part number for this memory",
+                    "longDescription": "The value of this property shall be a part number assigned by the organization that is responsible for producing or manufacturing the memory."
+                },
+                "Model": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The product model number of this device",
+                    "longDescription": "This property shall indicate the model information as provided by the manufacturer of this memory."
+                },
+                "MaxSpeedMHz": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The maximum clock speed of the memory",
+                    "longDescription": "This property shall indicate the maximum rated clock speed of the memory in MHz."
+                },
+                "TotalWidth": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "Total width",
+                    "longDescription": "Total width(in bits), including check or error correction bits. If there are no error correction bits, the value in this property should match that specified for DataWidth."
+                },
+                "DataWidth": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "Data width",
+                    "longDescription": "Data width(in bits). A data width of 0 and a TotalWidth of 8 would indicate that the Memory is solely used to provide error correction bits."
+                },
+                "Capacity": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The total capacity of this memory, in bytes.",
+                    "longDescription": "The total capacity of this memory, in bytes."
+                },
+                "FruPartNumber": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The FRU part number for this memory",
+                    "longDescription": "The value of this property shall be a fru part number assigned by the organization that is responsible for producing or manufacturing the memory."
+                },
+                "HealthStatusString": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The string describes health status for this memory",
+                    "longDescription": "The value of this property shall be a string for the health status for the memory."
+                },
+                "SecurityStateString": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The string describes security state for this memory",
+                    "longDescription": "The value of this property shall be a string for the security state for the memory."
+                }
+            },
+            "description": "This is the schema definition for the memory resource.  It represents the properties of a memory attached to a System."
+        },
+        "MemoryType": {
+            "type": "string",
+            "enum": [
+                "SDRAM",
+                "RDRAM",
+                "DDR",
+                "DDR2",
+                "DDR3",
+                "DDR4"
+            ],
+            "enumDescriptions": {
+                "SDRAM": "Synchronous DRAM",
+                "RDRAM": "Rambus DRAM",
+                "DDR": "DDR SDRAM",
+                "DDR2": "DDR2 SDRAM",
+                "DDR3": "DDR3 SDRAM",
+                "DDR4": "DDR4 SDRAM"
+            }
+        },
+        "FormFactor": {
+            "type": "string",
+            "enum": [
+                "PGA",
+                "RIMM",
+                "SODIMM",
+                "SMD"
+            ],
+            "enumDescriptions": {
+                "PGA": "Pin Grid Array Paakage",
+                "RIMM": "Rambus Inline Memory Module",
+                "SODIMM": "Small Outline Dual In-line Memory Module",
+                "SMD": "Surface Mounted Devices"
+            }
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

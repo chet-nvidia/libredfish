@@ -1,0 +1,13 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1"
+        }
+    ],
+    "@odata.type": "#ComputerSystemCollection.ComputerSystemCollection",
+    "@odata.id": "/redfish/v1/Systems",
+    "Name": "ComputerSystemCollection",
+    "@odata.etag": "\"27f6eb13fa1c28a2711\"",
+    "Members@odata.count": 1,
+    "Description": "A collection of ComputerSystem resource instances."
+}

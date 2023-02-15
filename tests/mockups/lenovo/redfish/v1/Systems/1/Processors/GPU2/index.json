@@ -1,0 +1,30 @@
+{
+    "SerialNumber": "1322221028609",
+    "FirmwareVersion": "94.02.5C.00.02",
+    "@odata.id": "/redfish/v1/Systems/1/Processors/GPU2",
+    "Links": {
+        "PCIeDevice": {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_6"
+        },
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        },
+        "PCIeFunctions@odata.count": 1,
+        "PCIeFunctions": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_6/PCIeFunctions/slot_6.00"
+            }
+        ]
+    },
+    "Name": "GPU 2",
+    "ProcessorId": {
+        "VendorId": "0x10de"
+    },
+    "PartNumber": "",
+    "@odata.type": "#Processor.v1_8_0.Processor",
+    "ProcessorType": "GPU",
+    "Manufacturer": "NVIDIA Corporation",
+    "@odata.etag": "\"4728ccac7f9c27e8c08\"",
+    "Id": "GPU2",
+    "Description": "This resource is used to represent a processor for a Redfish implementation."
+}

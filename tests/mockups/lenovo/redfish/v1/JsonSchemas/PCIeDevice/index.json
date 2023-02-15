@@ -1,0 +1,18 @@
+{
+    "Schema": "#PCIeDevice.PCIeDevice",
+    "@odata.id": "/redfish/v1/JsonSchemas/PCIeDevice",
+    "Name": "PCIeDevice JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/PCIeDevice.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"6bdb017c\"",
+    "Id": "PCIeDevice",
+    "Description": "This represents the PCIeDevice Schema File locator resource for a Redfish implementation."
+}

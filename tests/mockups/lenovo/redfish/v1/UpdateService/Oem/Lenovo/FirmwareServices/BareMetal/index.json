@@ -1,0 +1,40 @@
+{
+    "@odata.id": "/redfish/v1/UpdateService/Oem/Lenovo/FirmwareServices/BareMetal",
+    "Id": "BareMetal",
+    "Name": "LenovoFirmwareService",
+    "BMU_Credential": {
+        "Secret": null,
+        "RemoteID": null
+    },
+    "Actions": {
+        "#LenovoFirmwareService.StartDeferredUpdateActivation": {
+            "title": "StartDeferredUpdateActivation",
+            "target": "/redfish/v1/UpdateService/Oem/Lenovo/FirmwareServices/BareMetal/Actions/LenovoFirmwareService.StartDeferredUpdateActivation"
+        },
+        "#LenovoFirmwareService.RestartToBareMetal": {
+            "title": "RestartToBareMetal",
+            "target": "/redfish/v1/UpdateService/Oem/Lenovo/FirmwareServices/BareMetal/Actions/LenovoFirmwareService.RestartToBareMetal"
+        },
+        "#LenovoFirmwareService.CompleteBareMetal": {
+            "title": "CompleteBareMetal",
+            "target": "/redfish/v1/UpdateService/Oem/Lenovo/FirmwareServices/BareMetal/Actions/LenovoFirmwareService.CompleteBareMetal"
+        },
+        "#LenovoFirmwareService.UEFIRecoveryOperation": {
+            "title": "UEFIRecoveryOperation",
+            "target": "/redfish/v1/UpdateService/Oem/Lenovo/FirmwareServices/BareMetal/Actions/LenovoFirmwareService.UEFIRecoveryOperation"
+        },
+        "#LenovoFirmwareService.StartBareMetalConnection": {
+            "title": "StartBareMetalConnection",
+            "target": "/redfish/v1/UpdateService/Oem/Lenovo/FirmwareServices/BareMetal/Actions/LenovoFirmwareService.StartBareMetalConnection"
+        }
+    },
+    "FreeRdocSpaceInKB": 51200,
+    "@odata.type": "#LenovoFirmwareService.v1_0_0.LenovoFirmwareService",
+    "BMAppStatus": "NotReady",
+    "Started": false,
+    "@odata.etag": "\"bee438c6c33b2f043edf3\"",
+    "ChangeHistory": {
+        "@odata.id": "/redfish/v1/Systems/1/LogServices"
+    },
+    "Description": "This resource is used to represent a firmware service for a Redfish implementation."
+}

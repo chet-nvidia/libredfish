@@ -1,0 +1,10 @@
+{
+    "Description": "This resource is used to represent processor summary metrics for a Redfish implementation.",
+    "BandwidthPercent": 0,
+    "@odata.type": "#ProcessorMetrics.v1_1_0.ProcessorMetrics",
+    "@odata.id": "/redfish/v1/Systems/1/ProcessorSummary/ProcessorMetrics",
+    "Id": "ProcessorMetrics",
+    "@odata.etag": "\"307a300a9f2b24e2488\"",
+    "Name": "Processor Summary Metrics",
+    "ConsumedPowerWatt": 113
+}

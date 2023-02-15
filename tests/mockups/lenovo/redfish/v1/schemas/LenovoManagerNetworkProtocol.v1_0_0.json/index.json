@@ -1,0 +1,142 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoManagerNetworkProtocol",
+    "definitions": {
+        "LenovoManagerNetworkProtocolProperties": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "CimOverHTTP": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/ManagerNetworkProtocol.v1_0_2.json#/definitions/Protocol",
+                    "readonly": false,
+                    "description": "Settings for this Manager's CIM over HTTP protocol support",
+                    "longDescription": "This object shall contain information for the CIM over HTTP protocol settings for this manager. The default value of the Port property should be 5988 for compatibility with established client implementations."
+                },
+                "CimOverHTTPS": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/ManagerNetworkProtocol.v1_0_2.json#/definitions/Protocol",
+                    "readonly": false,
+                    "description": "Settings for this Manager's CIM over HTTPS protocol support",
+                    "longDescription": "This object shall contain information for the CIM over HTTPS protocol settings for this manager. The default value of the Port property should be 5989 for compatibility with established client implementations."
+                },
+                "SLP": {
+                    "$ref": "#/definitions/SLProtocol",
+                    "readonly": false,
+                    "description": "Settings for this Manager's SLP support",
+                    "longDescription": "This object shall contain information for the Service Location Protocol (SLP) settings for this manager. The default value of the Port property should be 1847 for compatibility with established client implementations."
+                },
+                "SNMP": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoSNMPProtocol.json#/definitions/LenovoSNMPProtocol",
+                    "readonly": false,
+                    "description": "Settings for this Manager's SNMP support",
+                    "longDescription": "Configure the Simple Network Management Protocol (SNMP) settings for this manager."
+                },
+                "DNS": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoDNS.json#/definitions/LenovoDNS",
+                    "description": "A reference to the DNS properties.",
+                    "longDescription": "The value of this property shall be a reference to the resource that represents the power characteristics of this manager and shall be of type LenovoDNS."
+                },
+                "SMTPClient": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoSMTPClient.json#/definitions/LenovoSMTPClient",
+                    "readonly": false,
+                    "description": "Settings for this Manager's SMTP Client support",
+                    "longDescription": "Configure the Simple Mail Transfer Protocol (SMTP) Client settings for this manager."
+                },
+                "LDAPClient": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoLDAPClient.json#/definitions/LenovoLDAPClient",
+                    "readonly": false,
+                    "description": "Settings for this Manager's LDAP Client support",
+                    "longDescription": "Configure the Lightweight Directory Access Protocol (LDAP) Client settings for this manager."
+                },
+                "OpenPorts": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "description": "Currently open ports.",
+                    "longDescription": "The value of this property shall indicate currently open port numbers."
+                }
+            },
+            "description": "These properties shall be refered in /schemas/v1/ManagerNetworkProtocol.v1_0_2.json#/definitions/ManagerNetworkProtocol/properties/Oem."
+        },
+        "SLProtocol": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "ProtocolEnabled": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "description": "Indicates if the protocol is enabled or disabled",
+                    "longDescription": "The value of this property shall contain the enabled status of the protocol. The value shall be true if enabled and false if disabled."
+                },
+                "Port": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "description": "Indicates the protocol port.",
+                    "longDescription": "The value of this property shall contain the port assigned for the protocol.",
+                    "minimum": 0
+                },
+                "AddressType": {
+                    "type": "string",
+                    "enum": [
+                        "Broadcast",
+                        "Multicast"
+                    ],
+                    "enumDescriptions": {
+                        "Broadcast": "A limited broadcast SLP discovery.",
+                        "Multicast": "Multicast SLP discovery."
+                    },
+                    "description": "Indicate whether the SLP in the hosting System listens for and responds to a broadcast or a multicast address. Modification of the AddressType property by a client shall be supported.",
+                    "longDescription": "In order for the address type to transition from Broadcast to Multicast, the MulticastAddress property must be configured with a valid multicast IP address."
+                },
+                "MulticastAddress": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "Indicates the multicast address to be used for SLP when the AddressType value equals Multicast. The property shall contain a valid IP address.",
+                    "longDescription": "The default value for the MulticastAddress property shall be 239.255.255.253 and may be updated by the client with a valid multicast address."
+                }
+            }
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

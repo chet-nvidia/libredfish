@@ -1,0 +1,16 @@
+{
+    "Name": "DIMM14",
+    "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/LEDs/27",
+    "State": "Off",
+    "PeriodInMillSec": 0,
+    "DeviceEntity": "memory device",
+    "Id": "27",
+    "EntityInstance": 14,
+    "DutyCycle": 0,
+    "@odata.type": "#LenovoLED.v1_0_0.LenovoLED",
+    "EntityID": 32,
+    "Location": "Planar",
+    "@odata.etag": "\"2e62ec924e032ae6ee8\"",
+    "Color": "Yellow",
+    "Description": "This resource is used to represent a LED sensor for a Redfish implementation."
+}

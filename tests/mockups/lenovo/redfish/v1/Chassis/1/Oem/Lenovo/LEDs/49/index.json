@@ -1,0 +1,16 @@
+{
+    "Name": "PCI 4",
+    "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/LEDs/49",
+    "State": "Off",
+    "PeriodInMillSec": 0,
+    "DeviceEntity": "add-in card",
+    "Id": "49",
+    "EntityInstance": 4,
+    "DutyCycle": 0,
+    "@odata.type": "#LenovoLED.v1_0_0.LenovoLED",
+    "EntityID": 11,
+    "Location": "Planar",
+    "@odata.etag": "\"2ce5749b057527e6d1e\"",
+    "Color": "Yellow",
+    "Description": "This resource is used to represent a LED sensor for a Redfish implementation."
+}

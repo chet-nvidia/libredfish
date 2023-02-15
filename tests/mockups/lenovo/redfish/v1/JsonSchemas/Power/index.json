@@ -1,0 +1,18 @@
+{
+    "Schema": "#Power.Power",
+    "@odata.id": "/redfish/v1/JsonSchemas/Power",
+    "Name": "Power JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/Power.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"4b670259\"",
+    "Id": "Power",
+    "Description": "This represents the Power Schema File locator resource for a Redfish implementation."
+}

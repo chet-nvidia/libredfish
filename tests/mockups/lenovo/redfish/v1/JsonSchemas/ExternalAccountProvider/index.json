@@ -1,0 +1,18 @@
+{
+    "Schema": "#ExternalAccountProvider.ExternalAccountProvider",
+    "@odata.id": "/redfish/v1/JsonSchemas/ExternalAccountProvider",
+    "Name": "ExternalAccountProvider JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/ExternalAccountProvider.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"7e80e88f\"",
+    "Id": "ExternalAccountProvider",
+    "Description": "This represents the ExternalAccountProvider Schema File locator resource for a Redfish implementation."
+}

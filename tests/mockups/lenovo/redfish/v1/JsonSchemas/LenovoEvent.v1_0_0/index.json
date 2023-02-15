@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoEvent.v1_0_0.LenovoEvent",
+    "Id": "LenovoEvent.v1_0_0",
+    "Name": "LenovoEvent JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoEvent.v1_0_0.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"9c068204\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoEvent.v1_0_0",
+    "Description": "This represents the LenovoEvent Schema File locator resource for a Redfish implementation."
+}

@@ -1,0 +1,18 @@
+{
+    "Schema": "#ProcessorMetrics.ProcessorMetrics",
+    "Id": "ProcessorMetrics",
+    "Name": "ProcessorMetrics JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/ProcessorMetrics.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"42f9273e\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/ProcessorMetrics",
+    "Description": "This represents the ProcessorMetrics Schema File locator resource for a Redfish implementation."
+}

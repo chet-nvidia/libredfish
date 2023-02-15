@@ -1,0 +1,29 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/78",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2021-12-13T19:55:56-06:00",
+    "Description": "Log Entry 78",
+    "EntryType": "Oem",
+    "Id": "78",
+    "Links": {},
+    "Message": "Successfully logged in using root, from 10.2.82.18 and eHTML5 Virtual Media.",
+    "MessageArgs": [
+        "root",
+        "10.2.82.18",
+        "eHTML5 Virtual Media"
+    ],
+    "MessageArgs@odata.count": 3,
+    "MessageId": "IDRAC.2.7.USR0030",
+    "Name": "Log Entry 78",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/1107",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-02-13T19:14:49-06:00",
+    "Description": "Log Entry 1107",
+    "EntryType": "Oem",
+    "Id": "1107",
+    "Links": {},
+    "Message": "Unable to reboot system.",
+    "MessageId": "IDRAC.2.7.RED033",
+    "Name": "Log Entry 1107",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Updates",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "Warning"
+}

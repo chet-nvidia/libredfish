@@ -1,0 +1,47 @@
+{
+    "ReadingRangeMax": 13770,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/87L0",
+    "ReadingRangeMin": 0,
+    "ReadingUnits": "RPM",
+    "Thresholds": {
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": 432
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": null
+        }
+    },
+    "PhysicalContext": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Reading": 3996,
+    "Precision": 0,
+    "MinAllowableOperatingValue": 0,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "MaxAllowableOperatingValue": 13770,
+    "Id": "87L0",
+    "@odata.etag": "\"60ce64c350522a308c2\"",
+    "ReadingType": "AirFlow",
+    "Name": "Fan 4B Tach"
+}

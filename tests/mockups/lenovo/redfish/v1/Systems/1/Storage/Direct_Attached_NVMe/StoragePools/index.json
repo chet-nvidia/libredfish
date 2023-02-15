@@ -1,0 +1,9 @@
+{
+    "Members": [],
+    "@odata.type": "#StoragePoolCollection.StoragePoolCollection",
+    "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe/StoragePools",
+    "Members@odata.count": 0,
+    "@odata.etag": "\"22b51cfdad7229626c7\"",
+    "Name": "StoragePoolCollection",
+    "Description": "A collection of StoragePool resource instances."
+}

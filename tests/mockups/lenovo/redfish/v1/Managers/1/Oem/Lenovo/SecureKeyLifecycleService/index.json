@@ -1,0 +1,37 @@
+{
+    "DeviceGroup": "TKLM_DEV_GROUP",
+    "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/SecureKeyLifecycleService",
+    "Protocol": null,
+    "Name": "SecureKeyLifecycleService",
+    "Protocol@Redfish.AllowableValues": [
+        "KMIP"
+    ],
+    "Id": "SecureKeyLifecycleService",
+    "@odata.type": "#LenovoSecureKeyLifecycle.v1_0_0.LenovoSecureKeyLifecycle",
+    "KeyRepoServers": [
+        {
+            "Port": 5696,
+            "HostName": ""
+        },
+        {
+            "Port": 5696,
+            "HostName": ""
+        },
+        {
+            "Port": 5696,
+            "HostName": ""
+        },
+        {
+            "Port": 5696,
+            "HostName": ""
+        }
+    ],
+    "ClientCertificate": {
+        "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/SecureKeyLifecycleService/ClientCertificate"
+    },
+    "ServerCertificate": {
+        "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/SecureKeyLifecycleService/ServerCertificate"
+    },
+    "@odata.etag": "\"61e66e3f03fa242ea37\"",
+    "Description": "This resource is used to represent a secure key lifecycle service for a Redfish implementation."
+}

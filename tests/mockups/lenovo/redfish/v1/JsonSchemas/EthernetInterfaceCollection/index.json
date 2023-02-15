@@ -1,0 +1,18 @@
+{
+    "Schema": "#EthernetInterfaceCollection.EthernetInterfaceCollection",
+    "Id": "EthernetInterfaceCollection",
+    "Name": "EthernetInterfaceCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/EthernetInterfaceCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"57d15bdf\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/EthernetInterfaceCollection",
+    "Description": "This represents the EthernetInterfaceCollection Schema File locator resource for a Redfish implementation."
+}

@@ -1,0 +1,18 @@
+{
+    "Schema": "#ComputerSystem.v1_11_0.ComputerSystem",
+    "@odata.id": "/redfish/v1/JsonSchemas/ComputerSystem.v1_11_0",
+    "Name": "ComputerSystem JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/ComputerSystem.v1_11_0.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"f62ecced\"",
+    "Id": "ComputerSystem.v1_11_0",
+    "Description": "This represents the ComputerSystem Schema File locator resource for a Redfish implementation."
+}

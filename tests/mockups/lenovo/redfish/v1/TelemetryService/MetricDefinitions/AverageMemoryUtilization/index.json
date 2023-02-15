@@ -1,0 +1,20 @@
+{
+    "Implementation": "Calculated",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/AverageMemoryUtilization",
+    "MetricDataType": "Integer",
+    "IsLinear": true,
+    "Id": "AverageMemoryUtilization",
+    "Name": "AverageMemoryUtilization",
+    "CalculationTimeInterval": "PT1S",
+    "MetricProperties": [
+        "/redfish/v1/Systems/1/MemorySummary/MemoryMetrics#/BandwidthPercent"
+    ],
+    "PhysicalContext": "MemorySubsystem",
+    "Description": "The metadata information about a metric.",
+    "@odata.type": "#MetricDefinition.v1_0_3.MetricDefinition",
+    "Units": "%",
+    "CalculationAlgorithm": "Average",
+    "@odata.etag": "\"51483e53153928a7694\"",
+    "MetricType": "Numeric",
+    "Calculable": "NonSummable"
+}

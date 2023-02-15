@@ -1,0 +1,19 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/AccountService/Roles/Administrator"
+        },
+        {
+            "@odata.id": "/redfish/v1/AccountService/Roles/Operator"
+        },
+        {
+            "@odata.id": "/redfish/v1/AccountService/Roles/ReadOnly"
+        }
+    ],
+    "@odata.type": "#RoleCollection.RoleCollection",
+    "@odata.id": "/redfish/v1/AccountService/Roles",
+    "Name": "RoleCollection",
+    "@odata.etag": "\"2ef99b2a2e7d28a4a80\"",
+    "Members@odata.count": 3,
+    "Description": "A collection of Role resource instances."
+}

@@ -1,0 +1,21 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#DellJob.DellJob",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/Jobs/RID_763363841807",
+    "@odata.type": "#DellJob.v1_2_0.DellJob",
+    "ActualRunningStartTime": "2023-02-13T18:59:44",
+    "ActualRunningStopTime": "2023-02-13T19:14:49",
+    "CompletionTime": "2023-02-13T19:14:49",
+    "Description": "Job Instance",
+    "EndTime": "TIME_NA",
+    "Id": "RID_763363841807",
+    "JobState": "RebootFailed",
+    "JobType": "RebootNoForce",
+    "Message": "Unable to reboot system.",
+    "MessageArgs": [],
+    "MessageArgs@odata.count": 0,
+    "MessageId": "RED033",
+    "Name": "Reboot: Graceful OS shutdown only",
+    "PercentComplete": 0,
+    "StartTime": "2023-02-13T18:59:44",
+    "TargetSettingsURI": null
+}

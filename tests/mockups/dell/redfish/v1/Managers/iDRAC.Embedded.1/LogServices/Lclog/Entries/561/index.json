@@ -1,0 +1,29 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/561",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-11-15T17:06:08-06:00",
+    "Description": "Log Entry 561",
+    "EntryType": "Oem",
+    "Id": "561",
+    "Links": {},
+    "Message": "Version change detected for TPM firmware. Previous version:0.0.0.0, Current version:NotAvailable",
+    "MessageArgs": [
+        "TPM",
+        "0.0.0.0",
+        "NotAvailable"
+    ],
+    "MessageArgs@odata.count": 3,
+    "MessageId": "IDRAC.2.7.PR36",
+    "Name": "Log Entry 561",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Configuration",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

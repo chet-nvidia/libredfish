@@ -1,0 +1,18 @@
+{
+    "Schema": "#PortCollection.PortCollection",
+    "Id": "PortCollection",
+    "Name": "PortCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/PortCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"8265371e\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/PortCollection",
+    "Description": "This represents the PortCollection Schema File locator resource for a Redfish implementation."
+}

@@ -1,0 +1,26 @@
+{
+    "Id": "Disk2",
+    "RelatedItem@odata.count": 1,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe/Drives/Drive.Bay_1"
+        }
+    ],
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Disk2",
+    "Status": {
+        "HealthRollup": "OK",
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "SoftwareId": "DISK-SSS7A43225-3-10",
+    "Name": "Firmware:DISK-SSDPF2KE016T9L",
+    "Version": "2CV1L028",
+    "ReleaseDate": null,
+    "Manufacturer": "LENOVO (Intel)",
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "WriteProtected": true,
+    "Updateable": false,
+    "@odata.etag": "\"5041bb563ba624eb2f4\"",
+    "LowestSupportedVersion": null,
+    "Description": "The firmware information of a disk controlled by a RAID, M.2 or NVMe controller."
+}

@@ -1,0 +1,46 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC-Primary"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC-Backup"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/UEFI"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPM"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPMWindowsDriver"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPMLinuxDriver"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Disk1"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Disk2"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/PSU1"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/PSU2"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/PSU3"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/PSU4"
+        }
+    ],
+    "@odata.type": "#SoftwareInventoryCollection.SoftwareInventoryCollection",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory",
+    "Members@odata.count": 12,
+    "@odata.etag": "\"76e3b190e21e2974512\"",
+    "Name": "SoftwareInventoryCollection",
+    "Description": "Firmware Inventory Collection."
+}

@@ -1,0 +1,237 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoRemoteControlService.v1_0_0.LenovoRemoteControlService",
+    "$ref": "#/definitions/LenovoRemoteControlService",
+    "definitions": {
+        "LenovoRemoteControlService": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id"
+                },
+                "Description": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
+                },
+                "Name": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name"
+                },
+                "ServiceEnabled": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "readonly": false,
+                    "description": "This indicates whether this service is enabled.",
+                    "longDescription": "The value of this property shall be a boolean indicating whether this service is enabled."
+                },
+                "Sessions": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoRemoteControlSessionCollection.json#/definitions/LenovoRemoteControlSessionCollection",
+                    "readonly": true,
+                    "description": "A reference to the remote control sessions.",
+                    "longDescription": "The value of this property shall be a reference to the remote control sessions."
+                },
+                "MountImages": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoRemoteMountMediaCollection.json#/definitions/LenovoRemoteMountMediaCollection",
+                    "readonly": true,
+                    "description": "A reference to the remote mount media.",
+                    "longDescription": "The value of this property shall be a reference to the remote mount media."
+                },
+                "Actions": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                            "type": [
+                                "array",
+                                "boolean",
+                                "number",
+                                "null",
+                                "object",
+                                "string"
+                            ],
+                            "description": "This property shall specify a valid odata or Redfish property."
+                        }
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                        "#LenovoRemoteControlService.UploadMountImage": {
+                            "$ref": "#/definitions/UploadMountImage"
+                        },
+                        "#LenovoRemoteControlService.UploadFromURL": {
+                            "$ref": "#/definitions/UploadFromURL"
+                        }
+                    },
+                    "readonly": true,
+                    "description": "The Actions object contains the available custom actions on this resource."
+                }
+            },
+            "description": "This resource represents the remote control service properties.",
+            "longDescription": "This resource shall be used to represent remote control service properties implementation."
+        },
+        "KnockIntervalTypes": {
+            "type": "string",
+            "enum": [
+                "Interval_1minute",
+                "Interval_5minutes",
+                "Interval_10minutes",
+                "Interval_30minutes",
+                "Interval_1hour",
+                "Interval_2hours",
+                "Interval_24hours"
+            ],
+            "enumDescriptions": {
+                "Interval_1minutes": "The interval is 1 minute",
+                "Interval_5minutes": "The interval is 5 minutes",
+                "Interval_10minutes": "The interval is 10 minutes",
+                "Interval_30minutes": "The interval is 30 minutes",
+                "Interval_1hour": "The interval is 1 hour",
+                "Interval_2hours": "The interval is 2 hours",
+                "Interval_24hours": "The interval is 24 hours"
+            }
+        },
+        "KnockConfig": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "DisconnectReqEnabled": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "It describes whether the Knock-knock config allows others to request remote session disconnect."
+                },
+                "NoResponseTimeInterval": {
+                    "$ref": "#/definitions/KnockIntervalTypes",
+                    "readonly": false,
+                    "description": "Knock-knock no response time interval value."
+                }
+            }
+        },
+        "UploadMountImage": {
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Friendly action name"
+                },
+                "target": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to invoke action"
+                },
+                "Filename": {
+                    "type": "string",
+                    "description": "name of the file to be uploaded"
+                },
+                "bytes": {
+                    "type": "array",
+                    "items": {
+                        "type": "number"
+                    },
+                    "description": "bytes of the image file",
+                    "longDescription": "The image file contents are transferred in this property. The maximum size of the image file cannot exceed 50 MB"
+                },
+                "Readonly": {
+                    "type": "boolean",
+                    "description": "It indicates the file status will be readonly or read/write"
+                }
+            }
+        },
+        "UploadFromURL": {
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Friendly action name"
+                },
+                "target": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to invoke action"
+                },
+                "sourceURL": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to the file to be uploaded"
+                },
+                "Username": {
+                    "type": "string",
+                    "description": "Username to access the source URI"
+                },
+                "Password": {
+                    "type": "string",
+                    "description": "Password for the username to access the source URI"
+                },
+                "Readonly": {
+                    "type": "boolean",
+                    "description": "It indicates the file status will be readonly or read/write"
+                }
+            }
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

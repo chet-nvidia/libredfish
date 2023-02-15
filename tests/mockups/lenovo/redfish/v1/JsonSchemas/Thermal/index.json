@@ -1,0 +1,18 @@
+{
+    "Schema": "#Thermal.Thermal",
+    "@odata.id": "/redfish/v1/JsonSchemas/Thermal",
+    "Name": "Thermal JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/Thermal.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"f0f88c22\"",
+    "Id": "Thermal",
+    "Description": "This represents the Thermal Schema File locator resource for a Redfish implementation."
+}

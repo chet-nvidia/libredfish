@@ -1,0 +1,16 @@
+{
+    "@odata.etag": "\"4454f96640f325abc0e\"",
+    "@odata.type": "#LenovoHistoryMetricValue.v1_0_0.LenovoHistoryMetricValue",
+    "@odata.id": "/redfish/v1/Chassis/1/Power/PowerSupplies/2/Oem/Lenovo/HistoryPowerSupplyMetric",
+    "Id": "HistoryPowerSupplyMetric",
+    "HistoryMetricValue": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Oem/Lenovo/Metrics/PowerSupplyInputPower3"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Oem/Lenovo/Metrics/PowerSupplyOutputPower3"
+        }
+    ],
+    "Name": "Metric Value",
+    "Description": "This resource is used to represent an array of history metric value containers which are categorized by ContainerName."
+}

@@ -1,0 +1,18 @@
+{
+    "Schema": "#MetricReport.MetricReport",
+    "@odata.id": "/redfish/v1/JsonSchemas/MetricReport",
+    "Name": "MetricReport JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/MetricReport.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"4273830d\"",
+    "Id": "MetricReport",
+    "Description": "This represents the MetricReport Schema File locator resource for a Redfish implementation."
+}

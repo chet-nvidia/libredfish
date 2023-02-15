@@ -1,0 +1,21 @@
+{
+    "ConnectedVia": "NotConnected",
+    "@odata.id": "/redfish/v1/Managers/1/VirtualMedia/Remote2",
+    "Image": null,
+    "MediaTypes": [
+        "CD",
+        "DVD",
+        "Floppy",
+        "USBStick"
+    ],
+    "Name": "VirtualMedia",
+    "Id": "Remote2",
+    "Password": null,
+    "ImageName": null,
+    "@odata.type": "#VirtualMedia.v1_3_2.VirtualMedia",
+    "WriteProtected": true,
+    "UserName": null,
+    "Inserted": false,
+    "@odata.etag": "\"3e068c2cecb9242461b\"",
+    "Description": "This resource shall be used to represent a virtual media service for a Redfish implementation."
+}

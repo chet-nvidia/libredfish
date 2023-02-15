@@ -1,0 +1,41 @@
+{
+    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo",
+    "Id": "SimpleUpdate",
+    "@odata.id": "/redfish/v1/UpdateService/SimpleUpdateActionInfo",
+    "Parameters": [
+        {
+            "Required": true,
+            "Name": "ImageURI",
+            "DataType": "String"
+        },
+        {
+            "Required": false,
+            "Name": "Password",
+            "DataType": "String"
+        },
+        {
+            "AllowableValues": [
+                "/redfish/v1/UpdateService/FirmwareInventory/BMC-Backup"
+            ],
+            "Required": false,
+            "Name": "Targets",
+            "DataType": "StringArray"
+        },
+        {
+            "AllowableValues": [
+                "TFTP",
+                "SFTP"
+            ],
+            "Required": false,
+            "Name": "TransferProtocol",
+            "DataType": "String"
+        },
+        {
+            "Required": false,
+            "Name": "Username",
+            "DataType": "String"
+        }
+    ],
+    "Name": "SimpleUpdate",
+    "Description": "Information of the action 'SimpleUpdate' of Update Service"
+}

@@ -1,0 +1,15 @@
+{
+    "@odata.etag": "\"362ae2eb99a12a2722d\"",
+    "@odata.type": "#CertificateLocations.v1_0_2.CertificateLocations",
+    "@odata.id": "/redfish/v1/CertificateService/CertificateLocations",
+    "Id": "CertificateLocations",
+    "Links": {
+        "Certificates": [
+            {
+                "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/HTTPS/Certificates/1"
+            }
+        ]
+    },
+    "Name": "Certificate Locations",
+    "Description": "This resource is used to represent the collection of certificate locations for a Redfish implementation."
+}

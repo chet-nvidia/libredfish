@@ -1,0 +1,13 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe"
+        }
+    ],
+    "@odata.type": "#StorageCollection.StorageCollection",
+    "@odata.id": "/redfish/v1/Systems/1/Storage",
+    "Name": "StorageCollection",
+    "@odata.etag": "\"2508229f7ea228a322b\"",
+    "Members@odata.count": 1,
+    "Description": "A collection of storage resource instances"
+}

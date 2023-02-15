@@ -1,0 +1,51 @@
+{
+    "SerialNumber": "N/A",
+    "Id": "ob_2",
+    "Links": {
+        "Links/PCIeFunctions@Redfish.Deprecated": "The property is deprecated. Please use PCIeFunctions instead.",
+        "Chassis": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1"
+            }
+        ],
+        "PCIeFunctions": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_2/PCIeFunctions/ob_2.00"
+            }
+        ]
+    },
+    "PCIeFunctions": {
+        "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_2/PCIeFunctions"
+    },
+    "PartNumber": "N/A",
+    "Description": "This resource represents the properties of a PCIeDevice attached to a System.",
+    "FirmwareVersion": "7.5.0.1152",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Name": "Intel(R) VROC SATA Controller (onboard)",
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_2",
+    "SKU": "N/A",
+    "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
+    "Oem": {
+        "Lenovo": {
+            "@odata.type": "#LenovoDeviceInfo.v1_0_0.LenovoDeviceInfo",
+            "Location": {
+                "PartLocation": {
+                    "LocationType": "Slot",
+                    "ServiceLabel": "OnBoard",
+                    "LocationOrdinalValue": 2
+                },
+                "InfoFormat": "OnBoard",
+                "Info": "OnBoard",
+                "Info@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead.",
+                "InfoFormat@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead."
+            }
+        }
+    },
+    "Manufacturer": "Intel",
+    "@odata.etag": "\"89faa18966522736dd8\"",
+    "Model": "N/A",
+    "DeviceType": "SingleFunction"
+}

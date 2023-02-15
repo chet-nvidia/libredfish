@@ -1,0 +1,23 @@
+{
+    "@odata.id": "/redfish/v1/JobService",
+    "Status": {
+        "HealthRollup": "OK",
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Name": "Job Service",
+    "ServiceEnabled": true,
+    "ServiceCapabilities": {
+        "MaxJobs": 3,
+        "Scheduling": true,
+        "MaxSteps": null
+    },
+    "DateTime": "2023-02-13T17:39:16+00:00",
+    "Jobs": {
+        "@odata.id": "/redfish/v1/JobService/Jobs"
+    },
+    "Id": "JobService",
+    "@odata.etag": "\"38300f999f2724290af\"",
+    "@odata.type": "#JobService.v1_0_2.JobService",
+    "Description": "The resource is used to represent the Job Service that allows scheduling of operations."
+}

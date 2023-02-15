@@ -1,0 +1,10 @@
+Redfish service captured by the Redfish Mockup Creator, Version 1.1.9
+Created: 2023-02-13 14:13:13
+Service: https://127.0.0.1:4487
+User: root
+Description:
+Total response time: 664.0465369224548
+Average response time: 0.14623354699899907
+Minimum response time: 0.04688858985900879, /redfish/v1/JsonSchemas/Power.v1_7_1
+Maximum response time: 17.071654081344604, /redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Sel/Entries
+

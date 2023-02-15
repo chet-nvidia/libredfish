@@ -1,0 +1,25 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/11",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2021-08-05T02:14:41-05:00",
+    "Description": "Log Entry 11",
+    "EntryType": "Oem",
+    "Id": "11",
+    "Links": {},
+    "Message": "The request to change attributes is being processed.",
+    "MessageArgs": [],
+    "MessageArgs@odata.count": 0,
+    "MessageId": "IDRAC.2.7.UEFI0061",
+    "Name": "Log Entry 11",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Updates",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

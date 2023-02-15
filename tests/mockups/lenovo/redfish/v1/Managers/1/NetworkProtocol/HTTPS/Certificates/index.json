@@ -1,0 +1,13 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/HTTPS/Certificates/1"
+        }
+    ],
+    "@odata.type": "#CertificateCollection.CertificateCollection",
+    "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/HTTPS/Certificates",
+    "Members@odata.count": 1,
+    "@odata.etag": "\"2bfac3bab0c228a23d5\"",
+    "Name": "CertificateCollection_HTTPS",
+    "Description": "A collection of Certificate resource instances."
+}

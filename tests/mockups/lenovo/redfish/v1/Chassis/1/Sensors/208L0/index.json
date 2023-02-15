@@ -1,0 +1,47 @@
+{
+    "ReadingRangeMax": 50,
+    "Id": "208L0",
+    "ReadingRangeMin": 0,
+    "ReadingUnits": "C",
+    "Thresholds": {
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": 43
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": 50
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": 46
+        }
+    },
+    "PhysicalContext": "Intake",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Name": "Ambient Temp",
+    "Precision": 0,
+    "MinAllowableOperatingValue": 0,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "MaxAllowableOperatingValue": 255,
+    "ReadingType": "Temperature",
+    "@odata.etag": "\"6027148476bf266e32b\"",
+    "Reading": 27,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/208L0"
+}
