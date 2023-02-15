@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/1166",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-02-13T21:57:40-06:00",
+    "Description": "Log Entry 1166",
+    "EntryType": "Oem",
+    "Id": "1166",
+    "Links": {},
+    "Message": "The System Configuration Lockdown mode is disabled.",
+    "MessageId": "IDRAC.2.7.RAC804",
+    "Name": "Log Entry 1166",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

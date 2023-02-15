@@ -1,0 +1,18 @@
+{
+    "Schema": "#EventService.EventService",
+    "@odata.id": "/redfish/v1/JsonSchemas/EventService",
+    "Name": "EventService JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/EventService.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"83a7e21e\"",
+    "Id": "EventService",
+    "Description": "This represents the EventService Schema File locator resource for a Redfish implementation."
+}

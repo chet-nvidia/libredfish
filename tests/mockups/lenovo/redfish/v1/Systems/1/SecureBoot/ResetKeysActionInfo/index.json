@@ -1,0 +1,19 @@
+{
+    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo",
+    "Id": "ResetKeysActionInfo",
+    "@odata.id": "/redfish/v1/Systems/1/SecureBoot/ResetKeysActionInfo",
+    "Parameters": [
+        {
+            "AllowableValues": [
+                "ResetAllKeysToDefault",
+                "DeleteAllKeys",
+                "DeletePK"
+            ],
+            "Required": true,
+            "Name": "ResetKeysType",
+            "DataType": "String"
+        }
+    ],
+    "Name": "ResetKeys ActionInfo",
+    "Description": "Information of the action 'ResetKeys' of SecureBoot"
+}

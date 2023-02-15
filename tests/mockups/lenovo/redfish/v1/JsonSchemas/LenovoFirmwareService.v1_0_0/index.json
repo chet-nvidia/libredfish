@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoFirmwareService.v1_0_0.LenovoFirmwareService",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoFirmwareService.v1_0_0",
+    "Name": "LenovoFirmwareService JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoFirmwareService.v1_0_0.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"8752c6fc\"",
+    "Id": "LenovoFirmwareService.v1_0_0",
+    "Description": "This represents the LenovoFirmwareService Schema File locator resource for a Redfish implementation."
+}

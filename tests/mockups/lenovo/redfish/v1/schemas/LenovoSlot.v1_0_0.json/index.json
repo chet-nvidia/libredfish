@@ -1,0 +1,115 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoSlot.v1_0_0.LenovoSlot",
+    "$ref": "#/definitions/LenovoSlot",
+    "definitions": {
+        "LenovoSlot": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id"
+                },
+                "Description": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
+                },
+                "Name": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name"
+                },
+                "Number": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "the physical slot number",
+                    "longDescription": "The Number property indicates the physical slot number, which can be used as an index into a system slot table, whether or not that slot is physically occupied."
+                },
+                "ConnectorLayout": {
+                    "$ref": "#/definitions/ConnectorLayouts",
+                    "readonly": true
+                },
+                "Equipment": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "A user-friendly name for the object which occupies the slot.",
+                    "longDescription": "This name describes the object occupied on the slot."
+                },
+                "MaxDataWidth": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The maximum bus width in Bit supported by the slot.",
+                    "longDescription": "The maximum bus width of adapter cars that can be inserted into this slot, in bits. MinValue = 1, MaxValue = 65535, Value = 0 means 'unknown'."
+                },
+                "SupportsHotPlug": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "A boolean value indicate whether support hot plug",
+                    "longDescription": "Boolean indicating whether the Slot supports hot-plug of adapter Cards."
+                }
+            },
+            "description": "This is the schema definition for the memory resource.  It represents the properties of a memory attached to a System."
+        },
+        "ConnectorLayouts": {
+            "type": "string",
+            "enum": [
+                "SlotDIMM",
+                "SlotFlashDIMM",
+                "SCSIHighDensity",
+                "SCSILowDensity",
+                "Ribbon",
+                "AUI",
+                "FiberSC",
+                "FiberST",
+                "FDDI_MIC",
+                "Fiber_RTMJ",
+                "PCI",
+                "PCI_X",
+                "PCI_E",
+                "PCI_E_x1",
+                "PCI_E_x2",
+                "PCI_E_x4",
+                "PCI_E_x8",
+                "PCI_E_x16",
+                "PCI_E_x32",
+                "PCI_E_x64",
+                "FlexSystemMezzanineConnector",
+                "FlexSystemMidMezzanineConnector",
+                "BladeCenterCFFhConnector",
+                "BladeCenterCIOvConnector"
+            ]
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

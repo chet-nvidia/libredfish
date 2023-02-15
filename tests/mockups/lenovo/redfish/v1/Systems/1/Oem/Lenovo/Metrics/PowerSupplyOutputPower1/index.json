@@ -1,0 +1,852 @@
+{
+    "Container": [
+        {
+            "Timestamp": "13 Feb 2023, 05:33:00.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:33:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:32:30.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:32:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:32:00.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:32:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:31:30.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:31:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:31:00.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:31:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:30:30.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:30:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:30:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:30:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:29:30.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:29:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:29:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:29:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:28:30.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:28:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:28:00.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:28:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:27:30.000 PM",
+            "MetricValue": 97,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:27:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:27:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:27:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:26:30.000 PM",
+            "MetricValue": 104,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:26:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:26:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:26:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:25:30.000 PM",
+            "MetricValue": 105,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:25:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:25:00.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:25:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:24:30.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:24:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:24:00.000 PM",
+            "MetricValue": 104,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:24:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:23:30.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:23:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:23:00.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:23:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:22:30.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:22:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:22:00.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:22:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:21:30.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:21:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:21:00.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:21:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:20:30.000 PM",
+            "MetricValue": 96,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:20:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:20:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:20:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:19:30.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:19:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:19:00.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:19:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:18:30.000 PM",
+            "MetricValue": 97,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:18:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:18:00.000 PM",
+            "MetricValue": 93,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:18:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:17:30.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:17:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:17:00.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:17:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:16:30.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:16:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:16:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:16:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:15:30.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:15:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:15:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:15:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:14:30.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:14:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:14:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:14:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:13:30.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:13:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:13:00.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:13:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:12:30.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:12:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:12:00.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:12:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:11:30.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:11:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:11:00.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:11:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:10:30.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:10:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:10:00.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:10:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:09:30.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:09:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:09:00.000 PM",
+            "MetricValue": 105,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:09:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:08:30.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:08:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:08:00.000 PM",
+            "MetricValue": 105,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:08:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:07:30.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:07:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:07:00.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:07:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:06:30.000 PM",
+            "MetricValue": 97,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:06:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:06:00.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:06:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:05:30.000 PM",
+            "MetricValue": 104,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:05:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:05:00.000 PM",
+            "MetricValue": 105,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:05:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:04:30.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:04:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:04:00.000 PM",
+            "MetricValue": 97,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:04:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:03:30.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:03:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:03:00.000 PM",
+            "MetricValue": 104,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:03:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:02:30.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:02:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:02:00.000 PM",
+            "MetricValue": 97,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:02:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:01:30.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:01:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:01:00.000 PM",
+            "MetricValue": 96,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:01:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:00:30.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:00:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 05:00:00.000 PM",
+            "MetricValue": 105,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T17:00:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:59:30.000 PM",
+            "MetricValue": 98,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:59:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:59:00.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:59:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:58:30.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:58:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:58:00.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:58:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:57:30.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:57:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:57:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:57:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:56:30.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:56:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:56:00.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:56:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:55:30.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:55:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:55:00.000 PM",
+            "MetricValue": 98,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:55:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:54:30.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:54:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:54:00.000 PM",
+            "MetricValue": 90,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:54:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:53:30.000 PM",
+            "MetricValue": 98,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:53:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:53:00.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:53:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:52:30.000 PM",
+            "MetricValue": 104,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:52:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:52:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:52:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:51:30.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:51:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:51:00.000 PM",
+            "MetricValue": 98,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:51:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:50:30.000 PM",
+            "MetricValue": 104,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:50:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:50:00.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:50:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:49:30.000 PM",
+            "MetricValue": 96,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:49:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:49:00.000 PM",
+            "MetricValue": 110,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:49:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:48:30.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:48:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:48:00.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:48:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:47:30.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:47:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:47:00.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:47:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:46:30.000 PM",
+            "MetricValue": 106,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:46:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:46:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:46:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:45:30.000 PM",
+            "MetricValue": 105,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:45:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:45:00.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:45:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:44:30.000 PM",
+            "MetricValue": 105,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:44:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:44:00.000 PM",
+            "MetricValue": 98,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:44:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:43:30.000 PM",
+            "MetricValue": 94,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:43:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:43:00.000 PM",
+            "MetricValue": 96,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:43:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:42:30.000 PM",
+            "MetricValue": 98,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:42:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:42:00.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:42:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:41:30.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:41:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:41:00.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:41:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:40:30.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:40:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:40:00.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:40:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:39:30.000 PM",
+            "MetricValue": 100,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:39:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:39:00.000 PM",
+            "MetricValue": 99,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:39:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:38:30.000 PM",
+            "MetricValue": 104,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:38:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:38:00.000 PM",
+            "MetricValue": 98,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:38:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:37:30.000 PM",
+            "MetricValue": 104,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:37:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:37:00.000 PM",
+            "MetricValue": 104,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:37:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:36:30.000 PM",
+            "MetricValue": 103,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:36:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:36:00.000 PM",
+            "MetricValue": 87,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:36:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:35:30.000 PM",
+            "MetricValue": 102,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:35:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:35:00.000 PM",
+            "MetricValue": 101,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:35:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:34:30.000 PM",
+            "MetricValue": 95,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:34:30+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:34:00.000 PM",
+            "MetricValue": 104,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:34:00+00:00"
+        },
+        {
+            "Timestamp": "13 Feb 2023, 04:33:30.000 PM",
+            "MetricValue": 106,
+            "Duration": "00:30",
+            "MetricType": "Avg",
+            "TimestampWithTZ": "2023-02-13T16:33:30+00:00"
+        }
+    ],
+    "Id": "PowerSupplyOutputPower1",
+    "Name": "Metric Value Container",
+    "TimeScope": "Previous_hour",
+    "@odata.type": "#LenovoHistoryMetricValueContainer.v1_0_0.LenovoHistoryMetricValueContainer",
+    "ContainerName": "PowerSupplyOutputPower1",
+    "@odata.etag": "\"5d6258a5e9b8531d9b0093\"",
+    "@odata.id": "/redfish/v1/Systems/1/Oem/Lenovo/Metrics/PowerSupplyOutputPower1",
+    "Description": "This resource is used to represent an array of history metric values in the container for a Redfish implementation."
+}

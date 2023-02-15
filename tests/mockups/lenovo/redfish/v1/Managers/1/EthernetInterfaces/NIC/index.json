@@ -1,0 +1,193 @@
+{
+    "FQDN": "XCC-7Z23-J101RZ43",
+    "Id": "NIC",
+    "Links": {
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    },
+    "AutoNeg": true,
+    "IPv6AddressPolicyTable": [
+        {
+            "Precedence": 50,
+            "Prefix": "::1/128",
+            "Label": 0
+        },
+        {
+            "Precedence": 11,
+            "Prefix": "::/96",
+            "Label": 3
+        },
+        {
+            "Precedence": 35,
+            "Prefix": "::ffff:0.0.0.0/96",
+            "Label": 4
+        },
+        {
+            "Precedence": 10,
+            "Prefix": "2001::/32",
+            "Label": 6
+        },
+        {
+            "Precedence": 10,
+            "Prefix": "2001:10::/28",
+            "Label": 7
+        },
+        {
+            "Precedence": 1,
+            "Prefix": "3ffe::/16",
+            "Label": 12
+        },
+        {
+            "Precedence": 30,
+            "Prefix": "2002::/16",
+            "Label": 2
+        },
+        {
+            "Precedence": 1,
+            "Prefix": "fec0::/10",
+            "Label": 11
+        },
+        {
+            "Precedence": 5,
+            "Prefix": "fc00::/7",
+            "Label": 5
+        },
+        {
+            "Precedence": 40,
+            "Prefix": "::/0",
+            "Label": 1
+        }
+    ],
+    "IPv6Addresses": [
+        {
+            "AddressState": "Preferred",
+            "Address": "fe80::7e8a:e1ff:fed5:a275",
+            "PrefixLength": 64,
+            "AddressOrigin": "LinkLocal"
+        }
+    ],
+    "FullDuplex": null,
+    "IPv4Addresses": [
+        {
+            "Gateway": "10.153.145.1",
+            "Address": "10.153.145.92",
+            "SubnetMask": "255.255.255.0",
+            "AddressOrigin": "Static"
+        }
+    ],
+    "IPv4StaticAddresses": [
+        {
+            "Gateway": "10.153.145.1",
+            "Address": "10.153.145.92",
+            "SubnetMask": "255.255.255.0",
+            "AddressOrigin": "Static"
+        }
+    ],
+    "IPv6StaticDefaultGateways": [
+        {
+            "PrefixLength": 0,
+            "Address": "::"
+        }
+    ],
+    "Name": "Manager Ethernet Interface",
+    "DHCPv6": {
+        "OperatingMode": "Stateful",
+        "UseNTPServers": null,
+        "UseDomainName": true,
+        "UseRapidCommit": null,
+        "UseDNSServers": true
+    },
+    "@odata.type": "#EthernetInterface.v1_6_0.EthernetInterface",
+    "LinkStatus": "LinkUp",
+    "@odata.etag": "\"10e62f465c93233b74b537\"",
+    "EthernetInterfaceType": "Physical",
+    "IPv6DefaultGateway": "::",
+    "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/NIC",
+    "SpeedMbps": null,
+    "HostName": "XCC-7Z23-J101RZ43",
+    "StaticNameServers": [
+        "0.0.0.0",
+        "0.0.0.0",
+        "0.0.0.0",
+        "::",
+        "::",
+        "::"
+    ],
+    "DHCPv4": {
+        "UseDNSServers": true,
+        "FallbackAddress": "None",
+        "UseGateway": null,
+        "UseNTPServers": null,
+        "UseDomainName": true,
+        "DHCPEnabled": false,
+        "UseStaticRoutes": null
+    },
+    "Description": "Manager Ethernet Interface",
+    "InterfaceEnabled": true,
+    "MACAddress": "7c:8a:e1:d5:a2:75",
+    "Status": {
+        "State": "Enabled",
+        "Health": null
+    },
+    "IPv6StaticAddresses": [
+        {
+            "PrefixLength": 64,
+            "Address": "::"
+        }
+    ],
+    "StatelessAddressAutoConfig": {
+        "IPv4AutoConfigEnabled": null,
+        "IPv6AutoConfigEnabled": true
+    },
+    "MTUSize": 1500,
+    "MaxIPv6StaticAddresses": 1,
+    "Oem": {
+        "Lenovo": {
+            "IPv6AddressAssignedby": [
+                "LinkLocal",
+                "DHCPv6",
+                "SLAAC"
+            ],
+            "InterfaceFailoverMode": {
+                "FailoverMode": "None",
+                "NicValue": 1,
+                "InterfaceSharedNicPortSupported": [
+                    {
+                        "MaxPorts": 2,
+                        "ID": "nic2"
+                    }
+                ]
+            },
+            "IPv4AddressAssignedby": "Static",
+            "NetworkSettingSync": true,
+            "IPv4Enabled": true,
+            "@odata.type": "#LenovoEthernetInterface.v1_0_0.LenovoEthernetInterfaceProperties",
+            "IPv6Enabled": true,
+            "DomainName": "",
+            "InterfaceNicMode": {
+                "NicValue": 1,
+                "InterfaceSharedNicPortSettings": [
+                    {
+                        "Port": 0,
+                        "ID": "nic2"
+                    }
+                ],
+                "NicMode": "Dedicated"
+            }
+        }
+    },
+    "NameServers": [
+        "",
+        "",
+        "",
+        "::",
+        "::",
+        "::"
+    ],
+    "PermanentMACAddress": "7c:8a:e1:d5:a2:75",
+    "VLAN": {
+        "VLANId": 1,
+        "VLANEnable": false
+    }
+}

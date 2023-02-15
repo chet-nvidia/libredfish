@@ -1,0 +1,47 @@
+{
+    "ReadingRangeMax": 15045,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/82L0",
+    "ReadingRangeMin": 0,
+    "ReadingUnits": "RPM",
+    "Thresholds": {
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": 472
+        },
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": null
+        }
+    },
+    "PhysicalContext": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Reading": 4602,
+    "Precision": 0,
+    "MinAllowableOperatingValue": 0,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "MaxAllowableOperatingValue": 15045,
+    "Id": "82L0",
+    "@odata.etag": "\"60bb888f2adc2a308a4\"",
+    "ReadingType": "AirFlow",
+    "Name": "Fan 2A Tach"
+}

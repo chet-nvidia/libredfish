@@ -1,0 +1,9 @@
+{
+    "Members": [],
+    "@odata.type": "#TaskCollection.TaskCollection",
+    "@odata.id": "/redfish/v1/TaskService/Tasks",
+    "Members@odata.count": 0,
+    "@odata.etag": "\"1661986826200\"",
+    "Name": "Task Collection",
+    "Description": "This resource represents a Resource Collection of Task instances for a Redfish implementation."
+}

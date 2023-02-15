@@ -1,0 +1,34 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/413",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-05-24T22:16:29-05:00",
+    "Description": "Log Entry 413",
+    "EntryType": "Oem",
+    "Id": "413",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+        }
+    },
+    "Message": "Login attempt alert for admin from 10.127.0.42 using SSH, IP will be blocked for 60 seconds.",
+    "MessageArgs": [
+        "admin",
+        "10.127.0.42",
+        "SSH",
+        "60"
+    ],
+    "MessageArgs@odata.count": 4,
+    "MessageId": "IDRAC.2.7.USR0034",
+    "Name": "Log Entry 413",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "Warning"
+}

@@ -1,0 +1,49 @@
+{
+    "Message": "DHCP setting changed to DHCP Setting Data 1 by user IPMIMBOX.",
+    "@odata.etag": "\"ejUxX1N0YW5kYXJkTG9nRW50cnkK20\"",
+    "MessageArgs": [
+        "DHCP Setting Data 1",
+        "IPMIMBOX"
+    ],
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/AuditLog/Entries/20",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "EntryType": "Oem",
+    "Name": "LogEntry",
+    "EventGroupId": 0,
+    "OemLogEntryCode": "Lenovo0026",
+    "Oem": {
+        "Lenovo": {
+            "ReportingChain": "XCC",
+            "IsLocalEvent": true,
+            "RawDebugLogURL": "",
+            "EventID@Redfish.Deprecated": "The property is deprecated. Please use EventId instead.",
+            "EventFlag": 0,
+            "AuxiliaryData": "",
+            "Source": "System",
+            "FailingFRU": [
+                {
+                    "FRUSerialNumber": "",
+                    "FRUNumber": ""
+                }
+            ],
+            "TSLVersion": "0",
+            "RelatedEventID": "",
+            "Serviceable": "Not Serviceable",
+            "EventID": "0x4000001a00000000",
+            "EventSequenceNumber": 20,
+            "EventType": 0,
+            "@odata.type": "#LenovoLogEntry.v1_0_0.AuditLogEntry",
+            "LenovoMessageID": "Lenovo0026",
+            "AffectedIndicatorLEDs": [],
+            "TotalSequenceNumber": 31,
+            "CommonEventID": "FQXSPNM4015I",
+            "Hidden": false
+        }
+    },
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "20",
+    "Severity": "OK",
+    "EventId": "0x4000001a00000000",
+    "Created": "2022-08-31T23:02:30.810+00:00"
+}

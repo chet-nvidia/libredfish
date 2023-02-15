@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoManager.v1_0_0.LenovoManager",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoManager.v1_0_0",
+    "Name": "LenovoManager JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoManager.v1_0_0.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"3261b75f\"",
+    "Id": "LenovoManager.v1_0_0",
+    "Description": "This represents the LenovoManager Schema File locator resource for a Redfish implementation."
+}

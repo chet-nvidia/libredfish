@@ -1,0 +1,9 @@
+{
+    "Members": [],
+    "@odata.type": "#CertificateCollection.CertificateCollection",
+    "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/ServerProfile/Certificates",
+    "Members@odata.count": 0,
+    "@odata.etag": "\"264a8349cf822a23411\"",
+    "Name": "CertificateCollection_ServerProfile",
+    "Description": "A collection of Certificate resource instances."
+}

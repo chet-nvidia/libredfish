@@ -1,0 +1,18 @@
+{
+    "Schema": "#NetworkAdapterCollection.NetworkAdapterCollection",
+    "@odata.id": "/redfish/v1/JsonSchemas/NetworkAdapterCollection",
+    "Name": "NetworkAdapterCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/NetworkAdapterCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"c7bcb9d1\"",
+    "Id": "NetworkAdapterCollection",
+    "Description": "This represents the NetworkAdapterCollection Schema File locator resource for a Redfish implementation."
+}

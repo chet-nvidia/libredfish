@@ -1,0 +1,139 @@
+{
+    "@Redfish.Copyright": "Copyright 2014-2018 DMTF in cooperation with the Storage Networking Industry Association (SNIA). All rights reserved.",
+    "RegistryPrefix": "TaskEvent",
+    "OwningEntity": "DMTF",
+    "Name": "Task Event Message Registry",
+    "Id": "TaskEvent.1.0.1",
+    "@odata.type": "#MessageRegistry.v1_2_0.MessageRegistry",
+    "Description": "This registry defines the messages for task related events.",
+    "RegistryVersion": "1.0.1",
+    "Messages": {
+        "TaskCancelled": {
+            "ClearingLogic": {
+                "ClearsIf": "SameOriginOfCondition",
+                "ClearsMessage": [
+                    "TaskStarted"
+                ]
+            },
+            "Message": "The task with id %1 has been cancelled.",
+            "ParamTypes": [
+                "string"
+            ],
+            "NumberOfArgs": 1,
+            "Severity": "Warning",
+            "Resolution": "None.",
+            "Description": "The task with id %1 has been cancelled."
+        },
+        "TaskRemoved": {
+            "Message": "The task with id %1 has been removed.",
+            "ClearingLogic": {
+                "ClearsAll": true,
+                "ClearsIf": "SameOriginOfCondition"
+            },
+            "ParamTypes": [
+                "string"
+            ],
+            "NumberOfArgs": 1,
+            "Severity": "Warning",
+            "Resolution": "None.",
+            "Description": "The task with id %1 has been removed."
+        },
+        "TaskCompletedOK": {
+            "ClearingLogic": {
+                "ClearsIf": "SameOriginOfCondition",
+                "ClearsMessage": [
+                    "TaskStarted"
+                ]
+            },
+            "Resolution": "None.",
+            "ParamTypes": [
+                "string"
+            ],
+            "NumberOfArgs": 1,
+            "Severity": "OK",
+            "Message": "The task with id %1 has completed.",
+            "Description": "The task with id %1 has completed."
+        },
+        "TaskCompletedWarning": {
+            "Message": "The task with id %1 has completed with warnings.",
+            "Resolution": "None.",
+            "ParamTypes": [
+                "string"
+            ],
+            "NumberOfArgs": 1,
+            "Severity": "Warning",
+            "ClearingLogic": {
+                "ClearsIf": "SameOriginOfCondition",
+                "ClearsMessage": [
+                    "TaskStarted"
+                ]
+            },
+            "Description": "The task with id %1 has completed with warnings."
+        },
+        "TaskStarted": {
+            "Message": "The task with id %1 has started.",
+            "ParamTypes": [
+                "string"
+            ],
+            "NumberOfArgs": 1,
+            "Severity": "OK",
+            "Resolution": "None.",
+            "Description": "The task with id %1 has started."
+        },
+        "TaskAborted": {
+            "Message": "The task with id %1 has been aborted.",
+            "ClearingLogic": {
+                "ClearsIf": "SameOriginOfCondition",
+                "ClearsMessage": [
+                    "TaskStarted"
+                ]
+            },
+            "ParamTypes": [
+                "string"
+            ],
+            "NumberOfArgs": 1,
+            "Severity": "Critical",
+            "Resolution": "None.",
+            "Description": "The task with id %1 has been aborted."
+        },
+        "TaskPaused": {
+            "Message": "The task with id %1 has been paused.",
+            "ParamTypes": [
+                "string"
+            ],
+            "NumberOfArgs": 1,
+            "Severity": "Warning",
+            "Resolution": "None.",
+            "Description": "The task with id %1 has been paused."
+        },
+        "TaskResumed": {
+            "Message": "The task with id %1 has been resumed.",
+            "ClearingLogic": {
+                "ClearsIf": "SameOriginOfCondition",
+                "ClearsMessage": [
+                    "TaskPaused"
+                ]
+            },
+            "ParamTypes": [
+                "string"
+            ],
+            "NumberOfArgs": 1,
+            "Severity": "OK",
+            "Resolution": "None.",
+            "Description": "The task with id %1 has been resumed."
+        },
+        "TaskProgressChanged": {
+            "Message": "The task with id %1 has changed to progress %2 percent complete.",
+            "ParamTypes": [
+                "string",
+                "number"
+            ],
+            "NumberOfArgs": 2,
+            "Severity": "OK",
+            "Resolution": "None.",
+            "Description": "The task with id %1 has changed to progress %2 percent complete."
+        }
+    },
+    "@Redfish.License": "Creative Commons Attribution 4.0 License.  For full text see link: https://creativecommons.org/licenses/by/4.0/",
+    "Language": "en"
+}

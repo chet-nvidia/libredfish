@@ -1,0 +1,20 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Sel/Entries/197",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-10-11T00:14:35-05:00",
+    "Description": "Log Entry 197",
+    "EntryCode": "Assert",
+    "EntryType": "SEL",
+    "GeneratorId": "0x0020",
+    "Id": "197",
+    "Links": {},
+    "Message": "The System Configuration Check operation resulted in the following issue: Config Missing:  Riser  2.",
+    "MessageArgs": [],
+    "MessageArgs@odata.count": 0,
+    "MessageId": "6fa41100",
+    "Name": "Log Entry 197",
+    "SensorNumber": 187,
+    "SensorType": null,
+    "Severity": "Critical"
+}

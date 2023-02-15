@@ -1,0 +1,31 @@
+{
+    "FileTransferTimeout": 600,
+    "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/ServiceData",
+    "ExportingSchemes": "TFTP, SFTP",
+    "Name": "Service Data",
+    "DataCollectionType": "ProcessorDump, ServiceDataFile, BootPOSTDump",
+    "@odata.type": "#LenovoServiceData.v1_0_0.LenovoServiceData",
+    "Id": "ServiceData",
+    "IsScreenAvailable": false,
+    "@odata.etag": "\"8b7997cdad1f2676a59\"",
+    "Actions": {
+        "#LenovoServiceData.ExportFFDCData": {
+            "target": "/redfish/v1/Managers/1/Oem/Lenovo/ServiceData/Actions/LenovoServiceData.ExportFFDCData",
+            "title": "ExportFFDCData",
+            "DataCollectionType@Redfish.AllowableValues": [
+                "ProcessorDump",
+                "ServiceDataFile",
+                "BootPOSTDump"
+            ]
+        },
+        "#LenovoServiceData.ExportLatestOSFailureScreen": {
+            "title": "ExportLatestOSFailureScreen",
+            "target": "/redfish/v1/Managers/1/Oem/Lenovo/ServiceData/Actions/LenovoServiceData.ExportLatestOSFailureScreen"
+        },
+        "#LenovoServiceData.ExportHealthReport": {
+            "title": "ExportHealthReport",
+            "target": "/redfish/v1/Managers/1/Oem/Lenovo/ServiceData/Actions/LenovoServiceData.ExportHealthReport"
+        }
+    },
+    "Description": "This resource is used to represent resources that are used to collect service Data, including FFDC and latest OS failure screen."
+}

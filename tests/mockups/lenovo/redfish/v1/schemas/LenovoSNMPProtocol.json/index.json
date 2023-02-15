@@ -1,0 +1,18 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoSNMPProtocol.LenovoSNMPProtocol",
+    "$ref": "#/definitions/LenovoSNMPProtocol",
+    "definitions": {
+        "LenovoSNMPProtocol": {
+            "anyOf": [
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/idRef"
+                },
+                {
+                    "$ref": "/schemas/v1/Lenovo/LenovoSNMPProtocol.v1_0_0.json#/definitions/LenovoSNMPProtocol"
+                }
+            ]
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

@@ -1,22 +1,29 @@
-use libredfish::{Config, Redfish};
+use anyhow::anyhow;
+use libredfish::{Boot, EnabledDisabled, SystemPowerControl, Vendor};
+use tracing::{error, info};
+use tracing_subscriber::filter::{EnvFilter, LevelFilter};
+use tracing_subscriber::fmt::Layer;
+use tracing_subscriber::prelude::*;
 
-fn main() -> Result<(), reqwest::Error> {
+fn main() -> Result<(), anyhow::Error> {
+    let env_filter = EnvFilter::from_default_env()
+        .add_directive(LevelFilter::DEBUG.into())
+        .add_directive("hyper=warn".parse().unwrap());
+
+    tracing_subscriber::registry()
+        .with(Layer::default().compact())
+        .with(env_filter)
+        .init();
+
     let args: Vec<String> = std::env::args().collect();
     let mut opts = getopts::Options::new();
-    let mut conf = Config {
-        user: None,
-        endpoint: "".to_string(),
-        password: None,
-        port: None,
-        system: "".to_string(),
-        manager: "".to_string(),
-        vendor: libredfish::Vendor::Unknown,
-    };
+    let mut conf = libredfish::NetworkConfig::default();
 
     opts.optopt("H", "hostname", "specify hostname or IP address", "HOST");
     opts.optopt("U", "username", "specify authentication username", "USER");
     opts.optopt("P", "password", "specify authentication password", "PASS");
-    opts.optopt("c", "cmd", "specify the command to run: off/on/cycle/reset/shutdown(graceful)/restart(graceful)/status/tpm_enable/tpm_disable/tpm_reset/serial_enable/lockdown_enable/lockdown_disable/bios_attrs/bmc_attrs/boot_pxe/boot_hdd/boot_once_pxe/boot_once_hdd", "CMD");
+    opts.optopt("V", "vendor", "[Dell|Lenovo|Hpe|Supermicro]", "Unknown");
+    opts.optopt("c", "cmd", "specify the command to run: off/on/reset/shutdown/restart/get_power_state/tpm_reset/serial_enable/lockdown_enable/lockdown_disable/bios_attrs/boot_pxe/boot_hdd/boot_once_pxe/boot_once_hdd", "CMD");
 
     let args_given = opts.parse(&args[1..]).unwrap();
     if args_given.opt_present("H") {
@@ -28,99 +35,74 @@ fn main() -> Result<(), reqwest::Error> {
     if args_given.opt_present("P") {
         conf.password = Some(args_given.opt_str("P").unwrap());
     }
+    let vendor_str = args_given
+        .opt_str("V")
+        .ok_or(anyhow!("Vendor -V is required"))?;
+    let vendor = match vendor_str.as_str() {
+        "Dell" => Vendor::Dell,
+        "Lenovo" => Vendor::Lenovo,
+        "Supermicro" => Vendor::Supermicro,
+        "Hpe" => Vendor::Hpe,
+        _ => return Err(anyhow!(format!("Unknown vendor '{vendor_str}'"))),
+    };
 
-    let mut redfish = Redfish::new(conf);
-
-    redfish.get_system_id()?;
-    redfish.get_manager_id()?;
+    let redfish = libredfish::new(vendor, conf)?;
 
     if args_given.opt_present("c") {
+        use EnabledDisabled::*;
         match args_given.opt_str("c").unwrap().as_str() {
-            "off" => {
-                redfish.set_system_power(libredfish::system::SystemPowerControl::ForceOff)?;
+            "get_power_state" => {
+                info!("{}", redfish.get_power_state()?);
             }
             "on" => {
-                redfish.set_system_power(libredfish::system::SystemPowerControl::On)?;
-            }
-            "cycle" => {
-                redfish.set_system_power(libredfish::system::SystemPowerControl::PowerCycle)?;
-            }
-            "reset" => {
-                redfish.set_system_power(libredfish::system::SystemPowerControl::ForceRestart)?;
+                redfish.power(SystemPowerControl::On)?;
             }
             "shutdown" => {
-                redfish
-                    .set_system_power(libredfish::system::SystemPowerControl::GracefulShutdown)?;
+                redfish.power(SystemPowerControl::GracefulShutdown)?;
+            }
+            "off" => {
+                redfish.power(SystemPowerControl::ForceOff)?;
             }
             "restart" => {
-                redfish
-                    .set_system_power(libredfish::system::SystemPowerControl::GracefulRestart)?;
+                redfish.power(SystemPowerControl::GracefulRestart)?;
             }
-            "status" => match redfish.get_system() {
-                Ok(system) => {
-                    println!("System power status: {}", system.power_state);
-                }
-                Err(e) => {
-                    eprintln!("Error: {}", e);
-                }
-            },
-            "tpm_enable" => {
-                redfish.enable_tpm()?;
-                println!("BIOS settings changes require system restart");
-            }
-            "tpm_disable" => {
-                redfish.disable_tpm()?;
-                println!("BIOS settings changes require system restart");
-            }
-            "tpm_reset" => {
-                redfish.reset_tpm()?;
-                println!("BIOS settings changes require system restart");
-            }
-            "serial_enable" => {
-                redfish.setup_bmc_remote_access()?;
-                redfish.setup_serial_console()?;
-                println!("BIOS settings changes require system restart");
+            "reset" => {
+                redfish.power(SystemPowerControl::ForceRestart)?;
             }
             "lockdown_enable" => {
-                redfish.enable_bios_lockdown()?;
-                redfish.enable_bmc_lockdown(libredfish::manager::OemDellBootDevices::PXE, false)?;
-                println!("BIOS settings changes require system restart");
+                redfish.lockdown(Enabled)?;
+                info!("BIOS settings changes require system restart");
             }
             "lockdown_disable" => {
-                redfish.disable_bmc_lockdown(libredfish::manager::OemDellBootDevices::PXE, false)?;
-                redfish.disable_bios_lockdown()?;
-                println!("BIOS settings changes require system restart");
+                redfish.lockdown(Disabled)?;
+                info!("BIOS settings changes require system restart");
             }
-            "bios_attrs" => match redfish.get_bios_data() {
-                Ok(bios) => {
-                    println!("{:#?}", bios);
-                }
-                Err(e) => {
-                    eprintln!("Error: {}", e);
-                }
-            },
-            "bmc_attrs" => match redfish.get_bmc_data() {
-                Ok(bmc) => {
-                    println! {"{:#?}", bmc};
-                }
-                Err(e) => {
-                    eprintln!("Error: {}", e);
-                }
-            },
+            "serial_enable" => {
+                redfish.setup_serial_console()?;
+                info!("BIOS settings changes require system restart");
+            }
+            "tpm_reset" => {
+                redfish.clear_tpm()?;
+                info!("BIOS settings changes require system restart");
+            }
             "boot_pxe" => {
-                return redfish.set_boot_first(libredfish::manager::OemDellBootDevices::PXE, false);
+                redfish.boot_first(Boot::Pxe)?;
             }
             "boot_hdd" => {
-                return redfish.set_boot_first(libredfish::manager::OemDellBootDevices::HDD, false);
+                redfish.boot_first(Boot::HardDisk)?;
             }
             "boot_once_pxe" => {
-                return redfish.set_boot_first(libredfish::manager::OemDellBootDevices::PXE, true);
+                redfish.boot_once(Boot::Pxe)?;
             }
             "boot_once_hdd" => {
-                return redfish.set_boot_first(libredfish::manager::OemDellBootDevices::HDD, true);
+                redfish.boot_once(Boot::HardDisk)?;
+            }
+            "bios_attrs" => {
+                let bios = redfish.get_bios_attributes()?;
+                info!("{:#?}", bios);
             }
             _ => {
-                eprintln!(
+                error!(
                     "Unsupported command specified {}",
                     args_given.opt_str("c").unwrap()
                 );

@@ -1,0 +1,18 @@
+{
+    "Schema": "#CertificateService.v1_0_2.CertificateService",
+    "@odata.id": "/redfish/v1/JsonSchemas/CertificateService.v1_0_2",
+    "Name": "CertificateService JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/CertificateService.v1_0_2.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"905ac5e3\"",
+    "Id": "CertificateService.v1_0_2",
+    "Description": "This represents the CertificateService Schema File locator resource for a Redfish implementation."
+}

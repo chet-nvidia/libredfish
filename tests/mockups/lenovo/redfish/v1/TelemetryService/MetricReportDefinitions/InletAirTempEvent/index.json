@@ -1,0 +1,36 @@
+{
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/InletAirTempEvent",
+    "Metrics": [
+        {
+            "CollectionTimeScope": "Interval",
+            "CollectionDuration": "PT1M",
+            "MetricProperties": [
+                "/redfish/v1/Chassis/1/Thermal#/Temperature/{TWild}/ReadingCelsius"
+            ]
+        }
+    ],
+    "@odata.etag": "\"5c43ba3f6ab827ea5ab\"",
+    "Name": "InletAirTempEvent",
+    "Id": "InletAirTempEvent",
+    "ReportActions": [
+        "RedfishEvent"
+    ],
+    "MetricReportDefinitionType": "Periodic",
+    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
+    "Status": {
+        "State": "Enabled"
+    },
+    "Wildcards": [
+        {
+            "Values": [
+                "0"
+            ],
+            "Name": "TWild"
+        }
+    ],
+    "ReportTimespan": "PT10M",
+    "Schedule": {
+        "RecurrenceInterval": "PT10M"
+    },
+    "Description": "A set of metrics that are collected into a metric report."
+}

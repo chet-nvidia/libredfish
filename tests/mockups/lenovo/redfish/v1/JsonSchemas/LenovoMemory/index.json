@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoMemory.LenovoMemory",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoMemory",
+    "Name": "LenovoMemory JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoMemory.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"fdd9c2c2\"",
+    "Id": "LenovoMemory",
+    "Description": "This represents the LenovoMemory Schema File locator resource for a Redfish implementation."
+}

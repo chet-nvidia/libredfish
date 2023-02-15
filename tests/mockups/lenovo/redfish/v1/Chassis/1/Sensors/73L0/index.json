@@ -1,0 +1,16 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/73L0",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "ReadingUnits": "",
+    "Reading": 0,
+    "PhysicalContext": null,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Id": "73L0",
+    "Name": "PSU Mismatch",
+    "@odata.etag": "\"250f97c7568925a54b4\"",
+    "ReadingType": "Power",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+}

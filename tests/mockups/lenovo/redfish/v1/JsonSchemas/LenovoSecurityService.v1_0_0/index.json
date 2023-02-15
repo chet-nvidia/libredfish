@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoSecurityService.v1_0_0.LenovoSecurityService",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoSecurityService.v1_0_0",
+    "Name": "LenovoSecurityService JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoSecurityService.v1_0_0.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"66bb1266\"",
+    "Id": "LenovoSecurityService.v1_0_0",
+    "Description": "This represents the LenovoSecurityService Schema File locator resource for a Redfish implementation."
+}

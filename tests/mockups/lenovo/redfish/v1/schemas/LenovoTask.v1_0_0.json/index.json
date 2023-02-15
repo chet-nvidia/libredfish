@@ -1,0 +1,134 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoTask.v1_0_0",
+    "definitions": {
+        "ProgressItem": {
+            "type": "string",
+            "enum": [
+                "Downloading",
+                "Updating"
+            ],
+            "enumDescriptions": {
+                "Downloading": "Indicates the install firmware task is running at downloading firmware step.",
+                "Updating": "Indiates the install firmware task is running at updating firmware step."
+            }
+        },
+        "LenovoTaskProperties": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "InstallFirmware": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                            "type": [
+                                "array",
+                                "boolean",
+                                "number",
+                                "null",
+                                "object",
+                                "string"
+                            ],
+                            "description": "This property shall specify a valid odata or Redfish property."
+                        }
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                        "RunningProgress": {
+                            "anyOf": [
+                                {
+                                    "$ref": "#/definitions/ProgressItem"
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ],
+                            "readonly": true,
+                            "description": "Indicates firmware installation progress when the task state is running",
+                            "longDescription": "The value of this property shall indicate firmware installation progress when the task state is running."
+                        },
+                        "RunningProgressInPercent": {
+                            "type": [
+                                "number",
+                                "null"
+                            ],
+                            "readonly": true,
+                            "minimum": 0,
+                            "maximum": 100,
+                            "description": "Indicates the percentage of the firmware installation progress when the task state is running.",
+                            "longDescription": "The value of this property shall indicate the percentage of the firmware installation progress when the task state is running."
+                        }
+                    },
+                    "description": "This object is only used to represent the firmware installation task."
+                },
+                "FFDCForDownloading": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                            "type": [
+                                "array",
+                                "boolean",
+                                "number",
+                                "null",
+                                "object",
+                                "string"
+                            ],
+                            "description": "This property shall specify a valid odata or Redfish property."
+                        }
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                        "Path": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "readonly": true,
+                            "description": "Indicates the relative path of generated FFDC in XCC internal sftp server.",
+                            "longDescription": "The value of this property shall indicate the relative path of generated FFDC in XCC internal sftp server."
+                        },
+                        "Port": {
+                            "type": [
+                                "number",
+                                "null"
+                            ],
+                            "readonly": true,
+                            "description": "Indicates the port of XCC internal sftp service.",
+                            "longDescription": "The value of this property shall indicate the port of XCC internal sftp service."
+                        }
+                    },
+                    "description": "This object is only used to represent the generating FFDC to XCC internal sftp server task. The values of the properties shall be set only when its task state is complete."
+                },
+                "ServProfData": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "This property indicates the result data of server profile task. This property appears only when the server profile task completes."
+                }
+            },
+            "description": "These properties shall be refered in /schemas/v1/Task.v1_0_0.json#/definitions/Task/properties/Oem."
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

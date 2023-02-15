@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoSNMPProtocol.LenovoSNMPProtocol",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoSNMPProtocol",
+    "Name": "LenovoSNMPProtocol JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoSNMPProtocol.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"4fe59725\"",
+    "Id": "LenovoSNMPProtocol",
+    "Description": "This represents the LenovoSNMPProtocol Schema File locator resource for a Redfish implementation."
+}

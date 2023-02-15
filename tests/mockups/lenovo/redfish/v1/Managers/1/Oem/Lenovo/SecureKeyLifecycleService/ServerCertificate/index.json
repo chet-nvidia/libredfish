@@ -1,0 +1,9 @@
+{
+    "Members": [],
+    "@odata.type": "#CertificateCollection.CertificateCollection",
+    "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/SecureKeyLifecycleService/ServerCertificate",
+    "Members@odata.count": 0,
+    "@odata.etag": "\"2814f27853bd2664b51\"",
+    "Name": "CertificateCollection_SKLM-Server",
+    "Description": "A collection of Certificate resource instances."
+}

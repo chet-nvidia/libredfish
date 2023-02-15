@@ -1,0 +1,16 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/197L3",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "ReadingUnits": "",
+    "Reading": 0,
+    "PhysicalContext": "ComputeBay",
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Id": "197L3",
+    "Name": "Raid Ctrl6",
+    "@odata.etag": "\"25d42804e7982965631\"",
+    "ReadingType": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+}

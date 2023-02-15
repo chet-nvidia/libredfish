@@ -1,0 +1,22 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/AveragePowerSupplyInput"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/AveragePowerSupplyOutput"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/AverageCPUUtilization"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/AverageMemoryUtilization"
+        }
+    ],
+    "@odata.type": "#MetricDefinitionCollection.MetricDefinitionCollection",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions",
+    "Members@odata.count": 4,
+    "@odata.etag": "\"4c0fb4897e6d24eb24e\"",
+    "Name": "MetricDefinitions",
+    "Description": "A Collection of MetricDefinition resource instances."
+}

@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/686",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-01-12T22:23:49-06:00",
+    "Description": "Log Entry 686",
+    "EntryType": "Oem",
+    "Id": "686",
+    "Links": {},
+    "Message": "An existing hash value is updated because some system configuration items are changed.",
+    "MessageId": "IDRAC.2.7.SYS336",
+    "Name": "Log Entry 686",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Configuration",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

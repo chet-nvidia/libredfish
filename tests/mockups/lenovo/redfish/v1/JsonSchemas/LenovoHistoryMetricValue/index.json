@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoHistoryMetricValue.LenovoHistoryMetricValue",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoHistoryMetricValue",
+    "Name": "LenovoHistoryMetricValue JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoHistoryMetricValue.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"72706eb2\"",
+    "Id": "LenovoHistoryMetricValue",
+    "Description": "This represents the LenovoHistoryMetricValue Schema File locator resource for a Redfish implementation."
+}

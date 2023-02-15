@@ -1,0 +1,47 @@
+{
+    "ReadingRangeMax": 2550,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/205L0",
+    "ReadingRangeMin": 2550,
+    "ReadingUnits": "Watts",
+    "Thresholds": {
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": null
+        }
+    },
+    "PhysicalContext": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Reading": 420,
+    "Precision": 0,
+    "MinAllowableOperatingValue": 2550,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "MaxAllowableOperatingValue": 2550,
+    "Name": "Sys Power",
+    "@odata.etag": "\"651c6b805774272c768\"",
+    "Id": "205L0",
+    "ReadingType": "Current"
+}

@@ -1,0 +1,31 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/899",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-02-08T01:01:47-06:00",
+    "Description": "Log Entry 899",
+    "EntryType": "Oem",
+    "Id": "899",
+    "Links": {},
+    "Message": "User root via IP 10.180.37.2 created configuration / update Job ID JID_758397079548 with Job Name ConfigBIOS:BIOS.Setup.1-1 using Firmware RACADM.",
+    "MessageArgs": [
+        "root",
+        "10.180.37.2",
+        "JID_758397079548",
+        "ConfigBIOS:BIOS.Setup.1-1",
+        "Firmware RACADM"
+    ],
+    "MessageArgs@odata.count": 5,
+    "MessageId": "IDRAC.2.7.JCP040",
+    "Name": "Log Entry 899",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

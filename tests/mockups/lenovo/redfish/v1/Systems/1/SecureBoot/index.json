@@ -1,0 +1,18 @@
+{
+    "SecureBootCurrentBoot": "Disabled",
+    "Id": "SecureBoot",
+    "Name": "Secure Boot",
+    "@odata.id": "/redfish/v1/Systems/1/SecureBoot",
+    "@odata.type": "#SecureBoot.v1_1_0.SecureBoot",
+    "SecureBootEnable": false,
+    "SecureBootMode": "UserMode",
+    "@odata.etag": "\"3d155a43b35024e48b0\"",
+    "Actions": {
+        "#SecureBoot.ResetKeys": {
+            "target": "/redfish/v1/Systems/1/SecureBoot/Actions/SecureBoot.ResetKeys",
+            "title": "ResetKeys",
+            "@Redfish.ActionInfo": "/redfish/v1/Systems/1/SecureBoot/ResetKeysActionInfo"
+        }
+    },
+    "Description": "UEFI Secure Boot Configuration"
+}

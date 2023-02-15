@@ -1,0 +1,48 @@
+{
+    "ValidNotAfter": "2032-08-28T22:59:42+00:00",
+    "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/HTTPS/Certificates/1",
+    "Id": "1",
+    "KeyUsage": [
+        "DigitalSignature",
+        "NonRepudiation",
+        "KeyEncipherment"
+    ],
+    "Name": "Certificate_HTTPS",
+    "CertificateType": "PEM",
+    "Issuer": {
+        "Organization": "Lenovo",
+        "Country": "US",
+        "City": "RTP",
+        "CommonName": "XCC-7Z23-J101RZ43",
+        "State": "NC"
+    },
+    "Subject": {
+        "Organization": "Lenovo",
+        "Country": "US",
+        "City": "RTP",
+        "CommonName": "XCC-7Z23-J101RZ43",
+        "State": "NC"
+    },
+    "@odata.type": "#Certificate.v1_2_0.Certificate",
+    "ValidNotBefore": "2022-08-31T22:59:42+00:00",
+    "@odata.etag": "\"1022ec95cb3f532c806e76\"",
+    "CertificateString": "-----BEGIN CERTIFICATE-----\nMIICyzCCAlKgAwIBAgIUUF0zprf4Srn9Lnee0dE8nHN1HcswCgYIKoZIzj0EAwIwVTELMAkGA1UEBhMCVVMxCzAJBgNVBAgMAk5DMQwwCgYDVQQHDANSVFAxDzANBgNVBAoMBkxlbm92bzEaMBgGA1UEAwwRWENDLTdaMjMtSjEwMVJaNDMwHhcNMjIwODMxMjI1OTQyWhcNMzIwODI4MjI1OTQyWjBVMQswCQYDVQQGEwJVUzELMAkGA1UECAwCTkMxDDAKBgNVBAcMA1JUUDEPMA0GA1UECgwGTGVub3ZvMRowGAYDVQQDDBFYQ0MtN1oyMy1KMTAxUlo0MzB2MBAGByqGSM49AgEGBSuBBAAiA2IABCVD+eAjapw9XtBnb0BoXR7zYGXMNx6eq0muR8haF3vy6uYCsVNAtsIBAc8VQ+JyuL/rnB1dxkfzYhfoE7D3aDviGTVqujrTM+Em5PoHlWPiwvQc96k0+hO8puQiKeQmx6OB4jCB3zAJBgNVHRMEAjAAMAsGA1UdDwQEAwIF4DCBxAYDVR0RBIG8MIG5ghFYQ0MtN1oyMy1KMTAxUlo0M4IcWENDLTdaMjMtSjEwMVJaNDMubnZpZGlhLmNvbYcQ/oAAAAAAAAB+iuH//tWidYIqZmU4MC0tN2U4YS1lMWZmLWZlZDUtYTI3NS5pcHY2LWxpdGVyYWwubmV0hwQKmZFyhxD+gAAAAAAAAH6K4f/+1aJ2gipmZTgwLS03ZThhLWUxZmYtZmVkNS1hMjc2LmlwdjYtbGl0ZXJhbC5uZXSHBKn+X3YwCgYIKoZIzj0EAwIDZwAwZAIwZaXVkCg2d0i6/90TkZFkNrV94b8fxY9RcHuF85nS0rf5Oc/fLy73CpcamWPsoKW/AjBy7lgBrU27DYFe5c/M7bAlzxZe/6HNuS3RySa2E+CO7YFVavoVTsQJeAu0FfLNRyk=\n-----END CERTIFICATE-----",
+    "Actions": {
+        "#Certificate.Rekey": {
+            "title": "Generate a new key pair for an existing certificate and produce a CSR.",
+            "target": "/redfish/v1/Managers/1/NetworkProtocol/HTTPS/Certificates/1/Actions/Certificate.Rekey",
+            "KeyPairAlgorithm@Redfish.AllowableValues": [
+                "TPM_ALG_ECDH",
+                "TPM_ALG_RSA"
+            ],
+            "KeyCurveId@Redfish.AllowableValues": [
+                "TPM_ECC_NIST_P384"
+            ]
+        },
+        "#Certificate.Renew": {
+            "title": "Generate a CSR using the existing information and key pair of the certificate.",
+            "target": "/redfish/v1/Managers/1/NetworkProtocol/HTTPS/Certificates/1/Actions/Certificate.Renew"
+        }
+    },
+    "Description": "This resource is used to represent the certificate for a Redfish implementation."
+}

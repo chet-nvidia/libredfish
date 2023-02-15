@@ -1,0 +1,21 @@
+{
+    "ConnectedVia": "NotConnected",
+    "@odata.id": "/redfish/v1/Managers/1/VirtualMedia/EXT3",
+    "Image": null,
+    "MediaTypes": [
+        "CD",
+        "DVD",
+        "Floppy",
+        "USBStick"
+    ],
+    "Name": "VirtualMedia",
+    "Id": "EXT3",
+    "Password": null,
+    "ImageName": null,
+    "@odata.type": "#VirtualMedia.v1_3_2.VirtualMedia",
+    "WriteProtected": true,
+    "UserName": null,
+    "@odata.etag": "\"3d7ffe7360bf2729421\"",
+    "Inserted": false,
+    "Description": "This resource shall be used to represent a virtual media service for a Redfish implementation."
+}

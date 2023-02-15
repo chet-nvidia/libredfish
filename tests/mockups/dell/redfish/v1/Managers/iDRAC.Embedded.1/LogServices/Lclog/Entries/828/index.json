@@ -1,0 +1,33 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/828",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-02-07T16:28:24-06:00",
+    "Description": "Log Entry 828",
+    "EntryType": "Oem",
+    "Id": "828",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+        }
+    },
+    "Message": "Successfully logged in using root, from 10.180.32.10 and IPMI over LAN.",
+    "MessageArgs": [
+        "root",
+        "10.180.32.10",
+        "IPMI over LAN"
+    ],
+    "MessageArgs@odata.count": 3,
+    "MessageId": "IDRAC.2.7.USR0030",
+    "Name": "Log Entry 828",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

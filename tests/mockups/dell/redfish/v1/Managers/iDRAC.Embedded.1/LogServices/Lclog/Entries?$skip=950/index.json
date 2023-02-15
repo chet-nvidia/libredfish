@@ -1,0 +1,1335 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntryCollection.LogEntryCollection",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries",
+    "@odata.type": "#LogEntryCollection.LogEntryCollection",
+    "Description": "LC Logs for this manager",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/240",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:36-06:00",
+            "Description": "Log Entry 240",
+            "EntryType": "Oem",
+            "Id": "240",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 240",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/239",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:35-06:00",
+            "Description": "Log Entry 239",
+            "EntryType": "Oem",
+            "Id": "239",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 239",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/238",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:35-06:00",
+            "Description": "Log Entry 238",
+            "EntryType": "Oem",
+            "Id": "238",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 238",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/237",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:34-06:00",
+            "Description": "Log Entry 237",
+            "EntryType": "Oem",
+            "Id": "237",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 237",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/236",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:34-06:00",
+            "Description": "Log Entry 236",
+            "EntryType": "Oem",
+            "Id": "236",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 236",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/235",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:33-06:00",
+            "Description": "Log Entry 235",
+            "EntryType": "Oem",
+            "Id": "235",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 235",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/234",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:33-06:00",
+            "Description": "Log Entry 234",
+            "EntryType": "Oem",
+            "Id": "234",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 234",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/233",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:32-06:00",
+            "Description": "Log Entry 233",
+            "EntryType": "Oem",
+            "Id": "233",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 233",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/232",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:31-06:00",
+            "Description": "Log Entry 232",
+            "EntryType": "Oem",
+            "Id": "232",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 232",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/231",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:31-06:00",
+            "Description": "Log Entry 231",
+            "EntryType": "Oem",
+            "Id": "231",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 231",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/230",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:30-06:00",
+            "Description": "Log Entry 230",
+            "EntryType": "Oem",
+            "Id": "230",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 230",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/229",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:28-06:00",
+            "Description": "Log Entry 229",
+            "EntryType": "Oem",
+            "Id": "229",
+            "Links": {},
+            "Message": "A fatal error was detected on a component at bus 4 device 0 function 0.",
+            "MessageArgs": [
+                "4",
+                "0",
+                "0"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.PCI1318",
+            "Name": "Log Entry 229",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/228",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-15T00:20:27-06:00",
+            "Description": "Log Entry 228",
+            "EntryType": "Oem",
+            "Id": "228",
+            "Links": {},
+            "Message": "System CPU Resetting.",
+            "MessageId": "IDRAC.2.7.SYS1003",
+            "Name": "Log Entry 228",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/227",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:45:14-06:00",
+            "Description": "Log Entry 227",
+            "EntryType": "Oem",
+            "Id": "227",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "The server power action is initiated because the host device initiated a warm-reset operation.",
+            "MessageArgs": [
+                "the host device initiated a warm-reset operation"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SYS1005",
+            "Name": "Log Entry 227",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/226",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:45:00-06:00",
+            "Description": "Log Entry 226",
+            "EntryType": "Oem",
+            "Id": "226",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 226",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/225",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:59-06:00",
+            "Description": "Log Entry 225",
+            "EntryType": "Oem",
+            "Id": "225",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 225",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/224",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:59-06:00",
+            "Description": "Log Entry 224",
+            "EntryType": "Oem",
+            "Id": "224",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 224",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/223",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:58-06:00",
+            "Description": "Log Entry 223",
+            "EntryType": "Oem",
+            "Id": "223",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 223",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/222",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:58-06:00",
+            "Description": "Log Entry 222",
+            "EntryType": "Oem",
+            "Id": "222",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 222",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/221",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:57-06:00",
+            "Description": "Log Entry 221",
+            "EntryType": "Oem",
+            "Id": "221",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 221",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/220",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:56-06:00",
+            "Description": "Log Entry 220",
+            "EntryType": "Oem",
+            "Id": "220",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 220",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/219",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:55-06:00",
+            "Description": "Log Entry 219",
+            "EntryType": "Oem",
+            "Id": "219",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 219",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/218",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:55-06:00",
+            "Description": "Log Entry 218",
+            "EntryType": "Oem",
+            "Id": "218",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 218",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/217",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:54-06:00",
+            "Description": "Log Entry 217",
+            "EntryType": "Oem",
+            "Id": "217",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 217",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/216",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:54-06:00",
+            "Description": "Log Entry 216",
+            "EntryType": "Oem",
+            "Id": "216",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 216",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/215",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:53-06:00",
+            "Description": "Log Entry 215",
+            "EntryType": "Oem",
+            "Id": "215",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 215",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/214",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:50-06:00",
+            "Description": "Log Entry 214",
+            "EntryType": "Oem",
+            "Id": "214",
+            "Links": {},
+            "Message": "A fatal error was detected on a component at bus 4 device 0 function 0.",
+            "MessageArgs": [
+                "4",
+                "0",
+                "0"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.PCI1318",
+            "Name": "Log Entry 214",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/213",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:44:50-06:00",
+            "Description": "Log Entry 213",
+            "EntryType": "Oem",
+            "Id": "213",
+            "Links": {},
+            "Message": "System CPU Resetting.",
+            "MessageId": "IDRAC.2.7.SYS1003",
+            "Name": "Log Entry 213",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/212",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:55-06:00",
+            "Description": "Log Entry 212",
+            "EntryType": "Oem",
+            "Id": "212",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "The server power action is initiated because the host device initiated a warm-reset operation.",
+            "MessageArgs": [
+                "the host device initiated a warm-reset operation"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SYS1005",
+            "Name": "Log Entry 212",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/211",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:38-06:00",
+            "Description": "Log Entry 211",
+            "EntryType": "Oem",
+            "Id": "211",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 211",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/210",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:37-06:00",
+            "Description": "Log Entry 210",
+            "EntryType": "Oem",
+            "Id": "210",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 210",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/209",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:37-06:00",
+            "Description": "Log Entry 209",
+            "EntryType": "Oem",
+            "Id": "209",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 209",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/208",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:36-06:00",
+            "Description": "Log Entry 208",
+            "EntryType": "Oem",
+            "Id": "208",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 208",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/207",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:35-06:00",
+            "Description": "Log Entry 207",
+            "EntryType": "Oem",
+            "Id": "207",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 207",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/206",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:35-06:00",
+            "Description": "Log Entry 206",
+            "EntryType": "Oem",
+            "Id": "206",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 206",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/205",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:34-06:00",
+            "Description": "Log Entry 205",
+            "EntryType": "Oem",
+            "Id": "205",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 205",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/204",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:33-06:00",
+            "Description": "Log Entry 204",
+            "EntryType": "Oem",
+            "Id": "204",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 204",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/203",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:33-06:00",
+            "Description": "Log Entry 203",
+            "EntryType": "Oem",
+            "Id": "203",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 203",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/202",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:32-06:00",
+            "Description": "Log Entry 202",
+            "EntryType": "Oem",
+            "Id": "202",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 202",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/201",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:32-06:00",
+            "Description": "Log Entry 201",
+            "EntryType": "Oem",
+            "Id": "201",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 201",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/200",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:31-06:00",
+            "Description": "Log Entry 200",
+            "EntryType": "Oem",
+            "Id": "200",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+                }
+            },
+            "Message": "An OEM diagnostic event occurred.",
+            "MessageId": "IDRAC.2.7.CPU9000",
+            "Name": "Log Entry 200",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/199",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:30-06:00",
+            "Description": "Log Entry 199",
+            "EntryType": "Oem",
+            "Id": "199",
+            "Links": {},
+            "Message": "System CPU Resetting.",
+            "MessageId": "IDRAC.2.7.SYS1003",
+            "Name": "Log Entry 199",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/198",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T22:05:29-06:00",
+            "Description": "Log Entry 198",
+            "EntryType": "Oem",
+            "Id": "198",
+            "Links": {},
+            "Message": "A fatal error was detected on a component at bus 4 device 0 function 0.",
+            "MessageArgs": [
+                "4",
+                "0",
+                "0"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.PCI1318",
+            "Name": "Log Entry 198",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "SystemHealth",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/197",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T21:35:50-06:00",
+            "Description": "Log Entry 197",
+            "EntryType": "Oem",
+            "Id": "197",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "The session for root from 10.2.60.48 using GUI is logged off.",
+            "MessageArgs": [
+                "root",
+                "10.2.60.48",
+                "GUI"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0032",
+            "Name": "Log Entry 197",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/196",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T21:35:50-06:00",
+            "Description": "Log Entry 196",
+            "EntryType": "Oem",
+            "Id": "196",
+            "Links": {},
+            "Message": "The previous log entry was repeated 1 times.",
+            "MessageArgs": [
+                "1"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 196",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/195",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T21:06:06-06:00",
+            "Description": "Log Entry 195",
+            "EntryType": "Oem",
+            "Id": "195",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "The session for root from 10.2.60.48 using eHTML5 Virtual Console is logged off.",
+            "MessageArgs": [
+                "root",
+                "10.2.60.48",
+                "eHTML5 Virtual Console"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0032",
+            "Name": "Log Entry 195",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/194",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T21:05:52-06:00",
+            "Description": "Log Entry 194",
+            "EntryType": "Oem",
+            "Id": "194",
+            "Links": {},
+            "Message": "Successfully logged in using root, from 10.2.60.48 and eHTML5 Virtual Console.",
+            "MessageArgs": [
+                "root",
+                "10.2.60.48",
+                "eHTML5 Virtual Console"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0030",
+            "Name": "Log Entry 194",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/193",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T21:05:52-06:00",
+            "Description": "Log Entry 193",
+            "EntryType": "Oem",
+            "Id": "193",
+            "Links": {},
+            "Message": "The previous log entry was repeated 1 times.",
+            "MessageArgs": [
+                "1"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 193",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/192",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T21:02:27-06:00",
+            "Description": "Log Entry 192",
+            "EntryType": "Oem",
+            "Id": "192",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "The session for root from 10.2.60.48 using eHTML5 Virtual Console is logged off.",
+            "MessageArgs": [
+                "root",
+                "10.2.60.48",
+                "eHTML5 Virtual Console"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0032",
+            "Name": "Log Entry 192",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/191",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2021-12-14T20:57:33-06:00",
+            "Description": "Log Entry 191",
+            "EntryType": "Oem",
+            "Id": "191",
+            "Links": {},
+            "Message": "Successfully logged in using root, from 10.2.60.48 and eHTML5 Virtual Console.",
+            "MessageArgs": [
+                "root",
+                "10.2.60.48",
+                "eHTML5 Virtual Console"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0030",
+            "Name": "Log Entry 191",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        }
+    ],
+    "Members@odata.count": 1190,
+    "Members@odata.nextLink": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries?$skip=1000",
+    "Name": "Log Entry Collection"
+}

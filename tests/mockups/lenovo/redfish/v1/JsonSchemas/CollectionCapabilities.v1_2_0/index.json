@@ -1,0 +1,18 @@
+{
+    "Schema": "#CollectionCapabilities.v1_2_0.CollectionCapabilities",
+    "@odata.id": "/redfish/v1/JsonSchemas/CollectionCapabilities.v1_2_0",
+    "Name": "CollectionCapabilities JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/CollectionCapabilities.v1_2_0.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"13fe7c1d\"",
+    "Id": "CollectionCapabilities.v1_2_0",
+    "Description": "This represents the CollectionCapabilities Schema File locator resource for a Redfish implementation."
+}

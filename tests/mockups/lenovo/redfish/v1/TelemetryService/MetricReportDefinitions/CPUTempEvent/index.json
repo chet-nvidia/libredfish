@@ -1,0 +1,37 @@
+{
+    "Wildcards": [
+        {
+            "Values": [
+                "1",
+                "2"
+            ],
+            "Name": "PWild"
+        }
+    ],
+    "Metrics": [
+        {
+            "CollectionTimeScope": "Interval",
+            "CollectionDuration": "PT1M",
+            "MetricProperties": [
+                "/redfish/v1/Systems/1/Processors/{PWild}/ProcessorMetrics#/TemperatureCelsius"
+            ]
+        }
+    ],
+    "Id": "CPUTempEvent",
+    "Name": "CPUTempEvent",
+    "Status": {
+        "State": "Enabled"
+    },
+    "ReportActions": [
+        "RedfishEvent"
+    ],
+    "MetricReportDefinitionType": "Periodic",
+    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/CPUTempEvent",
+    "@odata.etag": "\"5ce8fc760f6e272a4e5\"",
+    "ReportTimespan": "PT10M",
+    "Schedule": {
+        "RecurrenceInterval": "PT10M"
+    },
+    "Description": "A set of metrics that are collected into a metric report."
+}

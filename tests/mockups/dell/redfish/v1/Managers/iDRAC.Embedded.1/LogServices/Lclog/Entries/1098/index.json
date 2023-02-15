@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/1098",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-02-13T18:59:44-06:00",
+    "Description": "Log Entry 1098",
+    "EntryType": "Oem",
+    "Id": "1098",
+    "Links": {},
+    "Message": "A reboot is pending.",
+    "MessageId": "IDRAC.2.7.RED029",
+    "Name": "Log Entry 1098",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Updates",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

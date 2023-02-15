@@ -1,0 +1,18 @@
+{
+    "Schema": "#Redundancy.v1_3_5.Redundancy",
+    "@odata.id": "/redfish/v1/JsonSchemas/Redundancy.v1_3_5",
+    "Name": "Redundancy JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/Redundancy.v1_3_5.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"2dc5159d\"",
+    "Id": "Redundancy.v1_3_5",
+    "Description": "This represents the Redundancy Schema File locator resource for a Redfish implementation."
+}

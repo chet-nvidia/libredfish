@@ -1,0 +1,33 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/383",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-02-25T14:35:13-06:00",
+    "Description": "Log Entry 383",
+    "EntryType": "Oem",
+    "Id": "383",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+        }
+    },
+    "Message": "Unable to log in for admin from 10.126.181.18 using SSH.",
+    "MessageArgs": [
+        "admin",
+        "10.126.181.18",
+        "SSH"
+    ],
+    "MessageArgs@odata.count": 3,
+    "MessageId": "IDRAC.2.7.USR0031",
+    "Name": "Log Entry 383",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

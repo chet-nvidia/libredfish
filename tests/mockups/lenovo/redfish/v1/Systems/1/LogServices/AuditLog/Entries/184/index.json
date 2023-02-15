@@ -1,0 +1,48 @@
+{
+    "Message": "User Egxadmin password modified.",
+    "@odata.etag": "\"ejUxX1N0YW5kYXJkTG9nRW50cnkK184\"",
+    "MessageArgs": [
+        "Egxadmin"
+    ],
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/AuditLog/Entries/184",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "EntryType": "Oem",
+    "Name": "LogEntry",
+    "EventGroupId": 0,
+    "OemLogEntryCode": "Lenovo0102",
+    "Oem": {
+        "Lenovo": {
+            "ReportingChain": "XCC",
+            "IsLocalEvent": true,
+            "RawDebugLogURL": "",
+            "EventID@Redfish.Deprecated": "The property is deprecated. Please use EventId instead.",
+            "EventFlag": 0,
+            "AuxiliaryData": "",
+            "Source": "System",
+            "FailingFRU": [
+                {
+                    "FRUSerialNumber": "",
+                    "FRUNumber": ""
+                }
+            ],
+            "TSLVersion": "0",
+            "RelatedEventID": "",
+            "Serviceable": "Not Serviceable",
+            "EventID": "0x4000006600000000",
+            "EventSequenceNumber": 184,
+            "EventType": 0,
+            "@odata.type": "#LenovoLogEntry.v1_0_0.AuditLogEntry",
+            "LenovoMessageID": "Lenovo0102",
+            "AffectedIndicatorLEDs": [],
+            "TotalSequenceNumber": 204,
+            "CommonEventID": "FQXSPSE4019I",
+            "Hidden": false
+        }
+    },
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "184",
+    "Severity": "OK",
+    "EventId": "0x4000006600000000",
+    "Created": "2022-12-29T16:46:48.716+00:00"
+}

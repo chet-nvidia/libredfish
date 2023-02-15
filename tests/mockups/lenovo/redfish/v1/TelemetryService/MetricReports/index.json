@@ -1,0 +1,28 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReports/CPUTemp"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReports/InletAirTemp"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReports/PowerMetrics"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReports/PowerSupplyStats"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReports/CPUUtilizationStats"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReports/MemoryUtilizationStats"
+        }
+    ],
+    "@odata.type": "#MetricReportCollection.MetricReportCollection",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReports",
+    "Members@odata.count": 6,
+    "@odata.etag": "\"512e8d4d213c296a616\"",
+    "Name": "MetricReports",
+    "Description": "A Collection of MetricReport resource instances."
+}

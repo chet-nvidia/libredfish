@@ -1,0 +1,57 @@
+{
+    "SerialNumber": "PHAB1234034Z1P9SGN",
+    "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe/Drives/Drive.Bay_0",
+    "Revision": "2CV1L028",
+    "Links": {
+        "Volumes": [],
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        },
+        "PCIeFunctions": []
+    },
+    "Protocol": "NVMe",
+    "EncryptionAbility": null,
+    "Id": "Drive.Bay_0",
+    "CapableSpeedGbs": null,
+    "CapacityBytes": 1600000000000,
+    "AssetTag": "",
+    "PartNumber": "SSS7A43225",
+    "EncryptionStatus": null,
+    "MediaType": "SSD",
+    "Description": "This resource is used to represent a drive for a Redfish implementation.",
+    "Manufacturer": "LENOVO (Intel)",
+    "RotationSpeedRPM": 0,
+    "NegotiatedSpeedGbs": null,
+    "HotspareType": "None",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "BlockSizeBytes": null,
+    "Name": "1.60TB NVMe SSD",
+    "SKU": "02JG609",
+    "Identifiers": [
+        {
+            "DurableNameFormat": "UUID",
+            "DurableName": ""
+        }
+    ],
+    "Oem": {
+        "Lenovo": {
+            "@odata.type": "#LenovoDrive.v1_0_0.LenovoDrive",
+            "Temperature": 33
+        }
+    },
+    "@odata.type": "#Drive.v1_9_1.Drive",
+    "PhysicalLocation": {
+        "PartLocation": {
+            "LocationType": "Bay",
+            "ServiceLabel": "Drive 0",
+            "LocationOrdinalValue": 0
+        }
+    },
+    "PredictedMediaLifeLeftPercent": 100,
+    "@odata.etag": "\"88b99efd6b332970829\"",
+    "Model": "SSDPF2KE016T9L",
+    "FailurePredicted": false
+}

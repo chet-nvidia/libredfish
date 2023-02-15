@@ -1,0 +1,16 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/166L0",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "ReadingUnits": "",
+    "Reading": 0,
+    "PhysicalContext": null,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Id": "166L0",
+    "Name": "PCIe Conn 9",
+    "@odata.etag": "\"25dcdfdd7ec225a5ff5\"",
+    "ReadingType": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+}

@@ -1,0 +1,26 @@
+{
+    "Id": "BMC-Primary",
+    "SoftwareId": "BMC-TGBT-10",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Managers/1"
+        }
+    ],
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC-Primary",
+    "Status": {
+        "HealthRollup": "OK",
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "RelatedItem@odata.count": 1,
+    "Name": "Firmware:BMC",
+    "ReleaseDate": "2021-05-17T00:00:00Z",
+    "Version": "20E-1.40",
+    "Manufacturer": "Lenovo",
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "WriteProtected": true,
+    "Updateable": true,
+    "@odata.etag": "\"4067cb122c992428fd2\"",
+    "LowestSupportedVersion": null,
+    "Description": "The information of BMC (Primary) firmware."
+}

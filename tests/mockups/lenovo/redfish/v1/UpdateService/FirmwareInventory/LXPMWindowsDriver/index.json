@@ -1,0 +1,26 @@
+{
+    "ReleaseDate": "2021-05-10T00:00:00Z",
+    "Id": "LXPMWindowsDriver",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1"
+        }
+    ],
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPMWindowsDriver",
+    "Status": {
+        "HealthRollup": "OK",
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "RelatedItem@odata.count": 1,
+    "Name": "Firmware:LXPM-WindowsDrivers",
+    "Version": "08B-3.07",
+    "LowestSupportedVersion": null,
+    "Manufacturer": "Lenovo",
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "WriteProtected": true,
+    "Updateable": true,
+    "@odata.etag": "\"463889dd5bf128aada1\"",
+    "SoftwareId": "DRVWN-XWL3-2",
+    "Description": "The information of LXPM Windows Drivers."
+}

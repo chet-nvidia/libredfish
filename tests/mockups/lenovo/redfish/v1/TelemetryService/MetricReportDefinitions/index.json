@@ -1,0 +1,46 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/CPUTemp"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/CPUTempEvent"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/InletAirTemp"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/InletAirTempEvent"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/PowerMetrics"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/PowerMetricsEvent"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/PowerSupplyStats"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/PowerSupplyStatsEvent"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/CPUUtilizationStats"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/CPUUtilizationStatsEvent"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/MemoryUtilizationStats"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/MemoryUtilizationStatsEvent"
+        }
+    ],
+    "@odata.type": "#MetricReportDefinitionCollection.MetricReportDefinitionCollection",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions",
+    "Members@odata.count": 12,
+    "@odata.etag": "\"a06ae3d84f6633b5b9aa4\"",
+    "Name": "MetricReportDefinitions",
+    "Description": "A Collection of MetricReportDefinition resource instances."
+}

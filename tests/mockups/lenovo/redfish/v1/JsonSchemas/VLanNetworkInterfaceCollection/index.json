@@ -1,0 +1,18 @@
+{
+    "Schema": "#VLanNetworkInterfaceCollection.VLanNetworkInterfaceCollection",
+    "@odata.id": "/redfish/v1/JsonSchemas/VLanNetworkInterfaceCollection",
+    "Name": "VLanNetworkInterfaceCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/VLanNetworkInterfaceCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"c2654bdb\"",
+    "Id": "VLanNetworkInterfaceCollection",
+    "Description": "This represents the VLanNetworkInterfaceCollection Schema File locator resource for a Redfish implementation."
+}

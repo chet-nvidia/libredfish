@@ -1,0 +1,143 @@
+/// Test against a mockup of BMC. A mockup is a directory of JSON files mirrored from a real BMC>
+/// This makes for very good test for GET (e.g. get_power_state) calls, but is only a basic test
+/// for POST/PATCH. For those the mockup server checks the path exists but doesn't check the body
+/// values, and always returns '204 No Content'.
+///
+/// See tests/mockup/README for details.
+use std::{
+    path::{Path, PathBuf},
+    process::{Child, Command},
+    thread::sleep,
+    time::Duration,
+};
+
+use anyhow::anyhow;
+
+const ROOT_DIR: &str = env!("CARGO_MANIFEST_DIR");
+
+// Ports we hope are not in use
+const DELL_PORT: &str = "8733";
+const LENOVO_PORT: &str = "8734";
+
+#[test]
+fn test_dell() -> Result<(), anyhow::Error> {
+    run_integration_test(libredfish::Vendor::Dell, DELL_PORT)
+}
+
+#[test]
+fn test_lenovo() -> Result<(), anyhow::Error> {
+    run_integration_test(libredfish::Vendor::Lenovo, LENOVO_PORT)
+}
+
+fn run_integration_test(vendor: libredfish::Vendor, port: &str) -> Result<(), anyhow::Error> {
+    let pip = match find_path("pip") {
+        Some(p) => p,
+        None => {
+            eprintln!("`pip` not found, skipping redfish mockup integration test");
+            return Ok(());
+        }
+    };
+    let python = match find_path("python") {
+        Some(p) => p,
+        None => {
+            eprintln!("`python` not found, skipping redfish mockup integration test");
+            return Ok(());
+        }
+    };
+    // install python packages 'requests' and 'grequests'
+    install_python_requirements(&pip)?;
+
+    let mut mockup_handle = start_mockup_server(&python, vendor, port)?;
+    sleep(Duration::from_secs(1)); // let it start
+
+    let redfish_net_conf = libredfish::NetworkConfig {
+        endpoint: format!("127.0.0.1:{port}"),
+        ..Default::default()
+    };
+    let redfish = libredfish::new(vendor, redfish_net_conf)?;
+
+    assert_eq!(redfish.get_power_state()?, libredfish::PowerState::On);
+    assert!(redfish.get_bios_attributes()?.len() > 10);
+
+    redfish.power(libredfish::SystemPowerControl::GracefulShutdown)?;
+    redfish.power(libredfish::SystemPowerControl::ForceOff)?;
+    redfish.power(libredfish::SystemPowerControl::On)?;
+
+    // A real BMC requires a reboot after every change, so pretend for accuracy.
+    // Dell will 400 Bad Request if you make two consecutive changes.
+    redfish.lockdown(libredfish::EnabledDisabled::Disabled)?;
+    redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
+    redfish.lockdown(libredfish::EnabledDisabled::Enabled)?;
+    redfish.power(libredfish::SystemPowerControl::GracefulRestart)?;
+
+    redfish.setup_serial_console()?;
+    redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
+
+    redfish.clear_tpm()?;
+    redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
+
+    redfish.boot_once(libredfish::Boot::Pxe)?;
+    redfish.boot_first(libredfish::Boot::HardDisk)?;
+    redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
+
+    mockup_handle.kill()?;
+    sleep(Duration::from_secs(1)); // let it stop
+    Ok(())
+}
+
+fn start_mockup_server(
+    python: &Path,
+    vendor: libredfish::Vendor,
+    port: &str,
+) -> std::io::Result<Child> {
+    Command::new(python)
+        .current_dir(PathBuf::from(ROOT_DIR).join("tests"))
+        .arg("redfishMockupServer.py")
+        .arg("--port")
+        .arg(port)
+        .arg("--dir")
+        .arg(format!("mockups/{}/", vendor.to_string().to_lowercase()))
+        .arg("--ssl")
+        .arg("--cert")
+        .arg("cert.pem")
+        .arg("--key")
+        .arg("key.pem")
+        .spawn()
+}
+
+fn install_python_requirements(pip: &Path) -> Result<(), anyhow::Error> {
+    let req_path = PathBuf::from(ROOT_DIR)
+        .join("tests")
+        .join("requirements.txt");
+    let exit_code = Command::new(pip)
+        .arg("install")
+        .arg("-q")
+        .arg("--requirement")
+        .arg(&req_path)
+        .status()?;
+    if !exit_code.success() {
+        return Err(anyhow!(
+            "Failed running '{} install -q --requirement {}. Exit code {}",
+            pip.display(),
+            req_path.display(),
+            exit_code
+        ));
+    }
+    Ok(())
+}
+
+fn find_path<P>(bin: P) -> Option<PathBuf>
+where
+    P: AsRef<Path>,
+{
+    std::env::var_os("PATH").and_then(|paths| {
+        std::env::split_paths(&paths).find_map(|dir| {
+            let full_path = dir.join(&bin);
+            if full_path.is_file() {
+                Some(full_path)
+            } else {
+                None
+            }
+        })
+    })
+}

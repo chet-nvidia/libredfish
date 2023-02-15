@@ -1,0 +1,12 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#BootOption.BootOption",
+    "@odata.id": "/redfish/v1/Systems/System.Embedded.1/BootOptions/Boot0004",
+    "@odata.type": "#BootOption.v1_0_4.BootOption",
+    "BootOptionEnabled": true,
+    "BootOptionReference": "Boot0004",
+    "Description": "Current settings of the UEFI Boot option",
+    "DisplayName": "AHCI Controller in SL 6: ubuntu",
+    "Id": "Boot0004",
+    "Name": "Uefi Boot Option",
+    "UefiDevicePath": "HD(1,GPT,E5355526-8795-4D3B-9825-48543F56B112,0x800,0x100000)/\\EFI\\ubuntu\\shimx64.efi"
+}

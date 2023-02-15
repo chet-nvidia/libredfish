@@ -1,0 +1,16 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_3/PCIeFunctions/slot_3.00"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_3/PCIeFunctions/slot_3.01"
+        }
+    ],
+    "@odata.type": "#PCIeFunctionCollection.PCIeFunctionCollection",
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_3/PCIeFunctions",
+    "Members@odata.count": 2,
+    "@odata.etag": "\"32fc17ed331f242836d\"",
+    "Name": "PCIeFunctionCollection",
+    "Description": "A collection of PCIeFunction resource instances."
+}

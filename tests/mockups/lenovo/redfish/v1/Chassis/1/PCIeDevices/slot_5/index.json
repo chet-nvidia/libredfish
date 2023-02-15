@@ -1,0 +1,60 @@
+{
+    "SerialNumber": null,
+    "Id": "slot_5",
+    "Links": {
+        "Links/PCIeFunctions@Redfish.Deprecated": "The property is deprecated. Please use PCIeFunctions instead.",
+        "Chassis": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1"
+            }
+        ],
+        "PCIeFunctions": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_5/PCIeFunctions/slot_5.01"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_5/PCIeFunctions/slot_5.00"
+            }
+        ]
+    },
+    "PCIeFunctions": {
+        "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_5/PCIeFunctions"
+    },
+    "PCIeInterface": {
+        "LanesInUse": 16,
+        "MaxPCIeType": "Gen4",
+        "MaxLanes": 16,
+        "PCIeType": "Gen4"
+    },
+    "PartNumber": null,
+    "Description": "This resource represents the properties of a PCIeDevice attached to a System.",
+    "FirmwareVersion": null,
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Name": "Adapter",
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_5",
+    "SKU": null,
+    "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
+    "Oem": {
+        "Lenovo": {
+            "@odata.type": "#LenovoDeviceInfo.v1_0_0.LenovoDeviceInfo",
+            "Location": {
+                "PartLocation": {
+                    "LocationType": "Slot",
+                    "ServiceLabel": "PCIe 5",
+                    "LocationOrdinalValue": 5
+                },
+                "InfoFormat": "Slot X",
+                "Info": "Slot 5",
+                "Info@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead.",
+                "InfoFormat@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead."
+            }
+        }
+    },
+    "Manufacturer": null,
+    "@odata.etag": "\"9e58e29559682f08b6487\"",
+    "Model": null,
+    "DeviceType": "SingleFunction"
+}

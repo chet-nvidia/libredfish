@@ -1,0 +1,18 @@
+{
+    "Schema": "#ServiceRoot.ServiceRoot",
+    "@odata.id": "/redfish/v1/JsonSchemas/ServiceRoot",
+    "Name": "ServiceRoot JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/ServiceRoot.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"7407ecfe\"",
+    "Id": "ServiceRoot",
+    "Description": "This represents the ServiceRoot Schema File locator resource for a Redfish implementation."
+}

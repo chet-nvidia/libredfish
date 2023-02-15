@@ -1,0 +1,258 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoManager.LenovoManager",
+    "definitions": {
+        "LenovoManagerProperties": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "Recipients": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoAlertRecipientCollection.json#/definitions/LenovoAlertRecipientCollection",
+                    "description": "A reference to the event recepient properties.",
+                    "longDescription": "The value of this property shall be a reference to the resource that represents the event recipient characteristics of this manager and shall be of type LenovoAlertRecipient."
+                },
+                "RecipientsSettings": {
+                    "$ref": "#/definitions/GlobalSettings",
+                    "description": "The event recepient global settings.",
+                    "longDescription": "The value of this property shall be object to represent the event recipient characteristics of this manager."
+                },
+                "Security": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoSecurityService.json#/definitions/LenovoSecurityService",
+                    "description": "A reference to the security service properties.",
+                    "longDescription": "The value of this property shall be a reference to the resource that represents the security service characteristics of this manager and shall be of type LenovoSecurityService."
+                },
+                "RemoteControl": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoRemoteControlService.json#/definitions/LenovoRemoteControlService",
+                    "description": "A reference to the remote control properties.",
+                    "longDescription": "The value of this property shall be a reference to the resource that represents the remote control characteristics of this manager and shall be of type LenovoRemoteControlService."
+                },
+                "RemoteMap": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoRemoteMapService.json#/definitions/LenovoRemoteMapService",
+                    "description": "A reference to the remote map properties, corresponding to CLI rdmount",
+                    "longDescription": "The value of this property shall be a reference to the resource that represents the remote map characteristics of this manager and shall be of type LenovoRemoteMapService."
+                },
+                "Configuration": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoConfigurationService.json#/definitions/LenovoConfigurationService",
+                    "description": "A reference to the configuration service properties.",
+                    "longDescription": "The value of this property shall be a reference to the resource that represents the configuration service characteristics of this manager and shall be of type LenovoConfigurationService."
+                },
+                "ServerProfile": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoServerProfileService.json#/definitions/LenovoServerProfileService",
+                    "description": "A reference to the server profile service properties.",
+                    "longDescription": "The value of this property shall be a reference to the resource that represents the server profile service characteristics of this manager and shall be of type LenovoServerProfileService."
+                },
+                "ServiceData": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoServiceData.json#/definitions/LenovoServiceData",
+                    "description": "A reference to capture the service data properties.",
+                    "longDescription": "The value of this property shall be a reference to the resource that can be used to collect service data, FFDC and latest OS failure screen."
+                },
+                "FoD": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoFoDService.json#/definitions/LenovoFoDService",
+                    "description": "A reference to the Feature on Demand service properties.",
+                    "longDescription": "The value of this property shall be a reference to the resource that represents the Feature on Demand service characteristics of this manager and shall be of type LenovoFoDService."
+                },
+                "Watchdogs": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoWatchdogCollection.json#/definitions/LenovoWatchdogCollection",
+                    "description": "This property is a reference to watchdogs setting",
+                    "longDescription": "This is a reference to watchdog settings of the manager."
+                },
+                "DateTimeService": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoDateTimeService.json#/definitions/LenovoDateTimeService",
+                    "description": "This property is a reference to Date and Time setting",
+                    "longDescription": "By the property, user can check how the manager update its Date and time."
+                },
+                "ServiceAdvisor": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoServiceAdvisorService.v1_0_0.json#/definitions/LenovoServiceAdvisor",
+                    "description": "This property is a reference to service advisor",
+                    "longDescription": "This is a reference to service advisor of the manager."
+                },
+                "SecureKeyLifecycleService": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoSecureKeyLifecycleService.v1_0_0.json#/definitions/LenovoSecureKeyLifecycleService",
+                    "description": "This property is a reference to secure key lifecycle service.",
+                    "longDescription": "This is a reference to secure key lifecycle service."
+                }
+            }
+        },
+        "LenovoManagerActions": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "#LenovoManager.GetIPMIProperty": {
+                    "$ref": "#/definitions/GetIPMIProperty"
+                }
+            }
+        },
+        "GetIPMIPropertyResponse": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "Value": {
+                    "type": "string",
+                    "description": "The value of this property."
+                },
+                "Type": {
+                    "type": "string",
+                    "description": "The type of this property's value."
+                }
+            },
+            "description": "This is uesd to represent the action response data."
+        },
+        "GetIPMIProperty": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Friendly action name"
+                },
+                "target": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to invoke action"
+                },
+                "Name": {
+                    "type": "string",
+                    "description": "The name of the property."
+                },
+                "Response": {
+                    "$ref": "#/definitions/GetIPMIPropertyResponse",
+                    "description": "Indicates what data will be response."
+                }
+            },
+            "description": "This action is used to get a specified IPMI property value. The response of this action shall contain the value and type of the input property."
+        },
+        "LenovoManagerLinks": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "properties": {
+                "EmbeddedFirmwares@odata.count": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/count"
+                },
+                "EmbeddedFirmwares@odata.navigationLink": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/idRef"
+                },
+                "EmbeddedFirmwares": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "http://redfish.dmtf.org/schemas/v1/SoftwareInventory.json#/definitions/SoftwareInventory"
+                    },
+                    "readonly": true,
+                    "description": "This property is a reference array to the flashdimm firmware",
+                    "longDescription": "This is a reference to firmware serivce. This property shall contain an array of references to firmware resources of which this manager itself owns."
+                }
+            }
+        },
+        "GlobalSettings": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "RetryCount": {
+                    "type": "number",
+                    "readonly": false,
+                    "description": "Retry count of additional times that the OOB alert service will attempt to send an OOB alert.",
+                    "longDescription": "The value of this property shall be retry count of additional times that the OOB alert service will attempt to send an OOB alert."
+                },
+                "RetryInterval": {
+                    "type": "number",
+                    "readonly": false,
+                    "description": "The time interval that the OOB alert service will wait between retries to send an OOB alert.",
+                    "longDescription": "The value of this property shall be the time interval that the OOB alert service will wait between retries to send an OOB alert."
+                },
+                "RntryRetryInterval": {
+                    "type": "number",
+                    "readonly": false,
+                    "description": "The time interval that the OOB alert service will wait before sending an alert to the next OOB alert recipient in the list.",
+                    "longDescription": "The value of this property shall be the time interval that the OOB alert service will wait before sending an alert to the next OOB alert recipient in the list."
+                }
+            },
+            "description": "This object is used to represent global settings of alert recipient."
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

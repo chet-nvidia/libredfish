@@ -1,0 +1,14 @@
+{
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/MaintenanceLog/Entries/8",
+    "EntryType": "Oem",
+    "Message": "OCP Card(SN: L1NV23800XR) is added.",
+    "EventGroupId": 1,
+    "Severity": null,
+    "Name": "LogEntry",
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "8",
+    "@odata.etag": "\"324fda3adeec2ae5dfc\"",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "Created": "2022-08-31T23:00:50Z"
+}

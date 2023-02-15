@@ -1,0 +1,9 @@
+{
+    "Members": [],
+    "@odata.type": "#LogEntryCollection.LogEntryCollection",
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/ActiveLog/Entries",
+    "Members@odata.count": 0,
+    "@odata.etag": "\"26f9595c31fa24e3175\"",
+    "Name": "LogEntryActiveLogEntryCollection",
+    "Description": "A collection of LogEntryActiveLogEntry resource instances."
+}

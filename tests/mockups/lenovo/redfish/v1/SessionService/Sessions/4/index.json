@@ -1,0 +1,10 @@
+{
+    "@odata.id": "/redfish/v1/SessionService/Sessions/4",
+    "Password": null,
+    "@odata.type": "#Session.v1_2_1.Session",
+    "Id": "4",
+    "SessionType": "KVMIP",
+    "@odata.etag": "\"14661d0e9e8425a099a\"",
+    "Name": "4",
+    "UserName": "Egxadmin"
+}

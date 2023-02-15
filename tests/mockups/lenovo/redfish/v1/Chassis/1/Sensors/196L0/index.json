@@ -1,0 +1,16 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/196L0",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "ReadingUnits": "",
+    "Reading": 0,
+    "PhysicalContext": "CPU",
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Id": "196L0",
+    "Name": "CPU 1 PECI",
+    "@odata.etag": "\"240809c6de232425227\"",
+    "ReadingType": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+}

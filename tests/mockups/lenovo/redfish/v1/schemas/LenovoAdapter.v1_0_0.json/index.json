@@ -1,0 +1,416 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoAdapter.v1_0_0.LenovoAdapter",
+    "$ref": "#/definitions/LenovoAdapter",
+    "definitions": {
+        "LenovoAdapter": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id"
+                },
+                "Description": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
+                },
+                "Name": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name"
+                },
+                "UUID": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/UUID",
+                    "readonly": true,
+                    "description": "The universal unique identifier (UUID) for this adapter",
+                    "longDescription": "The value of this property shall be used to contain a universal unique identifier number for the card. "
+                },
+                "Manufacturer": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "This is the manufacturer of this adapter.",
+                    "longDescription": "The value of this property shall be the name of the organization responsible for producing the adapter. This organization might be the entity from whom the adapter is purchased, but this is not necessarily true."
+                },
+                "Model": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "This is the model number for the adapter.",
+                    "longDescription": "The value of this property shall be the name by which the manufacturer generally refers to the adapter."
+                },
+                "SKU": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "This is the SKU for this adapter.",
+                    "longDescription": "The value of this property shall be the stock-keeping unit number for this adapter."
+                },
+                "FodUID": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "This is the Fod UID for this adapter.",
+                    "longDescription": "The value of this property shall be the Feature on Demand Unique ID for both non-planar and onboard devices."
+                },
+                "MaxDataWidth": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "This is the maximum bus width of adapter card, in bits.",
+                    "longDescription": "The value of this property shall be 1 ~ 65535."
+                },
+                "ConnectorLayout": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoSlot.v1_0_0.json#/definitions/ConnectorLayouts",
+                    "readonly": true
+                },
+                "SerialNumber": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The serial number for this adapter.",
+                    "longDescription": "The value of this property shall be a manufacturer-allocated number used to identify the adapter."
+                },
+                "PartNumber": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The part number for this adapter.",
+                    "longDescription": "The value of this property shall be a part number assigned by the organization that is responsible for producing or manufacturing the adapter."
+                },
+                "Location": {
+                    "$ref": "#/definitions/Location",
+                    "description": "The location of adapter, onboard or addon.",
+                    "longDescription": "The location of the adapter, onboard or addon."
+                },
+                "Links": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                            "type": [
+                                "array",
+                                "boolean",
+                                "number",
+                                "null",
+                                "object",
+                                "string"
+                            ],
+                            "description": "This property shall specify a valid odata or Redfish property."
+                        }
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                        "EmbeddedFirmwares@odata.count": {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/count"
+                        },
+                        "EmbeddedFirmwares@odata.navigationLink": {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/idRef"
+                        },
+                        "EmbeddedFirmwares": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "http://redfish.dmtf.org/schemas/v1/SoftwareInventory.json#/definitions/SoftwareInventory"
+                            },
+                            "readonly": true,
+                            "description": "This is an array of references to the firmwares used in this adapter.  This will only reference firmwares that are directly and wholly related with this adapter.",
+                            "longDescription": "This is a reference of a collection of SoftwareInventory resources. "
+                        },
+                        "InSlot": {
+                            "$ref": "/schemas/v1/Lenovo/LenovoSlot.json#/definitions/LenovoSlot",
+                            "readonly": true,
+                            "description": "This ia a reference to the slot that this adapter is inserted in.",
+                            "longDescription": "The value of this property shall be a reference to the resource that represents the slot that contains this slot and shall be of type Slot."
+                        },
+                        "RAIDController@odata.count": {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/count"
+                        },
+                        "RAIDController@odata.navigationLink": {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/idRef"
+                        },
+                        "RAIDController": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "http://redfish.dmtf.org/schemas/v1/SimpleStorage.json#/definitions/SimpleStorage"
+                            },
+                            "readonly": true,
+                            "description": "This is an array of references to the simple storages contained in this adapter.",
+                            "longDescription": "This is a refernce of a collection of SimpleStorage resources."
+                        }
+                    },
+                    "readonly": true,
+                    "description": "The links object contains the links to other resources that are related to this resource."
+                },
+                "Status": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Status"
+                },
+                "SlotNumer": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The slot number the adapter inserted",
+                    "longDescription": "This property shall indicate the slot number the adapter inserted in the chassis. If the Location=Onboard, the SlotNumber=null."
+                },
+                "Support": {
+                    "$ref": "#/definitions/Support",
+                    "description": "Agentless support status.",
+                    "longDescription": "This property shall indicate the agentless support status."
+                },
+                "PackageType": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The PackageType for this adapter.",
+                    "longDescription": "The value of this property shall define the type of the PhysicalPackage."
+                },
+                "DeviceType": {
+                    "$ref": "#/definitions/DeviceType",
+                    "description": "This property indicates the type of physical form factor of this resource.",
+                    "longDescription": "DeviceType shall indicate the physical form factor for the type of adapter."
+                },
+                "PCIDevices@odata.count": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/count"
+                },
+                "PCIDevices@odata.navigationLink": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/idRef"
+                },
+                "PCIDevices": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PCIDevice"
+                    },
+                    "readonly": true,
+                    "description": "This is the definition for pci device.",
+                    "longDescription": "These properties shall be the definition for pci device."
+                },
+                "PCIeNetworks": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoPhysicalConnectorCollection.json#/definitions/LenovoPhysicalConnectorCollection",
+                    "readonly": true,
+                    "description": "This is a reference to the physical connector collection contained in this adapter.",
+                    "longDescription": "The value of this property shall be a reference to the physical connector resource and shall reference a resource of type LenovoPhysicalConnectorCollection."
+                }
+            },
+            "required": [
+                "UUID"
+            ],
+            "description": "This is the schema definition for the Adapter resource.  It represents the properties for physical components for any adapter.  This one object is intended to represent raid controller, PCIe network device and all other cards. ",
+            "longDescription": "This resource shall be used to represent a adapter other physical card enclosure for a Redfish implementation."
+        },
+        "Location": {
+            "type": "string",
+            "readonly": true,
+            "enum": [
+                "Unknown",
+                "Onboard",
+                "Addon"
+            ],
+            "enumDescriptions": {
+                "Unknown": "The state of Location cannot be determined.",
+                "Onboard": "This is an onboard adapter.",
+                "Addon": "This is an addon adapter."
+            }
+        },
+        "Support": {
+            "type": "string",
+            "readonly": true,
+            "enum": [
+                "Unknown",
+                "RAIDLinkInventorySupported",
+                "OOBInventorySupported"
+            ],
+            "enumDescriptions": {
+                "Unknown": "The support status cannot be determined.",
+                "RAIDLinkInventorySupported": "support RAID Link Inventory.",
+                "OOBInventorySupported": "support OOB Inventory Supported."
+            }
+        },
+        "DeviceType": {
+            "type": "string",
+            "readonly": true,
+            "enum": [
+                "Unknown",
+                "RAIDController",
+                "Ethernet",
+                "FibreChannel",
+                "InfiniBand",
+                "GPU",
+                "SCSI",
+                "SAS",
+                "OtherNetwork",
+                "MassStorage",
+                "Other"
+            ],
+            "enumDescriptions": {
+                "Unknown": "The device type cannot be determined.",
+                "RAIDController": "A raidLink storage device.",
+                "Ethernet": "An ethernet newtork adapter.",
+                "FibreChannel": "A fibre channel network adapter.",
+                "InfiniBand": "A infini band network adapter.",
+                "GPU": "GPU.",
+                "SCSI": "SCSI.",
+                "SAS": "SAS",
+                "OtherNetwork": "Other network device except ethernet, fibre channel, inifi band.",
+                "MassStorage": "Mass Storage.",
+                "Other": "A adapter that does not fit any of these definitions."
+            }
+        },
+        "PCIDevice": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "MemberId": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "This is the identifier for the member within the collection.",
+                    "longDescription": "The value of this string shall uniquely identify the member within the collection."
+                },
+                "Name": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "'PCI Generic Information'.'Card Name'.",
+                    "longDescription": "'PCI Generic Information'.'Card Name'."
+                },
+                "AIMVersion": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "'PCI Generic Information'.'AIM Spec Version'.",
+                    "longDescription": "'PCI Generic Information'.'AIM Spec Version'."
+                },
+                "BusNumber": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "CDS 'PCI Endpoint'.'Bus Number'.",
+                    "longDescription": "CDS 'PCI Endpoint'.'Bus Number'."
+                },
+                "DeviceNumber": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "CDS 'PCI Endpoint'.'Device Number'.",
+                    "longDescription": "CDS 'PCI Endpoint'.'Device Number'."
+                },
+                "FunctionNumber": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "CDS 'PCI Endpoint'.'Function Number'.",
+                    "longDescription": "CDS 'PCI Endpoint'.'Function Number'."
+                },
+                "PCIDeviceID": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "For PCIe CDS 'PCI Endpoint'.'Device ID'.",
+                    "longDescription": "For PCIe CDS 'PCI Endpoint'.'Device ID'."
+                },
+                "RevisionID": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "For PCIe CDS 'PCI Endpoint'.'Revision ID'.",
+                    "longDescription": "For PCIe CDS 'PCI Endpoint'.'Revision ID'."
+                },
+                "SubsystemID": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "For PCIe CDS 'PCI Endpoint'.'Subsystem ID'.",
+                    "longDescription": "For PCIe CDS 'PCI Endpoint'.'Subsystem ID'."
+                },
+                "SubsystemVendorID": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "For PCIe CDS 'PCI Endpoint'.'Subsystem Vendor ID'.",
+                    "longDescription": "For PCIe CDS 'PCI Endpoint'.'Subsystem Vendor ID'."
+                },
+                "VendorID": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "For PCIe CDS PCI Endpoint'.'Vendor ID'.",
+                    "longDescription": "For PCIe CDS PCI Endpoint'.'Vendor ID'."
+                },
+                "ClassCode": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "For PCIe CDS 'PCI Endpoint'.'Class Code', upper byte of the 3-byte PCI ClassCode field.",
+                    "longDescription": "For PCIe CDS 'PCI Endpoint'.'Class Code', upper byte of the 3-byte PCI ClassCode field."
+                }
+            }
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

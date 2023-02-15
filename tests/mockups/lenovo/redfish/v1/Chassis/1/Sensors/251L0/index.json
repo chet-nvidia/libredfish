@@ -1,0 +1,47 @@
+{
+    "ReadingRangeMax": 2550,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/251L0",
+    "ReadingRangeMin": 2550,
+    "ReadingUnits": "CFM",
+    "Thresholds": {
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": null
+        }
+    },
+    "PhysicalContext": "Exhaust",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Name": "System Air Flow",
+    "Precision": 0,
+    "MinAllowableOperatingValue": 2550,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "MaxAllowableOperatingValue": 2550,
+    "Id": "251L0",
+    "@odata.etag": "\"64b40c05f5d02a2c834\"",
+    "ReadingType": null,
+    "Reading": 100
+}

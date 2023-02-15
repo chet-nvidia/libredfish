@@ -1,0 +1,19 @@
+{
+    "Schema": "#Capacity.Capacity",
+    "Id": "Capacity",
+    "Name": "Capacity JSON Schema File",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/Capacity.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"0376b941\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/Capacity",
+    "Description": "This represents the Capacity Schema File locator resource for a Redfish implementation."
+}

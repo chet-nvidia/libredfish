@@ -1,0 +1,18 @@
+{
+    "Schema": "#TriggersCollection.TriggersCollection",
+    "@odata.id": "/redfish/v1/JsonSchemas/TriggersCollection",
+    "Name": "TriggersCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/TriggersCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"21dffb2c\"",
+    "Id": "TriggersCollection",
+    "Description": "This represents the TriggersCollection Schema File locator resource for a Redfish implementation."
+}

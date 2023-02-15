@@ -1,0 +1,28 @@
+{
+    "SerialNumber": "R1SH161007R",
+    "PartNumber": "STA7A43893",
+    "@odata.id": "/redfish/v1/Chassis/3",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Oem": {
+        "Lenovo": {
+            "PRODUCT_ID": "0000",
+            "VPD_ID": "0070",
+            "Entity_ID": "0f",
+            "Device_ID": "03",
+            "POS_ID": "0091"
+        }
+    },
+    "Name": "SAS Backplane 1",
+    "PowerState": null,
+    "Id": "3",
+    "SKU": "02YH952",
+    "@odata.type": "#Chassis.v1_12_0.Chassis",
+    "ChassisType": "Enclosure",
+    "Manufacturer": "LNVO",
+    "@odata.etag": "\"3bdd6bae4d4126658eb\"",
+    "Model": null,
+    "Description": "This resource is used to represent a chassis or other physical enclosure for a Redfish implementation."
+}

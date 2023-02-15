@@ -1,0 +1,26 @@
+{
+    "Version": "08G-3.07",
+    "Id": "LXPM",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1"
+        }
+    ],
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPM",
+    "Status": {
+        "HealthRollup": "OK",
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "RelatedItem@odata.count": 1,
+    "Name": "Firmware:LXPM",
+    "ReleaseDate": "2021-04-06T00:00:00Z",
+    "LowestSupportedVersion": null,
+    "Manufacturer": "Lenovo",
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "WriteProtected": true,
+    "Updateable": true,
+    "@odata.etag": "\"3fe0dd8b4a6a2966d28\"",
+    "SoftwareId": "LXPM-XWL1-4",
+    "Description": "The information of LXPM firmware."
+}

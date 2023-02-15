@@ -1,0 +1,25 @@
+{
+    "RelatedItem@odata.count": 1,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/0"
+        }
+    ],
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/PSU1",
+    "Status": {
+        "HealthRollup": "OK",
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Id": "PSU1",
+    "Name": "POWER-PSU1",
+    "Version": "7.52",
+    "ReleaseDate": null,
+    "Manufacturer": "DETA",
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "WriteProtected": true,
+    "Updateable": true,
+    "@odata.etag": "\"3b07eb5a55642665283\"",
+    "SoftwareId": "POWER-DETA7200-10",
+    "Description": "The information of PSU firmware"
+}

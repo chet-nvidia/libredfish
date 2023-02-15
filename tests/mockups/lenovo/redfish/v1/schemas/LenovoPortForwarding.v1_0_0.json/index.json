@@ -1,0 +1,68 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoPortForwarding.v1_0_0.LenovoPortForwarding",
+    "$ref": "#/definitions/LenovoPortForwarding",
+    "definitions": {
+        "LenovoPortForwarding": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
+                    "readonly": true
+                },
+                "Description": {
+                    "anyOf": [
+                        {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "readonly": true
+                },
+                "Name": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
+                    "readonly": true
+                },
+                "USBPortForwardingEnabled": {
+                    "type": "boolean",
+                    "readonly": false,
+                    "description": "Indicates whether the external Ethernet port to Etherent-over-USB forwarding is enabled.",
+                    "longDescription": "The value of this property indicates whether the external Ethernet port to Etherent-over-USB forwarding is enabled. The default value is false."
+                },
+                "PortForwardingMap": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoPortForwardingMapCollection.json#/definitions/LenovoPortForwardingMapCollection",
+                    "readonly": true,
+                    "description": "A reference to port forwarding mapping.",
+                    "longDescription": "The value of this property shall be a link to a collection of LenovoPortForwardingMap."
+                }
+            },
+            "description": "This is Lenovo extended properties of USB port forwarding."
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

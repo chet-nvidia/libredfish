@@ -1,0 +1,13 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/UpdateService/Oem/Lenovo/FirmwareServices/BareMetal"
+        }
+    ],
+    "@odata.type": "#LenovoFirmwareServiceCollection.LenovoFirmwareServiceCollection",
+    "@odata.id": "/redfish/v1/UpdateService/Oem/Lenovo/FirmwareServices",
+    "Members@odata.count": 1,
+    "@odata.etag": "\"3427cea3e0672724c50\"",
+    "Name": "LenovoFirmwareServiceCollection",
+    "Description": "A collection of FirmwareService resource instances."
+}

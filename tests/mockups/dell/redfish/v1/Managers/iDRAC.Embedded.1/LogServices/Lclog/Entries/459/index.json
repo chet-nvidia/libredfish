@@ -1,0 +1,31 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/459",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-10-19T21:17:58-05:00",
+    "Description": "Log Entry 459",
+    "EntryType": "Oem",
+    "Id": "459",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/EthernetInterfaces/NIC.Slot.6-2"
+        }
+    },
+    "Message": "Device not detected: Mellanox Network Adapter - B8:CE:F6:B8:8B:5F(NIC in Slot 6 Port 2)",
+    "MessageArgs": [
+        "Mellanox Network Adapter - B8:CE:F6:B8:8B:5F(NIC in Slot 6 Port 2)"
+    ],
+    "MessageArgs@odata.count": 1,
+    "MessageId": "IDRAC.2.7.PR8",
+    "Name": "Log Entry 459",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Configuration",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "Warning"
+}

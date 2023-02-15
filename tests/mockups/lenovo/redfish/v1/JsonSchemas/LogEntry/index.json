@@ -1,0 +1,18 @@
+{
+    "Schema": "#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/JsonSchemas/LogEntry",
+    "Name": "LogEntry JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LogEntry.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"df98d6ac\"",
+    "Id": "LogEntry",
+    "Description": "This represents the LogEntry Schema File locator resource for a Redfish implementation."
+}

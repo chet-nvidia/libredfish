@@ -1,0 +1,48 @@
+{
+    "Message": "Operating System status has changed to offline.",
+    "@odata.etag": "\"ejUxX1N0YW5kYXJkTG9nRW50cnkK199\"",
+    "MessageArgs": [
+        "offline"
+    ],
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/AuditLog/Entries/199",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "EntryType": "Oem",
+    "Name": "LogEntry",
+    "EventGroupId": 0,
+    "OemLogEntryCode": "Lenovo0191",
+    "Oem": {
+        "Lenovo": {
+            "ReportingChain": "XCC",
+            "IsLocalEvent": true,
+            "RawDebugLogURL": "",
+            "EventID@Redfish.Deprecated": "The property is deprecated. Please use EventId instead.",
+            "EventFlag": 0,
+            "AuxiliaryData": "",
+            "Source": "System",
+            "FailingFRU": [
+                {
+                    "FRUSerialNumber": "",
+                    "FRUNumber": ""
+                }
+            ],
+            "TSLVersion": "0",
+            "RelatedEventID": "",
+            "Serviceable": "Not Serviceable",
+            "EventID": "0x400000bf00000000",
+            "EventSequenceNumber": 199,
+            "EventType": 0,
+            "@odata.type": "#LenovoLogEntry.v1_0_0.AuditLogEntry",
+            "LenovoMessageID": "Lenovo0191",
+            "AffectedIndicatorLEDs": [],
+            "TotalSequenceNumber": 224,
+            "CommonEventID": "FQXSPOS4004I",
+            "Hidden": false
+        }
+    },
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "199",
+    "Severity": "OK",
+    "EventId": "0x400000bf00000000",
+    "Created": "2022-12-31T00:45:13.204+00:00"
+}

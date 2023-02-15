@@ -1,0 +1,47 @@
+{
+    "ReadingRangeMax": 0,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/244L0",
+    "ReadingRangeMin": 0,
+    "ReadingUnits": "",
+    "Thresholds": {
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": null
+        }
+    },
+    "PhysicalContext": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Name": "Sys Utilization",
+    "Precision": 0,
+    "MinAllowableOperatingValue": 0,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "MaxAllowableOperatingValue": 0,
+    "Id": "244L0",
+    "@odata.etag": "\"6304da6b9ad12a2be1f\"",
+    "ReadingType": null,
+    "Reading": 0
+}

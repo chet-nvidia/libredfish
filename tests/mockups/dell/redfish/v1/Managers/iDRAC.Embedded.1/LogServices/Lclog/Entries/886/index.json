@@ -1,0 +1,30 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/886",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-02-08T01:01:29-06:00",
+    "Description": "Log Entry 886",
+    "EntryType": "Oem",
+    "Id": "886",
+    "Links": {},
+    "Message": "User root via IP 10.180.37.2 requested state / configuration change to BIOS.HttpDev1Settings.HttpDev1Interface using Firmware RACADM.",
+    "MessageArgs": [
+        "root",
+        "10.180.37.2",
+        "BIOS.HttpDev1Settings.HttpDev1Interface",
+        "Firmware RACADM"
+    ],
+    "MessageArgs@odata.count": 4,
+    "MessageId": "IDRAC.2.7.RAC1195",
+    "Name": "Log Entry 886",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

@@ -1,0 +1,51 @@
+{
+    "Message": "ENET[CIM:ep1] IPv6-LinkLocal:HstName=XCC-7Z23-J101RZ43, IP@=fe80::7e8a:e1ff:fed5:a275 ,Pref=64  .",
+    "@odata.etag": "\"ejUxX1N0YW5kYXJkTG9nRW50cnkK3\"",
+    "MessageArgs": [
+        "CIM:ep1",
+        "XCC-7Z23-J101RZ43",
+        "fe80::7e8a:e1ff:fed5:a275",
+        "64"
+    ],
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/PlatformLog/Entries/3",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "EntryType": "Oem",
+    "Name": "LogEntry",
+    "EventGroupId": 0,
+    "OemLogEntryCode": "Lenovo0055",
+    "Oem": {
+        "Lenovo": {
+            "ReportingChain": "XCC",
+            "IsLocalEvent": true,
+            "RawDebugLogURL": "",
+            "EventID@Redfish.Deprecated": "The property is deprecated. Please use EventId instead.",
+            "EventFlag": 0,
+            "AuxiliaryData": "",
+            "Source": "System",
+            "FailingFRU": [
+                {
+                    "FRUSerialNumber": "",
+                    "FRUNumber": ""
+                }
+            ],
+            "TSLVersion": "0",
+            "RelatedEventID": "",
+            "Serviceable": "Not Serviceable",
+            "EventID": "0x4000003700000000",
+            "EventSequenceNumber": 3,
+            "EventType": 0,
+            "@odata.type": "#LenovoLogEntry.v1_0_0.PlatformLogEntry",
+            "LenovoMessageID": "Lenovo0055",
+            "AffectedIndicatorLEDs": [],
+            "TotalSequenceNumber": 5,
+            "CommonEventID": "FQXSPNM4028I",
+            "Hidden": false
+        }
+    },
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "3",
+    "Severity": "OK",
+    "EventId": "0x4000003700000000",
+    "Created": "2022-08-31T23:00:34.794+00:00"
+}

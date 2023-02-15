@@ -1,0 +1,233 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoSNMPProtocol.v1_0_0.LenovoSNMPProtocol",
+    "$ref": "#/definitions/LenovoSNMPProtocol",
+    "definitions": {
+        "LenovoSNMPProtocol": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
+                    "readonly": true
+                },
+                "Description": {
+                    "anyOf": [
+                        {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "readonly": true
+                },
+                "Name": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
+                    "readonly": true
+                },
+                "SNMPv3Agent": {
+                    "$ref": "#/definitions/SNMPv3AgentProtocol",
+                    "readonly": false,
+                    "description": "Settings for this Manager's SNMPv3 Agent support",
+                    "longDescription": "This object shall contain information for the SNMPv3 Agent protocol settings for this manager. The default value of the Port property should be 161 for compatibility with established client implementations."
+                },
+                "SNMPTraps": {
+                    "$ref": "#/definitions/SNMPTrapsProtocol",
+                    "readonly": false,
+                    "description": "Settings for this Manager's SNMP Traps protocol support",
+                    "longDescription": "This object shall contain information for the SNMP Traps protocol settings for this manager. The default value of the Port property should be 162 for compatibility with established client implementations."
+                },
+                "CommunityNames": {
+                    "type": "array",
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "description": "Specify the SNMP community names. Support one element only. You can enter a maximum of 15 alphanumeric characters in this field.",
+                    "longDescription": "The value of this property shall contain the community names assigned for the protocol."
+                }
+            }
+        },
+        "SNMPv3AgentProtocol": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "ProtocolEnabled": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "description": "Indicates if the protocol is enabled or disabled",
+                    "longDescription": "The value of this property shall contain the enabled status of the protocol. The value shall be true if enabled and false if disabled."
+                },
+                "Port": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "description": "Indicates the protocol port.",
+                    "longDescription": "The value of this property shall contain the port assigned for the protocol.",
+                    "minimum": 0
+                },
+                "ContactPerson": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoGeneralInfo.v1_0_0.json#/definitions/LenovoGeneralInfo/ContactPerson",
+                    "description": "Specify the name and phone number of the person who should be contacted if there is a problem with this system. You can enter a maximum of 47 alphanumeric characters in this field.",
+                    "longDescription": "This field is the same as the ContactPerson filed in the LenovoGeneralInfo resource."
+                },
+                "Location": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoGeneralInfo.v1_0_0.json#/definitions/LenovoGeneralInfo/Location",
+                    "description": "This is a free-form string that indicates the site where the chassis is located.",
+                    "longDescription": "This field is the same as the Location filed in the LenovoGeneralInfo resource."
+                },
+                "Links": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                            "type": [
+                                "array",
+                                "boolean",
+                                "number",
+                                "null",
+                                "object",
+                                "string"
+                            ],
+                            "description": "This property shall specify a valid odata or Redfish property."
+                        }
+                    },
+                    "additionalProperties": false,
+                    "properties": {
+                        "UsersSNMPv3Settings": {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/ManagerAccountCollection.json#/definitions/ManagerAccountCollection",
+                            "description": "This is the same list as shown in the accounts section. User must configure SNMPv3 for each user account that will need SNMPv3 access.",
+                            "longDescription": "Link to the SNMPv3 settings for the account."
+                        }
+                    }
+                }
+            }
+        },
+        "SNMPTrapsProtocol": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "ProtocolEnabled": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "description": "Indicates if the SNMPv3 trap protocol is enabled or disabled",
+                    "longDescription": "The value of this property shall contain the enabled status of the protocol of SNMPv3 trap. The value shall be true if enabled and false if disabled."
+                },
+                "SNMPv1TrapEnabled": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "description": "Indicates if the SNMPv1 trap protocol is enabled or disabled",
+                    "longDescription": "The value of this property shall contain the enabled status of the protocol of SNMPv1 trap. The value shall be true if enabled and false if disabled."
+                },
+                "Port": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "description": "Indicates the protocol port.",
+                    "longDescription": "The value of this property shall contain the port assigned for the protocol.",
+                    "minimum": 0
+                },
+                "AlertRecipient": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoAlertRecipient.v1_0_0.json#/definitions/EnabledAlert",
+                    "description": "Configure the IMM SNMP Alerts Settings to send traps",
+                    "longDescription": "Users can configure the SNMP to filter the events, based on type. Major classifications available for filtering are Critical, Warning and System. System events may sometimes overlap with the Critical and Warning types. Informational events are not filtered. The SNMP Alert settings are global for all SNMP traps."
+                },
+                "Targets": {
+                    "type": "array",
+                    "item": {
+                        "$ref": "#/definitions/CommunityTrapTarget"
+                    }
+                }
+            }
+        },
+        "CommunityTrapTarget": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "Addresses": {
+                    "type": "array",
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "description": "Indicates IP address or hostname. Support one element only. You can enter a maximum of 63 characters in each field",
+                    "longDescription": "The value of this property shall contain the array of IP address or hostname as SNMP targets."
+                }
+            }
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

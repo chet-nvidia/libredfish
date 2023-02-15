@@ -1,0 +1,22 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/AccountService/Accounts/1"
+        },
+        {
+            "@odata.id": "/redfish/v1/AccountService/Accounts/2"
+        },
+        {
+            "@odata.id": "/redfish/v1/AccountService/Accounts/3"
+        },
+        {
+            "@odata.id": "/redfish/v1/AccountService/Accounts/4"
+        }
+    ],
+    "@odata.type": "#ManagerAccountCollection.ManagerAccountCollection",
+    "@odata.id": "/redfish/v1/AccountService/Accounts",
+    "Name": "ManagerAccountCollection",
+    "@odata.etag": "\"3a9520eef39c2ae4a17\"",
+    "Members@odata.count": 4,
+    "Description": "A collection of ManagerAccount resource instances."
+}

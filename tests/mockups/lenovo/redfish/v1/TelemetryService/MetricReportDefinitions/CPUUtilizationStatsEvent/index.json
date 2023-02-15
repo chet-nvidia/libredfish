@@ -1,0 +1,26 @@
+{
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/CPUUtilizationStatsEvent",
+    "Status": {
+        "State": "Enabled"
+    },
+    "Name": "CPUUtilizationStatsEvent",
+    "Id": "CPUUtilizationStatsEvent",
+    "ReportActions": [
+        "RedfishEvent"
+    ],
+    "MetricReportDefinitionType": "Periodic",
+    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
+    "Metrics": [
+        {
+            "MetricId": "AverageCPUUtilization",
+            "CollectionDuration": "PT30S",
+            "CollectionTimeScope": "Interval"
+        }
+    ],
+    "ReportTimespan": "PT10M",
+    "@odata.etag": "\"4e5b139cc4bd296b527\"",
+    "Schedule": {
+        "RecurrenceInterval": "PT10M"
+    },
+    "Description": "A set of metrics that are collected into a metric report."
+}

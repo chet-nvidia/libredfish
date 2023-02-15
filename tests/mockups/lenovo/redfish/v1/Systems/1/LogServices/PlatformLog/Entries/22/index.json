@@ -1,0 +1,53 @@
+{
+    "Message": "Host Power has been turned off.",
+    "@odata.etag": "\"ejUxX1N0YW5kYXJkTG9nRW50cnkK22\"",
+    "MessageArgs": [
+        "Host Power"
+    ],
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/PlatformLog/Entries/22",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "EntryType": "Oem",
+    "Name": "LogEntry",
+    "EventGroupId": 0,
+    "OemLogEntryCode": "PLAT0106",
+    "Oem": {
+        "Lenovo": {
+            "ReportingChain": "XCC",
+            "IsLocalEvent": true,
+            "RawDebugLogURL": "",
+            "EventID@Redfish.Deprecated": "The property is deprecated. Please use EventId instead.",
+            "EventFlag": 0,
+            "AuxiliaryData": "",
+            "Source": "Power",
+            "FailingFRU": [
+                {
+                    "FRUSerialNumber": "",
+                    "FRUNumber": ""
+                }
+            ],
+            "TSLVersion": "16",
+            "RelatedEventID": "",
+            "Serviceable": "Not Serviceable",
+            "EventID": "0x806f00091301ffff",
+            "EventSequenceNumber": 22,
+            "EventType": 0,
+            "@odata.type": "#LenovoLogEntry.v1_0_0.PlatformLogEntry",
+            "LenovoMessageID": "PLAT0106",
+            "AffectedIndicatorLEDs": [
+                {
+                    "LEDIdentifier": "30e",
+                    "LEDState": "Blinking"
+                }
+            ],
+            "TotalSequenceNumber": 377,
+            "CommonEventID": "FQXSPPW0008I",
+            "Hidden": false
+        }
+    },
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "22",
+    "Severity": "OK",
+    "EventId": "0x806f00091301ffff",
+    "Created": "2023-02-08T01:13:50.558+00:00"
+}

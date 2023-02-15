@@ -1,0 +1,11 @@
+{
+    "Id": "Boot0002",
+    "BootOptionReference": "Boot0002",
+    "Name": "HardDisk",
+    "UefiDevicePath": "VenHw_B2AD3248_4F72_4950_A966_CFE5062DB83A_01000000",
+    "@odata.type": "#BootOption.v1_0_3.BootOption",
+    "@odata.id": "/redfish/v1/Systems/1/BootOptions/Boot0002",
+    "@odata.etag": "\"2d8411dc3b512663408\"",
+    "DisplayName": "HardDisk",
+    "Description": "This resource shall be used to represent a single boot option contained within a system."
+}

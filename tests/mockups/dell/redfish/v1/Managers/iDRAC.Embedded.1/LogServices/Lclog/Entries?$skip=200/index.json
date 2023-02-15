@@ -1,0 +1,1381 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntryCollection.LogEntryCollection",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries",
+    "@odata.type": "#LogEntryCollection.LogEntryCollection",
+    "Description": "LC Logs for this manager",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/990",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T17:05:09-06:00",
+            "Description": "Log Entry 990",
+            "EntryType": "Oem",
+            "Id": "990",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Name has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1910",
+            "Name": "Log Entry 990",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/989",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T17:05:09-06:00",
+            "Description": "Log Entry 989",
+            "EntryType": "Oem",
+            "Id": "989",
+            "Links": {},
+            "Message": "The previous log entry was repeated 1 times.",
+            "MessageArgs": [
+                "1"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 989",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/988",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T17:03:26-06:00",
+            "Description": "Log Entry 988",
+            "EntryType": "Oem",
+            "Id": "988",
+            "Links": {},
+            "Message": "An existing hash value is updated because some system configuration items are changed.",
+            "MessageId": "IDRAC.2.7.SYS336",
+            "Name": "Log Entry 988",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/987",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T17:03:26-06:00",
+            "Description": "Log Entry 987",
+            "EntryType": "Oem",
+            "Id": "987",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Name has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1910",
+            "Name": "Log Entry 987",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/986",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T17:03:25-06:00",
+            "Description": "Log Entry 986",
+            "EntryType": "Oem",
+            "Id": "986",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Password has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1911",
+            "Name": "Log Entry 986",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/985",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:54:41-06:00",
+            "Description": "Log Entry 985",
+            "EntryType": "Oem",
+            "Id": "985",
+            "Links": {},
+            "Message": "An existing hash value is updated because some system configuration items are changed.",
+            "MessageId": "IDRAC.2.7.SYS336",
+            "Name": "Log Entry 985",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/984",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:54:35-06:00",
+            "Description": "Log Entry 984",
+            "EntryType": "Oem",
+            "Id": "984",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Password has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1911",
+            "Name": "Log Entry 984",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/983",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:54:35-06:00",
+            "Description": "Log Entry 983",
+            "EntryType": "Oem",
+            "Id": "983",
+            "Links": {},
+            "Message": "The previous log entry was repeated 1 times.",
+            "MessageArgs": [
+                "1"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 983",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/982",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:54:28-06:00",
+            "Description": "Log Entry 982",
+            "EntryType": "Oem",
+            "Id": "982",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Name has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1910",
+            "Name": "Log Entry 982",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/981",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:54:27-06:00",
+            "Description": "Log Entry 981",
+            "EntryType": "Oem",
+            "Id": "981",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Access Right has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1912",
+            "Name": "Log Entry 981",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/980",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:54:27-06:00",
+            "Description": "Log Entry 980",
+            "EntryType": "Oem",
+            "Id": "980",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Password has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1911",
+            "Name": "Log Entry 980",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/979",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:54:25-06:00",
+            "Description": "Log Entry 979",
+            "EntryType": "Oem",
+            "Id": "979",
+            "Links": {},
+            "Message": "An existing hash value is updated because some system configuration items are changed.",
+            "MessageId": "IDRAC.2.7.SYS336",
+            "Name": "Log Entry 979",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/978",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:54:25-06:00",
+            "Description": "Log Entry 978",
+            "EntryType": "Oem",
+            "Id": "978",
+            "Links": {},
+            "Message": "The previous log entry was repeated 1 times.",
+            "MessageArgs": [
+                "1"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 978",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/977",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:54:15-06:00",
+            "Description": "Log Entry 977",
+            "EntryType": "Oem",
+            "Id": "977",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Access Right has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1912",
+            "Name": "Log Entry 977",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/976",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:54:14-06:00",
+            "Description": "Log Entry 976",
+            "EntryType": "Oem",
+            "Id": "976",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Password has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1911",
+            "Name": "Log Entry 976",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/975",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:45:55-06:00",
+            "Description": "Log Entry 975",
+            "EntryType": "Oem",
+            "Id": "975",
+            "Links": {},
+            "Message": "An existing hash value is updated because some system configuration items are changed.",
+            "MessageId": "IDRAC.2.7.SYS336",
+            "Name": "Log Entry 975",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/974",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:45:51-06:00",
+            "Description": "Log Entry 974",
+            "EntryType": "Oem",
+            "Id": "974",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Password has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1911",
+            "Name": "Log Entry 974",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/973",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:45:51-06:00",
+            "Description": "Log Entry 973",
+            "EntryType": "Oem",
+            "Id": "973",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Name has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1910",
+            "Name": "Log Entry 973",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/972",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:45:41-06:00",
+            "Description": "Log Entry 972",
+            "EntryType": "Oem",
+            "Id": "972",
+            "Links": {},
+            "Message": "An existing hash value is updated because some system configuration items are changed.",
+            "MessageId": "IDRAC.2.7.SYS336",
+            "Name": "Log Entry 972",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/971",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:45:28-06:00",
+            "Description": "Log Entry 971",
+            "EntryType": "Oem",
+            "Id": "971",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Name has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1910",
+            "Name": "Log Entry 971",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/970",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:45:27-06:00",
+            "Description": "Log Entry 970",
+            "EntryType": "Oem",
+            "Id": "970",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Access Right has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1912",
+            "Name": "Log Entry 970",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/969",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:45:26-06:00",
+            "Description": "Log Entry 969",
+            "EntryType": "Oem",
+            "Id": "969",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Password has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1911",
+            "Name": "Log Entry 969",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/968",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:45:08-06:00",
+            "Description": "Log Entry 968",
+            "EntryType": "Oem",
+            "Id": "968",
+            "Links": {},
+            "Message": "Successfully logged in using root, from 10.180.32.74 and eHTML5 Virtual Console.",
+            "MessageArgs": [
+                "root",
+                "10.180.32.74",
+                "eHTML5 Virtual Console"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0030",
+            "Name": "Log Entry 968",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/967",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-09T16:44:35-06:00",
+            "Description": "Log Entry 967",
+            "EntryType": "Oem",
+            "Id": "967",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Successfully logged in using root, from 10.180.32.74 and GUI.",
+            "MessageArgs": [
+                "root",
+                "10.180.32.74",
+                "GUI"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0030",
+            "Name": "Log Entry 967",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/966",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:42:33-06:00",
+            "Description": "Log Entry 966",
+            "EntryType": "Oem",
+            "Id": "966",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "The session for root from 10.180.32.74 using GUI is logged off.",
+            "MessageArgs": [
+                "root",
+                "10.180.32.74",
+                "GUI"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0032",
+            "Name": "Log Entry 966",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/965",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:42:33-06:00",
+            "Description": "Log Entry 965",
+            "EntryType": "Oem",
+            "Id": "965",
+            "Links": {},
+            "Message": "The previous log entry was repeated 1 times.",
+            "MessageArgs": [
+                "1"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 965",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/964",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:32:29-06:00",
+            "Description": "Log Entry 964",
+            "EntryType": "Oem",
+            "Id": "964",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "The session for root from 10.180.32.74 using eHTML5 Virtual Console is logged off.",
+            "MessageArgs": [
+                "root",
+                "10.180.32.74",
+                "eHTML5 Virtual Console"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0032",
+            "Name": "Log Entry 964",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/963",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:28:40-06:00",
+            "Description": "Log Entry 963",
+            "EntryType": "Oem",
+            "Id": "963",
+            "Links": {},
+            "Message": "An existing hash value is updated because some system configuration items are changed.",
+            "MessageId": "IDRAC.2.7.SYS336",
+            "Name": "Log Entry 963",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/962",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:28:40-06:00",
+            "Description": "Log Entry 962",
+            "EntryType": "Oem",
+            "Id": "962",
+            "Links": {},
+            "Message": "The previous log entry was repeated 1 times.",
+            "MessageArgs": [
+                "1"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 962",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/961",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:28:28-06:00",
+            "Description": "Log Entry 961",
+            "EntryType": "Oem",
+            "Id": "961",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Access Right has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1912",
+            "Name": "Log Entry 961",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/960",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:28:27-06:00",
+            "Description": "Log Entry 960",
+            "EntryType": "Oem",
+            "Id": "960",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Password has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1911",
+            "Name": "Log Entry 960",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/959",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:26:26-06:00",
+            "Description": "Log Entry 959",
+            "EntryType": "Oem",
+            "Id": "959",
+            "Links": {},
+            "Message": "An existing hash value is updated because some system configuration items are changed.",
+            "MessageId": "IDRAC.2.7.SYS336",
+            "Name": "Log Entry 959",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/958",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:26:17-06:00",
+            "Description": "Log Entry 958",
+            "EntryType": "Oem",
+            "Id": "958",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Password has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1911",
+            "Name": "Log Entry 958",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/957",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:26:17-06:00",
+            "Description": "Log Entry 957",
+            "EntryType": "Oem",
+            "Id": "957",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "User ID 3 User Name has been changed.",
+            "MessageArgs": [
+                "3"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SWC1910",
+            "Name": "Log Entry 957",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/956",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:15:11-06:00",
+            "Description": "Log Entry 956",
+            "EntryType": "Oem",
+            "Id": "956",
+            "Links": {},
+            "Message": "An existing hash value is updated because some system configuration items are changed.",
+            "MessageId": "IDRAC.2.7.SYS336",
+            "Name": "Log Entry 956",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/955",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:13:50-06:00",
+            "Description": "Log Entry 955",
+            "EntryType": "Oem",
+            "Id": "955",
+            "Links": {},
+            "Message": "System CPU Resetting.",
+            "MessageId": "IDRAC.2.7.SYS1003",
+            "Name": "Log Entry 955",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/954",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:13:27-06:00",
+            "Description": "Log Entry 954",
+            "EntryType": "Oem",
+            "Id": "954",
+            "Links": {},
+            "Message": "System is turning on.",
+            "MessageId": "IDRAC.2.7.SYS1000",
+            "Name": "Log Entry 954",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/953",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:13:07-06:00",
+            "Description": "Log Entry 953",
+            "EntryType": "Oem",
+            "Id": "953",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Requested system powerup.",
+            "MessageId": "IDRAC.2.7.RAC0701",
+            "Name": "Log Entry 953",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/952",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:13:07-06:00",
+            "Description": "Log Entry 952",
+            "EntryType": "Oem",
+            "Id": "952",
+            "Links": {},
+            "Message": "User root via IP 10.180.32.74 requested state / configuration change to Power Control using eHTML5 Virtual Console.",
+            "MessageArgs": [
+                "root",
+                "10.180.32.74",
+                "Power Control",
+                "eHTML5 Virtual Console"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.RAC1195",
+            "Name": "Log Entry 952",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/951",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:12:56-06:00",
+            "Description": "Log Entry 951",
+            "EntryType": "Oem",
+            "Id": "951",
+            "Links": {},
+            "Message": "System is turning off.",
+            "MessageId": "IDRAC.2.7.SYS1001",
+            "Name": "Log Entry 951",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/950",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:12:56-06:00",
+            "Description": "Log Entry 950",
+            "EntryType": "Oem",
+            "Id": "950",
+            "Links": {},
+            "Message": "System CPU Resetting.",
+            "MessageId": "IDRAC.2.7.SYS1003",
+            "Name": "Log Entry 950",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/949",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:12:56-06:00",
+            "Description": "Log Entry 949",
+            "EntryType": "Oem",
+            "Id": "949",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "The server power action is initiated because the management controller initiated a power-down operation.",
+            "MessageArgs": [
+                "the management controller initiated a power-down operation"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.SYS1005",
+            "Name": "Log Entry 949",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/948",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:12:55-06:00",
+            "Description": "Log Entry 948",
+            "EntryType": "Oem",
+            "Id": "948",
+            "Links": {},
+            "Message": "An existing hash value is updated because some system configuration items are changed.",
+            "MessageId": "IDRAC.2.7.SYS336",
+            "Name": "Log Entry 948",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Configuration",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/947",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:12:55-06:00",
+            "Description": "Log Entry 947",
+            "EntryType": "Oem",
+            "Id": "947",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Requested system powerdown.",
+            "MessageId": "IDRAC.2.7.RAC0704",
+            "Name": "Log Entry 947",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/946",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:12:55-06:00",
+            "Description": "Log Entry 946",
+            "EntryType": "Oem",
+            "Id": "946",
+            "Links": {},
+            "Message": "User root via IP 10.180.32.74 requested state / configuration change to Power Control using eHTML5 Virtual Console.",
+            "MessageArgs": [
+                "root",
+                "10.180.32.74",
+                "Power Control",
+                "eHTML5 Virtual Console"
+            ],
+            "MessageArgs@odata.count": 4,
+            "MessageId": "IDRAC.2.7.RAC1195",
+            "Name": "Log Entry 946",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/945",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:12:42-06:00",
+            "Description": "Log Entry 945",
+            "EntryType": "Oem",
+            "Id": "945",
+            "Links": {},
+            "Message": "Successfully logged in using root, from 10.180.32.74 and eHTML5 Virtual Console.",
+            "MessageArgs": [
+                "root",
+                "10.180.32.74",
+                "eHTML5 Virtual Console"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0030",
+            "Name": "Log Entry 945",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/944",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:12:23-06:00",
+            "Description": "Log Entry 944",
+            "EntryType": "Oem",
+            "Id": "944",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Successfully logged in using root, from 10.180.32.74 and GUI.",
+            "MessageArgs": [
+                "root",
+                "10.180.32.74",
+                "GUI"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0030",
+            "Name": "Log Entry 944",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/943",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T19:12:18-06:00",
+            "Description": "Log Entry 943",
+            "EntryType": "Oem",
+            "Id": "943",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "Unable to log in for NULL from 10.180.32.74 using eHTML5 Virtual Console.",
+            "MessageArgs": [
+                "NULL",
+                "10.180.32.74",
+                "eHTML5 Virtual Console"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0031",
+            "Name": "Log Entry 943",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/942",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T01:54:03-06:00",
+            "Description": "Log Entry 942",
+            "EntryType": "Oem",
+            "Id": "942",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+                }
+            },
+            "Message": "The session for root from 10.180.37.2 using GUI is logged off.",
+            "MessageArgs": [
+                "root",
+                "10.180.37.2",
+                "GUI"
+            ],
+            "MessageArgs@odata.count": 3,
+            "MessageId": "IDRAC.2.7.USR0032",
+            "Name": "Log Entry 942",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/941",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2023-02-08T01:54:03-06:00",
+            "Description": "Log Entry 941",
+            "EntryType": "Oem",
+            "Id": "941",
+            "Links": {},
+            "Message": "The previous log entry was repeated 1 times.",
+            "MessageArgs": [
+                "1"
+            ],
+            "MessageArgs@odata.count": 1,
+            "MessageId": "IDRAC.2.7.LOG007",
+            "Name": "Log Entry 941",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+                    "Category": "Audit",
+                    "Comment": null,
+                    "LastUpdatedByUser": null
+                }
+            },
+            "OemRecordFormat": "Dell",
+            "Severity": "OK"
+        }
+    ],
+    "Members@odata.count": 1190,
+    "Members@odata.nextLink": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries?$skip=250",
+    "Name": "Log Entry Collection"
+}

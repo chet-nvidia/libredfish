@@ -1,0 +1,26 @@
+{
+    "Version": "08B-3.07",
+    "Id": "LXPMLinuxDriver",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1"
+        }
+    ],
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPMLinuxDriver",
+    "Status": {
+        "HealthRollup": "OK",
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "RelatedItem@odata.count": 1,
+    "Name": "Firmware:LXPM-LinuxDrivers",
+    "ReleaseDate": "2021-05-08T00:00:00Z",
+    "LowestSupportedVersion": null,
+    "Manufacturer": "Lenovo",
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "WriteProtected": true,
+    "Updateable": true,
+    "@odata.etag": "\"455ef02e544b2a2a130\"",
+    "SoftwareId": "DRVLN-XWL2-2",
+    "Description": "The information of LXPM Linux Drivers."
+}

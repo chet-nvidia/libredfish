@@ -1,0 +1,50 @@
+{
+    "Message": "Inventory data changed for device CPU 1, new device data hash=0x0, new master data hash=0x0  .",
+    "@odata.etag": "\"ejUxX1N0YW5kYXJkTG9nRW50cnkK18\"",
+    "MessageArgs": [
+        "CPU 1",
+        "0x0",
+        "0x0"
+    ],
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/AuditLog/Entries/18",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "EntryType": "Oem",
+    "Name": "LogEntry",
+    "EventGroupId": 0,
+    "OemLogEntryCode": "Lenovo0072",
+    "Oem": {
+        "Lenovo": {
+            "ReportingChain": "XCC",
+            "IsLocalEvent": true,
+            "RawDebugLogURL": "",
+            "EventID@Redfish.Deprecated": "The property is deprecated. Please use EventId instead.",
+            "EventFlag": 0,
+            "AuxiliaryData": "",
+            "Source": "System",
+            "FailingFRU": [
+                {
+                    "FRUSerialNumber": "",
+                    "FRUNumber": ""
+                }
+            ],
+            "TSLVersion": "0",
+            "RelatedEventID": "",
+            "Serviceable": "Not Serviceable",
+            "EventID": "0x4000004800000000",
+            "EventSequenceNumber": 18,
+            "EventType": 0,
+            "@odata.type": "#LenovoLogEntry.v1_0_0.AuditLogEntry",
+            "LenovoMessageID": "Lenovo0072",
+            "AffectedIndicatorLEDs": [],
+            "TotalSequenceNumber": 29,
+            "CommonEventID": "FQXSPDM4000I",
+            "Hidden": false
+        }
+    },
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "18",
+    "Severity": "OK",
+    "EventId": "0x4000004800000000",
+    "Created": "2022-08-31T23:02:03.052+00:00"
+}

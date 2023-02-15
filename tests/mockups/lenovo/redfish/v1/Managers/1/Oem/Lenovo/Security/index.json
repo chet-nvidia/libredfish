@@ -1,0 +1,37 @@
+{
+    "SecurityCapabilities": {
+        "SupportedActions": [
+            "CreateKeyPair"
+        ]
+    },
+    "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/Security",
+    "Name": "Security",
+    "Id": "Security",
+    "@odata.type": "#LenovoSecurityService.v1_0_0.LenovoSecurityService",
+    "Description": "This resource is used to represent an OEM extended security service for a Redfish implementation.",
+    "SSLSettings": {
+        "EnableHttps": true,
+        "EnableLDAPS": false,
+        "EnableCIMOverHttps": false
+    },
+    "EncapSettings": {
+        "WhiteList": [],
+        "EncapMode": "NormalMode"
+    },
+    "CryptographyManagement": {
+        "MinTLSLevel": "TLSLevel1_2"
+    },
+    "@odata.etag": "\"688f86ae8d2a27ee583\"",
+    "Actions": {
+        "#LenovoSecurityService.CreateKeyPair": {
+            "Service@Redfish.AllowableValues": [
+                "SSH_SVR"
+            ],
+            "target": "/redfish/v1/Managers/1/Oem/Lenovo/Security/Actions/LenovoSecurityService.CreateKeyPair",
+            "title": "CreateKeyPair"
+        }
+    },
+    "Configurator": {
+        "FWRollback": "Disabled"
+    }
+}

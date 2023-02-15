@@ -1,0 +1,37 @@
+{
+    "BindingMethod": {
+        "ClientDN": null,
+        "Method": "Anonymously",
+        "ClientPassword": null
+    },
+    "Id": "LDAPClient",
+    "UIDSearchAttribute": "sAMAccountName",
+    "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/Oem/Lenovo/LDAPClient",
+    "GroupSearchAttribute": "memberOf",
+    "ActiveDirectory": {
+        "ServerTargetName": null,
+        "ForestName": null,
+        "RoleBasedSecurity": false
+    },
+    "Name": "LDAP Client",
+    "@odata.etag": "\"7d74c162246b25b34ca\"",
+    "ProtocolEnabled": true,
+    "GroupFilter": null,
+    "@odata.type": "#LenovoLDAPClient.v1_0_0.LenovoLDAPClient",
+    "RootDN": null,
+    "LoginPermissionAttribute": null,
+    "LDAPServers": {
+        "Server2Port": "389",
+        "Server1Port": "389",
+        "Server4HostName_IPAddress": null,
+        "SearchDomain": null,
+        "Server1HostName_IPAddress": "0.0.0.0",
+        "Server3Port": "389",
+        "Server4Port": "389",
+        "Server2HostName_IPAddress": null,
+        "Method": "Pre_Configured",
+        "Server3HostName_IPAddress": null
+    },
+    "Authorization": "LDAPServer",
+    "Description": "The resource is used to represent the LDAP client for the manager for a Redfish implementation."
+}

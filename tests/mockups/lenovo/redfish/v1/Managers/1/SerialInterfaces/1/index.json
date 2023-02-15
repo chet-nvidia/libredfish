@@ -1,0 +1,23 @@
+{
+    "SignalType": "Rs232",
+    "Id": "1",
+    "InterfaceEnabled": true,
+    "BitRate": "115200",
+    "Name": "Serial Interface",
+    "@odata.type": "#SerialInterface.v1_1_6.SerialInterface",
+    "StopBits": "1",
+    "Oem": {
+        "Lenovo": {
+            "@odata.type": "#LenovoSerialInterface.v1_0_0.LenovoSerialInterfaceProperties",
+            "CLIMode": "UserDefined",
+            "SerialInterfaceState": "Enabled",
+            "EnterCLIKeySequence": "^[("
+        }
+    },
+    "DataBits": "8",
+    "Description": "Serial port redirection of the host.",
+    "@odata.id": "/redfish/v1/Managers/1/SerialInterfaces/1",
+    "@odata.etag": "\"3de59353c4162ae4a21\"",
+    "Parity": "None",
+    "FlowControl": "None"
+}

@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/77",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2021-12-13T19:55:56-06:00",
+    "Description": "Log Entry 77",
+    "EntryType": "Oem",
+    "Id": "77",
+    "Links": {},
+    "Message": "Virtual Media session created.",
+    "MessageId": "IDRAC.2.7.VME0008",
+    "Name": "Log Entry 77",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

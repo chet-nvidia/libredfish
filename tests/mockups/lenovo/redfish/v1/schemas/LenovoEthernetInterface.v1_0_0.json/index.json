@@ -1,0 +1,261 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoEthernetInterface",
+    "definitions": {
+        "LenovoEthernetInterfaceProperties": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "MaxDataSize": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The largest information field that may be sent or received by the LAN Endpoint, i.e. the max MTU size. MinValue=0, MaxValue=2^32-1",
+                    "longDescription": "The maximum size of the INFO field that will be received or transmitted, in bits. The size '2^32-1' means 4 bytes width."
+                },
+                "LinkTechnology": {
+                    "type": "string",
+                    "readonly": true,
+                    "enum": [
+                        "Unknown",
+                        "Ethernet",
+                        "IB",
+                        "FC"
+                    ],
+                    "enumDescriptions": {
+                        "Unknown": "It cannot be determined.",
+                        "Ethernet": "Ethernet(2).",
+                        "IB": "InfiniBand(3).",
+                        "FC": "Fibre Channel(4)."
+                    },
+                    "description": "An enumeration of the types of links.",
+                    "longDescription": "This is the link technology of this interface."
+                },
+                "ProtocolType": {
+                    "type": "string",
+                    "readonly": true,
+                    "enum": [
+                        "Unknown",
+                        "Ethernet",
+                        "FibreChannel",
+                        "Infiniband"
+                    ],
+                    "enumDescriptions": {
+                        "Unknown": "It cannot be determined.",
+                        "Ethernet": "Ethernet(6).",
+                        "FibreChannel": "Fibre Channel(56).",
+                        "Infiniband": "InfiniBand(199)."
+                    },
+                    "description": "An enumeration of the types of links.",
+                    "longDescription": "This is the link technology of this interface."
+                },
+                "CurrentWorkProtocol": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "enum": [
+                        "Ethernet",
+                        "FCoE_FC",
+                        "iSCSI"
+                    ],
+                    "description": "Indicate the real work protocol of the port."
+                },
+                "vNICMode": {
+                    "type": "string",
+                    "enum": [
+                        "Disabled",
+                        "IBMVirtualFabricMode",
+                        "SwitchIndependentMode",
+                        "UnifiedFabricotocolMode"
+                    ],
+                    "enumDescriptions": {
+                        "Disabled": "vNic disabled.",
+                        "IBMVirtualFabricMode": "IBM Virtual Fabric Mode.",
+                        "SwitchIndependentMode": "Switch Independent Mode.",
+                        "UnifiedFabricotocolMode": "Unified Fabricotocol Mode."
+                    },
+                    "description": "Virtual NIC mode.",
+                    "longDescption": "Virtual fabric mode, four option values."
+                },
+                "PortIndex": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "This is network ports are often numbered relative to either a logical module or a network element starting from 0 or 1 for each card.",
+                    "longDescription": "This is network ports are often numbered relative to either a logical module or a network element starting from 0 or 1 for each card."
+                },
+                "MaxSpeedGbps": {
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "The maximum bandwidth of the port in bits per second.",
+                    "longDescription": "The value of this property shall be the maximum bandwidth of the port in Gbps."
+                },
+                "InterfaceNicMode": {
+                    "type": "string",
+                    "enum": [
+                        "Shared",
+                        "Dedicated",
+                        "SharedOption_1",
+                        "SharedOption_2"
+                    ],
+                    "enumDescriptions": {
+                        "Shared": "Shared mode.",
+                        "Dedicated": "Dedicated mode.",
+                        "SharedOption_1": "SharedOption_1 mode.",
+                        "SharedOption_2": "SharedOption_2 mode."
+                    },
+                    "description": "This switches the nic mode.",
+                    "longDescption": "The value of the property indicates the nic mode used."
+                },
+                "InterfaceFailoverMode": {
+                    "type": "string",
+                    "enum": [
+                        "None",
+                        "Shared",
+                        "SharedOption_1",
+                        "SharedOption_2"
+                    ],
+                    "enumDescriptions": {
+                        "None": "None.",
+                        "Shared": "Shared.",
+                        "SharedOption_1": "SharedOption_1 mode.",
+                        "SharedOption_2": "SharedOption_2 mode."
+                    },
+                    "description": "This switches the failover mode.",
+                    "longDescption": "The value of the property indicates the failover mode used."
+                },
+                "NetworkSettingSync": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "description": "Network setting synchronization.",
+                    "longDescption": "The value of the property directs to use the same network settings that are used on the dedicated management network port for the shared network port if the failover mode is enabled."
+                },
+                "IPv4Enabled": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "description": "This indicates whether the IPv4 support is enabled.",
+                    "longDescription": "The value of this property shall be a boolean indicating whether this IPv4 support is enabled."
+                },
+                "IPv4AddressAssignedby": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "enum": [
+                        "Static",
+                        "DHCP",
+                        "DHCPFirstThenStatic"
+                    ],
+                    "enumDescriptions": {
+                        "Static": "Assign a static address and enter the appropriate information in IPv4Addresses.",
+                        "DHCP": "An IP address will be obtained through a dynamic host configruation protocol(DHCP) server.",
+                        "DHCPFirstThenStatic": "Try a DHCP server and then revert to the static IP configuration in if DHCP server cannot be reached."
+                    },
+                    "description": "This indicates where the IPv4 addresses are obtained from.",
+                    "longDescption": "The value of the property indicates whether or not DHCP will be used for configuring the IP address. If DHCP is not enabled, then the static IP address will be used."
+                },
+                "IPv6Enabled": {
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "description": "This indicates whether the IPv6 support is enabled.",
+                    "longDescription": "The value of this property shall be a boolean indicating whether this IPv6 support is enabled."
+                },
+                "IPv6AddressAssignedby": {
+                    "type": [
+                        "array",
+                        "null"
+                    ],
+                    "items": {
+                        "$ref": "http://redfish.dmtf.org/schemas/v1/IPAddresses.v1_0_3.json#/definitions/IPv6AddressOrigin"
+                    },
+                    "description": "This indicates where the IPv6 addresses are obtained from.",
+                    "longDescption": "The value of the property shall be the IPv6 address mode, IPv6 can have multiple simultaneous addresses."
+                },
+                "DomainName": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "readonly": true,
+                    "description": "This is the domain name obtained by DNS for this interface.",
+                    "longDescription": "The value of this property shall be the domain name for this interface."
+                },
+                "AddressMode": {
+                    "type": "string",
+                    "enum": [
+                        "IPv4",
+                        "IPv4LLA",
+                        "IPv6LLA"
+                    ],
+                    "enumDescriptions": {
+                        "IPv4": "User configured IPv4 address mode.",
+                        "IPv4LLA": "IPv4 link-local address mode.",
+                        "IPv6LLA": "IPv6 link-local address mode."
+                    },
+                    "description": "Select address mode for ethernet over USB interface: IPv4, IPv4 LLA or IPv6 LLA."
+                },
+                "OSIPv4Address": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "This is the IPv4 Address of the Ethernet Over USB.",
+                    "longDescription": "Use this field to define the IP address of the Ethernet Over USB. The default value is 169.254.95.120.",
+                    "pattern": "^(?:[0-9]{1,3}\\.){3}[0-9]{1,3}$"
+                },
+                "PortForwarding": {
+                    "$ref": "/schemas/v1/Lenovo/LenovoPortForwarding.json#/definitions/LenovoPortForwarding",
+                    "readonly": true,
+                    "description": "A reference to the port forwarding property for this ethernet over usb interface.",
+                    "longDescription": "Display and configure ethernet to ethernet over usb port mapping, Allows user to map an external Ethernet port number to a different port number for Ethernet over USB."
+                }
+            },
+            "description": "These properties shall be refered in /schemas/v1/EthernetInterface.v1_1_0.json#/definitions/EthernetInterface/properties/Oem."
+        },
+        "IPv6Gateway": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "description": "This is the IPv6 gateway address that is in use on this interface.",
+            "longDescription": "The value of this property shall be the IPv6 gateway address that is in use on this interface."
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

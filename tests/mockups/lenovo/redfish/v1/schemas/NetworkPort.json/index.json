@@ -1,0 +1,34 @@
+{
+    "$id": "http://redfish.dmtf.org/schemas/v1/NetworkPort.json",
+    "$ref": "#/definitions/NetworkPort",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2020 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "definitions": {
+        "NetworkPort": {
+            "anyOf": [
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/idRef"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/NetworkPort.v1_0_6.json#/definitions/NetworkPort"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/NetworkPort.v1_1_5.json#/definitions/NetworkPort"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/NetworkPort.v1_2_4.json#/definitions/NetworkPort"
+                }
+            ],
+            "deletable": false,
+            "description": "A network port, which is a discrete physical port that can connect to a network.",
+            "insertable": false,
+            "longDescription": "A network port represents a discrete physical port that can connect to a network.",
+            "updatable": true,
+            "uris": [
+                "/redfish/v1/Chassis/{ChassisId}/NetworkAdapters/{NetworkAdapterId}/NetworkPorts/{NetworkPortId}"
+            ]
+        }
+    },
+    "owningEntity": "DMTF",
+    "title": "#NetworkPort.NetworkPort"
+}

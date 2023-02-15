@@ -1,0 +1,18 @@
+{
+    "Schema": "#HostInterface.HostInterface",
+    "Id": "HostInterface",
+    "Name": "HostInterface JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/HostInterface.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"940f926c\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/HostInterface",
+    "Description": "This represents the HostInterface Schema File locator resource for a Redfish implementation."
+}

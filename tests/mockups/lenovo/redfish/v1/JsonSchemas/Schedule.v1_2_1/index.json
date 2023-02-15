@@ -1,0 +1,18 @@
+{
+    "Schema": "#Schedule.v1_2_1.Schedule",
+    "@odata.id": "/redfish/v1/JsonSchemas/Schedule.v1_2_1",
+    "Name": "Schedule JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/Schedule.v1_2_1.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"4c908459\"",
+    "Id": "Schedule.v1_2_1",
+    "Description": "This represents the Schedule Schema File locator resource for a Redfish implementation."
+}

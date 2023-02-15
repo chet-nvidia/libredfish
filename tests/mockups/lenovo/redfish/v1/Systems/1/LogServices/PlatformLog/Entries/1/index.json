@@ -1,0 +1,48 @@
+{
+    "Message": "The connector Front USB Detect has been connected.",
+    "@odata.etag": "\"ejUxX1N0YW5kYXJkTG9nRW50cnkK1\"",
+    "MessageArgs": [
+        "Front USB Detect"
+    ],
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/PlatformLog/Entries/1",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "EntryType": "Oem",
+    "Name": "LogEntry",
+    "EventGroupId": 0,
+    "OemLogEntryCode": "PLAT0264",
+    "Oem": {
+        "Lenovo": {
+            "ReportingChain": "XCC",
+            "IsLocalEvent": true,
+            "RawDebugLogURL": "",
+            "EventID@Redfish.Deprecated": "The property is deprecated. Please use EventId instead.",
+            "EventFlag": 0,
+            "AuxiliaryData": "",
+            "Source": "System",
+            "FailingFRU": [
+                {
+                    "FRUSerialNumber": "",
+                    "FRUNumber": ""
+                }
+            ],
+            "TSLVersion": "16",
+            "RelatedEventID": "",
+            "Serviceable": "Not Serviceable",
+            "EventID": "0x806f001b1f02ffff",
+            "EventSequenceNumber": 1,
+            "EventType": 0,
+            "@odata.type": "#LenovoLogEntry.v1_0_0.PlatformLogEntry",
+            "LenovoMessageID": "PLAT0264",
+            "AffectedIndicatorLEDs": [],
+            "TotalSequenceNumber": 2,
+            "CommonEventID": "FQXSPIO0000I",
+            "Hidden": false
+        }
+    },
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "1",
+    "Severity": "OK",
+    "EventId": "0x806f001b1f02ffff",
+    "Created": "2022-08-31T22:59:40.657+00:00"
+}

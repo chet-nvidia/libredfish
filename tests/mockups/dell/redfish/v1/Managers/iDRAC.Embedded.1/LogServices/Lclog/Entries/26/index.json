@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/26",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2021-09-02T02:15:02-05:00",
+    "Description": "Log Entry 26",
+    "EntryType": "Oem",
+    "Id": "26",
+    "Links": {},
+    "Message": "Unable to start the AutoConfig file import operation, because no options were specified in the DHCP scope option field where the VendorID=iDRAC.",
+    "MessageId": "IDRAC.2.7.DIS115",
+    "Name": "Log Entry 26",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Configuration",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

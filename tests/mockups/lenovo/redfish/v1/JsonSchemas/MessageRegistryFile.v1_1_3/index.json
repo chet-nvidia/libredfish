@@ -1,0 +1,18 @@
+{
+    "Schema": "#MessageRegistryFile.v1_1_3.MessageRegistryFile",
+    "@odata.id": "/redfish/v1/JsonSchemas/MessageRegistryFile.v1_1_3",
+    "Name": "MessageRegistryFile JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/MessageRegistryFile.v1_1_3.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"3b7ea614\"",
+    "Id": "MessageRegistryFile.v1_1_3",
+    "Description": "This represents the MessageRegistryFile Schema File locator resource for a Redfish implementation."
+}

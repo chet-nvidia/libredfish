@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoBootManagerCollection.LenovoBootManagerCollection",
+    "Id": "LenovoBootManagerCollection",
+    "Name": "LenovoBootManagerCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoBootManagerCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"068c3671\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoBootManagerCollection",
+    "Description": "This represents the LenovoBootManagerCollection Schema File locator resource for a Redfish implementation."
+}

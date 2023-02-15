@@ -1,0 +1,16 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/145L3",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "ReadingUnits": "",
+    "Reading": 0,
+    "PhysicalContext": "Memory",
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Id": "145L3",
+    "Name": "DIMM 2",
+    "@odata.etag": "\"23f6b511632b2ae49b1\"",
+    "ReadingType": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+}

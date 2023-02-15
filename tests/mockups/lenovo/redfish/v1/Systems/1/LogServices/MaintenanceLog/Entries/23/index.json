@@ -1,0 +1,14 @@
+{
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/MaintenanceLog/Entries/23",
+    "EntryType": "Oem",
+    "Message": "DIMM(SN: 0428DB60) in slot 26 is added.",
+    "EventGroupId": 1,
+    "Severity": null,
+    "Name": "LogEntry",
+    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "OemRecordFormat": "Lenovo",
+    "Id": "23",
+    "@odata.etag": "\"3279ede27a9527e6853\"",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "Created": "2022-08-31T23:01:30Z"
+}

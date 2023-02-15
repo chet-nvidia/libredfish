@@ -1,0 +1,16 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/115L3",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "ReadingUnits": "",
+    "Reading": 0,
+    "PhysicalContext": "ComputeBay",
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Id": "115L3",
+    "Name": "PCIe 20 OverTemp",
+    "@odata.etag": "\"266deee5b4992426067\"",
+    "ReadingType": "Temperature",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+}

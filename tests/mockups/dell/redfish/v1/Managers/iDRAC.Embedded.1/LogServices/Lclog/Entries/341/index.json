@@ -1,0 +1,28 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/341",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2021-12-21T21:23:42-06:00",
+    "Description": "Log Entry 341",
+    "EntryType": "Oem",
+    "Id": "341",
+    "Links": {},
+    "Message": "The iDRAC IP Address changed from 10.153.131.155 to 0.0.0.0.",
+    "MessageArgs": [
+        "10.153.131.155",
+        "0.0.0.0"
+    ],
+    "MessageArgs@odata.count": 2,
+    "MessageId": "IDRAC.2.7.IPA0100",
+    "Name": "Log Entry 341",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Configuration",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

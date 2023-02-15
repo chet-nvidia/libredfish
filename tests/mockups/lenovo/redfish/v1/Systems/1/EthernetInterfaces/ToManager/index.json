@@ -1,0 +1,30 @@
+{
+    "FQDN": "",
+    "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/ToManager",
+    "Links": {
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        },
+        "HostInterface": {
+            "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1"
+        }
+    },
+    "SpeedMbps": null,
+    "HostName": "",
+    "IPv4Addresses": [],
+    "Description": "Host Network Interface",
+    "InterfaceEnabled": false,
+    "MACAddress": "7e:8a:e1:d5:a2:77",
+    "Name": "Host Ethernet Interface",
+    "Id": "ToManager",
+    "EthernetInterfaceType": "Physical",
+    "@odata.type": "#EthernetInterface.v1_6_0.EthernetInterface",
+    "NameServers": [],
+    "LinkStatus": "LinkDown",
+    "@odata.etag": "\"4a82709844e428a790b\"",
+    "PermanentMACAddress": "7e:8a:e1:d5:a2:77",
+    "Status": {
+        "State": "Disabled",
+        "Health": null
+    }
+}

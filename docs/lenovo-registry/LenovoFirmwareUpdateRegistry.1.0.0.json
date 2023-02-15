@@ -1,0 +1,216 @@
+{
+  "@odata.type": "#MessageRegistry.v1_3_1.MessageRegistry",
+  "Description": "This registry defines Lenovo update status and error messages for Redfish.",
+  "Id": "LenovoFirmwareUpdate.1.0.0",
+  "Language": "en",
+  "Messages": {
+    "PayloadActivationCompleted": {
+      "Description": "Indicates that activation complete.",
+      "Message": "Assignment %1: Activation complete",
+      "NumberOfArgs": 1,
+      "ParamTypes": [
+        "string"
+      ],
+      "Resolution": "None",
+      "Severity": "OK"
+    },
+    "PayloadActivationFailed": {
+      "Description": "Indicates that activation failed.",
+      "Message": "Assignment %1 activation failed, return code=%2 return message: %3",
+      "NumberOfArgs": 3,
+      "ParamTypes": [
+        "string",
+        "number",
+        "string"
+      ],
+      "Resolution": "Resubmit the request. If the problem persists, consider resetting the service.",
+      "Severity": "Warning"
+    },
+    "PayloadActivationRequired": {
+      "Description": "Indicates that action required to activate update.",
+      "Message": "Assignment %1: Action %2 required to complete update.",
+      "NumberOfArgs": 2,
+      "ParamTypes": [
+        "string",
+        "string"
+      ],
+      "Resolution": "Perform the required action.",
+      "Severity": "OK"
+    },
+    "PayloadApplyCompleted": {
+      "Description": "Indicates that apply complete.",
+      "Message": "Assignment %1: Apply complete",
+      "NumberOfArgs": 1,
+      "ParamTypes": [
+        "string"
+      ],
+      "Resolution": "None",
+      "Severity": "OK"
+    },
+    "PayloadApplyFailed": {
+      "Description": "Indicates that apply failed.",
+      "Message": "Assignment %1: Apply failed, return code=%2 return message: %3",
+      "NumberOfArgs": 3,
+      "ParamTypes": [
+        "string",
+        "number",
+        "string"
+      ],
+      "Resolution": "Resubmit the request. If the problem persists, consider resetting the service.",
+      "Severity": "Warning"
+    },
+    "PayloadApplyInProgress": {
+      "Description": "Indicates that apply %1 percent complete.",
+      "Message": "Assignment %1: Apply %2 percent complete.",
+      "NumberOfArgs": 2,
+      "ParamTypes": [
+        "string",
+        "number"
+      ],
+      "Resolution": "None",
+      "Severity": "OK"
+    },
+    "PayloadTransferCompleted": {
+      "Description": "Indicates that transfer complete.",
+      "Message": "Assignment %1: Transfer complete.",
+      "NumberOfArgs": 1,
+      "ParamTypes": [
+        "string"
+      ],
+      "Resolution": "None",
+      "Severity": "OK"
+    },
+    "PayloadTransferFailed": {
+      "Description": "Indicates that transfer failed.",
+      "Message": "Assignment %1: Transfer failed, protocol %2 error code=%3 - return message: %4",
+      "NumberOfArgs": 4,
+      "ParamTypes": [
+        "string",
+        "string",
+        "number",
+        "string"
+      ],
+      "Resolution": "Resubmit the request. If the problem persists, consider resetting the service.",
+      "Severity": "Warning"
+    },
+    "PayloadTransferInProgress": {
+      "Description": "Indicates that transfer %2 percent complete.",
+      "Message": "Assignment %1: Transfer %2 percent complete.",
+      "NumberOfArgs": 2,
+      "ParamTypes": [
+        "string",
+        "number"
+      ],
+      "Resolution": "None",
+      "Severity": "OK"
+    },
+    "PayloadVerifyCompleted": {
+      "Description": "Indicates that verify complete.",
+      "Message": "Assignment %1: Verify complete.",
+      "NumberOfArgs": 1,
+      "ParamTypes": [
+        "string"
+      ],
+      "Resolution": "None",
+      "Severity": "OK"
+    },
+    "PayloadVerifyFailed": {
+      "Description": "Indicates that verify failed.",
+      "Message": "Assignment %1: Verify failed, return code=%2 - return message: %3",
+      "NumberOfArgs": 2,
+      "ParamTypes": [
+        "string",
+        "number",
+        "string"
+      ],
+      "Resolution": "Resubmit the request. If the problem persists, consider resetting the service.",
+      "Severity": "Warning"
+    },
+    "PayloadVerifyInProgress": {
+      "Description": "Indicates that verify %1 percent complete.",
+      "Message": "Assignment %1: Verify %2 percent complete.",
+      "NumberOfArgs": 2,
+      "ParamTypes": [
+        "string",
+        "number"
+      ],
+      "Resolution": "None",
+      "Severity": "OK"
+    },
+    "UpdateAssignment": {
+      "Description": "Indicates that resource %2 update.",
+      "Message": "Assignment %1: Resource %2 SoftwareID %3 Version %4 to Version %5.",
+      "NumberOfArgs": 5,
+      "ParamTypes": [
+        "string",
+        "string",
+        "string",
+        "string",
+        "string"
+      ],
+      "Resolution": "None",
+      "Severity": "OK"
+    },
+    "UpdateTransferCompleted": {
+      "Description": "Indicates that transfer complete.",
+      "Message": "Transfer complete.",
+      "NumberOfArgs": 0,
+      "Resolution": "None",
+      "Severity": "OK"
+    },
+    "UpdateTransferFailed": {
+      "Description": "Indicates that transfer failed.",
+      "Message": "Transfer failed, protocol %1 error code=%2 - return message: %3",
+      "NumberOfArgs": 3,
+      "ParamTypes": [
+        "string",
+        "number",
+        "string"
+      ],
+      "Resolution": "Resubmit the request. If the problem persists, consider resetting the service.",
+      "Severity": "Warning"
+    },
+    "UpdateTransferInProgress": {
+      "Description": "Indicates that transfer %1 percent complete.",
+      "Message": "Transfer %1 percent complete.",
+      "NumberOfArgs": 1,
+      "ParamTypes": [
+        "number"
+      ],
+      "Resolution": "None",
+      "Severity": "OK"
+    },
+    "UpdateVerifyCompleted": {
+      "Description": "Indicates that verify complete.",
+      "Message": "Verify complete.",
+      "NumberOfArgs": 0,
+      "Resolution": "None",
+      "Severity": "OK"
+    },
+    "UpdateVerifyFailed": {
+      "Description": "Indicates that verify failed.",
+      "Message": "Verify failed, return code=%1 - return message: %2",
+      "NumberOfArgs": 2,
+      "ParamTypes": [
+        "number",
+        "string"
+      ],
+      "Resolution": "Resubmit the request. If the problem persists, consider resetting the service.",
+      "Severity": "Warning"
+    },
+    "UpdateVerifyInProgress": {
+      "Description": "Indicates that verify %1 percent complete.",
+      "Message": "Verify %1 percent complete.",
+      "NumberOfArgs": 1,
+      "ParamTypes": [
+        "number"
+      ],
+      "Resolution": "None",
+      "Severity": "OK"
+    }
+  },
+  "Name": "Lenovo Firmware Update Message Registry",
+  "OwningEntity": "Lenovo",
+  "RegistryPrefix": "LenovoFirmwareUpdateRegistry",
+  "RegistryVersion": "1.0.0"
+}

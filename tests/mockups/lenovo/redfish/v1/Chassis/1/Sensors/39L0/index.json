@@ -1,0 +1,16 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/39L0",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "ReadingUnits": "",
+    "Reading": 0,
+    "PhysicalContext": null,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Id": "39L0",
+    "Name": "TPM_TCM Lock",
+    "@odata.etag": "\"259237b3c3f224e6028\"",
+    "ReadingType": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+}

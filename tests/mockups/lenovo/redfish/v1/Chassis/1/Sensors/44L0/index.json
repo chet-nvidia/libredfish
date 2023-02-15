@@ -1,0 +1,16 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/44L0",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "ReadingUnits": "",
+    "Reading": 0,
+    "PhysicalContext": null,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Id": "44L0",
+    "Name": "SMI TIMEOUT",
+    "@odata.etag": "\"2406fdcf12302425f73\"",
+    "ReadingType": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+}

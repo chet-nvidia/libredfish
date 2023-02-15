@@ -1,0 +1,18 @@
+{
+    "Schema": "#SerialInterfaceCollection.SerialInterfaceCollection",
+    "Id": "SerialInterfaceCollection",
+    "Name": "SerialInterfaceCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/SerialInterfaceCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"0b8b2037\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/SerialInterfaceCollection",
+    "Description": "This represents the SerialInterfaceCollection Schema File locator resource for a Redfish implementation."
+}

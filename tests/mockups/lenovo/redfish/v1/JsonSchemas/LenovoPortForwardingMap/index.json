@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoPortForwardingMap.LenovoPortForwardingMap",
+    "Id": "LenovoPortForwardingMap",
+    "Name": "LenovoPortForwardingMap JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoPortForwardingMap.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"d809b39e\"",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoPortForwardingMap",
+    "Description": "This represents the LenovoPortForwardingMap Schema File locator resource for a Redfish implementation."
+}

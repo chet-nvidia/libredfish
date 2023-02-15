@@ -1,0 +1,9 @@
+{
+    "Members": [],
+    "@odata.type": "#VolumeCollection.VolumeCollection",
+    "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe/Volumes",
+    "Members@odata.count": 0,
+    "@odata.etag": "\"20b2c101eb7d25a0b14\"",
+    "Name": "VolumeCollection",
+    "Description": "A collection of volume resource instances."
+}

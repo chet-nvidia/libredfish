@@ -1,0 +1,33 @@
+{
+    "ReportUpdates": "AppendWrapsWhenFull",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/PowerSupplyStats",
+    "Status": {
+        "State": "Enabled"
+    },
+    "Id": "PowerSupplyStats",
+    "Name": "PowerSupplyStats",
+    "Metrics": [
+        {
+            "MetricId": "AveragePowerSupplyInput",
+            "CollectionDuration": "PT30S",
+            "CollectionTimeScope": "Interval"
+        },
+        {
+            "MetricId": "AveragePowerSupplyOutput",
+            "CollectionDuration": "PT30S",
+            "CollectionTimeScope": "Interval"
+        }
+    ],
+    "ReportActions": [
+        "LogToMetricReportsCollection"
+    ],
+    "MetricReportDefinitionType": "OnRequest",
+    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
+    "MetricReport": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReports/PowerSupplyStats"
+    },
+    "AppendLimit": 23040,
+    "ReportTimespan": "PT24H",
+    "@odata.etag": "\"6c3ccf0608b925ae8b5\"",
+    "Description": "A set of metrics that are collected into a metric report."
+}

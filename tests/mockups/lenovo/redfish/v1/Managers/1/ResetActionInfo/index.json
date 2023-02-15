@@ -1,0 +1,18 @@
+{
+    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo",
+    "Id": "Reset",
+    "@odata.id": "/redfish/v1/Managers/1/ResetActionInfo",
+    "Parameters": [
+        {
+            "AllowableValues": [
+                "GracefulRestart",
+                "ForceRestart"
+            ],
+            "Required": true,
+            "Name": "ResetType",
+            "DataType": "String"
+        }
+    ],
+    "Name": "Reset",
+    "Description": "Information of the action 'Reset' of Manager"
+}

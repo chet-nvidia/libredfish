@@ -1,0 +1,37 @@
+{
+    "@Redfish.Settings": {
+        "@odata.context": "/redfish/v1/$metadata#Settings.Settings",
+        "@odata.type": "#Settings.v1_3_3.Settings",
+        "SettingsObject": {
+            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellBootSources/Settings"
+        },
+        "SupportedApplyTimes": [
+            "OnReset",
+            "AtMaintenanceWindowStart",
+            "InMaintenanceWindowOnReset"
+        ]
+    },
+    "@odata.context": "/redfish/v1/$metadata#DellBootSources.DellBootSources",
+    "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellBootSources",
+    "@odata.type": "#DellBootSources.v1_0_0.DellBootSources",
+    "AttributeRegistry": "DellBootSourcesRegistry.v1_1_0",
+    "Attributes": {
+        "UefiBootSeq": [
+            {
+                "Enabled": true,
+                "Id": "BIOS.Setup.1-1#UefiBootSeq#NIC.HttpDevice.1-1#84dbf9321496b2ad3116077ae835f768",
+                "Index": 0,
+                "Name": "NIC.HttpDevice.1-1"
+            },
+            {
+                "Enabled": true,
+                "Id": "BIOS.Setup.1-1#UefiBootSeq#AHCI.SL.6-2#1c006e5eed444ae98969e982ddcbb755",
+                "Index": 1,
+                "Name": "AHCI.SL.6-2"
+            }
+        ]
+    },
+    "Description": "Boot Sources Current Settings",
+    "Id": "DellBootSources",
+    "Name": "Boot Sources Configuration Current Settings"
+}

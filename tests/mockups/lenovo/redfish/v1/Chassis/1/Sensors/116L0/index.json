@@ -1,0 +1,47 @@
+{
+    "ReadingRangeMax": 255,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/116L0",
+    "ReadingRangeMin": 0,
+    "ReadingUnits": "C",
+    "Thresholds": {
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": null
+        }
+    },
+    "PhysicalContext": "ComputeBay",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "State": "Disabled",
+        "Health": null
+    },
+    "Reading": null,
+    "Precision": 0,
+    "MinAllowableOperatingValue": 0,
+    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "MaxAllowableOperatingValue": 255,
+    "Name": "PCIe 21 Temp",
+    "@odata.etag": "\"6550878e146a2aed6df\"",
+    "Id": "116L0",
+    "ReadingType": "Temperature"
+}

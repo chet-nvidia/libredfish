@@ -1,0 +1,27 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/1097",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-02-13T18:59:44-06:00",
+    "Description": "Log Entry 1097",
+    "EntryType": "Oem",
+    "Id": "1097",
+    "Links": {},
+    "Message": "The (installation or configuration) job RID_763363841807 is successfully created on iDRAC.",
+    "MessageArgs": [
+        "RID_763363841807"
+    ],
+    "MessageArgs@odata.count": 1,
+    "MessageId": "IDRAC.2.7.JCP027",
+    "Name": "Log Entry 1097",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Configuration",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

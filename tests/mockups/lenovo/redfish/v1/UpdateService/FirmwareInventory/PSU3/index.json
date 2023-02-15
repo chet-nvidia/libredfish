@@ -1,0 +1,25 @@
+{
+    "RelatedItem@odata.count": 1,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/2"
+        }
+    ],
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/PSU3",
+    "Status": {
+        "HealthRollup": "OK",
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Id": "PSU3",
+    "Name": "POWER-PSU3",
+    "ReleaseDate": null,
+    "Version": "7.52",
+    "Manufacturer": "DETA",
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "WriteProtected": true,
+    "Updateable": true,
+    "@odata.etag": "\"3b13c95a5f64266528b\"",
+    "SoftwareId": "POWER-DETA7200-10",
+    "Description": "The information of PSU firmware"
+}

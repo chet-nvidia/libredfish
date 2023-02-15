@@ -1,0 +1,98 @@
+{
+    "SerialNumber": "",
+    "ProcessorArchitecture": "x86",
+    "Metrics": {
+        "@odata.id": "/redfish/v1/Systems/1/Processors/2/ProcessorMetrics"
+    },
+    "Links": {
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    },
+    "Version": "Intel(R) Xeon(R) Gold 6354 CPU @ 3.00GHz",
+    "InstructionSet": "x86-64",
+    "@odata.id": "/redfish/v1/Systems/1/Processors/2",
+    "PartNumber": "",
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Socket",
+            "ServiceLabel": "CPU 2",
+            "LocationOrdinalValue": 1
+        }
+    },
+    "TotalEnabledCores": 18,
+    "Id": "2",
+    "Description": "This resource is used to represent a processor for a Redfish implementation.",
+    "TotalThreads": 36,
+    "MaxSpeedMHz": 3600,
+    "Oem": {
+        "Lenovo": {
+            "ProcessorFamily": 179,
+            "CacheInfo": [
+                {
+                    "InstalledSizeKByte": 1440,
+                    "MaxCacheSizeKByte": 1440,
+                    "CacheLevel": "L1"
+                },
+                {
+                    "InstalledSizeKByte": 23040,
+                    "MaxCacheSizeKByte": 23040,
+                    "CacheLevel": "L2"
+                },
+                {
+                    "InstalledSizeKByte": 39936,
+                    "MaxCacheSizeKByte": 39936,
+                    "CacheLevel": "L3"
+                }
+            ],
+            "@odata.type": "#LenovoProcessor.v1_0_0.LenovoProcessor",
+            "NumberOfEnabledCores": 18,
+            "ExternalBusClockSpeedMHz": 100,
+            "CurrentClockSpeedMHz": 3000
+        }
+    },
+    "SystemInterface": {
+        "InterfaceType": "UPI"
+    },
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "ProcessorType": "CPU",
+    "Name": "Processor 2",
+    "ProcessorId": {
+        "Step": "0x06",
+        "VendorId": "GenuineIntel",
+        "EffectiveModel": "0x6a",
+        "EffectiveFamily": "0x06",
+        "IdentificationRegisters": "0x000606a6bfebfbff",
+        "MicrocodeInfo": null
+    },
+    "TotalCores": 18,
+    "ProcessorMemory": [
+        {
+            "SpeedMHz": null,
+            "MemoryType": "L1Cache",
+            "IntegratedMemory": true,
+            "CapacityMiB": 1
+        },
+        {
+            "SpeedMHz": null,
+            "MemoryType": "L2Cache",
+            "IntegratedMemory": true,
+            "CapacityMiB": 22
+        },
+        {
+            "SpeedMHz": null,
+            "MemoryType": "L3Cache",
+            "IntegratedMemory": true,
+            "CapacityMiB": 39
+        }
+    ],
+    "@odata.type": "#Processor.v1_8_0.Processor",
+    "TDPWatts": 205,
+    "Manufacturer": "Intel(R) Corporation",
+    "@odata.etag": "\"c550c1b2439530e5bde9f\"",
+    "Model": "Intel(R) Xeon(R) Gold 6354 CPU @ 3.00GHz",
+    "Socket": "CPU 2"
+}

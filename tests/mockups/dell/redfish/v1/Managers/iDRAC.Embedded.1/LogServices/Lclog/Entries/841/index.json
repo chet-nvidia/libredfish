@@ -1,0 +1,33 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/841",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-02-07T16:28:45-06:00",
+    "Description": "Log Entry 841",
+    "EntryType": "Oem",
+    "Id": "841",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+        }
+    },
+    "Message": "The session for root from 10.180.32.10 using IPMI over LAN is logged off.",
+    "MessageArgs": [
+        "root",
+        "10.180.32.10",
+        "IPMI over LAN"
+    ],
+    "MessageArgs@odata.count": 3,
+    "MessageId": "IDRAC.2.7.USR0032",
+    "Name": "Log Entry 841",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

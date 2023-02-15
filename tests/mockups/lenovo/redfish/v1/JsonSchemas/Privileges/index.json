@@ -1,0 +1,18 @@
+{
+    "Schema": "#Privileges.Privileges",
+    "@odata.id": "/redfish/v1/JsonSchemas/Privileges",
+    "Name": "Privileges JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/Privileges.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"a7cecbbd\"",
+    "Id": "Privileges",
+    "Description": "This represents the Privileges Schema File locator resource for a Redfish implementation."
+}

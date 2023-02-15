@@ -1,0 +1,29 @@
+{
+    "RegistryVersion": "1.0.0",
+    "OwningEntity": "Lenovo",
+    "Name": "Lenovo Extended Warning Message Registry",
+    "@odata.type": "#MessageRegistry.v1_3_1.MessageRegistry",
+    "RegistryPrefix": "LenovoExtendedWarning",
+    "Language": "en",
+    "Messages": {
+        "ReceivedUntrustedCertificate": {
+            "Resolution": "Stop accessing the HTTPS server and reset BMC to default if any security concern.",
+            "ParamTypes": [
+                "string"
+            ],
+            "NumberOfArgs": 1,
+            "Severity": "Warning",
+            "Message": "In order to perform the operation, the service has automatically received an untrusted certificate from %1",
+            "Description": "Indicates that the service has automatically received an untrusted certificate from an HTTPS server"
+        },
+        "AccountAccessIPMIDenied": {
+            "Resolution": "Reset the password to be less than 20 bytes if necessary to access IPMI with the account.",
+            "NumberOfArgs": 0,
+            "Severity": "Warning",
+            "Message": "The account is unable to access IPMI since the length of the password exceeds 20 bytes.",
+            "Description": "Indicates that the account is unable to access IPMI since the length of the password exceeds 20 bytes."
+        }
+    },
+    "Id": "LenovoExtendedWarning.1.0.0",
+    "Description": "This registry defines Lenovo Extended Warning messages for Redfish."
+}

@@ -1,0 +1,22 @@
+{
+    "Id": "LenovoDNS",
+    "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/Oem/Lenovo/DNS",
+    "IPv6Address1": "::",
+    "IPv4Address3": "0.0.0.0",
+    "PreferredAddresstype": "IPv6",
+    "IPv6Address2": "::",
+    "IPv4Address1": "0.0.0.0",
+    "IPv6Address3": "::",
+    "@odata.type": "#LenovoDNS.v1_0_0.LenovoDNS",
+    "IPv4Address2": "0.0.0.0",
+    "DNSEnable": false,
+    "@odata.etag": "\"30033c2904c0296814c\"",
+    "DDNS": [
+        {
+            "DomainNameSource": "DHCP",
+            "DDNSEnable": true,
+            "DomainName": ""
+        }
+    ],
+    "Description": "This resource is used to represent a DNS resource for a Redfish implementation."
+}

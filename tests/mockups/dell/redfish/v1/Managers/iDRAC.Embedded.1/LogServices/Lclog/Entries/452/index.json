@@ -1,0 +1,27 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/452",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2022-10-19T21:16:35-05:00",
+    "Description": "Log Entry 452",
+    "EntryType": "Oem",
+    "Id": "452",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Systems/System.Embedded.1"
+        }
+    },
+    "Message": "The chassis is open while the power is off.",
+    "MessageId": "IDRAC.2.7.SEC0033",
+    "Name": "Log Entry 452",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "SystemHealth",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "Critical"
+}

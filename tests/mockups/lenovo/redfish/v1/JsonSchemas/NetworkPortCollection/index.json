@@ -1,0 +1,18 @@
+{
+    "Schema": "#NetworkPortCollection.NetworkPortCollection",
+    "@odata.id": "/redfish/v1/JsonSchemas/NetworkPortCollection",
+    "Name": "NetworkPortCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/NetworkPortCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"2fa75468\"",
+    "Id": "NetworkPortCollection",
+    "Description": "This represents the NetworkPortCollection Schema File locator resource for a Redfish implementation."
+}

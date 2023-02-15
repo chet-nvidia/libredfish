@@ -1,0 +1,22 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Job.Job",
+    "@odata.id": "/redfish/v1/JobService/Jobs/RID_758397079877",
+    "@odata.type": "#Job.v1_0_7.Job",
+    "Description": "Represent a job in Redfish",
+    "Id": "RID_758397079877",
+    "Name": "Reboot2",
+    "JobState": "Completed",
+    "JobStatus": "OK",
+    "PercentComplete": 100,
+    "StartTime": "2023-02-08T01:01:47-06:00",
+    "EndTime": "2023-02-08T01:02:02-06:00",
+    "Messages": [
+        {
+            "Message": "Reboot is complete.",
+            "MessageId": "IDRAC.2.7.RED030",
+            "MessageArgs": [],
+            "MessageArgs@odata.count": 0
+        }
+    ],
+    "Messages@odata.count": 1
+}

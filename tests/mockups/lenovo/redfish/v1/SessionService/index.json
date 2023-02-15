@@ -1,0 +1,13 @@
+{
+    "@odata.id": "/redfish/v1/SessionService",
+    "Name": "SessionService",
+    "ServiceEnabled": true,
+    "@odata.type": "#SessionService.v1_1_6.SessionService",
+    "SessionTimeout": 300,
+    "Id": "SessionService",
+    "@odata.etag": "\"2e82e923afd02967370\"",
+    "Sessions": {
+        "@odata.id": "/redfish/v1/SessionService/Sessions"
+    },
+    "Description": "This resource is used to represent a session service for a Redfish implementation."
+}

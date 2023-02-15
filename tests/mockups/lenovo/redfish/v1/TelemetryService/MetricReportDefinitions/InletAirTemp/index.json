@@ -1,0 +1,38 @@
+{
+    "ReportUpdates": "AppendWrapsWhenFull",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/InletAirTemp",
+    "Wildcards": [
+        {
+            "Values": [
+                "0"
+            ],
+            "Name": "TWild"
+        }
+    ],
+    "Metrics": [
+        {
+            "CollectionTimeScope": "Interval",
+            "CollectionDuration": "PT1M",
+            "MetricProperties": [
+                "/redfish/v1/Chassis/1/Thermal#/Temperature/{TWild}/ReadingCelsius"
+            ]
+        }
+    ],
+    "Id": "InletAirTemp",
+    "Name": "InletAirTemp",
+    "Status": {
+        "State": "Enabled"
+    },
+    "ReportActions": [
+        "LogToMetricReportsCollection"
+    ],
+    "MetricReportDefinitionType": "OnRequest",
+    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
+    "MetricReport": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReports/InletAirTemp"
+    },
+    "AppendLimit": 1440,
+    "@odata.etag": "\"6b3259da948c2aec0f1\"",
+    "ReportTimespan": "PT24H",
+    "Description": "A set of metrics that are collected into a metric report."
+}

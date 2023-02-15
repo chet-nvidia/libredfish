@@ -1,0 +1,82 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoBootManager.v1_0_0.LenovoBootManager",
+    "$ref": "#/definitions/LenovoBootManager",
+    "definitions": {
+        "LenovoBootManager": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id",
+                    "description": "This property shall be used to represent the 'Next One-Time Boot' setting in F1 console and the other settings of the BootOrder config in the UCM xml file sent by uEFI.",
+                    "longDescription": "Normally the value should be 'Next One-Time Boot', and the setting names under BootOrder config in xml, like 'BootOrder' and 'WolBootOrder'."
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id"
+                },
+                "Description": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
+                },
+                "BootOrderNext": {
+                    "type": "array",
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "readonly": false,
+                    "description": "List the value of boot order. They are in pending state",
+                    "longDescription": "Based on the 'BootOrderCurrent', user can modify and adjust the order of the elements. The boot order takes effect on the next startup."
+                },
+                "BootOrderCurrent": {
+                    "type": "array",
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "readonly": true,
+                    "description": "List the value of boot order'. They are current configuration.",
+                    "longDescription": "List the current boot order settings. And the element in array is with the order."
+                },
+                "BootOrderSupported": {
+                    "type": "array",
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "readonly": true,
+                    "description": "List the value of supported boot order",
+                    "longDescription": "List all the supported boot source for the specific name."
+                }
+            },
+            "description": "This schema defines a resource for user to select the boot source when the manager is powered on",
+            "longDescription": "This resource shall be used to represent resources that can control the manager boot."
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

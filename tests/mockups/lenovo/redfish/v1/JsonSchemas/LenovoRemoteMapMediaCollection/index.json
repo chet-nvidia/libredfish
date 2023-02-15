@@ -1,0 +1,18 @@
+{
+    "Schema": "#LenovoRemoteMapMediaCollection.LenovoRemoteMapMediaCollection",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoRemoteMapMediaCollection",
+    "Name": "LenovoRemoteMapMediaCollection JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/LenovoRemoteMapMediaCollection.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"c7b5590b\"",
+    "Id": "LenovoRemoteMapMediaCollection",
+    "Description": "This represents the LenovoRemoteMapMediaCollection Schema File locator resource for a Redfish implementation."
+}

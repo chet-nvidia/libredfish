@@ -1,0 +1,555 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoLogEntry",
+    "definitions": {
+        "StandardLogEntry": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "Source": {
+                    "$ref": "#/definitions/Source",
+                    "readonly": true,
+                    "description": "Represents the origin of the event leading to the log entry.",
+                    "longDescription": "The value of this property shall represent the origin of the event leading to the log entry."
+                },
+                "Serviceable": {
+                    "$ref": "#/definitions/Serviceable",
+                    "readonly": true,
+                    "description": "Represents whether the event should be Serviced by Lenovo, by the customer, or neither.",
+                    "longDescription": "The value of this property shall represent whether the event should be Serviced by Lenovo, by the customer, or neither."
+                },
+                "CommonEventID": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents the unified event ID across all Lenovo products, including Power, System x and Storage.",
+                    "longDescription": "The value of this property shall represent the unified event ID across all Lenovo products, including Power, System x and Storage."
+                },
+                "LenovoMessageID": {
+                    "$ref": "#/definitions/LenovoMessageID",
+                    "description": "Represents the unified message ID which is defined by Lenovo."
+                },
+                "Hidden": {
+                    "type": "boolean",
+                    "readonly": true,
+                    "description": "Represents whether the log entry is intended to be displayed to normal users.",
+                    "longDescription": "The value of this property shall represents whether the log entry is intended to be displayed to normal users."
+                },
+                "FailingFRU": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/FailingFRUItem"
+                    },
+                    "description": "Represents List of FRU information for the Failing FRU(s).",
+                    "longDescription": "The value of this property shall be an array of objects used to represent list of FRU(s). May be null if not known or if event was not caused by a failing FRU."
+                },
+                "EventSequenceNumber": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Provides a unique, monotonically increasing sequence number for each standard event log.",
+                    "longDescription": "The value of this property shall provides a unique, monotonically increasing sequence number for each standard event log."
+                },
+                "AuxiliaryData": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents additional details that may be provided for some events.",
+                    "longDescription": "The value of this property shall be an array used to represent additional details that may be provided for some events. May be null if not available."
+                },
+                "AffectedIndicatorLEDs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AffectedIndicatorLED"
+                    },
+                    "description": "Represents list of LED Identifiers for the LEDs affected by this logged event.",
+                    "longDescription": "The value of this property shall represents list of LED Identifiers for the LEDs affected by this logged event."
+                },
+                "AlertingManagedElement": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents the identifying information of the entity for which the Indication is generated.",
+                    "longDescription": "The value of this property shall represent the identifying information of the entity for which the Indication is generated."
+                },
+                "EventFlag": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Represents the event characteristics.",
+                    "longDescription": "The value of this property shall represent the event characteristics. Curently, Only two bits are defined :bit0 indicate to move VM away from this server; bit1 is Event indication processing flag."
+                },
+                "EventType": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Describe how the system was impacted.",
+                    "longDescription": "The value of this property shall describe how the system was impacted."
+                },
+                "IsLocalEvent": {
+                    "type": "boolean",
+                    "readonly": true,
+                    "description": "Represents the event occurred at the local node or from other node.",
+                    "longDescription": "The value of this property shall represent the event occurred at the local node or from other node."
+                },
+                "EventID": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents an 8-byte binary Event ID. Its format shall be 0xhhhhhhhhhhhhhhhh.",
+                    "longDescription": "The value of property shall represent an 8-byte binary Event ID. Its format shall be 0xhhhhhhhhhhhhhhhh."
+                },
+                "ReportingChain": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents the path which the event was reported through.",
+                    "longDescription": "The value of this property shall represent the path which the event was reported through. Each management stack adds a tag so the reporting chain is understood and can be expanded to cover the reporting path using two consecutive colons as a delimiter."
+                },
+                "RelatedEventID": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Contains one or multiple related event IDs.",
+                    "longDescription": "The value of this property shall contain one or multiple related event IDs."
+                },
+                "RawDebugLogURL": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Contains a URL of HTTPS where stores the raw debug data for Trust Source Log.",
+                    "longDescription": "The value of this property shall contain a URL of HTTPS where stores the raw debug data for Trust Source Log"
+                },
+                "TSLVersion": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Contains the Version filed in TSL information.",
+                    "longDescription": "The value of this property shall contain the Version filed in TSL information."
+                },
+                "TotalSequenceNumber": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Provides a unique, monotonically increasing sequence number for all standard event log.",
+                    "longDescription": "The value of this property shall provides a unique, monotonically increasing sequence number for all standard event log."
+                }
+            },
+            "description": "This is Lenovo extended properties of Standard message information."
+        },
+        "Source": {
+            "type": "string",
+            "enum": [
+                "Unknown",
+                "Other",
+                "Audit",
+                "Cooling",
+                "Power",
+                "Disks",
+                "Memory",
+                "Processors",
+                "System",
+                "Test"
+            ]
+        },
+        "Serviceable": {
+            "type": "string",
+            "enum": [
+                "NotServiceable",
+                "ServiceableByLenovo",
+                "ServiceableByCustomer"
+            ]
+        },
+        "FailingFRUItem": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "FRUNumber": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents list of LED Identifiers for the LEDs affected by this logged event.",
+                    "longDescription": "The value of this property shall represents list of LED Identifiers for the LEDs affected by this logged event."
+                },
+                "FRUSerialNumber": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents list of Serial Numbers for the Failing FRU(s).",
+                    "longDescription": "The value of this property shall represents list of Serial Numbers for the Failing FRU(s). Order of entries in the list corresponds to order in the FailingFRUNumber list."
+                }
+            },
+            "description": "This object is used to represent FRU Identifier information."
+        },
+        "AffectedIndicatorLED": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "LEDIdentifier": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents LED Identifier",
+                    "longDescription": "The value of this property shall represent LED identifier."
+                },
+                "LEDState": {
+                    "$ref": "#/definitions/LEDState",
+                    "readonly": true,
+                    "description": "Represents the LED state.",
+                    "longDescription": "The value of this property shall represents the LED state."
+                }
+            },
+            "description": "This object is used to represent affected indicator LED information."
+        },
+        "LEDState": {
+            "type": "string",
+            "enum": [
+                "Lit",
+                "Blinking",
+                "Off",
+                "ControlPattern"
+            ],
+            "enumDescriptions": {
+                "Lit": "LED state is lit",
+                "Blinking": "LED state is blinking",
+                "Off": "LED state is off",
+                "ControlPattern": "LED state is control pattern"
+            }
+        },
+        "ActiveLogEntry": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "Source": {
+                    "$ref": "#/definitions/Source",
+                    "readonly": true,
+                    "description": "Represents the origin of the event leading to the log entry.",
+                    "longDescription": "The value of this property shall represent the origin of the event leading to the log entry."
+                },
+                "CommonEventID": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents the unified event ID across all Lenovo products, including Power, System x and Storage.",
+                    "longDescription": "The value of this property shall represent the unified event ID across all Lenovo products, including Power, System x and Storage."
+                },
+                "EventID": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents an 8-byte binary Event ID. Its format shall be 0xhhhhhhhhhhhhhhhh.",
+                    "longDescription": "The value of property shall represent an 8-byte binary Event ID. Its format shall be 0xhhhhhhhhhhhhhhhh."
+                },
+                "LenovoMessageID": {
+                    "$ref": "#/definitions/LenovoMessageID",
+                    "description": "Represents the unified message ID which is defined by Lenovo."
+                },
+                "EventFlag": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Represents the event characteristics.",
+                    "longDescription": "The value of this property shall represent the event characteristics. Curently, Only two bits are defined :bit0 indicate to move VM away from this server; bit1 is Event indication processing flag."
+                },
+                "EventType": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Describe how the system was impacted.",
+                    "longDescription": "The value of this property shall describe how the system was impacted."
+                },
+                "IsLocalEvent": {
+                    "type": "boolean",
+                    "readonly": true,
+                    "description": "Represents the event occurred at the local node or from other node.",
+                    "longDescription": "The value of this property shall represent the event occurred at the local node or from other node."
+                },
+                "ReportingChain": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents the path which the event was reported through.",
+                    "longDescription": "The value of this property shall represent the path which the event was reported through. Each management stack adds a tag so the reporting chain is understood and can be expanded to cover the reporting path using two consecutive colons as a delimiter."
+                },
+                "RelatedEventID": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Contains one or multiple related event IDs.",
+                    "longDescription": "The value of this property shall contain one or multiple related event IDs."
+                },
+                "RawDebugLogURL": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Contains a URL of HTTPS where stores the raw debug data for Trust Source Log.",
+                    "longDescription": "The value of this property shall contain a URL of HTTPS where stores the raw debug data for Trust Source Log"
+                },
+                "TSLVersion": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Contains the Version filed in TSL information.",
+                    "longDescription": "The value of this property shall contain the Version filed in TSL information."
+                },
+                "TotalSequenceNumber": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Provides a unique, monotonically increasing sequence number for all standard event log.",
+                    "longDescription": "The value of this property shall provides a unique, monotonically increasing sequence number for all standard event log."
+                }
+            },
+            "description": "This is Lenovo extended properties of Active Log Entry."
+        },
+        "EventType": {
+            "type": "string",
+            "enum": [
+                "Administrative",
+                "Security",
+                "UnrecoverableHardwareFailure",
+                "PFA",
+                "Status",
+                "FirmwareOrSoftwareIncompatible",
+                "FirmwareOrSoftwareNotValid",
+                "FirmwareOrSoftwareFailure",
+                "CommunicationFailureOrTimeout",
+                "MonitoringAgent",
+                "UserDefinedAlerts",
+                "Environmental",
+                "Recovered"
+            ],
+            "enumDescriptions": {
+                "Administrative": "Audit messages, users logging in and out, powering on and off, virtual reseat, system restarts, Settings update by a user, add or remove hardware and firmware",
+                "Security": "security breaches, settings changed, policy updates (not related to failures)",
+                "Unrecoverable Hardware Failure": "Component failures",
+                "PFA": "Predictive failures",
+                "Status": "update complete, occurring, paused, hung, Temp/power system improvements, RAID rebuilds",
+                "FirmwareOrSoftwareIncompatible": "incompatibility with hardware, incompatible with other firmware/software",
+                "FirmwareOrSoftwareNotValid": "unrecognizable image, bad signature, entitlement, bad install/flash",
+                "FirmwareOrSoftwareFailure": "halts, exceptions, invalid input, timeouts, failed updates",
+                "CommunicationFailureOrTimeout": "I2C, Ethernet, SPI, etc. bad parity, no response, missing packet",
+                "MonitoringAgent": "watchdog timer failures, resets, etc",
+                "UserDefinedAlerts": "custom thresholds that are not normally PFAs",
+                "Environmental": "High/low temperature/voltage warnings and errors, policies, thresholds, air flow, water flow, humidity, etc",
+                "Recovered": "The system has returned to normal operation"
+            }
+        },
+        "HardwareChgHistory": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "LenovoMessageID": {
+                    "$ref": "#/definitions/LenovoMessageID",
+                    "description": "Represents the unified message ID which is defined by Lenovo."
+                },
+                "SerialNumber": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents the component in the system.",
+                    "longDescription": "The value of this property shall represent the component in the system."
+                },
+                "FRUNumber": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents the FRU number for the component.",
+                    "longDescription": "The value of this property shall represent the FRU number for the component."
+                },
+                "Manufacturer": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents the Manufacturer of the component.",
+                    "longDescription": "The value of this property shall represent the Manufacturer of the component."
+                },
+                "SlotNumber": {
+                    "type": "number",
+                    "readonly": true,
+                    "description": "Represents where the component is installed.",
+                    "longDescription": "The value of this property shall represent where the component is installed and start at 1. A value of 0 indicates that this property is Not Applicable for the component."
+                },
+                "Action": {
+                    "$ref": "#/definitions/Action",
+                    "readonly": true,
+                    "description": "Represents the action that occurred for the component.",
+                    "longDescription": "The value of this property shall represent the action that occurred for the component."
+                }
+            },
+            "description": "This is Lenovo extended properties of Hardware Change Histroy."
+        },
+        "Action": {
+            "type": "string",
+            "enum": [
+                "Unknown",
+                "Added",
+                "Removed"
+            ],
+            "enumDescriptions": {
+                "Unkown": "The action for the component is unknown",
+                "Added": "The action for the component is added",
+                "Removed": "The action for the component is removed"
+            }
+        },
+        "FirmwareChgHistory": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "LenovoMessageID": {
+                    "$ref": "#/definitions/LenovoMessageID",
+                    "description": "Represents the unified message ID which is defined by Lenovo."
+                },
+                "Method": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents the method used for updating firmware.",
+                    "longDescription": "The value of this property shall represent the method used for updating firmware."
+                }
+            },
+            "description": "This is Lenovo extended properties of Firmware Change Histroy."
+        },
+        "LenovoMessageID": {
+            "type": "string",
+            "readonly": true,
+            "description": "A string that uniquely identifies, within the scope of the OwningEntity, the format of the Message which is defined by Lenovo.",
+            "longDescription": "The value of this property shall be a string that uniquely identifies, within the scope of the OwningEntity, the format of the Message which is defined by Lenovo."
+        },
+        "ServiceAdvisorLogEntry": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": true,
+            "properties": {
+                "Source": {
+                    "$ref": "#/definitions/Source",
+                    "readonly": true,
+                    "description": "Represents the origin of the event leading to the log entry.",
+                    "longDescription": "The value of this property shall represent the origin of the event leading to the log entry."
+                },
+                "EventID": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Represents an 8-byte binary Event ID. Its format shall be 0xhhhhhhhhhhhhhhhh.",
+                    "longDescription": "The value of property shall represent an 8-byte binary Event ID. Its format shall be 0xhhhhhhhhhhhhhhhh."
+                },
+                "EventTimestamp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "readonly": true,
+                    "description": "This is time the entry created.",
+                    "longDescription": "The value of this property shall indicate the time the entry created where the value shall be consistent with the time stamp of related event."
+                },
+                "Message": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "This is the human readable message, if provided.",
+                    "longDescription": "This property shall contain an optional human readable message."
+                },
+                "Corrected": {
+                    "type": "boolean",
+                    "readonly": false,
+                    "description": "Indicate whether the problem represented by this log entry is corrected or not. The default value is false."
+                },
+                "SupportCenterSendState": {
+                    "$ref": "#/definitions/SendState",
+                    "readonly": true,
+                    "description": "The value is specified to indicate the sending status of the message to the Support Center."
+                },
+                "AssignedNumber": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "A String indicating the assigned number returned from the Support Center."
+                },
+                "ServerSendState": {
+                    "$ref": "#/definitions/SendState",
+                    "readonly": true,
+                    "description": "The ServerSend is specified to indicate the sending status of the message to ftp/tftp/sftp server."
+                }
+            },
+            "description": "This is Lenovo extended properties of Active Log Entry."
+        },
+        "SendState": {
+            "type": "string",
+            "enum": [
+                "Success",
+                "Failed",
+                "Pending",
+                "Disabled",
+                "Not Sent"
+            ]
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}

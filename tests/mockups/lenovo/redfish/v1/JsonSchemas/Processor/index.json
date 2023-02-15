@@ -1,0 +1,18 @@
+{
+    "Schema": "#Processor.Processor",
+    "@odata.id": "/redfish/v1/JsonSchemas/Processor",
+    "Name": "Processor JSON Schema File",
+    "Languages": [
+        "en"
+    ],
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Location": [
+        {
+            "Uri": "/redfish/v1/schemas/Processor.json",
+            "Language": "en"
+        }
+    ],
+    "@odata.etag": "\"a216dd7f\"",
+    "Id": "Processor",
+    "Description": "This represents the Processor Schema File locator resource for a Redfish implementation."
+}

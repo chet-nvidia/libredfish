@@ -1,0 +1,63 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Volume.Volume",
+    "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/AHCI.SL.6-1/Volumes/Disk.Virtual.0:AHCI.SL.6-1/Settings",
+    "@odata.type": "#Volume.v1_6_2.Volume",
+    "Actions": {},
+    "BlockSizeBytes": 512,
+    "CapacityBytes": 480036847616,
+    "Description": "Virtual Disk 0 on AHCI Controller in SL 6",
+    "DisplayName": "VD_R1_1",
+    "Encrypted": false,
+    "EncryptionTypes": [
+        "NativeDriveEncryption"
+    ],
+    "EncryptionTypes@odata.count": 1,
+    "Id": "Disk.Virtual.0:AHCI.SL.6-1",
+    "Identifiers": [],
+    "Identifiers@odata.count": 0,
+    "Links": {
+        "Drives": [
+            {
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/AHCI.SL.6-1/Drives/Disk.Direct.0-0:AHCI.SL.6-1"
+            },
+            {
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/AHCI.SL.6-1/Drives/Disk.Direct.1-1:AHCI.SL.6-1"
+            }
+        ],
+        "Drives@odata.count": 2
+    },
+    "MediaSpanCount": 2,
+    "Name": "VD_R1_1",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellVolume.v1_0_0.DellVolume",
+            "DellVirtualDisk@Redfish.Deprecated": "Please migrate to use DellVolume",
+            "DellVolume": {
+                "DiskCachePolicy": "Default",
+                "DiskCachePolicy@Redfish.AllowableValues": [
+                    "Default",
+                    "Disabled",
+                    "Enabled"
+                ]
+            }
+        }
+    },
+    "Operations": [],
+    "Operations@odata.count": 0,
+    "OptimumIOSizeBytes": 65536,
+    "RAIDType": "RAID1",
+    "ReadCachePolicy": "Off",
+    "ReadCachePolicy@Redfish.AllowableValues": [
+        "Off"
+    ],
+    "Status": {
+        "Health": "OK",
+        "HealthRollup": "OK",
+        "State": "Enabled"
+    },
+    "VolumeType": "Mirrored",
+    "WriteCachePolicy": "WriteThrough",
+    "WriteCachePolicy@Redfish.AllowableValues": [
+        "WriteThrough"
+    ]
+}

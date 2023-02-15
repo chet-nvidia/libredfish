@@ -1,0 +1,31 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries/755",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-01-19T03:38:45-06:00",
+    "Description": "Log Entry 755",
+    "EntryType": "Oem",
+    "Id": "755",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
+        }
+    },
+    "Message": "The server power action is initiated because the management controller initiated a power-down operation.",
+    "MessageArgs": [
+        "the management controller initiated a power-down operation"
+    ],
+    "MessageArgs@odata.count": 1,
+    "MessageId": "IDRAC.2.7.SYS1005",
+    "Name": "Log Entry 755",
+    "Oem": {
+        "Dell": {
+            "@odata.type": "#DellLCLogEntry.v1_1_0.DellLCLogEntry",
+            "Category": "Audit",
+            "Comment": null,
+            "LastUpdatedByUser": null
+        }
+    },
+    "OemRecordFormat": "Dell",
+    "Severity": "OK"
+}

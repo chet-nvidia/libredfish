@@ -1,0 +1,16 @@
+{
+    "DateTimeLocalOffset": "+00:00",
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/SaLog",
+    "Name": "LogService",
+    "Entries": {
+        "@odata.id": "/redfish/v1/Systems/1/LogServices/SaLog/Entries"
+    },
+    "MaxNumberOfRecords": 5,
+    "DateTime": "2023-02-13T17:35:48+00:00",
+    "@odata.type": "#LogService.v1_1_3.LogService",
+    "LogEntryType": "Multiple",
+    "Id": "SaLog",
+    "@odata.etag": "\"36d5c9de762d28a77bc\"",
+    "ServiceEnabled": true,
+    "Description": "This resource is used to represent a log service for a Redfish implementation."
+}

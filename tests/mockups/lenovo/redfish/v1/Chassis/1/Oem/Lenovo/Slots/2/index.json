@@ -1,0 +1,12 @@
+{
+    "SupportsHotPlug": false,
+    "Id": "2",
+    "Name": "LenovoSlot",
+    "ConnectorLayout": "PCI Express (see below)",
+    "Number": "Slot 2",
+    "@odata.type": "#LenovoSlot.v1_0_0.LenovoSlot",
+    "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/Slots/2",
+    "MaxDataWidth": "16x or x16",
+    "@odata.etag": "\"2c9d021e5a272426d8f\"",
+    "Description": "This resource is used to represent slot information for a Redfish implementation."
+}

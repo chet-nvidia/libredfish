@@ -1,0 +1,13 @@
+{
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_6/PCIeFunctions/slot_6.00"
+        }
+    ],
+    "@odata.type": "#PCIeFunctionCollection.PCIeFunctionCollection",
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_6/PCIeFunctions",
+    "Members@odata.count": 1,
+    "@odata.etag": "\"2ad327447d7b28a21c7\"",
+    "Name": "PCIeFunctionCollection",
+    "Description": "A collection of PCIeFunction resource instances."
+}

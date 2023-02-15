@@ -1,0 +1,285 @@
+{
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
+    "title": "#LenovoDateTimeService.v1_0_0.LenovoDateTimeService",
+    "$ref": "#/definitions/LenovoDateTimeService",
+    "definitions": {
+        "LenovoDateTimeService": {
+            "type": "object",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "additionalProperties": false,
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
+                    "readonly": true
+                },
+                "Description": {
+                    "anyOf": [
+                        {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "readonly": true
+                },
+                "Name": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
+                    "readonly": true
+                },
+                "SettingMethod": {
+                    "$ref": "#/definitions/DateTimeSettingMethod",
+                    "readonly": false,
+                    "description": "Indicate how the manager Date and Time are updated",
+                    "longDescription": "Indicate how the manager Date and Time should be set."
+                },
+                "HostTimeFormat": {
+                    "$ref": "#/definitions/HostTimeFormat",
+                    "readonly": false,
+                    "description": "Format of time obtained from host",
+                    "longDescription": "The optional values are 'Local(example:Windows)' or 'UTC(example:Linux)'. If the value is 'UTC', the UTCOffset can update."
+                },
+                "DateTime": {
+                    "type": "string",
+                    "readonly": true,
+                    "description": "Indicate current Date and Time of manager, the format should be Month/Day/Year Hour:Minute:Second",
+                    "longDescription": "The value of this property shall represent the current DateTime value of Manager, with offset from UTC."
+                },
+                "UTCOffset": {
+                    "anyof": [
+                        {
+                            "$ref": "#/definitions/UTCOffsetCollection"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "readonly": false,
+                    "description": "Indicate UTC offset for the manager",
+                    "longDescription": "Specify the offset from Universal Time Coordinated(UTC) corresponding to the time zone where this system is located.The format  should be UTC +/- Hour:Mintue."
+                },
+                "AutoDST": {
+                    "type": "boolean",
+                    "readonly": false,
+                    "description": "Specify whether the manager clock will automatically adjust when Daylight Saving Time(DST) changes",
+                    "longDescription": "The optional values are 'true' or 'false'. If the value is 'true', the manager will perform an automatic Daylight Saving Time update. "
+                },
+                "NTPServerAddresses": {
+                    "type": "array",
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "readonly": false,
+                    "description": "Indicate the NTP server for lock synchronization, the address should be at least valid in format",
+                    "longDescription": "Use this field to specify the names of up to 4 NTP servers to be used for clock synchronization when 'Synchronize with an NTP server' is selected"
+                },
+                "Frequency": {
+                    "type": "number",
+                    "readonly": false,
+                    "description": "Specify the Synchronization frequency in Munites",
+                    "longDescription": "Specify the interval between synchronization requests when 'Synchronize with an NTP server' is selected."
+                },
+                "Actions": {
+                    "type": "object",
+                    "patternProperties": {
+                        "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                            "type": [
+                                "array",
+                                "boolean",
+                                "number",
+                                "null",
+                                "object",
+                                "string"
+                            ],
+                            "description": "This property shall specify a valid odata or Redfish property."
+                        }
+                    },
+                    "additionalProperties": true,
+                    "properties": {
+                        "#LenovoDateTimeService.ImmediatelySync": {
+                            "$ref": "#/definitions/ImmediatelySync"
+                        }
+                    }
+                }
+            },
+            "description": "This schema defines a resource for user to get the Date and Time about the manager",
+            "longDescription": "This resource shall be used to represent resources that indicate the manager Date and Time setting."
+        },
+        "DateTimeSettingMethod": {
+            "type": "string",
+            "enum": [
+                "SyncwithHost",
+                "SyncwithNTP"
+            ],
+            "enumDescriptions": {
+                "SyncwithHost": "The time is got from the host",
+                "SyncwithNTP": "user gives out the NTP server to synchronize the data and time"
+            }
+        },
+        "HostTimeFormat": {
+            "type": "string",
+            "enum": [
+                "Local",
+                "UTC"
+            ],
+            "enumDescriptions": {
+                "Local": "The time is got from the host is local(example:Windows) time",
+                "UTC": "The time is got from the host is UTC(example:Linux) time"
+            }
+        },
+        "UTCOffsetCollection": {
+            "type": "string",
+            "enum": [
+                "+0:00",
+                "+1:00",
+                "+2:00-EasternEurope",
+                "+2:00-Turkey",
+                "+2:00-Beirut",
+                "+2:00-Amman",
+                "+2:00-Jerusalem",
+                "+3:00",
+                "+3:30",
+                "+4:00",
+                "+4:30",
+                "+5:00",
+                "+5:30",
+                "+5:45",
+                "+6:00",
+                "+6:30",
+                "+7:00",
+                "+8:00",
+                "+9:00",
+                "+9:30",
+                "+10:00",
+                "+11:00",
+                "+12:00",
+                "+13:00",
+                "-12:00",
+                "-11:00",
+                "-10:00",
+                "-9:00",
+                "-8:00",
+                "-7:00-Canada_USA",
+                "-7:00-Mazatlan",
+                "-6:00-Mexico",
+                "-6:00-Canada_USA",
+                "-5:00-Cuba",
+                "-5:00-Eastern",
+                "-4:30",
+                "-4:00-Asuncion",
+                "-4:00-Cuiaba",
+                "-4:00-Santiago",
+                "-4:00-Canada",
+                "-3:30",
+                "-3:00-Godthab",
+                "-3:00-Montevideo",
+                "-3:00-Brazil",
+                "-2:00",
+                "-1:00"
+            ],
+            "enumDescriptions": {
+                "+0:00": "Greenwich Mean Time(Britain,Ireland,Portugal,Reykjavik(Iceland),Western Africa)",
+                "+1:00": "Central Europe Time",
+                "+2:00-EasternEurope": "Eastern Europe Time(Eastern Europe, Athens, Egypt)",
+                "+2:00-Turkey": "Eastern Europe Time(Turkey)",
+                "+2:00-Beirut": "Eastern Europe Time(Beirut)",
+                "+2:00-Amman": "Eastern Europe Time(Amman)",
+                "+2:00-Jerusalem": "Eastern Europe Time(Jerusalem)",
+                "+3:00": "Baghdad, Eastern Africa, Ethiopia, Kenya, Tanzania, Minsk, Russia (Moscow, St Petersburg, Volgograd)",
+                "+3:30": "Tehran",
+                "+4:00": "Baku, Tbilisi",
+                "+4:30": "Kabul",
+                "+5:00": "Asia (Karacahi, Maldives), Russia (Ekaterinburg)",
+                "+5:30": "Bombay, Calcutta, Madras, New Delhi",
+                "+5:45": "Kathmandu",
+                "+6:00": "Bangladesh, Russia (Novosibirsk)",
+                "+6:30": "Rangoon",
+                "+7:00": "Western Indonesia,Russia(Krasnoyarsk)",
+                "+8:00": "West Australli,China,Hong Kong,Philippines,Russia(Irkutsk)",
+                "+9:00": "Japan Stardard Time(Japan,Korea,Eastern Indonesia),Russia(Yakutsk)",
+                "+9:30": "Australian Central Time",
+                "+10:00": "Eastern Australia, Tasmania, Russia (Vladivostok)",
+                "+11:00": "Russia (Magadan)",
+                "+12:00": "International Date Line East (New Zealand, Russia: Kamchatka)",
+                "+13:00": "Tongatapu",
+                "-12:00": "International Date Line West (Pacific Ocean nations)",
+                "-11:00": "Nome Time (Pacific Ocean nations)",
+                "-10:00": "Hawaiian Time",
+                "-9:00": "Alaska Time (Alaska, Yukon)",
+                "-8:00": "Pacific Time (Canada, USA, BajaNorte)",
+                "-7:00-Canada_USA": "Mountain Time (Canada, USA)",
+                "-7:00-Mazatlan": "Mountain Time (Mazatlan)",
+                "-6:00-Mexico": "Central Time (Mexico)",
+                "-6:00-Canada_USA": "Central Time (Canada, USA)",
+                "-5:00-Cuba": "Cuba Time (Cuba)",
+                "-5:00-Eastern": "Eastern Time (Canada, USA)",
+                "-4:30": "Caracas",
+                "-4:00-Asuncion": "Atlantic Time (Asuncion)",
+                "-4:00-Cuiaba": "Atlantic Time (Cuiaba)",
+                "-4:00-Santiago": "Atlantic Time (Santiago)",
+                "-4:00-Canada": "Atlantic Time (Atlantic Canada)",
+                "-3:30": "Newfoundland",
+                "-3:00-Godthab": "Godthab",
+                "-3:00-Montevideo": "Montevideo",
+                "-3:00-Brazil": "Eastern Brazil",
+                "-2:00": "Mid-Atlantic",
+                "-1:00": "Azores Time"
+            }
+        },
+        "ImmediatelySync": {
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "description": "Friendly action name"
+                },
+                "target": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Link to invoke action"
+                }
+            },
+            "description": "Use the action to request an immediate synchronization with NTP server.",
+            "longDescription": "If select to synchronize the date and time with NTP server, the action can be used to make an immediate request."
+        }
+    },
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+}
