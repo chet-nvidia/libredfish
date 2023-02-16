@@ -5,7 +5,7 @@ use tracing::debug;
 
 use crate::{
     model::{oem::lenovo, BootOption},
-    network::{NetworkConfig, REDFISH_ENDPOINT},
+    network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
     Boot, EnabledDisabled, PowerState, Redfish, RedfishError, SystemPowerControl,
 };
@@ -15,10 +15,8 @@ pub struct Bmc {
 }
 
 impl Bmc {
-    pub fn new(config: NetworkConfig) -> Result<Bmc, RedfishError> {
-        Ok(Bmc {
-            s: RedfishStandard::new(config)?,
-        })
+    pub fn new(s: RedfishStandard) -> Result<Bmc, RedfishError> {
+        Ok(Bmc { s })
     }
 }
 
@@ -104,7 +102,7 @@ impl Redfish for Bmc {
 
     fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
         let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
-        self.s.pending(&url)
+        self.s.pending_with_url(&url)
     }
 }
 
