@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 
 use super::{oem::SystemExtensions, ODataId, ODataLinks};
 
-#[derive(Debug, Deserialize, Serialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone, Copy)]
 pub enum SystemPowerControl {
     On,
     GracefulShutdown,
@@ -21,7 +21,7 @@ impl fmt::Display for SystemPowerControl {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq)]
 pub enum PowerState {
     Off,
     On,

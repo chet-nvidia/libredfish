@@ -3,6 +3,7 @@ use std::collections::HashMap;
 
 pub use model::system::{PowerState, SystemPowerControl, Systems};
 pub use model::EnabledDisabled;
+use serde::{Deserialize, Serialize};
 
 mod dell;
 mod error;
@@ -55,6 +56,9 @@ pub trait Redfish {
     fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError>;
 }
 
+// When Carbide drops it's `IpmiCommand.launch_command` background job system, we can
+// remove the Serialize and Deserialize here.
+#[derive(Serialize, Deserialize, Clone, Copy, Debug)]
 pub enum Boot {
     Pxe,
     HardDisk,
