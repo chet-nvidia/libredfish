@@ -65,9 +65,15 @@ pub trait Redfish {
     /// Reset and enable the TPM
     fn clear_tpm(&self) -> Result<(), RedfishError>;
 
-    /// Diagnostic only.
+    /*
+     * Diagnostic calls
+     */
     /// All the BIOS attributes for this provider. Very OEM specific.
-    fn get_bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError>;
+    fn bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError>;
+
+    /// Pending BIOS attributes. Changes that were requested but not applied yet because
+    /// they need a reboot.
+    fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError>;
 }
 
 pub enum Boot {

@@ -23,7 +23,7 @@ fn main() -> Result<(), anyhow::Error> {
     opts.optopt("U", "username", "specify authentication username", "USER");
     opts.optopt("P", "password", "specify authentication password", "PASS");
     opts.optopt("V", "vendor", "[Dell|Lenovo|Hpe|Supermicro]", "Unknown");
-    opts.optopt("c", "cmd", "specify the command to run: off/on/reset/shutdown/restart/get_power_state/tpm_reset/serial_enable/lockdown_enable/lockdown_disable/bios_attrs/boot_pxe/boot_hdd/boot_once_pxe/boot_once_hdd", "CMD");
+    opts.optopt("c", "cmd", "specify the command to run: off/on/reset/shutdown/restart/get_power_state/tpm_reset/serial_enable/lockdown_enable/lockdown_disable/bios_attrs/boot_pxe/boot_hdd/boot_once_pxe/boot_once_hdd/pending", "CMD");
 
     let args_given = opts.parse(&args[1..]).unwrap();
     if args_given.opt_present("H") {
@@ -98,8 +98,12 @@ fn main() -> Result<(), anyhow::Error> {
                 redfish.boot_once(Boot::HardDisk)?;
             }
             "bios_attrs" => {
-                let bios = redfish.get_bios_attributes()?;
+                let bios = redfish.bios_attributes()?;
                 info!("{:#?}", bios);
+            }
+            "pending" => {
+                let pending = redfish.pending()?;
+                info!("{:#?}", pending);
             }
             _ => {
                 error!(

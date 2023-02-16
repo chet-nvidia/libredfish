@@ -1,3 +1,5 @@
+use reqwest::StatusCode;
+
 #[derive(thiserror::Error, Debug)]
 pub enum RedfishError {
     #[error("Network error talking to BMC at {url}. {source}")]
@@ -5,6 +7,12 @@ pub enum RedfishError {
 
     #[error("Non-2XX HTTP status at {url}. {source}")]
     HTTPError { url: String, source: reqwest::Error },
+
+    #[error("HTTP {status_code} at {url}. See debug logs for details.")]
+    HTTPErrorCode {
+        url: String,
+        status_code: StatusCode,
+    },
 
     #[error("Could not deserialize response from {url}. Body: {body}. {source}")]
     JsonDeserializeError {

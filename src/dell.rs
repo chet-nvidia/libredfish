@@ -28,11 +28,13 @@ impl Redfish for Bmc {
         self.s.power(action)
     }
 
-    fn get_bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
-        self.s.get_bios_attributes()
+    fn bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        self.s.bios_attributes()
     }
 
     fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
+        self.delete_job_queue()?;
+
         use EnabledDisabled::*;
         match target {
             Enabled => {
@@ -47,6 +49,8 @@ impl Redfish for Bmc {
     }
 
     fn setup_serial_console(&self) -> Result<(), RedfishError> {
+        self.delete_job_queue()?;
+
         self.setup_bmc_remote_access()?;
 
         let apply_time = dell::SetSettingsApplyTime {
@@ -87,6 +91,8 @@ impl Redfish for Bmc {
     }
 
     fn clear_tpm(&self) -> Result<(), RedfishError> {
+        self.delete_job_queue()?;
+
         let apply_time = dell::SetSettingsApplyTime {
             apply_time: dell::RedfishSettingsApplyTime::OnReset,
         };
@@ -101,9 +107,25 @@ impl Redfish for Bmc {
         let url = format!("Systems/{}/Bios/Settings/", self.s.system_id());
         self.s.net.patch(&url, set_tpm_clear).map(|_status_code| ())
     }
+
+    fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
+        self.s.pending(&url)
+    }
 }
 
 impl Bmc {
+    // No changes can be applied if there are pending jobs
+    fn delete_job_queue(&self) -> Result<(), RedfishError> {
+        let url = format!(
+            "Managers/{}/Oem/Dell/DellJobService/Actions/DellJobService.DeleteJobQueue",
+            self.s.manager_id()
+        );
+        let mut body = HashMap::new();
+        body.insert("JobID", "JID_CLEARALL".to_string());
+        self.s.net.post(&url, body).map(|_status_code| ())
+    }
+
     fn set_boot_first(&self, entry: dell::BootDevices, once: bool) -> Result<(), RedfishError> {
         let apply_time = dell::SetSettingsApplyTime {
             apply_time: dell::RedfishSettingsApplyTime::OnReset,
@@ -126,6 +148,7 @@ impl Bmc {
         let url = format!("Managers/{}/Attributes", self.s.manager_id());
         self.s.net.patch(&url, set_boot).map(|_status_code| ())
     }
+
     fn enable_bios_lockdown(&self) -> Result<(), RedfishError> {
         let apply_time = dell::SetSettingsApplyTime {
             apply_time: dell::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
