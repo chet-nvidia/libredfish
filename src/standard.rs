@@ -121,7 +121,7 @@ impl RedfishStandard {
 
     /// Fetch root URL and record the vendor, if any
     fn set_vendor(&mut self) -> Result<(), RedfishError> {
-        let (_, out): (_, HashMap<String, serde_json::Value>) = self.net.get("/")?;
+        let (_, out): (_, HashMap<String, serde_json::Value>) = self.net.get("")?;
         self.vendor = match out.get("Vendor") {
             Some(v) => v.as_str().map(|s| s.to_string()),
             None => None,
