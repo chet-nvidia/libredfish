@@ -6,15 +6,6 @@ use tracing_subscriber::fmt::Layer;
 use tracing_subscriber::prelude::*;
 
 fn main() -> Result<(), anyhow::Error> {
-    let env_filter = EnvFilter::from_default_env()
-        .add_directive(LevelFilter::DEBUG.into())
-        .add_directive("hyper=warn".parse().unwrap());
-
-    tracing_subscriber::registry()
-        .with(Layer::default().compact())
-        .with(env_filter)
-        .init();
-
     let args: Vec<String> = std::env::args().collect();
     let mut opts = getopts::Options::new();
     let mut conf = libredfish::NetworkConfig::default();
@@ -23,6 +14,7 @@ fn main() -> Result<(), anyhow::Error> {
     opts.optopt("U", "username", "specify authentication username", "USER");
     opts.optopt("P", "password", "specify authentication password", "PASS");
     opts.optopt("V", "vendor", "[Dell|Lenovo|Hpe|Supermicro]", "Unknown");
+    opts.optflag("v", "verbose", "Log at DEBUG level. Default is INFO");
     opts.optopt("c", "cmd", "specify the command to run: off/on/reset/shutdown/restart/get_power_state/tpm_reset/serial_enable/lockdown_enable/lockdown_disable/bios_attrs/boot_pxe/boot_hdd/boot_once_pxe/boot_once_hdd/pending", "CMD");
 
     let args_given = opts.parse(&args[1..]).unwrap();
@@ -45,6 +37,19 @@ fn main() -> Result<(), anyhow::Error> {
         "Hpe" => Vendor::Hpe,
         _ => return Err(anyhow!(format!("Unknown vendor '{vendor_str}'"))),
     };
+
+    let log_level = if args_given.opt_present("v") {
+        LevelFilter::DEBUG
+    } else {
+        LevelFilter::INFO
+    };
+    let env_filter = EnvFilter::from_default_env()
+        .add_directive(log_level.into())
+        .add_directive("hyper=warn".parse().unwrap());
+    tracing_subscriber::registry()
+        .with(Layer::default().compact())
+        .with(env_filter)
+        .init();
 
     let redfish = libredfish::new(vendor, conf)?;
 
