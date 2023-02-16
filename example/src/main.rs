@@ -1,5 +1,4 @@
-use anyhow::anyhow;
-use libredfish::{Boot, EnabledDisabled, SystemPowerControl, Vendor};
+use libredfish::{Boot, EnabledDisabled, SystemPowerControl};
 use tracing::{error, info};
 use tracing_subscriber::filter::{EnvFilter, LevelFilter};
 use tracing_subscriber::fmt::Layer;
@@ -10,11 +9,10 @@ fn main() -> Result<(), anyhow::Error> {
     let mut opts = getopts::Options::new();
     let mut conf = libredfish::NetworkConfig::default();
 
+    opts.optflag("v", "verbose", "Log at DEBUG level. Default is INFO");
     opts.optopt("H", "hostname", "specify hostname or IP address", "HOST");
     opts.optopt("U", "username", "specify authentication username", "USER");
     opts.optopt("P", "password", "specify authentication password", "PASS");
-    opts.optopt("V", "vendor", "[Dell|Lenovo|Hpe|Supermicro]", "Unknown");
-    opts.optflag("v", "verbose", "Log at DEBUG level. Default is INFO");
     opts.optopt("c", "cmd", "specify the command to run: off/on/reset/shutdown/restart/get_power_state/tpm_reset/serial_enable/lockdown_enable/lockdown_disable/bios_attrs/boot_pxe/boot_hdd/boot_once_pxe/boot_once_hdd/pending", "CMD");
 
     let args_given = opts.parse(&args[1..]).unwrap();
@@ -27,16 +25,6 @@ fn main() -> Result<(), anyhow::Error> {
     if args_given.opt_present("P") {
         conf.password = Some(args_given.opt_str("P").unwrap());
     }
-    let vendor_str = args_given
-        .opt_str("V")
-        .ok_or(anyhow!("Vendor -V is required"))?;
-    let vendor = match vendor_str.as_str() {
-        "Dell" => Vendor::Dell,
-        "Lenovo" => Vendor::Lenovo,
-        "Supermicro" => Vendor::Supermicro,
-        "Hpe" => Vendor::Hpe,
-        _ => return Err(anyhow!(format!("Unknown vendor '{vendor_str}'"))),
-    };
 
     let log_level = if args_given.opt_present("v") {
         LevelFilter::DEBUG
@@ -51,7 +39,7 @@ fn main() -> Result<(), anyhow::Error> {
         .with(env_filter)
         .init();
 
-    let redfish = libredfish::new(vendor, conf)?;
+    let redfish = libredfish::new(conf)?;
 
     if args_given.opt_present("c") {
         use EnabledDisabled::*;

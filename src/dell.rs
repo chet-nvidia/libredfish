@@ -2,7 +2,6 @@ use std::collections::HashMap;
 
 use crate::{
     model::{oem::dell, OnOff},
-    network::NetworkConfig,
     standard::RedfishStandard,
     Boot, EnabledDisabled, PowerState, Redfish, RedfishError, SystemPowerControl,
 };
@@ -12,10 +11,8 @@ pub struct Bmc {
 }
 
 impl Bmc {
-    pub fn new(config: NetworkConfig) -> Result<Bmc, RedfishError> {
-        Ok(Bmc {
-            s: RedfishStandard::new(config)?,
-        })
+    pub fn new(s: RedfishStandard) -> Result<Bmc, RedfishError> {
+        Ok(Bmc { s })
     }
 }
 
@@ -109,8 +106,7 @@ impl Redfish for Bmc {
     }
 
     fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
-        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
-        self.s.pending(&url)
+        self.s.pending()
     }
 }
 

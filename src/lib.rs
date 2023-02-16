@@ -1,44 +1,23 @@
 mod model;
 use std::collections::HashMap;
-use std::fmt;
 
 pub use model::system::{PowerState, SystemPowerControl, Systems};
 pub use model::EnabledDisabled;
 
 mod dell;
 mod error;
-mod hpe;
 mod lenovo;
 mod network;
 pub use network::NetworkConfig;
 mod standard;
 pub use error::RedfishError;
 
-/// Baseboard Management Controller (BMC) vendor.
-/// Dell and Lenovo are the best supported. Hpe works only for standard stuff (`power`).
-/// Supermicro not supported yet.
-#[derive(Debug, PartialEq, Copy, Clone)]
-pub enum Vendor {
-    Dell,
-    Lenovo,
-    Hpe,
-    Supermicro,
-    Unknown,
-}
-
-impl fmt::Display for Vendor {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        fmt::Debug::fmt(self, f)
-    }
-}
-
-pub fn new(v: Vendor, config: network::NetworkConfig) -> Result<Box<dyn Redfish>, RedfishError> {
-    use Vendor::*;
-    match v {
-        Dell => Ok(Box::new(dell::Bmc::new(config)?)),
-        Lenovo => Ok(Box::new(lenovo::Bmc::new(config)?)),
-        Hpe => Ok(Box::new(hpe::Bmc::new(config)?)),
-        x => unimplemented!("Vendor {x:?} not supported yet"),
+pub fn new(config: network::NetworkConfig) -> Result<Box<dyn Redfish>, RedfishError> {
+    let s = standard::RedfishStandard::new(config)?;
+    match s.vendor.as_deref() {
+        Some("Dell") => Ok(Box::new(dell::Bmc::new(s)?)),
+        Some("Lenovo") => Ok(Box::new(lenovo::Bmc::new(s)?)),
+        _ => Ok(Box::new(s)),
     }
 }
 

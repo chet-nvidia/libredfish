@@ -1,15 +1,64 @@
 use std::collections::HashMap;
 
+use tracing::debug;
+
 use crate::model::{power, storage, thermal};
 use crate::network::NetworkConfig;
-use crate::{model, PowerState};
+use crate::{model, Boot, EnabledDisabled, PowerState, Redfish};
 use crate::{network::Network, RedfishError};
 
 /// The calls that use the Redfish standard without any OEM extensions.
 pub struct RedfishStandard {
     pub net: Network,
+    pub vendor: Option<String>,
     manager_id: String,
     system_id: String,
+}
+
+impl Redfish for RedfishStandard {
+    fn get_power_state(&self) -> Result<PowerState, RedfishError> {
+        let system = self.get_system()?;
+        Ok(system.power_state)
+    }
+
+    fn power(&self, action: model::SystemPowerControl) -> Result<(), RedfishError> {
+        let url = format!("Systems/{}/Actions/ComputerSystem.Reset", self.system_id);
+        let mut arg = HashMap::new();
+        arg.insert("ResetType", action.to_string());
+        // Lenovo: The expected HTTP response code is 204 No Content
+        self.net.post(&url, arg).map(|_status_code| Ok(()))?
+    }
+
+    fn bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        let url = format!("Systems/{}/Bios", self.system_id());
+        let (_status_code, body) = self.net.get(&url)?;
+        Ok(body)
+    }
+
+    fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        let url = format!("Systems/{}/Bios/Settings", self.system_id());
+        self.pending_with_url(&url)
+    }
+
+    fn lockdown(&self, _target: EnabledDisabled) -> Result<(), RedfishError> {
+        unimplemented!("No standard implementation");
+    }
+
+    fn setup_serial_console(&self) -> Result<(), RedfishError> {
+        unimplemented!("No standard implementation");
+    }
+
+    fn boot_once(&self, _target: Boot) -> Result<(), RedfishError> {
+        unimplemented!("No standard implementation");
+    }
+
+    fn boot_first(&self, _target: Boot) -> Result<(), RedfishError> {
+        unimplemented!("No standard implementation");
+    }
+
+    fn clear_tpm(&self) -> Result<(), RedfishError> {
+        unimplemented!("No standard implementation");
+    }
 }
 
 impl RedfishStandard {
@@ -24,23 +73,12 @@ impl RedfishStandard {
             net: Network::new(config),
             manager_id: "".to_string(),
             system_id: "".to_string(),
+            vendor: None,
         };
+        r.set_vendor()?;
         r.set_system_id()?;
         r.set_manager_id()?;
         Ok(r)
-    }
-
-    pub fn get_power_state(&self) -> Result<PowerState, RedfishError> {
-        let system = self.get_system()?;
-        Ok(system.power_state)
-    }
-
-    pub fn power(&self, action: model::SystemPowerControl) -> Result<(), RedfishError> {
-        let url = format!("Systems/{}/Actions/ComputerSystem.Reset", self.system_id);
-        let mut arg = HashMap::new();
-        arg.insert("ResetType", action.to_string());
-        // Lenovo: The expected HTTP response code is 204 No Content
-        self.net.post(&url, arg).map(|_status_code| Ok(()))?
     }
 
     pub fn system_id(&self) -> &str {
@@ -57,19 +95,13 @@ impl RedfishStandard {
         Ok(body)
     }
 
-    pub fn bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
-        let url = format!("Systems/{}/Bios", self.system_id());
-        let (_status_code, body) = self.net.get(&url)?;
-        Ok(body)
-    }
-
-    // The URL differs by vendor, but the rest is the same
-    pub fn pending(
+    // The URL differs for Lenovo, but the rest is the same
+    pub fn pending_with_url(
         &self,
         pending_url: &str,
     ) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
         let (_sc, body): (reqwest::StatusCode, HashMap<String, serde_json::Value>) =
-            self.net.get(&pending_url)?;
+            self.net.get(pending_url)?;
         let pending_attrs = body.get("Attributes").unwrap().as_object().unwrap();
 
         let current = self.bios_attributes()?;
@@ -87,42 +119,41 @@ impl RedfishStandard {
     // PRIVATE
     //
 
+    /// Fetch root URL and record the vendor, if any
+    fn set_vendor(&mut self) -> Result<(), RedfishError> {
+        let (_, out): (_, HashMap<String, serde_json::Value>) = self.net.get("/")?;
+        self.vendor = match out.get("Vendor") {
+            Some(v) => v.as_str().map(|s| s.to_string()),
+            None => None,
+        };
+        debug!(
+            "BMC Vendor: {}",
+            self.vendor.as_deref().unwrap_or("Unknown")
+        );
+        Ok(())
+    }
+
     /// Fetch and set System number. Needed for all `Systems/{system_id}/...` calls
     fn set_system_id(&mut self) -> Result<(), RedfishError> {
-        let url = "Systems/";
-        match self.net.get(url) {
-            Ok((_, x)) => {
-                let systems: model::Systems = x;
-                if systems.members.is_empty() {
-                    self.system_id = "1".to_string(); // default to DMTF standard suggested
-                    return Ok(());
-                }
-                let v: Vec<&str> = systems.members[0].odata_id.split('/').collect();
-                self.system_id = v.last().unwrap().to_string();
-                //if self.system_id == "System.Embedded.1" {
-                //    self.vendor = Vendor::Dell
-                //}
-            }
-            Err(e) => return Err(e),
+        let (_, systems): (_, model::Systems) = self.net.get("Systems/")?;
+        if systems.members.is_empty() {
+            self.system_id = "1".to_string(); // default to DMTF standard suggested
+            return Ok(());
         }
+        let v: Vec<&str> = systems.members[0].odata_id.split('/').collect();
+        self.system_id = v.last().unwrap().to_string();
         Ok(())
     }
 
     /// Fetch and set Manager number. Needed for all `Managers/{system_id}/...` calls
     fn set_manager_id(&mut self) -> Result<(), RedfishError> {
-        let url = "Managers/";
-        match self.net.get(url) {
-            Ok((_, x)) => {
-                let bmcs: model::Managers = x;
-                if bmcs.members.is_empty() {
-                    self.manager_id = "1".to_string(); // default to dmtf standard suggested
-                    return Ok(());
-                }
-                let v: Vec<&str> = bmcs.members[0].odata_id.split('/').collect();
-                self.manager_id = v.last().unwrap().to_string();
-            }
-            Err(e) => return Err(e),
+        let (_, bmcs): (_, model::Managers) = self.net.get("Managers/")?;
+        if bmcs.members.is_empty() {
+            self.manager_id = "1".to_string(); // default to dmtf standard suggested
+            return Ok(());
         }
+        let v: Vec<&str> = bmcs.members[0].odata_id.split('/').collect();
+        self.manager_id = v.last().unwrap().to_string();
         Ok(())
     }
 

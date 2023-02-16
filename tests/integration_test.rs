@@ -21,19 +21,16 @@ const LENOVO_PORT: &str = "8734";
 
 #[test]
 fn test_dell() -> Result<(), anyhow::Error> {
-    run_integration_test(libredfish::Vendor::Dell, DELL_PORT)
+    run_integration_test("dell", DELL_PORT)
 }
 
 #[test]
 fn test_lenovo() -> Result<(), anyhow::Error> {
-    run_integration_test(libredfish::Vendor::Lenovo, LENOVO_PORT)
+    run_integration_test("lenovo", LENOVO_PORT)
 }
 
-fn run_integration_test(
-    vendor: libredfish::Vendor,
-    port: &'static str,
-) -> Result<(), anyhow::Error> {
-    let mut mockup_server = match MockupServer::new(vendor, port) {
+fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<(), anyhow::Error> {
+    let mut mockup_server = match MockupServer::new(vendor_dir, port) {
         Some(s) => s,
         None => {
             return Ok(());
@@ -47,7 +44,7 @@ fn run_integration_test(
         endpoint: format!("127.0.0.1:{port}"),
         ..Default::default()
     };
-    let redfish = libredfish::new(vendor, redfish_net_conf)?;
+    let redfish = libredfish::new(redfish_net_conf)?;
 
     assert_eq!(redfish.get_power_state()?, libredfish::PowerState::On);
     assert!(redfish.bios_attributes()?.len() > 10);
@@ -79,7 +76,7 @@ fn run_integration_test(
 }
 
 struct MockupServer {
-    vendor: libredfish::Vendor,
+    vendor_dir: &'static str,
     port: &'static str,
     pip: PathBuf,
     python: PathBuf,
@@ -99,7 +96,7 @@ impl Drop for MockupServer {
 
 impl MockupServer {
     // Creates a server if pip and python is present, otherwise returns None
-    fn new(vendor: libredfish::Vendor, port: &'static str) -> Option<MockupServer> {
+    fn new(vendor_dir: &'static str, port: &'static str) -> Option<MockupServer> {
         let pip = match find_path("pip") {
             Some(p) => p,
             None => {
@@ -115,7 +112,7 @@ impl MockupServer {
             }
         };
         Some(MockupServer {
-            vendor,
+            vendor_dir,
             port,
             pip,
             python,
@@ -152,10 +149,7 @@ impl MockupServer {
                 .arg("--port")
                 .arg(self.port)
                 .arg("--dir")
-                .arg(format!(
-                    "mockups/{}/",
-                    self.vendor.to_string().to_lowercase()
-                ))
+                .arg(format!("mockups/{}/", self.vendor_dir))
                 .arg("--ssl")
                 .arg("--cert")
                 .arg("cert.pem")
