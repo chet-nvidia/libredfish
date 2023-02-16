@@ -26,8 +26,14 @@ impl Redfish for Bmc {
         self.s.power(action)
     }
 
-    fn get_bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
-        self.s.get_bios_attributes()
+    fn bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        self.s.bios_attributes()
+    }
+
+    fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        unimplemented!("not implement for Hpe yet");
+        // copying the lenovo.rs version might work, it _looks_ standard even though Dell doesn't
+        // have it
     }
 
     fn lockdown(&self, _target: EnabledDisabled) -> Result<(), RedfishError> {

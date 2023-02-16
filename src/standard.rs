@@ -51,16 +51,36 @@ impl RedfishStandard {
         &self.manager_id
     }
 
-    pub fn get_bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+    pub fn get_boot_options(&self) -> Result<model::BootOptions, RedfishError> {
+        let url = format!("Systems/{}/BootOptions", self.system_id());
+        let (_status_code, body) = self.net.get(&url)?;
+        Ok(body)
+    }
+
+    pub fn bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
         let url = format!("Systems/{}/Bios", self.system_id());
         let (_status_code, body) = self.net.get(&url)?;
         Ok(body)
     }
 
-    pub fn get_boot_options(&self) -> Result<model::BootOptions, RedfishError> {
-        let url = format!("Systems/{}/BootOptions", self.system_id());
-        let (_status_code, body) = self.net.get(&url)?;
-        Ok(body)
+    // The URL differs by vendor, but the rest is the same
+    pub fn pending(
+        &self,
+        pending_url: &str,
+    ) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        let (_sc, body): (reqwest::StatusCode, HashMap<String, serde_json::Value>) =
+            self.net.get(&pending_url)?;
+        let pending_attrs = body.get("Attributes").unwrap().as_object().unwrap();
+
+        let current = self.bios_attributes()?;
+        let current_attrs = current.get("Attributes").unwrap();
+
+        let diff = pending_attrs
+            .iter()
+            .filter(|(k, v)| current_attrs.get(k) != Some(v))
+            .map(|(k, v)| (k.clone(), v.clone()))
+            .collect();
+        Ok(diff)
     }
 
     //

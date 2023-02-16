@@ -29,26 +29,19 @@ fn test_lenovo() -> Result<(), anyhow::Error> {
     run_integration_test(libredfish::Vendor::Lenovo, LENOVO_PORT)
 }
 
-fn run_integration_test(vendor: libredfish::Vendor, port: &str) -> Result<(), anyhow::Error> {
-    let pip = match find_path("pip") {
-        Some(p) => p,
+fn run_integration_test(
+    vendor: libredfish::Vendor,
+    port: &'static str,
+) -> Result<(), anyhow::Error> {
+    let mut mockup_server = match MockupServer::new(vendor, port) {
+        Some(s) => s,
         None => {
-            eprintln!("`pip` not found, skipping redfish mockup integration test");
-            return Ok(());
-        }
-    };
-    let python = match find_path("python") {
-        Some(p) => p,
-        None => {
-            eprintln!("`python` not found, skipping redfish mockup integration test");
             return Ok(());
         }
     };
     // install python packages 'requests' and 'grequests'
-    install_python_requirements(&pip)?;
-
-    let mut mockup_handle = start_mockup_server(&python, vendor, port)?;
-    sleep(Duration::from_secs(1)); // let it start
+    mockup_server.install_python_requirements()?;
+    mockup_server.start()?; // stops on drop
 
     let redfish_net_conf = libredfish::NetworkConfig {
         endpoint: format!("127.0.0.1:{port}"),
@@ -57,7 +50,7 @@ fn run_integration_test(vendor: libredfish::Vendor, port: &str) -> Result<(), an
     let redfish = libredfish::new(vendor, redfish_net_conf)?;
 
     assert_eq!(redfish.get_power_state()?, libredfish::PowerState::On);
-    assert!(redfish.get_bios_attributes()?.len() > 10);
+    assert!(redfish.bios_attributes()?.len() > 10);
 
     redfish.power(libredfish::SystemPowerControl::GracefulShutdown)?;
     redfish.power(libredfish::SystemPowerControl::ForceOff)?;
@@ -74,56 +67,105 @@ fn run_integration_test(vendor: libredfish::Vendor, port: &str) -> Result<(), an
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
 
     redfish.clear_tpm()?;
+    // The mockup includes TPM clear pending operation
+    assert!(redfish.pending()?.len() > 0);
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
 
     redfish.boot_once(libredfish::Boot::Pxe)?;
     redfish.boot_first(libredfish::Boot::HardDisk)?;
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
 
-    mockup_handle.kill()?;
-    sleep(Duration::from_secs(1)); // let it stop
     Ok(())
 }
 
-fn start_mockup_server(
-    python: &Path,
+struct MockupServer {
     vendor: libredfish::Vendor,
-    port: &str,
-) -> std::io::Result<Child> {
-    Command::new(python)
-        .current_dir(PathBuf::from(ROOT_DIR).join("tests"))
-        .arg("redfishMockupServer.py")
-        .arg("--port")
-        .arg(port)
-        .arg("--dir")
-        .arg(format!("mockups/{}/", vendor.to_string().to_lowercase()))
-        .arg("--ssl")
-        .arg("--cert")
-        .arg("cert.pem")
-        .arg("--key")
-        .arg("key.pem")
-        .spawn()
+    port: &'static str,
+    pip: PathBuf,
+    python: PathBuf,
+
+    process: Option<Child>,
 }
 
-fn install_python_requirements(pip: &Path) -> Result<(), anyhow::Error> {
-    let req_path = PathBuf::from(ROOT_DIR)
-        .join("tests")
-        .join("requirements.txt");
-    let exit_code = Command::new(pip)
-        .arg("install")
-        .arg("-q")
-        .arg("--requirement")
-        .arg(&req_path)
-        .status()?;
-    if !exit_code.success() {
-        return Err(anyhow!(
-            "Failed running '{} install -q --requirement {}. Exit code {}",
-            pip.display(),
-            req_path.display(),
-            exit_code
-        ));
+impl Drop for MockupServer {
+    fn drop(&mut self) {
+        if self.process.is_none() {
+            return;
+        }
+        self.process.take().unwrap().kill().unwrap();
+        sleep(Duration::from_secs(1)); // let it stop
     }
-    Ok(())
+}
+
+impl MockupServer {
+    // Creates a server if pip and python is present, otherwise returns None
+    fn new(vendor: libredfish::Vendor, port: &'static str) -> Option<MockupServer> {
+        let pip = match find_path("pip") {
+            Some(p) => p,
+            None => {
+                eprintln!("`pip` not found, skipping redfish mockup integration test");
+                return None;
+            }
+        };
+        let python = match find_path("python") {
+            Some(p) => p,
+            None => {
+                eprintln!("`python` not found, skipping redfish mockup integration test");
+                return None;
+            }
+        };
+        Some(MockupServer {
+            vendor,
+            port,
+            pip,
+            python,
+            process: None,
+        })
+    }
+
+    fn install_python_requirements(&self) -> Result<(), anyhow::Error> {
+        let req_path = PathBuf::from(ROOT_DIR)
+            .join("tests")
+            .join("requirements.txt");
+        let exit_code = Command::new(&self.pip)
+            .arg("install")
+            .arg("-q")
+            .arg("--requirement")
+            .arg(&req_path)
+            .status()?;
+        if !exit_code.success() {
+            return Err(anyhow!(
+                "Failed running '{} install -q --requirement {}. Exit code {}",
+                self.pip.display(),
+                req_path.display(),
+                exit_code
+            ));
+        }
+        Ok(())
+    }
+
+    fn start(&mut self) -> std::io::Result<()> {
+        self.process = Some(
+            Command::new(&self.python)
+                .current_dir(PathBuf::from(ROOT_DIR).join("tests"))
+                .arg("redfishMockupServer.py")
+                .arg("--port")
+                .arg(self.port)
+                .arg("--dir")
+                .arg(format!(
+                    "mockups/{}/",
+                    self.vendor.to_string().to_lowercase()
+                ))
+                .arg("--ssl")
+                .arg("--cert")
+                .arg("cert.pem")
+                .arg("--key")
+                .arg("key.pem")
+                .spawn()?,
+        );
+        sleep(Duration::from_secs(1)); // let it start
+        Ok(())
+    }
 }
 
 fn find_path<P>(bin: P) -> Option<PathBuf>

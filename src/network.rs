@@ -151,12 +151,7 @@ impl Network {
             // Note that Lenovo accepts these unnecessary operations and returns '204 No Content'.
             return Err(RedfishError::UnnecessaryOperation);
         }
-        let response = response
-            .error_for_status()
-            .map_err(|e| RedfishError::HTTPError {
-                url: url.clone(),
-                source: e,
-            })?;
+        // read the body even if not status 2XX, because BMCs give useful error messages as JSON
         let response_body = response.text().map_err(|e| RedfishError::NetworkError {
             url: url.clone(),
             source: e,
@@ -178,6 +173,9 @@ impl Network {
             debug!("RX {status_code}");
         }
 
+        if !status_code.is_success() {
+            return Err(RedfishError::HTTPErrorCode { url, status_code });
+        }
         Ok((status_code, res))
     }
 }

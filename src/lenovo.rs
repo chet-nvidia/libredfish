@@ -31,8 +31,8 @@ impl Redfish for Bmc {
         self.s.power(action)
     }
 
-    fn get_bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
-        self.s.get_bios_attributes()
+    fn bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        self.s.bios_attributes()
     }
 
     fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
@@ -100,6 +100,11 @@ impl Redfish for Bmc {
         );
         let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
         self.s.net.patch(&url, body).map(|_status_code| ())
+    }
+
+    fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
+        self.s.pending(&url)
     }
 }
 
