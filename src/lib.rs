@@ -1,6 +1,6 @@
-mod model;
 use std::collections::HashMap;
 
+pub mod model;
 pub use model::system::{PowerState, SystemPowerControl, Systems};
 pub use model::EnabledDisabled;
 use serde::{Deserialize, Serialize};
@@ -9,7 +9,7 @@ mod dell;
 mod error;
 mod lenovo;
 mod network;
-pub use network::NetworkConfig;
+pub use network::{NetworkConfig, REDFISH_ENDPOINT};
 mod standard;
 pub use error::RedfishError;
 
