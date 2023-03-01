@@ -49,18 +49,20 @@ impl Redfish for Bmc {
         let front_usb = self.get_front_panel_usb_lenovo()?;
 
         let message = format!(
-            "kcs={kcs}, firmware_rollback={firmware_rollback}, ethernet_over_usb={eth_usb}, front_panel_usb={front_usb}"
+            "kcs={kcs}, firmware_rollback={firmware_rollback}, ethernet_over_usb={eth_usb}, front_panel_usb={}/{}",
+            front_usb.fp_mode, front_usb.port_switching_to,
         );
 
         let is_locked = !kcs
             && !eth_usb
             && firmware_rollback == EnabledDisabled::Disabled
-            && front_usb == lenovo::FrontPanelUSBMode::Server;
+            && front_usb.fp_mode == lenovo::FrontPanelUSBMode::Server;
 
         let is_unlocked = kcs
             && eth_usb
             && firmware_rollback == EnabledDisabled::Enabled
-            && front_usb == lenovo::FrontPanelUSBMode::Shared;
+            && front_usb.fp_mode == lenovo::FrontPanelUSBMode::Shared
+            && front_usb.port_switching_to == lenovo::PortSwitchingMode::Server;
 
         Ok(LockdownStatus {
             message,
@@ -155,11 +157,14 @@ impl Bmc {
             debug!("Failed disabling Ethernet over USB");
             e
         })?;
-        self.set_front_panel_usb_lenovo(lenovo::FrontPanelUSBMode::Server)
-            .map_err(|e| {
-                debug!("Failed locking front panel USB to host-only.");
-                e
-            })?;
+        self.set_front_panel_usb_lenovo(
+            lenovo::FrontPanelUSBMode::Server,
+            lenovo::PortSwitchingMode::Server,
+        )
+        .map_err(|e| {
+            debug!("Failed locking front panel USB to host-only.");
+            e
+        })?;
         Ok(())
     }
 
@@ -178,11 +183,14 @@ impl Bmc {
             debug!("Failed disabling Ethernet over USB");
             e
         })?;
-        self.set_front_panel_usb_lenovo(lenovo::FrontPanelUSBMode::Shared)
-            .map_err(|e| {
-                debug!("Failed unlocking front panel USB to shared mode.");
-                e
-            })?;
+        self.set_front_panel_usb_lenovo(
+            lenovo::FrontPanelUSBMode::Shared,
+            lenovo::PortSwitchingMode::Server,
+        )
+        .map_err(|e| {
+            debug!("Failed unlocking front panel USB to shared mode.");
+            e
+        })?;
         Ok(())
     }
 
@@ -298,6 +306,7 @@ impl Bmc {
     fn set_front_panel_usb_lenovo(
         &self,
         mode: lenovo::FrontPanelUSBMode,
+        owner: lenovo::PortSwitchingMode,
     ) -> Result<(), RedfishError> {
         let mut body = HashMap::new();
         body.insert(
@@ -306,7 +315,10 @@ impl Bmc {
                 "Lenovo",
                 HashMap::from([(
                     "FrontPanelUSB",
-                    HashMap::from([("FPMode", mode.to_string())]),
+                    HashMap::from([
+                        ("FPMode", mode.to_string()),
+                        ("PortSwitchingTo", owner.to_string()),
+                    ]),
                 )]),
             )]),
         );
@@ -314,7 +326,7 @@ impl Bmc {
         self.s.net.patch(&url, body).map(|_status_code| ())
     }
 
-    fn get_front_panel_usb_lenovo(&self) -> Result<lenovo::FrontPanelUSBMode, RedfishError> {
+    fn get_front_panel_usb_lenovo(&self) -> Result<lenovo::FrontPanelUSB, RedfishError> {
         let url = format!("Systems/{}", self.s.system_id());
         let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(&url)?;
 
@@ -347,39 +359,21 @@ impl Bmc {
             })?;
 
         let key = "FrontPanelUSB";
-        let fp_usb = lenovo_obj
+        let fp_usb_val = lenovo_obj
             .get(key)
             .ok_or_else(|| RedfishError::MissingKey {
                 key: key.to_string(),
                 url: url.to_string(),
-            })?
-            .as_object()
-            .ok_or_else(|| RedfishError::InvalidKeyType {
-                key: key.to_string(),
-                expected_type: "Object".to_string(),
-                url: url.to_string(),
             })?;
-
-        let key = "FPMode";
-        let fp_mode = fp_usb
-            .get(key)
-            .ok_or_else(|| RedfishError::MissingKey {
-                key: key.to_string(),
-                url: url.to_string(),
-            })?
-            .as_str()
-            .ok_or_else(|| RedfishError::InvalidKeyType {
-                key: key.to_string(),
-                expected_type: "&str".to_string(),
-                url: url.to_string(),
-            })?;
-
-        let fp_mode_typed = fp_mode.parse().map_err(|_| RedfishError::InvalidKeyType {
-            key: key.to_string(),
-            expected_type: "FrontPanelUSBMode".to_string(),
-            url: url.to_string(),
+        let fp_usb = serde_json::from_value(fp_usb_val.clone()).map_err(|err| {
+            RedfishError::JsonDeserializeError {
+                url,
+                body: format!("{fp_usb_val:?}"),
+                source: err,
+            }
         })?;
-        Ok(fp_mode_typed)
+
+        Ok(fp_usb)
     }
 
     fn set_ethernet_over_usb(&self, is_allowed: bool) -> Result<(), RedfishError> {

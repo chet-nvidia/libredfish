@@ -43,21 +43,56 @@ pub struct System {
     pub boot_settings: ODataId,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+/* Front Panel USB Port Management mapping from UI to redfish API:
+
+ - UI: Host Only Mode
+    The front panel USB port is always connected only to the server.
+   API: fp_mode=Server, port_switching_to=Server
+
+ - UI: BMC Only Mode
+    The front panel USB port is always connected only to the XClarity Controller.
+   API: fp_mode=BMC, port_switching_to=BMC
+
+ - UI: Shared Mode: owned by BMC
+    The front panel USB port is shared by both the server and the XClarity Controller, but the port is switched to the XClarity Controller.
+   API: fp_mode=Shared, port_switching_to=BMC
+
+ - UI: Shared Mode: owned by Host
+    The front panel USB port is shared by both the server and the XClarity Controller, but the port is switched to the host.
+   API: fp_mode=Shared, port_switching_to=Server
+*/
+
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 #[serde(rename_all = "PascalCase")]
 pub struct FrontPanelUSB {
     inactivity_timeout_mins: i64,
     #[serde(rename = "IDButton")]
     id_button: String,
-    port_switching_to: String,
+    pub port_switching_to: PortSwitchingMode,
     #[serde(rename = "FPMode")]
-    fp_mode: FrontPanelUSBMode,
+    pub fp_mode: FrontPanelUSBMode,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
+pub enum PortSwitchingMode {
+    BMC,
+    Server,
+}
+
+impl fmt::Display for PortSwitchingMode {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::BMC => f.write_str("BMC"),
+            Self::Server => f.write_str("Server"),
+        }
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub enum FrontPanelUSBMode {
-    Server, // "Host Only Mode" - the secure option
-    Shared, // "Shared Mode: owned by host" - the default
+    Server,
+    Shared,
+    BMC,
 }
 
 impl fmt::Display for FrontPanelUSBMode {
@@ -65,6 +100,7 @@ impl fmt::Display for FrontPanelUSBMode {
         match self {
             Self::Server => f.write_str("Server"),
             Self::Shared => f.write_str("Shared"),
+            Self::BMC => f.write_str("BMC"),
         }
     }
 }
@@ -75,6 +111,7 @@ impl FromStr for FrontPanelUSBMode {
         match s {
             "Server" => Ok(Self::Server),
             "Shared" => Ok(Self::Shared),
+            "BMC" => Ok(Self::BMC),
             x => Err(FrontPanelUSBModeParseError(format!(
                 "Invalid FrontPanelUSBMode value: {x}"
             ))),
