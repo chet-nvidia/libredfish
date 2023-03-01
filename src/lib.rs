@@ -33,6 +33,9 @@ pub trait Redfish {
     /// Lock the BIOS and BMC ready for tenant use. Disabled reverses the changes.
     fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError>;
 
+    /// Are the BIOS and BMC currently locked down?
+    fn lockdown_status(&self) -> Result<LockdownStatus, RedfishError>;
+
     /// Enable SSH access to console
     fn setup_serial_console(&self) -> Result<(), RedfishError>;
 
@@ -62,4 +65,46 @@ pub trait Redfish {
 pub enum Boot {
     Pxe,
     HardDisk,
+}
+
+#[derive(Clone, PartialEq, Debug)]
+pub struct LockdownStatus {
+    pub(crate) status: LockdownStatusInternal,
+    pub(crate) message: String,
+}
+
+impl std::fmt::Display for LockdownStatus {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Copy, Clone, PartialEq, Debug)]
+enum LockdownStatusInternal {
+    Enabled,
+    Partial,
+    Disabled,
+}
+
+impl LockdownStatus {
+    /// Did enabling lockdown complete successfully?
+    pub fn is_fully_locked(&self) -> bool {
+        self.status == LockdownStatusInternal::Enabled
+    }
+
+    /// Did disabling lockdown complete successfuly, or new machine was never locked?
+    pub fn is_fully_unlocked(&self) -> bool {
+        self.status == LockdownStatusInternal::Disabled
+    }
+
+    /// Did lockdown enable/disable fail part way through, so we are partially locked?
+    pub fn is_partially_locked(&self) -> bool {
+        self.status == LockdownStatusInternal::Partial
+    }
+
+    /// A vendor specific message detailing which things are locked and which things are unlocked.
+    /// Format of message will change, do not parse.
+    pub fn message(&self) -> &str {
+        &self.message
+    }
 }

@@ -7,7 +7,8 @@ use crate::{
     model::{oem::lenovo, BootOption},
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
-    Boot, EnabledDisabled, PowerState, Redfish, RedfishError, SystemPowerControl,
+    Boot, EnabledDisabled, LockdownStatus, LockdownStatusInternal, PowerState, Redfish,
+    RedfishError, SystemPowerControl,
 };
 
 pub struct Bmc {
@@ -39,6 +40,38 @@ impl Redfish for Bmc {
             Enabled => self.enable_lockdown(),
             Disabled => self.disable_lockdown(),
         }
+    }
+
+    fn lockdown_status(&self) -> Result<LockdownStatus, RedfishError> {
+        let kcs = self.get_kcs_lenovo()?;
+        let firmware_rollback = self.get_firmware_rollback_lenovo()?;
+        let eth_usb = self.get_ethernet_over_usb()?;
+        let front_usb = self.get_front_panel_usb_lenovo()?;
+
+        let message = format!(
+            "kcs={kcs}, firmware_rollback={firmware_rollback}, ethernet_over_usb={eth_usb}, front_panel_usb={front_usb}"
+        );
+
+        let is_locked = !kcs
+            && !eth_usb
+            && firmware_rollback == EnabledDisabled::Disabled
+            && front_usb == lenovo::FrontPanelUSBMode::Server;
+
+        let is_unlocked = kcs
+            && eth_usb
+            && firmware_rollback == EnabledDisabled::Enabled
+            && front_usb == lenovo::FrontPanelUSBMode::Shared;
+
+        Ok(LockdownStatus {
+            message,
+            status: if is_locked {
+                LockdownStatusInternal::Enabled
+            } else if is_unlocked {
+                LockdownStatusInternal::Disabled
+            } else {
+                LockdownStatusInternal::Partial
+            },
+        })
     }
 
     fn setup_serial_console(&self) -> Result<(), RedfishError> {
@@ -162,6 +195,55 @@ impl Bmc {
         self.s.net.patch(&url, body).map(|_status_code| ())
     }
 
+    fn get_kcs_lenovo(&self) -> Result<bool, RedfishError> {
+        let url = format!("Managers/{}", self.s.manager_id());
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(&url)?;
+
+        let key = "Oem";
+        let oem_obj = body
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_object()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "Object".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let key = "Lenovo";
+        let lenovo_obj = oem_obj
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_object()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "Object".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let key = "KCSEnabled";
+        let is_kcs_enabled = lenovo_obj
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_bool()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "bool".to_string(),
+                url: url.to_string(),
+            })?;
+
+        Ok(is_kcs_enabled)
+    }
+
     fn set_firmware_rollback_lenovo(&self, set: EnabledDisabled) -> Result<(), RedfishError> {
         let body = HashMap::from([(
             "Configurator",
@@ -169,6 +251,48 @@ impl Bmc {
         )]);
         let url = format!("Managers/{}/Oem/Lenovo/Security", self.s.manager_id());
         self.s.net.patch(&url, body).map(|_status_code| ())
+    }
+
+    fn get_firmware_rollback_lenovo(&self) -> Result<EnabledDisabled, RedfishError> {
+        let url = format!("Managers/{}/Oem/Lenovo/Security", self.s.manager_id());
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(&url)?;
+
+        let key = "Configurator";
+        let configurator = body
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_object()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "Object".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let key = "FWRollback";
+        let fw_rollback = configurator
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_str()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "&str".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let fw_typed = fw_rollback
+            .parse()
+            .map_err(|_| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "EnabledDisabled".to_string(),
+                url: url.to_string(),
+            })?;
+        Ok(fw_typed)
     }
 
     fn set_front_panel_usb_lenovo(
@@ -190,10 +314,98 @@ impl Bmc {
         self.s.net.patch(&url, body).map(|_status_code| ())
     }
 
+    fn get_front_panel_usb_lenovo(&self) -> Result<lenovo::FrontPanelUSBMode, RedfishError> {
+        let url = format!("Systems/{}", self.s.system_id());
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(&url)?;
+
+        let key = "Oem";
+        let oem_obj = body
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_object()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "Object".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let key = "Lenovo";
+        let lenovo_obj = oem_obj
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_object()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "Object".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let key = "FrontPanelUSB";
+        let fp_usb = lenovo_obj
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_object()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "Object".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let key = "FPMode";
+        let fp_mode = fp_usb
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_str()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "&str".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let fp_mode_typed = fp_mode.parse().map_err(|_| RedfishError::InvalidKeyType {
+            key: key.to_string(),
+            expected_type: "FrontPanelUSBMode".to_string(),
+            url: url.to_string(),
+        })?;
+        Ok(fp_mode_typed)
+    }
+
     fn set_ethernet_over_usb(&self, is_allowed: bool) -> Result<(), RedfishError> {
         let body = HashMap::from([("InterfaceEnabled", is_allowed)]);
         let url = format!("Managers/{}/EthernetInterfaces/ToHost", self.s.manager_id());
         self.s.net.patch(&url, body).map(|_status_code| ())
+    }
+
+    fn get_ethernet_over_usb(&self) -> Result<bool, RedfishError> {
+        let url = format!("Managers/{}/EthernetInterfaces/ToHost", self.s.manager_id());
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(&url)?;
+
+        let key = "InterfaceEnabled";
+        let is_allowed = body
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_bool()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "bool".to_string(),
+                url: url.to_string(),
+            })?;
+        Ok(is_allowed)
     }
 
     fn set_boot_override(&self, target: lenovo::BootSource) -> Result<(), RedfishError> {

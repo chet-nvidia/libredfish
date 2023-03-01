@@ -1,4 +1,4 @@
-use std::fmt;
+use std::{fmt, str::FromStr};
 
 use serde::{Deserialize, Serialize};
 
@@ -54,7 +54,7 @@ pub struct FrontPanelUSB {
     fp_mode: FrontPanelUSBMode,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
 pub enum FrontPanelUSBMode {
     Server, // "Host Only Mode" - the secure option
     Shared, // "Shared Mode: owned by host" - the default
@@ -63,9 +63,31 @@ pub enum FrontPanelUSBMode {
 impl fmt::Display for FrontPanelUSBMode {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            FrontPanelUSBMode::Server => f.write_str("Server"),
-            FrontPanelUSBMode::Shared => f.write_str("Shared"),
+            Self::Server => f.write_str("Server"),
+            Self::Shared => f.write_str("Shared"),
         }
+    }
+}
+
+impl FromStr for FrontPanelUSBMode {
+    type Err = FrontPanelUSBModeParseError;
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "Server" => Ok(Self::Server),
+            "Shared" => Ok(Self::Shared),
+            x => Err(FrontPanelUSBModeParseError(format!(
+                "Invalid FrontPanelUSBMode value: {x}"
+            ))),
+        }
+    }
+}
+
+#[derive(Debug)]
+pub struct FrontPanelUSBModeParseError(String);
+
+impl fmt::Display for FrontPanelUSBModeParseError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
     }
 }
 
@@ -173,6 +195,6 @@ mod test {
     fn test_bios_parser_lenovo() {
         let test_data = include_str!("../testdata/bios_lenovo.json");
         let result: super::Bios = serde_json::from_str(test_data).unwrap();
-        println!("result: {:#?}", result);
+        println!("result: {result:#?}");
     }
 }

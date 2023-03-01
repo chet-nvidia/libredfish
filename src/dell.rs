@@ -3,7 +3,8 @@ use std::collections::HashMap;
 use crate::{
     model::{oem::dell, OnOff},
     standard::RedfishStandard,
-    Boot, EnabledDisabled, PowerState, Redfish, RedfishError, SystemPowerControl,
+    Boot, EnabledDisabled, LockdownStatus, LockdownStatusInternal, PowerState, Redfish,
+    RedfishError, SystemPowerControl,
 };
 
 pub struct Bmc {
@@ -43,6 +44,93 @@ impl Redfish for Bmc {
                 self.disable_bios_lockdown()
             }
         }
+    }
+
+    fn lockdown_status(&self) -> Result<LockdownStatus, RedfishError> {
+        let mut message = String::new();
+        let enabled = EnabledDisabled::Enabled.to_string();
+        let disabled = EnabledDisabled::Disabled.to_string();
+
+        // BIOS lockdown
+
+        let url = format!("Systems/{}/Bios", self.s.system_id());
+        let (_status_code, bios): (_, dell::Bios) = self.s.net.get(&url)?;
+
+        let in_band = bios.attributes.in_band_manageability_interface;
+        let uefi_var = bios.attributes.uefi_variable_access;
+        message.push_str(&format!(
+            "BIOS: in_band_manageability_interface={in_band}, uefi_variable_access={uefi_var}. "
+        ));
+
+        let is_bios_locked = in_band == disabled
+            && uefi_var == dell::UefiVariableAccessSettings::Controlled.to_string();
+        let is_bios_unlocked = in_band == enabled
+            && uefi_var == dell::UefiVariableAccessSettings::Standard.to_string();
+
+        // BMC lockdown
+
+        let manager_id = self.s.manager_id();
+        let url = &format!("Managers/{manager_id}/Oem/Dell/DellAttributes/{manager_id}");
+        let (_status_code, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(url)?;
+        let key = "Attributes";
+        let attrs = body
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_object()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "Object".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let key = "Lockdown.1.SystemLockdown";
+        let system_lockdown = attrs
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_str()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "&str".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let key = "Racadm.1.Enable";
+        let racadm = attrs
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_str()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "&str".to_string(),
+                url: url.to_string(),
+            })?;
+
+        message.push_str(&format!(
+            "BMC: system_lockdown={system_lockdown}, racadm={racadm}."
+        ));
+
+        let is_bmc_locked = system_lockdown == enabled && racadm == disabled;
+        let is_bmc_unlocked = system_lockdown == disabled && racadm == enabled;
+
+        Ok(LockdownStatus {
+            message,
+            status: if is_bios_locked && is_bmc_locked {
+                LockdownStatusInternal::Enabled
+            } else if is_bios_unlocked && is_bmc_unlocked {
+                LockdownStatusInternal::Disabled
+            } else {
+                LockdownStatusInternal::Partial
+            },
+        })
     }
 
     fn setup_serial_console(&self) -> Result<(), RedfishError> {
