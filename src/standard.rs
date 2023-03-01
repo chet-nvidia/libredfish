@@ -4,7 +4,7 @@ use tracing::debug;
 
 use crate::model::{power, storage, thermal};
 use crate::network::NetworkConfig;
-use crate::{model, Boot, EnabledDisabled, PowerState, Redfish};
+use crate::{model, Boot, EnabledDisabled, LockdownStatus, PowerState, Redfish};
 use crate::{network::Network, RedfishError};
 
 /// The calls that use the Redfish standard without any OEM extensions.
@@ -41,6 +41,10 @@ impl Redfish for RedfishStandard {
     }
 
     fn lockdown(&self, _target: EnabledDisabled) -> Result<(), RedfishError> {
+        unimplemented!("No standard implementation");
+    }
+
+    fn lockdown_status(&self) -> Result<LockdownStatus, RedfishError> {
         unimplemented!("No standard implementation");
     }
 
@@ -166,6 +170,13 @@ impl RedfishStandard {
     //
     // NOT CURRENTLY USED
     //
+
+    #[allow(dead_code)]
+    pub fn get_manager(&self) -> Result<model::Manager, RedfishError> {
+        let (_, manager): (_, model::Manager) =
+            self.net.get(&format!("Managers/{}", self.manager_id()))?;
+        Ok(manager)
+    }
 
     #[allow(dead_code)]
     pub fn get_array_controller(

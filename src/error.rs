@@ -36,4 +36,14 @@ pub enum RedfishError {
 
     #[error("UnnecessaryOperation such as trying to turn on a machine that is already on.")]
     UnnecessaryOperation,
+
+    #[error("Missing key {key} in JSON at {url}")]
+    MissingKey { key: String, url: String },
+
+    #[error("Key {key} should be {expected_type} at {url}")]
+    InvalidKeyType {
+        key: String,
+        expected_type: String,
+        url: String,
+    },
 }

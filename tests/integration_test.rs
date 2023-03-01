@@ -57,15 +57,23 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     // Dell will 400 Bad Request if you make two consecutive changes.
     redfish.lockdown(libredfish::EnabledDisabled::Disabled)?;
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
+    if vendor_dir == "dell" {
+        // we're testing against static files, so these don't change
+        assert!(redfish.lockdown_status()?.is_fully_unlocked());
+    }
+
     redfish.lockdown(libredfish::EnabledDisabled::Enabled)?;
     redfish.power(libredfish::SystemPowerControl::GracefulRestart)?;
+    if vendor_dir == "lenovo" {
+        assert!(redfish.lockdown_status()?.is_fully_locked());
+    }
 
     redfish.setup_serial_console()?;
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
 
     redfish.clear_tpm()?;
     // The mockup includes TPM clear pending operation
-    assert!(redfish.pending()?.len() > 0);
+    assert!(!redfish.pending()?.is_empty());
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
 
     redfish.boot_once(libredfish::Boot::Pxe)?;

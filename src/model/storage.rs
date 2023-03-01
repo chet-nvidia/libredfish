@@ -371,55 +371,55 @@ mod test {
     fn test_storage_logical_drives_parser() {
         let test_data = include_str!("testdata/logical-drives.json");
         let result: super::LogicalDrives = serde_json::from_str(test_data).unwrap();
-        println!("result: {:#?}", result);
+        println!("result: {result:#?}");
     }
 
     #[test]
     fn test_array_controller_parser() {
         let test_data = include_str!("testdata/array-controller.json");
         let result: super::ArrayController = serde_json::from_str(test_data).unwrap();
-        println!("result: {:#?}", result);
+        println!("result: {result:#?}");
     }
 
     #[test]
     fn test_storage_drives_parser() {
         let test_data = include_str!("testdata/disk-drives.json");
         let result: super::DiskDrives = serde_json::from_str(test_data).unwrap();
-        println!("result: {:#?}", result);
+        println!("result: {result:#?}");
     }
 
     #[test]
     fn test_storage_drive_parser() {
         let test_data = include_str!("testdata/disk-drive.json");
         let result: super::DiskDrive = serde_json::from_str(test_data).unwrap();
-        println!("result: {:#?}", result);
+        println!("result: {result:#?}");
     }
 
     #[test]
     fn test_array_controllers_parser() {
         let test_data = include_str!("testdata/array-controllers.json");
         let result: super::ArrayControllers = serde_json::from_str(test_data).unwrap();
-        println!("result: {:#?}", result);
+        println!("result: {result:#?}");
     }
 
     #[test]
     fn test_smart_array_parser() {
         let test_data = include_str!("testdata/smart-array.json");
         let result: super::SmartArray = serde_json::from_str(test_data).unwrap();
-        println!("result: {:#?}", result);
+        println!("result: {result:#?}");
     }
 
     #[test]
     fn test_storage_enclosure_parser() {
         let test_data = include_str!("testdata/storage-enclosure.json");
         let result: super::StorageEnclosure = serde_json::from_str(test_data).unwrap();
-        println!("result: {:#?}", result);
+        println!("result: {result:#?}");
     }
 
     #[test]
     fn test_storage_enclosures_parser() {
         let test_data = include_str!("testdata/storage-enclosures.json");
         let result: super::StorageEnclosures = serde_json::from_str(test_data).unwrap();
-        println!("result: {:#?}", result);
+        println!("result: {result:#?}");
     }
 }

@@ -140,6 +140,6 @@ mod test {
     fn test_power_parser() {
         let test_data = include_str!("testdata/power.json");
         let result: super::Power = serde_json::from_str(test_data).unwrap();
-        println!("result: {:#?}", result);
+        println!("result: {result:#?}");
     }
 }

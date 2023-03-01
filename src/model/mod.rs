@@ -1,4 +1,4 @@
-use std::fmt;
+use std::{fmt, str::FromStr};
 
 use serde::{Deserialize, Serialize};
 pub mod manager;
@@ -121,6 +121,28 @@ impl EnabledDisabled {
 }
 
 impl fmt::Display for EnabledDisabled {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+impl FromStr for EnabledDisabled {
+    type Err = EnabledDisabledParseError;
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "Enabled" => Ok(Self::Enabled),
+            "Disabled" => Ok(Self::Disabled),
+            x => Err(EnabledDisabledParseError(format!(
+                "Invalid EnabledDisabled value: {x}"
+            ))),
+        }
+    }
+}
+
+#[derive(Debug)]
+pub struct EnabledDisabledParseError(String);
+
+impl fmt::Display for EnabledDisabledParseError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         fmt::Debug::fmt(self, f)
     }
