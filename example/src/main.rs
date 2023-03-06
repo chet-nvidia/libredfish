@@ -9,13 +9,49 @@ fn main() -> Result<(), anyhow::Error> {
     let mut opts = getopts::Options::new();
     let mut conf = libredfish::NetworkConfig::default();
 
+    opts.optflag("h", "help", "Print this help");
     opts.optflag("v", "verbose", "Log at DEBUG level. Default is INFO");
-    opts.optopt("H", "hostname", "specify hostname or IP address", "HOST");
-    opts.optopt("U", "username", "specify authentication username", "USER");
-    opts.optopt("P", "password", "specify authentication password", "PASS");
-    opts.optopt("c", "cmd", "specify the command to run: off/on/reset/shutdown/restart/get_power_state/tpm_reset/serial_enable/lockdown_enable/lockdown_disable/lockdown_status/bios_attrs/boot_pxe/boot_hdd/boot_once_pxe/boot_once_hdd/pending", "CMD");
+    opts.optopt(
+        "H",
+        "hostname",
+        "Required. Hostname or IP address of BMC Redfish API",
+        "HOST",
+    );
+    opts.optopt("U", "username", "BMC username", "USER");
+    opts.optopt("P", "password", "BMC password", "PASS");
+    opts.optopt(
+        "c",
+        "cmd",
+        "Command to run:
+                off
+                on
+                reset
+                shutdown
+                restart
+                get_power_state
+                tpm_reset
+                serial_enable
+                serial_status
+                lockdown_enable
+                lockdown_disable
+                lockdown_status
+                bios_attrs
+                boot_pxe
+                boot_hdd
+                boot_once_pxe
+                boot_once_hdd
+                pending",
+        "CMD",
+    );
 
     let args_given = opts.parse(&args[1..]).unwrap();
+    if args_given.opt_present("h") || !args_given.opt_present("H") {
+        eprintln!(
+            "{}",
+            opts.usage("client -H bmc_ip -U bmc_user -P bmc_pass -c cmd")
+        );
+        return Ok(());
+    }
     if args_given.opt_present("H") {
         conf.endpoint = args_given.opt_str("H").unwrap();
     }
@@ -77,6 +113,9 @@ fn main() -> Result<(), anyhow::Error> {
                 redfish.setup_serial_console()?;
                 info!("BIOS settings changes require system restart");
             }
+            "serial_status" => {
+                info!("{}", redfish.serial_console_status()?);
+            }
             "tpm_reset" => {
                 redfish.clear_tpm()?;
                 info!("BIOS settings changes require system restart");
@@ -94,7 +133,7 @@ fn main() -> Result<(), anyhow::Error> {
                 redfish.boot_once(Boot::HardDisk)?;
             }
             "bios_attrs" => {
-                let bios = redfish.bios_attributes()?;
+                let bios = redfish.bios()?;
                 info!("{:#?}", bios);
             }
             "pending" => {

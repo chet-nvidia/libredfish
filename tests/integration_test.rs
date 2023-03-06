@@ -47,7 +47,7 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     let redfish = libredfish::new(redfish_net_conf)?;
 
     assert_eq!(redfish.get_power_state()?, libredfish::PowerState::On);
-    assert!(redfish.bios_attributes()?.len() > 10);
+    assert!(redfish.bios()?.len() > 10);
 
     redfish.power(libredfish::SystemPowerControl::GracefulShutdown)?;
     redfish.power(libredfish::SystemPowerControl::ForceOff)?;
@@ -59,17 +59,18 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
     if vendor_dir == "dell" {
         // we're testing against static files, so these don't change
-        assert!(redfish.lockdown_status()?.is_fully_unlocked());
+        assert!(redfish.lockdown_status()?.is_fully_disabled());
     }
 
     redfish.lockdown(libredfish::EnabledDisabled::Enabled)?;
     redfish.power(libredfish::SystemPowerControl::GracefulRestart)?;
     if vendor_dir == "lenovo" {
-        assert!(redfish.lockdown_status()?.is_fully_locked());
+        assert!(redfish.lockdown_status()?.is_fully_enabled());
     }
 
     redfish.setup_serial_console()?;
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
+    assert!(redfish.serial_console_status()?.is_fully_enabled());
 
     redfish.clear_tpm()?;
     // The mockup includes TPM clear pending operation

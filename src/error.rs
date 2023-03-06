@@ -1,5 +1,7 @@
 use reqwest::StatusCode;
 
+use crate::model::InvalidValueError;
+
 #[derive(thiserror::Error, Debug)]
 pub enum RedfishError {
     #[error("Network error talking to BMC at {url}. {source}")]
@@ -45,5 +47,12 @@ pub enum RedfishError {
         key: String,
         expected_type: String,
         url: String,
+    },
+
+    #[error("Field {field} parse error at {url}: {err}")]
+    InvalidValue {
+        url: String,
+        field: String,
+        err: InvalidValueError,
     },
 }

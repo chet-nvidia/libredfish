@@ -378,7 +378,7 @@
         "SecureBootMode": "DeployedMode",
         "SecureBootPolicy": "Standard",
         "SecurityFreezeLock": "Enabled",
-        "SerialComm": "Off",
+        "SerialComm": "OnConRedir",
         "SerialPortAddress": "Com1",
         "SetBootOrderDis": "",
         "SetBootOrderEn": "NIC.HttpDevice.1-1,AHCI.SL.6-2",

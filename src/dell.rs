@@ -3,8 +3,8 @@ use std::collections::HashMap;
 use crate::{
     model::{oem::dell, OnOff},
     standard::RedfishStandard,
-    Boot, EnabledDisabled, LockdownStatus, LockdownStatusInternal, PowerState, Redfish,
-    RedfishError, SystemPowerControl,
+    Boot, EnabledDisabled, PowerState, Redfish, RedfishError, Status, StatusInternal,
+    SystemPowerControl,
 };
 
 pub struct Bmc {
@@ -26,8 +26,8 @@ impl Redfish for Bmc {
         self.s.power(action)
     }
 
-    fn bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
-        self.s.bios_attributes()
+    fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        self.s.bios()
     }
 
     fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
@@ -46,7 +46,7 @@ impl Redfish for Bmc {
         }
     }
 
-    fn lockdown_status(&self) -> Result<LockdownStatus, RedfishError> {
+    fn lockdown_status(&self) -> Result<Status, RedfishError> {
         let mut message = String::new();
         let enabled = EnabledDisabled::Enabled.to_string();
         let disabled = EnabledDisabled::Disabled.to_string();
@@ -69,22 +69,7 @@ impl Redfish for Bmc {
 
         // BMC lockdown
 
-        let manager_id = self.s.manager_id();
-        let url = &format!("Managers/{manager_id}/Oem/Dell/DellAttributes/{manager_id}");
-        let (_status_code, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(url)?;
-        let key = "Attributes";
-        let attrs = body
-            .get(key)
-            .ok_or_else(|| RedfishError::MissingKey {
-                key: key.to_string(),
-                url: url.to_string(),
-            })?
-            .as_object()
-            .ok_or_else(|| RedfishError::InvalidKeyType {
-                key: key.to_string(),
-                expected_type: "Object".to_string(),
-                url: url.to_string(),
-            })?;
+        let attrs = self.manager_attributes()?;
 
         let key = "Lockdown.1.SystemLockdown";
         let system_lockdown = attrs
@@ -121,14 +106,14 @@ impl Redfish for Bmc {
         let is_bmc_locked = system_lockdown == enabled && racadm == disabled;
         let is_bmc_unlocked = system_lockdown == disabled && racadm == enabled;
 
-        Ok(LockdownStatus {
+        Ok(Status {
             message,
             status: if is_bios_locked && is_bmc_locked {
-                LockdownStatusInternal::Enabled
+                StatusInternal::Enabled
             } else if is_bios_unlocked && is_bmc_unlocked {
-                LockdownStatusInternal::Disabled
+                StatusInternal::Disabled
             } else {
-                LockdownStatusInternal::Partial
+                StatusInternal::Partial
             },
         })
     }
@@ -159,6 +144,30 @@ impl Redfish for Bmc {
             .net
             .patch(&url, set_serial_attrs)
             .map(|_status_code| ())
+    }
+
+    fn serial_console_status(&self) -> Result<Status, RedfishError> {
+        let Status {
+            status: remote_access_status,
+            message: remote_access_message,
+        } = self.bmc_remote_access_status()?;
+        let Status {
+            status: bios_serial_status,
+            message: bios_serial_message,
+        } = self.bios_serial_console_status()?;
+
+        let final_status = {
+            use StatusInternal::*;
+            match (remote_access_status, bios_serial_status) {
+                (Enabled, Enabled) => Enabled,
+                (Disabled, Disabled) => Disabled,
+                _ => Partial,
+            }
+        };
+        Ok(Status {
+            status: final_status,
+            message: format!("BMC: {remote_access_message}. BIOS: {bios_serial_message}."),
+        })
     }
 
     fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {
@@ -362,6 +371,166 @@ impl Bmc {
             .net
             .patch(&url, set_remote_access)
             .map(|_status_code| ())
+    }
+
+    fn bmc_remote_access_status(&self) -> Result<Status, RedfishError> {
+        let attrs = self.manager_attributes()?;
+        let expected = vec![
+            // "any" means any value counts as correctly disabled
+            ("SerialRedirection.1.Enable", "Enabled", "Disabled"),
+            ("IPMISOL.1.BaudRate", "115200", "any"),
+            ("IPMISOL.1.Enable", "Enabled", "Disabled"),
+            ("IPMISOL.1.MinPrivilege", "Administrator", "any"),
+            ("SSH.1.Enable", "Enabled", "Disabled"),
+            ("IPMILan.1.Enable", "Enabled", "Disabled"),
+        ];
+
+        // url is for error messages only
+        let manager_id = self.s.manager_id();
+        let url = &format!("Managers/{manager_id}/Oem/Dell/DellAttributes/{manager_id}");
+
+        let mut message = String::new();
+        let mut enabled = true;
+        let mut disabled = true;
+        for (key, val_enabled, val_disabled) in expected {
+            let val_current = attrs
+                .get(key)
+                .ok_or_else(|| RedfishError::MissingKey {
+                    key: key.to_string(),
+                    url: url.to_string(),
+                })?
+                .as_str()
+                .ok_or_else(|| RedfishError::InvalidKeyType {
+                    key: key.to_string(),
+                    expected_type: "&str".to_string(),
+                    url: url.to_string(),
+                })?;
+            message.push_str(&format!("{key}={val_current} "));
+            if val_current != val_enabled {
+                enabled = false;
+            }
+            if val_current != val_disabled && val_disabled != "any" {
+                disabled = false;
+            }
+        }
+
+        Ok(Status {
+            message,
+            status: match (enabled, disabled) {
+                (true, _) => StatusInternal::Enabled,
+                (_, true) => StatusInternal::Disabled,
+                _ => StatusInternal::Partial,
+            },
+        })
+    }
+
+    fn bios_serial_console_status(&self) -> Result<Status, RedfishError> {
+        let mut message = String::new();
+
+        // Start with true, then check every value to see whether it means things are not setup
+        // correctly, and set the value to false.
+        // Note that there are three results: Enabled, Disabled, and Partial, so enabled and
+        // disabled can both be false by the end. They cannot both be true.
+        let mut enabled = true;
+        let mut disabled = true;
+
+        let url = &format!("Systems/{}/Bios", self.s.system_id());
+        let (_status_code, bios): (_, dell::Bios) = self.s.net.get(url)?;
+        let bios = bios.attributes;
+
+        let val = bios.serial_comm;
+        message.push_str(&format!("serial_comm={val} "));
+        match val.parse().map_err(|err| RedfishError::InvalidValue {
+            err,
+            url: url.to_string(),
+            field: "serial_comm".to_string(),
+        })? {
+            dell::SerialCommSettings::OnConRedir | dell::SerialCommSettings::OnConRedirAuto => {
+                // enabled
+                disabled = false;
+            }
+            dell::SerialCommSettings::Off => {
+                // disabled
+                enabled = false;
+            }
+            _ => {
+                // someone messed with it manually
+                enabled = false;
+                disabled = false;
+            }
+        }
+
+        let val = bios.redir_after_boot;
+        message.push_str(&format!("redir_after_boot={val} "));
+        match val.parse().map_err(|err| RedfishError::InvalidValue {
+            err,
+            url: url.to_string(),
+            field: "redir_after_boot".to_string(),
+        })? {
+            EnabledDisabled::Enabled => {
+                disabled = false;
+            }
+            EnabledDisabled::Disabled => {
+                enabled = false;
+            }
+        }
+
+        // All of these need a specific value for serial console access to work.
+        // Any other value counts as correctly disabled.
+
+        let val = bios.serial_port_address;
+        message.push_str(&format!("serial_port_address={val} "));
+        if val != dell::SerialPortSettings::Com1.to_string() {
+            enabled = false;
+        }
+
+        let val = bios.ext_serial_connector;
+        message.push_str(&format!("ext_serial_connector={val} "));
+        if val != dell::SerialPortExtSettings::Serial1.to_string() {
+            enabled = false;
+        }
+
+        let val = bios.fail_safe_baud;
+        message.push_str(&format!("fail_safe_baud={val} "));
+        if &val != "115200" {
+            enabled = false;
+        }
+
+        let val = bios.con_term_type;
+        message.push_str(&format!("con_term_type={val} "));
+        if val != dell::SerialPortTermSettings::Vt100Vt220.to_string() {
+            enabled = false;
+        }
+
+        Ok(Status {
+            message,
+            status: match (enabled, disabled) {
+                (true, _) => StatusInternal::Enabled,
+                (_, true) => StatusInternal::Disabled,
+                _ => StatusInternal::Partial,
+            },
+        })
+    }
+
+    fn manager_attributes(
+        &self,
+    ) -> Result<serde_json::Map<String, serde_json::Value>, RedfishError> {
+        let manager_id = self.s.manager_id();
+        let url = &format!("Managers/{manager_id}/Oem/Dell/DellAttributes/{manager_id}");
+        let (_status_code, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(url)?;
+        let key = "Attributes";
+        body.get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_object()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "Object".to_string(),
+                url: url.to_string(),
+            })
+            .cloned()
     }
 
     // TPM is enabled by default so we never call this.

@@ -4,7 +4,7 @@ use tracing::debug;
 
 use crate::model::{power, storage, thermal};
 use crate::network::NetworkConfig;
-use crate::{model, Boot, EnabledDisabled, LockdownStatus, PowerState, Redfish};
+use crate::{model, Boot, EnabledDisabled, PowerState, Redfish, Status};
 use crate::{network::Network, RedfishError};
 
 /// The calls that use the Redfish standard without any OEM extensions.
@@ -29,7 +29,7 @@ impl Redfish for RedfishStandard {
         self.net.post(&url, arg).map(|_status_code| Ok(()))?
     }
 
-    fn bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+    fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
         let url = format!("Systems/{}/Bios", self.system_id());
         let (_status_code, body) = self.net.get(&url)?;
         Ok(body)
@@ -44,11 +44,15 @@ impl Redfish for RedfishStandard {
         unimplemented!("No standard implementation");
     }
 
-    fn lockdown_status(&self) -> Result<LockdownStatus, RedfishError> {
+    fn lockdown_status(&self) -> Result<Status, RedfishError> {
         unimplemented!("No standard implementation");
     }
 
     fn setup_serial_console(&self) -> Result<(), RedfishError> {
+        unimplemented!("No standard implementation");
+    }
+
+    fn serial_console_status(&self) -> Result<Status, RedfishError> {
         unimplemented!("No standard implementation");
     }
 
@@ -108,7 +112,7 @@ impl RedfishStandard {
             self.net.get(pending_url)?;
         let pending_attrs = body.get("Attributes").unwrap().as_object().unwrap();
 
-        let current = self.bios_attributes()?;
+        let current = self.bios()?;
         let current_attrs = current.get("Attributes").unwrap();
 
         let diff = pending_attrs

@@ -7,8 +7,8 @@ use crate::{
     model::{oem::lenovo, BootOption},
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
-    Boot, EnabledDisabled, LockdownStatus, LockdownStatusInternal, PowerState, Redfish,
-    RedfishError, SystemPowerControl,
+    Boot, EnabledDisabled, PowerState, Redfish, RedfishError, Status, StatusInternal,
+    SystemPowerControl,
 };
 
 pub struct Bmc {
@@ -30,8 +30,8 @@ impl Redfish for Bmc {
         self.s.power(action)
     }
 
-    fn bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
-        self.s.bios_attributes()
+    fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        self.s.bios()
     }
 
     fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
@@ -42,7 +42,7 @@ impl Redfish for Bmc {
         }
     }
 
-    fn lockdown_status(&self) -> Result<LockdownStatus, RedfishError> {
+    fn lockdown_status(&self) -> Result<Status, RedfishError> {
         let kcs = self.get_kcs_lenovo()?;
         let firmware_rollback = self.get_firmware_rollback_lenovo()?;
         let eth_usb = self.get_ethernet_over_usb()?;
@@ -64,14 +64,14 @@ impl Redfish for Bmc {
             && front_usb.fp_mode == lenovo::FrontPanelUSBMode::Shared
             && front_usb.port_switching_to == lenovo::PortSwitchingMode::Server;
 
-        Ok(LockdownStatus {
+        Ok(Status {
             message,
             status: if is_locked {
-                LockdownStatusInternal::Enabled
+                StatusInternal::Enabled
             } else if is_unlocked {
-                LockdownStatusInternal::Disabled
+                StatusInternal::Disabled
             } else {
-                LockdownStatusInternal::Partial
+                StatusInternal::Partial
             },
         })
     }
@@ -87,7 +87,7 @@ impl Redfish for Bmc {
                 ),
                 (
                     "DevicesandIOPorts_ConsoleRedirection",
-                    EnabledDisabled::Enabled.to_string(),
+                    "Enabled".to_string(), // not an EnabledDisabled, can be "Auto"
                 ),
                 (
                     "DevicesandIOPorts_SPRedirection",
@@ -109,6 +109,74 @@ impl Redfish for Bmc {
         );
         let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
         self.s.net.patch(&url, body).map(|_status_code| ())
+    }
+
+    fn serial_console_status(&self) -> Result<Status, RedfishError> {
+        let bios = self.bios()?;
+        let attrs = bios
+            .get("Attributes")
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: "Attributes".to_string(),
+                url: format!("Systems/{}/Bios", self.s.system_id()),
+            })?
+            .as_object()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: "Attributes".to_string(),
+                expected_type: "Object".to_string(),
+                url: format!("Systems/{}/Bios", self.s.system_id()),
+            })?;
+
+        let expected = vec![
+            // "any" means any value counts as correctly disabled
+            ("DevicesandIOPorts_COMPort1", "Enabled", "any"),
+            ("DevicesandIOPorts_ConsoleRedirection", "Enabled", "Auto"),
+            ("DevicesandIOPorts_SPRedirection", "Enabled", "Disabled"),
+            ("DevicesandIOPorts_SerialPortSharing", "Enabled", "Disabled"),
+            (
+                "DevicesandIOPorts_COMPortActiveAfterBoot",
+                "Enabled",
+                "Disabled",
+            ),
+            (
+                "DevicesandIOPorts_SerialPortAccessMode",
+                "Shared",
+                "Disabled",
+            ),
+        ];
+        let mut message = String::new();
+        let mut enabled = true;
+        let mut disabled = true;
+        let url = format!("Systems/{}/Bios", self.s.system_id()); // url for debug only
+        for (key, val_enabled, val_disabled) in expected {
+            let val_current = attrs
+                .get(key)
+                .ok_or_else(|| RedfishError::MissingKey {
+                    key: key.to_string(),
+                    url: url.to_string(),
+                })?
+                .as_str()
+                .ok_or_else(|| RedfishError::InvalidKeyType {
+                    key: key.to_string(),
+                    expected_type: "&str".to_string(),
+                    url: url.to_string(),
+                })?;
+            message.push_str(&format!("{key}={val_current} "));
+            if val_current != val_enabled {
+                enabled = false;
+            }
+            if val_current != val_disabled && val_disabled != "any" {
+                disabled = false;
+            }
+        }
+
+        Ok(Status {
+            message,
+            status: match (enabled, disabled) {
+                (true, _) => StatusInternal::Enabled,
+                (_, true) => StatusInternal::Disabled,
+                _ => StatusInternal::Partial,
+            },
+        })
     }
 
     fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {
