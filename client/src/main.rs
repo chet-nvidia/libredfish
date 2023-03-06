@@ -1,3 +1,12 @@
+/* Redfish API test/example client
+ * Also useful for debugging BMC's in inconsistent state.
+ *
+ * USAGE: ./client -H 10.153.145.103 -U TheBMCUsername -P TheBMCPassword -c get_power_state
+ * -H: IP address of the BMC's Redfish API. Should be HTTPS on port 443.
+ * Run with no params for help.
+ * Run with `-v` for more output.
+ */
+
 use libredfish::{Boot, EnabledDisabled, SystemPowerControl};
 use tracing::{error, info};
 use tracing_subscriber::filter::{EnvFilter, LevelFilter};
