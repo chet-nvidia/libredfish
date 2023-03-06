@@ -1,8 +1,10 @@
 use std::fmt;
+use std::str::FromStr;
 
 use serde::{Deserialize, Serialize};
 
 use crate::model::BiosCommon;
+use crate::model::InvalidValueError;
 use crate::model::OnOff;
 use crate::{model::ODataLinks, EnabledDisabled};
 
@@ -247,12 +249,28 @@ pub struct SetBiosSerialAttrs {
 pub enum SerialCommSettings {
     OnConRedir, // preferred
     OnNoConRedir,
+    OnConRedirAuto, // PowerEdge R640
     Off,
 }
 
 impl fmt::Display for SerialCommSettings {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         fmt::Debug::fmt(self, f)
+    }
+}
+
+impl FromStr for SerialCommSettings {
+    type Err = InvalidValueError;
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "OnConRedir" => Ok(Self::OnConRedir),
+            "OnNoConRedir" => Ok(Self::OnNoConRedir),
+            "OnConRedirAuto" => Ok(Self::OnConRedirAuto),
+            "Off" => Ok(Self::Off),
+            x => Err(InvalidValueError(format!(
+                "Invalid SerialCommSettings value: {x}"
+            ))),
+        }
     }
 }
 

@@ -34,10 +34,13 @@ pub trait Redfish {
     fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError>;
 
     /// Are the BIOS and BMC currently locked down?
-    fn lockdown_status(&self) -> Result<LockdownStatus, RedfishError>;
+    fn lockdown_status(&self) -> Result<Status, RedfishError>;
 
     /// Enable SSH access to console
     fn setup_serial_console(&self) -> Result<(), RedfishError>;
+
+    /// Is the serial console setup?
+    fn serial_console_status(&self) -> Result<Status, RedfishError>;
 
     /// Boot a single time of the given target. Does not change boot order after that.
     fn boot_once(&self, target: Boot) -> Result<(), RedfishError>;
@@ -51,8 +54,8 @@ pub trait Redfish {
     /*
      * Diagnostic calls
      */
-    /// All the BIOS attributes for this provider. Very OEM specific.
-    fn bios_attributes(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError>;
+    /// All the BIOS values for this provider. Very OEM specific.
+    fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError>;
 
     /// Pending BIOS attributes. Changes that were requested but not applied yet because
     /// they need a reboot.
@@ -67,43 +70,45 @@ pub enum Boot {
     HardDisk,
 }
 
+/// The current status of something (lockdown, serial_console), saying whether it has been enabled,
+/// disabled, or the necessary settings are only partially applied.
 #[derive(Clone, PartialEq, Debug)]
-pub struct LockdownStatus {
-    pub(crate) status: LockdownStatusInternal,
+pub struct Status {
+    pub(crate) status: StatusInternal,
     pub(crate) message: String,
 }
 
-impl std::fmt::Display for LockdownStatus {
+impl std::fmt::Display for Status {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         std::fmt::Debug::fmt(self, f)
     }
 }
 
 #[derive(Copy, Clone, PartialEq, Debug)]
-enum LockdownStatusInternal {
+enum StatusInternal {
     Enabled,
     Partial,
     Disabled,
 }
 
-impl LockdownStatus {
-    /// Did enabling lockdown complete successfully?
-    pub fn is_fully_locked(&self) -> bool {
-        self.status == LockdownStatusInternal::Enabled
+impl Status {
+    /// Did enabling complete successfully?
+    pub fn is_fully_enabled(&self) -> bool {
+        self.status == StatusInternal::Enabled
     }
 
-    /// Did disabling lockdown complete successfuly, or new machine was never locked?
-    pub fn is_fully_unlocked(&self) -> bool {
-        self.status == LockdownStatusInternal::Disabled
+    /// Did disabling complete successfuly (or thing was never enabled in the first place)?
+    pub fn is_fully_disabled(&self) -> bool {
+        self.status == StatusInternal::Disabled
     }
 
     /// Did lockdown enable/disable fail part way through, so we are partially locked?
-    pub fn is_partially_locked(&self) -> bool {
-        self.status == LockdownStatusInternal::Partial
+    pub fn is_partially_enabled(&self) -> bool {
+        self.status == StatusInternal::Partial
     }
 
-    /// A vendor specific message detailing which things are locked and which things are unlocked.
-    /// Format of message will change, do not parse.
+    /// A vendor specific message detailing the individual status of the parts that are needed to
+    /// enable or disabled. Format of message will change, do not parse.
     pub fn message(&self) -> &str {
         &self.message
     }

@@ -127,12 +127,12 @@ impl fmt::Display for EnabledDisabled {
 }
 
 impl FromStr for EnabledDisabled {
-    type Err = EnabledDisabledParseError;
+    type Err = InvalidValueError;
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match s {
             "Enabled" => Ok(Self::Enabled),
             "Disabled" => Ok(Self::Disabled),
-            x => Err(EnabledDisabledParseError(format!(
+            x => Err(InvalidValueError(format!(
                 "Invalid EnabledDisabled value: {x}"
             ))),
         }
@@ -140,9 +140,11 @@ impl FromStr for EnabledDisabled {
 }
 
 #[derive(Debug)]
-pub struct EnabledDisabledParseError(String);
+pub struct InvalidValueError(String);
 
-impl fmt::Display for EnabledDisabledParseError {
+impl std::error::Error for InvalidValueError {}
+
+impl fmt::Display for InvalidValueError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         fmt::Debug::fmt(self, f)
     }
