@@ -10,7 +10,7 @@ use tracing::debug;
 pub use crate::RedfishError;
 
 pub const REDFISH_ENDPOINT: &str = "redfish/v1";
-const DEFAULT_TIMEOUT: Duration = Duration::from_secs(5);
+const DEFAULT_TIMEOUT: Duration = Duration::from_secs(20);
 
 pub struct NetworkConfig {
     /// Hostname or IP address of BMC
