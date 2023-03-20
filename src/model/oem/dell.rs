@@ -547,7 +547,7 @@ pub struct BiosAttributes {
     pub mem_test: String,
     pub mem_op_mode: String,
     #[serde(rename = "FRMPercent")]
-    pub frm_percent: String,
+    pub frm_percent: Option<String>,
     pub node_interleave: String,
     pub memory_training: Option<String>,
     pub corr_ecc_smi: String,

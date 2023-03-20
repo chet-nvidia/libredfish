@@ -31,15 +31,15 @@ impl Redfish for Bmc {
     }
 
     fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
-        self.delete_job_queue()?;
-
         use EnabledDisabled::*;
         match target {
             Enabled => {
+                self.delete_job_queue()?;
                 self.enable_bios_lockdown()?;
                 self.enable_bmc_lockdown(dell::BootDevices::PXE, false)
             }
             Disabled => {
+                // ideally we'd delete the job queue here, but we can't when lockdown is enabled
                 self.disable_bmc_lockdown(dell::BootDevices::PXE, false)?;
                 self.disable_bios_lockdown()
             }

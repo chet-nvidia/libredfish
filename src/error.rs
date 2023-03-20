@@ -10,7 +10,7 @@ pub enum RedfishError {
     #[error("Non-2XX HTTP status at {url}. {source}")]
     HTTPError { url: String, source: reqwest::Error },
 
-    #[error("HTTP {status_code} at {url}. See debug logs for details.")]
+    #[error("HTTP {status_code} at {url}. See debug logs for details or run client with -v.")]
     HTTPErrorCode {
         url: String,
         status_code: StatusCode,
