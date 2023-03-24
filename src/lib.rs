@@ -9,21 +9,12 @@ mod dell;
 mod error;
 mod lenovo;
 mod network;
-pub use network::{NetworkConfig, REDFISH_ENDPOINT};
+pub use network::{Endpoint, RedfishClientPool, RedfishClientPoolBuilder, REDFISH_ENDPOINT};
 mod standard;
 pub use error::RedfishError;
 
-pub fn new(config: network::NetworkConfig) -> Result<Box<dyn Redfish>, RedfishError> {
-    let s = standard::RedfishStandard::new(config)?;
-    match s.vendor.as_deref() {
-        Some("Dell") => Ok(Box::new(dell::Bmc::new(s)?)),
-        Some("Lenovo") => Ok(Box::new(lenovo::Bmc::new(s)?)),
-        _ => Ok(Box::new(s)),
-    }
-}
-
 /// Interface to a BMC Redfish server. All calls will include one or more HTTP network calls.
-pub trait Redfish {
+pub trait Redfish: Send + Sync + 'static {
     /// Is this thing even on?
     fn get_power_state(&self) -> Result<PowerState, RedfishError>;
 

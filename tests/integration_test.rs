@@ -40,11 +40,13 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     mockup_server.install_python_requirements()?;
     mockup_server.start()?; // stops on drop
 
-    let redfish_net_conf = libredfish::NetworkConfig {
-        endpoint: format!("127.0.0.1:{port}"),
+    let endpoint = libredfish::Endpoint {
+        host: format!("127.0.0.1:{port}"),
         ..Default::default()
     };
-    let redfish = libredfish::new(redfish_net_conf)?;
+
+    let pool = libredfish::RedfishClientPool::builder().build()?;
+    let redfish = pool.create_client(endpoint)?;
 
     assert_eq!(redfish.get_power_state()?, libredfish::PowerState::On);
     assert!(redfish.bios()?.len() > 10);

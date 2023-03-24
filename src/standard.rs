@@ -3,13 +3,13 @@ use std::collections::HashMap;
 use tracing::debug;
 
 use crate::model::{power, storage, thermal};
-use crate::network::NetworkConfig;
+use crate::network::RedfishHttpClient;
+use crate::RedfishError;
 use crate::{model, Boot, EnabledDisabled, PowerState, Redfish, Status};
-use crate::{network::Network, RedfishError};
 
 /// The calls that use the Redfish standard without any OEM extensions.
 pub struct RedfishStandard {
-    pub net: Network,
+    pub client: RedfishHttpClient,
     pub vendor: Option<String>,
     manager_id: String,
     system_id: String,
@@ -26,12 +26,12 @@ impl Redfish for RedfishStandard {
         let mut arg = HashMap::new();
         arg.insert("ResetType", action.to_string());
         // Lenovo: The expected HTTP response code is 204 No Content
-        self.net.post(&url, arg).map(|_status_code| Ok(()))?
+        self.client.post(&url, arg).map(|_status_code| Ok(()))?
     }
 
     fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
         let url = format!("Systems/{}/Bios", self.system_id());
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
@@ -76,9 +76,9 @@ impl RedfishStandard {
 
     /// Create and setup a connection to BMC.
     /// Issues two HTTP calls to get intial data.
-    pub fn new(config: NetworkConfig) -> Result<Self, RedfishError> {
+    pub fn new(client: RedfishHttpClient) -> Result<Self, RedfishError> {
         let mut r = Self {
-            net: Network::new(config),
+            client,
             manager_id: "".to_string(),
             system_id: "".to_string(),
             vendor: None,
@@ -99,7 +99,7 @@ impl RedfishStandard {
 
     pub fn get_boot_options(&self) -> Result<model::BootOptions, RedfishError> {
         let url = format!("Systems/{}/BootOptions", self.system_id());
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
@@ -109,7 +109,7 @@ impl RedfishStandard {
         pending_url: &str,
     ) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
         let (_sc, body): (reqwest::StatusCode, HashMap<String, serde_json::Value>) =
-            self.net.get(pending_url)?;
+            self.client.get(pending_url)?;
         let pending_attrs = body.get("Attributes").unwrap().as_object().unwrap();
 
         let current = self.bios()?;
@@ -129,7 +129,7 @@ impl RedfishStandard {
 
     /// Fetch root URL and record the vendor, if any
     fn set_vendor(&mut self) -> Result<(), RedfishError> {
-        let (_, out): (_, HashMap<String, serde_json::Value>) = self.net.get("")?;
+        let (_, out): (_, HashMap<String, serde_json::Value>) = self.client.get("")?;
         self.vendor = match out.get("Vendor") {
             Some(v) => v.as_str().map(|s| s.to_string()),
             None => None,
@@ -143,7 +143,7 @@ impl RedfishStandard {
 
     /// Fetch and set System number. Needed for all `Systems/{system_id}/...` calls
     fn set_system_id(&mut self) -> Result<(), RedfishError> {
-        let (_, systems): (_, model::Systems) = self.net.get("Systems/")?;
+        let (_, systems): (_, model::Systems) = self.client.get("Systems/")?;
         if systems.members.is_empty() {
             self.system_id = "1".to_string(); // default to DMTF standard suggested
             return Ok(());
@@ -155,7 +155,7 @@ impl RedfishStandard {
 
     /// Fetch and set Manager number. Needed for all `Managers/{system_id}/...` calls
     fn set_manager_id(&mut self) -> Result<(), RedfishError> {
-        let (_, bmcs): (_, model::Managers) = self.net.get("Managers/")?;
+        let (_, bmcs): (_, model::Managers) = self.client.get("Managers/")?;
         if bmcs.members.is_empty() {
             self.manager_id = "1".to_string(); // default to dmtf standard suggested
             return Ok(());
@@ -167,7 +167,7 @@ impl RedfishStandard {
 
     fn get_system(&self) -> Result<model::ComputerSystem, RedfishError> {
         let url = format!("Systems/{}/", self.system_id);
-        let host: model::ComputerSystem = self.net.get(&url)?.1;
+        let host: model::ComputerSystem = self.client.get(&url)?.1;
         Ok(host)
     }
 
@@ -177,8 +177,9 @@ impl RedfishStandard {
 
     #[allow(dead_code)]
     pub fn get_manager(&self) -> Result<model::Manager, RedfishError> {
-        let (_, manager): (_, model::Manager) =
-            self.net.get(&format!("Managers/{}", self.manager_id()))?;
+        let (_, manager): (_, model::Manager) = self
+            .client
+            .get(&format!("Managers/{}", self.manager_id()))?;
         Ok(manager)
     }
 
@@ -192,7 +193,7 @@ impl RedfishStandard {
             self.system_id(),
             controller_id
         );
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
@@ -202,7 +203,7 @@ impl RedfishStandard {
             "Systems/{}/SmartStorage/ArrayControllers/",
             self.system_id()
         );
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
@@ -210,7 +211,7 @@ impl RedfishStandard {
     #[allow(dead_code)]
     pub fn get_power_status(&self) -> Result<power::Power, RedfishError> {
         let url = format!("Chassis/{}/Power/", self.system_id());
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
@@ -218,7 +219,7 @@ impl RedfishStandard {
     #[allow(dead_code)]
     pub fn get_thermal_status(&self) -> Result<thermal::Thermal, RedfishError> {
         let url = format!("Chassis/{}/Thermal/", self.system_id());
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
@@ -233,7 +234,7 @@ impl RedfishStandard {
             self.system_id(),
             controller_id
         );
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
@@ -247,7 +248,7 @@ impl RedfishStandard {
             self.system_id(),
             controller_id
         );
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
@@ -263,7 +264,7 @@ impl RedfishStandard {
             controller_id,
             drive_id,
         );
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
@@ -277,7 +278,7 @@ impl RedfishStandard {
             self.system_id(),
             controller_id
         );
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
@@ -291,7 +292,7 @@ impl RedfishStandard {
             self.system_id(),
             controller_id
         );
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
@@ -307,7 +308,7 @@ impl RedfishStandard {
             controller_id,
             enclosure_id,
         );
-        let (_status_code, body) = self.net.get(&url)?;
+        let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 }
