@@ -1324,6 +1324,5 @@
         }
     ],
     "Members@odata.count": 1190,
-    "Members@odata.nextLink": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Lclog/Entries?$skip=50",
     "Name": "Log Entry Collection"
 }

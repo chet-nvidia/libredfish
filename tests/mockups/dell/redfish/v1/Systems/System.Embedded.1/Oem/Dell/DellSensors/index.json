@@ -906,6 +906,5 @@
         }
     ],
     "Members@odata.count": 77,
-    "Members@odata.nextLink": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellSensors?$skip=50",
     "Name": "DellSensorCollection"
 }

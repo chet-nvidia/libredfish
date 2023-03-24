@@ -756,6 +756,5 @@
         }
     ],
     "Members@odata.count": 67,
-    "Members@odata.nextLink": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellSlots?$skip=50",
     "Name": "DellSlotCollection"
 }
