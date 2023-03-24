@@ -187,19 +187,14 @@ pub struct ResourceStatus {
 
 /// Health and State of a disk drive, fan, power supply, etc
 /// Defined in Resource_v1.xml
-#[derive(Debug, Serialize, Deserialize, Copy, Clone)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, Default)]
 pub enum ResourceHealth {
     #[serde(rename = "OK")]
+    #[default]
     Ok,
     Warning,
     Critical,
     Informational, // HP only, non-standard
-}
-
-impl Default for ResourceHealth {
-    fn default() -> Self {
-        ResourceHealth::Ok
-    }
 }
 
 impl fmt::Display for ResourceHealth {
