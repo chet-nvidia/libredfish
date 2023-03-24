@@ -1,7 +1,7 @@
 use std::{collections::HashMap, time::Duration};
 
 use reqwest::{
-    blocking::Client, blocking::ClientBuilder, header::HeaderValue, header::ACCEPT,
+    blocking::Client as HttpClient, blocking::ClientBuilder as HttpClientBuilder, header::HeaderValue, header::ACCEPT,
     header::CONTENT_TYPE, Method, StatusCode,
 };
 use serde::{de::DeserializeOwned, Serialize};
@@ -12,46 +12,111 @@ pub use crate::RedfishError;
 pub const REDFISH_ENDPOINT: &str = "redfish/v1";
 const DEFAULT_TIMEOUT: Duration = Duration::from_secs(20);
 
-pub struct NetworkConfig {
-    /// Hostname or IP address of BMC
-    pub endpoint: String,
-    pub port: Option<u16>,
-    pub user: Option<String>,
-    pub password: Option<String>,
-    pub timeout: Duration,
-    pub accept_invalid_certs: bool,
+#[derive(Debug)]
+pub struct RedfishClientPoolBuilder {
+    timeout: Duration,
+    accept_invalid_certs: bool,
 }
 
-impl Default for NetworkConfig {
+impl RedfishClientPoolBuilder {
+    /// Prevents the Redfish Client from accepting self signed certificates
+    /// and other invalid certificates.
+    ///
+    /// By default self signed certificates will be accepted, since BMCs usually
+    /// use those.
+    pub fn reject_invalid_certs(mut self) -> RedfishClientPoolBuilder {
+        self.accept_invalid_certs = false;
+        self
+    }
+
+    /// Overwrites the timeout that will be applied to every request
+    pub fn timeout(mut self, timeout: Duration) -> RedfishClientPoolBuilder {
+        self.timeout = timeout;
+        self
+    }
+
+    /// Builds a Redfish Client Network Configuration
+    pub fn build(&self) -> Result<RedfishClientPool, RedfishError> {
+        let builder = HttpClientBuilder::new();
+        let http_client = builder
+            .danger_accept_invalid_certs(self.accept_invalid_certs)
+            .timeout(self.timeout)
+            .build()
+            .unwrap();
+        let pool = RedfishClientPool { http_client };
+
+        Ok(pool)
+    }
+}
+
+/// The endpoint that the redfish client connects to
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Endpoint {
+    /// Hostname or IP address of BMC
+    pub host: String,
+    /// BMC port. If absent the default HTTPS port 443 will be used
+    pub port: Option<u16>,
+    /// BMC username
+    pub user: Option<String>,
+    /// BMC password
+    pub password: Option<String>,
+}
+
+impl Default for Endpoint {
     fn default() -> Self {
-        NetworkConfig {
-            endpoint: "".to_string(),
+        Endpoint {
+            host: "".to_string(),
             port: None,
             user: None,
             password: None,
+        }
+    }
+}
+
+#[derive(Debug, Clone)]
+pub struct RedfishClientPool {
+    http_client: HttpClient,
+}
+
+impl RedfishClientPool {
+    /// Returns Builder for configuring a Redfish HTTP connection pool
+    pub fn builder() -> RedfishClientPoolBuilder {
+        RedfishClientPoolBuilder {
             timeout: DEFAULT_TIMEOUT,
             // BMCs often have a self-signed cert, so usually this has to be true
             accept_invalid_certs: true,
         }
     }
+
+    /// Creates a Redfish BMC client for a certain endpoint
+    ///
+    /// Creating the client will immediately start a HTTP request which determines
+    /// the BMC type.
+    pub fn create_client(
+        &self,
+        endpoint: Endpoint,
+    ) -> Result<Box<dyn crate::Redfish>, RedfishError> {
+        let client = RedfishHttpClient::new(self.http_client.clone(), endpoint);
+        let s = crate::standard::RedfishStandard::new(client)?;
+        match s.vendor.as_deref() {
+            Some("Dell") => Ok(Box::new(crate::dell::Bmc::new(s)?)),
+            Some("Lenovo") => Ok(Box::new(crate::lenovo::Bmc::new(s)?)),
+            _ => Ok(Box::new(s)),
+        }
+    }
 }
 
-pub struct Network {
-    config: NetworkConfig,
-    pub http_client: Client,
+/// A HTTP client which targets a single libredfish endpoint
+pub struct RedfishHttpClient {
+    endpoint: Endpoint,
+    http_client: HttpClient,
 }
 
-impl Network {
-    pub fn new(config: NetworkConfig) -> Self {
-        let builder = ClientBuilder::new();
-        let c = builder
-            .danger_accept_invalid_certs(config.accept_invalid_certs)
-            .timeout(config.timeout)
-            .build()
-            .unwrap();
+impl RedfishHttpClient {
+    pub fn new(http_client: HttpClient, endpoint: Endpoint) -> Self {
         Self {
-            config,
-            http_client: c,
+            endpoint,
+            http_client,
         }
     }
 
@@ -93,14 +158,14 @@ impl Network {
         T: DeserializeOwned + ::std::fmt::Debug,
         B: Serialize + ::std::fmt::Debug,
     {
-        let url = match self.config.port {
+        let url = match self.endpoint.port {
             Some(p) => format!(
                 "https://{}:{}/{}/{}",
-                self.config.endpoint, p, REDFISH_ENDPOINT, api
+                self.endpoint.host, p, REDFISH_ENDPOINT, api
             ),
             None => format!(
                 "https://{}/{}/{}",
-                self.config.endpoint, REDFISH_ENDPOINT, api
+                self.endpoint.host, REDFISH_ENDPOINT, api
             ),
         };
         let body_enc = match body {
@@ -132,8 +197,8 @@ impl Network {
         req_b = req_b
             .header(ACCEPT, HeaderValue::from_static("application/json"))
             .header(CONTENT_TYPE, HeaderValue::from_static("application/json"));
-        if let Some(user) = &self.config.user {
-            req_b = req_b.basic_auth(user, self.config.password.as_ref());
+        if let Some(user) = &self.endpoint.user {
+            req_b = req_b.basic_auth(user, self.endpoint.password.as_ref());
         }
         if let Some(t) = override_timeout {
             req_b = req_b.timeout(t);

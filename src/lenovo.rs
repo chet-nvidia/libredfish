@@ -108,7 +108,7 @@ impl Redfish for Bmc {
             ]),
         );
         let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
-        self.s.net.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).map(|_status_code| ())
     }
 
     fn serial_console_status(&self) -> Result<Status, RedfishError> {
@@ -200,7 +200,7 @@ impl Redfish for Bmc {
             HashMap::from([("TrustedComputingGroup_DeviceOperation", "Clear")]),
         );
         let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
-        self.s.net.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).map(|_status_code| ())
     }
 
     fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
@@ -268,12 +268,12 @@ impl Bmc {
             HashMap::from([("Lenovo", HashMap::from([("KCSEnabled", is_allowed)]))]),
         )]);
         let url = format!("Managers/{}", self.s.manager_id());
-        self.s.net.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).map(|_status_code| ())
     }
 
     fn get_kcs_lenovo(&self) -> Result<bool, RedfishError> {
         let url = format!("Managers/{}", self.s.manager_id());
-        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(&url)?;
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url)?;
 
         let key = "Oem";
         let oem_obj = body
@@ -326,12 +326,12 @@ impl Bmc {
             HashMap::from([("FWRollback", set.to_string())]),
         )]);
         let url = format!("Managers/{}/Oem/Lenovo/Security", self.s.manager_id());
-        self.s.net.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).map(|_status_code| ())
     }
 
     fn get_firmware_rollback_lenovo(&self) -> Result<EnabledDisabled, RedfishError> {
         let url = format!("Managers/{}/Oem/Lenovo/Security", self.s.manager_id());
-        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(&url)?;
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url)?;
 
         let key = "Configurator";
         let configurator = body
@@ -391,12 +391,12 @@ impl Bmc {
             )]),
         );
         let url = format!("Systems/{}", self.s.system_id());
-        self.s.net.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).map(|_status_code| ())
     }
 
     fn get_front_panel_usb_lenovo(&self) -> Result<lenovo::FrontPanelUSB, RedfishError> {
         let url = format!("Systems/{}", self.s.system_id());
-        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(&url)?;
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url)?;
 
         let key = "Oem";
         let oem_obj = body
@@ -447,12 +447,12 @@ impl Bmc {
     fn set_ethernet_over_usb(&self, is_allowed: bool) -> Result<(), RedfishError> {
         let body = HashMap::from([("InterfaceEnabled", is_allowed)]);
         let url = format!("Managers/{}/EthernetInterfaces/ToHost", self.s.manager_id());
-        self.s.net.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).map(|_status_code| ())
     }
 
     fn get_ethernet_over_usb(&self) -> Result<bool, RedfishError> {
         let url = format!("Managers/{}/EthernetInterfaces/ToHost", self.s.manager_id());
-        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.net.get(&url)?;
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url)?;
 
         let key = "InterfaceEnabled";
         let is_allowed = body
@@ -480,7 +480,7 @@ impl Bmc {
             ]),
         )]);
         let url = format!("Systems/{}", self.s.system_id());
-        self.s.net.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).map(|_status_code| ())
     }
 
     // name: The name of the device you want to make the first boot choice.
@@ -502,7 +502,7 @@ impl Bmc {
         let timeout = Duration::from_secs(10);
         let (_status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
             .s
-            .net
+            .client
             .req(Method::PATCH, &url, Some(body), Some(timeout))?;
         Ok(())
     }
@@ -527,7 +527,7 @@ impl Bmc {
             let url = member
                 .odata_id
                 .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
-            let b: BootOption = self.s.net.get(&url)?.1;
+            let b: BootOption = self.s.client.get(&url)?.1;
             if b.name == with_name_str {
                 with_name_match = Some(b.id);
             } else {

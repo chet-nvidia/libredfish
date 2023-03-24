@@ -62,7 +62,7 @@ pub struct System {
    API: fp_mode=Shared, port_switching_to=Server
 */
 
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[serde(rename_all = "PascalCase")]
 pub struct FrontPanelUSB {
     inactivity_timeout_mins: i64,
@@ -73,7 +73,7 @@ pub struct FrontPanelUSB {
     pub fp_mode: FrontPanelUSBMode,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub enum PortSwitchingMode {
     BMC,
     Server,
@@ -88,7 +88,7 @@ impl fmt::Display for PortSwitchingMode {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub enum FrontPanelUSBMode {
     Server,
     Shared,

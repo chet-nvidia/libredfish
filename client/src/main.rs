@@ -7,7 +7,7 @@
  * Run with `-v` for more output.
  */
 
-use libredfish::{Boot, EnabledDisabled, SystemPowerControl};
+use libredfish::{Boot, EnabledDisabled, Endpoint, SystemPowerControl};
 use tracing::{error, info};
 use tracing_subscriber::filter::{EnvFilter, LevelFilter};
 use tracing_subscriber::fmt::Layer;
@@ -16,7 +16,9 @@ use tracing_subscriber::prelude::*;
 fn main() -> Result<(), anyhow::Error> {
     let args: Vec<String> = std::env::args().collect();
     let mut opts = getopts::Options::new();
-    let mut conf = libredfish::NetworkConfig::default();
+
+    let pool = libredfish::RedfishClientPool::builder().build()?;
+    let mut endpoint = Endpoint::default();
 
     opts.optflag("h", "help", "Print this help");
     opts.optflag("v", "verbose", "Log at DEBUG level. Default is INFO");
@@ -62,13 +64,13 @@ fn main() -> Result<(), anyhow::Error> {
         return Ok(());
     }
     if args_given.opt_present("H") {
-        conf.endpoint = args_given.opt_str("H").unwrap();
+        endpoint.host = args_given.opt_str("H").unwrap();
     }
     if args_given.opt_present("U") {
-        conf.user = Some(args_given.opt_str("U").unwrap());
+        endpoint.user = Some(args_given.opt_str("U").unwrap());
     }
     if args_given.opt_present("P") {
-        conf.password = Some(args_given.opt_str("P").unwrap());
+        endpoint.password = Some(args_given.opt_str("P").unwrap());
     }
 
     let log_level = if args_given.opt_present("v") {
@@ -84,7 +86,7 @@ fn main() -> Result<(), anyhow::Error> {
         .with(env_filter)
         .init();
 
-    let redfish = libredfish::new(conf)?;
+    let redfish = pool.create_client(endpoint)?;
 
     if args_given.opt_present("c") {
         use EnabledDisabled::*;
