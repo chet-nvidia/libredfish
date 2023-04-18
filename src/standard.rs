@@ -1,11 +1,11 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
 use tracing::debug;
 
 use crate::model::{power, storage, thermal};
-use crate::network::RedfishHttpClient;
-use crate::RedfishError;
+use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{model, Boot, EnabledDisabled, PowerState, Redfish, Status};
+use crate::{PCIeDevice, RedfishError};
 
 /// The calls that use the Redfish standard without any OEM extensions.
 pub struct RedfishStandard {
@@ -66,6 +66,30 @@ impl Redfish for RedfishStandard {
 
     fn clear_tpm(&self) -> Result<(), RedfishError> {
         unimplemented!("No standard implementation");
+    }
+
+    fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError> {
+        let mut out = Vec::new();
+        let mut seen = HashSet::new(); // Dell redfish response has duplicates
+        let system = self.get_system()?;
+        debug!("Listing {} PCIe devices..", system.pcie_devices.len());
+        for member in system.pcie_devices {
+            let url = member
+                .odata_id
+                .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+            if seen.contains(&url) {
+                continue;
+            }
+            let p: PCIeDevice = self.client.get(&url)?.1;
+            seen.insert(url);
+            if p.id.is_none() || p.manufacturer.is_none() {
+                // Lenovo has lots of all-null devices with name "Adapater". Ignore those.
+                continue;
+            }
+            out.push(p);
+        }
+        out.sort_unstable_by(|a, b| a.manufacturer.partial_cmp(&b.manufacturer).unwrap());
+        Ok(out)
     }
 }
 

@@ -7,7 +7,7 @@ use crate::{
     model::{oem::lenovo, BootOption},
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
-    Boot, EnabledDisabled, PowerState, Redfish, RedfishError, Status, StatusInternal,
+    Boot, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status, StatusInternal,
     SystemPowerControl,
 };
 
@@ -206,6 +206,10 @@ impl Redfish for Bmc {
     fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
         let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
         self.s.pending_with_url(&url)
+    }
+
+    fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError> {
+        self.s.pcie_devices()
     }
 }
 

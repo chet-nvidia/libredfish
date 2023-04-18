@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use crate::{
     model::{oem::dell, OnOff},
     standard::RedfishStandard,
-    Boot, EnabledDisabled, PowerState, Redfish, RedfishError, Status, StatusInternal,
+    Boot, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status, StatusInternal,
     SystemPowerControl,
 };
 
@@ -207,6 +207,10 @@ impl Redfish for Bmc {
 
     fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
         self.s.pending()
+    }
+
+    fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError> {
+        self.s.pcie_devices()
     }
 }
 

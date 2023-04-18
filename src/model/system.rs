@@ -55,7 +55,7 @@ pub struct Systems {
 #[serde(rename_all = "PascalCase")]
 pub struct SystemStatus {
     pub health: String,
-    pub health_rollup: String,
+    pub health_rollup: Option<String>,
     pub state: String,
 }
 
@@ -93,6 +93,8 @@ pub struct ComputerSystem {
     pub serial_number: String,
     pub status: SystemStatus,
     pub trusted_modules: Vec<TrustedModule>,
+    #[serde(rename = "PCIeDevices")]
+    pub pcie_devices: Vec<ODataId>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -117,6 +119,19 @@ pub struct BootOption {
     pub id: String,
     pub name: String,
     pub uefi_device_path: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct PCIeDevice {
+    pub description: Option<String>,
+    pub firmware_version: Option<String>,
+    pub id: Option<String>,
+    pub manufacturer: Option<String>,
+    pub name: Option<String>,
+    pub part_number: Option<String>,
+    pub serial_number: Option<String>,
+    pub status: Option<SystemStatus>,
 }
 
 #[cfg(test)]
