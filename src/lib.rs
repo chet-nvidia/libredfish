@@ -54,6 +54,9 @@ pub trait Redfish: Send + Sync + 'static {
     /// Pending BIOS attributes. Changes that were requested but not applied yet because
     /// they need a reboot.
     fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError>;
+
+    /// Clear all pending jobs
+    fn clear_pending(&self) -> Result<(), RedfishError>;
 }
 
 // When Carbide drops it's `IpmiCommand.launch_command` background job system, we can

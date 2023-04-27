@@ -208,6 +208,11 @@ impl Redfish for Bmc {
         self.s.pending_with_url(&url)
     }
 
+    fn clear_pending(&self) -> Result<(), RedfishError> {
+        let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
+        self.s.clear_pending_with_url(&url)
+    }
+
     fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError> {
         self.s.pcie_devices()
     }

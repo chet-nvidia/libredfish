@@ -69,7 +69,7 @@ impl Redfish for Bmc {
 
         // BMC lockdown
 
-        let attrs = self.manager_attributes()?;
+        let (attrs, url) = self.manager_attributes()?;
 
         let key = "Lockdown.1.SystemLockdown";
         let system_lockdown = attrs
@@ -209,6 +209,10 @@ impl Redfish for Bmc {
         self.s.pending()
     }
 
+    fn clear_pending(&self) -> Result<(), RedfishError> {
+        self.delete_job_queue()
+    }
+
     fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError> {
         self.s.pcie_devices()
     }
@@ -217,6 +221,11 @@ impl Redfish for Bmc {
 impl Bmc {
     // No changes can be applied if there are pending jobs
     fn delete_job_queue(&self) -> Result<(), RedfishError> {
+        // The queue can't be cleared if system lockdown is enabled
+        if self.is_lockdown()? {
+            return Err(RedfishError::Lockdown);
+        }
+
         let url = format!(
             "Managers/{}/Oem/Dell/DellJobService/Actions/DellJobService.DeleteJobQueue",
             self.s.manager_id()
@@ -224,6 +233,28 @@ impl Bmc {
         let mut body = HashMap::new();
         body.insert("JobID", "JID_CLEARALL".to_string());
         self.s.client.post(&url, body).map(|_status_code| ())
+    }
+
+    // Is system lockdown enabled?
+    fn is_lockdown(&self) -> Result<bool, RedfishError> {
+        let (attrs, url) = self.manager_attributes()?;
+
+        let key = "Lockdown.1.SystemLockdown";
+        let system_lockdown = attrs
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_str()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "&str".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let enabled = EnabledDisabled::Enabled.to_string();
+        Ok(system_lockdown == enabled)
     }
 
     fn set_boot_first(&self, entry: dell::BootDevices, once: bool) -> Result<(), RedfishError> {
@@ -401,7 +432,7 @@ impl Bmc {
     }
 
     fn bmc_remote_access_status(&self) -> Result<Status, RedfishError> {
-        let attrs = self.manager_attributes()?;
+        let (attrs, _) = self.manager_attributes()?;
         let expected = vec![
             // "any" means any value counts as correctly disabled
             ("SerialRedirection.1.Enable", "Enabled", "Disabled"),
@@ -539,15 +570,17 @@ impl Bmc {
         })
     }
 
+    // Second value in tuple is URL we used to fetch attributes, for diagnostics
     fn manager_attributes(
         &self,
-    ) -> Result<serde_json::Map<String, serde_json::Value>, RedfishError> {
+    ) -> Result<(serde_json::Map<String, serde_json::Value>, String), RedfishError> {
         let manager_id = self.s.manager_id();
         let url = &format!("Managers/{manager_id}/Oem/Dell/DellAttributes/{manager_id}");
         let (_status_code, body): (_, HashMap<String, serde_json::Value>) =
             self.s.client.get(url)?;
         let key = "Attributes";
-        body.get(key)
+        let v = body
+            .get(key)
             .ok_or_else(|| RedfishError::MissingKey {
                 key: key.to_string(),
                 url: url.to_string(),
@@ -558,7 +591,8 @@ impl Bmc {
                 expected_type: "Object".to_string(),
                 url: url.to_string(),
             })
-            .cloned()
+            .cloned()?;
+        Ok((v, url.to_string()))
     }
 
     // TPM is enabled by default so we never call this.

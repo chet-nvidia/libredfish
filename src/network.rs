@@ -1,8 +1,8 @@
 use std::{collections::HashMap, time::Duration};
 
 use reqwest::{
-    blocking::Client as HttpClient, blocking::ClientBuilder as HttpClientBuilder, header::HeaderValue, header::ACCEPT,
-    header::CONTENT_TYPE, Method, StatusCode,
+    blocking::Client as HttpClient, blocking::ClientBuilder as HttpClientBuilder,
+    header::HeaderValue, header::ACCEPT, header::CONTENT_TYPE, Method, StatusCode,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use tracing::debug;
@@ -146,6 +146,15 @@ impl RedfishHttpClient {
         Ok(status_code)
     }
 
+    // Various parts of Redfish do use DELETE, but we don't implement any of those yet,
+    // hence allow dead_code.
+    #[allow(dead_code)]
+    pub fn delete(&self, api: &str) -> Result<StatusCode, RedfishError> {
+        let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) =
+            self.req::<_, String>(Method::DELETE, api, None, None)?;
+        Ok(status_code)
+    }
+
     // All the HTTP requests happen from here.
     pub fn req<T, B>(
         &self,
@@ -192,7 +201,8 @@ impl RedfishHttpClient {
             Method::GET => self.http_client.get(&url),
             Method::POST => self.http_client.post(&url),
             Method::PATCH => self.http_client.patch(&url),
-            _ => unreachable!("Only GET, POST and PATCH http methods are used."),
+            Method::DELETE => self.http_client.delete(&url),
+            _ => unreachable!("Only GET, POST, PATCH and DELETE http methods are used."),
         };
         req_b = req_b
             .header(ACCEPT, HeaderValue::from_static("application/json"))

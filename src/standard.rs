@@ -40,6 +40,11 @@ impl Redfish for RedfishStandard {
         self.pending_with_url(&url)
     }
 
+    fn clear_pending(&self) -> Result<(), RedfishError> {
+        let url = format!("Systems/{}/Bios/Settings", self.system_id());
+        self.clear_pending_with_url(&url)
+    }
+
     fn lockdown(&self, _target: EnabledDisabled) -> Result<(), RedfishError> {
         unimplemented!("No standard implementation");
     }
@@ -132,24 +137,67 @@ impl RedfishStandard {
         &self,
         pending_url: &str,
     ) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
-        let (_sc, body): (reqwest::StatusCode, HashMap<String, serde_json::Value>) =
-            self.client.get(pending_url)?;
-        let pending_attrs = body.get("Attributes").unwrap().as_object().unwrap();
+        let pending_attrs = self.pending_attributes(pending_url)?;
+        let current_attrs = self.bios_attributes()?;
+        Ok(attr_diff(&pending_attrs, &current_attrs))
+    }
 
-        let current = self.bios()?;
-        let current_attrs = current.get("Attributes").unwrap();
+    // There's no standard Redfish way to clear pending BIOS settings, so we find the
+    // pending changes and set them back to their existing values
+    pub fn clear_pending_with_url(&self, pending_url: &str) -> Result<(), RedfishError> {
+        let pending_attrs = self.pending_attributes(pending_url)?;
+        let current_attrs = self.bios_attributes()?;
+        let diff = attr_diff(&pending_attrs, &current_attrs);
 
-        let diff = pending_attrs
-            .iter()
-            .filter(|(k, v)| current_attrs.get(k) != Some(v))
-            .map(|(k, v)| (k.clone(), v.clone()))
-            .collect();
-        Ok(diff)
+        let mut reset_attrs = HashMap::new();
+        for k in diff.keys() {
+            reset_attrs.insert(k, current_attrs.get(k));
+        }
+        let mut body = HashMap::new();
+        body.insert("Attributes", reset_attrs);
+        let url = format!("Systems/{}/Bios/Pending", self.system_id());
+        self.client.patch(&url, body).map(|_status_code| ())
     }
 
     //
     // PRIVATE
     //
+
+    // Current BIOS attributes
+    fn bios_attributes(&self) -> Result<serde_json::Value, RedfishError> {
+        let mut b = self.bios()?;
+        b.remove("Attributes")
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: "Attributes".to_string(),
+                url: format!("Systems/{}/Bios", self.system_id()),
+            })
+    }
+
+    // BIOS attributes that will be applied on next restart
+    fn pending_attributes(
+        &self,
+        pending_url: &str,
+    ) -> Result<serde_json::Map<String, serde_json::Value>, RedfishError> {
+        let (_sc, mut body): (reqwest::StatusCode, HashMap<String, serde_json::Value>) =
+            self.client.get(pending_url)?;
+        let mut attrs = body
+            .remove("Attributes")
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: "Attributes".to_string(),
+                url: pending_url.to_string(),
+            })?;
+        let attrs_map = match attrs.as_object_mut() {
+            Some(m) => m,
+            None => {
+                return Err(RedfishError::InvalidKeyType {
+                    key: "Attributes".to_string(),
+                    expected_type: "Map".to_string(),
+                    url: pending_url.to_string(),
+                })
+            }
+        };
+        Ok(core::mem::take(attrs_map))
+    }
 
     /// Fetch root URL and record the vendor, if any
     fn set_vendor(&mut self) -> Result<(), RedfishError> {
@@ -335,4 +383,16 @@ impl RedfishStandard {
         let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
+}
+
+// Key/value pairs that different between these two sets of attributes
+// The left needs to be a full map, but the right side only needs to support `get`.
+fn attr_diff(
+    l: &serde_json::Map<String, serde_json::Value>,
+    r: &serde_json::Value,
+) -> HashMap<String, serde_json::Value> {
+    l.iter()
+        .filter(|(k, v)| r.get(k) != Some(v))
+        .map(|(k, v)| (k.clone(), v.clone()))
+        .collect()
 }
