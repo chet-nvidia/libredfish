@@ -160,7 +160,7 @@ pub struct SetFirstBootDevice {
     pub attributes: ServerBootAttrs,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, Copy)]
 #[serde(rename_all = "PascalCase")]
 pub struct SetSettingsApplyTime {
     pub apply_time: RedfishSettingsApplyTime,
@@ -210,12 +210,19 @@ impl fmt::Display for UefiVariableAccessSettings {
 #[derive(Debug, Deserialize, Serialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct BmcLockdown {
-    #[serde(rename = "Lockdown.1.SystemLockdown")]
-    pub system_lockdown: EnabledDisabled,
-    #[serde(rename = "Racadm.1.Enable")]
-    pub racadm_enable: EnabledDisabled,
-    #[serde(flatten, with = "prefix_server_boot")]
-    pub server_boot: ServerBoot,
+    #[serde(
+        rename = "Lockdown.1.SystemLockdown",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub system_lockdown: Option<EnabledDisabled>,
+    #[serde(rename = "Racadm.1.Enable", skip_serializing_if = "Option::is_none")]
+    pub racadm_enable: Option<EnabledDisabled>,
+    #[serde(
+        flatten,
+        with = "prefix_server_boot",
+        skip_serializing_if = "Option::is_none"
+    )]
+    pub server_boot: Option<ServerBoot>,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]

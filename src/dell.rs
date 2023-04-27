@@ -276,6 +276,9 @@ impl Bmc {
         let apply_time = dell::SetSettingsApplyTime {
             apply_time: dell::RedfishSettingsApplyTime::OnReset,
         };
+
+        // First change all settings except lockdown, because that applies immediately
+        // and prevents the other settings being applied.
         let boot_entry = dell::ServerBoot {
             first_boot_device: entry,
             boot_once: if once {
@@ -285,15 +288,31 @@ impl Bmc {
             },
         };
         let lockdown = dell::BmcLockdown {
-            system_lockdown: EnabledDisabled::Enabled,
-            racadm_enable: EnabledDisabled::Disabled,
-            server_boot: boot_entry,
+            system_lockdown: None,
+            racadm_enable: Some(EnabledDisabled::Disabled),
+            server_boot: Some(boot_entry),
         };
         let set_bmc_lockdown = dell::SetBmcLockdown {
             redfish_settings_apply_time: apply_time,
             attributes: lockdown,
         };
-        let url = format!("Managers/{}/Attributes", self.s.manager_id());
+        let manager_id = self.s.manager_id();
+        let url = format!("Managers/{manager_id}/Oem/Dell/DellAttributes/{manager_id}");
+        self.s
+            .client
+            .patch(&url, set_bmc_lockdown)
+            .map(|_status_code| ())?;
+
+        // Now lockdown
+        let lockdown = dell::BmcLockdown {
+            system_lockdown: Some(EnabledDisabled::Enabled),
+            racadm_enable: None,
+            server_boot: None,
+        };
+        let set_bmc_lockdown = dell::SetBmcLockdown {
+            redfish_settings_apply_time: apply_time,
+            attributes: lockdown,
+        };
         self.s
             .client
             .patch(&url, set_bmc_lockdown)
@@ -336,15 +355,16 @@ impl Bmc {
             },
         };
         let lockdown = dell::BmcLockdown {
-            system_lockdown: EnabledDisabled::Disabled,
-            racadm_enable: EnabledDisabled::Enabled,
-            server_boot: boot_entry,
+            system_lockdown: Some(EnabledDisabled::Disabled),
+            racadm_enable: Some(EnabledDisabled::Enabled),
+            server_boot: Some(boot_entry),
         };
         let set_bmc_lockdown = dell::SetBmcLockdown {
             redfish_settings_apply_time: apply_time,
             attributes: lockdown,
         };
-        let url = format!("Managers/{}/Attributes", self.s.manager_id());
+        let manager_id = self.s.manager_id();
+        let url = format!("Managers/{manager_id}/Oem/Dell/DellAttributes/{manager_id}");
         self.s
             .client
             .patch(&url, set_bmc_lockdown)
