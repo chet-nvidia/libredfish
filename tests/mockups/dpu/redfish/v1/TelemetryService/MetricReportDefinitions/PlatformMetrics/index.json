@@ -1,0 +1,49 @@
+{
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/PlatformMetrics",
+    "@odata.type": "#MetricReportDefinition.v1_3_0.MetricReportDefinition",
+    "Id": "PlatformMetrics",
+    "MetricProperties": [],
+    "MetricReport": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReports/PlatformMetrics"
+    },
+    "MetricReportDefinitionType": "OnRequest",
+    "Name": "PlatformMetrics",
+    "ReportActions": [
+        "LogToMetricReportsCollection"
+    ],
+    "ReportUpdates": "Overwrite",
+    "Status": {
+        "State": "Enabled"
+    },
+    "Wildcards": [
+        {
+            "Name": "GWild",
+            "Values": []
+        },
+        {
+            "Name": "NWild",
+            "Values": []
+        },
+        {
+            "Name": "BSWild",
+            "Values": []
+        }
+    ],
+    "error": {
+        "@Message.ExtendedInfo": [
+            {
+                "@odata.type": "#Message.v1_1_1.Message",
+                "Message": "The requested resource of type Chassis named 'HGX_Chassis_0' was not found.",
+                "MessageArgs": [
+                    "Chassis",
+                    "HGX_Chassis_0"
+                ],
+                "MessageId": "Base.1.13.0.ResourceNotFound",
+                "MessageSeverity": "Critical",
+                "Resolution": "Provide a valid resource identifier and resubmit the request."
+            }
+        ],
+        "code": "Base.1.13.0.ResourceNotFound",
+        "message": "The requested resource of type Chassis named 'HGX_Chassis_0' was not found."
+    }
+}

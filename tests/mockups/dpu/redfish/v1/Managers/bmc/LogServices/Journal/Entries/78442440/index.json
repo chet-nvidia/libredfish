@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/LogServices/Journal/Entries/78442440",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "1970-01-01T00:01:18+00:00",
+    "EntryType": "Oem",
+    "Id": "78442440",
+    "Message": "kernel: Memory: 991268K/1032192K available (9216K kernel code, 797K rwdata, 2244K rodata, 1024K init, 181K bss, 24540K reserved, 16384K cma-reserved, 0K highmem)",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

@@ -1,0 +1,12 @@
+{
+    "@odata.id": "/redfish/v1/Registries/BiosAttributeRegistry/BiosAttributeRegistry",
+    "@odata.type": "#AttributeRegistry.v1_3_2.AttributeRegistry",
+    "Id": "BiosAttributeRegistry",
+    "Language": "en",
+    "Name": "Bios Attribute Registry",
+    "OwningEntity": "OpenBMC",
+    "RegistryEntries": {
+        "Attributes": []
+    },
+    "RegistryVersion": "1.0.0"
+}

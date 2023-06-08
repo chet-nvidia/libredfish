@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/LogServices/Journal/Entries/138131929",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "1970-01-01T00:02:18+00:00",
+    "EntryType": "Oem",
+    "Id": "138131929",
+    "Message": "systemd: Reached target Quiesce Target.",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/LogServices/Journal/Entries/78479172",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "1970-01-01T00:01:18+00:00",
+    "EntryType": "Oem",
+    "Id": "78479172",
+    "Message": "kernel: aspeed-mctp 1e6f9000.mctp: Already initialized - skipping hardware reset",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

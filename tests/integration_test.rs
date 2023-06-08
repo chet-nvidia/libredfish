@@ -18,6 +18,7 @@ const ROOT_DIR: &str = env!("CARGO_MANIFEST_DIR");
 // Ports we hope are not in use
 const DELL_PORT: &str = "8733";
 const LENOVO_PORT: &str = "8734";
+const DPU_PORT: &str = "8735";
 
 #[test]
 fn test_dell() -> Result<(), anyhow::Error> {
@@ -27,6 +28,11 @@ fn test_dell() -> Result<(), anyhow::Error> {
 #[test]
 fn test_lenovo() -> Result<(), anyhow::Error> {
     run_integration_test("lenovo", LENOVO_PORT)
+}
+
+#[test]
+fn test_dpu() -> Result<(), anyhow::Error> {
+    run_integration_test("dpu", DPU_PORT)
 }
 
 fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<(), anyhow::Error> {

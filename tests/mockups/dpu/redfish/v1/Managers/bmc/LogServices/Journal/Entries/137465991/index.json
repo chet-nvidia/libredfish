@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/LogServices/Journal/Entries/137465991",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "1970-01-01T00:02:17+00:00",
+    "EntryType": "Oem",
+    "Id": "137465991",
+    "Message": "systemd: Created slice Slice /system/phosphor-reset-sensor-states.",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

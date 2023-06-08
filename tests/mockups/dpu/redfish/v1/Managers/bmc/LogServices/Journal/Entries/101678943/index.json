@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/LogServices/Journal/Entries/101678943",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "1970-01-01T00:01:41+00:00",
+    "EntryType": "Oem",
+    "Id": "101678943",
+    "Message": "phosphor-discover-system-state: power_policy=ALWAYS_POWER_ON, powering host on",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

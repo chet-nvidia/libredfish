@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/LogServices/Journal/Entries/90177159819",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "1970-01-02T01:02:57+00:00",
+    "EntryType": "Oem",
+    "Id": "90177159819",
+    "Message": "bmcweb: (1970-01-02 01:02:57) [ERROR \"log_services.hpp\":3247] Failed to read SYSLOG_IDENTIFIER field: No such file or directory",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

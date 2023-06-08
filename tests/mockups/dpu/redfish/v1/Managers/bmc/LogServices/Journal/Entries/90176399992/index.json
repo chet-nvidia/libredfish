@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/LogServices/Journal/Entries/90176399992",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "1970-01-02T01:02:56+00:00",
+    "EntryType": "Oem",
+    "Id": "90176399992",
+    "Message": "bmcweb: (1970-01-02 01:02:56) [CRITICAL \"error_messages.cpp\":261] Internal Error ../git/redfish-core/include/utils/conditions_utils.hpp(63:40) `redfish::conditions_utils::populateServiceConditions(const std::shared_ptr<bmcweb::AsyncResp>&, const std::string&)::<lambda(boost::system::error_code, const dbus::utility::ManagedObjectType&)>`:",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

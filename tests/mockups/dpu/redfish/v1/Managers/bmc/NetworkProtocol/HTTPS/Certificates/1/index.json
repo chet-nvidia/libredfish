@@ -1,0 +1,24 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/NetworkProtocol/HTTPS/Certificates/1",
+    "@odata.type": "#Certificate.v1_0_0.Certificate",
+    "CertificateString": "-----BEGIN CERTIFICATE-----\nMIICNTCCAbugAwIBAgIEKPH6vTAKBggqhkjOPQQDAjAxMQswCQYDVQQGEwJVUzEQ\nMA4GA1UECgwHT3BlbkJNQzEQMA4GA1UEAwwHZHB1LWJtYzAeFw03MDAxMDEwMDMx\nNDdaFw03OTEyMzAwMDMxNDdaMDExCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdPcGVu\nQk1DMRAwDgYDVQQDDAdkcHUtYm1jMHYwEAYHKoZIzj0CAQYFK4EEACIDYgAEN4vi\nGUdxRH7YyUd2AanBe4xOO7i5lRePpP0Uutnk7L0vNGOWDkYEp0HY/aDu1bMq0MyN\n0gwnQRPZxlkGOqyRY1BHmGExLvBFyXohI8YaE+kD4vGcGHoLTICj54YyPN/Jo4Gj\nMIGgMA8GA1UdEwEB/wQFMAMBAf8wEgYDVR0RBAswCYIHZHB1LWJtYzAdBgNVHQ4E\nFgQU2i0J5PTNyZ28JLBmIGYGXkWxKuYwCQYDVR0jBAIwADALBgNVHQ8EBAMCBaAw\nEwYDVR0lBAwwCgYIKwYBBQUHAwEwLQYJYIZIAYb4QgENBCAWHkdlbmVyYXRlZCBm\ncm9tIE9wZW5CTUMgc2VydmljZTAKBggqhkjOPQQDAgNoADBlAjATlJAAv6AwOvox\nkO8+2iLlPYUFlQtrBd0X0KJFFIXWyEK1R2s9Kke4RFy3aB3h1DgCMQDwK+1Heab/\na2zJSxTVXcXSCFyqTtzbdtJtwrsaIuYJ2styzxj7a7VoJZuch8np+2I=\n-----END CERTIFICATE-----\n",
+    "Description": "HTTPS Certificate",
+    "Id": "1",
+    "Issuer": {
+        "CommonName": "dpu-bmc",
+        "Country": "US",
+        "Organization": "OpenBMC"
+    },
+    "KeyUsage": [
+        "KeyEncipherment",
+        "ServerAuthentication"
+    ],
+    "Name": "HTTPS Certificate",
+    "Subject": {
+        "CommonName": "dpu-bmc",
+        "Country": "US",
+        "Organization": "OpenBMC"
+    },
+    "ValidNotAfter": "1979-12-30T00:31:47+00:00",
+    "ValidNotBefore": "1970-01-01T00:31:47+00:00"
+}

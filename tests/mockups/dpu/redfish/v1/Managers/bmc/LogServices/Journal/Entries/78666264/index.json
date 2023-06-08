@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/LogServices/Journal/Entries/78666264",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "1970-01-01T00:01:18+00:00",
+    "EntryType": "Oem",
+    "Id": "78666264",
+    "Message": "kernel: aspeed-i2c-bus 1e78a080.i2c-bus: i2c bus 0 registered, irq 45",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

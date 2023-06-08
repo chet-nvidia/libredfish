@@ -46,7 +46,7 @@ pub struct StatusState {
 pub struct Systems {
     #[serde(flatten)]
     pub odata: ODataLinks,
-    pub description: String,
+    pub description: Option<String>,
     pub members: Vec<ODataId>,
     pub name: String,
 }

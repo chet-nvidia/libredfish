@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/LogServices/Journal/Entries/103062109",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "1970-01-01T00:01:43+00:00",
+    "EntryType": "Oem",
+    "Id": "103062109",
+    "Message": "bmcweb: (1970-01-01 00:01:43) [ERROR \"hostname_monitor.hpp\":22] Replace Certificate Fail..",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/LogServices/Journal/Entries/78719550",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "1970-01-01T00:01:18+00:00",
+    "EntryType": "Oem",
+    "Id": "78719550",
+    "Message": "kernel: usb 2-1: new high-speed USB device number 5 using ehci-platform",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

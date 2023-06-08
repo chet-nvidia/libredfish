@@ -1,0 +1,9 @@
+Redfish service captured by the Redfish Mockup Creator, Version 1.1.9
+Created: 2023-06-08 12:25:48
+Service: https://172.16.104.32
+User: ADMIN
+Description: 
+Total response time: 26.680509567260742
+Average response time: 0.013852808705742856
+Minimum response time: 0.009299755096435547, /redfish/v1/Registries
+Maximum response time: 0.25093841552734375, /redfish/v1/schema/Endpoint_v1.xml

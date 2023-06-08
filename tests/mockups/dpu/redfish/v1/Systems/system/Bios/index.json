@@ -1,0 +1,13 @@
+{
+    "@odata.id": "/redfish/v1/Systems/system/Bios",
+    "@odata.type": "#Bios.v1_1_0.Bios",
+    "Actions": {
+        "#Bios.ResetBios": {
+            "target": "/redfish/v1/Systems/system/Bios/Actions/Bios.ResetBios"
+        }
+    },
+    "Attributes": null,
+    "Description": "BIOS Configuration Service",
+    "Id": "BIOS",
+    "Name": "BIOS Configuration"
+}

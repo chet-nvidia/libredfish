@@ -1,0 +1,7 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/Moonraker_BMC/PowerSubsystem/PowerSupplies",
+    "@odata.type": "#PowerSupplyCollection.PowerSupplyCollection",
+    "Description": "The collection of PowerSupply resource instances Moonraker_BMC",
+    "Members": [],
+    "Name": "Power Supply Collection"
+}

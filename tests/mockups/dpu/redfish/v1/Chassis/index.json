@@ -1,0 +1,14 @@
+{
+    "@odata.id": "/redfish/v1/Chassis",
+    "@odata.type": "#ChassisCollection.ChassisCollection",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/HGX_ERoT_BMC_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Moonraker_BMC"
+        }
+    ],
+    "Members@odata.count": 2,
+    "Name": "Chassis Collection"
+}

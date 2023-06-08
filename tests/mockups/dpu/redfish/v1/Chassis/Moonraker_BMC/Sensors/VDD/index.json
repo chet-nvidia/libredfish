@@ -1,0 +1,24 @@
+{
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/system"
+        }
+    ],
+    "error": {
+        "@Message.ExtendedInfo": [
+            {
+                "@odata.type": "#Message.v1_1_1.Message",
+                "Message": "The requested resource of type VDD named 'Sensor' was not found.",
+                "MessageArgs": [
+                    "VDD",
+                    "Sensor"
+                ],
+                "MessageId": "Base.1.13.0.ResourceNotFound",
+                "MessageSeverity": "Critical",
+                "Resolution": "Provide a valid resource identifier and resubmit the request."
+            }
+        ],
+        "code": "Base.1.13.0.ResourceNotFound",
+        "message": "The requested resource of type VDD named 'Sensor' was not found."
+    }
+}

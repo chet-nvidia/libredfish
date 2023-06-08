@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/bmc/LogServices/Journal/Entries/90176403887",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "1970-01-02T01:02:56+00:00",
+    "EntryType": "Oem",
+    "Id": "90176403887",
+    "Message": "bmcweb: (1970-01-02 01:02:56) [ERROR \"chassis_utils.hpp\":914] D-Bus responses error: generic:53 (busctl call xyz.openbmc_project.ObjectMapper /xyz/openbmc_project/inventory/system/chassis/HGX_ERoT_BMC_0/inventory org.freedesktop.DBus.Properties Get ss xyz.openbmc_project.Association endpoints)",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

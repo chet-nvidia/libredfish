@@ -1,0 +1,20 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/Moonraker_BMC/Sensors/3_3V",
+    "@odata.type": "#Sensor.v1_2_0.Sensor",
+    "Id": "3_3V",
+    "Name": "3 3V",
+    "Reading": 3.3319,
+    "ReadingRangeMax": 3.9823009542743355,
+    "ReadingRangeMin": 0.0,
+    "ReadingType": "Voltage",
+    "ReadingUnits": "V",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/system"
+        }
+    ],
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    }
+}

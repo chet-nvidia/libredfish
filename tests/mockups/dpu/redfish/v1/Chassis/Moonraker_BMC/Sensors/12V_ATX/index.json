@@ -1,0 +1,20 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/Moonraker_BMC/Sensors/12V_ATX",
+    "@odata.type": "#Sensor.v1_2_0.Sensor",
+    "Id": "12V_ATX",
+    "Name": "12V ATX",
+    "Reading": 12.144,
+    "ReadingRangeMax": 14.4,
+    "ReadingRangeMin": 0.0,
+    "ReadingType": "Voltage",
+    "ReadingUnits": "V",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/system"
+        }
+    ],
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    }
+}
