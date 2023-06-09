@@ -233,6 +233,30 @@ pub struct SetBmcLockdown {
     pub attributes: BmcLockdown,
 }
 
+// aggregate all forge required bios settings in one struct for one shot
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct BiosForgeAttrs {
+    pub in_band_manageability_interface: EnabledDisabled,
+    pub uefi_variable_access: UefiVariableAccessSettings,
+    pub serial_comm: SerialCommSettings,
+    pub serial_port_address: SerialPortSettings,
+    pub ext_serial_connector: SerialPortExtSettings,
+    pub fail_safe_baud: String,
+    pub con_term_type: SerialPortTermSettings,
+    pub redir_after_boot: EnabledDisabled,
+    pub tpm_security: OnOff,
+    pub tpm2_hierarchy: Tpm2HierarchySettings,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SetBiosForgeAttrs {
+    #[serde(rename = "@Redfish.SettingsApplyTime")]
+    pub redfish_settings_apply_time: SetSettingsApplyTime,
+    pub attributes: BiosForgeAttrs,
+}
+
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct BiosSerialAttrs {

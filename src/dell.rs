@@ -30,6 +30,40 @@ impl Redfish for Bmc {
         self.s.bios()
     }
 
+    fn forge_setup(&self) -> Result<(), RedfishError> {
+        self.delete_job_queue()?;
+
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        };
+        let forge_settings = dell::BiosForgeAttrs {
+            in_band_manageability_interface: EnabledDisabled::Disabled,
+            uefi_variable_access: dell::UefiVariableAccessSettings::Controlled,
+            serial_comm: dell::SerialCommSettings::OnConRedir,
+            serial_port_address: dell::SerialPortSettings::Com1,
+            ext_serial_connector: dell::SerialPortExtSettings::Serial1,
+            fail_safe_baud: "115200".to_string(),
+            con_term_type: dell::SerialPortTermSettings::Vt100Vt220,
+            redir_after_boot: EnabledDisabled::Enabled,
+            tpm_security: OnOff::On,
+            tpm2_hierarchy: dell::Tpm2HierarchySettings::Clear,
+        };
+        let set_forge_attrs = dell::SetBiosForgeAttrs {
+            redfish_settings_apply_time: apply_time,
+            attributes: forge_settings,
+        };
+
+        let url = format!("Systems/{}/Bios/Settings/", self.s.system_id());
+        self.s
+            .client
+            .patch(&url, set_forge_attrs)
+            .map(|_status_code| ())?;
+
+        self.setup_bmc_remote_access()?;
+        // always do system lockdown last.
+        self.enable_bmc_lockdown(dell::BootDevices::PXE, false)
+    }
+
     fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
         use EnabledDisabled::*;
         match target {
