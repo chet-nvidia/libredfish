@@ -7,7 +7,7 @@ use crate::{
     model::{oem::lenovo, BootOption},
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
-    Boot, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status, StatusInternal,
+    Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status, StatusInternal,
     SystemPowerControl,
 };
 use crate::EnabledDisabled::Enabled;
@@ -184,6 +184,10 @@ impl Redfish for Bmc {
                 _ => StatusInternal::Partial,
             },
         })
+    }
+
+    fn get_boot_options(&self) -> Result<BootOptions, RedfishError> {
+        self.s.get_boot_options()
     }
 
     fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {

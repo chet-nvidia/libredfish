@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use crate::{
     model::{oem::dell, OnOff},
     standard::RedfishStandard,
-    Boot, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status, StatusInternal,
+    Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status, StatusInternal,
     SystemPowerControl,
 };
 
@@ -202,6 +202,10 @@ impl Redfish for Bmc {
             status: final_status,
             message: format!("BMC: {remote_access_message}. BIOS: {bios_serial_message}."),
         })
+    }
+
+    fn get_boot_options(&self) -> Result<BootOptions, RedfishError> {
+        self.s.get_boot_options()
     }
 
     fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {

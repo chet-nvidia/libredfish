@@ -5,7 +5,7 @@ use tracing::debug;
 use crate::model::{power, storage, thermal};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{model, Boot, EnabledDisabled, PowerState, Redfish, Status};
-use crate::{PCIeDevice, RedfishError};
+use crate::{BootOptions, PCIeDevice, RedfishError};
 
 /// The calls that use the Redfish standard without any OEM extensions.
 pub struct RedfishStandard {
@@ -63,6 +63,10 @@ impl Redfish for RedfishStandard {
 
     fn serial_console_status(&self) -> Result<Status, RedfishError> {
         unimplemented!("No standard implementation");
+    }
+
+    fn get_boot_options(&self) -> Result<BootOptions, RedfishError> {
+        self.get_boot_options()
     }
 
     fn boot_once(&self, _target: Boot) -> Result<(), RedfishError> {

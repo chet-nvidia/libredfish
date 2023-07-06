@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 pub mod model;
-pub use model::system::{PCIeDevice, PowerState, SystemPowerControl, Systems};
+pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
 pub use model::EnabledDisabled;
 use serde::{Deserialize, Serialize};
 
@@ -35,6 +35,9 @@ pub trait Redfish: Send + Sync + 'static {
 
     /// Is the serial console setup?
     fn serial_console_status(&self) -> Result<Status, RedfishError>;
+
+    /// Show available boot options
+    fn get_boot_options(&self) -> Result<BootOptions, RedfishError>;
 
     /// Boot a single time of the given target. Does not change boot order after that.
     fn boot_once(&self, target: Boot) -> Result<(), RedfishError>;
