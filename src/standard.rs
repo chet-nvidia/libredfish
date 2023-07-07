@@ -16,6 +16,13 @@ pub struct RedfishStandard {
 }
 
 impl Redfish for RedfishStandard {
+    fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError> {
+        let url = format!("AccountService/Accounts/{}", user);
+        let mut data = HashMap::new();
+        data.insert("Password", new);
+        self.client.patch(&url, &data).map(|_status_code| Ok(()))?
+    }
+
     fn get_power_state(&self) -> Result<PowerState, RedfishError> {
         let system = self.get_system()?;
         Ok(system.power_state)

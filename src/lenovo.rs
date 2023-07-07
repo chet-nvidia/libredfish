@@ -23,6 +23,10 @@ impl Bmc {
 }
 
 impl Redfish for Bmc {
+    fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError> {
+        self.s.change_password(user, new)
+    }
+
     fn get_power_state(&self) -> Result<PowerState, RedfishError> {
         self.s.get_power_state()
     }

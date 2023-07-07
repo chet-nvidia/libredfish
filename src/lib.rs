@@ -15,6 +15,9 @@ pub use error::RedfishError;
 
 /// Interface to a BMC Redfish server. All calls will include one or more HTTP network calls.
 pub trait Redfish: Send + Sync + 'static {
+    /// Change password for the user
+    fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError>;
+
     /// Is this thing even on?
     fn get_power_state(&self) -> Result<PowerState, RedfishError>;
 
