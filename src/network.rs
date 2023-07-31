@@ -1,4 +1,4 @@
-use std::{collections::HashMap, time::Duration};
+use std::{collections::HashMap, fs::File, time::Duration};
 
 use reqwest::{
     blocking::Client as HttpClient, blocking::ClientBuilder as HttpClientBuilder,
@@ -11,6 +11,7 @@ pub use crate::RedfishError;
 
 pub const REDFISH_ENDPOINT: &str = "redfish/v1";
 const DEFAULT_TIMEOUT: Duration = Duration::from_secs(20);
+const MIN_UPLOAD_BANDWIDTH: u64 = 10_000;
 
 #[derive(Debug)]
 pub struct RedfishClientPoolBuilder {
@@ -124,7 +125,7 @@ impl RedfishHttpClient {
     where
         T: DeserializeOwned + ::std::fmt::Debug,
     {
-        let (status_code, resp_opt) = self.req::<T, String>(Method::GET, api, None, None)?;
+        let (status_code, resp_opt) = self.req::<T, String>(Method::GET, api, None, None, None)?;
         match resp_opt {
             Some(response_body) => Ok((status_code, response_body)),
             None => Err(RedfishError::NoContent),
@@ -133,8 +134,26 @@ impl RedfishHttpClient {
 
     pub fn post(&self, api: &str, data: HashMap<&str, String>) -> Result<StatusCode, RedfishError> {
         let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) =
-            self.req(Method::POST, api, Some(data), None)?;
+            self.req(Method::POST, api, Some(data), None, None)?;
         Ok(status_code)
+    }
+
+    pub fn post_file<T>(&self, api: &str, file: File) -> Result<(StatusCode, T), RedfishError>
+    where
+        T: DeserializeOwned + ::std::fmt::Debug,
+    {
+        let body_option: Option<HashMap<&str, String>> = None;
+        let timeout = DEFAULT_TIMEOUT
+            + file.metadata().map_or_else(
+                |_err| DEFAULT_TIMEOUT,
+                |m| Duration::from_secs(m.len() / MIN_UPLOAD_BANDWIDTH),
+            );
+        let (status_code, resp_opt) =
+            self.req::<T, _>(Method::POST, api, body_option, Some(timeout), Some(file))?;
+        match resp_opt {
+            Some(response_body) => Ok((status_code, response_body)),
+            None => Err(RedfishError::NoContent),
+        }
     }
 
     pub fn patch<T>(&self, api: &str, data: T) -> Result<StatusCode, RedfishError>
@@ -142,7 +161,7 @@ impl RedfishHttpClient {
         T: Serialize + ::std::fmt::Debug,
     {
         let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) =
-            self.req(Method::PATCH, api, Some(data), None)?;
+            self.req(Method::PATCH, api, Some(data), None, None)?;
         Ok(status_code)
     }
 
@@ -151,7 +170,7 @@ impl RedfishHttpClient {
     #[allow(dead_code)]
     pub fn delete(&self, api: &str) -> Result<StatusCode, RedfishError> {
         let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) =
-            self.req::<_, String>(Method::DELETE, api, None, None)?;
+            self.req::<_, String>(Method::DELETE, api, None, None, None)?;
         Ok(status_code)
     }
 
@@ -162,6 +181,7 @@ impl RedfishHttpClient {
         api: &str,
         body: Option<B>,
         override_timeout: Option<Duration>,
+        file: Option<File>,
     ) -> Result<(StatusCode, Option<T>), RedfishError>
     where
         T: DeserializeOwned + ::std::fmt::Debug,
@@ -179,7 +199,7 @@ impl RedfishHttpClient {
         };
         let body_enc = match body {
             Some(b) => {
-                let url = url.clone();
+                let url: String = url.clone();
                 let body_enc =
                     serde_json::to_string(&b).map_err(|e| RedfishError::JsonSerializeError {
                         url,
@@ -204,9 +224,17 @@ impl RedfishHttpClient {
             Method::DELETE => self.http_client.delete(&url),
             _ => unreachable!("Only GET, POST, PATCH and DELETE http methods are used."),
         };
-        req_b = req_b
-            .header(ACCEPT, HeaderValue::from_static("application/json"))
-            .header(CONTENT_TYPE, HeaderValue::from_static("application/json"));
+        req_b = req_b.header(ACCEPT, HeaderValue::from_static("application/json"));
+
+        if file.is_some() {
+            req_b = req_b.header(
+                CONTENT_TYPE,
+                HeaderValue::from_static("application/octet-stream"),
+            );
+        } else {
+            req_b = req_b.header(CONTENT_TYPE, HeaderValue::from_static("application/json"));
+        }
+
         if let Some(user) = &self.endpoint.user {
             req_b = req_b.basic_auth(user, self.endpoint.password.as_ref());
         }
@@ -215,6 +243,9 @@ impl RedfishHttpClient {
         }
         if let Some(b) = body_enc {
             req_b = req_b.body(b);
+        }
+        if let Some(f) = file {
+            req_b = req_b.body(f);
         }
         let response = req_b.send().map_err(|e| RedfishError::NetworkError {
             url: url.clone(),

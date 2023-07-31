@@ -1,10 +1,14 @@
 use std::collections::HashMap;
 
 use crate::{
-    model::{oem::dell, OnOff},
+    model::{
+        oem::dell,
+        software_inventory::{SoftwareInventory, SoftwareInventoryCollection},
+        OnOff,
+    },
     standard::RedfishStandard,
-    Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status, StatusInternal,
-    SystemPowerControl,
+    Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status,
+    StatusInternal, SystemPowerControl,
 };
 
 pub struct Bmc {
@@ -257,6 +261,25 @@ impl Redfish for Bmc {
 
     fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError> {
         self.s.pcie_devices()
+    }
+
+    fn update_firmware(
+        &self,
+        firmware: std::fs::File,
+    ) -> Result<crate::model::task::Task, RedfishError> {
+        self.s.update_firmware(firmware)
+    }
+
+    fn get_task(&self, id: &str) -> Result<crate::model::task::Task, RedfishError> {
+        self.s.get_task(id)
+    }
+
+    fn get_firmware(&self, id: &str) -> Result<SoftwareInventory, RedfishError> {
+        self.s.get_firmware(id)
+    }
+
+    fn get_software_inventories(&self) -> Result<SoftwareInventoryCollection, RedfishError> {
+        self.s.get_software_inventories()
     }
 }
 

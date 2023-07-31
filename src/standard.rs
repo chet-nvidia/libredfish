@@ -2,6 +2,7 @@ use std::collections::{HashMap, HashSet};
 
 use tracing::debug;
 
+use crate::model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
 use crate::model::{power, storage, thermal};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{model, Boot, EnabledDisabled, PowerState, Redfish, Status};
@@ -110,6 +111,28 @@ impl Redfish for RedfishStandard {
         }
         out.sort_unstable_by(|a, b| a.manufacturer.partial_cmp(&b.manufacturer).unwrap());
         Ok(out)
+    }
+
+    fn update_firmware(&self, firmware: std::fs::File) -> Result<model::task::Task, RedfishError> {
+        let (_status_code, body) = self.client.post_file("UpdateService", firmware)?;
+        Ok(body)
+    }
+
+    fn get_task(&self, id: &str) -> Result<model::task::Task, RedfishError> {
+        let url = format!("TaskService/Tasks/{}", id);
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
+
+    fn get_firmware(&self, id: &str) -> Result<SoftwareInventory, RedfishError> {
+        let url = format!("UpdateService/FirmwareInventory/{}", id);
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
+
+    fn get_software_inventories(&self) -> Result<SoftwareInventoryCollection, RedfishError> {
+        let (_status_code, body) = self.client.get("UpdateService/FirmwareInventory")?;
+        Ok(body)
     }
 }
 

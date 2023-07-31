@@ -1,7 +1,10 @@
 use std::collections::HashMap;
+use std::fs::File;
 
 pub mod model;
+use model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
+use model::task::Task;
 pub use model::EnabledDisabled;
 use serde::{Deserialize, Serialize};
 
@@ -17,6 +20,15 @@ pub use error::RedfishError;
 pub trait Redfish: Send + Sync + 'static {
     /// Change password for the user
     fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError>;
+
+    // Get firmware version for particular firmware inventory id
+    fn get_firmware(&self, id: &str) -> Result<SoftwareInventory, RedfishError>;
+
+    // Get software inventory collection
+    fn get_software_inventories(&self) -> Result<SoftwareInventoryCollection, RedfishError>;
+
+    // Get information about a task
+    fn get_task(&self, id: &str) -> Result<Task, RedfishError>;
 
     /// Is this thing even on?
     fn get_power_state(&self) -> Result<PowerState, RedfishError>;
@@ -53,6 +65,9 @@ pub trait Redfish: Send + Sync + 'static {
 
     /// List PCIe devices
     fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError>;
+
+    /// Update firmware
+    fn update_firmware(&self, firmware: File) -> Result<Task, RedfishError>;
 
     /*
      * Diagnostic calls
