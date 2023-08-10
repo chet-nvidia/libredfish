@@ -102,6 +102,7 @@ impl RedfishClientPool {
         match s.vendor.as_deref() {
             Some("Dell") => Ok(Box::new(crate::dell::Bmc::new(s)?)),
             Some("Lenovo") => Ok(Box::new(crate::lenovo::Bmc::new(s)?)),
+            Some("Nvidia") => Ok(Box::new(crate::nvidia::Bmc::new(s)?)),
             _ => Ok(Box::new(s)),
         }
     }
