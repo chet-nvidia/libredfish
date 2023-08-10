@@ -4,7 +4,7 @@ use crate::{
     model::{
         oem::dell,
         software_inventory::{SoftwareInventory, SoftwareInventoryCollection},
-        OnOff,
+        OnOff, ComputerSystem,
     },
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status,
@@ -280,6 +280,10 @@ impl Redfish for Bmc {
 
     fn get_software_inventories(&self) -> Result<SoftwareInventoryCollection, RedfishError> {
         self.s.get_software_inventories()
+    }
+
+    fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
+        self.s.get_system()
     }
 }
 

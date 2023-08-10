@@ -2,7 +2,7 @@ use std::collections::HashMap;
 use std::fs::File;
 
 pub mod model;
-use model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
+use model::{software_inventory::{SoftwareInventory, SoftwareInventoryCollection}, ComputerSystem};
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
 use model::task::Task;
 pub use model::EnabledDisabled;
@@ -32,6 +32,9 @@ pub trait Redfish: Send + Sync + 'static {
 
     /// Is this thing even on?
     fn get_power_state(&self) -> Result<PowerState, RedfishError>;
+
+    /// Returns info about computer system.
+    fn get_system(&self) -> Result<ComputerSystem, RedfishError>;
 
     /// Change power state: on, off, reboot, etc
     fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError>;

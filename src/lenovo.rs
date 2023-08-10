@@ -4,6 +4,7 @@ use reqwest::Method;
 use tracing::debug;
 
 use crate::EnabledDisabled::Enabled;
+use crate::model::ComputerSystem;
 use crate::{
     model::{
         oem::lenovo,
@@ -253,6 +254,10 @@ impl Redfish for Bmc {
 
     fn get_software_inventories(&self) -> Result<SoftwareInventoryCollection, RedfishError> {
         self.s.get_software_inventories()
+    }
+
+    fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
+        self.s.get_system()
     }
 }
 

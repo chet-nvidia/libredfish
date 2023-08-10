@@ -134,6 +134,12 @@ impl Redfish for RedfishStandard {
         let (_status_code, body) = self.client.get("UpdateService/FirmwareInventory")?;
         Ok(body)
     }
+
+    fn get_system(&self) -> Result<model::ComputerSystem, RedfishError> {
+        let url = format!("Systems/{}/", self.system_id);
+        let host: model::ComputerSystem = self.client.get(&url)?.1;
+        Ok(host)
+    }
 }
 
 impl RedfishStandard {
@@ -273,12 +279,6 @@ impl RedfishStandard {
         let v: Vec<&str> = bmcs.members[0].odata_id.split('/').collect();
         self.manager_id = v.last().unwrap().to_string();
         Ok(())
-    }
-
-    fn get_system(&self) -> Result<model::ComputerSystem, RedfishError> {
-        let url = format!("Systems/{}/", self.system_id);
-        let host: model::ComputerSystem = self.client.get(&url)?.1;
-        Ok(host)
     }
 
     //
