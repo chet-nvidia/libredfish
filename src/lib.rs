@@ -2,10 +2,14 @@ use std::collections::HashMap;
 use std::fs::File;
 
 pub mod model;
-use model::{software_inventory::{SoftwareInventory, SoftwareInventoryCollection}, ComputerSystem};
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
 use model::task::Task;
 pub use model::EnabledDisabled;
+use model::{
+    secure_boot::SecureBoot,
+    software_inventory::{SoftwareInventory, SoftwareInventoryCollection},
+    ComputerSystem,
+};
 use serde::{Deserialize, Serialize};
 
 mod dell;
@@ -36,6 +40,12 @@ pub trait Redfish: Send + Sync + 'static {
 
     /// Returns info about computer system.
     fn get_system(&self) -> Result<ComputerSystem, RedfishError>;
+
+    /// Get Secure Boot state
+    fn get_secure_boot(&self) -> Result<SecureBoot, RedfishError>;
+
+    /// Disables Secure Boot 
+    fn disable_secure_boot(&self) -> Result<(), RedfishError>;
 
     /// Change power state: on, off, reboot, etc
     fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError>;

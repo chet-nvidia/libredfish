@@ -3,8 +3,8 @@ use std::{collections::HashMap, time::Duration};
 use reqwest::Method;
 use tracing::debug;
 
+use crate::model::{secure_boot::SecureBoot, ComputerSystem};
 use crate::EnabledDisabled::Enabled;
-use crate::model::ComputerSystem;
 use crate::{
     model::{
         oem::lenovo,
@@ -258,6 +258,14 @@ impl Redfish for Bmc {
 
     fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
         self.s.get_system()
+    }
+
+    fn get_secure_boot(&self) -> Result<SecureBoot, RedfishError> {
+        self.s.get_secure_boot()
+    }
+
+    fn disable_secure_boot(&self) -> Result<(), RedfishError> {
+        self.s.disable_secure_boot()
     }
 }
 

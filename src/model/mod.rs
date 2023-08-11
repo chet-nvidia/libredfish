@@ -11,6 +11,7 @@ pub mod bios;
 pub use bios::*;
 
 pub mod oem;
+pub mod secure_boot;
 
 // power/thermal/storage not currently used
 pub mod power;

@@ -3,8 +3,9 @@ use std::collections::HashMap;
 use crate::{
     model::{
         oem::dell,
+        secure_boot::SecureBoot,
         software_inventory::{SoftwareInventory, SoftwareInventoryCollection},
-        OnOff, ComputerSystem,
+        ComputerSystem, OnOff,
     },
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status,
@@ -284,6 +285,14 @@ impl Redfish for Bmc {
 
     fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
         self.s.get_system()
+    }
+
+    fn get_secure_boot(&self) -> Result<SecureBoot, RedfishError> {
+        self.s.get_secure_boot()
+    }
+
+    fn disable_secure_boot(&self) -> Result<(), RedfishError> {
+        self.s.disable_secure_boot()
     }
 }
 

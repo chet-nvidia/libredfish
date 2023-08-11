@@ -100,4 +100,16 @@ impl Redfish for Bmc {
     fn clear_pending(&self) -> Result<(), RedfishError> {
         self.s.clear_pending()
     }
+
+    fn get_system(&self) -> Result<crate::model::ComputerSystem, RedfishError> {
+        self.s.get_system()
+    }
+
+    fn get_secure_boot(&self) -> Result<crate::model::secure_boot::SecureBoot, RedfishError> {
+        self.s.get_secure_boot()
+    }
+
+    fn disable_secure_boot(&self) -> Result<(), RedfishError> {
+        self.s.disable_secure_boot()
+    }
 }
