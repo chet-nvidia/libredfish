@@ -1,4 +1,4 @@
-use crate::{standard::RedfishStandard, Redfish, RedfishError};
+use crate::{model::BootOption, standard::RedfishStandard, Redfish, RedfishError};
 
 pub struct Bmc {
     s: RedfishStandard,
@@ -70,6 +70,10 @@ impl Redfish for Bmc {
 
     fn get_boot_options(&self) -> Result<crate::BootOptions, RedfishError> {
         self.s.get_boot_options()
+    }
+
+    fn get_boot_option(&self, option_id: &str) -> Result<BootOption, RedfishError> {
+        self.s.get_boot_option(option_id)
     }
 
     fn boot_once(&self, target: crate::Boot) -> Result<(), RedfishError> {

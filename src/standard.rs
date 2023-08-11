@@ -6,7 +6,7 @@ use crate::model::secure_boot::SecureBoot;
 use crate::model::power::Power;
 use crate::model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
 use crate::model::thermal::Thermal;
-use crate::model::{power, storage, thermal};
+use crate::model::{power, storage, thermal, BootOption};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{model, Boot, EnabledDisabled, PowerState, Redfish, Status};
 use crate::{BootOptions, PCIeDevice, RedfishError};
@@ -88,6 +88,12 @@ impl Redfish for RedfishStandard {
 
     fn get_boot_options(&self) -> Result<BootOptions, RedfishError> {
         self.get_boot_options()
+    }
+
+    fn get_boot_option(&self, option_id: &str) -> Result<BootOption, RedfishError> {
+        let url = format!("Systems/{}/BootOptions/{}", self.system_id(), option_id);
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
     }
 
     fn boot_once(&self, _target: Boot) -> Result<(), RedfishError> {

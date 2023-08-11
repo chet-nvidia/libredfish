@@ -209,6 +209,10 @@ impl Redfish for Bmc {
         self.s.get_boot_options()
     }
 
+    fn get_boot_option(&self, option_id: &str) -> Result<BootOption, RedfishError> {
+        self.s.get_boot_option(option_id)
+    }
+
     fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {
         match target {
             Boot::Pxe => self.set_boot_override(lenovo::BootSource::Pxe),

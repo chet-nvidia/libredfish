@@ -8,7 +8,7 @@ pub use model::EnabledDisabled;
 use model::{
     secure_boot::SecureBoot,
     software_inventory::{SoftwareInventory, SoftwareInventoryCollection},
-    ComputerSystem,
+    BootOption, ComputerSystem,
 };
 use serde::{Deserialize, Serialize};
 
@@ -46,7 +46,7 @@ pub trait Redfish: Send + Sync + 'static {
     /// Get Secure Boot state
     fn get_secure_boot(&self) -> Result<SecureBoot, RedfishError>;
 
-    /// Disables Secure Boot 
+    /// Disables Secure Boot
     fn disable_secure_boot(&self) -> Result<(), RedfishError>;
 
     /// Power supplies and voltages metrics
@@ -75,6 +75,9 @@ pub trait Redfish: Send + Sync + 'static {
 
     /// Show available boot options
     fn get_boot_options(&self) -> Result<BootOptions, RedfishError>;
+
+    /// Show available boot options
+    fn get_boot_option(&self, option_id: &str) -> Result<BootOption, RedfishError>;
 
     /// Boot a single time of the given target. Does not change boot order after that.
     fn boot_once(&self, target: Boot) -> Result<(), RedfishError>;
