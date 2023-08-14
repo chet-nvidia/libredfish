@@ -8,6 +8,7 @@ pub mod system;
 pub use system::*;
 
 pub mod bios;
+pub mod boot;
 pub use bios::*;
 
 pub mod oem;
