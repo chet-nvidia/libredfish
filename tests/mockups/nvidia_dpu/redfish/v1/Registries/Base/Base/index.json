@@ -2,7 +2,7 @@
     "@Redfish.Copyright": "Copyright 2014-2022 DMTF. All rights reserved.",
     "@odata.type": "#MessageRegistry.v1_5_0.MessageRegistry",
     "Description": "This registry defines the base messages for Redfish",
-    "Id": "Base.1.13.0",
+    "Id": "Base.1.15.0",
     "Language": "en",
     "Messages": {
         "AccessDenied": {
@@ -180,6 +180,14 @@
             ],
             "Resolution": "Correct the value for the parameter in the request body and resubmit the request if the operation failed.",
             "Severity": "Warning"
+        },
+        "AuthenticationTokenRequired": {
+            "Description": "Indicates that the request could not be performed because an authentication token was not provided.",
+            "Message": "The request could not be performed because an authentication token was not provided.",
+            "MessageSeverity": "Critical",
+            "NumberOfArgs": 0,
+            "Resolution": "Obtain an authentication token and resubmit the request.",
+            "Severity": "Critical"
         },
         "ChassisPowerStateOffRequired": {
             "Description": "Indicates that the request requires a specified chassis to be powered off.",
@@ -729,6 +737,17 @@
             "Resolution": "Reduce the value for the query parameter to a value that is within range, such as a start or count value that is within bounds of the number of resources in a collection or a page that is within the range of valid pages.",
             "Severity": "Warning"
         },
+        "QueryParameterUnsupported": {
+            "Description": "Indicates that a query parameter is not supported.",
+            "Message": "Query parameter '%1' is not supported.",
+            "MessageSeverity": "Warning",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "Correct or remove the query parameter and resubmit the request.",
+            "Severity": "Warning"
+        },
         "QueryParameterValueError": {
             "Description": "Indicates that a query parameter was given an invalid value.",
             "Message": "The value for the parameter %1 is invalid.",
@@ -1066,5 +1085,5 @@
     "Name": "Base Message Registry",
     "OwningEntity": "DMTF",
     "RegistryPrefix": "Base",
-    "RegistryVersion": "1.13.0"
+    "RegistryVersion": "1.15.0"
 }

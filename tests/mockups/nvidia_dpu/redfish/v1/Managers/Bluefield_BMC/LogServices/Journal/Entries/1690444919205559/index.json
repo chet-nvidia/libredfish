@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Journal/Entries/1690444919205559",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-07-27T08:01:59+00:00",
+    "EntryType": "Oem",
+    "Id": "1690444919205559",
+    "Message": "kernel: [    0.046904] SCSI subsystem initialized",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

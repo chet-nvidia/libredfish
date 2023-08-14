@@ -1,0 +1,75 @@
+{
+    "@Redfish.Settings": {
+        "@odata.type": "#Settings.v1_3_5.Settings",
+        "SettingsObject": {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/Bios/Settings"
+        }
+    },
+    "@odata.id": "/redfish/v1/Systems/Bluefield/Bios",
+    "@odata.type": "#Bios.v1_2_0.Bios",
+    "Actions": {
+        "#Bios.ChangePassword": {
+            "target": "/redfish/v1/Systems/Bluefield/Bios/Actions/Bios.ChangePassword"
+        },
+        "#Bios.ResetBios": {
+            "target": "/redfish/v1/Systems/Bluefield/Bios/Actions/Bios.ResetBios"
+        }
+    },
+    "Attributes": {
+        "Boot Partition Protection": false,
+        "CurrentUefiPassword": "",
+        "DateTime": "2023-08-07T11:49:52Z",
+        "Disable PCIe": false,
+        "Disable SPMI": false,
+        "Disable TMFF": false,
+        "EmmcWipe": false,
+        "Enable 2nd eMMC": false,
+        "Enable OP-TEE": false,
+        "Enable SMMU": true,
+        "Field Mode": false,
+        "Host Privilege Level": "Unavailable",
+        "Internal CPU Model": "Unavailable",
+        "ResetEfiVars": false,
+        "SPCR UART": "Disabled",
+        "UefiPassword": ""
+    },
+    "Description": "BIOS Configuration Service",
+    "Id": "BIOS",
+    "Links": {
+        "ActiveSoftwareImage": {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_UEFI"
+        },
+        "SoftwareImages": [
+            {
+                "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_ATF"
+            },
+            {
+                "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_BOARD"
+            },
+            {
+                "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_BSP"
+            },
+            {
+                "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_NIC"
+            },
+            {
+                "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_NODE"
+            },
+            {
+                "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_OFED"
+            },
+            {
+                "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_OS"
+            },
+            {
+                "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_SYS_IMAGE"
+            },
+            {
+                "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_UEFI"
+            }
+        ],
+        "SoftwareImages@odata.count": 9
+    },
+    "Name": "BIOS Configuration",
+    "ResetBiosToDefaultsPending": false
+}

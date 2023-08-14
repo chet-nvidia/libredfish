@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Journal/Entries/1691408955995219",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-08-07T11:49:15+00:00",
+    "EntryType": "Oem",
+    "Id": "1691408955995219",
+    "Message": "ipmid: Failed to GetAll",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "Warning"
+}

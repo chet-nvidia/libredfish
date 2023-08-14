@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot0007",
+    "@odata.type": "#BootOption.v1_0_4.BootOption",
+    "BootOptionEnabled": true,
+    "BootOptionReference": "Boot0007",
+    "Description": "",
+    "DisplayName": "EFI Internal Shell",
+    "Id": "Boot0007",
+    "Name": "Boot0007",
+    "UefiDevicePath": "MemoryMapped(0xB,0xFDE2F000,0xFE6FD63F)/FvFile(7C04A583-9E3E-4F1C-AD65-E05268D0B4D1)"
+}

@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot0006",
+    "@odata.type": "#BootOption.v1_0_4.BootOption",
+    "BootOptionEnabled": true,
+    "BootOptionReference": "Boot0006",
+    "Description": "",
+    "DisplayName": "UiApp",
+    "Id": "Boot0006",
+    "Name": "Boot0006",
+    "UefiDevicePath": "MemoryMapped(0xB,0xFDE2F000,0xFE6FD63F)/FvFile(462CAA21-7614-4503-836E-8AB6F4662331)"
+}

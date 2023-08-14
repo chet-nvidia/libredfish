@@ -28,7 +28,7 @@
     },
     "Links": {
         "ManagerProvidingService": {
-            "@odata.id": "/redfish/v1/Managers/bmc"
+            "@odata.id": "/redfish/v1/Managers/Bluefield_BMC"
         },
         "Sessions": {
             "@odata.id": "/redfish/v1/SessionService/Sessions"
@@ -38,6 +38,7 @@
         "@odata.id": "/redfish/v1/Managers"
     },
     "Name": "Root Service",
+    "Product": "Nvidia-BMCMezz",
     "ProtocolFeaturesSupported": {
         "DeepOperations": {
             "DeepPATCH": false,
@@ -45,10 +46,11 @@
         },
         "ExcerptQuery": false,
         "ExpandQuery": {
-            "ExpandAll": false,
-            "Levels": false,
-            "Links": false,
-            "NoLinks": false
+            "ExpandAll": true,
+            "Levels": true,
+            "Links": true,
+            "MaxLevels": 6,
+            "NoLinks": true
         },
         "FilterQuery": false,
         "OnlyMemberQuery": true,
@@ -73,8 +75,9 @@
     "TelemetryService": {
         "@odata.id": "/redfish/v1/TelemetryService"
     },
-    "UUID": "e74aaf15-8f09-40ea-932c-d5a13c35d006",
+    "UUID": "dd663e8d-b535-4a31-8cf8-6a99cea834a7",
     "UpdateService": {
         "@odata.id": "/redfish/v1/UpdateService"
-    }
+    },
+    "Vendor": "Nvidia"
 }

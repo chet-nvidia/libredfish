@@ -1,11 +1,7 @@
 {
     "@odata.id": "/redfish/v1/TelemetryService/MetricReports",
     "@odata.type": "#MetricReportCollection.MetricReportCollection",
-    "Members": [
-        {
-            "@odata.id": "/redfish/v1/TelemetryService/MetricReports/PlatformMetrics"
-        }
-    ],
-    "Members@odata.count": 1,
+    "Members": null,
+    "Members@odata.count": 0,
     "Name": "Metric Report Collection"
 }

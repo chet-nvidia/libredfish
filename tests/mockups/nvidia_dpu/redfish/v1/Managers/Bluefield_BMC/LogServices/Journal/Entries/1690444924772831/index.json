@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Journal/Entries/1690444924772831",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-07-27T08:02:04+00:00",
+    "EntryType": "Oem",
+    "Id": "1690444924772831",
+    "Message": "phosphor-certificate-manager: Error in certificate manager constructor",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "Warning"
+}

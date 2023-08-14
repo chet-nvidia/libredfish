@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Journal/Entries/1690444931372258",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-07-27T08:02:11+00:00",
+    "EntryType": "Oem",
+    "Id": "1690444931372258",
+    "Message": "ipmbbridged: ipmbChannelInit: error opening deviceFile - /sys/bus/i2c/devices/i2c-1-20/new_device",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "Warning"
+}

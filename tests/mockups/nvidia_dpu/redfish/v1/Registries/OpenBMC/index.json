@@ -15,5 +15,5 @@
     ],
     "Location@odata.count": 1,
     "Name": "OpenBMC Message Registry File",
-    "Registry": "OpenBMC.0.4.0"
+    "Registry": "OpenBMC.0.4.1"
 }

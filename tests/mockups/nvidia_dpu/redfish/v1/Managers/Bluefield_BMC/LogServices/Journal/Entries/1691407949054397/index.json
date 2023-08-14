@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Journal/Entries/1691407949054397",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-08-07T11:32:29+00:00",
+    "EntryType": "Oem",
+    "Id": "1691407949054397",
+    "Message": "phosphor-user-manager: Invalid argument was given.",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "Warning"
+}

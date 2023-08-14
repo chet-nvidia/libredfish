@@ -3,12 +3,15 @@
     "@odata.type": "#ChassisCollection.ChassisCollection",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Chassis/HGX_ERoT_BMC_0"
+            "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC"
         },
         {
-            "@odata.id": "/redfish/v1/Chassis/Moonraker_BMC"
+            "@odata.id": "/redfish/v1/Chassis/Bluefield_ERoT"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/Card1"
         }
     ],
-    "Members@odata.count": 2,
+    "Members@odata.count": 3,
     "Name": "Chassis Collection"
 }

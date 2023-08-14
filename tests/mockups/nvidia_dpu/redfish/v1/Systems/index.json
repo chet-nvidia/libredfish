@@ -3,7 +3,7 @@
     "@odata.type": "#ComputerSystemCollection.ComputerSystemCollection",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Systems/system"
+            "@odata.id": "/redfish/v1/Systems/Bluefield"
         }
     ],
     "Members@odata.count": 1,

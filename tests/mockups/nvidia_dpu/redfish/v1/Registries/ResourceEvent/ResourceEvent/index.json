@@ -1,10 +1,22 @@
 {
-    "@Redfish.Copyright": "Copyright 2014-2020 DMTF in cooperation with the Storage Networking Industry Association (SNIA). All rights reserved.",
-    "@odata.type": "#MessageRegistry.v1_4_0.MessageRegistry",
+    "@Redfish.Copyright": "Copyright 2014-2021 DMTF in cooperation with the Storage Networking Industry Association (SNIA). All rights reserved.",
+    "@odata.type": "#MessageRegistry.v1_5_0.MessageRegistry",
     "Description": "This registry defines the messages to use for resource events.",
-    "Id": "ResourceEvent.1.0.3",
+    "Id": "ResourceEvent.1.2.1",
     "Language": "en",
     "Messages": {
+        "AggregationSourceDiscovered": {
+            "Description": "Indicates that a new aggregation source has been discovered.",
+            "Message": "A aggregation source of connection method `%1` located at `%2` has been discovered.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 2,
+            "ParamTypes": [
+                "string",
+                "string"
+            ],
+            "Resolution": "The aggregation source is available to the service and can be identified using the identified connection method.",
+            "Severity": "OK"
+        },
         "LicenseAdded": {
             "Description": "Indicates that a license has been added.",
             "Message": "A license for '%1' has been added.  The following message was returned: '%2'.",
@@ -105,6 +117,61 @@
             "Resolution": "Resolution dependent upon error type.",
             "Severity": "Warning"
         },
+        "ResourcePaused": {
+            "Description": "Indicates that the power state of a resource has changed to paused.",
+            "Message": "The resource `%1` has been paused.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
+        "ResourcePoweredOff": {
+            "Description": "Indicates that the power state of a resource has changed to powered off.",
+            "Message": "The resource `%1` has powered off.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
+        "ResourcePoweredOn": {
+            "Description": "Indicates that the power state of a resource has changed to powered on.",
+            "Message": "The resource `%1` has powered on.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
+        "ResourcePoweringOff": {
+            "Description": "Indicates that the power state of a resource has changed to powering off.",
+            "Message": "The resource `%1` is powering off.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
+        "ResourcePoweringOn": {
+            "Description": "Indicates that the power state of a resource has changed to powering on.",
+            "Message": "The resource `%1` is powering on.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
         "ResourceRemoved": {
             "Description": "Indicates that all conditions of a successful remove operation have been met.",
             "Message": "The resource has been removed successfully.",
@@ -131,6 +198,18 @@
             ],
             "Resolution": "See vendor specific instructions for specific actions.",
             "Severity": "Critical"
+        },
+        "ResourceStateChanged": {
+            "Description": "Indicates that the state of a resource has changed.",
+            "Message": "The state of resource `%1` has changed to %2.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 2,
+            "ParamTypes": [
+                "string",
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "OK"
         },
         "ResourceStatusChangedCritical": {
             "Description": "Indicates that the health of a resource has changed to Critical.",
@@ -215,5 +294,5 @@
     "Name": "Resource Event Message Registry",
     "OwningEntity": "DMTF",
     "RegistryPrefix": "ResourceEvent",
-    "RegistryVersion": "1.0.3"
+    "RegistryVersion": "1.2.1"
 }

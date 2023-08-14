@@ -2,7 +2,14 @@
     "@odata.id": "/redfish/v1/Cables",
     "@odata.type": "#CableCollection.CableCollection",
     "Description": "Collection of Cable Entries",
-    "Members": [],
-    "Members@odata.count": 0,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Cables/p0_link"
+        },
+        {
+            "@odata.id": "/redfish/v1/Cables/p1_link"
+        }
+    ],
+    "Members@odata.count": 2,
     "Name": "Cable Collection"
 }

@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Journal/Entries/1690444922850565",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-07-27T08:02:02+00:00",
+    "EntryType": "Oem",
+    "Id": "1690444922850565",
+    "Message": "kernel: [   21.317691] aspeed-i2c-bus 1e78a080.i2c-bus: irq handled != irq. expected 0x00000021, but was 0x00000020",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "Warning"
+}

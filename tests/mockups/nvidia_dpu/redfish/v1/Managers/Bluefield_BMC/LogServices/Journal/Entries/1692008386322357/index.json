@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Journal/Entries/1692008386322357",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-08-14T10:19:46+00:00",
+    "EntryType": "Oem",
+    "Id": "1692008386322357",
+    "Message": "systemd-networkd: Could not set hostname: Access denied",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "Warning"
+}

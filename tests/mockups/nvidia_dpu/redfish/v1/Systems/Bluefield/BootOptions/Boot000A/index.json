@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000A",
+    "@odata.type": "#BootOption.v1_0_4.BootOption",
+    "BootOptionEnabled": true,
+    "BootOptionReference": "Boot000A",
+    "Description": "",
+    "DisplayName": "UEFI Non-Block Boot Device",
+    "Id": "Boot000A",
+    "Name": "Boot000A",
+    "UefiDevicePath": "VenHw(F019E406-8C9C-11E5-8797-001ACA00BFC4)"
+}

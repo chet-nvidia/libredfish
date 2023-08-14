@@ -2,7 +2,7 @@
     "@Redfish.Copyright": "Copyright 2022 OpenBMC. All rights reserved.",
     "@odata.type": "#MessageRegistry.v1_4_0.MessageRegistry",
     "Description": "This registry defines the base messages for OpenBMC.",
-    "Id": "OpenBMC.0.4.0",
+    "Id": "OpenBMC.0.4.1",
     "Language": "en",
     "Messages": {
         "ADDDCCorrectable": {
@@ -17,6 +17,18 @@
                 "number"
             ],
             "Resolution": "None.",
+            "Severity": "Warning"
+        },
+        "AsyncError": {
+            "Description": "Indicates that the SMBPBI Async Command Failed",
+            "Message": "%1 Respresents Error Code",
+            "MessageSeverity": "Warning",
+            "NumberOfArgs": 2,
+            "ParamTypes": [
+                "string",
+                "string"
+            ],
+            "Resolution": "%2",
             "Severity": "Warning"
         },
         "AtScaleDebugConnected": {
@@ -195,6 +207,14 @@
             "Resolution": "None.",
             "Severity": "OK"
         },
+        "BMCFactoryReset": {
+            "Description": "Indicates that BMC factory reset was performed.",
+            "Message": "BMC factory reset was performed.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 0,
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
         "BMCFirmwarePanicReason": {
             "Description": "Indicates the reason for last BMC firmware panic.",
             "Message": "BMC firmware panic occurred due to %1.",
@@ -233,6 +253,25 @@
             "Message": "BMC rebooted due to kernel panic.",
             "MessageSeverity": "OK",
             "NumberOfArgs": 0,
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
+        "BMCLogsErased": {
+            "Description": "Indicates that BMC log erase was performed.",
+            "Message": "BMC log erase was performed.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 0,
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
+        "BMCRebootReason": {
+            "Description": "Indicates BMC firmware rebooted.",
+            "Message": "BMC firmware rebooted due to reason %1.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
             "Resolution": "None.",
             "Severity": "OK"
         },
@@ -1821,6 +1860,28 @@
             "Resolution": "None.",
             "Severity": "Critical"
         },
+        "SensorCableStatusEnable": {
+            "Description": "Indicates that a cable sensor moved from error status to enable status .",
+            "Message": "%1 sensor is now enabled.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "Check the sensor or subsystem for errors.",
+            "Severity": "OK"
+        },
+        "SensorCableStatusError": {
+            "Description": "Indicates that a cable sensor moved from enable status to error status .",
+            "Message": "%1 sensor is now in error.",
+            "MessageSeverity": "Critical",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "Check the sensor or subsystem for errors.",
+            "Severity": "Critical"
+        },
         "SensorThresholdCriticalHighGoingHigh": {
             "Description": "Indicates that a threshold sensor has crossed a critical high threshold going high.",
             "Message": "%1 sensor crossed a critical high threshold going high. Reading=%2 Threshold=%3.",
@@ -2044,6 +2105,83 @@
             "Resolution": "None.",
             "Severity": "Critical"
         },
+        "TriggerDiscreteCritical": {
+            "Description": "Indicates that discrete trigger condition is met and requires immediate attention.",
+            "Message": "Discrete condition '%1' of trigger '%2' is met on sensor %3, recorded value: %4, timestamp: %5",
+            "MessageSeverity": "Critical",
+            "NumberOfArgs": 5,
+            "ParamTypes": [
+                "string",
+                "string",
+                "string",
+                "string",
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "Critical"
+        },
+        "TriggerDiscreteOK": {
+            "Description": "Indicates that discrete trigger condition is met.",
+            "Message": "Discrete condition '%1' of trigger '%2' is met on sensor %3, recorded value: %4, timestamp: %5",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 5,
+            "ParamTypes": [
+                "string",
+                "string",
+                "string",
+                "string",
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
+        "TriggerDiscreteWarning": {
+            "Description": "Indicates that discrete trigger condition is met and may require attention.",
+            "Message": "Discrete condition '%1' of trigger '%2' is met on sensor %3, recorded value: %4, timestamp: %5",
+            "MessageSeverity": "Warning",
+            "NumberOfArgs": 5,
+            "ParamTypes": [
+                "string",
+                "string",
+                "string",
+                "string",
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "Warning"
+        },
+        "TriggerNumericCritical": {
+            "Description": "Indicates that numeric trigger threshold is crossed and may require attention.",
+            "Message": "Numeric threshold '%1' of trigger '%2' is crossed on sensor %3, recorded value: %4, crossing direction: %5, timestamp: %6",
+            "MessageSeverity": "Critical",
+            "NumberOfArgs": 6,
+            "ParamTypes": [
+                "string",
+                "string",
+                "string",
+                "number",
+                "string",
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "Critical"
+        },
+        "TriggerNumericWarning": {
+            "Description": "Indicates that numeric trigger threshold is crossed.",
+            "Message": "Numeric threshold: '%1' of trigger: '%2' is crossed on sensor %3, recorded value: %4, crossing direction: %5, timestamp: %6",
+            "MessageSeverity": "Warning",
+            "NumberOfArgs": 6,
+            "ParamTypes": [
+                "string",
+                "string",
+                "string",
+                "number",
+                "string",
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "Warning"
+        },
         "VoltageRegulatorOverheated": {
             "Description": "Indicates that the specified voltage regulator overheated.",
             "Message": "%1 Voltage Regulator Overheated.",
@@ -2059,5 +2197,5 @@
     "Name": "OpenBMC Message Registry",
     "OwningEntity": "OpenBMC",
     "RegistryPrefix": "OpenBMC",
-    "RegistryVersion": "0.4.0"
+    "RegistryVersion": "0.4.1"
 }

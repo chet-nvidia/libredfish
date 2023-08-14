@@ -1,9 +1,0 @@
-{
-    "@odata.id": "/redfish/v1/Chassis/Moonraker_BMC/Thermal",
-    "@odata.type": "#Thermal.v1_4_0.Thermal",
-    "Fans": [],
-    "Id": "Thermal",
-    "Name": "Thermal",
-    "Redundancy": [],
-    "Temperatures": []
-}

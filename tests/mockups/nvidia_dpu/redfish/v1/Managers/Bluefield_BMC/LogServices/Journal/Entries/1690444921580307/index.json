@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Journal/Entries/1690444921580307",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2023-07-27T08:02:01+00:00",
+    "EntryType": "Oem",
+    "Id": "1690444921580307",
+    "Message": "kernel: [   20.053650] random: 7 urandom warning(s) missed due to ratelimiting",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

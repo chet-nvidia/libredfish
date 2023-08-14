@@ -1,0 +1,18 @@
+{
+    "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/23",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/23/attachment",
+    "Created": "2023-07-27T08:01:44+00:00",
+    "EntryType": "Event",
+    "Id": "23",
+    "Message": "Device '24' successfully updated with image 'cec1736ApFw-00230703'.",
+    "MessageArgs": [
+        "24",
+        "cec1736ApFw-00230703"
+    ],
+    "MessageId": "Update.1.0.UpdateSuccessful",
+    "Name": "System Event Log Entry",
+    "Resolution": "",
+    "Resolved": false,
+    "Severity": "OK"
+}
