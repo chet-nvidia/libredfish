@@ -24,3 +24,5 @@ thiserror = { version = "1", registry = "cratesio" }
 
 [dev-dependencies]
 anyhow = { version = "1", registry = "cratesio" }
+tracing-subscriber = { version = "*", features = ["env-filter", "local-time"] }
+
