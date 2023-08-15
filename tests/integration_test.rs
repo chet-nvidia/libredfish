@@ -92,12 +92,6 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
         assert!(redfish.lockdown_status()?.is_fully_disabled());
     }
 
-    redfish.lockdown(libredfish::EnabledDisabled::Enabled)?;
-    redfish.power(libredfish::SystemPowerControl::GracefulRestart)?;
-    if vendor_dir == "lenovo" {
-        assert!(redfish.lockdown_status()?.is_fully_enabled());
-    }
-
     redfish.setup_serial_console()?;
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
     assert!(redfish.serial_console_status()?.is_fully_enabled());
@@ -110,6 +104,12 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     redfish.boot_once(libredfish::Boot::Pxe)?;
     redfish.boot_first(libredfish::Boot::HardDisk)?;
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
+
+    redfish.lockdown(libredfish::EnabledDisabled::Enabled)?;
+    redfish.power(libredfish::SystemPowerControl::GracefulRestart)?;
+    if vendor_dir == "lenovo" {
+        assert!(redfish.lockdown_status()?.is_fully_enabled());
+    }
 
     Ok(())
 }
