@@ -5,6 +5,8 @@ use crate::{
         oem::dell,
         secure_boot::SecureBoot,
         software_inventory::{SoftwareInventory, SoftwareInventoryCollection},
+        power::Power,
+        thermal::Thermal,
         ComputerSystem, OnOff,
     },
     standard::RedfishStandard,
@@ -31,8 +33,16 @@ impl Redfish for Bmc {
         self.s.get_power_state()
     }
 
+    fn get_power_metrics(&self) -> Result<Power, RedfishError> {
+        self.s.get_power_metrics()
+    }
+
     fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError> {
         self.s.power(action)
+    }
+
+    fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
+        self.s.get_thermal_metrics()
     }
 
     fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {

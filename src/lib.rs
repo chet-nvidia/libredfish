@@ -19,6 +19,8 @@ mod network;
 mod nvidia;
 pub use network::{Endpoint, RedfishClientPool, RedfishClientPoolBuilder, REDFISH_ENDPOINT};
 mod standard;
+use crate::model::power::Power;
+use crate::model::thermal::Thermal;
 pub use error::RedfishError;
 
 /// Interface to a BMC Redfish server. All calls will include one or more HTTP network calls.
@@ -47,8 +49,14 @@ pub trait Redfish: Send + Sync + 'static {
     /// Disables Secure Boot 
     fn disable_secure_boot(&self) -> Result<(), RedfishError>;
 
+    /// Power supplies and voltages metrics
+    fn get_power_metrics(&self) -> Result<Power, RedfishError>;
+
     /// Change power state: on, off, reboot, etc
     fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError>;
+
+    /// Fans and temperature sensors
+    fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError>;
 
     /// call this to setup bios and bmc for Nvidia Forge use
     fn forge_setup(&self) -> Result<(), RedfishError>;
