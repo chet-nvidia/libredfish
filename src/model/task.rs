@@ -13,7 +13,7 @@ pub struct Task {
     pub id: String,
     pub messages: Option<Vec<Message>>,
     pub name: Option<String>,
-    pub task_state: Option<String>,
+    pub task_state: Option<TaskState>,
     pub task_status: Option<String>,
     pub task_monitor: Option<String>,
     pub percent_complete: Option<u32>,
@@ -29,4 +29,21 @@ pub struct Message {
     pub message_id: String,
     pub resolution: Option<String>,
     pub severity: Option<String>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub enum TaskState {
+    New,
+    Starting,
+    Running,
+    Suspended,
+    Interrupted,
+    Pending,
+    Stopping,
+    Completed,
+    Killed,
+    Exception,
+    Service,
+    Cancelling,
+    Cancelled,
 }
