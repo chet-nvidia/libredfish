@@ -9,10 +9,11 @@ use std::{
     process::{Child, Command},
     sync::Once,
     thread::sleep,
-    time::Duration,
+    time::Duration
 };
 
 use anyhow::anyhow;
+use libredfish::Redfish;
 
 const ROOT_DIR: &str = env!("CARGO_MANIFEST_DIR");
 
@@ -36,6 +37,14 @@ fn test_lenovo() -> Result<(), anyhow::Error> {
 #[test]
 fn test_nvidia_dpu() -> Result<(), anyhow::Error> {
     run_integration_test("nvidia_dpu", NVIDIA_PORT)
+}
+
+fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
+    let members = redfish.get_software_inventories()?.members;
+    assert!(!members.is_empty());
+    let v: Vec<&str> = members[0].odata_id.split('/').collect();
+    assert!(redfish.get_firmware(v.last().unwrap())?.version.is_some());
+    Ok(())
 }
 
 fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<(), anyhow::Error> {
@@ -108,6 +117,10 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
 
     let pool = libredfish::RedfishClientPool::builder().build()?;
     let redfish = pool.create_client(endpoint)?;
+
+    if vendor_dir == "nvidia_dpu" {
+       return nvidia_dpu_integration_test(redfish.as_ref())
+    }
 
     assert_eq!(redfish.get_power_state()?, libredfish::PowerState::On);
     assert!(redfish.bios()?.len() > 10);

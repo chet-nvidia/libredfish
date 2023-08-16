@@ -36,6 +36,7 @@ unit-test-job:   # This job runs in the test stage.
     - export PIP_PATH=$(which pip3)
     - cargo test --package libredfish --test integration_test -- test_lenovo --exact --nocapture
     - cargo test --package libredfish --test integration_test -- test_dell --exact --nocapture
+    - cargo test --package libredfish --test integration_test -- test_nvidia_dpu --exact --nocapture
 
 lint-test-job:   # This job also runs in the test stage.
   stage: test    # It can run at the same time as unit-test-job (in parallel).
