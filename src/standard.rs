@@ -10,6 +10,8 @@ use crate::model::{power, storage, thermal, BootOption};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{model, Boot, EnabledDisabled, PowerState, Redfish, Status};
 use crate::{BootOptions, PCIeDevice, RedfishError};
+use crate::model::network_device_function::{NetworkDeviceFunction, NetworkDeviceFunctionCollection};
+use crate::model::chassis::{Chassis, ChassisCollection};
 
 /// The calls that use the Redfish standard without any OEM extensions.
 pub struct RedfishStandard {
@@ -145,6 +147,54 @@ impl Redfish for RedfishStandard {
 
     fn get_task(&self, id: &str) -> Result<model::task::Task, RedfishError> {
         let url = format!("TaskService/Tasks/{}", id);
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
+    
+    fn get_network_device_function(&self, chassis_id: &str, id: &str) -> Result<NetworkDeviceFunction, RedfishError> {
+        let url = format!("Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions/{}", chassis_id, id);
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
+
+    fn get_network_device_functions(&self, chassis_id: &str) -> Result<NetworkDeviceFunctionCollection, RedfishError> {
+        let url = format!("Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions", chassis_id);
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
+
+    fn get_chassises(&self) -> Result<ChassisCollection, RedfishError> {
+        let url =  "Chassis".to_string();
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
+
+    fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError> {
+        let url = format!("Chassis/{}", id);
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
+
+    fn get_ports(&self, chassis_id: &str) -> Result<crate::NetworkPortCollection, RedfishError> {
+        let url = format!("Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/Ports", chassis_id);
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
+
+    fn get_port(&self, chassis_id: &str, id: &str) -> Result<crate::NetworkPort, RedfishError> {
+        let url = format!("Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/Ports/{}", chassis_id, id);
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
+
+    fn get_ethernet_interfaces(&self) -> Result<crate::EthernetInterfaceCollection, RedfishError> {
+        let url = format!("Managers/{}/EthernetInterfaces", self.manager_id());
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
+
+    fn get_ethernet_interface(&self, id: &str) -> Result<crate::EthernetInterface, RedfishError> {
+        let url = format!("Managers/{}/EthernetInterfaces/{}", self.manager_id(), id);
         let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
