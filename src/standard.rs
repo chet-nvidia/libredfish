@@ -2,16 +2,18 @@ use std::collections::{HashMap, HashSet};
 
 use tracing::debug;
 
-use crate::model::secure_boot::SecureBoot;
+use crate::model::chassis::{Chassis, ChassisCollection};
+use crate::model::network_device_function::{
+    NetworkDeviceFunction, NetworkDeviceFunctionCollection,
+};
 use crate::model::power::Power;
+use crate::model::secure_boot::SecureBoot;
 use crate::model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
 use crate::model::thermal::Thermal;
 use crate::model::{power, storage, thermal, BootOption};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{model, Boot, EnabledDisabled, PowerState, Redfish, Status};
 use crate::{BootOptions, PCIeDevice, RedfishError};
-use crate::model::network_device_function::{NetworkDeviceFunction, NetworkDeviceFunctionCollection};
-use crate::model::chassis::{Chassis, ChassisCollection};
 
 /// The calls that use the Redfish standard without any OEM extensions.
 pub struct RedfishStandard {
@@ -150,21 +152,34 @@ impl Redfish for RedfishStandard {
         let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
-    
-    fn get_network_device_function(&self, chassis_id: &str, id: &str) -> Result<NetworkDeviceFunction, RedfishError> {
-        let url = format!("Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions/{}", chassis_id, id);
+
+    fn get_network_device_function(
+        &self,
+        chassis_id: &str,
+        id: &str,
+    ) -> Result<NetworkDeviceFunction, RedfishError> {
+        let url = format!(
+            "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions/{}",
+            chassis_id, id
+        );
         let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
-    fn get_network_device_functions(&self, chassis_id: &str) -> Result<NetworkDeviceFunctionCollection, RedfishError> {
-        let url = format!("Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions", chassis_id);
+    fn get_network_device_functions(
+        &self,
+        chassis_id: &str,
+    ) -> Result<NetworkDeviceFunctionCollection, RedfishError> {
+        let url = format!(
+            "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions",
+            chassis_id
+        );
         let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
     fn get_chassises(&self) -> Result<ChassisCollection, RedfishError> {
-        let url =  "Chassis".to_string();
+        let url = "Chassis".to_string();
         let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
@@ -176,13 +191,19 @@ impl Redfish for RedfishStandard {
     }
 
     fn get_ports(&self, chassis_id: &str) -> Result<crate::NetworkPortCollection, RedfishError> {
-        let url = format!("Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/Ports", chassis_id);
+        let url = format!(
+            "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/Ports",
+            chassis_id
+        );
         let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
 
     fn get_port(&self, chassis_id: &str, id: &str) -> Result<crate::NetworkPort, RedfishError> {
-        let url = format!("Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/Ports/{}", chassis_id, id);
+        let url = format!(
+            "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/Ports/{}",
+            chassis_id, id
+        );
         let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
     }
@@ -218,8 +239,7 @@ impl Redfish for RedfishStandard {
 
     fn disable_secure_boot(&self) -> Result<(), RedfishError> {
         let mut data = HashMap::new();
-        data.insert("SecureBootCurrentBoot", "Enabled");
-        data.insert("SecureBootEnable", "false");
+        data.insert("SecureBootEnable", false);
         let url = format!("Systems/{}/SecureBoot", self.system_id());
         let _status_code = self.client.patch(&url, data)?;
         Ok(())
