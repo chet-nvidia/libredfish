@@ -28,8 +28,14 @@ build-job:       # This job runs in the build stage, which runs first.
 
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
+  image: rust:latest  # Use a Rust Docker image
   script:
-    - echo "Doing nothing. Please run 'cargo test' before merging"
+    - apt-get update
+    - apt-get install -y python3 python3-pip
+    - export PYTHON_PATH=$(which python3)
+    - export PIP_PATH=$(which pip3)
+    - cargo test --package libredfish --test integration_test -- test_lenovo --exact --nocapture
+    - cargo test --package libredfish --test integration_test -- test_dell --exact --nocapture
 
 lint-test-job:   # This job also runs in the test stage.
   stage: test    # It can run at the same time as unit-test-job (in parallel).

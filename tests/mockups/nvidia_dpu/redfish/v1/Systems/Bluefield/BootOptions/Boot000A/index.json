@@ -4,8 +4,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot000A",
     "Description": "",
-    "DisplayName": "UEFI Non-Block Boot Device",
+    "DisplayName": "UEFI HTTPv6 (MAC:001ACAFFFF01)",
     "Id": "Boot000A",
     "Name": "Boot000A",
-    "UefiDevicePath": "VenHw(F019E406-8C9C-11E5-8797-001ACA00BFC4)"
+    "UefiDevicePath": "MAC(001ACAFFFF01,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000,0x0,Static,0000:0000:0000:0000:0000:0000:0000:0000,0x40,0000:0000:0000:0000:0000:0000:0000:0000)/Uri()"
 }

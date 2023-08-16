@@ -6,7 +6,7 @@
             "target": "/redfish/v1/Systems/Bluefield/LogServices/SEL/Actions/LogService.ClearLog"
         }
     },
-    "DateTime": "2023-08-14T16:19:24+00:00",
+    "DateTime": "2023-08-16T13:38:35+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "IPMI SEL Service",
     "Entries": {

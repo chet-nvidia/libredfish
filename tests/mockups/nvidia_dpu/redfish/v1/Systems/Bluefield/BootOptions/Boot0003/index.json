@@ -4,8 +4,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0003",
     "Description": "",
-    "DisplayName": "NET-NIC_P1-IPV6",
+    "DisplayName": "EFI Internal Shell",
     "Id": "Boot0003",
     "Name": "Boot0003",
-    "UefiDevicePath": "PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x1)/MAC(946DAE519779,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000,0x0,Static,0000:0000:0000:0000:0000:0000:0000:0000,0x40,0000:0000:0000:0000:0000:0000:0000:0000)"
+    "UefiDevicePath": "MemoryMapped(0xB,0xFDE2F000,0xFE6FD63F)/FvFile(7C04A583-9E3E-4F1C-AD65-E05268D0B4D1)"
 }

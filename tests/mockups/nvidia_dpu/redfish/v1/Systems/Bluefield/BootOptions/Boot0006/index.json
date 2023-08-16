@@ -4,8 +4,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0006",
     "Description": "",
-    "DisplayName": "UiApp",
+    "DisplayName": "UEFI Non-Block Boot Device",
     "Id": "Boot0006",
     "Name": "Boot0006",
-    "UefiDevicePath": "MemoryMapped(0xB,0xFDE2F000,0xFE6FD63F)/FvFile(462CAA21-7614-4503-836E-8AB6F4662331)"
+    "UefiDevicePath": "VenHw(F019E406-8C9C-11E5-8797-001ACA00BFC4)"
 }

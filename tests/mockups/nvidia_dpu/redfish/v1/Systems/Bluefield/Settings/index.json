@@ -29,17 +29,13 @@
             "Boot0013",
             "Boot0014",
             "Boot0015",
-            "Boot0016",
-            "Boot0017",
-            "Boot0018",
-            "Boot0019",
-            "Boot001A"
+            "Boot0016"
         ],
-        "BootSourceOverrideEnabled": "",
-        "BootSourceOverrideMode": "",
-        "BootSourceOverrideTarget": "",
+        "BootSourceOverrideEnabled": "Disabled",
+        "BootSourceOverrideMode": "UEFI",
+        "BootSourceOverrideTarget": "None",
         "HttpBootUri": "",
-        "UefiTargetBootSourceOverride": ""
+        "UefiTargetBootSourceOverride": "None"
     },
     "Id": "Settings",
     "Name": "Bluefield Pending Settings"

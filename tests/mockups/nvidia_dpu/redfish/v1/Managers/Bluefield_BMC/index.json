@@ -20,7 +20,7 @@
         "MaxConcurrentSessions": 1,
         "ServiceEnabled": false
     },
-    "DateTime": "2023-08-14T16:19:12+00:00",
+    "DateTime": "2023-08-16T13:38:22+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "Baseboard Management Controller",
     "EthernetInterfaces": {
@@ -35,7 +35,7 @@
         "ServiceEnabled": true
     },
     "Id": "bmc",
-    "LastResetTime": "2023-07-27T07:53:13+00:00",
+    "LastResetTime": "2023-07-27T08:02:04+00:00",
     "Links": {
         "ActiveSoftwareImage": {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC_Firmware"

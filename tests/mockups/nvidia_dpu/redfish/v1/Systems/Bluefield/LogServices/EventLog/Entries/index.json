@@ -302,6 +302,23 @@
             "Severity": "OK"
         },
         {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/29",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/29/attachment",
+            "Created": "2023-08-15T08:12:32+00:00",
+            "EntryType": "Event",
+            "Id": "29",
+            "Message": "p1_link sensor is now in error.",
+            "MessageArgs": [
+                "p1_link"
+            ],
+            "MessageId": "OpenBMC.0.1.SensorCableStatusError",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
             "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/3",
             "@odata.type": "#LogEntry.v1_9_0.LogEntry",
             "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/3/attachment",
@@ -315,6 +332,135 @@
             "MessageId": "OpenBMC.0.4.BMCRebootReason",
             "Name": "System Event Log Entry",
             "Resolution": "",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/30",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/30/attachment",
+            "Created": "2023-08-15T08:12:32+00:00",
+            "EntryType": "Event",
+            "Id": "30",
+            "Message": "p0_link sensor is now in error.",
+            "MessageArgs": [
+                "p0_link"
+            ],
+            "MessageId": "OpenBMC.0.1.SensorCableStatusError",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/31",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/31/attachment",
+            "Created": "2023-08-15T08:14:32+00:00",
+            "EntryType": "Event",
+            "Id": "31",
+            "Message": "p1_link sensor is now enabled.",
+            "MessageArgs": [
+                "p1_link"
+            ],
+            "MessageId": "OpenBMC.0.1.SensorCableStatusEnable",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/32",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/32/attachment",
+            "Created": "2023-08-15T08:14:32+00:00",
+            "EntryType": "Event",
+            "Id": "32",
+            "Message": "p0_link sensor is now enabled.",
+            "MessageArgs": [
+                "p0_link"
+            ],
+            "MessageId": "OpenBMC.0.1.SensorCableStatusEnable",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/33",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/33/attachment",
+            "Created": "2023-08-16T08:15:05+00:00",
+            "EntryType": "Event",
+            "Id": "33",
+            "Message": "",
+            "Modified": "2023-08-16T08:15:05+00:00",
+            "Name": "System Event Log Entry",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/34",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/34/attachment",
+            "Created": "2023-08-16T08:15:08+00:00",
+            "EntryType": "Event",
+            "Id": "34",
+            "Message": "",
+            "Modified": "2023-08-16T08:15:08+00:00",
+            "Name": "System Event Log Entry",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/35",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/35/attachment",
+            "Created": "2023-08-16T08:20:16+00:00",
+            "EntryType": "Event",
+            "Id": "35",
+            "Message": "",
+            "Modified": "2023-08-16T08:20:16+00:00",
+            "Name": "System Event Log Entry",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/36",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/36/attachment",
+            "Created": "2023-08-16T08:22:39+00:00",
+            "EntryType": "Event",
+            "Id": "36",
+            "Message": "",
+            "Modified": "2023-08-16T08:22:39+00:00",
+            "Name": "System Event Log Entry",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/37",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/37/attachment",
+            "Created": "2023-08-16T08:22:40+00:00",
+            "EntryType": "Event",
+            "Id": "37",
+            "Message": "",
+            "Modified": "2023-08-16T08:22:40+00:00",
+            "Name": "System Event Log Entry",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/38",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/38/attachment",
+            "Created": "2023-08-16T08:23:27+00:00",
+            "EntryType": "Event",
+            "Id": "38",
+            "Message": "",
+            "Modified": "2023-08-16T08:23:27+00:00",
+            "Name": "System Event Log Entry",
             "Resolved": false,
             "Severity": "OK"
         },
@@ -397,6 +543,6 @@
             "Severity": "OK"
         }
     ],
-    "Members@odata.count": 28,
+    "Members@odata.count": 38,
     "Name": "System Event Log Entries"
 }

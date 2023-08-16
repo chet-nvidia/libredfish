@@ -6,12 +6,12 @@ pub use model::network_device_function::{NetworkDeviceFunction, NetworkDeviceFun
 pub use model::chassis::{Chassis, ChassisCollection};
 pub use model::port::{NetworkPort, NetworkPortCollection};
 pub use model::ethernet_interface::{EthernetInterface, EthernetInterfaceCollection};
+use model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
 use model::task::Task;
 pub use model::EnabledDisabled;
 use model::{
     secure_boot::SecureBoot,
-    software_inventory::{SoftwareInventory, SoftwareInventoryCollection},
     BootOption, ComputerSystem,
 };
 use serde::{Deserialize, Serialize};

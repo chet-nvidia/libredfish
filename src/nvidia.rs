@@ -125,18 +125,11 @@ impl Redfish for Bmc {
         self.s.disable_secure_boot()
     }
 
-    fn get_network_device_functions(
-        &self,
-        chassis_id: &str,
-    ) -> Result<crate::NetworkDeviceFunctionCollection, RedfishError> {
+    fn get_network_device_functions(&self, chassis_id: &str) -> Result<crate::NetworkDeviceFunctionCollection, RedfishError> {
         self.s.get_network_device_functions(chassis_id)
     }
 
-    fn get_network_device_function(
-        &self,
-        chassis_id: &str,
-        id: &str,
-    ) -> Result<crate::NetworkDeviceFunction, RedfishError> {
+    fn get_network_device_function(&self, chassis_id: &str, id: &str) -> Result<crate::NetworkDeviceFunction, RedfishError> {
         self.s.get_network_device_function(chassis_id, id)
     }
 

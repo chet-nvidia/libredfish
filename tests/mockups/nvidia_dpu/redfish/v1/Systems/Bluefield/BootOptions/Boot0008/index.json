@@ -4,8 +4,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0008",
     "Description": "",
-    "DisplayName": "UEFI Misc Device",
+    "DisplayName": "UEFI PXEv6 (MAC:001ACAFFFF01)",
     "Id": "Boot0008",
     "Name": "Boot0008",
-    "UefiDevicePath": "VenHw(8C91E049-9BF9-440E-BBAD-7DC5FC082C02)"
+    "UefiDevicePath": "MAC(001ACAFFFF01,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000,0x0,Static,0000:0000:0000:0000:0000:0000:0000:0000,0x40,0000:0000:0000:0000:0000:0000:0000:0000)"
 }

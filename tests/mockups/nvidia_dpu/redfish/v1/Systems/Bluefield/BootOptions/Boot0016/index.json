@@ -4,8 +4,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0016",
     "Description": "",
-    "DisplayName": "UEFI HTTPv6 (MAC:946DAE519778)",
+    "DisplayName": "UEFI HTTPv6 (MAC:946DAE519779)",
     "Id": "Boot0016",
     "Name": "Boot0016",
-    "UefiDevicePath": "PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/MAC(946DAE519778,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000,0x0,Static,0000:0000:0000:0000:0000:0000:0000:0000,0x40,0000:0000:0000:0000:0000:0000:0000:0000)/Uri()"
+    "UefiDevicePath": "PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x1)/MAC(946DAE519779,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000,0x0,Static,0000:0000:0000:0000:0000:0000:0000:0000,0x40,0000:0000:0000:0000:0000:0000:0000:0000)/Uri()"
 }

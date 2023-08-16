@@ -40,7 +40,7 @@
             "MemberId": "1_8V",
             "MinReadingRange": 0.0,
             "Name": "1 8V",
-            "ReadingVolts": 1.8,
+            "ReadingVolts": 1.7964,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -115,7 +115,7 @@
             "MemberId": "2_5V",
             "MinReadingRange": 0.0,
             "Name": "2 5V",
-            "ReadingVolts": 2.5175,
+            "ReadingVolts": 2.5141,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -130,7 +130,7 @@
             "MemberId": "3_3V",
             "MinReadingRange": 0.0,
             "Name": "3 3V",
-            "ReadingVolts": 3.3319,
+            "ReadingVolts": 3.3252,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -160,7 +160,7 @@
             "MemberId": "5V",
             "MinReadingRange": 0.0,
             "Name": "5V",
-            "ReadingVolts": 4.9801,
+            "ReadingVolts": 4.9701,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -175,7 +175,7 @@
             "MemberId": "DVDD",
             "MinReadingRange": 0.0,
             "Name": "DVDD",
-            "ReadingVolts": 0.842,
+            "ReadingVolts": 0.844,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
