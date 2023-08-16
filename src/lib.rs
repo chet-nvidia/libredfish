@@ -2,7 +2,6 @@ use std::collections::HashMap;
 use std::fs::File;
 
 pub mod model;
-use model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
 pub use model::network_device_function::{NetworkDeviceFunction, NetworkDeviceFunctionCollection};
 pub use model::chassis::{Chassis, ChassisCollection};
 pub use model::port::{NetworkPort, NetworkPortCollection};

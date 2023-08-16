@@ -8,7 +8,6 @@ use crate::{
         software_inventory::{SoftwareInventory, SoftwareInventoryCollection},
         network_device_function::{NetworkDeviceFunction, NetworkDeviceFunctionCollection}, 
         chassis::{Chassis, ChassisCollection},
-        power::Power,
         thermal::Thermal,
         BootOption, ComputerSystem, OnOff,
     },
