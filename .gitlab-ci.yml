@@ -19,12 +19,13 @@
 stages:          # List of stages for jobs, and their order of execution
   - build
   - test
-  - deploy
+  # - deploy
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
+  image: rust:latest  # Use a Rust Docker image
   script:
-    - echo "Doing nothing. Please run 'cargo build' before merging."
+    - cargo build
 
 unit-test-job:   # This job runs in the test stage.
   stage: test    # It only starts when the job in the build stage completes successfully.
@@ -34,17 +35,17 @@ unit-test-job:   # This job runs in the test stage.
     - apt-get install -y python3 python3-pip
     - export PYTHON_PATH=$(which python3)
     - export PIP_PATH=$(which pip3)
-    - cargo test --package libredfish --test integration_test -- test_lenovo --exact --nocapture
-    - cargo test --package libredfish --test integration_test -- test_dell --exact --nocapture
-    - cargo test --package libredfish --test integration_test -- test_nvidia_dpu --exact --nocapture
+    - cargo test
 
 lint-test-job:   # This job also runs in the test stage.
   stage: test    # It can run at the same time as unit-test-job (in parallel).
+  image: rust:latest  # Use a Rust Docker image
   script:
-    - echo "Doing nothing. Please run 'cargo clippy' before merging'"
+    - rustup component add clippy
+    - cargo clippy
 
-deploy-job:      # This job runs in the deploy stage.
-  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
-  environment: production
-  script:
-    - echo "Doing nothing"
+#deploy-job:      # This job runs in the deploy stage.
+#  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+#  environment: production
+#  script:
+#    - echo "Doing nothing"
