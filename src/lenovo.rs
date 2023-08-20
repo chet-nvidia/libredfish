@@ -316,6 +316,10 @@ impl Redfish for Bmc {
         self.s.get_ethernet_interface(id)
     }
 
+    fn change_uefi_password(&self, current_uefi_password: &str, new_uefi_password: &str) -> Result<(), RedfishError> {
+        unimplemented!()
+    }
+
 
 }
 

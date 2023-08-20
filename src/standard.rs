@@ -214,6 +214,10 @@ impl Redfish for RedfishStandard {
     fn get_port(&self, chassis_id: &str, id: &str) -> Result<NetworkPort, RedfishError> {
         unimplemented!()
     }
+
+    fn change_uefi_password(&self, current_uefi_password: &str, new_uefi_password: &str) -> Result<(), RedfishError> {
+        unimplemented!()
+    }
 }
 
 impl RedfishStandard {

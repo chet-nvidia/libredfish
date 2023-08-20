@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use crate::{model::BootOption, standard::RedfishStandard, Redfish, RedfishError, NetworkDeviceFunctionCollection, NetworkDeviceFunction};
 
 pub struct Bmc {
@@ -183,4 +184,16 @@ impl Redfish for Bmc {
         let (_status_code, body) = self.s.client.get(&url)?;
         Ok(body)
     }
+    
+    fn change_uefi_password(&self, current_uefi_password: &str, new_uefi_password: &str) -> Result<(), RedfishError> {
+        let mut attributes = HashMap::new();
+        let mut data = HashMap::new();
+        data.insert("CurrentUefiPassword", current_uefi_password.to_string());
+        data.insert("UefiPassword", new_uefi_password.to_string());
+        attributes.insert("Attributes", data);
+        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
+        let _status_code = self.s.client.patch(&url, attributes)?;
+        Ok(())
+    }
+    
 }

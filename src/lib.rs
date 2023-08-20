@@ -134,6 +134,9 @@ pub trait Redfish: Send + Sync + 'static {
 
     // Get Ethernet Interface details
     fn get_ethernet_interface(&self, id: &str) -> Result<EthernetInterface, RedfishError>;
+
+    // Change UEFI Password
+    fn change_uefi_password(&self, current_uefi_password: &str, new_uefi_password: &str) -> Result<(), RedfishError>;
 }
 
 // When Carbide drops it's `IpmiCommand.launch_command` background job system, we can
