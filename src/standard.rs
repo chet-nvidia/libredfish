@@ -81,23 +81,27 @@ impl Redfish for RedfishStandard {
     }
 
     fn forge_setup(&self) -> Result<(), RedfishError> {
-        unimplemented!("No standard implementation");
+        Err(RedfishError::NotSupported("forge_setup".to_string()))
     }
 
     fn lockdown(&self, _target: EnabledDisabled) -> Result<(), RedfishError> {
-        unimplemented!("No standard implementation");
+        Err(RedfishError::NotSupported("lockdown".to_string()))
     }
 
     fn lockdown_status(&self) -> Result<Status, RedfishError> {
-        unimplemented!("No standard implementation");
+        Err(RedfishError::NotSupported("lockdown_status".to_string()))
     }
 
     fn setup_serial_console(&self) -> Result<(), RedfishError> {
-        unimplemented!("No standard implementation");
+        Err(RedfishError::NotSupported(
+            "setup_serial_console".to_string(),
+        ))
     }
 
     fn serial_console_status(&self) -> Result<Status, RedfishError> {
-        unimplemented!("No standard implementation");
+        Err(RedfishError::NotSupported(
+            "setup_serial_console".to_string(),
+        ))
     }
 
     fn get_boot_options(&self) -> Result<BootOptions, RedfishError> {
@@ -111,15 +115,15 @@ impl Redfish for RedfishStandard {
     }
 
     fn boot_once(&self, _target: Boot) -> Result<(), RedfishError> {
-        unimplemented!("No standard implementation");
+        Err(RedfishError::NotSupported("boot_once".to_string()))
     }
 
     fn boot_first(&self, _target: Boot) -> Result<(), RedfishError> {
-        unimplemented!("No standard implementation");
+        Err(RedfishError::NotSupported("boot_first".to_string()))
     }
 
     fn clear_tpm(&self) -> Result<(), RedfishError> {
-        unimplemented!("No standard implementation");
+        Err(RedfishError::NotSupported("clear_tpm".to_string()))
     }
 
     fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError> {
@@ -216,7 +220,9 @@ impl Redfish for RedfishStandard {
         &self,
         _chassis_id: &str,
     ) -> Result<NetworkDeviceFunctionCollection, RedfishError> {
-        unimplemented!()
+        Err(RedfishError::NotSupported(
+            "get_network_device_functions".to_string(),
+        ))
     }
 
     fn get_network_device_function(
@@ -224,15 +230,17 @@ impl Redfish for RedfishStandard {
         _chassis_id: &str,
         _id: &str,
     ) -> Result<NetworkDeviceFunction, RedfishError> {
-        unimplemented!()
+        Err(RedfishError::NotSupported(
+            "get_network_device_function".to_string(),
+        ))
     }
 
     fn get_ports(&self, _chassis_id: &str) -> Result<NetworkPortCollection, RedfishError> {
-        unimplemented!()
+        Err(RedfishError::NotSupported("get_ports".to_string()))
     }
 
     fn get_port(&self, _chassis_id: &str, _id: &str) -> Result<NetworkPort, RedfishError> {
-        unimplemented!()
+        Err(RedfishError::NotSupported("get_port".to_string()))
     }
 
     fn change_uefi_password(
@@ -240,19 +248,25 @@ impl Redfish for RedfishStandard {
         _current_uefi_password: &str,
         _new_uefi_password: &str,
     ) -> Result<(), RedfishError> {
-        unimplemented!()
+        Err(RedfishError::NotSupported(
+            "change_uefi_password".to_string(),
+        ))
     }
 
     fn change_boot_order(&self, _boot_array: Vec<String>) -> Result<(), RedfishError> {
-        unimplemented!("No standard implementation for change boot order");
+        Err(RedfishError::NotSupported("change_boot_order".to_string()))
     }
 
     fn set_internal_cpu_model(&self, _model: InternalCPUModel) -> Result<(), RedfishError> {
-        unimplemented!()
+        Err(RedfishError::NotSupported(
+            "set_internal_cpu_model".to_string(),
+        ))
     }
 
     fn set_host_privilege_level(&self, _level: HostPrivilegeLevel) -> Result<(), RedfishError> {
-        unimplemented!()
+        Err(RedfishError::NotSupported(
+            "set_host_privilege_level".to_string(),
+        ))
     }
 }
 

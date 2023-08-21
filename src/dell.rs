@@ -244,7 +244,9 @@ impl Redfish for Bmc {
         match target {
             Boot::Pxe => self.set_boot_first(dell::BootDevices::PXE, true),
             Boot::HardDisk => self.set_boot_first(dell::BootDevices::HDD, true),
-            Boot::UefiHttp => unimplemented!("No dell UefiHttp implementation"),
+            Boot::UefiHttp => Err(RedfishError::NotSupported(
+                "No Dell UefiHttp implementation".to_string(),
+            )),
         }
     }
 
@@ -252,7 +254,9 @@ impl Redfish for Bmc {
         match target {
             Boot::Pxe => self.set_boot_first(dell::BootDevices::PXE, false),
             Boot::HardDisk => self.set_boot_first(dell::BootDevices::HDD, false),
-            Boot::UefiHttp => unimplemented!("No dell UefiHttp implementation"),
+            Boot::UefiHttp => Err(RedfishError::NotSupported(
+                "No Dell UefiHttp implementation".to_string(),
+            )),
         }
     }
 
@@ -364,7 +368,9 @@ impl Redfish for Bmc {
         _current_uefi_password: &str,
         _new_uefi_password: &str,
     ) -> Result<(), RedfishError> {
-        unimplemented!()
+        Err(RedfishError::NotSupported(
+            "change_uefi_password".to_string(),
+        ))
     }
 
     fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {

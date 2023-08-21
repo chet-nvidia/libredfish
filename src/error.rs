@@ -60,4 +60,7 @@ pub enum RedfishError {
 
     #[error("BMC is locked down, operation cannot be applied. Disable lockdown and retry.")]
     Lockdown,
+
+    #[error("BMC vendor does not support this operation: {0}")]
+    NotSupported(String),
 }
