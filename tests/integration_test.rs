@@ -22,7 +22,7 @@ const DELL_PORT: &str = "8733";
 const LENOVO_PORT: &str = "8734";
 const NVIDIA_PORT: &str = "8735";
 
-static SETUP_LOGGING: Once = Once::new();
+static SETUP: Once = Once::new();
 
 #[test]
 fn test_dell() -> Result<(), anyhow::Error> {
@@ -45,7 +45,7 @@ fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Erro
     let v: Vec<&str> = members[0].odata_id.split('/').collect();
     assert!(redfish.get_firmware(v.last().unwrap())?.version.is_some());
     let boot = redfish.get_system()?.boot;
-    let mut boot_array = boot.boot_order.clone();
+    let mut boot_array = boot.boot_order;
     assert!(boot_array.len() > 1);
     boot_array.swap(0, 1);
     redfish.change_boot_order(boot_array)?;
@@ -54,7 +54,8 @@ fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Erro
 }
 
 fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<(), anyhow::Error> {
-    SETUP_LOGGING.call_once(|| {
+    let (python, pip) = paths()?;
+    SETUP.call_once(move || {
         use tracing_subscriber::fmt::Layer;
         use tracing_subscriber::prelude::*;
         use tracing_subscriber::{filter::LevelFilter, EnvFilter};
@@ -72,44 +73,15 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
                     .with_ansi(false),
             )
             .init();
+
+        install_python_requirements(pip).expect("failed installing python requirements");
     });
-    let mut pip = PathBuf::new();
-    let mut python = PathBuf::new();
-    match std::env::var_os("CI") {
-        Some(ci_env) => {
-            println!("Running in a GitLab CI job {:?}", ci_env);
-            if let Ok(python_path) = std::env::var("PYTHON_PATH") {
-                python.push(python_path)
-            } else {
-                return Err(anyhow::Error::msg("`python` not found"));
-            }
-
-            if let Ok(pip_path) = std::env::var("PIP_PATH") {
-                pip.push(pip_path)
-            } else {
-                return Err(anyhow::Error::msg("`pip` not found"));
-            }
-        }
-        None => {
-            println!("Not running in a GitLab CI job");
-            pip = match find_path("pip") {
-                Some(p) => p,
-                None => return Err(anyhow::Error::msg("`pip` not found")),
-            };
-            python = match find_path("python") {
-                Some(p) => p,
-                None => return Err(anyhow::Error::msg("`python` not found")),
-            };
-        }
-    }
-    let mut mockup_server = match MockupServer::new(vendor_dir, port, pip, python) {
-        Some(s) => s,
-        None => {
-            return Ok(());
-        }
+    let mut mockup_server = MockupServer {
+        vendor_dir,
+        port,
+        python,
+        process: None,
     };
-
-    mockup_server.install_python_requirements()?;
     mockup_server.start()?; // stops on drop
 
     let endpoint = libredfish::Endpoint {
@@ -162,10 +134,66 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     Ok(())
 }
 
+fn paths() -> Result<(PathBuf, PathBuf), anyhow::Error> {
+    let mut pip = PathBuf::new();
+    let mut python = PathBuf::new();
+    match std::env::var_os("CI") {
+        Some(ci_env) => {
+            println!("Running in a GitLab CI job {:?}", ci_env);
+            if let Ok(python_path) = std::env::var("PYTHON_PATH") {
+                python.push(python_path)
+            } else {
+                return Err(anyhow::Error::msg("`python` not found"));
+            }
+
+            if let Ok(pip_path) = std::env::var("PIP_PATH") {
+                pip.push(pip_path)
+            } else {
+                return Err(anyhow::Error::msg("`pip` not found"));
+            }
+        }
+        None => {
+            println!("Not running in a GitLab CI job");
+            pip = match find_path("pip") {
+                Some(p) => p,
+                None => return Err(anyhow::Error::msg("`pip` not found")),
+            };
+            python = match find_path("python") {
+                Some(p) => p,
+                None => return Err(anyhow::Error::msg("`python` not found")),
+            };
+        }
+    }
+    Ok((python, pip))
+}
+
+fn install_python_requirements(pip: PathBuf) -> Result<(), anyhow::Error> {
+    let req_path = PathBuf::from(ROOT_DIR)
+        .join("tests")
+        .join("requirements.txt");
+    let output = Command::new(&pip)
+        .arg("install")
+        .arg("-q")
+        .arg("--requirement")
+        .arg(&req_path)
+        .output()?;
+    if !output.status.success() {
+        eprintln!("*** pip3 install failed:");
+        eprintln!("\tSTDOUT: {}", String::from_utf8_lossy(&output.stdout));
+        eprintln!("\tSTDERR: {}", String::from_utf8_lossy(&output.stderr));
+        return Err(anyhow!(
+            "Failed running '{} install -q --requirement {}. Exit code {}",
+            pip.display(),
+            req_path.display(),
+            output.status.code().unwrap_or(-1),
+        ));
+    }
+    Ok(())
+}
+
 struct MockupServer {
     vendor_dir: &'static str,
     port: &'static str,
-    pip: PathBuf,
     python: PathBuf,
 
     process: Option<Child>,
@@ -182,43 +210,6 @@ impl Drop for MockupServer {
 }
 
 impl MockupServer {
-    // Creates a server if pip and python is present, otherwise returns None
-    fn new(
-        vendor_dir: &'static str,
-        port: &'static str,
-        pip: PathBuf,
-        python: PathBuf,
-    ) -> Option<MockupServer> {
-        Some(MockupServer {
-            vendor_dir,
-            port,
-            pip,
-            python,
-            process: None,
-        })
-    }
-
-    fn install_python_requirements(&self) -> Result<(), anyhow::Error> {
-        let req_path = PathBuf::from(ROOT_DIR)
-            .join("tests")
-            .join("requirements.txt");
-        let exit_code = Command::new(&self.pip)
-            .arg("install")
-            .arg("-q")
-            .arg("--requirement")
-            .arg(&req_path)
-            .status()?;
-        if !exit_code.success() {
-            return Err(anyhow!(
-                "Failed running '{} install -q --requirement {}. Exit code {}",
-                self.pip.display(),
-                req_path.display(),
-                exit_code
-            ));
-        }
-        Ok(())
-    }
-
     fn start(&mut self) -> std::io::Result<()> {
         self.process = Some(
             Command::new(&self.python)
