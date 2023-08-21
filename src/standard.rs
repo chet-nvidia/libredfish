@@ -50,6 +50,15 @@ impl Redfish for RedfishStandard {
         self.client.post(&url, arg).map(|_status_code| Ok(()))?
     }
 
+    fn bmc_reset(&self) -> Result<(), RedfishError> {
+        let url = format!("Managers/{}/Actions/Manager.Reset", self.manager_id);
+        let mut arg = HashMap::new();
+        // Dell only has GracefulRestart. The spec, and Lenovo, also have ForceRestart.
+        // Response code 204 No Content is fine.
+        arg.insert("ResetType", "GracefulRestart".to_string());
+        self.client.post(&url, arg).map(|_status_code| Ok(()))?
+    }
+
     fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
         let thermal = self.get_thermal_metrics()?;
         Ok(thermal)

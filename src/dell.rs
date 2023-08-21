@@ -4,7 +4,10 @@ use crate::{
     model::{
         chassis::{Chassis, ChassisCollection},
         network_device_function::{NetworkDeviceFunction, NetworkDeviceFunctionCollection},
-        oem::{dell, nvidia::{InternalCPUModel, HostPrivilegeLevel}},
+        oem::{
+            dell,
+            nvidia::{HostPrivilegeLevel, InternalCPUModel},
+        },
         power::Power,
         secure_boot::SecureBoot,
         software_inventory::{SoftwareInventory, SoftwareInventoryCollection},
@@ -41,6 +44,10 @@ impl Redfish for Bmc {
 
     fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError> {
         self.s.power(action)
+    }
+
+    fn bmc_reset(&self) -> Result<(), RedfishError> {
+        self.s.bmc_reset()
     }
 
     fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
@@ -363,14 +370,13 @@ impl Redfish for Bmc {
     fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
         self.s.change_boot_order(boot_array)
     }
-    fn set_internal_cpu_model(&self, model: InternalCPUModel)-> Result<(), RedfishError> {
+    fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError> {
         self.s.set_internal_cpu_model(model)
     }
 
-    fn set_host_privilege_level(&self, level: HostPrivilegeLevel)-> Result<(), RedfishError> {
+    fn set_host_privilege_level(&self, level: HostPrivilegeLevel) -> Result<(), RedfishError> {
         self.s.set_host_privilege_level(level)
     }
-
 }
 
 impl Bmc {

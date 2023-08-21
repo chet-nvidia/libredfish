@@ -5,7 +5,7 @@ pub mod model;
 pub use model::chassis::{Chassis, ChassisCollection};
 pub use model::ethernet_interface::{EthernetInterface, EthernetInterfaceCollection};
 pub use model::network_device_function::{NetworkDeviceFunction, NetworkDeviceFunctionCollection};
-use model::oem::nvidia::{InternalCPUModel, HostPrivilegeLevel};
+use model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 pub use model::port::{NetworkPort, NetworkPortCollection};
 use model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
@@ -21,9 +21,10 @@ mod network;
 mod nvidia;
 pub use network::{Endpoint, RedfishClientPool, RedfishClientPoolBuilder, REDFISH_ENDPOINT};
 mod standard;
+pub use error::RedfishError;
+
 use crate::model::power::Power;
 use crate::model::thermal::Thermal;
-pub use error::RedfishError;
 
 /// Interface to a BMC Redfish server. All calls will include one or more HTTP network calls.
 pub trait Redfish: Send + Sync + 'static {
@@ -56,6 +57,9 @@ pub trait Redfish: Send + Sync + 'static {
 
     /// Change power state: on, off, reboot, etc
     fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError>;
+
+    /// Reboot the BMC itself
+    fn bmc_reset(&self) -> Result<(), RedfishError>;
 
     /// Fans and temperature sensors
     fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError>;
@@ -151,11 +155,10 @@ pub trait Redfish: Send + Sync + 'static {
     ) -> Result<(), RedfishError>;
 
     // Set Internal CPU Mode
-    fn set_internal_cpu_model(&self, model: InternalCPUModel)-> Result<(), RedfishError>;
+    fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError>;
 
     // Set Internal Host Privilege Mode
-    fn set_host_privilege_level(&self, level: HostPrivilegeLevel)-> Result<(), RedfishError>;
-
+    fn set_host_privilege_level(&self, level: HostPrivilegeLevel) -> Result<(), RedfishError>;
 }
 
 // When Carbide drops it's `IpmiCommand.launch_command` background job system, we can

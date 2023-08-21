@@ -49,6 +49,10 @@ impl Redfish for Bmc {
         self.s.power(action)
     }
 
+    fn bmc_reset(&self) -> Result<(), RedfishError> {
+        self.s.bmc_reset()
+    }
+
     fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
         self.s.get_thermal_metrics()
     }
@@ -344,13 +348,13 @@ impl Redfish for Bmc {
             .client
             .req(Method::PATCH, &url, Some(body), Some(timeout), None)?;
         Ok(())
-    }    
-    
-    fn set_internal_cpu_model(&self, model: InternalCPUModel)-> Result<(), RedfishError> {
+    }
+
+    fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError> {
         self.s.set_internal_cpu_model(model)
     }
 
-    fn set_host_privilege_level(&self, level: HostPrivilegeLevel)-> Result<(), RedfishError> {
+    fn set_host_privilege_level(&self, level: HostPrivilegeLevel) -> Result<(), RedfishError> {
         self.s.set_host_privilege_level(level)
     }
 }
