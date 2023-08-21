@@ -9,7 +9,10 @@ use crate::model::software_inventory::{SoftwareInventory, SoftwareInventoryColle
 use crate::model::thermal::Thermal;
 use crate::model::{power, storage, thermal, BootOption};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
-use crate::{model, Boot, EnabledDisabled, PowerState, Redfish, Status, NetworkDeviceFunctionCollection, NetworkDeviceFunction, NetworkPortCollection, NetworkPort};
+use crate::{
+    model, Boot, EnabledDisabled, NetworkDeviceFunction, NetworkDeviceFunctionCollection,
+    NetworkPort, NetworkPortCollection, PowerState, Redfish, Status,
+};
 use crate::{BootOptions, PCIeDevice, RedfishError};
 
 /// The calls that use the Redfish standard without any OEM extensions.
@@ -199,24 +202,39 @@ impl Redfish for RedfishStandard {
         Ok(())
     }
 
-    fn get_network_device_functions(&self, chassis_id: &str) -> Result<NetworkDeviceFunctionCollection, RedfishError> {
+    fn get_network_device_functions(
+        &self,
+        _chassis_id: &str,
+    ) -> Result<NetworkDeviceFunctionCollection, RedfishError> {
         unimplemented!()
     }
 
-    fn get_network_device_function(&self, chassis_id: &str, id: &str) -> Result<NetworkDeviceFunction, RedfishError> {
+    fn get_network_device_function(
+        &self,
+        _chassis_id: &str,
+        _id: &str,
+    ) -> Result<NetworkDeviceFunction, RedfishError> {
         unimplemented!()
     }
 
-    fn get_ports(&self, chassis_id: &str) -> Result<NetworkPortCollection, RedfishError> {
+    fn get_ports(&self, _chassis_id: &str) -> Result<NetworkPortCollection, RedfishError> {
         unimplemented!()
     }
 
-    fn get_port(&self, chassis_id: &str, id: &str) -> Result<NetworkPort, RedfishError> {
+    fn get_port(&self, _chassis_id: &str, _id: &str) -> Result<NetworkPort, RedfishError> {
         unimplemented!()
     }
 
-    fn change_uefi_password(&self, current_uefi_password: &str, new_uefi_password: &str) -> Result<(), RedfishError> {
+    fn change_uefi_password(
+        &self,
+        _current_uefi_password: &str,
+        _new_uefi_password: &str,
+    ) -> Result<(), RedfishError> {
         unimplemented!()
+    }
+
+    fn change_boot_order(&self, _boot_array: Vec<String>) -> Result<(), RedfishError> {
+        unimplemented!("No standard implementation for change boot order");
     }
 }
 
