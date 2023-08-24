@@ -7,10 +7,12 @@ pub use model::ethernet_interface::{EthernetInterface, EthernetInterfaceCollecti
 pub use model::network_device_function::{NetworkDeviceFunction, NetworkDeviceFunctionCollection};
 use model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 pub use model::port::{NetworkPort, NetworkPortCollection};
+use model::service_root::ServiceRoot;
 use model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
 use model::task::Task;
 pub use model::EnabledDisabled;
+use model::Manager;
 use model::{secure_boot::SecureBoot, BootOption, ComputerSystem};
 use serde::{Deserialize, Serialize};
 
@@ -43,8 +45,20 @@ pub trait Redfish: Send + Sync + 'static {
     /// Is this thing even on?
     fn get_power_state(&self) -> Result<PowerState, RedfishError>;
 
+    /// Returns info about operations that the service supports.
+    fn get_service_root(&self) -> Result<ServiceRoot, RedfishError>;
+
+    /// Returns info about available computer systems.
+    fn get_systems(&self) -> Result<Vec<String>, RedfishError>;
+
     /// Returns info about computer system.
     fn get_system(&self) -> Result<ComputerSystem, RedfishError>;
+
+    /// Returns info about available managers.
+    fn get_managers(&self) -> Result<Vec<String>, RedfishError>;
+
+    /// Returns info about managers
+    fn get_manager(&self) -> Result<Manager, RedfishError>;
 
     /// Get Secure Boot state
     fn get_secure_boot(&self) -> Result<SecureBoot, RedfishError>;

@@ -20,6 +20,7 @@ pub mod ethernet_interface;
 pub mod network_device_function;
 pub mod port;
 pub mod power;
+pub mod service_root;
 pub mod software_inventory;
 pub mod storage;
 pub mod task;

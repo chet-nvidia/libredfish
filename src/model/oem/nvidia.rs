@@ -1,6 +1,6 @@
-use std::fmt;
-use serde::{Deserialize, Serialize};
 use crate::EnabledDisabled;
+use serde::{Deserialize, Serialize};
+use std::fmt;
 
 /// Attributes part of response from ARM DPU for Systems/:id/Bios
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -32,7 +32,7 @@ pub struct BiosAttributes {
     pub reset_efi_vars: Option<bool>,
     #[serde(rename = "SPCR UART")]
     pub spcr_uart: Option<EnabledDisabled>,
-    pub uefi_password: Option<String>
+    pub uefi_password: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]

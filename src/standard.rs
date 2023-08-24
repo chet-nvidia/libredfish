@@ -6,13 +6,14 @@ use crate::model::chassis::{Chassis, ChassisCollection};
 use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 use crate::model::power::Power;
 use crate::model::secure_boot::SecureBoot;
+use crate::model::service_root::ServiceRoot;
 use crate::model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
 use crate::model::thermal::Thermal;
-use crate::model::{power, storage, thermal, BootOption};
+use crate::model::{power, storage, thermal, BootOption, Manager, Managers};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{
     model, Boot, EnabledDisabled, NetworkDeviceFunction, NetworkDeviceFunctionCollection,
-    NetworkPort, NetworkPortCollection, PowerState, Redfish, Status,
+    NetworkPort, NetworkPortCollection, PowerState, Redfish, Status, Systems,
 };
 use crate::{BootOptions, PCIeDevice, RedfishError};
 
@@ -268,6 +269,45 @@ impl Redfish for RedfishStandard {
             "set_host_privilege_level".to_string(),
         ))
     }
+
+    fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
+        let (_status_code, body) = self.client.get("")?;
+        Ok(body)
+    }
+
+    fn get_systems(&self) -> Result<Vec<String>, RedfishError> {
+        let (_, systems): (_, Systems) = self.client.get("Systems/")?;
+        if systems.members.is_empty() {
+            return Ok(vec!["1".to_string()]); // default to DMTF standard suggested
+        }
+        let v: Vec<String> = systems
+            .members
+            .into_iter()
+            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
+            .collect();
+
+        Ok(v)
+    }
+
+    fn get_manager(&self) -> Result<Manager, RedfishError> {
+        let (_, manager): (_, Manager) = self
+            .client
+            .get(&format!("Managers/{}", self.manager_id()))?;
+        Ok(manager)
+    }
+
+    fn get_managers(&self) -> Result<Vec<String>, RedfishError> {
+        let (_, bmcs): (_, Managers) = self.client.get("Managers/")?;
+        if bmcs.members.is_empty() {
+            return Ok(vec!["1".to_string()]);
+        }
+        let v: Vec<String> = bmcs
+            .members
+            .into_iter()
+            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
+            .collect();
+        Ok(v)
+    }
 }
 
 impl RedfishStandard {
@@ -407,18 +447,6 @@ impl RedfishStandard {
         let v: Vec<&str> = bmcs.members[0].odata_id.split('/').collect();
         self.manager_id = v.last().unwrap().to_string();
         Ok(())
-    }
-
-    //
-    // NOT CURRENTLY USED
-    //
-
-    #[allow(dead_code)]
-    pub fn get_manager(&self) -> Result<model::Manager, RedfishError> {
-        let (_, manager): (_, model::Manager) = self
-            .client
-            .get(&format!("Managers/{}", self.manager_id()))?;
-        Ok(manager)
     }
 
     #[allow(dead_code)]

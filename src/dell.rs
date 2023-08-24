@@ -12,7 +12,7 @@ use crate::{
         secure_boot::SecureBoot,
         software_inventory::{SoftwareInventory, SoftwareInventoryCollection},
         thermal::Thermal,
-        BootOption, ComputerSystem, OnOff,
+        BootOption, ComputerSystem, OnOff, Manager, service_root::ServiceRoot,
     },
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status,
@@ -382,6 +382,22 @@ impl Redfish for Bmc {
 
     fn set_host_privilege_level(&self, level: HostPrivilegeLevel) -> Result<(), RedfishError> {
         self.s.set_host_privilege_level(level)
+    }
+
+    fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
+        self.s.get_service_root()
+    }
+
+    fn get_systems(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_systems()
+    }
+
+    fn get_managers(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_managers()
+    }
+
+    fn get_manager(&self) -> Result<Manager, RedfishError> {
+        self.s.get_manager()
     }
 }
 

@@ -1,7 +1,9 @@
 use std::collections::HashMap;
 
+use crate::model::{Manager, ComputerSystem};
 use crate::model::boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget};
 use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
+use crate::model::service_root::ServiceRoot;
 use crate::{
     model::BootOption, standard::RedfishStandard, NetworkDeviceFunction,
     NetworkDeviceFunctionCollection, Redfish, RedfishError,
@@ -156,7 +158,7 @@ impl Redfish for Bmc {
         self.s.clear_pending()
     }
 
-    fn get_system(&self) -> Result<crate::model::ComputerSystem, RedfishError> {
+    fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
         self.s.get_system()
     }
 
@@ -265,6 +267,22 @@ impl Redfish for Bmc {
         )]);
         let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
         self.s.client.patch(&url, data).map(|_status_code| Ok(()))?
+    }
+
+    fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
+        self.s.get_service_root()
+    }
+
+    fn get_systems(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_systems()
+    }
+
+    fn get_managers(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_managers()
+    }
+
+    fn get_manager(&self) -> Result<Manager, RedfishError> {
+        self.s.get_manager()
     }
 }
 

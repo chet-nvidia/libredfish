@@ -3,7 +3,9 @@ use std::{collections::HashMap, time::Duration};
 use reqwest::Method;
 use tracing::debug;
 
+use crate::model::Manager;
 use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
+use crate::model::service_root::ServiceRoot;
 use crate::model::{secure_boot::SecureBoot, ComputerSystem};
 use crate::EnabledDisabled::Enabled;
 use crate::{
@@ -362,6 +364,22 @@ impl Redfish for Bmc {
 
     fn set_host_privilege_level(&self, level: HostPrivilegeLevel) -> Result<(), RedfishError> {
         self.s.set_host_privilege_level(level)
+    }
+
+    fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
+        self.s.get_service_root()
+    }
+
+    fn get_systems(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_systems()
+    }
+
+    fn get_managers(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_managers()
+    }
+
+    fn get_manager(&self) -> Result<Manager, RedfishError> {
+        self.s.get_manager()
     }
 }
 

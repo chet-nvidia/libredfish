@@ -40,6 +40,10 @@ fn test_nvidia_dpu() -> Result<(), anyhow::Error> {
 }
 
 fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
+    let vendor = redfish.get_service_root()?.vendor;
+    assert!(vendor.is_some() && vendor.unwrap() == "Nvidia");
+    let managers = redfish.get_managers()?;
+    assert!(managers.len() > 0);
     let members = redfish.get_software_inventories()?.members;
     assert!(!members.is_empty());
     let v: Vec<&str> = members[0].odata_id.split('/').collect();
