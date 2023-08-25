@@ -5,17 +5,19 @@
 ///
 /// See tests/mockup/README for details.
 use std::{
-    path::{Path, PathBuf},
+    env,
+    path::PathBuf,
     process::{Child, Command},
     sync::Once,
     thread::sleep,
     time::Duration,
 };
 
-use anyhow::anyhow;
+use anyhow::{anyhow, Context};
 use libredfish::Redfish;
 
 const ROOT_DIR: &str = env!("CARGO_MANIFEST_DIR");
+const PYTHON_VENV_DIR: &str = "libredfish-python-venv";
 
 // Ports we hope are not in use
 const DELL_PORT: &str = "8733";
@@ -43,7 +45,7 @@ fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Erro
     let vendor = redfish.get_service_root()?.vendor;
     assert!(vendor.is_some() && vendor.unwrap() == "Nvidia");
     let managers = redfish.get_managers()?;
-    assert!(managers.len() > 0);
+    assert!(!managers.is_empty());
     let members = redfish.get_software_inventories()?.members;
     assert!(!members.is_empty());
     let v: Vec<&str> = members[0].odata_id.split('/').collect();
@@ -58,7 +60,6 @@ fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Erro
 }
 
 fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<(), anyhow::Error> {
-    let (python, pip) = paths()?;
     SETUP.call_once(move || {
         use tracing_subscriber::fmt::Layer;
         use tracing_subscriber::prelude::*;
@@ -78,8 +79,13 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
             )
             .init();
 
+        let pip = create_python_venv().expect("Failed creating python virtual env");
         install_python_requirements(pip).expect("failed installing python requirements");
     });
+    let python = env::temp_dir()
+        .join(PYTHON_VENV_DIR)
+        .join("bin")
+        .join("python");
     let mut mockup_server = MockupServer {
         vendor_dir,
         port,
@@ -138,37 +144,28 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     Ok(())
 }
 
-fn paths() -> Result<(PathBuf, PathBuf), anyhow::Error> {
-    let mut pip = PathBuf::new();
-    let mut python = PathBuf::new();
-    match std::env::var_os("CI") {
-        Some(ci_env) => {
-            println!("Running in a GitLab CI job {:?}", ci_env);
-            if let Ok(python_path) = std::env::var("PYTHON_PATH") {
-                python.push(python_path)
-            } else {
-                return Err(anyhow::Error::msg("`python` not found"));
-            }
-
-            if let Ok(pip_path) = std::env::var("PIP_PATH") {
-                pip.push(pip_path)
-            } else {
-                return Err(anyhow::Error::msg("`pip` not found"));
-            }
-        }
-        None => {
-            println!("Not running in a GitLab CI job");
-            pip = match find_path("pip") {
-                Some(p) => p,
-                None => return Err(anyhow::Error::msg("`pip` not found")),
-            };
-            python = match find_path("python") {
-                Some(p) => p,
-                None => return Err(anyhow::Error::msg("`python` not found")),
-            };
-        }
+/// Create a python virtualenv to install our requirements into.
+/// Return the path of pip
+fn create_python_venv() -> Result<PathBuf, anyhow::Error> {
+    let venv_dir = env::temp_dir().join(PYTHON_VENV_DIR);
+    let venv_out = Command::new("python3")
+        .arg("-m")
+        .arg("venv")
+        .arg(&venv_dir)
+        .output()
+        .context("Is 'python3' on your $PATH?")?;
+    if !venv_out.status.success() {
+        eprintln!("*** Python virtual env creation failed:");
+        eprintln!("\tSTDOUT: {}", String::from_utf8_lossy(&venv_out.stdout));
+        eprintln!("\tSTDERR: {}", String::from_utf8_lossy(&venv_out.stderr));
+        return Err(anyhow!(
+            "Failed running 'python3 -m venv {}. Exit code {}",
+            venv_dir.display(),
+            venv_out.status.code().unwrap_or(-1),
+        ));
     }
-    Ok((python, pip))
+
+    Ok(venv_dir.join("bin/pip"))
 }
 
 fn install_python_requirements(pip: PathBuf) -> Result<(), anyhow::Error> {
@@ -182,7 +179,7 @@ fn install_python_requirements(pip: PathBuf) -> Result<(), anyhow::Error> {
         .arg(&req_path)
         .output()?;
     if !output.status.success() {
-        eprintln!("*** pip3 install failed:");
+        eprintln!("*** pip install failed:");
         eprintln!("\tSTDOUT: {}", String::from_utf8_lossy(&output.stdout));
         eprintln!("\tSTDERR: {}", String::from_utf8_lossy(&output.stderr));
         return Err(anyhow!(
@@ -233,20 +230,4 @@ impl MockupServer {
         sleep(Duration::from_secs(1)); // let it start
         Ok(())
     }
-}
-
-fn find_path<P>(bin: P) -> Option<PathBuf>
-where
-    P: AsRef<Path>,
-{
-    std::env::var_os("PATH").and_then(|paths| {
-        std::env::split_paths(&paths).find_map(|dir| {
-            let full_path = dir.join(&bin);
-            if full_path.is_file() {
-                Some(full_path)
-            } else {
-                None
-            }
-        })
-    })
 }
