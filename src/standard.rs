@@ -13,7 +13,7 @@ use crate::model::{power, storage, thermal, BootOption, Manager, Managers};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{
     model, Boot, EnabledDisabled, NetworkDeviceFunction, NetworkDeviceFunctionCollection,
-    NetworkPort, NetworkPortCollection, PowerState, Redfish, Status, Systems,
+    NetworkPort, NetworkPortCollection, PowerState, Redfish, RoleId, Status, Systems,
 };
 use crate::{BootOptions, PCIeDevice, RedfishError};
 
@@ -27,6 +27,21 @@ pub struct RedfishStandard {
 }
 
 impl Redfish for RedfishStandard {
+    fn create_user(
+        &self,
+        username: &str,
+        password: &str,
+        role_id: RoleId,
+    ) -> Result<(), RedfishError> {
+        let mut data = HashMap::new();
+        data.insert("UserName", username.to_string());
+        data.insert("Password", password.to_string());
+        data.insert("RoleId", format!("{}", role_id).to_string());
+        self.client
+            .post("AccountService/Accounts", data)
+            .map(|_status_code| Ok(()))?
+    }
+
     fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError> {
         let url = format!("AccountService/Accounts/{}", user);
         let mut data = HashMap::new();

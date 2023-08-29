@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use std::fmt;
 use std::fs::File;
 
 pub mod model;
@@ -32,6 +33,14 @@ use crate::model::thermal::Thermal;
 pub trait Redfish: Send + Sync + 'static {
     /// Change password for the user
     fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError>;
+
+    /// Create a new user
+    fn create_user(
+        &self,
+        username: &str,
+        password: &str,
+        role_id: RoleId,
+    ) -> Result<(), RedfishError>;
 
     // Get firmware version for particular firmware inventory id
     fn get_firmware(&self, id: &str) -> Result<SoftwareInventory, RedfishError>;
@@ -206,6 +215,21 @@ enum StatusInternal {
     Enabled,
     Partial,
     Disabled,
+}
+
+/// BMC User Roles
+#[derive(Serialize, Deserialize, Clone, Copy, Debug)]
+pub enum RoleId {
+    Administrator,
+    Operator,
+    ReadOnly,
+    NoAccess,
+}
+
+impl fmt::Display for RoleId {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
 }
 
 impl Status {

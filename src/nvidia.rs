@@ -4,6 +4,7 @@ use crate::model::boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget};
 use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 use crate::model::service_root::ServiceRoot;
 use crate::model::{ComputerSystem, Manager};
+use crate::RoleId;
 use crate::{
     model::BootOption, standard::RedfishStandard, NetworkDeviceFunction,
     NetworkDeviceFunctionCollection, Redfish, RedfishError,
@@ -35,6 +36,15 @@ impl Bmc {
 }
 
 impl Redfish for Bmc {
+    fn create_user(
+        &self,
+        username: &str,
+        password: &str,
+        role_id: RoleId,
+    ) -> Result<(), RedfishError> {
+        self.s.create_user(username, password, role_id)
+    }
+
     fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError> {
         self.s.change_password(user, new)
     }

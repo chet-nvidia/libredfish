@@ -17,7 +17,7 @@ use crate::{
     },
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status,
-    StatusInternal, SystemPowerControl,
+    StatusInternal, SystemPowerControl, RoleId,
 };
 
 pub struct Bmc {
@@ -31,6 +31,15 @@ impl Bmc {
 }
 
 impl Redfish for Bmc {
+    fn create_user(
+        &self,
+        username: &str,
+        password: &str,
+        role_id: RoleId,
+    ) -> Result<(), RedfishError> {
+        self.s.create_user(username, password, role_id)
+    }
+
     fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError> {
         self.s.change_password(user, new)
     }
