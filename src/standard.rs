@@ -309,6 +309,16 @@ impl Redfish for RedfishStandard {
             .collect();
         Ok(v)
     }
+
+    fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
+        let url = format!(
+            "Managers/{}/Actions/Manager.ResetToDefaults",
+            self.manager_id
+        );
+        let mut arg = HashMap::new();
+        arg.insert("ResetToDefaultsType", "ResetAll".to_string());
+        self.client.post(&url, arg).map(|_status_code| Ok(()))?
+    }
 }
 
 impl RedfishStandard {

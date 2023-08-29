@@ -400,6 +400,10 @@ impl Redfish for Bmc {
     fn get_manager(&self) -> Result<Manager, RedfishError> {
         self.s.get_manager()
     }
+
+    fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
+        self.s.bmc_reset_to_defaults()
+    }
 }
 
 impl Bmc {

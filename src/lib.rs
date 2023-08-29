@@ -75,6 +75,9 @@ pub trait Redfish: Send + Sync + 'static {
     /// Reboot the BMC itself
     fn bmc_reset(&self) -> Result<(), RedfishError>;
 
+    /// Reset BMC to the factory defaults.
+    fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError>;
+
     /// Fans and temperature sensors
     fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError>;
 
