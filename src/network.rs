@@ -8,6 +8,7 @@ use serde::{de::DeserializeOwned, Serialize};
 use tracing::{debug, error};
 
 pub use crate::RedfishError;
+use crate::{standard::RedfishStandard, Redfish};
 
 pub const REDFISH_ENDPOINT: &str = "redfish/v1";
 const DEFAULT_TIMEOUT: Duration = Duration::from_secs(20);
@@ -91,24 +92,40 @@ impl RedfishClientPool {
 
     /// Creates a Redfish BMC client for a certain endpoint
     ///
-    /// Creating the client will immediately start a HTTP request which determines
-    /// the BMC type.
+    /// Creating the client will immediately start a HTTP requests
+    /// to set system_id, manager_id and vendor type.
     pub fn create_client(
         &self,
         endpoint: Endpoint,
     ) -> Result<Box<dyn crate::Redfish>, RedfishError> {
         let client = RedfishHttpClient::new(self.http_client.clone(), endpoint);
-        let s = crate::standard::RedfishStandard::new(client)?;
-        match s.vendor.as_deref() {
-            Some("Dell") => Ok(Box::new(crate::dell::Bmc::new(s)?)),
-            Some("Lenovo") => Ok(Box::new(crate::lenovo::Bmc::new(s)?)),
-            Some("Nvidia") => Ok(Box::new(crate::nvidia::Bmc::new(s)?)),
-            _ => Ok(Box::new(s)),
-        }
+        let mut s = RedfishStandard::new(client)?;
+        let vendor = s.get_service_root()?.vendor;
+        let systems = s.get_systems()?;
+        let managers = s.get_managers()?;
+        let system_id = systems.first().unwrap();
+        let manager_id = managers.first().unwrap();
+
+        s.set_system_id(system_id)?;
+        s.set_manager_id(manager_id)?;
+        s.set_vendor(&vendor.unwrap_or("".to_owned()))
+    }
+
+    /// Creates a Redfish BMC client for a certain endpoint
+    ///
+    /// Creating the standard client will not start any HTTP calls.
+    pub fn create_standard_client(
+        &self,
+        endpoint: Endpoint,
+    ) -> Result<Box<RedfishStandard>, RedfishError> {
+        let client = RedfishHttpClient::new(self.http_client.clone(), endpoint);
+        let s = RedfishStandard::new(client)?;
+        Ok(Box::new(s))
     }
 }
 
 /// A HTTP client which targets a single libredfish endpoint
+#[derive(Clone)]
 pub struct RedfishHttpClient {
     endpoint: Endpoint,
     http_client: HttpClient,

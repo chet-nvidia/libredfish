@@ -3,9 +3,9 @@ use std::{collections::HashMap, time::Duration};
 use reqwest::Method;
 use tracing::debug;
 
-use crate::model::Manager;
 use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 use crate::model::service_root::ServiceRoot;
+use crate::model::Manager;
 use crate::model::{secure_boot::SecureBoot, ComputerSystem};
 use crate::EnabledDisabled::Enabled;
 use crate::{

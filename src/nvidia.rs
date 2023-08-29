@@ -1,9 +1,9 @@
 use std::collections::HashMap;
 
-use crate::model::{Manager, ComputerSystem};
 use crate::model::boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget};
 use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 use crate::model::service_root::ServiceRoot;
+use crate::model::{ComputerSystem, Manager};
 use crate::{
     model::BootOption, standard::RedfishStandard, NetworkDeviceFunction,
     NetworkDeviceFunctionCollection, Redfish, RedfishError,
