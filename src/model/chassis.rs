@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::{ODataId, ODataLinks, ResourceStatus};
+use super::{ODataId, ODataLinks, ResourceStatus, OnOff};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ChassisActions {
@@ -61,29 +61,39 @@ pub struct ChassisCollection {
 pub struct Chassis {
     #[serde(flatten)]
     pub odata: Option<ODataLinks>,
-    pub description: Option<String>,
-    pub id: Option<String>,
-    #[serde(default)]
-    pub links: Vec<ODataId>,
-    pub name: Option<String>,
-    pub status: Option<ResourceStatus>,
-    pub model: Option<String>,
-    pub location: Option<ODataId>,
     pub actions: Option<ChassisActions>,
-    pub chassis_type: Option<ChassisType>,
-    pub environment_metrics: Option<ODataId>,
     pub assembly: Option<ODataId>,
-    pub network_adapters: Option<ODataId>,
+    pub chassis_type: Option<ChassisType>,
     pub controls: Option<ODataId>,
+    pub environment_metrics: Option<ODataId>,
+    pub id: Option<String>,
+    pub location: Option<Location>,
+    pub manufacturer: Option<String>,
+    pub model: Option<String>,
+    pub name: Option<String>,
+    pub network_adapters: Option<ODataId>,
+    #[serde(rename = "PCIeDevices")]
     pub pcie_devices: Option<ODataId>,
+    #[serde(rename = "PCIeSlots")]
     pub pcie_slots: Option<ODataId>,
+    pub part_number: Option<String>,
     pub power: Option<ODataId>,
+    pub power_state: Option<OnOff>,
     pub power_subsystem: Option<ODataId>,
     pub sensors: Option<ODataId>,
+    pub serial_number: Option<String>,
+    pub status: Option<ResourceStatus>,
     pub thermal: Option<ODataId>,
     pub thermal_subsystem: Option<ODataId>,
     pub trusted_components: Option<ODataId>,
-    pub manufacturer: Option<String>,
-    pub part_number: Option<String>,
-    pub serial_number: Option<String>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct Location {
+    pub part_location: Option<PartLocation>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct PartLocation {
+    pub location_type: Option<String>,
 }

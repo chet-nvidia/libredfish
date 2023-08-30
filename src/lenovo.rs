@@ -11,11 +11,11 @@ use crate::model::{secure_boot::SecureBoot, ComputerSystem};
 use crate::EnabledDisabled::Enabled;
 use crate::{
     model::{
-        chassis::{Chassis, ChassisCollection},
-        network_device_function::{NetworkDeviceFunction, NetworkDeviceFunctionCollection},
+        chassis::Chassis,
+        network_device_function::NetworkDeviceFunction,
         oem::lenovo,
         power::Power,
-        software_inventory::{SoftwareInventory, SoftwareInventoryCollection},
+        software_inventory::SoftwareInventory,
         thermal::Thermal,
         BootOption,
     },
@@ -291,7 +291,7 @@ impl Redfish for Bmc {
         self.s.get_firmware(id)
     }
 
-    fn get_software_inventories(&self) -> Result<SoftwareInventoryCollection, RedfishError> {
+    fn get_software_inventories(&self) -> Result<Vec<String>, RedfishError> {
         self.s.get_software_inventories()
     }
 
@@ -318,11 +318,11 @@ impl Redfish for Bmc {
     fn get_network_device_functions(
         &self,
         chassis_id: &str,
-    ) -> Result<NetworkDeviceFunctionCollection, RedfishError> {
+    ) -> Result<Vec<String>, RedfishError> {
         self.s.get_network_device_functions(chassis_id)
     }
 
-    fn get_chassises(&self) -> Result<ChassisCollection, RedfishError> {
+    fn get_chassises(&self) -> Result<Vec<String>, RedfishError> {
         self.s.get_chassises()
     }
 
@@ -330,7 +330,7 @@ impl Redfish for Bmc {
         self.s.get_chassis(id)
     }
 
-    fn get_ports(&self, chassis_id: &str) -> Result<crate::NetworkPortCollection, RedfishError> {
+    fn get_ports(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {
         self.s.get_ports(chassis_id)
     }
 
@@ -338,7 +338,7 @@ impl Redfish for Bmc {
         self.s.get_port(chassis_id, id)
     }
 
-    fn get_ethernet_interfaces(&self) -> Result<crate::EthernetInterfaceCollection, RedfishError> {
+    fn get_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
         self.s.get_ethernet_interfaces()
     }
 

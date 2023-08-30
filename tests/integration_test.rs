@@ -44,17 +44,29 @@ fn test_nvidia_dpu() -> Result<(), anyhow::Error> {
 fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
     let vendor = redfish.get_service_root()?.vendor;
     assert!(vendor.is_some() && vendor.unwrap() == "Nvidia");
-    let managers = redfish.get_managers()?;
-    assert!(!managers.is_empty());
-    let members = redfish.get_software_inventories()?.members;
-    assert!(!members.is_empty());
-    let v: Vec<&str> = members[0].odata_id.split('/').collect();
-    assert!(redfish.get_firmware(v.last().unwrap())?.version.is_some());
+    let sw_inventories = redfish.get_software_inventories()?;
+    assert!(redfish.get_firmware(&sw_inventories[0])?.version.is_some());
     let boot = redfish.get_system()?.boot;
     let mut boot_array = boot.boot_order;
     assert!(boot_array.len() > 1);
     boot_array.swap(0, 1);
     redfish.change_boot_order(boot_array)?;
+
+    let eth_intefaces = redfish.get_ethernet_interfaces()?;
+    assert!(!eth_intefaces.is_empty());
+    assert!(redfish.get_ethernet_interface(&eth_intefaces[0])?.mac_address.is_some());
+
+    let chassises = redfish.get_chassises()?;
+    assert!(!chassises.is_empty());
+    assert!(redfish.get_chassis(&chassises[0])?.name.is_some());
+
+    let ports = redfish.get_ports(&chassises[0])?;
+    assert!(!ports.is_empty());
+    assert!(redfish.get_port(&chassises[0], &ports[0])?.current_speed_gbps.is_some());
+
+    let netdev_funcs = redfish.get_network_device_functions(&chassises[0])?;
+    assert!(!netdev_funcs.is_empty());
+    assert!(redfish.get_network_device_function(&chassises[0], &netdev_funcs[0])?.ethernet.and_then(|ethernet| ethernet.mac_address).is_some());
 
     Ok(())
 }

@@ -24,16 +24,16 @@ pub struct EthernetInterface {
     #[serde(rename = "DHCPv4")]
     pub dhcpv4: Option<DHCPv4>,
     #[serde(rename = "DHCPv6")]
-    pub description: Option<String>,
     pub dhcpv6: Option<DHCPv6>,
+    pub description: Option<String>,
     #[serde(rename = "FQDN")]
     pub fqdn: Option<String>,
     pub host_name: Option<String>,
-    #[serde(rename = "IPv4Addresses", skip_serializing_if = "Option::is_none")]
+    #[serde(default, rename = "IPv4Addresses")]
     pub ipv4_addresses: Option<Vec<IPv4Address>>,
     #[serde(rename = "IPv4StaticAddresses", default)]
     pub ipv4_static_addresses: Vec<ODataId>,
-    #[serde(rename = "IPv6AddressPolicyTable", default)]
+    #[serde(default, rename = "IPv6AddressPolicyTable")]
     pub ipv6_address_policy_table: Vec<ODataId>,
     #[serde(rename = "IPv6Addresses", default)]
     pub ipv6_addresses: Vec<IPv6Address>,

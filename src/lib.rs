@@ -9,7 +9,7 @@ pub use model::network_device_function::{NetworkDeviceFunction, NetworkDeviceFun
 use model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 pub use model::port::{NetworkPort, NetworkPortCollection};
 use model::service_root::ServiceRoot;
-use model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
+use model::software_inventory::SoftwareInventory;
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
 use model::task::Task;
 pub use model::EnabledDisabled;
@@ -46,7 +46,7 @@ pub trait Redfish: Send + Sync + 'static {
     fn get_firmware(&self, id: &str) -> Result<SoftwareInventory, RedfishError>;
 
     // Get software inventory collection
-    fn get_software_inventories(&self) -> Result<SoftwareInventoryCollection, RedfishError>;
+    fn get_software_inventories(&self) -> Result<Vec<String>, RedfishError>;
 
     // Get information about a task
     fn get_task(&self, id: &str) -> Result<Task, RedfishError>;
@@ -146,7 +146,7 @@ pub trait Redfish: Send + Sync + 'static {
     fn get_network_device_functions(
         &self,
         chassis_id: &str,
-    ) -> Result<NetworkDeviceFunctionCollection, RedfishError>;
+    ) -> Result<Vec<String>, RedfishError>;
 
     // Get Network Device Function details
     fn get_network_device_function(
@@ -156,19 +156,19 @@ pub trait Redfish: Send + Sync + 'static {
     ) -> Result<NetworkDeviceFunction, RedfishError>;
 
     // List all Chassises
-    fn get_chassises(&self) -> Result<ChassisCollection, RedfishError>;
+    fn get_chassises(&self) -> Result<Vec<String>, RedfishError>;
 
     // Get Chassis details
     fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError>;
 
     // List all High Speed Ports of a given Chassis
-    fn get_ports(&self, chassis_id: &str) -> Result<NetworkPortCollection, RedfishError>;
+    fn get_ports(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError>;
 
     // Get High Speed Port details
     fn get_port(&self, chassis_id: &str, id: &str) -> Result<NetworkPort, RedfishError>;
 
     // List all Ethernet Interfaces
-    fn get_ethernet_interfaces(&self) -> Result<EthernetInterfaceCollection, RedfishError>;
+    fn get_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError>;
 
     // Get Ethernet Interface details
     fn get_ethernet_interface(&self, id: &str) -> Result<EthernetInterface, RedfishError>;

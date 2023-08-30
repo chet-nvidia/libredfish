@@ -23,7 +23,6 @@ pub struct NetworkDeviceFunction {
     pub odata: Option<ODataLinks>,
     pub description: Option<String>,
     pub id: Option<String>,
-    pub links: Vec<ODataId>,
     pub ethernet: Option<Ethernet>,
     pub name: Option<String>,
     pub net_dev_func_capabilities: Vec<String>,
