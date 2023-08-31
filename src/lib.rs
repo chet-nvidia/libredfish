@@ -23,7 +23,7 @@ mod lenovo;
 mod network;
 mod nvidia;
 pub use network::{Endpoint, RedfishClientPool, RedfishClientPoolBuilder, REDFISH_ENDPOINT};
-mod standard;
+pub mod standard;
 pub use error::RedfishError;
 
 use crate::model::power::Power;
