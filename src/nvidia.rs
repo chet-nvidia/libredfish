@@ -1,15 +1,18 @@
 use std::collections::HashMap;
 
-use crate::model::boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget};
-use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
-use crate::model::service_root::ServiceRoot;
-use crate::model::{ComputerSystem, Manager};
 use crate::RoleId;
 use crate::{
-    model::BootOption, standard::RedfishStandard, NetworkDeviceFunction,
-    NetworkDeviceFunctionCollection, Redfish, RedfishError,
+    model::{
+        boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
+        oem::nvidia::{HostPrivilegeLevel, InternalCPUModel},
+        port::NetworkPortCollection,
+        sel::{LogEntry, LogEntryCollection},
+        service_root::ServiceRoot,
+        BootOption, ComputerSystem, Manager,
+    },
+    standard::RedfishStandard,
+    NetworkDeviceFunction, NetworkDeviceFunctionCollection, Redfish, RedfishError,
 };
-use crate::model::port::NetworkPortCollection;
 
 pub struct Bmc {
     s: RedfishStandard,
@@ -57,9 +60,7 @@ impl Redfish for Bmc {
         self.s.get_firmware(id)
     }
 
-    fn get_software_inventories(
-        &self,
-    ) -> Result<Vec<String>, RedfishError> {
+    fn get_software_inventories(&self) -> Result<Vec<String>, RedfishError> {
         self.s.get_software_inventories()
     }
 
@@ -85,6 +86,10 @@ impl Redfish for Bmc {
 
     fn get_thermal_metrics(&self) -> Result<crate::Thermal, RedfishError> {
         self.s.get_thermal_metrics()
+    }
+
+    fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
+        self.get_system_event_log()
     }
 
     fn forge_setup(&self) -> Result<(), RedfishError> {
@@ -181,8 +186,8 @@ impl Redfish for Bmc {
         self.s.disable_secure_boot()
     }
 
-    fn get_chassises(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_chassises()
+    fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_chassis_all()
     }
 
     fn get_chassis(&self, id: &str) -> Result<crate::Chassis, RedfishError> {
@@ -202,7 +207,7 @@ impl Redfish for Bmc {
             "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/Ports",
             chassis_id
         );
-        let (_status_code, body): (_, NetworkPortCollection)  = self.s.client.get(&url)?;
+        let (_status_code, body): (_, NetworkPortCollection) = self.s.client.get(&url)?;
 
         if body.members.is_empty() {
             return Ok(vec![]);
@@ -238,12 +243,13 @@ impl Redfish for Bmc {
         Ok(body)
     }
 
-    fn get_network_device_functions(&self, chassis_id: &str,) -> Result<Vec<String>, RedfishError> {
+    fn get_network_device_functions(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {
         let url = format!(
             "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions",
             chassis_id
         );
-        let (_status_code, netdev_funcs): (_, NetworkDeviceFunctionCollection) = self.s.client.get(&url)?;
+        let (_status_code, netdev_funcs): (_, NetworkDeviceFunctionCollection) =
+            self.s.client.get(&url)?;
         if netdev_funcs.members.is_empty() {
             return Ok(vec![]);
         }
@@ -372,5 +378,14 @@ impl Bmc {
             }
         }
         Ok(Some(ordered))
+    }
+
+    // dpu stores the sel as part of the system? there's a LogServices for the bmc too, but no sel
+    fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
+        let url = format!("Systems/{}/LogServices/SEL/Entries", self.s.system_id());
+        let (_status_code, log_entry_collection): (_, LogEntryCollection) =
+            self.s.client.get(&url)?;
+        let log_entries = log_entry_collection.members;
+        Ok(log_entries)
     }
 }

@@ -54,19 +54,29 @@ fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Erro
 
     let eth_intefaces = redfish.get_ethernet_interfaces()?;
     assert!(!eth_intefaces.is_empty());
-    assert!(redfish.get_ethernet_interface(&eth_intefaces[0])?.mac_address.is_some());
+    assert!(redfish
+        .get_ethernet_interface(&eth_intefaces[0])?
+        .mac_address
+        .is_some());
 
-    let chassises = redfish.get_chassises()?;
-    assert!(!chassises.is_empty());
-    assert!(redfish.get_chassis(&chassises[0])?.name.is_some());
+    let chassis = redfish.get_chassis_all()?;
+    assert!(!chassis.is_empty());
+    assert!(redfish.get_chassis(&chassis[0])?.name.is_some());
 
-    let ports = redfish.get_ports(&chassises[0])?;
+    let ports = redfish.get_ports(&chassis[0])?;
     assert!(!ports.is_empty());
-    assert!(redfish.get_port(&chassises[0], &ports[0])?.current_speed_gbps.is_some());
+    assert!(redfish
+        .get_port(&chassis[0], &ports[0])?
+        .current_speed_gbps
+        .is_some());
 
-    let netdev_funcs = redfish.get_network_device_functions(&chassises[0])?;
+    let netdev_funcs = redfish.get_network_device_functions(&chassis[0])?;
     assert!(!netdev_funcs.is_empty());
-    assert!(redfish.get_network_device_function(&chassises[0], &netdev_funcs[0])?.ethernet.and_then(|ethernet| ethernet.mac_address).is_some());
+    assert!(redfish
+        .get_network_device_function(&chassis[0], &netdev_funcs[0])?
+        .ethernet
+        .and_then(|ethernet| ethernet.mac_address)
+        .is_some());
 
     Ok(())
 }
@@ -151,6 +161,12 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     redfish.power(libredfish::SystemPowerControl::GracefulRestart)?;
     if vendor_dir == "lenovo" {
         assert!(redfish.lockdown_status()?.is_fully_enabled());
+    }
+    _ = redfish.get_thermal_metrics()?;
+    _ = redfish.get_power_metrics()?;
+    if vendor_dir != "lenovo" {
+        // the lenovo mockup doesn't have this content, but their docs have it
+        _ = redfish.get_system_event_log()?;
     }
 
     Ok(())

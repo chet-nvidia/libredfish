@@ -27,6 +27,7 @@ pub mod standard;
 pub use error::RedfishError;
 
 use crate::model::power::Power;
+use crate::model::sel::LogEntry;
 use crate::model::thermal::Thermal;
 
 /// Interface to a BMC Redfish server. All calls will include one or more HTTP network calls.
@@ -90,6 +91,9 @@ pub trait Redfish: Send + Sync + 'static {
     /// Fans and temperature sensors
     fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError>;
 
+    /// get system event log similar to ipmitool sel
+    fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError>;
+
     /// call this to setup bios and bmc for Nvidia Forge use
     fn forge_setup(&self) -> Result<(), RedfishError>;
 
@@ -143,10 +147,7 @@ pub trait Redfish: Send + Sync + 'static {
     fn clear_pending(&self) -> Result<(), RedfishError>;
 
     // List all Network Device Functions of a given Chassis
-    fn get_network_device_functions(
-        &self,
-        chassis_id: &str,
-    ) -> Result<Vec<String>, RedfishError>;
+    fn get_network_device_functions(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError>;
 
     // Get Network Device Function details
     fn get_network_device_function(
@@ -156,7 +157,7 @@ pub trait Redfish: Send + Sync + 'static {
     ) -> Result<NetworkDeviceFunction, RedfishError>;
 
     // List all Chassises
-    fn get_chassises(&self) -> Result<Vec<String>, RedfishError>;
+    fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError>;
 
     // Get Chassis details
     fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError>;

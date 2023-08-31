@@ -10,14 +10,15 @@ use crate::{
         },
         power::Power,
         secure_boot::SecureBoot,
+        sel::{LogEntry, LogEntryCollection},
         service_root::ServiceRoot,
         software_inventory::SoftwareInventory,
         thermal::Thermal,
         BootOption, ComputerSystem, Manager, OnOff,
     },
     standard::RedfishStandard,
-    Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status,
-    StatusInternal, SystemPowerControl, RoleId,
+    Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, RoleId,
+    Status, StatusInternal, SystemPowerControl,
 };
 
 pub struct Bmc {
@@ -62,6 +63,10 @@ impl Redfish for Bmc {
 
     fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
         self.s.get_thermal_metrics()
+    }
+
+    fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
+        self.get_system_event_log()
     }
 
     fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
@@ -342,15 +347,12 @@ impl Redfish for Bmc {
         self.s.get_network_device_function(chassis_id, id)
     }
 
-    fn get_network_device_functions(
-        &self,
-        chassis_id: &str,
-    ) -> Result<Vec<String>, RedfishError> {
+    fn get_network_device_functions(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {
         self.s.get_network_device_functions(chassis_id)
     }
 
-    fn get_chassises(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_chassises()
+    fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_chassis_all()
     }
 
     fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError> {
@@ -765,6 +767,16 @@ impl Bmc {
                 _ => StatusInternal::Partial,
             },
         })
+    }
+
+    // dell stores the sel as part of the manager
+    fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
+        let manager_id = self.s.manager_id();
+        let url = format!("Managers/{manager_id}/LogServices/Sel/Entries");
+        let (_status_code, log_entry_collection): (_, LogEntryCollection) =
+            self.s.client.get(&url)?;
+        let log_entries = log_entry_collection.members;
+        Ok(log_entries)
     }
 
     // Second value in tuple is URL we used to fetch attributes, for diagnostics

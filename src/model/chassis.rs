@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::{ODataId, ODataLinks, ResourceStatus, OnOff};
+use super::{ODataId, ODataLinks, OnOff, ResourceStatus};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ChassisActions {

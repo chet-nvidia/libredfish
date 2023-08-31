@@ -6,6 +6,7 @@ use crate::model::chassis::{Chassis, ChassisCollection};
 use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 use crate::model::power::Power;
 use crate::model::secure_boot::SecureBoot;
+use crate::model::sel::LogEntry;
 use crate::model::service_root::ServiceRoot;
 use crate::model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
 use crate::model::thermal::Thermal;
@@ -79,6 +80,10 @@ impl Redfish for RedfishStandard {
     fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
         let thermal = self.get_thermal_metrics()?;
         Ok(thermal)
+    }
+
+    fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
+        Err(RedfishError::NotSupported("SEL".to_string()))
     }
 
     fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
@@ -184,7 +189,7 @@ impl Redfish for RedfishStandard {
         Ok(body)
     }
 
-    fn get_chassises(&self) -> Result<Vec<String>, RedfishError> {
+    fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError> {
         let (_status_code, chassises): (_, ChassisCollection) = self.client.get("Chassis/")?;
         if chassises.members.is_empty() {
             return Ok(vec![]);

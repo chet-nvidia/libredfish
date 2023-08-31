@@ -3,18 +3,19 @@ use std::{collections::HashMap, time::Duration};
 use reqwest::Method;
 use tracing::debug;
 
-use crate::RoleId;
 use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 use crate::model::service_root::ServiceRoot;
 use crate::model::Manager;
 use crate::model::{secure_boot::SecureBoot, ComputerSystem};
 use crate::EnabledDisabled::Enabled;
+use crate::RoleId;
 use crate::{
     model::{
         chassis::Chassis,
         network_device_function::NetworkDeviceFunction,
         oem::lenovo,
         power::Power,
+        sel::{LogEntry, LogEntryCollection},
         software_inventory::SoftwareInventory,
         thermal::Thermal,
         BootOption,
@@ -67,6 +68,10 @@ impl Redfish for Bmc {
 
     fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
         self.s.get_thermal_metrics()
+    }
+
+    fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
+        self.get_system_event_log()
     }
 
     fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
@@ -315,15 +320,12 @@ impl Redfish for Bmc {
         self.s.get_network_device_function(chassis_id, id)
     }
 
-    fn get_network_device_functions(
-        &self,
-        chassis_id: &str,
-    ) -> Result<Vec<String>, RedfishError> {
+    fn get_network_device_functions(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {
         self.s.get_network_device_functions(chassis_id)
     }
 
-    fn get_chassises(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_chassises()
+    fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_chassis_all()
     }
 
     fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError> {
@@ -721,5 +723,14 @@ impl Bmc {
                 Ok(Some(ordered))
             }
         }
+    }
+
+    // lenovo stores the sel as part of the system
+    fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
+        let url = format!("Systems/{}/LogServices/SEL/Entries", self.s.system_id());
+        let (_status_code, log_entry_collection): (_, LogEntryCollection) =
+            self.s.client.get(&url)?;
+        let log_entries = log_entry_collection.members;
+        Ok(log_entries)
     }
 }
