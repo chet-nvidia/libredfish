@@ -9,6 +9,7 @@ use crate::model::secure_boot::SecureBoot;
 use crate::model::sel::LogEntry;
 use crate::model::service_root::ServiceRoot;
 use crate::model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
+use crate::model::task::{TaskCollection, Task};
 use crate::model::thermal::Thermal;
 use crate::model::{power, storage, thermal, BootOption, Manager, Managers};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
@@ -178,12 +179,25 @@ impl Redfish for RedfishStandard {
         Ok(body)
     }
 
-    fn update_firmware(&self, firmware: std::fs::File) -> Result<model::task::Task, RedfishError> {
+    fn update_firmware(&self, firmware: std::fs::File) -> Result<Task, RedfishError> {
         let (_status_code, body) = self.client.post_file("UpdateService", firmware)?;
         Ok(body)
     }
 
-    fn get_task(&self, id: &str) -> Result<model::task::Task, RedfishError> {
+    fn get_tasks(&self) -> Result<Vec<String>, RedfishError> {
+        let (_status_code, tasks): (_, TaskCollection) = self.client.get("TaskService/Tasks/")?;
+        if tasks.members.is_empty() {
+            return Ok(vec![]);
+        }
+        let v: Vec<String> = tasks
+            .members
+            .into_iter()
+            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
+            .collect();
+        Ok(v)
+    }
+
+    fn get_task(&self, id: &str) -> Result<Task, RedfishError> {
         let url = format!("TaskService/Tasks/{}", id);
         let (_status_code, body) = self.client.get(&url)?;
         Ok(body)

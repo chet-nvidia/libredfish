@@ -49,6 +49,9 @@ pub trait Redfish: Send + Sync + 'static {
     // Get software inventory collection
     fn get_software_inventories(&self) -> Result<Vec<String>, RedfishError>;
 
+    // List all Tasks
+    fn get_tasks(&self) -> Result<Vec<String>, RedfishError> ;
+
     // Get information about a task
     fn get_task(&self, id: &str) -> Result<Task, RedfishError>;
 

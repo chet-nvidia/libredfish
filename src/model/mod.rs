@@ -166,6 +166,12 @@ pub enum OnOff {
     Off,
 }
 
+impl fmt::Display for OnOff {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
 #[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum LinkStatus {
     LinkUp,
@@ -173,11 +179,12 @@ pub enum LinkStatus {
     LinkDown,
 }
 
-impl fmt::Display for OnOff {
+impl fmt::Display for LinkStatus {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         fmt::Debug::fmt(self, f)
     }
 }
+
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct FirmwareCurrent {

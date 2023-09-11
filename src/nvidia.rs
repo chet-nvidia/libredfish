@@ -64,6 +64,10 @@ impl Redfish for Bmc {
         self.s.get_software_inventories()
     }
 
+    fn get_tasks(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_tasks()
+    }
+
     fn get_task(&self, id: &str) -> Result<crate::model::task::Task, RedfishError> {
         self.s.get_task(id)
     }

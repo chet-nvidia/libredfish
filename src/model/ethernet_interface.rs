@@ -30,7 +30,7 @@ pub struct EthernetInterface {
     pub fqdn: Option<String>,
     pub host_name: Option<String>,
     #[serde(default, rename = "IPv4Addresses")]
-    pub ipv4_addresses: Option<Vec<IPv4Address>>,
+    pub ipv4_addresses: Vec<IPv4Address>,
     #[serde(rename = "IPv4StaticAddresses", default)]
     pub ipv4_static_addresses: Vec<ODataId>,
     #[serde(default, rename = "IPv6AddressPolicyTable")]
