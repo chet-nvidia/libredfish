@@ -20,6 +20,12 @@ pub enum LinkNetworkTechnology {
     FibreChannel,
 }
 
+impl std::fmt::Display for LinkNetworkTechnology {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::fmt::Debug::fmt(self, f)
+    }
+}
+
 /// http://redfish.dmtf.org/schemas/v1/NetworkPort.v1_4_1.json
 /// The NetworkPort schema contains an inventory of software components.  
 /// This can include Network Device parameters such as current speed, link status, etc.

@@ -26,6 +26,12 @@ pub enum AutomaticRetryConfig {
     RetryAlways,
 }
 
+impl std::fmt::Display for AutomaticRetryConfig {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::fmt::Debug::fmt(self, f)
+    }
+}
+
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub enum BootSourceOverrideEnabled {
     Once,
@@ -70,4 +76,10 @@ impl fmt::Display for BootSourceOverrideTarget {
 pub enum TrustedModuleRequiredToBoot {
     Disabled,
     Required,
+}
+
+impl std::fmt::Display for TrustedModuleRequiredToBoot {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::fmt::Debug::fmt(self, f)
+    }
 }

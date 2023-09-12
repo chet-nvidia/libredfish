@@ -42,6 +42,12 @@ pub enum ChassisType {
     Other,
 }
 
+impl std::fmt::Display for ChassisType {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::fmt::Debug::fmt(self, f)
+    }
+}
+
 /// http://redfish.dmtf.org/schemas/v1/ChassisCollection.json
 /// The ChassisCollection schema contains a collection of chassis instances.
 #[derive(Debug, Serialize, Deserialize, Clone)]

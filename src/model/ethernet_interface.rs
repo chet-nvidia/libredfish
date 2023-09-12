@@ -67,12 +67,24 @@ pub enum IPv4AddressOrigin {
     IPv4LinkLocal,
 }
 
+impl std::fmt::Display for IPv4AddressOrigin {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::fmt::Debug::fmt(self, f)
+    }
+}
+
 #[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum IPv6AddressOrigin {
     Static,
     DHCPv6,
     LinkLocal,
     SLAAC,
+}
+
+impl std::fmt::Display for IPv6AddressOrigin {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::fmt::Debug::fmt(self, f)
+    }
 }
 
 /// http://redfish.dmtf.org/schemas/v1/IPAddresses.v1_0_10.json
