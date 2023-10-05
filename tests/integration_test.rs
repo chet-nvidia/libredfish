@@ -90,7 +90,10 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
             .with(
                 EnvFilter::builder()
                     .with_default_directive(LevelFilter::INFO.into())
-                    .from_env_lossy(),
+                    .from_env_lossy()
+                    .add_directive("hyper=warn".parse().unwrap())
+                    .add_directive("reqwest=warn".parse().unwrap())
+                    .add_directive("rustls=warn".parse().unwrap()),
             )
             .with(
                 Layer::default()
@@ -240,6 +243,7 @@ impl Drop for MockupServer {
 
 impl MockupServer {
     fn start(&mut self) -> std::io::Result<()> {
+        // For extra debugging edit redfishMockupServer.py change the log level at the top
         self.process = Some(
             Command::new(&self.python)
                 .current_dir(PathBuf::from(ROOT_DIR).join("tests"))

@@ -282,7 +282,7 @@ impl RedfishHttpClient {
         })?;
         let mut res = None;
         if !response_body.is_empty() {
-            debug!("RX {status_code} {response_body}");
+            debug!("RX {status_code} {}", truncate(&response_body, 1500));
             match serde_json::from_str(&response_body) {
                 Ok(v) => res.insert(v),
                 Err(e) => {
@@ -303,4 +303,8 @@ impl RedfishHttpClient {
         }
         Ok((status_code, res))
     }
+}
+
+fn truncate(s: &str, len: usize) -> &str {
+    &s[..len.min(s.len())]
 }
