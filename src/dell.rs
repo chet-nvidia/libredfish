@@ -339,6 +339,10 @@ impl Redfish for Bmc {
         self.s.get_secure_boot()
     }
 
+    fn enable_secure_boot(&self) -> Result<(), RedfishError> {
+        self.s.enable_secure_boot()
+    }
+
     fn disable_secure_boot(&self) -> Result<(), RedfishError> {
         self.s.disable_secure_boot()
     }

@@ -9,7 +9,7 @@ use crate::model::secure_boot::SecureBoot;
 use crate::model::sel::LogEntry;
 use crate::model::service_root::ServiceRoot;
 use crate::model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
-use crate::model::task::{TaskCollection, Task};
+use crate::model::task::{Task, TaskCollection};
 use crate::model::thermal::Thermal;
 use crate::model::{power, storage, thermal, BootOption, Manager, Managers};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
@@ -270,6 +270,14 @@ impl Redfish for RedfishStandard {
         let url = format!("Systems/{}/SecureBoot", self.system_id());
         let (_status_code, body) = self.client.get(&url)?;
         Ok(body)
+    }
+
+    fn enable_secure_boot(&self) -> Result<(), RedfishError> {
+        let mut data = HashMap::new();
+        data.insert("SecureBootEnable", true);
+        let url = format!("Systems/{}/SecureBoot", self.system_id());
+        let _status_code = self.client.patch(&url, data)?;
+        Ok(())
     }
 
     fn disable_secure_boot(&self) -> Result<(), RedfishError> {

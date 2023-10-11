@@ -79,6 +79,9 @@ pub trait Redfish: Send + Sync + 'static {
     /// Disables Secure Boot
     fn disable_secure_boot(&self) -> Result<(), RedfishError>;
 
+    /// Enables Secure Boot
+    fn enable_secure_boot(&self) -> Result<(), RedfishError>;
+
     /// Power supplies and voltages metrics
     fn get_power_metrics(&self) -> Result<Power, RedfishError>;
 
