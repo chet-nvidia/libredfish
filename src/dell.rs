@@ -13,6 +13,7 @@ use crate::{
         sel::{LogEntry, LogEntryCollection},
         service_root::ServiceRoot,
         software_inventory::SoftwareInventory,
+        task::Task,
         thermal::Thermal,
         BootOption, ComputerSystem, Manager, OnOff,
     },
@@ -333,6 +334,10 @@ impl Redfish for Bmc {
 
     fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
         self.s.get_system()
+    }
+
+    fn add_secure_boot_certificate(&self, pem_cert: &str) -> Result<Task, RedfishError> {
+        self.s.add_secure_boot_certificate(pem_cert)
     }
 
     fn get_secure_boot(&self) -> Result<SecureBoot, RedfishError> {

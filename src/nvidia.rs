@@ -1,5 +1,6 @@
 use std::collections::HashMap;
 
+use crate::model::task::Task;
 use crate::RoleId;
 use crate::{
     model::{
@@ -192,6 +193,10 @@ impl Redfish for Bmc {
 
     fn disable_secure_boot(&self) -> Result<(), RedfishError> {
         self.s.disable_secure_boot()
+    }
+
+    fn add_secure_boot_certificate(&self, pem_cert: &str) -> Result<Task, RedfishError> {
+        self.s.add_secure_boot_certificate(pem_cert)
     }
 
     fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError> {

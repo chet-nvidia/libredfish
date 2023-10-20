@@ -1,5 +1,6 @@
 use std::collections::{HashMap, HashSet};
 
+use reqwest::Method;
 use tracing::debug;
 
 use crate::model::chassis::{Chassis, ChassisCollection};
@@ -278,6 +279,23 @@ impl Redfish for RedfishStandard {
         let url = format!("Systems/{}/SecureBoot", self.system_id());
         let _status_code = self.client.patch(&url, data)?;
         Ok(())
+    }
+
+    fn add_secure_boot_certificate(&self, pem_cert: &str) -> Result<Task, RedfishError> {
+        let mut data = HashMap::new();
+        data.insert("CertificateString", pem_cert);
+        data.insert("CertificateType", "PEM");
+        let url = format!(
+            "Systems/{}/SecureBoot/SecureBootDatabases/db/Certificates",
+            self.system_id()
+        );
+        let (_status_code, resp_opt) =
+            self.client
+                .req::<Task, _>(Method::POST, &url, Some(data), None, None)?;
+        match resp_opt {
+            Some(response_body) => Ok(response_body),
+            None => Err(RedfishError::NoContent),
+        }
     }
 
     fn disable_secure_boot(&self) -> Result<(), RedfishError> {

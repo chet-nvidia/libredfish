@@ -6,6 +6,7 @@ use tracing::debug;
 use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 use crate::model::service_root::ServiceRoot;
 use crate::model::Manager;
+use crate::model::task::Task;
 use crate::model::{secure_boot::SecureBoot, ComputerSystem};
 use crate::EnabledDisabled::Enabled;
 use crate::RoleId;
@@ -306,6 +307,10 @@ impl Redfish for Bmc {
 
     fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
         self.s.get_system()
+    }
+
+    fn add_secure_boot_certificate(&self, pem_cert: &str) -> Result<Task, RedfishError> {
+        self.s.add_secure_boot_certificate(pem_cert)
     }
 
     fn get_secure_boot(&self) -> Result<SecureBoot, RedfishError> {
