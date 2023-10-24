@@ -1,0 +1,18 @@
+{
+    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/578",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/578/attachment",
+    "Created": "2020-01-15T08:01:50+00:00",
+    "EntryType": "Event",
+    "Id": "578",
+    "Message": "The resource property NVSwitch_0 Driver Event Message has detected errors of type '[Fri Mar 20 20:45:37 UTC 1970][12189696][00] SXID 0 dNVSWITCH SMBPBI server is online.st'.",
+    "MessageArgs": [
+        "NVSwitch_0 Driver Event Message",
+        "[Fri Mar 20 20:45:37 UTC 1970][12189696][00] SXID 0 dNVSWITCH SMBPBI server is online.st"
+    ],
+    "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+    "Name": "System Event Log Entry",
+    "Resolution": "",
+    "Resolved": false,
+    "Severity": "Critical"
+}

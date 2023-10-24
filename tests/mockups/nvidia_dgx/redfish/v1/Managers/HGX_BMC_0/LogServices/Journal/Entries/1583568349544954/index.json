@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568349544954",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:49+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568349544954",
+    "Message": "oobamld: [03/07/20 08:05:49.543481356]E[N13data_accessor12DataAccessorE][runCommandLine]: Error running the command 'mctp-vdm-util-wrapper AP0_BOOTCOMPLETE_TIMEOUT FPGA_0' return code = 1",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/177",
+    "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+    "Created": "2023-10-23T17:00:32+00:00",
+    "Description": "SEL 272",
+    "EntryCode": "Assert",
+    "EntryType": "SEL",
+    "EventTimestamp": "2023-10-16T19:22:50+00:00",
+    "Id": "177",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Managers/BMC"
+        }
+    },
+    "Message": "Event_Data_1 : 4, Record_Type : system event record, Sensor_Number : 98, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-16T19:22:50+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x2001, Event_Data_3 : 255, Record_ID : 272, Sensor_Type : Entity Presence, ",
+    "MessageId": "0x04FFFF",
+    "Name": "SEL 272",
+    "SensorNumber": 98,
+    "SensorType": "Entity Presence",
+    "Severity": "OK"
+}

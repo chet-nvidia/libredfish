@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568350353148",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:50+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568350353148",
+    "Message": "gpumgrd: Retrial error occured: OOB API:GPUGetHBMPowerConsumption failed for DeviceID:7 with RC:1032",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "Warning"
+}

@@ -1,0 +1,37 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Drive.Drive",
+    "@odata.etag": "\"1698080632\"",
+    "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_DeviceA_NSID1",
+    "@odata.type": "#Drive.v1_11_0.Drive",
+    "AssetTag": null,
+    "BlockSizeBytes": 512,
+    "CapableSpeedGbs": 63.02,
+    "CapacityBytes": 3840755982336,
+    "EncryptionAbility": "SelfEncryptingDrive",
+    "EncryptionStatus": "Unlocked",
+    "FailurePredicted": false,
+    "Id": "NVMe_DeviceA_NSID1",
+    "IndicatorLED": null,
+    "Links": {
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/DGX"
+        },
+        "Endpoints@odata.count": 0,
+        "Volumes@odata.count": 0
+    },
+    "Manufacturer": "N/A",
+    "MediaType": "SSD",
+    "Model": "KCM6DRUL3T84",
+    "Name": "NVMe_DeviceA_NSID1",
+    "NegotiatedSpeedGbs": 63.02,
+    "PredictedMediaLifeLeftPercent": 100,
+    "Protocol": "NVMe",
+    "Revision": "NVMe Spec v1.4",
+    "RotationSpeedRPM": 0,
+    "SerialNumber": "9230A0QMT2N8",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "StatusIndicator": "OK"
+}

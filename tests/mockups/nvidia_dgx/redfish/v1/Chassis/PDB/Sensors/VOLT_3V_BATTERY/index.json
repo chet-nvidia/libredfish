@@ -1,0 +1,36 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/PDB/Sensors/VOLT_3V_BATTERY",
+    "@odata.type": "#Sensor.v1_0_2.Sensor",
+    "Id": "251",
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded"
+        }
+    },
+    "Name": "VOLT_3V_BATTERY",
+    "PhysicalContext": "VoltageRegulator",
+    "Reading": 0.051,
+    "ReadingRangeMax": 4.335,
+    "ReadingRangeMin": 0,
+    "ReadingType": "Voltage",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Thresholds": {
+        "LowerCaution": {
+            "Reading": 3.196
+        },
+        "LowerCritical": {
+            "Reading": 3.298
+        },
+        "UpperCaution": {
+            "Reading": 2.703
+        },
+        "UpperCritical": {
+            "Reading": 2.601
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_AMBIENT",
+    "@odata.type": "#Sensor.v1_0_2.Sensor",
+    "Id": "61",
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded"
+        }
+    },
+    "Name": "TEMP_AMBIENT",
+    "PhysicalContext": "Intake",
+    "Reading": 20,
+    "ReadingType": "Temperature",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Thresholds": {
+        "LowerCaution": {
+            "Reading": 37
+        },
+        "LowerCritical": {
+            "Reading": 40
+        },
+        "LowerFatal": {
+            "Reading": 42
+        },
+        "UpperCaution": {
+            "Reading": 5
+        }
+    }
+}

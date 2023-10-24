@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568336702203",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:36+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568336702203",
+    "Message": "spdmd: sd_bus_call: org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatableSPDM inventoryNewObjectSignal couldn't get EID for UUID 'ad4c836b-c54c-11eb-8529-0242ac130003'",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568325808979",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:25+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568325808979",
+    "Message": "kernel: aspeed-pcie 1e6ed200.pcie: host bridge /ahb/apb/pcie@1e6ed200 ranges:",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568333689138",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:33+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568333689138",
+    "Message": "systemd: Phosphor Hwmon Poller was skipped because of a failed condition check (ConditionFileNotEmpty=/etc/default/obmc/hwmon/ahb/apb/bus@1e78a000/i2c-bus@780/lm75@48.conf).",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

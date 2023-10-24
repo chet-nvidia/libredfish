@@ -1,0 +1,18 @@
+{
+    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/342",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/342/attachment",
+    "Created": "2020-01-01T00:36:38+00:00",
+    "EntryType": "Event",
+    "Id": "342",
+    "Message": "Awaiting for an action to proceed with activating image 'HGX-H100x8_0002_230428.3.3' on 'HGX_FW_ERoT_NVSwitch_0 HGX_FW_NVSwitch_0 HGX_FW_ERoT_NVSwitch_1 HGX_FW_NVSwitch_1 HGX_FW_ERoT_NVSwitch_2 HGX_FW_NVSwitch_2 HGX_FW_ERoT_NVSwitch_3 HGX_FW_NVSwitch_3 HGX_FW_ERoT_GPU_SXM_4 HGX_FW_GPU_SXM_4 HGX_FW_ERoT_GPU_SXM_8 HGX_FW_GPU_SXM_8 HGX_FW_ERoT_GPU_SXM_7 HGX_FW_GPU_SXM_7 HGX_FW_ERoT_GPU_SXM_1 HGX_FW_GPU_SXM_1 HGX_FW_ERoT_GPU_SXM_3 HGX_FW_GPU_SXM_3 HGX_FW_ERoT_GPU_SXM_2 HGX_FW_GPU_SXM_2 HGX_FW_ERoT_GPU_SXM_6 HGX_FW_GPU_SXM_6 HGX_FW_ERoT_GPU_SXM_5 HGX_FW_GPU_SXM_5 HGX_FW_PCIeRetimer HGX_FW_ERoT_PCIeSwitch_0 HGX_FW_PCIeSwitch_0 HGX_FW_ERoT_FPGA_0 HGX_FW_FPGA_0 HGX_FW_ERoT_BMC_0 HGX_FW_BMC_0'.",
+    "MessageArgs": [
+        "HGX-H100x8_0002_230428.3.3",
+        "HGX_FW_ERoT_NVSwitch_0 HGX_FW_NVSwitch_0 HGX_FW_ERoT_NVSwitch_1 HGX_FW_NVSwitch_1 HGX_FW_ERoT_NVSwitch_2 HGX_FW_NVSwitch_2 HGX_FW_ERoT_NVSwitch_3 HGX_FW_NVSwitch_3 HGX_FW_ERoT_GPU_SXM_4 HGX_FW_GPU_SXM_4 HGX_FW_ERoT_GPU_SXM_8 HGX_FW_GPU_SXM_8 HGX_FW_ERoT_GPU_SXM_7 HGX_FW_GPU_SXM_7 HGX_FW_ERoT_GPU_SXM_1 HGX_FW_GPU_SXM_1 HGX_FW_ERoT_GPU_SXM_3 HGX_FW_GPU_SXM_3 HGX_FW_ERoT_GPU_SXM_2 HGX_FW_GPU_SXM_2 HGX_FW_ERoT_GPU_SXM_6 HGX_FW_GPU_SXM_6 HGX_FW_ERoT_GPU_SXM_5 HGX_FW_GPU_SXM_5 HGX_FW_PCIeRetimer HGX_FW_ERoT_PCIeSwitch_0 HGX_FW_PCIeSwitch_0 HGX_FW_ERoT_FPGA_0 HGX_FW_FPGA_0 HGX_FW_ERoT_BMC_0 HGX_FW_BMC_0"
+    ],
+    "MessageId": "Update.1.0.AwaitToActivate",
+    "Name": "System Event Log Entry",
+    "Resolution": "Perform the requested action to advance the update operation.",
+    "Resolved": true,
+    "Severity": "OK"
+}

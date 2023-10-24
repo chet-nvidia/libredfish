@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568325823288",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:25+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568325823288",
+    "Message": "kernel: pci 0000:00:08.0: [1a03:1150] type 01 class 0x060400",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

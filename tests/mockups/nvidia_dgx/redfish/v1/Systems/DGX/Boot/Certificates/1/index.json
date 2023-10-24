@@ -1,0 +1,51 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Certificate.Certificate",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Systems/DGX/Boot/Certificates/1",
+    "@odata.type": "#Certificate.v1_2_1.Certificate",
+    "Actions": {
+        "#Certificate.Rekey": {
+            "@Redfish.ActionInfo": "/redfish/v1/Systems/DGX/Boot/Certificates/1/Certificate.RekeyActionInfo",
+            "target": "/redfish/v1/Systems/DGX/Boot/Certificates/1/Actions/Certificate.Rekey"
+        },
+        "#Certificate.Renew": {
+            "@Redfish.ActionInfo": "/redfish/v1/Systems/DGX/Boot/Certificates/1/Certificate.RenewActionInfo",
+            "target": "/redfish/v1/Systems/DGX/Boot/Certificates/1/Actions/Certificate.Renew"
+        }
+    },
+    "CertificateString": null,
+    "CertificateType": "PEM",
+    "Description": "Certificate Instance 1",
+    "Id": "1",
+    "Issuer": {
+        "City": "Norcross",
+        "CommonName": "megarac.com",
+        "Country": "US",
+        "Email": "support@ami.com",
+        "Organization": "American Megatrends International LLC (AMI)",
+        "OrganizationalUnit": "Service Processors",
+        "State": "Georgia"
+    },
+    "KeyUsage": [
+        "KeyCertSign",
+        "CRLSigning"
+    ],
+    "Name": "Certificate Instance 1",
+    "Oem": {
+        "Ami": {
+            "@odata.type": "#AMICaCert.v1_0_0.AMICaCert",
+            "OwnerGuid": "FE9C6606-8B49-44A3-8B6B-DEA3A0E0324D"
+        }
+    },
+    "Subject": {
+        "City": "Norcross",
+        "CommonName": "megarac.com",
+        "Country": "US",
+        "Email": "support@ami.com",
+        "Organization": "American Megatrends International LLC (AMI)",
+        "OrganizationalUnit": "Service Processors",
+        "State": "Georgia"
+    },
+    "ValidNotAfter": "2034-8-23T13:01:50+00:00",
+    "ValidNotBefore": "2019-8-27T13:01:50+00:00"
+}

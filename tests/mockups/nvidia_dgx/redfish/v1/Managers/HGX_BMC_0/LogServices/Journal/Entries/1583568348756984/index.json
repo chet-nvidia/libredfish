@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568348756984",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:48+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568348756984",
+    "Message": "gpumgrd: OOB API:StandbyHSCPowerUpperFatal failed with rc:260 for deviceId:0",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "Warning"
+}

@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568342412798",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:42+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568342412798",
+    "Message": "oobamld: [03/07/20 08:05:42.410166395]E[../git/src/dbus_accessor.cpp:102][getService]: getService(): DBus error for Objectpath=/xyz/openbmc_project/software/HGX_FW_ERoT_GPU_SXM_6 Interface=xyz.openbmc_project.Software.Version Property=sd_bus_call: xyz.openbmc_project.Common.Error.ResourceNotFound: The resource is not found.",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

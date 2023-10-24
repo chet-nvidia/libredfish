@@ -1,0 +1,316 @@
+{
+    "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Switches/NVSwitch_0",
+    "@odata.type": "#Switch.v1_8_0.Switch",
+    "Actions": {
+        "#Switch.Reset": {
+            "ResetType@Redfish.AllowableValues": [
+                "ForceRestart"
+            ],
+            "target": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Switches/NVSwitch_0/Actions/Switch.Reset"
+        }
+    },
+    "CurrentBandwidthGbps": 6656,
+    "FirmwareVersion": "96.10.35.00.01",
+    "Id": "NVSwitch_0",
+    "Links": {
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/HGX_NVSwitch_0"
+        },
+        "Endpoints": [
+            {
+                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Endpoints/GPU_SXM_1"
+            },
+            {
+                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Endpoints/GPU_SXM_2"
+            },
+            {
+                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Endpoints/GPU_SXM_3"
+            },
+            {
+                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Endpoints/GPU_SXM_4"
+            },
+            {
+                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Endpoints/GPU_SXM_5"
+            },
+            {
+                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Endpoints/GPU_SXM_6"
+            },
+            {
+                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Endpoints/GPU_SXM_7"
+            },
+            {
+                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Endpoints/GPU_SXM_8"
+            }
+        ],
+        "ManagedBy": [
+            {
+                "@odata.id": "/redfish/v1/Managers/HGX_FabricManager_0"
+            }
+        ],
+        "PCIeDevice": {
+            "@odata.id": "/redfish/v1/Chassis/HGX_NVSwitch_0/PCIeDevices/NVSwitch_0"
+        }
+    },
+    "Manufacturer": "NVIDIA",
+    "MaxBandwidthGbps": 200,
+    "Metrics": {
+        "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Switches/NVSwitch_0/SwitchMetrics"
+    },
+    "Model": "NVSwitch",
+    "Name": "NVSwitch_0 Resource",
+    "Ports": {
+        "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Switches/NVSwitch_0/Ports"
+    },
+    "Status": {
+        "Conditions": [
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/566"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 21'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 21"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-15T04:27:04+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/571"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 21'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 21"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-15T04:44:44+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/616"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 21'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 21"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-15T08:56:05+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/629"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 21'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 21"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-17T15:39:55+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/641"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 21'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 21"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-17T17:55:33+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/652"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 21'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 21"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-17T19:49:29+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/655"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 35'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 35"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-17T20:03:27+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/660"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 42'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 42"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-17T20:06:34+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/664"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 28'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 28"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-02-29T09:29:38+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/668"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 35'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 35"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-02-29T09:31:38+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/680"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 21'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 21"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-02-29T10:32:54+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/692"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 35'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 35"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-03-03T09:03:52+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/694"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 49'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 49"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-03-03T09:06:42+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/700"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 56'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 56"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-03-03T09:09:52+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/704"
+                },
+                "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 21'.",
+                "MessageArgs": [
+                    "NVSwitch_0 PCIe",
+                    "Correctable Error Count 21"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-03-07T08:10:57+00:00"
+            }
+        ],
+        "Health": "Critical",
+        "HealthRollup": "Critical",
+        "State": "Enabled"
+    },
+    "SupportedProtocols": [
+        "NVLink"
+    ],
+    "SwitchType": "NVLink",
+    "UUID": "f54f1245-d49c-fa3f-8774-8dbcba3beebc"
+}

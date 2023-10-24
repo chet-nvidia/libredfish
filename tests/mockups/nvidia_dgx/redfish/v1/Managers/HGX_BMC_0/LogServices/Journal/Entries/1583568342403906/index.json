@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568342403906",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:42+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568342403906",
+    "Message": "oobamld: Error: MCTP cmd for EC_TAG0_AUTH_ERROR on 19 failed, rc=1!",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

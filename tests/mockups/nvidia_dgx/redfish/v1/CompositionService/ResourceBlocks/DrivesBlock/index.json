@@ -1,0 +1,124 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#ResourceBlock.ResourceBlock",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/CompositionService/ResourceBlocks/DrivesBlock",
+    "@odata.type": "#ResourceBlock.v1_3_2.ResourceBlock",
+    "CompositionStatus": {
+        "CompositionState": "Unused",
+        "MaxCompositions": 1,
+        "Reserved": false
+    },
+    "Description": "DrivesBlock",
+    "Drives": [
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_Device0_NSID1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_Device1_NSID1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_Device7_NSID1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_Device8_NSID1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_Device9_NSID1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_DeviceA_NSID1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_DeviceB_NSID1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_DeviceC_NSID1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_DeviceD_NSID1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_DeviceE_NSID1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/USB_Device2_PortA"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/USB_Device3_PortA"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/USB_Device4_PortA"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/USB_Device5_PortA"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/USB_Device6_PortA"
+        }
+    ],
+    "Drives@odata.count": 15,
+    "Id": "DrivesBlock",
+    "Links": {
+        "Chassis": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/DGX"
+            }
+        ],
+        "Zones": [
+            {
+                "@odata.id": "/redfish/v1/CompositionService/ResourceZones/1"
+            }
+        ]
+    },
+    "Name": "DrivesBlock",
+    "ResourceBlockType": [
+        "Storage"
+    ],
+    "SimpleStorage": [
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/0"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/2"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/3"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/4"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/5"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/6"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/7"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/8"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/9"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/A"
+        }
+    ],
+    "SimpleStorage@odata.count": 11,
+    "Status": {
+        "Health": "OK",
+        "HealthRollup": "OK",
+        "State": "Enabled"
+    },
+    "Storage": [
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0"
+        }
+    ],
+    "Storage@odata.count": 1
+}

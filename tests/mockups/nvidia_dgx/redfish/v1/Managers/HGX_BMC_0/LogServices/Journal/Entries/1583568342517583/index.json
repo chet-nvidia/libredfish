@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568342517583",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:42+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568342517583",
+    "Message": "systemd: Startup finished in 9.155s (kernel) + 20.163s (userspace) = 29.318s.",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568326708443",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:26+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568326708443",
+    "Message": "systemd: Bind mount volatile /srv was skipped because of a failed condition check (ConditionPathIsReadWrite=!/srv).",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

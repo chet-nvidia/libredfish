@@ -1,0 +1,30 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/ENERGY_GB_SXM2",
+    "@odata.type": "#Sensor.v1_0_2.Sensor",
+    "Id": "77",
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded"
+        }
+    },
+    "Name": "ENERGY_GB_SXM2",
+    "PhysicalContext": "VoltageRegulator",
+    "Reading": 11200,
+    "ReadingRangeMax": 102000,
+    "ReadingRangeMin": 0,
+    "ReadingType": "Joules",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Thresholds": {
+        "LowerCaution": {
+            "Reading": 102000
+        },
+        "LowerCritical": {
+            "Reading": 102000
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#BootOption.BootOption",
+    "@odata.etag": "\"1698080632\"",
+    "@odata.id": "/redfish/v1/Systems/DGX/BootOptions/0007/SD",
+    "@odata.type": "#BootOption.v1_0_3.BootOption",
+    "Alias": "Pxe",
+    "BootOptionEnabled": true,
+    "BootOptionReference": "Boot0007",
+    "Description": "UEFI: PXE IPv4 Nvidia Network Adapter - A0:88:C2:04:57:40",
+    "DisplayName": "UEFI: PXE IPv4 Nvidia Network Adapter - A0:88:C2:04:57:40",
+    "Id": "0007",
+    "Name": "Boot0007",
+    "RelatedItem@odata.count": 0,
+    "UefiDevicePath": "PciRoot(0x20)/Pci(0x1,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/MAC(A088C2045740,0x1)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)"
+}

@@ -1,0 +1,48 @@
+{
+    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/EnvironmentMetrics",
+    "@odata.type": "#EnvironmentMetrics.v1_2_0.EnvironmentMetrics",
+    "Actions": {
+        "Oem": {
+            "Nvidia": {
+                "#NvidiaEnvironmentMetrics.ResetEDPp": {
+                    "target": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/EnvironmentMetrics/Actions/Oem/NvidiaEnvironmentMetrics.ResetEDPp"
+                }
+            }
+        }
+    },
+    "EnergyJoules": {
+        "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_Energy_0",
+        "Reading": 6499390.519
+    },
+    "EnergykWh": {
+        "Reading": 1.8053862567221
+    },
+    "Id": "Environment Metrics",
+    "Name": "GPU_SXM_8 Environment Metrics",
+    "Oem": {
+        "Nvidia": {
+            "EDPpPercent": {
+                "@odata.type": "#NvidiaEnvironmentMetrics.v1_0_0.EDPpPercent",
+                "AllowableMax": 100,
+                "AllowableMin": 60,
+                "Persistency": null,
+                "SetPoint": 100
+            }
+        }
+    },
+    "PowerLimitWatts": {
+        "AllowableMax": 700,
+        "AllowableMin": 200,
+        "ControlMode": "Automatic",
+        "Reading": 69,
+        "SetPoint": 4294967295
+    },
+    "PowerWatts": {
+        "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_Power_0",
+        "Reading": 69
+    },
+    "TemperatureCelsius": {
+        "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_TEMP_1",
+        "Reading": 60.4375
+    }
+}

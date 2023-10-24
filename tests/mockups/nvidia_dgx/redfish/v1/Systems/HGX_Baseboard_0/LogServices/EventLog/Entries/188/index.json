@@ -1,0 +1,13 @@
+{
+    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/188",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/188/attachment",
+    "Created": "2020-01-01T00:22:55+00:00",
+    "EntryType": "Event",
+    "Id": "188",
+    "Message": "OpenBMC.0.4.BMCRebootReason",
+    "Modified": "2020-01-01T00:26:51+00:00",
+    "Name": "System Event Log Entry",
+    "Resolved": true,
+    "Severity": "OK"
+}

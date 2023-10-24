@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568325675736",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:25+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568325675736",
+    "Message": "kernel: percpu: Embedded 16 pages/cpu s35468 r8192 d21876 u65536",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

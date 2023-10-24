@@ -1,0 +1,95 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4/PCIeDevices/GPU_SXM_4",
+    "@odata.type": "#PCIeDevice.v1_5_0.PCIeDevice",
+    "DeviceType": "SingleFunction",
+    "Id": "GPU_SXM_4",
+    "Manufacturer": "NVIDIA",
+    "Model": "H100 80GB HBM3",
+    "Name": "PCIe Device",
+    "Oem": {
+        "Nvidia": {
+            "@odata.type": "#NvidiaPCIeDevice.v1_0_0.NvidiaPCIeDevice",
+            "NVLinkReferenceClockEnabled": true,
+            "PCIeReferenceClockEnabled": true
+        }
+    },
+    "PCIeFunctions": {
+        "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4/PCIeDevices/GPU_SXM_4/PCIeFunctions"
+    },
+    "PCIeInterface": {
+        "LanesInUse": 16,
+        "MaxLanes": 16,
+        "MaxPCIeType": "Gen5",
+        "PCIeType": "Gen5"
+    },
+    "PartNumber": "2330-885-A1",
+    "SerialNumber": "1652823088353",
+    "Status": {
+        "Conditions": [
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/674"
+                },
+                "Message": "The resource property GPU_SXM_4 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+                "MessageArgs": [
+                    "GPU_SXM_4 ThrottleReason",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4"
+                },
+                "Severity": "Warning",
+                "Timestamp": "2020-02-29T09:34:06+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/685"
+                },
+                "Message": "The resource property GPU_SXM_4 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+                "MessageArgs": [
+                    "GPU_SXM_4 ThrottleReason",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4"
+                },
+                "Severity": "Warning",
+                "Timestamp": "2020-02-29T10:35:26+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/709"
+                },
+                "Message": "The resource property GPU_SXM_4 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+                "MessageArgs": [
+                    "GPU_SXM_4 ThrottleReason",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4"
+                },
+                "Severity": "Warning",
+                "Timestamp": "2020-03-07T08:12:31+00:00"
+            }
+        ],
+        "Health": "Critical",
+        "HealthRollup": "Critical",
+        "State": "Enabled"
+    },
+    "UUID": "d7d2435d-dffb-70ae-d976-8b9358a44c08"
+}

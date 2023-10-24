@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogServiceCollection.LogServiceCollection",
+    "@odata.etag": "\"1698080509\"",
+    "@odata.id": "/redfish/v1/Managers/BMC/LogServices",
+    "@odata.type": "#LogServiceCollection.LogServiceCollection",
+    "Description": "Collection of Log Services for this Managers",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/AuditLog"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/EventLog"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL"
+        }
+    ],
+    "Members@odata.count": 4,
+    "Name": "Log Service Collection"
+}

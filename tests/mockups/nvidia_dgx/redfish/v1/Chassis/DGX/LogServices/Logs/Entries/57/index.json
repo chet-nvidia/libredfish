@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/57",
+    "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+    "Created": "2023-10-23T17:00:32+00:00",
+    "Description": "LOG 141",
+    "EntryCode": "Upper Non-critical - going high",
+    "EntryType": "SEL",
+    "EventTimestamp": "2023-10-16T18:24:15+00:00",
+    "Id": "57",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Chassis/DGX/Thermal"
+        }
+    },
+    "Message": "Event_Data_1 : 87, Record_Type : system event record, Sensor_Number : 1, Event_Dir : Deassertion event, Event_Data_2 : 57, Timestamp : 2023-10-16T18:24:15+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x2000, Event_Data_3 : 89, Event_Type : Upper Non-critical - going high, Record_ID : 141, Sensor_Type : Temperature, ",
+    "MessageId": "0x573959",
+    "Name": "LOG 141",
+    "SensorNumber": 1,
+    "SensorType": "Temperature",
+    "Severity": "Warning"
+}

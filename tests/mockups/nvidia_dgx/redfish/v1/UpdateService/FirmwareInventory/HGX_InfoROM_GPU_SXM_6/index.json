@@ -1,0 +1,18 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#SoftwareInventory.SoftwareInventory",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_InfoROM_GPU_SXM_6",
+    "@odata.type": "#SoftwareInventory.v1_2_3.SoftwareInventory",
+    "Id": "HGX_InfoROM_GPU_SXM_6",
+    "Name": "HGX_InfoROM_GPU_SXM_6",
+    "Oem": {
+        "Ami": {
+            "DeviceClass": "HGX",
+            "DeviceInventoryCache": false,
+            "FWComponentName": "HGX_InfoROM_GPU_SXM_6",
+            "Parent": "HGX_0"
+        }
+    },
+    "Updateable": true,
+    "Version": "G520.0200.00.05"
+}

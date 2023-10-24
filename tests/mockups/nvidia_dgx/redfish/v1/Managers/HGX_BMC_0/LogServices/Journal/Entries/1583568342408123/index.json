@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568342408123",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:42+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568342408123",
+    "Message": "oobamld: [03/07/20 08:05:42.405678284]E[N13data_accessor12DataAccessorE][runCommandLine]: Error running the command 'mctp-vdm-util-wrapper EC_TAG0_AUTH_ERROR GPU_SXM_6' return code = 1",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

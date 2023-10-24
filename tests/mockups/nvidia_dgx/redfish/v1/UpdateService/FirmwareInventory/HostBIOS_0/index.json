@@ -1,0 +1,16 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#SoftwareInventory.SoftwareInventory",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HostBIOS_0",
+    "@odata.type": "#SoftwareInventory.v1_2_3.SoftwareInventory",
+    "Id": "HostBIOS_0",
+    "Name": "HostBIOS_0",
+    "Oem": {
+        "Ami": {
+            "DeviceClass": "BIOS",
+            "DeviceInventoryCache": false
+        }
+    },
+    "Updateable": true,
+    "Version": "01.00.07"
+}

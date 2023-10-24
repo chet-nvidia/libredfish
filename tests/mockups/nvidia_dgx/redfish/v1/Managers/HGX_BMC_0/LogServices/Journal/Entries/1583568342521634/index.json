@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568342521634",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:42+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568342521634",
+    "Message": "rsyslogd: [origin software=\"rsyslogd\" swVersion=\"8.2202.0\" x-pid=\"780\" x-info=\"https://www.rsyslog.com\"] start",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

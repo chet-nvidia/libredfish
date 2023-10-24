@@ -1,0 +1,58 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#ComputerSystem.ComputerSystem",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Systems/DGX/SD",
+    "@odata.type": "#ComputerSystem.v1_17_0.ComputerSystem",
+    "AssetTag": "Free form asset tag",
+    "Boot": {
+        "AliasBootOrder": [],
+        "BootNext": null,
+        "BootOrder": [
+            "Boot0007",
+            "Boot0008",
+            "Boot0003",
+            "Boot0016",
+            "Boot0017",
+            "Boot0011",
+            "Boot0012",
+            "Boot0000",
+            "Boot0014",
+            "Boot0018"
+        ],
+        "BootOrderPropertySelection": "BootOrder",
+        "BootSourceOverrideEnabled": "Disabled",
+        "BootSourceOverrideEnabled@Redfish.AllowableValues": [
+            "Disabled",
+            "Once",
+            "Continuous"
+        ],
+        "BootSourceOverrideMode": null,
+        "BootSourceOverrideMode@Redfish.AllowableValues": [
+            "UEFI"
+        ],
+        "BootSourceOverrideTarget": "None",
+        "BootSourceOverrideTarget@Redfish.AllowableValues": [
+            "None",
+            "Pxe",
+            "Floppy",
+            "Cd",
+            "Usb",
+            "Hdd",
+            "BiosSetup",
+            "Utilities",
+            "Diags",
+            "UefiShell",
+            "UefiTarget",
+            "SDCard",
+            "UefiHttp",
+            "RemoteDrive",
+            "UefiBootNext"
+        ],
+        "HttpBootUri": null,
+        "UefiTargetBootSourceOverride": null
+    },
+    "Description": "System Self",
+    "Id": "DGX",
+    "Name": "System",
+    "SystemType": "Physical"
+}

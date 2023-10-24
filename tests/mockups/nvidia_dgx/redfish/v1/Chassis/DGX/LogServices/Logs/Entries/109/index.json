@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/109",
+    "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+    "Created": "2023-10-23T17:00:32+00:00",
+    "Description": "LOG 352",
+    "EntryCode": "Assert",
+    "EntryType": "SEL",
+    "EventTimestamp": "2023-10-23T16:48:19+00:00",
+    "Id": "109",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Chassis/DGX/Power"
+        }
+    },
+    "Message": "Event_Data_1 : 3, Record_Type : system event record, Sensor_Number : 142, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T16:48:19+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x2000, Event_Data_3 : 255, Event_Type : Power Supply Input Lost (AC/DC), Record_ID : 352, Sensor_Type : Power Supply / Converter, ",
+    "MessageId": "0x03FFFF",
+    "Name": "LOG 352",
+    "SensorNumber": 142,
+    "SensorType": "Power Supply / Converter",
+    "Severity": "Critical"
+}

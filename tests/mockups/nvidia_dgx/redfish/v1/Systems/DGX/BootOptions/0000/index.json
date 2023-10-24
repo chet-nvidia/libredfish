@@ -1,0 +1,21 @@
+{
+    "@Redfish.Settings": {
+        "@odata.type": "#Settings.v1_2_2.Settings",
+        "SettingsObject": {
+            "@odata.id": "/redfish/v1/Systems/DGX/BootOptions/0000/SD"
+        }
+    },
+    "@odata.context": "/redfish/v1/$metadata#BootOption.BootOption",
+    "@odata.etag": "\"1698080632\"",
+    "@odata.id": "/redfish/v1/Systems/DGX/BootOptions/0000",
+    "@odata.type": "#BootOption.v1_0_3.BootOption",
+    "Alias": "Hdd",
+    "BootOptionEnabled": true,
+    "BootOptionReference": "Boot0000",
+    "Description": "DGX OS",
+    "DisplayName": "DGX OS",
+    "Id": "0000",
+    "Name": "Boot0000",
+    "RelatedItem@odata.count": 0,
+    "UefiDevicePath": "HD(1,GPT,B3F5E32B-6008-483B-9368-204525D8CD8E,0x800,0x100000)/\\EFI\\UBUNTU\\SHIMX64.EFI"
+}

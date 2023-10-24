@@ -1,0 +1,34 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_VR_CPU1",
+    "@odata.type": "#Sensor.v1_0_2.Sensor",
+    "Id": "77",
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded"
+        }
+    },
+    "Name": "TEMP_VR_CPU1",
+    "PhysicalContext": "Intake",
+    "Reading": 36,
+    "ReadingType": "Temperature",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Thresholds": {
+        "LowerCaution": {
+            "Reading": 120
+        },
+        "LowerCritical": {
+            "Reading": 123
+        },
+        "LowerFatal": {
+            "Reading": 125
+        },
+        "UpperCaution": {
+            "Reading": 5
+        }
+    }
+}

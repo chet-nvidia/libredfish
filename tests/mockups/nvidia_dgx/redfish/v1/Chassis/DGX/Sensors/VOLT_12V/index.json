@@ -1,0 +1,36 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/VOLT_12V",
+    "@odata.type": "#Sensor.v1_0_2.Sensor",
+    "Id": "244",
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded"
+        }
+    },
+    "Name": "VOLT_12V",
+    "PhysicalContext": "VoltageRegulator",
+    "Reading": 12.276,
+    "ReadingRangeMax": 15.81,
+    "ReadingRangeMin": 0,
+    "ReadingType": "Voltage",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Thresholds": {
+        "LowerCaution": {
+            "Reading": 12.586
+        },
+        "LowerCritical": {
+            "Reading": 13.206
+        },
+        "UpperCaution": {
+            "Reading": 11.408
+        },
+        "UpperCritical": {
+            "Reading": 10.788
+        }
+    }
+}

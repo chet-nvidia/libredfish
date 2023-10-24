@@ -1,0 +1,34 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_MB_Rear_C",
+    "@odata.type": "#Sensor.v1_0_2.Sensor",
+    "Id": "57",
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded"
+        }
+    },
+    "Name": "TEMP_MB_Rear_C",
+    "PhysicalContext": "Intake",
+    "Reading": 39,
+    "ReadingType": "Temperature",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Thresholds": {
+        "LowerCaution": {
+            "Reading": 72
+        },
+        "LowerCritical": {
+            "Reading": 75
+        },
+        "LowerFatal": {
+            "Reading": 77
+        },
+        "UpperCaution": {
+            "Reading": 5
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#PCIeFunctionCollection.PCIeFunctionCollection",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00/PCIeFunctions",
+    "@odata.type": "#PCIeFunctionCollection.PCIeFunctionCollection",
+    "Description": "The Collection of PCIeFunctions",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00/PCIeFunctions/DevType3_SLT0_DevIndex18"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00/PCIeFunctions/DevType3_SLT10_DevIndex10"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00/PCIeFunctions/DevType3_SLT10_DevIndex14"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00/PCIeFunctions/DevType3_SLT14_DevIndex11"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00/PCIeFunctions/DevType3_SLT14_DevIndex15"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00/PCIeFunctions/DevType3_SLT18_DevIndex12"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00/PCIeFunctions/DevType3_SLT18_DevIndex16"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00/PCIeFunctions/DevType3_SLT1C_DevIndex13"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00/PCIeFunctions/DevType3_SLT1C_DevIndex17"
+        }
+    ],
+    "Members@odata.count": 9,
+    "Name": "PCIeFunction Collection"
+}

@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568339631603",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:39+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568339631603",
+    "Message": "oobamld: [03/07/20 08:05:39.630364231]E[../git/src/dbus_accessor.cpp:135][deviceGetCoreAPI]: deviceGetCoreAPI(): DBus error for Property=baseboard.pcb.temperature.alert Error: sd_bus_call: org.freedesktop.DBus.Error.ServiceUnknown: The name is not activatable",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

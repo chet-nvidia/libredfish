@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/75",
+    "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+    "Created": "2023-10-23T17:00:32+00:00",
+    "Description": "SEL 129",
+    "EntryCode": "Assert",
+    "EntryType": "SEL",
+    "EventTimestamp": "2023-10-16T18:20:22+00:00",
+    "Id": "75",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Systems/DGX"
+        }
+    },
+    "Message": "Event_Data_1 : 5, Record_Type : system event record, Sensor_Number : 255, Event_Dir : Assertion event, Event_Data_2 : 128, Timestamp : 2023-10-16T18:20:22+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x2000, Event_Data_3 : 255, Event_Type : Timestamp Clock Synch, Record_ID : 129, Sensor_Type : System Event, ",
+    "MessageId": "0x0580FF",
+    "Name": "SEL 129",
+    "SensorNumber": 255,
+    "SensorType": "System Event",
+    "Severity": "OK"
+}

@@ -1,0 +1,34 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_INTB",
+    "@odata.type": "#Sensor.v1_0_2.Sensor",
+    "Id": "67",
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded"
+        }
+    },
+    "Name": "TEMP_INTB",
+    "PhysicalContext": "Intake",
+    "Reading": 23,
+    "ReadingType": "Temperature",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Thresholds": {
+        "LowerCaution": {
+            "Reading": 56
+        },
+        "LowerCritical": {
+            "Reading": 59
+        },
+        "LowerFatal": {
+            "Reading": 61
+        },
+        "UpperCaution": {
+            "Reading": 5
+        }
+    }
+}

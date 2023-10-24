@@ -1,0 +1,23 @@
+{
+    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/484",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/484/attachment",
+    "Created": "2020-01-01T02:40:52+00:00",
+    "EntryType": "Event",
+    "Id": "484",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_7/Ports/NVLink_2"
+        }
+    },
+    "Message": "The resource property GPU_SXM_7 NVLink_2 has detected errors of type 'NVLink Training Error count is 4'.",
+    "MessageArgs": [
+        "GPU_SXM_7 NVLink_2",
+        "NVLink Training Error count is 4"
+    ],
+    "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+    "Name": "System Event Log Entry",
+    "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
+    "Resolved": false,
+    "Severity": "Critical"
+}

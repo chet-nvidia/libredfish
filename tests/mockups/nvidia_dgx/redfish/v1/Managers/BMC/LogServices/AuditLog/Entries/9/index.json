@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.etag": "\"1697738338\"",
+    "@odata.id": "/redfish/v1/Managers/BMC/LogServices/AuditLog/Entries/9",
+    "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+    "Created": "2023-10-19T17:58:58+00:00",
+    "Description": "Access to the resource located at /Oem/Ami/InventoryData was allowed.",
+    "EntryType": "Event",
+    "EventTimestamp": "2023-10-19T17:58:58+00:00",
+    "Id": "9",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Oem/Ami/InventoryData"
+        }
+    },
+    "Message": "User: in-band-user, IP: 169.254.0.18, Protocol: https - Access to the resource located at /Oem/Ami/InventoryData was allowed.",
+    "MessageArgs": [
+        "/Oem/Ami/InventoryData"
+    ],
+    "MessageId": "Security.1.0.AccessAllowed",
+    "Name": "Audit Log Entry 9",
+    "Severity": "OK"
+}

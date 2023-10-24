@@ -1,0 +1,371 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8",
+    "@odata.type": "#Chassis.v1_17_0.Chassis",
+    "Assembly": {
+        "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Assembly"
+    },
+    "ChassisType": "Module",
+    "Controls": {
+        "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Controls"
+    },
+    "DepthMm": 0,
+    "EnvironmentMetrics": {
+        "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/EnvironmentMetrics"
+    },
+    "HeightMm": 0,
+    "Id": "HGX_GPU_SXM_8",
+    "Links": {
+        "ComputerSystems": [
+            {
+                "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0"
+            }
+        ],
+        "ContainedBy": {
+            "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0"
+        },
+        "ManagedBy": [
+            {
+                "@odata.id": "/redfish/v1/Managers/HGX_BMC_0"
+            }
+        ],
+        "Processors": [
+            {
+                "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8"
+            }
+        ]
+    },
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded",
+            "ServiceLabel": "SXM8"
+        }
+    },
+    "LogServices": {
+        "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/LogServices"
+    },
+    "Manufacturer": "NVIDIA",
+    "MaxPowerWatts": 700,
+    "MinPowerWatts": 200,
+    "Model": "H100 80GB HBM3",
+    "Name": "GPU_SXM_8",
+    "Oem": {
+        "Nvidia": {
+            "@odata.type": "#NvidiaChassis.v1_0_0.NvidiaChassis"
+        }
+    },
+    "PCIeDevices": {
+        "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/PCIeDevices"
+    },
+    "PCIeSlots": {
+        "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/PCIeSlots"
+    },
+    "PartNumber": "2330-885-A1",
+    "PowerSubsystem": {
+        "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/PowerSubsystem"
+    },
+    "SKU": "0x37040020",
+    "Sensors": {
+        "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors"
+    },
+    "SerialNumber": "1652823090785",
+    "Status": {
+        "Conditions": [
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/420"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_17 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_17",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_17"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:38:24+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/421"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_16 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_16",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_16"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:38:26+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/423"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_15 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_15",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_15"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:38:28+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/428"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_14 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_14",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_14"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:38:38+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/430"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_13 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_13",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_13"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:38:40+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/431"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_12 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_12",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_12"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:38:41+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/437"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_11 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_11",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_11"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:38:53+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/439"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_10 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_10",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_10"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:38:55+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/440"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_9 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_9",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_9"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:38:55+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/445"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_8 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_8",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_8"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:39:06+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/446"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_7 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_7",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_7"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:39:08+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/448"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_6 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_6",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_6"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:39:08+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/453"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_5 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_5",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_5"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:39:20+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/455"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_4 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_4",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_4"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:39:22+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/456"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_3 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_3",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_3"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:39:22+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/462"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_2 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_2",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_2"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:39:34+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/463"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_1 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_1",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_1"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:39:35+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/464"
+                },
+                "Message": "The resource property GPU_SXM_8 NVLink_0 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_8 NVLink_0",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_0"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:39:36+00:00"
+            }
+        ],
+        "Health": "Critical",
+        "HealthRollup": "Critical",
+        "State": "Enabled"
+    },
+    "ThermalSubsystem": {
+        "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/ThermalSubsystem"
+    },
+    "UUID": "596ca24e-ef65-12ab-3af7-90075049b1f0",
+    "WidthMm": 0
+}

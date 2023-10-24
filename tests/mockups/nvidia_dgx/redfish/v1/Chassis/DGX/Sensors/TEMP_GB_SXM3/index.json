@@ -1,0 +1,34 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_GB_SXM3",
+    "@odata.type": "#Sensor.v1_0_2.Sensor",
+    "Id": "7",
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded"
+        }
+    },
+    "Name": "TEMP_GB_SXM3",
+    "PhysicalContext": "Intake",
+    "Reading": 30,
+    "ReadingType": "Temperature",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Thresholds": {
+        "LowerCaution": {
+            "Reading": 85
+        },
+        "LowerCritical": {
+            "Reading": 88
+        },
+        "LowerFatal": {
+            "Reading": 90
+        },
+        "UpperCaution": {
+            "Reading": 5
+        }
+    }
+}

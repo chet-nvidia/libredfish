@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568341928523",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:41+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568341928523",
+    "Message": "kernel: vfio-pci 0000:01:00.0: vfio-noiommu device opened by user (gpumgrd:553)",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "Warning"
+}

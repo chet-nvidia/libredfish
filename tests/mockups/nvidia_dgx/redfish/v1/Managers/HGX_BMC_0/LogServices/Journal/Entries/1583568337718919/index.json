@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/1583568337718919",
+    "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+    "Created": "2020-03-07T08:05:37+00:00",
+    "EntryType": "Oem",
+    "Id": "1583568337718919",
+    "Message": "phosphor-log-manager: Pruning Namespace: GPU_SXM_5_XID",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "OK"
+}

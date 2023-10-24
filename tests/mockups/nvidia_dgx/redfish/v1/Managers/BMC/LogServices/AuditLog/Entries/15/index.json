@@ -1,0 +1,23 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.etag": "\"1697738598\"",
+    "@odata.id": "/redfish/v1/Managers/BMC/LogServices/AuditLog/Entries/15",
+    "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+    "Created": "2023-10-19T18:03:18+00:00",
+    "Description": "The resource at /redfish/v1/Oem/Ami/BiosStaticFiles/SetupData.xml has been successfully created.",
+    "EntryType": "Event",
+    "EventTimestamp": "2023-10-19T18:03:18+00:00",
+    "Id": "15",
+    "Links": {
+        "OriginOfCondition": {
+            "@odata.id": "/redfish/v1/Oem/Ami/BiosStaticFiles"
+        }
+    },
+    "Message": "User: in-band-user, IP: 169.254.0.18, Protocol: https - The resource at /redfish/v1/Oem/Ami/BiosStaticFiles/SetupData.xml has been successfully created.",
+    "MessageArgs": [
+        "/redfish/v1/Oem/Ami/BiosStaticFiles/SetupData.xml"
+    ],
+    "MessageId": "Security.1.0.ResourceCreated",
+    "Name": "Audit Log Entry 15",
+    "Severity": "OK"
+}

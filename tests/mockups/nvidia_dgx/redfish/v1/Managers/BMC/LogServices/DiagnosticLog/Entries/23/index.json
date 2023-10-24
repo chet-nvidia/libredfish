@@ -1,0 +1,24 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/23",
+    "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+    "AdditionalDataSizeBytes": 2558,
+    "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/23/Attachment",
+    "Created": "2000-01-01T00:00:06+00:00",
+    "Description": "Configuration Json files",
+    "DiagnosticDataType": "OEM",
+    "EntryCode": "Informational",
+    "EntryType": "Oem",
+    "EventTimestamp": "2000-01-01T00:00:06+00:00",
+    "Id": "23",
+    "Message": "Indicates that a DiagnosticDump of type OEM with file name updatePolicy.json was created.",
+    "MessageArgs": [
+        "OEM",
+        "updatePolicy.json"
+    ],
+    "MessageId": "Ami.1.0.DiagnosticDumpCreated",
+    "Name": "Log entry 23",
+    "SensorType": "System Event",
+    "Severity": "Warning"
+}

@@ -1,0 +1,32 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_PCIE_CX7_1",
+    "@odata.type": "#Sensor.v1_0_2.Sensor",
+    "Id": "94",
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded"
+        }
+    },
+    "Name": "TEMP_PCIE_CX7_1",
+    "PhysicalContext": "Intake",
+    "ReadingType": "Temperature",
+    "Status": {
+        "State": "Absent"
+    },
+    "Thresholds": {
+        "LowerCaution": {
+            "Reading": 105
+        },
+        "LowerCritical": {
+            "Reading": 108
+        },
+        "LowerFatal": {
+            "Reading": 110
+        },
+        "UpperCaution": {
+            "Reading": 5
+        }
+    }
+}

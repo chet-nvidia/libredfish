@@ -1,0 +1,37 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#LogService.LogService",
+    "@odata.etag": "\"1698080509\"",
+    "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL",
+    "@odata.type": "#LogService.v1_2_0.LogService",
+    "Actions": {
+        "#LogService.ClearLog": {
+            "target": "/redfish/v1/Managers/BMC/LogServices/SEL/Actions/LogService.ClearLog"
+        }
+    },
+    "DateTime": "2023-10-24T18:53:30+00:00",
+    "DateTimeLocalOffset": "+00:00",
+    "Description": "IPMI SEL events for this manager",
+    "Entries": {
+        "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries"
+    },
+    "Id": "SEL",
+    "LogEntryType": "SEL",
+    "MaxNumberOfRecords": 3640,
+    "Name": "IPMI SEL",
+    "Oem": {
+        "Ami": {
+            "@odata.type": "#AMILogService.1.0.0.AMILogService",
+            "IPMISELPolicy": "Linear",
+            "IPMISELPolicy@Redfish.AllowableValues": [
+                "Circular",
+                "Linear"
+            ]
+        }
+    },
+    "OverWritePolicy": "WrapsWhenFull",
+    "ServiceEnabled": true,
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    }
+}

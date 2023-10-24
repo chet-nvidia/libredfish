@@ -1,0 +1,142 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#ResourceBlock.ResourceBlock",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/CompositionService/ResourceBlocks/ComputeBlock",
+    "@odata.type": "#ResourceBlock.v1_3_2.ResourceBlock",
+    "CompositionStatus": {
+        "CompositionState": "Unused",
+        "MaxCompositions": 1,
+        "Reserved": false
+    },
+    "Description": "ComputeBlock",
+    "Id": "ComputeBlock",
+    "Links": {
+        "Chassis": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/DGX"
+            }
+        ],
+        "Zones": [
+            {
+                "@odata.id": "/redfish/v1/CompositionService/ResourceZones/1"
+            }
+        ]
+    },
+    "Memory": [
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM0"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM10"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM11"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM12"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM13"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM14"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM15"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM16"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM17"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM18"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM19"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM20"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM21"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM22"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM23"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM24"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM25"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM26"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM27"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM28"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM29"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM2"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM30"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM31"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM3"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM4"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM5"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM6"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM7"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM8"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM9"
+        }
+    ],
+    "Memory@odata.count": 32,
+    "Name": "ComputeBlock",
+    "Processors": [
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Processors/DevType1_CPU0"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/DGX/Processors/DevType1_CPU1"
+        }
+    ],
+    "Processors@odata.count": 2,
+    "ResourceBlockType": [
+        "Compute"
+    ],
+    "Status": {
+        "Health": "OK",
+        "HealthRollup": "OK",
+        "State": "Enabled"
+    }
+}

@@ -1,0 +1,202 @@
+{
+    "@Redfish.Settings": {
+        "@odata.type": "#Settings.v1_3_3.Settings",
+        "SettingsObject": {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/Settings"
+        }
+    },
+    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5",
+    "@odata.type": "#Processor.v1_13_0.Processor",
+    "Actions": {
+        "#Processor.Reset": {
+            "ResetType@Redfish.AllowableValues": [
+                "ForceRestart"
+            ],
+            "target": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/Actions/Processor.Reset"
+        }
+    },
+    "EnvironmentMetrics": {
+        "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/EnvironmentMetrics"
+    },
+    "FirmwareVersion": "96.00.61.00.01",
+    "Id": "GPU_SXM_5",
+    "Links": {
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5"
+        },
+        "Memory": [
+            {
+                "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Memory/GPU_SXM_5_DRAM_0"
+            }
+        ],
+        "PCIeDevice": {
+            "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5/PCIeDevices/GPU_SXM_5"
+        },
+        "PCIeFunctions": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5/PCIeDevices/GPU_SXM_5/PCIeFunctions/0"
+            }
+        ]
+    },
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded",
+            "ServiceLabel": "SXM5"
+        }
+    },
+    "Manufacturer": "NVIDIA",
+    "MaxSpeedMHz": 1980,
+    "MemorySummary": {
+        "ECCModeEnabled": true,
+        "Metrics": {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/MemorySummary/MemoryMetrics"
+        }
+    },
+    "Metrics": {
+        "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/ProcessorMetrics"
+    },
+    "MinSpeedMHz": 345,
+    "Model": "H100 80GB HBM3",
+    "Name": "Processor",
+    "Oem": {
+        "Nvidia": {
+            "@odata.type": "#NvidiaProcessor.v1_0_0.NvidiaProcessor",
+            "MIGModeEnabled": false
+        }
+    },
+    "OperatingSpeedMHz": 345,
+    "PartNumber": "2330-885-A1",
+    "Ports": {
+        "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/Ports"
+    },
+    "ProcessorType": "GPU",
+    "SerialNumber": "1652823088619",
+    "SpeedLimitMHz": 65535,
+    "SpeedLocked": true,
+    "Status": {
+        "Conditions": [
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/543"
+                },
+                "Message": "The resource property GPU_SXM_5 NVLink_17 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_5 NVLink_17",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/Ports/NVLink_17"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:42:53+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/545"
+                },
+                "Message": "The resource property GPU_SXM_5 NVLink_16 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_5 NVLink_16",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/Ports/NVLink_16"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:42:57+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/548"
+                },
+                "Message": "The resource property GPU_SXM_5 NVLink_13 has detected errors of type 'NVLink Training Error count is 4'.",
+                "MessageArgs": [
+                    "GPU_SXM_5 NVLink_13",
+                    "NVLink Training Error count is 4"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/Ports/NVLink_13"
+                },
+                "Severity": "Critical",
+                "Timestamp": "2020-01-01T02:43:02+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/671"
+                },
+                "Message": "The resource property GPU_SXM_5 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+                "MessageArgs": [
+                    "GPU_SXM_5 ThrottleReason",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5"
+                },
+                "Severity": "Warning",
+                "Timestamp": "2020-02-29T09:33:01+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/684"
+                },
+                "Message": "The resource property GPU_SXM_5 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+                "MessageArgs": [
+                    "GPU_SXM_5 ThrottleReason",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5"
+                },
+                "Severity": "Warning",
+                "Timestamp": "2020-02-29T10:35:23+00:00"
+            },
+            {
+                "LogEntry": {
+                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/708"
+                },
+                "Message": "The resource property GPU_SXM_5 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+                "MessageArgs": [
+                    "GPU_SXM_5 ThrottleReason",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+                ],
+                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5"
+                },
+                "Severity": "Warning",
+                "Timestamp": "2020-03-07T08:12:28+00:00"
+            }
+        ],
+        "Health": "Critical",
+        "HealthRollup": "Critical",
+        "State": "Enabled"
+    },
+    "SystemInterface": {
+        "InterfaceType": "PCIe",
+        "PCIe": {
+            "LanesInUse": 16,
+            "MaxLanes": 16,
+            "MaxPCIeType": "Gen5",
+            "PCIeType": "Gen5"
+        }
+    },
+    "UUID": "4ddbd144-fab6-f89b-4a9c-5ff434c89ae8",
+    "Version": "A1"
+}

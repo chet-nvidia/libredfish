@@ -1,0 +1,22 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/Energy_CPU0",
+    "@odata.type": "#Sensor.v1_0_2.Sensor",
+    "Id": "154",
+    "Location": {
+        "PartLocation": {
+            "LocationType": "Embedded"
+        }
+    },
+    "Name": "Energy_CPU0",
+    "PhysicalContext": "VoltageRegulator",
+    "Reading": 248600,
+    "ReadingRangeMax": 280500,
+    "ReadingRangeMin": 0,
+    "ReadingType": "Joules",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    }
+}
