@@ -1,0 +1,11 @@
+{
+    "@odata.type": "#NetworkPortCollection.NetworkPortCollection",
+    "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/2/NetworkPorts",
+    "Name": "Network Port Collection",
+    "Members@odata.count": 1,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/2/NetworkPorts/1"
+        }
+    ]
+}

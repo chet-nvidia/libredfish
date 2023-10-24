@@ -1,0 +1,9 @@
+{
+    "@odata.type": "#VLanNetworkInterface.v1_0_0.VLanNetworkInterface",
+    "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/7/VLANs/1",
+    "Id": "1",
+    "Name": "VLAN Network Interface",
+    "Description": "System NIC 7 V",
+    "VLANEnable": false,
+    "VLANId": 1
+}

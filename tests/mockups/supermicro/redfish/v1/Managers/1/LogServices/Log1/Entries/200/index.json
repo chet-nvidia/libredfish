@@ -1,0 +1,21 @@
+{
+    "@odata.type": "#LogEntry.v1_3_0.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/1/LogServices/Log1/Entries/200",
+    "Id": "200",
+    "Name": "Maintenance Event Log Entry 200",
+    "EntryType": "Oem",
+    "Severity": "OK",
+    "Created": "2023-08-16T21:01:21Z",
+    "OemRecordFormat": "SMC",
+    "Message": "[MEL-0133] Redfish session was created successfully.",
+    "MessageId": "Event.1.0.RedfishSessionCreated",
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "Interface": "Redfish",
+            "User": "ADMIN(ADMIN)",
+            "Source": "10.110.21.20",
+            "Category": "account"
+        }
+    }
+}

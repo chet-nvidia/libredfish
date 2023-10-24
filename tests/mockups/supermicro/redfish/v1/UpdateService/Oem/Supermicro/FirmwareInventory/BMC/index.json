@@ -1,0 +1,29 @@
+{
+    "@odata.type": "#SmcFirmwareInventory.v1_0_0.SmcFirmwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/Oem/Supermicro/FirmwareInventory/BMC",
+    "Id": "BMC",
+    "Name": "Supermicro BMC firmware",
+    "Description": "Description of Supermicro BMC firmware",
+    "Updateable": true,
+    "Version": "01.00.15",
+    "VersionSequence": "<major>.<minor>.<build>",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Managers/1"
+        }
+    ],
+    "Actions": {
+        "Oem": {},
+        "#SmcFirmwareInventory.EnterUpdateMode": {
+            "target": "/redfish/v1/UpdateService/Oem/Supermicro/FirmwareInventory/BMC/Actions/SmcFirmwareInventory.EnterUpdateMode"
+        }
+    },
+    "Oem": {},
+    "OemUpdateActionNotSupported": {
+        "Description": "It indicates that this Redfish API will be removed from X13-and-after platforms.",
+        "Message": "It is NOT recommended to use this API, because this Redfish API is obsolete. Supermicro considers removing this API from X13-and-after platforms.",
+        "Serverity": "Alert",
+        "NumberOfArgs": 0,
+        "Resolution": "Please use the standard Redfish API to update firmware. URI://redfish/v1/UpdateService/FirmwareInventory/upload."
+    }
+}

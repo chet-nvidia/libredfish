@@ -1,0 +1,15 @@
+{
+    "@odata.type": "#ChassisCollection.ChassisCollection",
+    "@odata.id": "/redfish/v1/Chassis",
+    "Id": "Chassis",
+    "Name": "Chassis Collection",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane"
+        }
+    ],
+    "Members@odata.count": 2
+}

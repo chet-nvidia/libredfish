@@ -1,0 +1,21 @@
+{
+    "@odata.type": "#LogEntry.v1_3_0.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/1/LogServices/Log1/Entries/335",
+    "Id": "335",
+    "Name": "Maintenance Event Log Entry 335",
+    "EntryType": "Oem",
+    "Severity": "OK",
+    "Created": "2023-10-11T22:02:31Z",
+    "OemRecordFormat": "SMC",
+    "Message": "[MEL-0208] ID 0x00 - TEE FW Start (0100.03.53)",
+    "MessageId": "Event.1.0.OpteeInfoEvent",
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "Interface": "DRTM",
+            "User": "ADMIN(ADMIN)",
+            "Source": "Localhost",
+            "Category": "service"
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "@odata.type": "#EthernetInterface.v1_5_2.EthernetInterface",
+    "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/8",
+    "Id": "8",
+    "Name": "AOC_NIC1",
+    "Description": "MCX75310AAS-NEAT #1",
+    "Status": {
+        "State": "Disabled",
+        "Health": "OK"
+    },
+    "MACAddress": "94:6d:ae:91:73:8a",
+    "SpeedMbps": 0,
+    "FQDN": "",
+    "VLANs": {
+        "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/8/VLANs"
+    }
+}

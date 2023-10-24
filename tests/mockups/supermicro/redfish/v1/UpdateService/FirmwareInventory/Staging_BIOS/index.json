@@ -1,0 +1,19 @@
+{
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Staging_BIOS",
+    "Id": "Staging_BIOS",
+    "Name": "BIOS Staging",
+    "Updateable": false,
+    "Version": "BIOS Date: 05/04/2023 Ver 1.3",
+    "SoftwareId": "BIOS Date: 05/04/2023 Ver 1.3",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Actions": {
+        "Oem": {}
+    },
+    "Oem": {},
+    "Manufacturer": "Supermicro",
+    "WriteProtected": false
+}

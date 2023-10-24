@@ -1,0 +1,21 @@
+{
+    "@odata.type": "#LogEntry.v1_3_0.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/1/LogServices/Log1/Entries/144",
+    "Id": "144",
+    "Name": "Maintenance Event Log Entry 144",
+    "EntryType": "Oem",
+    "Severity": "OK",
+    "Created": "2023-08-11T16:09:44Z",
+    "OemRecordFormat": "SMC",
+    "Message": "[MEL-0129] Web login was successful.",
+    "MessageId": "Event.1.0.LoginWeb",
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "Interface": "Web",
+            "User": "ADMIN(ADMIN)",
+            "Source": "10.20.241.187",
+            "Category": "account"
+        }
+    }
+}

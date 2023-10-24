@@ -1,0 +1,13 @@
+{
+    "@odata.type": "#StorageCollection.StorageCollection",
+    "@odata.id": "/redfish/v1/Systems/1/Storage",
+    "Id": "Storage",
+    "Name": "Storage Collection",
+    "Members@odata.count": 1,
+    "Description": "Storage Collection",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Storage/NVMeSSD"
+        }
+    ]
+}

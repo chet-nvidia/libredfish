@@ -1,0 +1,11 @@
+{
+    "@odata.type": "#DumpCollection.DumpCollection",
+    "@odata.id": "/redfish/v1/Oem/Supermicro/DumpService/Dumps",
+    "Name": "Dump Collection",
+    "Members@odata.count": 1,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Oem/Supermicro/DumpService/Dumps/AttestationDump/"
+        }
+    ]
+}

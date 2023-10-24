@@ -1,0 +1,83 @@
+{
+    "@odata.type": "#MetricReport.v1_3_0.MetricReport",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReports/MinPowerConsumptionHour",
+    "Id": "MinPowerConsumptionHour",
+    "Name": "Minimum Power Consumption for 1 hour with sensing interval of 5 minutes.",
+    "MetricReportDefinition": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/MinPowerConsumptionHour"
+    },
+    "MetricValues": [
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2154",
+            "Timestamp": "2023-10-24T19:00:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        },
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2157",
+            "Timestamp": "2023-10-24T18:55:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        },
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2156",
+            "Timestamp": "2023-10-24T18:50:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        },
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2152",
+            "Timestamp": "2023-10-24T18:45:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        },
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2153",
+            "Timestamp": "2023-10-24T18:40:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        },
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2154",
+            "Timestamp": "2023-10-24T18:35:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        },
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2159",
+            "Timestamp": "2023-10-24T18:30:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        },
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2162",
+            "Timestamp": "2023-10-24T18:25:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        },
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2166",
+            "Timestamp": "2023-10-24T18:20:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        },
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2161",
+            "Timestamp": "2023-10-24T18:15:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        },
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2156",
+            "Timestamp": "2023-10-24T18:10:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        },
+        {
+            "MetricId": "MinPowerConsumptionHour",
+            "MetricValue": "2154",
+            "Timestamp": "2023-10-24T18:05:58+00:00",
+            "MetricProperty": "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+        }
+    ]
+}

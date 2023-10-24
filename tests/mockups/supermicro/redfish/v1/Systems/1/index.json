@@ -1,0 +1,136 @@
+{
+    "@odata.type": "#ComputerSystem.v1_8_0.ComputerSystem",
+    "@odata.id": "/redfish/v1/Systems/1",
+    "Id": "1",
+    "Name": "System",
+    "Description": "Description of server",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "SerialNumber": "S889914X3710910",
+    "PartNumber": "SYS-821GE-TNHR-02-CI061",
+    "SystemType": "Physical",
+    "BiosVersion": "1.3",
+    "Manufacturer": "Supermicro",
+    "Model": "SYS-821GE-TNHR",
+    "SKU": "0x1D1415D9",
+    "UUID": "00000000-0000-0000-0000-7CC25550A8FF",
+    "ProcessorSummary": {
+        "Count": 2,
+        "Model": "Intel(R) Xeon(R) processor",
+        "Status": {
+            "State": "Enabled",
+            "Health": "OK",
+            "HealthRollup": "OK"
+        },
+        "Metrics": {
+            "@odata.id": "/redfish/v1/Systems/1/ProcessorSummary/ProcessorMetrics"
+        }
+    },
+    "MemorySummary": {
+        "TotalSystemMemoryGiB": 2048,
+        "MemoryMirroring": "System",
+        "Status": {
+            "State": "Enabled",
+            "Health": "OK",
+            "HealthRollup": "OK"
+        },
+        "Metrics": {
+            "@odata.id": "/redfish/v1/Systems/1/MemorySummary/MemoryMetrics"
+        }
+    },
+    "IndicatorLED": "Off",
+    "PowerState": "On",
+    "Boot": {
+        "BootSourceOverrideEnabled": "Disabled",
+        "BootSourceOverrideMode": "Legacy",
+        "BootSourceOverrideTarget": "None",
+        "BootSourceOverrideTarget@Redfish.AllowableValues": [
+            "None",
+            "Pxe",
+            "Floppy",
+            "Cd",
+            "Usb",
+            "Hdd",
+            "BiosSetup",
+            "UsbCd",
+            "UefiBootNext"
+        ],
+        "BootOptions": {
+            "@odata.id": "/redfish/v1/Systems/1/BootOptions"
+        },
+        "BootNext": "",
+        "BootOrder": [
+            "Boot0002",
+            "Boot0003",
+            "Boot0004",
+            "Boot0005",
+            "Boot0007",
+            "Boot0008",
+            "Boot0009",
+            "Boot000A",
+            "Boot000B",
+            "Boot000C",
+            "Boot000D",
+            "Boot0001"
+        ]
+    },
+    "Processors": {
+        "@odata.id": "/redfish/v1/Systems/1/Processors"
+    },
+    "Memory": {
+        "@odata.id": "/redfish/v1/Systems/1/Memory"
+    },
+    "EthernetInterfaces": {
+        "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces"
+    },
+    "NetworkInterfaces": {
+        "@odata.id": "/redfish/v1/Systems/1/NetworkInterfaces"
+    },
+    "SimpleStorage": {
+        "@odata.id": "/redfish/v1/Systems/1/SimpleStorage"
+    },
+    "Storage": {
+        "@odata.id": "/redfish/v1/Systems/1/Storage"
+    },
+    "LogServices": {
+        "@odata.id": "/redfish/v1/Systems/1/LogServices"
+    },
+    "SecureBoot": {
+        "@odata.id": "/redfish/v1/Systems/1/SecureBoot"
+    },
+    "Bios": {
+        "@odata.id": "/redfish/v1/Systems/1/Bios"
+    },
+    "Certificates": {
+        "@odata.id": "/redfish/v1/Systems/1/Certificates"
+    },
+    "Links": {
+        "Chassis": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1"
+            }
+        ],
+        "ManagedBy": [
+            {
+                "@odata.id": "/redfish/v1/Managers/1"
+            }
+        ]
+    },
+    "Actions": {
+        "Oem": {},
+        "#ComputerSystem.Reset": {
+            "target": "/redfish/v1/Systems/1/Actions/ComputerSystem.Reset",
+            "@Redfish.ActionInfo": "/redfish/v1/Systems/1/ResetActionInfo"
+        }
+    },
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcSystemExtensions.v1_0_0.System",
+            "NodeManager": {
+                "@odata.id": "/redfish/v1/Systems/1/Oem/Supermicro/NodeManager"
+            }
+        }
+    }
+}

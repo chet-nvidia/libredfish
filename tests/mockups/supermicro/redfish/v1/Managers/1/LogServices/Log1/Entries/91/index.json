@@ -1,0 +1,21 @@
+{
+    "@odata.type": "#LogEntry.v1_3_0.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/1/LogServices/Log1/Entries/91",
+    "Id": "91",
+    "Name": "Maintenance Event Log Entry 91",
+    "EntryType": "Oem",
+    "Severity": "OK",
+    "Created": "2023-08-10T02:40:54Z",
+    "OemRecordFormat": "SMC",
+    "Message": "[MEL-0051] The system was power cycled successfully.",
+    "MessageId": "Event.1.0.SystemPowerAction",
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "Interface": "KCS",
+            "User": "ADMIN(ADMIN)",
+            "Source": "Localhost",
+            "Category": "others"
+        }
+    }
+}

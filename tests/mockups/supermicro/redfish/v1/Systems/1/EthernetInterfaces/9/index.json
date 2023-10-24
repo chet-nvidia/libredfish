@@ -1,0 +1,14 @@
+{
+    "@odata.type": "#EthernetInterface.v1_5_2.EthernetInterface",
+    "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/9",
+    "Id": "9",
+    "Name": "AOC_NIC1",
+    "Description": "AOC-STGS-i2T #1",
+    "Status": {
+        "State": "Disabled",
+        "Health": "OK"
+    },
+    "MACAddress": "7c:c2:55:79:3f:8e",
+    "SpeedMbps": 0,
+    "FQDN": ""
+}

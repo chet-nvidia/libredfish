@@ -1,0 +1,21 @@
+{
+    "@odata.type": "#LogEntry.v1_3_0.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/1/LogServices/Log1/Entries/110",
+    "Id": "110",
+    "Name": "Maintenance Event Log Entry 110",
+    "EntryType": "Oem",
+    "Severity": "Warning",
+    "Created": "2023-08-10T14:28:22Z",
+    "OemRecordFormat": "SMC",
+    "Message": "[MEL-0135] The user attempted to access BMC",
+    "MessageId": "Event.1.0.AttemptConnect",
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "Interface": "Redfish",
+            "User": "NoAuth",
+            "Source": "10.21.180.46",
+            "Category": "account"
+        }
+    }
+}

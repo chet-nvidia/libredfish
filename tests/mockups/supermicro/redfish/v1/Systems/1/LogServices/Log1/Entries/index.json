@@ -1,0 +1,913 @@
+{
+    "@odata.type": "#LogEntryCollection.LogEntryCollection",
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries",
+    "Id": "1",
+    "Name": "Health Event Log Service Collection",
+    "Description": "Collection of Health Event Logs",
+    "Members": [
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/1",
+            "Id": "1",
+            "Name": "Health Event Log Entry 1",
+            "EntryType": "SEL",
+            "Severity": "Warning",
+            "Created": "2023-07-21T15:35:03Z",
+            "EntryCode": "Assert",
+            "OemSensorType": "System NIC",
+            "SensorNumber": 255,
+            "Message": "[LAN-0006] Dedicated LAN Link Down",
+            "MessageId": "0xA401FF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0xD0",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/2",
+            "Id": "2",
+            "Name": "Health Event Log Entry 2",
+            "EntryType": "SEL",
+            "Severity": "Warning",
+            "Created": "2023-08-04T16:16:11Z",
+            "EntryCode": "Assert",
+            "OemSensorType": "AC Power On",
+            "SensorNumber": 255,
+            "Message": "[PWR-0020] First AC Power on",
+            "MessageId": "0xA0FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0xC8",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/3",
+            "Id": "3",
+            "Name": "Health Event Log Entry 3",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-04T23:24:41Z",
+            "EntryCode": "Assert",
+            "OemSensorType": "System NIC",
+            "SensorNumber": 255,
+            "Message": "[LAN-0005] Dedicated LAN Link Up",
+            "MessageId": "0xA301FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0xD0",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/4",
+            "Id": "4",
+            "Name": "Health Event Log Entry 4",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-09T02:51:09Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0027] Timestamp Clock Synch - first/second: event is first of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0500FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/5",
+            "Id": "5",
+            "Name": "Health Event Log Entry 5",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-09T00:51:09Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0029] Timestamp Clock Synch - first/second: event is second of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0580FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/6",
+            "Id": "6",
+            "Name": "Health Event Log Entry 6",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-10T23:00:14Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0027] Timestamp Clock Synch - first/second: event is first of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0500FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/7",
+            "Id": "7",
+            "Name": "Health Event Log Entry 7",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-10T23:00:17Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0029] Timestamp Clock Synch - first/second: event is second of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0580FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/8",
+            "Id": "8",
+            "Name": "Health Event Log Entry 8",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-15T17:06:15Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0027] Timestamp Clock Synch - first/second: event is first of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0500FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/9",
+            "Id": "9",
+            "Name": "Health Event Log Entry 9",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-15T17:06:18Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0029] Timestamp Clock Synch - first/second: event is second of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0580FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/10",
+            "Id": "10",
+            "Name": "Health Event Log Entry 10",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-18T15:28:04Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0027] Timestamp Clock Synch - first/second: event is first of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0500FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/11",
+            "Id": "11",
+            "Name": "Health Event Log Entry 11",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-18T15:28:07Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0029] Timestamp Clock Synch - first/second: event is second of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0580FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/12",
+            "Id": "12",
+            "Name": "Health Event Log Entry 12",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-22T04:37:39Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0027] Timestamp Clock Synch - first/second: event is first of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0500FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/13",
+            "Id": "13",
+            "Name": "Health Event Log Entry 13",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-22T04:37:42Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0029] Timestamp Clock Synch - first/second: event is second of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0580FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/14",
+            "Id": "14",
+            "Name": "Health Event Log Entry 14",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-28T21:25:59Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0027] Timestamp Clock Synch - first/second: event is first of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0500FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/15",
+            "Id": "15",
+            "Name": "Health Event Log Entry 15",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-08-28T21:26:03Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0029] Timestamp Clock Synch - first/second: event is second of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0580FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/16",
+            "Id": "16",
+            "Name": "Health Event Log Entry 16",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-09-08T09:33:18Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0027] Timestamp Clock Synch - first/second: event is first of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0500FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/17",
+            "Id": "17",
+            "Name": "Health Event Log Entry 17",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-09-08T09:33:25Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0029] Timestamp Clock Synch - first/second: event is second of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0580FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/18",
+            "Id": "18",
+            "Name": "Health Event Log Entry 18",
+            "EntryType": "SEL",
+            "Severity": "Critical",
+            "Created": "2023-10-10T20:26:08Z",
+            "EntryCode": "Assert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 196,
+            "Message": "[PWR-0001] PS5 Status, Power Supply Failure detected",
+            "MessageId": "0xF1FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x08",
+                        "SensorName": "PS5 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/19",
+            "Id": "19",
+            "Name": "Health Event Log Entry 19",
+            "EntryType": "SEL",
+            "Severity": "Critical",
+            "Created": "2023-10-10T20:26:08Z",
+            "EntryCode": "Assert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 196,
+            "Message": "[PWR-0003] PS5 Status, Power Supply input lost (AC/DC)",
+            "MessageId": "0xF3FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x08",
+                        "SensorName": "PS5 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/20",
+            "Id": "20",
+            "Name": "Health Event Log Entry 20",
+            "EntryType": "SEL",
+            "Severity": "Critical",
+            "Created": "2023-10-10T20:26:13Z",
+            "EntryCode": "Assert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 192,
+            "Message": "[PWR-0001] PS1 Status, Power Supply Failure detected",
+            "MessageId": "0xF1FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x08",
+                        "SensorName": "PS1 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/21",
+            "Id": "21",
+            "Name": "Health Event Log Entry 21",
+            "EntryType": "SEL",
+            "Severity": "Critical",
+            "Created": "2023-10-10T20:26:13Z",
+            "EntryCode": "Assert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 192,
+            "Message": "[PWR-0003] PS1 Status, Power Supply input lost (AC/DC)",
+            "MessageId": "0xF3FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x08",
+                        "SensorName": "PS1 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/22",
+            "Id": "22",
+            "Name": "Health Event Log Entry 22",
+            "EntryType": "SEL",
+            "Severity": "Critical",
+            "Created": "2023-10-10T20:26:13Z",
+            "EntryCode": "Assert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 193,
+            "Message": "[PWR-0001] PS2 Status, Power Supply Failure detected",
+            "MessageId": "0xF1FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x08",
+                        "SensorName": "PS2 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/23",
+            "Id": "23",
+            "Name": "Health Event Log Entry 23",
+            "EntryType": "SEL",
+            "Severity": "Critical",
+            "Created": "2023-10-10T20:26:13Z",
+            "EntryCode": "Assert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 193,
+            "Message": "[PWR-0003] PS2 Status, Power Supply input lost (AC/DC)",
+            "MessageId": "0xF3FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x08",
+                        "SensorName": "PS2 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/24",
+            "Id": "24",
+            "Name": "Health Event Log Entry 24",
+            "EntryType": "SEL",
+            "Severity": "Critical",
+            "Created": "2023-10-10T20:26:16Z",
+            "EntryCode": "Assert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 194,
+            "Message": "[PWR-0001] PS3 Status, Power Supply Failure detected",
+            "MessageId": "0xF1FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x08",
+                        "SensorName": "PS3 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/25",
+            "Id": "25",
+            "Name": "Health Event Log Entry 25",
+            "EntryType": "SEL",
+            "Severity": "Critical",
+            "Created": "2023-10-10T20:26:16Z",
+            "EntryCode": "Assert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 194,
+            "Message": "[PWR-0003] PS3 Status, Power Supply input lost (AC/DC)",
+            "MessageId": "0xF3FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x08",
+                        "SensorName": "PS3 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/26",
+            "Id": "26",
+            "Name": "Health Event Log Entry 26",
+            "EntryType": "SEL",
+            "Severity": "Warning",
+            "Created": "2023-10-11T21:01:52Z",
+            "EntryCode": "Assert",
+            "OemSensorType": "AC Power On",
+            "SensorNumber": 255,
+            "Message": "[PWR-0020] First AC Power on",
+            "MessageId": "0xA0FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0xC8",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/27",
+            "Id": "27",
+            "Name": "Health Event Log Entry 27",
+            "EntryType": "SEL",
+            "Severity": "Critical",
+            "Created": "2023-10-11T21:17:41Z",
+            "EntryCode": "Assert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 192,
+            "Message": "[PWR-0001] PS1 Status, Power Supply Failure detected",
+            "MessageId": "0xF1FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x08",
+                        "SensorName": "PS1 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/28",
+            "Id": "28",
+            "Name": "Health Event Log Entry 28",
+            "EntryType": "SEL",
+            "Severity": "Critical",
+            "Created": "2023-10-11T21:17:41Z",
+            "EntryCode": "Assert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 192,
+            "Message": "[PWR-0003] PS1 Status, Power Supply input lost (AC/DC)",
+            "MessageId": "0xF3FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x08",
+                        "SensorName": "PS1 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/29",
+            "Id": "29",
+            "Name": "Health Event Log Entry 29",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-10-11T21:17:48Z",
+            "EntryCode": "Deassert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 192,
+            "Message": "[PWR-0001] PS1 Status, Power Supply Failure detected",
+            "MessageId": "0xF1FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0xEF",
+                        "SensorType": "0x08",
+                        "SensorName": "PS1 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/30",
+            "Id": "30",
+            "Name": "Health Event Log Entry 30",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-10-11T21:17:48Z",
+            "EntryCode": "Deassert",
+            "SensorType": "Power Supply",
+            "SensorNumber": 192,
+            "Message": "[PWR-0003] PS1 Status, Power Supply input lost (AC/DC)",
+            "MessageId": "0xF3FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0xEF",
+                        "SensorType": "0x08",
+                        "SensorName": "PS1 Status"
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/31",
+            "Id": "31",
+            "Name": "Health Event Log Entry 31",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-10-11T21:20:31Z",
+            "EntryCode": "Assert",
+            "OemSensorType": "System NIC",
+            "SensorNumber": 255,
+            "Message": "[LAN-0005] Dedicated LAN Link Up",
+            "MessageId": "0xA301FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0xD0",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/32",
+            "Id": "32",
+            "Name": "Health Event Log Entry 32",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-10-11T22:02:22Z",
+            "EntryCode": "Assert",
+            "OemSensorType": "System NIC",
+            "SensorNumber": 255,
+            "Message": "[LAN-0005] Dedicated LAN Link Up",
+            "MessageId": "0xA301FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0xD0",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/33",
+            "Id": "33",
+            "Name": "Health Event Log Entry 33",
+            "EntryType": "SEL",
+            "Severity": "Warning",
+            "Created": "2023-10-11T22:02:35Z",
+            "EntryCode": "Assert",
+            "OemSensorType": "AC Power On",
+            "SensorNumber": 255,
+            "Message": "[PWR-0020] First AC Power on",
+            "MessageId": "0xA0FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0xC8",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/34",
+            "Id": "34",
+            "Name": "Health Event Log Entry 34",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-10-12T16:48:01Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0027] Timestamp Clock Synch - first/second: event is first of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0500FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/35",
+            "Id": "35",
+            "Name": "Health Event Log Entry 35",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-10-12T16:48:05Z",
+            "EntryCode": "Assert",
+            "SensorType": "System Event",
+            "SensorNumber": 0,
+            "Message": "[SYS-0029] Timestamp Clock Synch - first/second: event is second of pair, Timestamp Clock Type: SEL Timestamp Clock updated",
+            "MessageId": "0x0580FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0x12",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/36",
+            "Id": "36",
+            "Name": "Health Event Log Entry 36",
+            "EntryType": "SEL",
+            "Severity": "OK",
+            "Created": "2023-10-23T17:00:42Z",
+            "EntryCode": "Assert",
+            "OemSensorType": "System NIC",
+            "SensorNumber": 255,
+            "Message": "[LAN-0005] Dedicated LAN Link Up",
+            "MessageId": "0xA301FF",
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0xD0",
+                        "SensorName": ""
+                    }
+                }
+            }
+        },
+        {
+            "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/37",
+            "Id": "37",
+            "Name": "Health Event Log Entry 37",
+            "EntryType": "SEL",
+            "Severity": "Warning",
+            "Created": "2023-10-23T17:00:53Z",
+            "EntryCode": "Assert",
+            "OemSensorType": "AC Power On",
+            "SensorNumber": 255,
+            "Message": "[PWR-0020] First AC Power on",
+            "MessageId": "0xA0FFFF",
+            "Oem": {
+                "Supermicro": {
+                    "MarkAsAcknowledged": false,
+                    "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+                    "RawEventData": {
+                        "EventDirAndType": "0x6F",
+                        "SensorType": "0xC8",
+                        "SensorName": ""
+                    }
+                }
+            }
+        }
+    ],
+    "Members@odata.count": 37
+}

@@ -1,0 +1,7 @@
+{
+    "@odata.type": "#ProcessorMetrics.v1_0_2.ProcessorMetrics",
+    "@odata.id": "/redfish/v1/Systems/1/ProcessorSummary/ProcessorMetrics",
+    "Id": "Metrics",
+    "Name": "ProcessorMetrics",
+    "BandwidthPercent": 0
+}

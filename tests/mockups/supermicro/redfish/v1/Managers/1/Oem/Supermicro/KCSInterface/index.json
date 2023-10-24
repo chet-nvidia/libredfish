@@ -1,0 +1,7 @@
+{
+    "@odata.type": "#KCSInterface.v1_0_0.KCSInterface",
+    "@odata.id": "/redfish/v1/Managers/1/Oem/Supermicro/KCSInterface",
+    "Id": "KCS Interface",
+    "Name": "KCS Interface",
+    "Privilege": "Administrator"
+}

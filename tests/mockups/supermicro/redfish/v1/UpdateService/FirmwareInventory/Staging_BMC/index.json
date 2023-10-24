@@ -1,0 +1,19 @@
+{
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Staging_BMC",
+    "Id": "Staging_BMC",
+    "Name": "BMC Staging",
+    "Updateable": false,
+    "Version": "01.00.15",
+    "SoftwareId": "01.00.15",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Actions": {
+        "Oem": {}
+    },
+    "Oem": {},
+    "Manufacturer": "Supermicro",
+    "WriteProtected": false
+}

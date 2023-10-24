@@ -1,0 +1,19 @@
+{
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/CPLD_Motherboard",
+    "Id": "CPLD_Motherboard",
+    "Name": "CPLD Motherboard",
+    "Updateable": false,
+    "Version": "F5.11.CB",
+    "SoftwareId": "F5.11.CB",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Actions": {
+        "Oem": {}
+    },
+    "Oem": {},
+    "Manufacturer": "Supermicro",
+    "WriteProtected": false
+}

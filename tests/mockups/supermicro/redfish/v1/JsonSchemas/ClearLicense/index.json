@@ -1,0 +1,18 @@
+{
+    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.id": "/redfish/v1/JsonSchemas/ClearLicense",
+    "Id": "ClearLicense",
+    "Name": "ClearLicense Schema File",
+    "Description": "ClearLicense Schema File Location",
+    "Languages": [
+        "en"
+    ],
+    "Schema": "ClearLicense",
+    "Location": [
+        {
+            "Language": "en",
+            "Uri": "/schemas/v1/ClearLicense.json"
+        }
+    ],
+    "Oem": {}
+}

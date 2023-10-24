@@ -1,0 +1,15 @@
+{
+    "@odata.type": "#LicenseManager.v1_0_0.LicenseManager",
+    "@odata.id": "/redfish/v1/Managers/1/LicenseManager",
+    "Id": "License Manager",
+    "Name": "License Manager",
+    "ActivateLicense": {
+        "@odata.id": "/redfish/v1/Managers/1/LicenseManager/ActivateLicense"
+    },
+    "QueryLicense": {
+        "@odata.id": "/redfish/v1/Managers/1/LicenseManager/QueryLicense"
+    },
+    "ClearLicense": {
+        "@odata.id": "/redfish/v1/Managers/1/LicenseManager/ClearLicense"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.id": "/redfish/v1/JsonSchemas/SNMP.v1_0_0",
+    "Id": "SNMP.v1_0_0",
+    "Name": "SNMP Schema File",
+    "Description": "SNMP Schema File Location",
+    "Languages": [
+        "en"
+    ],
+    "Schema": "SNMP.v1_0_0",
+    "Location": [
+        {
+            "Language": "en",
+            "Uri": "/schemas/v1/SNMP.v1_0_0.json"
+        }
+    ],
+    "Oem": {}
+}

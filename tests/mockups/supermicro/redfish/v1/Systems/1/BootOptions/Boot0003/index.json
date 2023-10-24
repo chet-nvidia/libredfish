@@ -1,0 +1,10 @@
+{
+    "@odata.type": "#BootOption.v1_0_3.BootOption",
+    "@odata.id": "/redfish/v1/Systems/1/BootOptions/Boot0003",
+    "Id": "Boot0003",
+    "Name": "Boot Option",
+    "Description": "UEFI Boot Option",
+    "BootOptionEnabled": true,
+    "BootOptionReference": "Boot0003",
+    "DisplayName": "(B44/D0/F0) UEFI PXE IPv4 Nvidia Network Adapter - 94:6D:AE:91:09:C2 - 946DAE9109C2"
+}

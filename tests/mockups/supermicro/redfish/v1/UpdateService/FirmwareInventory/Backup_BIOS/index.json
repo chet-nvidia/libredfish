@@ -1,0 +1,19 @@
+{
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Backup_BIOS",
+    "Id": "Backup_BIOS",
+    "Name": "BIOS Backup",
+    "Updateable": false,
+    "Version": "Not Present",
+    "SoftwareId": "Not Present",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Actions": {
+        "Oem": {}
+    },
+    "Oem": {},
+    "Manufacturer": "Supermicro",
+    "WriteProtected": false
+}

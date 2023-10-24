@@ -1,0 +1,166 @@
+{
+    "@odata.type": "#JsonSchemaFileCollection.JsonSchemaFileCollection",
+    "@odata.id": "/redfish/v1/JsonSchemas",
+    "Id": "JsonSchemas",
+    "Name": "Schema Repository",
+    "Description": "Schema Repository",
+    "Members@odata.count": 52,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcStorageExtensions"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SNMP"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcStorageExtensions.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SNMP.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/FilterRule"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SMCRAKP"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/Syslog"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcGPUExtensions"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/FilterRule.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SMCRAKP.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/Syslog.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/QueryLicense"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcGPUExtensions.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/Syslog.v1_0_1"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcLogEntryExtensions"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcMemoryExtensions"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcEthernetInterfaceExtensions"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/RADIUS"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcVolumeExtensions"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/NTP"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/MouseMode"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcHARAIDController"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/QueryLicense.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/ClearLicense"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcFirmwareInventory"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcLogEntryExtensions.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/FilterRuleCollection"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcPowerExtensions"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/NTP.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcLogEntryExtensions.v1_0_1"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcVolumeExtensions.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcMemoryExtensions.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcNodeManager"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcPowerExtensions.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/LicenseManager"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/ClearLicense.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/HARAIDController.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/RADIUS.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/NTP.v1_0_1"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/MouseMode.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcEthernetInterfaceExtensions.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcFirmwareInventory.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcNodeManager.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/LicenseManager.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/RADIUS.v1_0_1"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SmcEthernetInterfaceExtensions.v1_0_1"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/RADIUS.v1_0_2"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/IKVM"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/IKVM.v1_0_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/DeviceUpdate"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/IKVM.v1_0_1"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/DeviceUpdate.v1_0_0"
+        }
+    ]
+}

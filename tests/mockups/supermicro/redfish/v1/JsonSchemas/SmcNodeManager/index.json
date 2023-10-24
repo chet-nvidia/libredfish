@@ -1,0 +1,18 @@
+{
+    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.id": "/redfish/v1/JsonSchemas/SmcNodeManager",
+    "Id": "SmcNodeManager",
+    "Name": "SmcNodeManager Schema File",
+    "Description": "SmcNodeManager Schema File Location",
+    "Languages": [
+        "en"
+    ],
+    "Schema": "SmcNodeManager",
+    "Location": [
+        {
+            "Language": "en",
+            "Uri": "/schemas/v1/SmcNodeManager.json"
+        }
+    ],
+    "Oem": {}
+}

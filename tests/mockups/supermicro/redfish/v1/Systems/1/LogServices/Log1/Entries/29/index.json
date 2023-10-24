@@ -1,0 +1,24 @@
+{
+    "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/29",
+    "Id": "29",
+    "Name": "Health Event Log Entry 29",
+    "EntryType": "SEL",
+    "Severity": "OK",
+    "Created": "2023-10-11T21:17:48Z",
+    "EntryCode": "Deassert",
+    "SensorType": "Power Supply",
+    "SensorNumber": 192,
+    "Message": "[PWR-0001] PS1 Status, Power Supply Failure detected",
+    "MessageId": "0xF1FFFF",
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "RawEventData": {
+                "EventDirAndType": "0xEF",
+                "SensorType": "0x08",
+                "SensorName": "PS1 Status"
+            }
+        }
+    }
+}

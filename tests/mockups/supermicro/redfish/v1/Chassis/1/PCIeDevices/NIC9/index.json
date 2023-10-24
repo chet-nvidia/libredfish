@@ -1,0 +1,35 @@
+{
+    "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/NIC9",
+    "Id": "NIC9",
+    "Name": "PCIeDevices",
+    "Description": "NIC device (riser:RSC-UNDEFINED)",
+    "Manufacturer": "Supermicro",
+    "Model": "AOC-STGS-i2T",
+    "SerialNumber": "VA236S008824",
+    "PartNumber": "AOC-STGS-i2T",
+    "DeviceType": "Simulated",
+    "FirmwareVersion": "3.50 0x800016DC",
+    "Status": {
+        "State": "Disabled",
+        "Health": "OK",
+        "HealthRollup": "OK"
+    },
+    "PCIeInterface": {
+        "PCIeType": "Gen3",
+        "MaxPCIeType": "Gen5",
+        "LanesInUse": 4,
+        "MaxLanes": 4
+    },
+    "PCIeFunctions": {
+        "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/NIC9/PCIeFunctions"
+    },
+    "Links": {
+        "Chassis": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1"
+            }
+        ]
+    },
+    "Oem": {}
+}

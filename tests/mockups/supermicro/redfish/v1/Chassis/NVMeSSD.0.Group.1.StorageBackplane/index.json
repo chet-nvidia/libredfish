@@ -1,0 +1,24 @@
+{
+    "@odata.type": "#Chassis.v1_11_0.Chassis",
+    "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.1.StorageBackplane",
+    "Id": "NVMeSSD.0.Group.1.StorageBackplane",
+    "Name": "Backplane",
+    "ChassisType": "Enclosure",
+    "Model": "Backplane",
+    "SerialNumber": "",
+    "PartNumber": "",
+    "Links": {
+        "ManagedBy": [
+            {
+                "@odata.id": "/redfish/v1/Managers/1"
+            }
+        ],
+        "Storage": [
+            {
+                "@odata.id": "/redfish/v1/Systems/1/Storage/NVMeSSD"
+            }
+        ],
+        "Drives": []
+    },
+    "Oem": {}
+}

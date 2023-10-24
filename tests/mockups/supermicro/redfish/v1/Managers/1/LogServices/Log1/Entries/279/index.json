@@ -1,0 +1,21 @@
+{
+    "@odata.type": "#LogEntry.v1_3_0.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/1/LogServices/Log1/Entries/279",
+    "Id": "279",
+    "Name": "Maintenance Event Log Entry 279",
+    "EntryType": "Oem",
+    "Severity": "OK",
+    "Created": "2023-08-20T17:27:07Z",
+    "OemRecordFormat": "SMC",
+    "Message": "[MEL-0212] The fullsmbios file was uploaded successfully.",
+    "MessageId": "Event.1.0.FileUploaded",
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "Interface": "Redfish",
+            "User": "BIOS",
+            "Source": "Localhost",
+            "Category": "others"
+        }
+    }
+}

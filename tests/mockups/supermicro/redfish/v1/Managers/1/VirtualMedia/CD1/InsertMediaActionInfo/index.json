@@ -1,0 +1,24 @@
+{
+    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo",
+    "@odata.id": "/redfish/v1/Managers/1/VirtualMedia/CD1/InsertMediaActionInfo",
+    "Id": "InsertMediaActionInfo",
+    "Name": "Insert Media Action Info",
+    "Parameters": [
+        {
+            "Name": "Image",
+            "Required": true,
+            "DataType": "String"
+        },
+        {
+            "Name": "UserName",
+            "Required": false,
+            "DataType": "String"
+        },
+        {
+            "Name": "Password",
+            "Required": false,
+            "DataType": "String"
+        }
+    ],
+    "Oem": {}
+}

@@ -1,0 +1,14 @@
+{
+    "@odata.type": "#EthernetInterface.v1_5_2.EthernetInterface",
+    "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/11",
+    "Id": "11",
+    "Name": "AOC_NIC1",
+    "Description": "MBF2M516C-CECOT #1",
+    "Status": {
+        "State": "Disabled",
+        "Health": "OK"
+    },
+    "MACAddress": "94:6d:ae:b2:b1:4e",
+    "SpeedMbps": 0,
+    "FQDN": ""
+}

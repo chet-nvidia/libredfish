@@ -1,0 +1,25 @@
+{
+    "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/2",
+    "Id": "2",
+    "Name": "Health Event Log Entry 2",
+    "EntryType": "SEL",
+    "Severity": "Warning",
+    "Created": "2023-08-04T16:16:11Z",
+    "EntryCode": "Assert",
+    "OemSensorType": "AC Power On",
+    "SensorNumber": 255,
+    "Message": "[PWR-0020] First AC Power on",
+    "MessageId": "0xA0FFFF",
+    "Oem": {
+        "Supermicro": {
+            "MarkAsAcknowledged": false,
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "RawEventData": {
+                "EventDirAndType": "0x6F",
+                "SensorType": "0xC8",
+                "SensorName": ""
+            }
+        }
+    }
+}

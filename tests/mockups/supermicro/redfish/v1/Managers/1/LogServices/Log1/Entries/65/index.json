@@ -1,0 +1,21 @@
+{
+    "@odata.type": "#LogEntry.v1_3_0.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/1/LogServices/Log1/Entries/65",
+    "Id": "65",
+    "Name": "Maintenance Event Log Entry 65",
+    "EntryType": "Oem",
+    "Severity": "OK",
+    "Created": "2023-08-08T21:39:27Z",
+    "OemRecordFormat": "SMC",
+    "Message": "[MEL-0206] The host FW user password has been auto-generated.",
+    "MessageId": "Event.1.0.GetHostFwPwdCmdIssued",
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "Interface": "KCS",
+            "User": "ADMIN",
+            "Source": "Localhost",
+            "Category": "account"
+        }
+    }
+}

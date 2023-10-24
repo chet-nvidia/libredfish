@@ -1,0 +1,12 @@
+{
+    "@odata.type": "#VLanNetworkInterfaceCollection.VLanNetworkInterfaceCollection",
+    "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/6/VLANs",
+    "Id": "6",
+    "Name": "VLAN Network Interface Collection",
+    "Members@odata.count": 1,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/6/VLANs/1"
+        }
+    ]
+}

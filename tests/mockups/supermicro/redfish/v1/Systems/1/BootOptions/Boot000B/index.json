@@ -1,0 +1,10 @@
+{
+    "@odata.type": "#BootOption.v1_0_3.BootOption",
+    "@odata.id": "/redfish/v1/Systems/1/BootOptions/Boot000B",
+    "Id": "Boot000B",
+    "Name": "Boot Option",
+    "Description": "UEFI Boot Option",
+    "BootOptionEnabled": true,
+    "BootOptionReference": "Boot000B",
+    "DisplayName": "(B220/D0/F0) UEFI PXE IPv4 Intel(R) Ethernet Controller X550 - 7CC255793F8E"
+}

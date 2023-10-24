@@ -1,0 +1,18 @@
+{
+    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.id": "/redfish/v1/JsonSchemas/SMCRAKP",
+    "Id": "SMCRAKP",
+    "Name": "SMCRAKP Schema File",
+    "Description": "SMCRAKP Schema File Location",
+    "Languages": [
+        "en"
+    ],
+    "Schema": "SMCRAKP",
+    "Location": [
+        {
+            "Language": "en",
+            "Uri": "/schemas/v1/SMCRAKP.json"
+        }
+    ],
+    "Oem": {}
+}

@@ -1,0 +1,43 @@
+{
+    "@odata.type": "#Processor.v1_7_0.Processor",
+    "@odata.id": "/redfish/v1/Systems/1/Processors/2",
+    "Id": "2",
+    "Name": "Processor",
+    "InstructionSet": "x86-64",
+    "Manufacturer": "Intel(R) Corporation",
+    "PartNumber": "",
+    "SerialNumber": "",
+    "MaxSpeedMHz": 2800,
+    "MaxTDPWatts": 300,
+    "Model": "Intel(R) Xeon(R) Platinum 8462Y+",
+    "Version": "Intel(R) Xeon(R) Platinum 8462Y+",
+    "ProcessorArchitecture": "x86",
+    "ProcessorType": "CPU",
+    "Socket": "CPU2",
+    "TotalCores": 32,
+    "TotalThreads": 64,
+    "Location": {
+        "PartLocation": {
+            "ServiceLabel": "CPU2",
+            "LocationType": "Socket"
+        }
+    },
+    "ProcessorId": {
+        "EffectiveFamily": "0x6",
+        "EffectiveModel": "0x8F",
+        "IdentificationRegisters": "0x7EA9A534000806F8",
+        "Step": "0x8",
+        "VendorId": "GenuineIntel",
+        "MicrocodeInfo": "0x2B000461"
+    },
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Oem": {
+        "Supermicro": {
+            "IntelLicense": [],
+            "IntelSDSiSupported": false
+        }
+    }
+}

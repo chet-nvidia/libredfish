@@ -1,0 +1,72 @@
+{
+    "@odata.type": "#Storage.v1_8_0.Storage",
+    "@odata.id": "/redfish/v1/Systems/1/Storage/NVMeSSD",
+    "Id": "NVMeSSD",
+    "Name": "NVMe Storage System",
+    "StorageControllers": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Storage/NVMeSSD#/StorageControllers/0",
+            "MemberId": "0",
+            "@odata.type": "#Storage.v1_8_0.StorageController",
+            "FirmwareVersion": "03",
+            "Status": {
+                "State": "Enabled",
+                "Health": "OK"
+            },
+            "Identifiers": [
+                {
+                    "DurableName": ""
+                }
+            ],
+            "SupportedControllerProtocols": [
+                "PCIe"
+            ],
+            "SupportedDeviceProtocols": [
+                "NVMe"
+            ],
+            "Oem": {}
+        }
+    ],
+    "Drives": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.0"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.2"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.3"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.4"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.5"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.6"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.7"
+        }
+    ],
+    "Volumes": {
+        "@odata.id": "/redfish/v1/Systems/1/Storage/NVMeSSD/Volumes"
+    },
+    "Links": {
+        "Enclosures": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane"
+            }
+        ]
+    },
+    "Oem": {},
+    "Description": "NVMe SSD",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    }
+}

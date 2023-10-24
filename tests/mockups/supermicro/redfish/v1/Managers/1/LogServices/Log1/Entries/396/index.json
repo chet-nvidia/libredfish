@@ -1,0 +1,21 @@
+{
+    "@odata.type": "#LogEntry.v1_3_0.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/1/LogServices/Log1/Entries/396",
+    "Id": "396",
+    "Name": "Maintenance Event Log Entry 396",
+    "EntryType": "Oem",
+    "Severity": "OK",
+    "Created": "2023-10-24T16:35:17Z",
+    "OemRecordFormat": "SMC",
+    "Message": "[MEL-0134] Redfish session was deleted successfully.",
+    "MessageId": "Event.1.0.RedfishSessionDel",
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "Interface": "Redfish",
+            "User": "ADMIN",
+            "Source": "10.180.49.149",
+            "Category": "account"
+        }
+    }
+}

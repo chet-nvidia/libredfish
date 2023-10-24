@@ -1,0 +1,41 @@
+{
+    "@odata.type": "#CertificateCollection.CertificateCollection",
+    "@odata.id": "/redfish/v1/Systems/1/Certificates",
+    "Name": "Members",
+    "Members@odata.count": 10,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Certificates/0"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Certificates/1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Certificates/2"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Certificates/3"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Certificates/4"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Certificates/5"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Certificates/8"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Certificates/9"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Certificates/11"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Certificates/12"
+        }
+    ],
+    "@Redfish.SupportedCertificates": [
+        "PEM"
+    ]
+}

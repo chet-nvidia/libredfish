@@ -1,0 +1,9 @@
+{
+    "@odata.type": "#MemoryPFA.v1_0_0.MemoryPFA",
+    "@odata.id": "/redfish/v1/Managers/1/Oem/Supermicro/MemoryPFA",
+    "Id": "MemoryPFA",
+    "Name": "MemoryPFA",
+    "MemoryPfaInit": "Disabled",
+    "MemoryPfaNext": "Disabled",
+    "AlertId": 0
+}

@@ -1,0 +1,12 @@
+{
+    "@odata.type": "#NetworkDeviceFunctionCollection.NetworkDeviceFunctionCollection",
+    "@odata.id": "/redfish/v1/Systems/1/NetworkInterfaces/8/NetworkDeviceFunctions",
+    "Id": "8",
+    "Name": "Network Device Function Collection",
+    "Members@odata.count": 1,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/8/NetworkDeviceFunctions/1"
+        }
+    ]
+}

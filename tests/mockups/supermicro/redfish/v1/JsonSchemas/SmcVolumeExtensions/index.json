@@ -1,0 +1,18 @@
+{
+    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.id": "/redfish/v1/JsonSchemas/SmcVolumeExtensions",
+    "Id": "SmcVolumeExtensions",
+    "Name": "SmcVolumeExtensions Schema File",
+    "Description": "SmcVolumeExtensions Schema File Location",
+    "Languages": [
+        "en"
+    ],
+    "Schema": "SmcVolumeExtensions",
+    "Location": [
+        {
+            "Language": "en",
+            "Uri": "/schemas/v1/SmcVolumeExtensions.json"
+        }
+    ],
+    "Oem": {}
+}

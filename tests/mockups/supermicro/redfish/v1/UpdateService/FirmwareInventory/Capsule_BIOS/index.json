@@ -1,0 +1,30 @@
+{
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Capsule_BIOS",
+    "Id": "Capsule_BIOS",
+    "Name": "Capsule BIOS",
+    "Updateable": false,
+    "Version": "1.0",
+    "SoftwareId": "1.0",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1"
+        }
+    ],
+    "Actions": {
+        "Oem": {}
+    },
+    "Oem": {
+        "Supermicro": {
+            "SeamlessPackageVersion": "1.0",
+            "LayoutID": "0",
+            "Description": "EagleStream BIOS"
+        }
+    },
+    "Manufacturer": "Supermicro",
+    "WriteProtected": false
+}

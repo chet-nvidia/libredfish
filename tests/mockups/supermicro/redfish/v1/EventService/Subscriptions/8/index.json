@@ -1,0 +1,24 @@
+{
+    "@odata.type": "#EventDestination.v1_7_0.EventDestination",
+    "@odata.id": "/redfish/v1/EventService/Subscriptions/8",
+    "Id": "8",
+    "Name": "EventSubscription 8",
+    "Status": {
+        "State": "Disabled",
+        "Health": "OK"
+    },
+    "Destination": "0.0.0.0",
+    "EventFormatType": "Event",
+    "Protocol": "SNMPv1",
+    "SubscriptionType": "SNMPTrap",
+    "SNMP": {
+        "TrapCommunity": null
+    },
+    "EventTypes": [],
+    "Oem": {
+        "Supermicro": {
+            "Severity": "Information",
+            "EnableSubscription": false
+        }
+    }
+}

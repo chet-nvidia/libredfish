@@ -1,0 +1,13 @@
+{
+    "@odata.type": "#simplestoragecollection.simplestoragecollection",
+    "@odata.id": "/redfish/v1/Systems/1/SimpleStorage",
+    "Id": "1",
+    "Name": "Simple Storage Collection",
+    "Members@odata.count": 1,
+    "Description": "Simple Storage Collection",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/SimpleStorage/1"
+        }
+    ]
+}

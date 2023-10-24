@@ -1,0 +1,14 @@
+{
+    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo",
+    "@odata.id": "/redfish/v1/Oem/Supermicro/DumpService/Dumps/AttestationDump/GenerateActionInfo",
+    "Id": "AttestationDump",
+    "Name": "Attestationdump Generate Action Info",
+    "Parameters": [
+        {
+            "Name": "Nonce",
+            "Required": true,
+            "DataType": "String"
+        }
+    ],
+    "Oem": {}
+}

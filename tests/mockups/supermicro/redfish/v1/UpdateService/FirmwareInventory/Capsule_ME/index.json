@@ -1,0 +1,30 @@
+{
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Capsule_ME",
+    "Id": "Capsule_ME",
+    "Name": "Capsule ME",
+    "Updateable": false,
+    "Version": "6.64.96.4",
+    "SoftwareId": "6.64.96.4",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1"
+        }
+    ],
+    "Actions": {
+        "Oem": {}
+    },
+    "Oem": {
+        "Supermicro": {
+            "SeamlessPackageVersion": "6.64.96.4",
+            "LayoutID": "0",
+            "Description": "EagleStream SPS"
+        }
+    },
+    "Manufacturer": "Supermicro",
+    "WriteProtected": false
+}

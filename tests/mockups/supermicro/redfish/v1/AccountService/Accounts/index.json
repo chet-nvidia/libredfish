@@ -1,0 +1,11 @@
+{
+    "@odata.type": "#ManagerAccountCollection.ManagerAccountCollection",
+    "@odata.id": "/redfish/v1/AccountService/Accounts",
+    "Name": "Accounts Collection",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/AccountService/Accounts/2"
+        }
+    ],
+    "Members@odata.count": 1
+}

@@ -1,0 +1,43 @@
+{
+    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo",
+    "@odata.id": "/redfish/v1/UpdateService/SimpleUpdateActionInfo",
+    "Id": "SimpleUpdateActionInfo",
+    "Name": "Simple Update Action Info",
+    "Parameters": [
+        {
+            "Name": "ImageURI",
+            "Required": true,
+            "DataType": "String"
+        },
+        {
+            "Name": "TransferProtocol",
+            "Required": false,
+            "DataType": "String",
+            "AllowableValues": [
+                "HTTP",
+                "HTTPS",
+                "FTP"
+            ]
+        },
+        {
+            "Name": "Targets",
+            "Required": false,
+            "DataType": "StringArray",
+            "AllowableValues": [
+                "redfish/v1/Managers/1",
+                "redfish/v1/Systems/1"
+            ]
+        },
+        {
+            "Name": "Username",
+            "Required": false,
+            "DataType": "String"
+        },
+        {
+            "Name": "Password",
+            "Required": false,
+            "DataType": "String"
+        }
+    ],
+    "Oem": {}
+}

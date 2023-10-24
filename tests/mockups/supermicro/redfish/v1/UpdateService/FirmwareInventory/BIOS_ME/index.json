@@ -1,0 +1,19 @@
+{
+    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BIOS_ME",
+    "Id": "BIOS_ME",
+    "Name": "BIOS ME",
+    "Updateable": false,
+    "Version": "6.0.4.70",
+    "SoftwareId": "6.0.4.70",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Actions": {
+        "Oem": {}
+    },
+    "Oem": {},
+    "Manufacturer": "Supermicro",
+    "WriteProtected": true
+}

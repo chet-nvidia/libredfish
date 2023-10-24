@@ -1,0 +1,12 @@
+{
+    "@odata.type": "#NetworkPort.v1_2_3.NetworkPort",
+    "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/2/NetworkPorts/1",
+    "Id": "1",
+    "AssociatedNetworkAddresses": [
+        "94:6D:AE:91:09:C2"
+    ],
+    "Name": "Network Port View",
+    "PhysicalPortNumber": "1",
+    "LinkStatus": "Down",
+    "ActiveLinkTechnology": "Ethernet"
+}

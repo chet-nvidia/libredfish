@@ -1,0 +1,18 @@
+{
+    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.id": "/redfish/v1/JsonSchemas/SmcFirmwareInventory",
+    "Id": "SmcFirmwareInventory",
+    "Name": "SmcFirmwareInventory Schema File",
+    "Description": "SmcFirmwareInventory Schema File Location",
+    "Languages": [
+        "en"
+    ],
+    "Schema": "SmcFirmwareInventory",
+    "Location": [
+        {
+            "Language": "en",
+            "Uri": "/schemas/v1/SmcFirmwareInventory.json"
+        }
+    ],
+    "Oem": {}
+}

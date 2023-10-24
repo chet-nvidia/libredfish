@@ -1,0 +1,52 @@
+{
+    "@odata.type": "#AccountService.v1_7_0.AccountService",
+    "@odata.id": "/redfish/v1/AccountService",
+    "Id": "AccountService",
+    "Name": "Account Service",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "ServiceEnabled": true,
+    "MinPasswordLength": 8,
+    "MaxPasswordLength": 20,
+    "AccountLockoutThreshold": 3,
+    "AccountLockoutDuration": 30,
+    "AccountLockoutCounterResetAfter": 30,
+    "Accounts": {
+        "@odata.id": "/redfish/v1/AccountService/Accounts"
+    },
+    "Roles": {
+        "@odata.id": "/redfish/v1/AccountService/Roles"
+    },
+    "LDAP": {
+        "AccountProviderType": "LDAPService",
+        "ServiceEnabled": false,
+        "ServiceAddresses": [],
+        "Authentication": {
+            "AuthenticationType": "UsernameAndPassword",
+            "Username": "",
+            "Oem": {}
+        },
+        "PasswordSet": false,
+        "RemoteRoleMapping": [],
+        "LDAPService": {
+            "SearchSettings": {
+                "BaseDistinguishedNames": []
+            },
+            "Oem": {}
+        }
+    },
+    "ActiveDirectory": {
+        "AccountProviderType": "ActiveDirectoryService",
+        "ServiceEnabled": false,
+        "ServiceAddresses": [],
+        "Authentication": {
+            "AuthenticationType": "UsernameAndPassword",
+            "Username": "",
+            "Oem": {}
+        },
+        "PasswordSet": false,
+        "RemoteRoleMapping": []
+    }
+}

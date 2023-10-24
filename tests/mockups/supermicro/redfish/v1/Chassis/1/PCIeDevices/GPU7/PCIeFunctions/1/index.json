@@ -1,0 +1,36 @@
+{
+    "@odata.type": "#PCIeFunction.v1_2_3.PCIeFunction",
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/GPU7/PCIeFunctions/1",
+    "Id": "7",
+    "Name": "GPU7",
+    "Description": "GPU Device 7",
+    "FunctionId": 1,
+    "FunctionType": "Physical",
+    "DeviceClass": "DisplayController",
+    "DeviceId": "0",
+    "VendorId": "0",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK",
+        "HealthRollup": "OK"
+    },
+    "Links": {
+        "PCIeDevice": {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/GPU7"
+        }
+    },
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#GPUDevice.v1_0_0.PCIeFunction",
+            "GPUDevice": {
+                "GPUVendor": "NVIDIA",
+                "GPUModel": "H100 80GB HBM3",
+                "GPUFWRevision": "96.00.61.00.01",
+                "GPUSlot": 7,
+                "GPUCapacity0": "0",
+                "GPUCapacity1": "0",
+                "GPUCapacity2": "0"
+            }
+        }
+    }
+}

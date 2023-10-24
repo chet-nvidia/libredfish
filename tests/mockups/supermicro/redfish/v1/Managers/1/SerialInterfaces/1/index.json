@@ -1,0 +1,16 @@
+{
+    "@odata.type": "#SerialInterface.v1_1_4.SerialInterface",
+    "@odata.id": "/redfish/v1/Managers/1/SerialInterfaces/1",
+    "Id": "1",
+    "Name": "SerialInterface",
+    "Description": "Serial over LAN",
+    "InterfaceEnabled": true,
+    "SignalType": "Rs232",
+    "BitRate": "115200",
+    "Parity": "None",
+    "DataBits": "8",
+    "StopBits": "1",
+    "FlowControl": "None",
+    "ConnectorType": "RJ45",
+    "PinOut": "Cyclades"
+}

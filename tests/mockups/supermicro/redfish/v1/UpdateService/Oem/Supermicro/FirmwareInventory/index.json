@@ -1,0 +1,23 @@
+{
+    "@odata.type": "#SmcFirmwareInventoryCollection.SmcFirmwareInventoryCollection",
+    "@odata.id": "/redfish/v1/UpdateService/Oem/Supermicro/FirmwareInventory",
+    "Id": "Supermicro",
+    "Name": "Firmware Inventory Collection",
+    "Members@odata.count": 2,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/UpdateService/Oem/Supermicro/FirmwareInventory/BMC"
+        },
+        {
+            "@odata.id": "/redfish/v1/UpdateService/Oem/Supermicro/FirmwareInventory/BIOS"
+        }
+    ],
+    "Oem": {},
+    "OemUpdateActionNotSupported": {
+        "Description": "It indicates that this Redfish API will be removed from X13-and-after platforms.",
+        "Message": "It is NOT recommended to use this API, because this Redfish API is obsolete. Supermicro considers removing this API from X13-and-after platforms.",
+        "Serverity": "Alert",
+        "NumberOfArgs": 0,
+        "Resolution": "Please use the standard Redfish API to update firmware. URI://redfish/v1/UpdateService/FirmwareInventory/upload."
+    }
+}

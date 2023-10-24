@@ -1,0 +1,47 @@
+{
+    "@odata.type": "#Memory.v1_11_0.Memory",
+    "@odata.id": "/redfish/v1/Systems/1/Memory/6",
+    "Id": "6",
+    "Name": "Memory",
+    "MemoryLocation": {
+        "MemoryController": 1,
+        "Socket": 0,
+        "Channel": 2,
+        "Slot": 1
+    },
+    "AllowedSpeedsMHz": [
+        4800
+    ],
+    "BaseModuleType": "RDIMM",
+    "BusWidthBits": 80,
+    "CapacityMiB": 65536,
+    "DataWidthBits": 64,
+    "DeviceLocator": "P1-DIMMC2",
+    "ErrorCorrection": "SingleBitECC",
+    "MemoryMedia": [
+        "DRAM"
+    ],
+    "MemoryType": "DRAM",
+    "MemoryDeviceType": "DDR5",
+    "Manufacturer": "Samsung",
+    "MaxTDPMilliWatts": [
+        122000
+    ],
+    "OperatingSpeedMhz": 4400,
+    "PartNumber": "M321R8GA0BB0-CQKZJ",
+    "RankCount": 6,
+    "SerialNumber": "80CE01231404946AE2",
+    "Metrics": {
+        "@odata.id": "/redfish/v1/Systems/1/Memory/6/MemoryMetrics"
+    },
+    "Location": {
+        "PartLocation": {
+            "ServiceLabel": "P1-DIMMC2",
+            "LocationType": "Slot"
+        }
+    },
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    }
+}

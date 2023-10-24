@@ -1,0 +1,37 @@
+{
+    "@odata.type": "#Drive.v1_9_0.Drive",
+    "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.6",
+    "Name": "Disk.Bay.6",
+    "Id": "6",
+    "Manufacturer": "Samsung",
+    "SerialNumber": "S6CKNN0W501980",
+    "Model": "MZQL27T6HBLA-00A07",
+    "Revision": "GDC5602Q",
+    "StatusIndicator": "OK",
+    "FailurePredicted": false,
+    "CapacityBytes": 7681501126656,
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcDriveExtensions.v1_0_0.Drive",
+            "Temperature": 46,
+            "PercentageDriveLifeUsed": 0,
+            "DriveFunctional": true
+        }
+    },
+    "IndicatorLED": "Off",
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Links": {
+        "Volumes": []
+    },
+    "Actions": {
+        "Oem": {
+            "#SmcDrive.Indicate": {
+                "target": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.6/Actions/Oem/SmcDrive.Indicate",
+                "@Redfish.ActionInfo": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.6/Oem/Supermicro/IndicateActionInfo"
+            }
+        }
+    }
+}

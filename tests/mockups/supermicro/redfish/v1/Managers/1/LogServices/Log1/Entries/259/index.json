@@ -1,0 +1,21 @@
+{
+    "@odata.type": "#LogEntry.v1_3_0.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/1/LogServices/Log1/Entries/259",
+    "Id": "259",
+    "Name": "Maintenance Event Log Entry 259",
+    "EntryType": "Oem",
+    "Severity": "OK",
+    "Created": "2023-08-18T15:26:56Z",
+    "OemRecordFormat": "SMC",
+    "Message": "[MEL-0207] The host FW user password has been removed.",
+    "MessageId": "Event.1.0.HostFwPwdRemoved",
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "Interface": "IPMI",
+            "User": "ADMIN(ADMIN)",
+            "Source": "Localhost",
+            "Category": "account"
+        }
+    }
+}

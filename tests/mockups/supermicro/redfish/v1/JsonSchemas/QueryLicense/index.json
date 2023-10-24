@@ -1,0 +1,18 @@
+{
+    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.id": "/redfish/v1/JsonSchemas/QueryLicense",
+    "Id": "QueryLicense",
+    "Name": "QueryLicense Schema File",
+    "Description": "QueryLicense Schema File Location",
+    "Languages": [
+        "en"
+    ],
+    "Schema": "QueryLicense",
+    "Location": [
+        {
+            "Language": "en",
+            "Uri": "/schemas/v1/QueryLicense.json"
+        }
+    ],
+    "Oem": {}
+}

@@ -1,0 +1,29 @@
+{
+    "@odata.type": "#Certificate.v1_1_0.Certificate",
+    "@odata.id": "/redfish/v1/Systems/1/Certificates/5",
+    "Id": "5",
+    "Name": "BMC internal Certificate",
+    "CertificateString": "-----BEGIN CERTIFICATE-----\nMIICkTCCAfCgAwIBAgIBATAMBggqhkjOPQQDAgUAMIGNMQswCQYDVQQGEwJUVzEP\nMA0GA1UECAwGVGFpd2FuMRIwEAYDVQQHDAlLYW9oc2l1bmcxIjAgBgNVBAoMGVN1\ncGVyIE1pY3JvIENvbXB1dGVyIEluYy4xGzAZBgNVBAsMEkNNPTE1OC4xMDAzL0dF\nTj0xMzEYMBYGA1UEAwwPQlM9T00yMzRTMDA1OTU5MB4XDTIzMDUwMzA3NTAxNloX\nDTQzMDUwMzA3NTAxNlowgYUxCzAJBgNVBAYTAlRXMQ8wDQYDVQQIDAZUYWl3YW4x\nEjAQBgNVBAcMCUthb2hzaXVuZzEiMCAGA1UECgwZU3VwZXIgTWljcm8gQ29tcHV0\nZXIgSW5jLjEbMBkGA1UECwwSQ009MTU4LjEwMDMvR0VOPTEzMRAwDgYDVQQDDAdE\nZXZBS0NBMIGbMBAGByqGSM49AgEGBSuBBAAjA4GGAAQBsKY7zhzCGuJ6++7x/sOy\nLx6fffAWPOa1r+EXxVhjR1kQDgwReHjqEEofM6orYCZQp8b7Aiq6WCWX9WsW4hSA\nKNcBbVQYHzacp2Wp3mgisZn5jOZBiKfVK37MNhmv7vTXU8389scM4tMDeYj5m4ET\nijYDIxh8mX4Q7XAxc1WX90NZgA2jAjAAMAwGCCqGSM49BAMCBQADgYwAMIGIAkIB\nN1DHg5uZbxwA+K9f/ZixKTPRwXo3P13xgdKpLHmZl84c7lhXfKdCnIVoiUNI0pTw\nby3PD3Zdi4K8eJFmri9kgwwCQgCLw2XUKhrsBwFnEId76LBegQXiQZ4l8uK1nel0\nTO3XbBJNyAIL4CRI1V6LQuSaxc6hT7boct254CWHwB6y/O4GhQ==\n-----END CERTIFICATE-----",
+    "CertificateType": "PEM",
+    "Issuer": {
+        "Country": "TW",
+        "State": "Taiwan",
+        "City": "Kaohsiung",
+        "Organization": "Super Micro Computer Inc.",
+        "OrganizationalUnit": "CM=158.1003/GEN=13",
+        "CommonName": "BS=OM234S005959"
+    },
+    "Subject": {
+        "Country": "TW",
+        "State": "Taiwan",
+        "City": "Kaohsiung",
+        "Organization": "Super Micro Computer Inc.",
+        "OrganizationalUnit": "CM=158.1003/GEN=13",
+        "CommonName": "DevAKCA"
+    },
+    "ValidNotBefore": "2023-05-3T07:50:16+00:00",
+    "ValidNotAfter": "2043-05-3T07:50:16+00:00",
+    "KeyUsage": [
+        "ServerAuthentication"
+    ]
+}

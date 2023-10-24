@@ -1,0 +1,8 @@
+{
+    "@odata.type": "#MemoryHealthComp.v1_0_0.MemoryHealthComp",
+    "@odata.id": "/redfish/v1/Managers/1/Oem/Supermicro/MemoryHealthComp",
+    "Id": "MemoryHealthComp",
+    "Name": "MemoryHealthComp",
+    "MemoryHealthCompInit": "Disable",
+    "MemoryHealthCompNext": "Disable"
+}

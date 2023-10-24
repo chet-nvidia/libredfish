@@ -1,0 +1,8 @@
+{
+    "@odata.type": "#Bios.v1_1_1.Bios",
+    "@odata.id": "/redfish/v1/Systems/1/Bios/SD",
+    "Id": "SD",
+    "Name": "BIOS Configuration Pending Settings",
+    "AttributeRegistry": "BiosAttributeRegistry.v1_0_0",
+    "Description": "BIOS Configuration Pending Settings. These settings will be applied on next system reboot."
+}

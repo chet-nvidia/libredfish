@@ -1,0 +1,33 @@
+{
+    "@odata.type": "#MetricDefinition.v1_0_0.MetricDefinition",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/MaxPowerConsumptionWeek",
+    "Id": "MaxPowerConsumptionWeek",
+    "Name": "Maximum Power Power Consumption for 1 week with sensing interval of 12 hours.",
+    "MetricReportDefinitionType": "Periodic",
+    "MetricReportDefinitionEnabled": true,
+    "Schedule": {
+        "RecurrenceInterval": "PT12H"
+    },
+    "ReportActions": [
+        "LogToMetricReportsCollection"
+    ],
+    "ReportUpdates": "Overwrite",
+    "MetricReports": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReports/MaxPowerConsumptionWeek"
+    },
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK"
+    },
+    "Metrics": [
+        {
+            "MetricId": "MaxPowerConsumptionWeek",
+            "MetricProperties": [
+                "/redfish/v1/Chassis/1/Power#/PowerControl/0"
+            ],
+            "CollectionFunction": "Maximum",
+            "CollectionTimeScope": "Interval",
+            "CollectionDuration": "PT43200.0S"
+        }
+    ]
+}

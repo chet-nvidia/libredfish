@@ -1,0 +1,21 @@
+{
+    "@odata.type": "#LogEntry.v1_3_0.LogEntry",
+    "@odata.id": "/redfish/v1/Managers/1/LogServices/Log1/Entries/1",
+    "Id": "1",
+    "Name": "Maintenance Event Log Entry 1",
+    "EntryType": "Oem",
+    "Severity": "OK",
+    "Created": "2023-07-21T13:06:03Z",
+    "OemRecordFormat": "SMC",
+    "Message": "[MEL-0058] IPMI configuration was restored to default successfully.",
+    "MessageId": "Event.1.0.FactoryDefaultRestored",
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "Interface": "KCS",
+            "User": "ADMIN(ADMIN)",
+            "Source": "Localhost",
+            "Category": "others"
+        }
+    }
+}

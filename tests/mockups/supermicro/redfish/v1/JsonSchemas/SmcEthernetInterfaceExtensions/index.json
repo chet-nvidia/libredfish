@@ -1,0 +1,18 @@
+{
+    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.id": "/redfish/v1/JsonSchemas/SmcEthernetInterfaceExtensions",
+    "Id": "SmcEthernetInterfaceExtensions",
+    "Name": "SmcEthernetInterfaceExtensions Schema File",
+    "Description": "SmcEthernetInterfaceExtensions Schema File Location",
+    "Languages": [
+        "en"
+    ],
+    "Schema": "SmcEthernetInterfaceExtensions",
+    "Location": [
+        {
+            "Language": "en",
+            "Uri": "/schemas/v1/SmcEthernetInterfaceExtensions.json"
+        }
+    ],
+    "Oem": {}
+}

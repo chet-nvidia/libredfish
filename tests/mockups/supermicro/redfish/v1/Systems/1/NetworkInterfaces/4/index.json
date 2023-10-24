@@ -1,0 +1,16 @@
+{
+    "@odata.type": "#NetworkInterface.v1_1_3.NetworkInterface",
+    "@odata.id": "/redfish/v1/Systems/1/NetworkInterfaces/4",
+    "Id": "4",
+    "Name": "Network Device View",
+    "NetworkPorts": {
+        "@odata.id": "/redfish/v1/Systems/1/NetworkInterfaces/4/NetworkPorts"
+    },
+    "NetworkDeviceFunctions": {
+        "@odata.id": "/redfish/v1/Systems/1/NetworkInterfaces/4/NetworkDeviceFunctions"
+    },
+    "NetworkAdapter": {
+        "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/4"
+    },
+    "Links": {}
+}

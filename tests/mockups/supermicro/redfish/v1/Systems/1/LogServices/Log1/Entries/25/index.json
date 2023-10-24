@@ -1,0 +1,25 @@
+{
+    "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+    "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/25",
+    "Id": "25",
+    "Name": "Health Event Log Entry 25",
+    "EntryType": "SEL",
+    "Severity": "Critical",
+    "Created": "2023-10-10T20:26:16Z",
+    "EntryCode": "Assert",
+    "SensorType": "Power Supply",
+    "SensorNumber": 194,
+    "Message": "[PWR-0003] PS3 Status, Power Supply input lost (AC/DC)",
+    "MessageId": "0xF3FFFF",
+    "Oem": {
+        "Supermicro": {
+            "MarkAsAcknowledged": false,
+            "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
+            "RawEventData": {
+                "EventDirAndType": "0x6F",
+                "SensorType": "0x08",
+                "SensorName": "PS3 Status"
+            }
+        }
+    }
+}

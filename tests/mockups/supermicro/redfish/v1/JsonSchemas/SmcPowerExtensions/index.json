@@ -1,0 +1,18 @@
+{
+    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.id": "/redfish/v1/JsonSchemas/SmcPowerExtensions",
+    "Id": "SmcPowerExtensions",
+    "Name": "SmcPowerExtensions Schema File",
+    "Description": "SmcPowerExtensions Schema File Location",
+    "Languages": [
+        "en"
+    ],
+    "Schema": "SmcPowerExtensions",
+    "Location": [
+        {
+            "Language": "en",
+            "Uri": "/schemas/v1/SmcPowerExtensions.json"
+        }
+    ],
+    "Oem": {}
+}

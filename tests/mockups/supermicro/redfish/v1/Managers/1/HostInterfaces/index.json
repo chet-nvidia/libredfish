@@ -1,0 +1,12 @@
+{
+    "@odata.type": "#HostInterfaceCollection.HostInterfaceCollection",
+    "@odata.id": "/redfish/v1/Managers/1/HostInterfaces",
+    "Id": "1",
+    "Name": "Host Interface Collection",
+    "Members@odata.count": 1,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1"
+        }
+    ]
+}
