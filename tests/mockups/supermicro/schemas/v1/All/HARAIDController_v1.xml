@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2014-2015 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+        <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="OData.Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+        <edmx:Include Namespace="Resource.v1_0_0" />
+    </edmx:Reference>
+
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcHARAIDController">
+            <EntityType Name="Config" BaseType="Resource.v1_0_0.Resource"></EntityType>
+            <Action Name="Save" IsBound="true">
+                <Annotation Term="OData.Description" String="The action save the configuration."/>
+                <Annotation Term="OData.LongDescription" String="This defines the name of the custom action supported when used in conjunction with a POST operation to this resource. When issued, this operation will perform a save action to the HA-RAID config supplied as a parameter."/>
+                <Parameter Name="SmcHARAIDController" Type="SmcHARAIDController.v1_0_0.Actions"/>
+                <Parameter Name="ControllerId" Type="Edm.Decimal" Nullable="false">
+                    <Annotation Term="OData.Description" String="The index of the storage controller interface."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this parameter shall represent the identifier of the Storage bus interface."/>
+                </Parameter>
+                <Parameter Name="BIOSBootMode" Type="Edm.String" Nullable="false">
+                    <Annotation Term="OData.Description" String="The controller BIOS boot mode to change."/>
+                    <Annotation Term="OData.LongDescription" String="This defines the controller BIOS boot mode to change. For instance, this could be the StopOnError, PauseOnError, IgnoreOnError and SafeModeOnError."/>
+                </Parameter>
+                <Parameter Name="JBODMode" Type="Edm.String" Nullable="false">
+                    <Annotation Term="OData.Description" String="The controller JBOD mode to enable."/>
+                    <Annotation Term="OData.LongDescription" String="This defines the controller JBOD mode to enable."/>
+                </Parameter>
+            </Action>
+        </Schema>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="HARAIDController.v1_0_0">
+            <EntityType Name="Config" BaseType="SmcHARAIDController.Config">
+                <Property Name="BIOSBootMode" Type="Collection(HARAIDController.v1_0_0.BootErrorMode)" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="This represents the BIOS boot mode while error occurred."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be the set of BIOS boot mode this storage controller can use to handle errors while BIOS booting."/>
+                </Property>
+                <Property Name="JBODMode" Type="Resource.State" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="This represents the JBOD mode."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be the JBOD mode this storage controller."/>
+                </Property>
+            </EntityType>
+            <EnumType Name="BootErrorMode">
+                <Member Name="StopOnError">
+                    <Annotation Term="OData.Description" String="Stop on error"/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that this device stops while errors occurred during booting."/>
+                </Member>
+                <Member Name="PauseOnError">
+                    <Annotation Term="OData.Description" String="Pause on error"/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that this device pauses while errors occurred during booting."/>
+                </Member>
+                <Member Name="IgnoreError">
+                    <Annotation Term="OData.Description" String="Ignore error"/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that this device ignores the error while errors occurred during booting."/>
+                </Member>
+                <Member Name="SafeModeOnError">
+                    <Annotation Term="OData.Description" String="Safe mode on error"/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that this device enters into safe mode while errors occurred during booting."/>
+                </Member>
+            </EnumType>
+
+            <ComplexType Name="Actions">
+                <Annotation Term="OData.AdditionalProperties" Bool="False"/>
+                <Property Name="Oem" Type="Storage.v1_0_0.OemActions"/>
+            </ComplexType>
+            <ComplexType Name="OemActions">
+                <Annotation Term="OData.AdditionalProperties" Bool="True"/>
+            </ComplexType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
+

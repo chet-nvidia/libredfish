@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Copyright 2014-2015 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+        <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="OData.Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+        <edmx:Include Namespace="Resource.v1_0_0" />
+    </edmx:Reference>
+    <edmx:Reference Uri="http://10.217.133.92/schemas/v1/SNMPv2_v1.xml">
+        <edmx:Include Namespace="SNMPv2"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://10.217.133.92/schemas/v1/SNMPv3_v1.xml">
+        <edmx:Include Namespace="SNMPv3"/>
+    </edmx:Reference>
+
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SNMP">
+            <EntityType Name="SNMP" BaseType="Resource.v1_0_0.Resource">
+            </EntityType>
+        </Schema>
+
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SNMP.v1_0_0">
+            <EntityType Name="SNMP" BaseType="SNMP.SNMP">
+                <Property Name="SnmpEnabled" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="SNMP is enabled or not."/>
+                    <Annotation Term="OData.LongDescription" String="If SNMP is enabled, SNMP deamon will receive and service all requests defined in IPMI MIB file."/>
+                </Property>
+                <NavigationProperty Name="SNMPv2" Type="SNMPv2.SNMPv2">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+                    <Annotation Term="OData.Description" String="Config the settings of SNMPv2 service"/>
+                    <Annotation Term="OData.LongDescription" String="Config the settings of SNMPv2 service"/>
+                    <Annotation Term="OData.AutoExpandReferences"/>
+                </NavigationProperty>
+                <NavigationProperty Name="SNMPv3" Type="SNMPv3.SNMPv3">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+                    <Annotation Term="OData.Description" String="Config the settings of SNMPv3 service"/>
+                    <Annotation Term="OData.LongDescription" String="Config the settings of SNMPv3 service"/>
+                    <Annotation Term="OData.AutoExpandReferences"/>
+                </NavigationProperty>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

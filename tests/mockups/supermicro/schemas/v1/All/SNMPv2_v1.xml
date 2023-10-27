@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Copyright 2014-2015 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+        <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="OData.Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+        <edmx:Include Namespace="Resource.v1_0_0" />
+    </edmx:Reference>
+
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SNMPv2">
+            <EntityType Name="SNMPv2" BaseType="Resource.v1_0_0.Resource">
+            </EntityType>
+        </Schema>
+
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SNMPv2.v1_0_0">
+            <EntityType Name="SNMPv2" BaseType="SNMPv2.SNMPv2">
+                <Property Name="Snmpv2Enabled" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="SNMPv2 is enabled or not."/>
+                </Property>
+                <Property Name="ROCommunity" Type="Edm.String" Nullable="true">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The read only community of SNMPv2."/>
+                </Property>
+                <Property Name="RWCommunity" Type="Edm.String" Nullable="true">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The read-write community of SNMPv2."/>
+                </Property>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

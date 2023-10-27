@@ -1,7 +1,7 @@
-use crate::model::ODataId;
 use serde::{Deserialize, Serialize};
 
 use super::{ODataLinks, ResourceStatus, StatusVec};
+use crate::model::ODataId;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
@@ -22,7 +22,8 @@ pub struct FansOem {
 pub struct Fan {
     pub reading: i64,
     pub reading_units: String,
-    pub fan_name: String,
+    pub fan_name: Option<String>, // Dell, Lenovo, NVIDIA DPU
+    pub name: Option<String>,     // Supermicro
     pub physical_context: String,
     pub sensor_number: Option<i64>,
     pub lower_threshold_critical: Option<i64>,

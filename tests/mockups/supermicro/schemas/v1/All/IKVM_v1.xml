@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Copyright 2014-2015 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+        <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="OData.Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+        <edmx:Include Namespace="Resource.v1_0_0" />
+    </edmx:Reference>
+
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="IKVM">
+            <EntityType Name="IKVM" BaseType="Resource.v1_0_0.Resource">
+            </EntityType>
+        </Schema>
+
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="IKVM.v1_0_0">
+            <EntityType Name="IKVM" BaseType="IKVM.IKVM">
+                <Property Name="URI" Type="Edm.String" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+                    <Annotation Term="OData.Description" String="URI to launch HTML5 iKVM"/>
+                    <Annotation Term="OData.LongDescription" String="An unique URI allows user to launch HTML5 iKVM app."/>
+                </Property>
+            </EntityType>
+        </Schema>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="IKVM.v1_0_1">
+            <EntityType Name="IKVM" BaseType="IKVM.v1_0_0.IKVM">
+                <Property Name="Current interface" Type="Edm.String" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The IKVM current interface."/>
+                    <Annotation Term="OData.LongDescription" String="Show or Patch the current interface of IKVM. There are two options JAVA plug-in or HTML 5."/>
+                </Property>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

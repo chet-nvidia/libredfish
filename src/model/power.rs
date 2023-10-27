@@ -93,20 +93,23 @@ pub struct InputRanges {
 #[serde(rename_all = "PascalCase")]
 pub struct PowerSupply {
     pub firmware_version: String,
-    pub last_power_output_watts: f64, // we need to track this metric
-    pub line_input_voltage: i64,      // we need to track this metric
+    // we need to track this metric
+    pub last_power_output_watts: Option<f64>, // not in Supermicro or NVIDIA DPU
+    // we need to track this metric
+    pub line_input_voltage: i64,
     pub line_input_voltage_type: String,
-    pub efficiency_percent: f64,
-    pub hot_pluggable: bool,
+    pub efficiency_percent: Option<f64>, // not in Supermicro or NVIDIA DPU
+    pub hot_pluggable: Option<bool>,
     pub model: String,
     pub name: String,
-    pub input_ranges: Vec<InputRanges>,
-    pub power_capacity_watts: i64,
-    pub power_input_watts: f64,
-    pub power_output_watts: f64,
+    pub input_ranges: Option<Vec<InputRanges>>, // only present sometimes on Supermicro
+    pub power_capacity_watts: Option<i64>,      // present but 'null' on Supermicro
+    pub power_input_watts: Option<f64>,
+    pub power_output_watts: Option<f64>,
     pub power_supply_type: String,
     pub serial_number: String,
     pub spare_part_number: Option<String>,
+    pub part_number: Option<String>, // Supermicro
     pub status: ResourceStatus,
 }
 

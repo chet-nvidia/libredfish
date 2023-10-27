@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2014-2016 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/csd01/complete/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+    <edmx:Include Namespace="Resource"/>
+    <edmx:Include Namespace="Resource.v1_0_0"/>
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcChassisExtensions">
+        <EntityType Name="SmcChassisExtensions" BaseType="Resource.v1_0_0.Resource">
+        </EntityType>
+    </Schema>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcChassisExtensions.v1_0_0">
+     <ComplexType Name="Chassis">
+         <Property Name="BoardSerialNumber" Type="Edm.String">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="The board serial number of the chassis."/>
+          <Annotation Term="OData.LongDescription" String="The value of this property shall be a board serial number used to identify the chassis."/>
+        </Property>
+        <Property Name="GUID" Type="Edm.String">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="The GUID of the chassis."/>
+          <Annotation Term="OData.LongDescription" String="The value of this property shall be an GUID used to identify the chassis."/>
+        </Property>
+        <Property Name="BoardID" Type="Edm.String">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="The board ID of the chassis."/>
+          <Annotation Term="OData.LongDescription" String="The value of this property shall be a board ID used to identify the chassis."/>
+        </Property>
+     </ComplexType>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

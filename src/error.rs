@@ -63,4 +63,7 @@ pub enum RedfishError {
 
     #[error("BMC vendor does not support this operation: {0}")]
     NotSupported(String),
+
+    #[error("Could not find user with UserName matching '{0}'")]
+    UserNotFound(String),
 }

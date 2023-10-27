@@ -105,7 +105,7 @@ pub struct ComputerSystem {
     #[serde(default)]
     pub trusted_modules: Vec<TrustedModule>,
     #[serde(default, rename = "PCIeDevices")]
-    pub pcie_devices: Vec<ODataId>,
+    pub pcie_devices: Vec<ODataId>, // not in Supermicro
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -139,6 +139,8 @@ pub struct PCIeDevice {
     pub firmware_version: Option<String>,
     pub id: Option<String>,
     pub manufacturer: Option<String>,
+    #[serde(rename = "GPUVendor")]
+    pub gpu_vendor: Option<String>,
     pub name: Option<String>,
     pub part_number: Option<String>,
     pub serial_number: Option<String>,

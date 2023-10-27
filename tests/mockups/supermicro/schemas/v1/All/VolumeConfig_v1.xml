@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Capabilities.V1.xml">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+        <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+        <edmx:Include Namespace="Resource"/>
+        <edmx:Include Namespace="Resource.v1_0_0" />
+        <edmx:Include Namespace="Resource.1.1.0" />
+    </edmx:Reference>
+        <edmx:Reference Uri="http://10.217.133.92/schemas/v1/VolumeConfig_v1.xml">
+        <edmx:Include Namespace="SmcStorageExtensions" />
+        <edmx:Include Namespace="SmcStorageExtensions.v1_0_0"/>
+    </edmx:Reference>
+
+
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="VolumeConfig">
+            <EntityType Name="VolumeConfig" BaseType="Resource.v1_0_0.Resource" Abstract="true">
+                <Annotation Term="OData.Description" String="VolumeConfig contains properties used to setup a volume for any system."/>
+                <Annotation Term="OData.LongDescription" String="This resource shall be used to represent a volume config for a Redfish implementation."/>
+            </EntityType>
+            <EnumType Name="RaidLevel">
+                <Member Name="RAID0">
+                    <Annotation Term="OData.Description" String="Standard RAID level 0"/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that this device conforms to the RAID 0."/>
+                </Member>
+                <Member Name="RAID1">
+                    <Annotation Term="OData.Description" String="Standard RAID level 1"/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that this device conforms to the RAID 1."/>
+                </Member>
+                <Member Name="RAID5">
+                    <Annotation Term="OData.Description" String="Standard RAID level 5"/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that this device conforms to the RAID 5."/>
+                </Member>
+                <Member Name="RAID6">
+                    <Annotation Term="OData.Description" String="Standard RAID level 6"/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that this device conforms to the RAID 6."/>
+                </Member>
+                <Member Name="RAID10">
+                    <Annotation Term="OData.Description" String="Standard RAID level 10"/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that this device conforms to the RAID 10."/>
+                </Member>
+                <Member Name="RAID50">
+                    <Annotation Term="OData.Description" String="Standard RAID level 50"/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that this device conforms to the RAID 50."/>
+                </Member>
+                <Member Name="RAID60">
+                    <Annotation Term="OData.Description" String="Standard RAID level 60"/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that this device conforms to the RAID 60."/>
+                </Member>
+            </EnumType>
+            <EnumType Name="StripSize">
+                <Member Name="64K">
+                    <Annotation Term="OData.Description" String="64K strip size per DDF."/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that Strip size per DDF is 64K."/>
+               </Member>
+                <Member Name="128K">
+                    <Annotation Term="OData.Description" String="128K strip size per DDF."/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that Strip size per DDF is 128K."/>
+               </Member>
+                <Member Name="256K">
+                    <Annotation Term="OData.Description" String="256K strip size per DDF."/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that Strip size per DDF is 256K."/>
+               </Member>
+                <Member Name="512K">
+                    <Annotation Term="OData.Description" String="512K strip size per DDF."/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that Strip size per DDF is 512K."/>
+               </Member>
+                <Member Name="1024K">
+                    <Annotation Term="OData.Description" String="1024K strip size per DDF."/>
+                    <Annotation Term="OData.LongDescription" String="This value shall mean that Strip size per DDF is 1024K."/>
+               </Member>
+            </EnumType>
+            <EnumType Name="LdReadPolicy">
+                 <Member Name="NoReadAhead">
+                 </Member>
+                 <Member Name="AlwaysReadAhead">
+                 </Member>
+            </EnumType>
+            <EnumType Name="LdWritePolicy">
+                 <Member Name="WriteThrough">
+                 </Member>
+                 <Member Name="WriteBack">
+                 </Member>
+                 <Member Name="WriteBackWithBBU">
+                 </Member>
+            </EnumType>
+            <EnumType Name="LdIOPolicy">
+                 <Member Name="DirectIO">
+                 </Member>
+                 <Member Name="CachedIO">
+                 </Member>
+            </EnumType>
+            <EnumType Name="AccessPolicy">
+                 <Member Name="ReadWrite">
+                 </Member>
+                 <Member Name="ReadOnly">
+                 </Member>
+                 <Member Name="Blocked">
+                 </Member>
+            </EnumType>
+            <EnumType Name="DiskCachePolicy">
+                 <Member Name="Unchanged">
+                 </Member>
+                 <Member Name="Enable">
+                 </Member>
+                 <Member Name="Disable">
+                 </Member>
+            </EnumType>
+            <EnumType Name="InitState">
+                 <Member Name="NoInit">
+                 </Member>
+                 <Member Name="QuickInit">
+                 </Member>
+                 <Member Name="FullInit">
+                 </Member>
+            </EnumType>
+       </Schema>
+
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="VolumeConfig.v1_0_0">
+            <EntityType Name="VolumeConfig" BaseType="VolumeConfig.VolumeConfig">
+                <Property Name="ControllerId" Type="Edm.Int64" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The controller id of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of controller id of volume config."/>
+                </Property>
+                <Property Name="Raid" Type="VolumeConfig.RaidLevel" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The raid level of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of RaidLevel of volume config."/>
+                </Property>
+                <Property Name="Span" Type="Edm.Int64" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The physical disk per span."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of physical disk per span of volume config."/>
+                </Property>
+                <Property Name="PhysicalDrives" Type="Collection(Edm.String)" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The disk index collection of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of disk index collection of volume config."/>
+                </Property>
+                <Property Name="UsePercentage" Type="Edm.Int64" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The percentage of the disk to be used."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of disk percentage use."/>
+                </Property>
+                <Property Name="LogicalDriveCount" Type="Edm.Int64" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The new logical drive count of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of new logical drive count of volume config.(Max LDs: 16)"/>
+                </Property>
+                <Property Name="StripSizePerDDF" Type="VolumeConfig.StripSize" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The Strip size per DDF of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of Strip size per DDF of volume config.(Default: 256K)"/>
+                </Property>
+                <Property Name="VdName" Type="Edm.String" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The VD name of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of RaidLevel of volume config.(alphabet or number(Max Chars: 15; Keep blank for none)):"/>
+                </Property>
+                <Property Name="LdReadPolicy" Type="VolumeConfig.LdReadPolicy" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The LD Read Policy of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of LD Read Policy of volume config.(Default: No Read Ahead)"/>
+                </Property>
+                <Property Name="LdWritePolicy" Type="VolumeConfig.LdWritePolicy" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The LD Write Policy of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of LD Write Policy of volume config.(Default: Write Back)"/>
+                </Property>
+                <Property Name="LdIOPolicy" Type="VolumeConfig.LdIOPolicy" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The LD IO Policy of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of LD IO Policy of volume config.(Default: Direct IO)"/>
+                </Property>
+                <Property Name="AccessPolicy" Type="VolumeConfig.AccessPolicy" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The Access Policy of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of Access Policy of volume config.(Default: Read Write)"/>
+                </Property>
+                <Property Name="DiskCachePolicy" Type="VolumeConfig.DiskCachePolicy" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The Disk Cache Policy of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of Disk Cache Policy of volume config.(Default: Unchanged)"/>
+                </Property>
+                <Property Name="InitState" Type="VolumeConfig.InitState" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The Init State of the volume config."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of Init State of volume config.(Default: No Init)"/>
+                </Property>
+            </EntityType>
+        </Schema>
+
+    </edmx:DataServices>
+</edmx:Edmx>

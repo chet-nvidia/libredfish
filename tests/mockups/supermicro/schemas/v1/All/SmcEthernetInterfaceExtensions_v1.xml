@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2014-2016 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/csd01/complete/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+    <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+    <edmx:Include Namespace="Resource"/>
+    <edmx:Include Namespace="Resource.v1_0_0"/>
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcEthernetInterfaceExtensions">
+        <EntityType Name="SmcEthernetInterfaceExtensions" BaseType="Resource.v1_0_0.Resource">
+        </EntityType>
+    </Schema>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcEthernetInterfaceExtensions.v1_0_0">
+        <ComplexType Name="EthernetInterface">
+            <Property Name="IPProtocolStatus" Type="SmcEthernetInterfaceExtensions.v1_0_0.IPProtocolStatus">
+                <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                <Annotation Term="OData.Description" String="This indicates the status of IP protocol."/>
+                <Annotation Term="OData.LongDescription" String="The value of this property shall indicate which IP protocol can be accessed."/>
+            </Property>
+        </ComplexType>
+
+        <EnumType Name="IPProtocolStatus">
+            <Member Name="IPv4">
+                <Annotation Term="OData.Description" String="The IPv4 assigned to this interface."/>
+            </Member>
+            <Member Name="IPv6">
+                <Annotation Term="OData.Description" String="The IPv6 assigned to this interface."/>
+            </Member>
+            <Member Name="Dual">
+                <Annotation Term="OData.Description" String="The IPv4 and IPv6 assigned to this interface."/>
+            </Member>
+        </EnumType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcEthernetInterfaceExtensions.v1_0_1">
+        <ComplexType Name="EthernetInterface">
+            <Property Name="LANInterface" Type="SmcEthernetInterfaceExtensions.v1_0_1.LANInterface">
+                <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                <Annotation Term="OData.Description" String="This indicates the interface of LAN."/>
+                <Annotation Term="OData.LongDescription" String="The value of this property shall indicate which the interface is used."/>
+            </Property>
+            <Property Name="ActiveInterface" Type="SmcEthernetInterfaceExtensions.v1_0_1.ActiveInterface">
+                <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+                <Annotation Term="OData.Description" String="This indicates the status of IP protocol."/>
+                <Annotation Term="OData.LongDescription" String="The value of this property shall indicate which the interface is actived."/>
+            </Property>
+        </ComplexType>
+
+        <EnumType Name="LANInterface">
+            <Member Name="Dedicated">
+                <Annotation Term="OData.Description" String="This interface is using dedicated."/>
+            </Member>
+            <Member Name="Share">
+                <Annotation Term="OData.Description" String="This interface is using share that uses onboard and other NIC cards."/>
+            </Member>
+            <Member Name="Failover">
+                <Annotation Term="OData.Description" String="This interface is using failover that uses dedicated, onboard and other NIC cards."/>
+            </Member>
+            <Member Name="Share-AOC">
+                <Annotation Term="OData.Description" String="This interface is using share that uses AOC NIC card."/>
+            </Member>
+            <Member Name="Failover-AOC">
+                <Annotation Term="OData.Description" String="This interface is using failover that uses dedicated and AOC NIC card."/>
+            </Member>
+            <Member Name="Share-AIOM">
+                <Annotation Term="OData.Description" String="This interface is using share that uses AIOM NIC card."/>
+            </Member>
+            <Member Name="Failover-AIOM">
+                <Annotation Term="OData.Description" String="This interface is using failover that uses dedicated and AIOM NIC card."/>
+            </Member>
+            <Member Name="Share-Onboard">
+                <Annotation Term="OData.Description" String="This interface is using share that uses onboard."/>
+            </Member>
+            <Member Name="Failover-Onboard">
+                <Annotation Term="OData.Description" String="This interface is using failover that uses dedicated and onboard."/>
+            </Member>
+        </EnumType>
+
+        <EnumType Name="ActiveInterface">
+            <Member Name="Dedicated">
+                <Annotation Term="OData.Description" String="This interface is using Dedicated mode."/>
+            </Member>
+            <Member Name="Share">
+                <Annotation Term="OData.Description" String="This interface is using Share mode."/>
+            </Member>
+            <Member Name="Failover">
+                <Annotation Term="OData.Description" String="This interface is using Failover mode."/>
+            </Member>
+        </EnumType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

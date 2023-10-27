@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2014-2016 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/csd01/complete/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+    <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+    <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+    <edmx:Include Namespace="Validation.v1_0_0" Alias="Validation"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+    <edmx:Include Namespace="Resource"/>
+    <edmx:Include Namespace="Resource.v1_0_0" />
+    <edmx:Include Namespace="Resource.v1_1_0" />
+  </edmx:Reference>
+
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcDriveExtensions">
+        <EntityType Name="SmcDriveExtensions" BaseType="Resource.v1_0_0.Resource">
+        </EntityType>
+    </Schema>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcDriveExtensions.v1_0_0">
+    <ComplexType Name="Drive">
+        <Property Name="Temperature" Type="Edm.Int64">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="Drive temperature"/>
+          <Annotation Term="OData.LongDescription" String="Represent the temperature of this device."/>
+          <Annotation Term="Measures.Unit" String="Deg"/>
+        </Property>
+        <Property Name="OtherErrCount" Type="Edm.Int64">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="Other error count"/>
+          <Annotation Term="OData.LongDescription" String="Transient errors detected, while communicating with this device."/>
+          <Annotation Term="Measures.Unit" String="By"/>
+        </Property>
+        <Property Name="SmartEventReceived" Type="Edm.Int64">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="Predicted fail count"/>
+          <Annotation Term="OData.LongDescription" String="A property indicating the number of errors that have been detected on the disk media."/>
+          <Annotation Term="Measures.Unit" String="By"/>
+        </Property>
+        <Property Name="MediaErrCount" Type="Edm.Int64">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="Media error count"/>
+          <Annotation Term="OData.LongDescription" String="The number of physical errors detected on the disk media."/>
+          <Annotation Term="Measures.Unit" String="By"/>
+        </Property>
+    </ComplexType>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

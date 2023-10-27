@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Copyright 2014-2015 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+        <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="OData.Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+        <edmx:Include Namespace="Resource.v1_0_0" />
+    </edmx:Reference>
+
+
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="FanMode">
+            <EntityType Name="FanMode" BaseType="Resource.v1_0_0.Resource">
+            </EntityType>
+        </Schema>
+
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="FanMode.v1_0_0">
+            <EntityType Name="FanMode" BaseType="FanMode.FanMode">
+                <Property Name="Mode" Type="FanMode.v1_0_0.FanModeType" Nullable="false">
+                <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                <Annotation Term="OData.Description" String="The property represents the current fan mode."/>
+                <Annotation Term="OData.LongDescription" String="The value of this property shall contain the current fan mode setting.  The valid values for this property are specified through the Redfish.AllowableValues annotation."/>
+                </Property>
+            </EntityType>
+
+            <EnumType Name="FanModeType">
+                <Member Name="Standard"/>
+                <Annotation Term="OData.Description" String="The mode provides standard fan speed for a single or dual cooling zone system."/>
+                <Member Name="FullSpeed"/>
+                <Annotation Term="OData.Description" String="The mode achieves maximum cooling."/>
+                <Member Name="Optimal"/>
+                <Annotation Term="OData.Description" String="The mode provides optimal fan speed for a dual or multiple cooling zone system."/>
+                <Member Name="PUE2"/>
+                <Annotation Term="OData.Description" String="The mode achieves the lower fan speed and the lower power consumption."/>
+                <Member Name="HeavyIO"/>
+                <Annotation Term="OData.Description" String="The mode boosts cooling to the add-on card zone."/>
+                <Member Name="LiquidCooling"/>
+                <Annotation Term="OData.Description" String="The mode allows components with cold plate to not participate in system fan speed control."/>
+                <Annotation Term="Redfish.Revisions">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
+                            <PropertyValue Property="Version" String="v1_0_1"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </EnumType>
+        </Schema>
+
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="FanMode.v1_0_1">
+            <Annotation Term="OData.Description" String="This version was created to add Liquid Cooling fan mode support."/>
+            <EntityType Name="FanMode" BaseType="FanMode.v1_0_0.FanMode"/>
+        </Schema>
+
+    </edmx:DataServices>
+</edmx:Edmx>

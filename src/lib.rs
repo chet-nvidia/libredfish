@@ -22,6 +22,7 @@ mod error;
 mod lenovo;
 mod network;
 mod nvidia;
+mod supermicro;
 pub use network::{Endpoint, RedfishClientPool, RedfishClientPoolBuilder, REDFISH_ENDPOINT};
 pub mod standard;
 pub use error::RedfishError;

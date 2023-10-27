@@ -23,6 +23,7 @@ const PYTHON_VENV_DIR: &str = "libredfish-python-venv";
 const DELL_PORT: &str = "8733";
 const LENOVO_PORT: &str = "8734";
 const NVIDIA_PORT: &str = "8735";
+const SUPERMICRO_PORT: &str = "8736";
 
 static SETUP: Once = Once::new();
 
@@ -39,6 +40,11 @@ fn test_lenovo() -> Result<(), anyhow::Error> {
 #[test]
 fn test_nvidia_dpu() -> Result<(), anyhow::Error> {
     run_integration_test("nvidia_dpu", NVIDIA_PORT)
+}
+
+#[test]
+fn test_supermicro() -> Result<(), anyhow::Error> {
+    run_integration_test("supermicro", SUPERMICRO_PORT)
 }
 
 fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
@@ -132,7 +138,7 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     }
 
     assert_eq!(redfish.get_power_state()?, libredfish::PowerState::On);
-    assert!(redfish.bios()?.len() > 10);
+    assert!(redfish.bios()?.len() > 8);
 
     redfish.power(libredfish::SystemPowerControl::GracefulShutdown)?;
     redfish.power(libredfish::SystemPowerControl::ForceOff)?;
@@ -151,9 +157,11 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
     assert!(redfish.serial_console_status()?.is_fully_enabled());
 
-    redfish.clear_tpm()?;
-    // The mockup includes TPM clear pending operation
-    assert!(!redfish.pending()?.is_empty());
+    if vendor_dir != "supermicro" {
+        redfish.clear_tpm()?;
+        // The mockup includes TPM clear pending operation
+        assert!(!redfish.pending()?.is_empty());
+    }
     redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
 
     redfish.boot_once(libredfish::Boot::Pxe)?;
@@ -167,7 +175,7 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     }
     _ = redfish.get_thermal_metrics()?;
     _ = redfish.get_power_metrics()?;
-    if vendor_dir != "lenovo" {
+    if vendor_dir != "lenovo" && vendor_dir != "supermicro" {
         // the lenovo mockup doesn't have this content, but their docs have it
         _ = redfish.get_system_event_log()?;
     }

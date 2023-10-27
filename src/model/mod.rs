@@ -3,6 +3,7 @@ use std::{fmt, str::FromStr};
 use serde::{Deserialize, Serialize};
 pub mod manager;
 pub use manager::*;
+pub mod serial_interface;
 
 pub mod system;
 pub use system::*;
@@ -14,7 +15,7 @@ pub use bios::*;
 pub mod oem;
 pub mod secure_boot;
 
-// power/thermal/storage not currently used
+pub mod account_service;
 pub mod chassis;
 pub mod ethernet_interface;
 pub mod network_device_function;
@@ -150,7 +151,7 @@ impl FromStr for EnabledDisabled {
 }
 
 #[derive(Debug)]
-pub struct InvalidValueError(String);
+pub struct InvalidValueError(pub String);
 
 impl std::error::Error for InvalidValueError {}
 
@@ -184,7 +185,6 @@ impl fmt::Display for LinkStatus {
         fmt::Debug::fmt(self, f)
     }
 }
-
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct FirmwareCurrent {

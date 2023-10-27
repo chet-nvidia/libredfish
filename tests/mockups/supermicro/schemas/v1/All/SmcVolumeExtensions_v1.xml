@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2014-2016 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/csd01/complete/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+    <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+    <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+    <edmx:Include Namespace="Validation.v1_0_0" Alias="Validation"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+    <edmx:Include Namespace="Resource"/>
+    <edmx:Include Namespace="Resource.v1_0_0" />
+    <edmx:Include Namespace="Resource.v1_1_0" />
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/VolumeConfig_v1.xml">
+    <edmx:Include Namespace="VolumeConfig" />
+    <edmx:Include Namespace="VolumeConfig.v1_0_0"/>
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcVolumeExtensions">
+        <EntityType Name="SmcVolumeExtensions" BaseType="Resource.v1_0_0.Resource">
+        </EntityType>
+    </Schema>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcVolumeExtensions.v1_0_0">
+    <ComplexType Name="Volume">
+	  <Action Name="Indicate">
+        <Parameter Name="Active" Type="Edm.String">
+          <Annotation Term="OData.Description" String="Active the LED."/>
+          <Annotation Term="OData.LongDescription" String="This defines the active status for the action. (True or False)"/>
+        </Parameter>
+        <Annotation Term="OData.Description" String="This action is used to locate the hard drives."/>
+        <Annotation Term="OData.LongDescription" String="This defines the name of the custom action supported on this resource."/>
+      </Action>
+      <Action Name="Delete">
+        <Annotation Term="OData.Description" String="This action is used to delete the volume."/>
+        <Annotation Term="OData.LongDescription" String="This defines the name of the custom action supported on this resource."/>
+      </Action>
+	  <Property Name="RaidType" Type="VolumeConfig.RaidLevel" Nullable="false">
+        <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+        <Annotation Term="OData.Description" String="The raid level of the volume config."/>
+        <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of RaidLevel of volume config."/>
+      </Property>
+      <Property Name="VDName" Type="Edm.String"/>
+      <Property Name="StripeBlock" Type="Edm.String"/>
+      <Property Name="VD Status" Type="Edm.String"/>
+      <Property Name="PD Registered" Type="Edm.String"/>
+    </ComplexType>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Copyright 2014-2015 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+    <edmx:Include Namespace="Org.OData.Measures.V1" Alias="OData.Measures"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+    <edmx:Include Namespace="Resource.v1_0_0" />
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/ActivateLicense_v1.xml">
+    <edmx:Include Namespace="ActivateLicense"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/QueryLicense_v1.xml">
+    <edmx:Include Namespace="QueryLicense"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/ClearLicense_v1.xml">
+    <edmx:Include Namespace="ClearLicense"/>
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LicenseManager">
+
+      <EntityType Name="LicenseManager" BaseType="Resource.v1_0_0.Resource">
+      </EntityType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LicenseManager.v1_0_0">
+
+      <EntityType Name="LicenseManager" BaseType="LicenseManager.LicenseManager">
+        <NavigationProperty Name="ActivateLicense" Type="ActivateLicense.ActivateLicense" ContainsTarget="true">
+            <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+            <Annotation Term="OData.Description" String="This is a reference to activate license."/>
+            <Annotation Term="OData.LongDescription" String="This is a reference to activate license.."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="QueryLicense" Type="QueryLicense.QueryLicense" ContainsTarget="true">
+            <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+            <Annotation Term="OData.Description" String="This is a reference to query license."/>
+            <Annotation Term="OData.LongDescription" String="This is a reference to query license."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="ClearLicense" Type="ClearLicense.ClearLicense" ContainsTarget="true">
+            <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+            <Annotation Term="OData.Description" String="This is a reference to delete license."/>
+            <Annotation Term="OData.LongDescription" String="This is a reference to delete license."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+      </EntityType>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

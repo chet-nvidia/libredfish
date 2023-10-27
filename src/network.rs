@@ -100,15 +100,14 @@ impl RedfishClientPool {
     ) -> Result<Box<dyn crate::Redfish>, RedfishError> {
         let client = RedfishHttpClient::new(self.http_client.clone(), endpoint);
         let mut s = RedfishStandard::new(client)?;
-        let vendor = s.get_service_root()?.vendor;
+        let service_root = s.get_service_root()?;
         let systems = s.get_systems()?;
         let managers = s.get_managers()?;
         let system_id = systems.first().unwrap();
         let manager_id = managers.first().unwrap();
-
         s.set_system_id(system_id)?;
         s.set_manager_id(manager_id)?;
-        s.set_vendor(&vendor.unwrap_or("".to_owned()))
+        s.set_vendor(&service_root.vendor().unwrap_or("".to_string()))
     }
 
     /// Creates a Redfish BMC client for a certain endpoint

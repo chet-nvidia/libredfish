@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Copyright 2014-2015 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+        <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="OData.Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+        <edmx:Include Namespace="Resource.v1_0_0" />
+    </edmx:Reference>
+
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcIPMIConfig">
+            <EntityType Name="SmcIPMIConfig" BaseType="Resource.v1_0_0.Resource" Abstract="true"></EntityType>
+            <Action Name="Upload" IsBound="true">
+                <Annotation Term="OData.Description" String="Upload operation for restoring a saved IPMI configuration."/>
+                <Annotation Term="OData.LongDescription" String="An action of restoring saved IPMI configuration."/>
+                <Parameter Name="SmcIPMIConfig" Type="IPMIConfig.v1_0_0.Actions"/>
+                <Parameter Name="EventType" Type="IPMIConfig.v1_0_0.UploadKeyWords" Nullable="false">
+                    <Annotation Term="OData.Description" String="This is the KeyWord of Upload to be added."/>
+                    <Annotation Term="OData.LongDescription" String="This defines the property name for which the following allowable values apply."/>
+                </Parameter>
+            </Action>
+            <Action Name="Download" IsBound="true">
+                <Annotation Term="OData.Description" String="Download operation for saving current IPMI configuration."/>
+                <Annotation Term="OData.LongDescription" String="An action of saving current IPMI configuration."/>
+                <Parameter Name="SmcIPMIConfig" Type="IPMIConfig.v1_0_0.Actions"/>
+            </Action>
+        </Schema>
+
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="IPMIConfig">
+            <EntityType Name="IPMIConfig" BaseType="Resource.v1_0_0.Resource">
+            </EntityType>
+        </Schema>
+
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="IPMIConfig.v1_0_0">
+            <EntityType Name="IPMIConfig" BaseType="IPMIConfig.IPMIConfig">
+                <Property Name="Actions" Type="IPMIConfig.v1_0_0.Actions" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+                    <Annotation Term="OData.Description" String="The Actions object contains the available custom actions on this resource."/>
+                </Property>
+            </EntityType>
+            <ComplexType Name="Actions">
+                <Annotation Term="OData.AdditionalProperties" Bool="false"/>
+                <Annotation Term="OData.Description" String="The available actions for this resource."/>
+                <Annotation Term="OData.LongDescription" String="This type shall contain the available actions for this resource."/>
+                <Property Name="Oem" Type="IPMIConfig.v1_0_0.OemActions" Nullable="false"/>
+            </ComplexType>
+
+            <ComplexType Name="OemActions">
+                <Annotation Term="OData.AdditionalProperties" Bool="false"/>
+                <Annotation Term="OData.Description" String="The available OEM specific actions for this resource."/>
+                <Annotation Term="OData.LongDescription" String="This type shall contain any additional OEM actions for this resource."/>
+            </ComplexType>
+
+            <EnumType Name="UploadKeyWords">
+                <Member Name="ipmi_config_file">
+                </Member>
+            </EnumType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

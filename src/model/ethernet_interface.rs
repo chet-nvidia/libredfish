@@ -14,7 +14,7 @@ pub struct EthernetInterfaceCollection {
 }
 
 /// http://redfish.dmtf.org/schemas/v1/EthernetInterface.v1_6_0.json
-/// The EthernetInterface schema contains an inventory of Ethernet interface components.  
+/// The EthernetInterface schema contains an inventory of Ethernet interface components.
 /// This can include Network Device parameters such as current IP addresses, MAC address, link status, etc.
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
@@ -32,15 +32,15 @@ pub struct EthernetInterface {
     #[serde(default, rename = "IPv4Addresses")]
     pub ipv4_addresses: Vec<IPv4Address>,
     #[serde(rename = "IPv4StaticAddresses", default)]
-    pub ipv4_static_addresses: Vec<ODataId>,
+    pub ipv4_static_addresses: Vec<IPv4Address>,
     #[serde(default, rename = "IPv6AddressPolicyTable")]
-    pub ipv6_address_policy_table: Vec<ODataId>,
+    pub ipv6_address_policy_table: Vec<PolicyTable>,
     #[serde(rename = "IPv6Addresses", default)]
     pub ipv6_addresses: Vec<IPv6Address>,
     #[serde(rename = "IPv6DefaultGateway")]
     pub ipv6_default_gateway: Option<String>,
     #[serde(rename = "IPv6StaticAddresses", default)]
-    pub ipv6_static_addresses: Vec<ODataId>,
+    pub ipv6_static_addresses: Vec<IPv6Address>,
     pub id: Option<String>,
     pub interface_enabled: Option<bool>,
     pub link_status: Option<LinkStatus>,
@@ -88,7 +88,7 @@ impl std::fmt::Display for IPv6AddressOrigin {
 }
 
 /// http://redfish.dmtf.org/schemas/v1/IPAddresses.v1_0_10.json
-/// The IPAddresses schema contains an inventory of IP Address components.  
+/// The IPAddresses schema contains an inventory of IP Address components.
 /// This can include IP Address parameters such as IP address, address origin, etc.
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
@@ -106,7 +106,7 @@ pub struct IPv6Address {
     #[serde(flatten)]
     pub address: Option<String>,
     pub address_origin: Option<IPv6AddressOrigin>,
-    pub address_state: Option<ODataId>,
+    pub address_state: Option<String>,
     pub prefix_length: Option<i32>,
 }
 
@@ -133,4 +133,12 @@ pub struct DHCPv6 {
     pub use_domain_name: Option<bool>,
     #[serde(rename = "UseNTPServers")]
     pub use_ntp_servers: Option<bool>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct PolicyTable {
+    prefix: Option<String>,
+    precedence: Option<i32>,
+    label: Option<i32>,
 }

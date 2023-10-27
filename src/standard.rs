@@ -3,16 +3,18 @@ use std::collections::{HashMap, HashSet};
 use reqwest::Method;
 use tracing::debug;
 
+use crate::model::account_service::ManagerAccount;
 use crate::model::chassis::{Chassis, ChassisCollection};
 use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 use crate::model::power::Power;
 use crate::model::secure_boot::SecureBoot;
 use crate::model::sel::LogEntry;
+use crate::model::serial_interface::SerialInterface;
 use crate::model::service_root::ServiceRoot;
 use crate::model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
 use crate::model::task::{Task, TaskCollection};
 use crate::model::thermal::Thermal;
-use crate::model::{power, storage, thermal, BootOption, Manager, Managers};
+use crate::model::{power, storage, thermal, BootOption, InvalidValueError, Manager, Managers};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{
     model, Boot, EnabledDisabled, EthernetInterfaceCollection, NetworkDeviceFunction, NetworkPort,
@@ -204,6 +206,7 @@ impl Redfish for RedfishStandard {
         Ok(body)
     }
 
+    /// Vec of chassis id
     fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError> {
         let (_status_code, chassises): (_, ChassisCollection) = self.client.get("Chassis/")?;
         if chassises.members.is_empty() {
@@ -422,6 +425,8 @@ impl RedfishStandard {
             Some("Dell") => Ok(Box::new(crate::dell::Bmc::new(self.clone())?)),
             Some("Lenovo") => Ok(Box::new(crate::lenovo::Bmc::new(self.clone())?)),
             Some("Nvidia") => Ok(Box::new(crate::nvidia::Bmc::new(self.clone())?)),
+            Some("Supermicro") => Ok(Box::new(crate::supermicro::Bmc::new(self.clone())?)),
+            // Some("AMI") => Ok(Box::new(crate::viking::Bmc::new(self.clone())?)),
             _ => Ok(Box::new(self.clone())),
         }
     }
@@ -486,26 +491,80 @@ impl RedfishStandard {
         }
         let mut body = HashMap::new();
         body.insert("Attributes", reset_attrs);
-        let url = format!("Systems/{}/Bios/Pending", self.system_id());
-        self.client.patch(&url, body).map(|_status_code| ())
+        self.client.patch(pending_url, body).map(|_status_code| ())
     }
 
-    //
-    // PRIVATE
-    //
+    /// Get the first serial interface
+    /// On Dell it has no useful content. On Lenovo and Supermicro it does,
+    /// and on Supermicro it's part of setting up Serial-Over-LAN.
+    pub fn get_serial_interface(&self) -> Result<SerialInterface, RedfishError> {
+        let interface_id = self.get_serial_interface_name()?;
+        let url = format!(
+            "Managers/{}/SerialInterfaces/{}",
+            self.manager_id(),
+            interface_id
+        );
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
 
-    // Current BIOS attributes
-    fn bios_attributes(&self) -> Result<serde_json::Value, RedfishError> {
-        let mut b = self.bios()?;
-        b.remove("Attributes")
+    /// The name of the first serial interface.
+    /// I have not seen a box with any number except exactly one yet.
+    pub fn get_serial_interface_name(&self) -> Result<String, RedfishError> {
+        let url = format!("Managers/{}/SerialInterfaces", self.manager_id());
+        let (_status_code, body): (reqwest::StatusCode, HashMap<String, serde_json::Value>) =
+            self.client.get(&url)?;
+        let key = "Members";
+        let member = body
+            .get(key)
             .ok_or_else(|| RedfishError::MissingKey {
-                key: "Attributes".to_string(),
-                url: format!("Systems/{}/Bios", self.system_id()),
-            })
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_array()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "&str".to_string(),
+                url: url.to_string(),
+            })?
+            .first();
+        let Some(member) = member else {
+            return Err(RedfishError::InvalidValue {
+                url: url.to_string(),
+                field: "0".to_string(),
+                err: InvalidValueError("Members array is empty, no SerialInterfaces".to_string()),
+            });
+        };
+
+        let key = "@odata.id";
+        let odata_id = member
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_str()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "&str".to_string(),
+                url: url.to_string(),
+            })?;
+
+        // odata_id is something like
+        // "/redfish/v1/Managers/iDRAC.Embedded.1/SerialInterfaces/Serial.1"
+        // We only want "Serial.1"
+        let Some(interface_id) = odata_id.split('/').last() else {
+            return Err(RedfishError::InvalidValue{
+                url: url.to_string(),
+                field: key.to_string(),
+                err: InvalidValueError("@odata.id did not contain a slash separator value".to_string())
+            });
+        };
+        Ok(interface_id.to_string())
     }
 
     // BIOS attributes that will be applied on next restart
-    fn pending_attributes(
+    pub fn pending_attributes(
         &self,
         pending_url: &str,
     ) -> Result<serde_json::Map<String, serde_json::Value>, RedfishError> {
@@ -529,6 +588,26 @@ impl RedfishStandard {
         };
         Ok(core::mem::take(attrs_map))
     }
+
+    // Current BIOS attributes
+    pub fn bios_attributes(&self) -> Result<serde_json::Value, RedfishError> {
+        let mut b = self.bios()?;
+        b.remove("Attributes")
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: "Attributes".to_string(),
+                url: format!("Systems/{}/Bios", self.system_id()),
+            })
+    }
+
+    pub fn get_account(&self, account_id: &str) -> Result<ManagerAccount, RedfishError> {
+        let url = format!("AccountService/Accounts/{account_id}");
+        let (_status_code, body) = self.client.get(&url)?;
+        Ok(body)
+    }
+
+    //
+    // PRIVATE
+    //
 
     #[allow(dead_code)]
     pub fn get_array_controller(

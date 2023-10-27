@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Copyright 2014-2015 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+        <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="OData.Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
+        <edmx:Include Namespace="Resource.v1_0_0" />
+    </edmx:Reference>
+
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="RADIUS">
+            <EntityType Name="RADIUS" BaseType="Resource.v1_0_0.Resource">
+            </EntityType>
+        </Schema>
+
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="RADIUS.v1_0_0">
+            <EntityType Name="RADIUS" BaseType="RADIUS.RADIUS">
+                <Property Name="RadiusEnabled" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="RADIUS is enabled or not"/>
+                    <Annotation Term="OData.LongDescription" String="If RADIUS is enabled, a centralized authentication, authorization and accounting management for users is provided"/>
+                </Property>
+                <Property Name="RadiusPortNumber" Type="Edm.Int64" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The port number for RADIUS server."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be in the range between 1~65535."/>
+                </Property>
+                <Property Name="RadiusServerIP" Type="Edm.String" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The IP address of the RADIUS server."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of IP address."/>
+                </Property>
+                <Property Name="RadiusSecret" Type="Edm.String" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="A (secret) password for the user to access the Radius server."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall not contain special characteristics and its max length is 32."/>
+                </Property>
+            </EntityType>
+        </Schema>
+
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="RADIUS.v1_0_1">
+            <Annotation Term="OData.Description" String="This version was created to fix the RadiusPortNumber bug."/>
+            <EntityType Name="RADIUS" BaseType="RADIUS.v1_0_0.RADIUS"/>
+        </Schema>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="RADIUS.v1_0_2">
+            <EntityType Name="RADIUS" BaseType="RADIUS.v1_0_1.RADIUS">
+                <Property Name="RadiusServer" Type="Edm.String" Nullable="false">
+                    <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/ReadWrite"/>
+                    <Annotation Term="OData.Description" String="The RADIUS server."/>
+                    <Annotation Term="OData.LongDescription" String="The value of this property shall be match the format of FQDN."/>
+                </Property>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

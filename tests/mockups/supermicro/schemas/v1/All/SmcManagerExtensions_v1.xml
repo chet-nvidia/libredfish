@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2014-2016 Distributed Management Task Force, Inc. (DMTF). All rights reserved.-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/csd01/complete/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+    <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/FanMode_v1.xml">
+    <edmx:Include Namespace="FanMode"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/IKVM_v1.xml">
+    <edmx:Include Namespace="IKVM"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/IPAccessControl_v1.xml">
+    <edmx:Include Namespace="IPAccessControl"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/KCSInterface_v1.xml">
+    <edmx:Include Namespace="KCSInterface"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/ManagerConfig_v1.xml">
+    <edmx:Include Namespace="ManagerConfig"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/MouseMode_v1.xml">
+    <edmx:Include Namespace="MouseMode"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/NTP_v1.xml">
+    <edmx:Include Namespace="NTP"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/RADIUS_v1.xml">
+    <edmx:Include Namespace="RADIUS"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/SMCRAKP_v1.xml">
+    <edmx:Include Namespace="SMCRAKP"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/SMTP_v1.xml">
+    <edmx:Include Namespace="SMTP"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/SNMP_v1.xml">
+    <edmx:Include Namespace="SNMP"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/Snooping_v1.xml">
+    <edmx:Include Namespace="Snooping"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/Syslog_v1.xml">
+    <edmx:Include Namespace="Syslog"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/LicenseManager_v1.xml">
+    <edmx:Include Namespace="LicenseManager"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://10.217.133.92/schemas/v1/SysLockdown_v1.xml">
+    <edmx:Include Namespace="SysLockdown"/>
+  </edmx:Reference>
+
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcManagerExtensions">
+        <EntityType Name="SmcManagerExtensions" BaseType="Resource.v1_0_0.Resource">
+        </EntityType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcManagerConfig">
+        <EntityType Name="SmcManagerConfig" BaseType="Resource.v1_0_0.Resource"></EntityType>
+        <Action Name="Reset" IsBound="true">
+            <Annotation Term="OData.Description" String="The reset action resets manager configuration."/>
+            <Annotation Term="OData.LongDescription" String="This defines the name of the custom action supported when used in conjunction with a POST operation to this resource. When issued, this operation will perform a reset to factory default configuration for the manager."/>
+            <Parameter Name="SmcManagerConfig" Type="Manager.v1_0_0.OemActions"/>
+            <Parameter Name="Option" Type="SmcManagerExtensions.v1_0_0.Option"/>
+        </Action>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SmcManagerExtensions.v1_0_0">
+     <ComplexType Name="Manager">
+        <NavigationProperty Name="FanMode" Type="FanMode.FanMode">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="The property represents the current fan mode."/>
+          <Annotation Term="OData.LongDescription" String="The value of this property shall contain the current fan mode setting.  The valid values for this property are specified through the Redfish.AllowableValues annotation."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="IKVM" Type="IKVM.IKVM">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="URI to launch HTML5 iKVM"/>
+          <Annotation Term="OData.LongDescription" String="An unique URI allows user to launch HTML5 iKVM app."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="IPAccessControl" Type="IPAccessControl.IPAccessControl">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="This is a reference to a collection of IPAccessControl used by the manager."/>
+          <Annotation Term="OData.LongDescription" String="The value of this property shall contain a reference to a collection of type IPAccessControl which are for the use of this manager."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="MouseMode" Type="MouseMode.MouseMode">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="The mouse mode to be used."/>
+          <Annotation Term="OData.LongDescription" String="The mouse mode to be used."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="NTP" Type="NTP.NTP">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="This is a reference to a collection of Logs used by the manager."/>
+          <Annotation Term="OData.LongDescription" String="The value of this property shall contain a reference to a collection of type NTP which are for the use of this manager."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="RADIUS" Type="RADIUS.RADIUS">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="This is a reference to a collection of Logs used by the manager."/>
+          <Annotation Term="OData.LongDescription" String="The value of this property shall contain a reference to a collection of type RADIUS which are for the use of this manager."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="SMCRAKP" Type="SMCRAKP.SMCRAKP">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="Enable or disable SMCRAKP function"/>
+          <Annotation Term="OData.LongDescription" String="Config the status of SMCRAKP"/>
+        </NavigationProperty>
+        <NavigationProperty Name="SMTP" Type="SMTP.SMTP">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="This is a reference to a collection of Logs used by the manager."/>
+          <Annotation Term="OData.LongDescription" String="The value of this property shall contain a reference to a collection of type SMTP which are for the use of this manager."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="SNMP" Type="SNMP.SNMP">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="Config the settings of SNMP service"/>
+          <Annotation Term="OData.LongDescription" String="Config the settings of SNMP service"/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="Snooping" Type="Snooping.Snooping">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="Config the settings of Snooping service"/>
+          <Annotation Term="OData.LongDescription" String="Config the settings of Snooping service"/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="Syslog" Type="Syslog.Syslog">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="Syslog is enabled or not"/>
+          <Annotation Term="OData.LongDescription" String="If Syslog is enabled, a centralized authentication, authorization and accounting management for users is provided"/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="LicenseManager" Type="LicenseManager.LicenseManager">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+          <Annotation Term="OData.Description" String="This is a reference to a collection of LicenseManager used by the manager."/>
+          <Annotation Term="OData.LongDescription" String="The value of this property shall contain a reference to a collection of type LicenseManager which are for the use of this manager."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="KCSInterface" Type="KCSInterface.KCSInterface">
+             <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+             <Annotation Term="OData.Description" String="This is a reference to KCSInterface used by the manager."/>
+             <Annotation Term="OData.LongDescription" String="The value of this property shall contain a reference to KCSInterface used by the manager."/>
+             <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="SysLockdown" Type="SysLockdown.SysLockdown">
+             <Annotation Term="OData.Permissions" EnumMember="OData.Permissions/Read"/>
+             <Annotation Term="OData.Description" String="This is a reference to SysLockdown used by the manager."/>
+             <Annotation Term="OData.LongDescription" String="The value of this property shall contain a reference to SysLockdown used by the manager."/>
+             <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+      </ComplexType>
+
+      <ComplexType Name="OemActions">
+           <Annotation Term="OData.AdditionalProperties" Bool="false"/>
+           <Annotation Term="OData.Description" String="The available OEM specific actions for this resource."/>
+            <Annotation Term="OData.LongDescription" String="This type shall contain any additional OEM actions for this resource."/>
+      </ComplexType>
+      <EnumType Name="Option">
+          <Member Name="PreserveUser"/>
+          <Member Name="ResetToADMIN"/>
+      </EnumType>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
