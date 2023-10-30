@@ -27,59 +27,66 @@ const SUPERMICRO_PORT: &str = "8736";
 
 static SETUP: Once = Once::new();
 
-#[test]
-fn test_dell() -> Result<(), anyhow::Error> {
-    run_integration_test("dell", DELL_PORT)
+#[tokio::test]
+async fn test_dell() -> Result<(), anyhow::Error> {
+    run_integration_test("dell", DELL_PORT).await
 }
 
-#[test]
-fn test_lenovo() -> Result<(), anyhow::Error> {
-    run_integration_test("lenovo", LENOVO_PORT)
+#[tokio::test]
+async fn test_lenovo() -> Result<(), anyhow::Error> {
+    run_integration_test("lenovo", LENOVO_PORT).await
 }
 
-#[test]
-fn test_nvidia_dpu() -> Result<(), anyhow::Error> {
-    run_integration_test("nvidia_dpu", NVIDIA_PORT)
+#[tokio::test]
+async fn test_nvidia_dpu() -> Result<(), anyhow::Error> {
+    run_integration_test("nvidia_dpu", NVIDIA_PORT).await
 }
 
-#[test]
-fn test_supermicro() -> Result<(), anyhow::Error> {
-    run_integration_test("supermicro", SUPERMICRO_PORT)
+#[tokio::test]
+async fn test_supermicro() -> Result<(), anyhow::Error> {
+    run_integration_test("supermicro", SUPERMICRO_PORT).await
 }
 
-fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
-    let vendor = redfish.get_service_root()?.vendor;
+async fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
+    let vendor = redfish.get_service_root().await?.vendor;
     assert!(vendor.is_some() && vendor.unwrap() == "Nvidia");
-    let sw_inventories = redfish.get_software_inventories()?;
-    assert!(redfish.get_firmware(&sw_inventories[0])?.version.is_some());
-    let boot = redfish.get_system()?.boot;
+    let sw_inventories = redfish.get_software_inventories().await?;
+    assert!(redfish
+        .get_firmware(&sw_inventories[0])
+        .await?
+        .version
+        .is_some());
+    let boot = redfish.get_system().await?.boot;
     let mut boot_array = boot.boot_order;
     assert!(boot_array.len() > 1);
     boot_array.swap(0, 1);
-    redfish.change_boot_order(boot_array)?;
+    redfish.change_boot_order(boot_array).await?;
 
-    let eth_intefaces = redfish.get_ethernet_interfaces()?;
+    let eth_intefaces = redfish.get_ethernet_interfaces().await?;
     assert!(!eth_intefaces.is_empty());
     assert!(redfish
-        .get_ethernet_interface(&eth_intefaces[0])?
+        .get_ethernet_interface(&eth_intefaces[0])
+        .await?
         .mac_address
         .is_some());
 
-    let chassis = redfish.get_chassis_all()?;
+    let chassis = redfish.get_chassis_all().await?;
     assert!(!chassis.is_empty());
-    assert!(redfish.get_chassis(&chassis[0])?.name.is_some());
+    assert!(redfish.get_chassis(&chassis[0]).await?.name.is_some());
 
-    let ports = redfish.get_ports(&chassis[0])?;
+    let ports = redfish.get_ports(&chassis[0]).await?;
     assert!(!ports.is_empty());
     assert!(redfish
-        .get_port(&chassis[0], &ports[0])?
+        .get_port(&chassis[0], &ports[0])
+        .await?
         .current_speed_gbps
         .is_some());
 
-    let netdev_funcs = redfish.get_network_device_functions(&chassis[0])?;
+    let netdev_funcs = redfish.get_network_device_functions(&chassis[0]).await?;
     assert!(!netdev_funcs.is_empty());
     assert!(redfish
-        .get_network_device_function(&chassis[0], &netdev_funcs[0])?
+        .get_network_device_function(&chassis[0], &netdev_funcs[0])
+        .await?
         .ethernet
         .and_then(|ethernet| ethernet.mac_address)
         .is_some());
@@ -87,7 +94,10 @@ fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Erro
     Ok(())
 }
 
-fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<(), anyhow::Error> {
+async fn run_integration_test(
+    vendor_dir: &'static str,
+    port: &'static str,
+) -> Result<(), anyhow::Error> {
     SETUP.call_once(move || {
         use tracing_subscriber::fmt::Layer;
         use tracing_subscriber::prelude::*;
@@ -131,53 +141,71 @@ fn run_integration_test(vendor_dir: &'static str, port: &'static str) -> Result<
     };
 
     let pool = libredfish::RedfishClientPool::builder().build()?;
-    let redfish = pool.create_client(endpoint)?;
+    let redfish = pool.create_client(endpoint).await?;
 
     if vendor_dir == "nvidia_dpu" {
-        return nvidia_dpu_integration_test(redfish.as_ref());
+        return nvidia_dpu_integration_test(redfish.as_ref()).await;
     }
 
-    assert_eq!(redfish.get_power_state()?, libredfish::PowerState::On);
-    assert!(redfish.bios()?.len() > 8);
+    assert_eq!(redfish.get_power_state().await?, libredfish::PowerState::On);
+    assert!(redfish.bios().await?.len() > 8);
 
-    redfish.power(libredfish::SystemPowerControl::GracefulShutdown)?;
-    redfish.power(libredfish::SystemPowerControl::ForceOff)?;
-    redfish.power(libredfish::SystemPowerControl::On)?;
+    redfish
+        .power(libredfish::SystemPowerControl::GracefulShutdown)
+        .await?;
+    redfish
+        .power(libredfish::SystemPowerControl::ForceOff)
+        .await?;
+    redfish.power(libredfish::SystemPowerControl::On).await?;
 
     // A real BMC requires a reboot after every change, so pretend for accuracy.
     // Dell will 400 Bad Request if you make two consecutive changes.
-    redfish.lockdown(libredfish::EnabledDisabled::Disabled)?;
-    redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
+    redfish
+        .lockdown(libredfish::EnabledDisabled::Disabled)
+        .await?;
+    redfish
+        .power(libredfish::SystemPowerControl::ForceRestart)
+        .await?;
     if vendor_dir == "dell" {
         // we're testing against static files, so these don't change
-        assert!(redfish.lockdown_status()?.is_fully_disabled());
+        assert!(redfish.lockdown_status().await?.is_fully_disabled());
     }
 
-    redfish.setup_serial_console()?;
-    redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
-    assert!(redfish.serial_console_status()?.is_fully_enabled());
+    redfish.setup_serial_console().await?;
+    redfish
+        .power(libredfish::SystemPowerControl::ForceRestart)
+        .await?;
+    assert!(redfish.serial_console_status().await?.is_fully_enabled());
 
     if vendor_dir != "supermicro" {
-        redfish.clear_tpm()?;
+        redfish.clear_tpm().await?;
         // The mockup includes TPM clear pending operation
-        assert!(!redfish.pending()?.is_empty());
+        assert!(!redfish.pending().await?.is_empty());
     }
-    redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
+    redfish
+        .power(libredfish::SystemPowerControl::ForceRestart)
+        .await?;
 
-    redfish.boot_once(libredfish::Boot::Pxe)?;
-    redfish.boot_first(libredfish::Boot::HardDisk)?;
-    redfish.power(libredfish::SystemPowerControl::ForceRestart)?;
+    redfish.boot_once(libredfish::Boot::Pxe).await?;
+    redfish.boot_first(libredfish::Boot::HardDisk).await?;
+    redfish
+        .power(libredfish::SystemPowerControl::ForceRestart)
+        .await?;
 
-    redfish.lockdown(libredfish::EnabledDisabled::Enabled)?;
-    redfish.power(libredfish::SystemPowerControl::GracefulRestart)?;
+    redfish
+        .lockdown(libredfish::EnabledDisabled::Enabled)
+        .await?;
+    redfish
+        .power(libredfish::SystemPowerControl::GracefulRestart)
+        .await?;
     if vendor_dir == "lenovo" {
-        assert!(redfish.lockdown_status()?.is_fully_enabled());
+        assert!(redfish.lockdown_status().await?.is_fully_enabled());
     }
-    _ = redfish.get_thermal_metrics()?;
-    _ = redfish.get_power_metrics()?;
+    _ = redfish.get_thermal_metrics().await?;
+    _ = redfish.get_power_metrics().await?;
     if vendor_dir != "lenovo" && vendor_dir != "supermicro" {
         // the lenovo mockup doesn't have this content, but their docs have it
-        _ = redfish.get_system_event_log()?;
+        _ = redfish.get_system_event_log().await?;
     }
 
     Ok(())

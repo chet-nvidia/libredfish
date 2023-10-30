@@ -31,88 +31,95 @@ impl Bmc {
     }
 }
 
+#[async_trait::async_trait]
 impl Redfish for Bmc {
-    fn create_user(
+    async fn create_user(
         &self,
         username: &str,
         password: &str,
         role_id: RoleId,
     ) -> Result<(), RedfishError> {
-        self.s.create_user(username, password, role_id)
+        self.s.create_user(username, password, role_id).await
     }
 
-    fn change_password(&self, username: &str, new_password: &str) -> Result<(), RedfishError> {
-        let account_ids = self.get_members("AccountService/Accounts")?;
+    async fn change_password(
+        &self,
+        username: &str,
+        new_password: &str,
+    ) -> Result<(), RedfishError> {
+        let account_ids = self.get_members("AccountService/Accounts").await?;
         let mut maybe_user_id = None;
         for id in account_ids {
-            let account = self.s.get_account(&id)?;
+            let account = self.s.get_account(&id).await?;
             if account.username == username {
                 maybe_user_id = Some(id);
                 break;
             }
         }
         match maybe_user_id {
-            Some(user_id) => self.s.change_password(&user_id, new_password),
+            Some(user_id) => self.s.change_password(&user_id, new_password).await,
             None => Err(RedfishError::UserNotFound(username.to_string())),
         }
     }
 
-    fn get_power_state(&self) -> Result<PowerState, RedfishError> {
-        self.s.get_power_state()
+    async fn get_power_state(&self) -> Result<PowerState, RedfishError> {
+        self.s.get_power_state().await
     }
 
-    fn get_power_metrics(&self) -> Result<Power, RedfishError> {
-        self.s.get_power_metrics()
+    async fn get_power_metrics(&self) -> Result<Power, RedfishError> {
+        self.s.get_power_metrics().await
     }
 
-    fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError> {
-        self.s.power(action)
+    async fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError> {
+        self.s.power(action).await
     }
 
-    fn bmc_reset(&self) -> Result<(), RedfishError> {
-        self.s.bmc_reset()
+    async fn bmc_reset(&self) -> Result<(), RedfishError> {
+        self.s.bmc_reset().await
     }
 
-    fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
-        self.s.get_thermal_metrics()
+    async fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
+        self.s.get_thermal_metrics().await
     }
 
-    fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
-        self.s.get_system_event_log()
+    async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
+        self.s.get_system_event_log().await
     }
 
-    fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
-        self.s.bios()
+    async fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+        self.s.bios().await
     }
 
-    fn forge_setup(&self) -> Result<(), RedfishError> {
-        self.set_tpms("TPM 2.0")?;
-        self.setup_serial_console()?;
+    async fn forge_setup(&self) -> Result<(), RedfishError> {
+        self.set_tpms("TPM 2.0").await?;
+        self.setup_serial_console().await?;
         // always do system lockdown last.
-        self.lockdown(EnabledDisabled::Enabled)
+        self.lockdown(EnabledDisabled::Enabled).await
     }
 
-    fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
+    async fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
         use EnabledDisabled::*;
         match target {
             Enabled => {
-                self.set_host_interfaces(Disabled)?;
-                self.set_kcs_privilege(supermicro::Privilege::Callback)?;
-                self.set_syslockdown(Enabled)?; // Lock last
+                self.set_host_interfaces(Disabled).await?;
+                self.set_kcs_privilege(supermicro::Privilege::Callback)
+                    .await?;
+                self.set_syslockdown(Enabled).await?; // Lock last
             }
             Disabled => {
-                self.set_syslockdown(Disabled)?; // Unlock first
-                self.set_kcs_privilege(supermicro::Privilege::Administrator)?;
-                self.set_host_interfaces(Enabled)?;
+                self.set_syslockdown(Disabled).await?; // Unlock first
+                self.set_kcs_privilege(supermicro::Privilege::Administrator)
+                    .await?;
+                self.set_host_interfaces(Enabled).await?;
             }
         }
         Ok(())
     }
 
-    fn lockdown_status(&self) -> Result<Status, RedfishError> {
-        let is_hi_on = self.is_host_interface_enabled()?;
-        let kcs_privilege = self.get_kcs_privilege()?;
-        let is_syslockdown = self.get_syslockdown()?;
+    async fn lockdown_status(&self) -> Result<Status, RedfishError> {
+        let is_hi_on = self.is_host_interface_enabled().await?;
+        let kcs_privilege = self.get_kcs_privilege().await?;
+        let is_syslockdown = self.get_syslockdown().await?;
         let message = format!("SysLockdownEnabled={is_syslockdown}, kcs_privilege={kcs_privilege}, host_interface_enabled={is_hi_on}");
         let is_locked =
             is_syslockdown && kcs_privilege == supermicro::Privilege::Callback && !is_hi_on;
@@ -130,7 +137,7 @@ impl Redfish for Bmc {
         })
     }
 
-    fn setup_serial_console(&self) -> Result<(), RedfishError> {
+    async fn setup_serial_console(&self) -> Result<(), RedfishError> {
         let url = format!("Managers/{}", self.s.manager_id());
         let body = Commandshell {
             service_enabled: true,
@@ -138,12 +145,12 @@ impl Redfish for Bmc {
             connect_types_supported: vec!["SSH".to_string(), "IPMI".to_string()],
             enabled: None, // Supermicro doens't have this
         };
-        self.s.client.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
-    fn serial_console_status(&self) -> Result<Status, RedfishError> {
-        let s_interface = self.s.get_serial_interface()?;
-        let manager = self.s.get_manager()?;
+    async fn serial_console_status(&self) -> Result<Status, RedfishError> {
+        let s_interface = self.s.get_serial_interface().await?;
+        let manager = self.s.get_manager().await?;
         let sr = &manager.serial_console;
         let is_enabled = sr.service_enabled
             && sr.max_concurrent_sessions != 0
@@ -159,17 +166,17 @@ impl Redfish for Bmc {
         })
     }
 
-    fn get_boot_options(&self) -> Result<BootOptions, RedfishError> {
-        self.s.get_boot_options()
+    async fn get_boot_options(&self) -> Result<BootOptions, RedfishError> {
+        self.s.get_boot_options().await
     }
 
-    fn get_boot_option(&self, option_id: &str) -> Result<BootOption, RedfishError> {
-        self.s.get_boot_option(option_id)
+    async fn get_boot_option(&self, option_id: &str) -> Result<BootOption, RedfishError> {
+        self.s.get_boot_option(option_id).await
     }
 
     // Boot from this device once then go back to the normal boot order
-    fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {
-        self.set_boot(target, true)
+    async fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {
+        self.set_boot(target, true).await
     }
 
     /// Set which device we should boot from first.
@@ -177,20 +184,21 @@ impl Redfish for Bmc {
     /// Instead of changing the normal boot order we set a continuous boot override.
     /// Setting the boot order is complicated and requires string matching on
     /// the DisplayName of every BootOptions. This is more reliable.
-    fn boot_first(&self, target: Boot) -> Result<(), RedfishError> {
-        self.set_boot(target, false)
+    async fn boot_first(&self, target: Boot) -> Result<(), RedfishError> {
+        self.set_boot(target, false).await
     }
 
     /// Supermicro BMC does not appear to have this.
-    fn clear_tpm(&self) -> Result<(), RedfishError> {
+    async fn clear_tpm(&self) -> Result<(), RedfishError> {
         Err(RedfishError::NotSupported("clear_tpm".to_string()))
     }
 
-    fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
+    async fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
         let url = format!("Systems/{}/Bios/SD", self.s.system_id());
         // Supermicro doesn't include the Attributes key if there are no pending changes
         self.s
             .pending_attributes(&url)
+            .await
             .map(|m| {
                 m.into_iter()
                     .collect::<HashMap<String, serde_json::Value>>()
@@ -203,104 +211,114 @@ impl Redfish for Bmc {
 
     // TODO: This resets the pending Bios changes to their default values,
     // but DOES NOT CLEAR THEM. We don't know how to do that, or if Supermicro supports it at all.
-    fn clear_pending(&self) -> Result<(), RedfishError> {
+    async fn clear_pending(&self) -> Result<(), RedfishError> {
         let url = format!("Systems/{}/Bios/SD", self.s.system_id());
-        self.s.clear_pending_with_url(&url)
+        self.s.clear_pending_with_url(&url).await
     }
 
-    fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError> {
-        let Some(chassis_id) = self.get_chassis_all()?.into_iter().next().take() else {
+    async fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError> {
+        let Some(chassis_id) = self.get_chassis_all().await?.into_iter().next().take() else {
             return Err(RedfishError::NoContent);
         };
         let url = format!("Chassis/{chassis_id}/PCIeDevices");
-        let device_ids = self.get_members(&url)?;
+        let device_ids = self.get_members(&url).await?;
         let mut out = Vec::with_capacity(device_ids.len());
         for device_id in device_ids {
-            out.push(self.get_pcie_device(&chassis_id, &device_id)?);
+            out.push(self.get_pcie_device(&chassis_id, &device_id).await?);
         }
         Ok(out)
     }
 
-    fn update_firmware(
+    async fn update_firmware(
         &self,
-        firmware: std::fs::File,
+        firmware: tokio::fs::File,
     ) -> Result<crate::model::task::Task, RedfishError> {
-        self.s.update_firmware(firmware)
+        self.s.update_firmware(firmware).await
     }
 
-    fn get_tasks(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_tasks()
+    async fn get_tasks(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_tasks().await
     }
 
-    fn get_task(&self, id: &str) -> Result<crate::model::task::Task, RedfishError> {
-        self.s.get_task(id)
+    async fn get_task(&self, id: &str) -> Result<crate::model::task::Task, RedfishError> {
+        self.s.get_task(id).await
     }
 
-    fn get_firmware(&self, id: &str) -> Result<SoftwareInventory, RedfishError> {
-        self.s.get_firmware(id)
+    async fn get_firmware(&self, id: &str) -> Result<SoftwareInventory, RedfishError> {
+        self.s.get_firmware(id).await
     }
 
-    fn get_software_inventories(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_software_inventories()
+    async fn get_software_inventories(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_software_inventories().await
     }
 
-    fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
-        self.s.get_system()
+    async fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
+        self.s.get_system().await
     }
 
-    fn add_secure_boot_certificate(&self, pem_cert: &str) -> Result<Task, RedfishError> {
-        self.s.add_secure_boot_certificate(pem_cert)
+    async fn add_secure_boot_certificate(&self, pem_cert: &str) -> Result<Task, RedfishError> {
+        self.s.add_secure_boot_certificate(pem_cert).await
     }
 
-    fn get_secure_boot(&self) -> Result<SecureBoot, RedfishError> {
-        self.s.get_secure_boot()
+    async fn get_secure_boot(&self) -> Result<SecureBoot, RedfishError> {
+        self.s.get_secure_boot().await
     }
 
-    fn enable_secure_boot(&self) -> Result<(), RedfishError> {
-        self.s.enable_secure_boot()
+    async fn enable_secure_boot(&self) -> Result<(), RedfishError> {
+        self.s.enable_secure_boot().await
     }
 
-    fn disable_secure_boot(&self) -> Result<(), RedfishError> {
-        self.s.disable_secure_boot()
+    async fn disable_secure_boot(&self) -> Result<(), RedfishError> {
+        self.s.disable_secure_boot().await
     }
 
-    fn get_network_device_function(
+    async fn get_network_device_function(
         &self,
         chassis_id: &str,
         id: &str,
     ) -> Result<NetworkDeviceFunction, RedfishError> {
-        self.s.get_network_device_function(chassis_id, id)
+        self.s.get_network_device_function(chassis_id, id).await
     }
 
-    fn get_network_device_functions(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {
-        self.s.get_network_device_functions(chassis_id)
+    async fn get_network_device_functions(
+        &self,
+        chassis_id: &str,
+    ) -> Result<Vec<String>, RedfishError> {
+        self.s.get_network_device_functions(chassis_id).await
     }
 
-    fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_chassis_all()
+    async fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_chassis_all().await
     }
 
-    fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError> {
-        self.s.get_chassis(id)
+    async fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError> {
+        self.s.get_chassis(id).await
     }
 
-    fn get_ports(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {
-        self.s.get_ports(chassis_id)
+    async fn get_ports(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {
+        self.s.get_ports(chassis_id).await
     }
 
-    fn get_port(&self, chassis_id: &str, id: &str) -> Result<crate::NetworkPort, RedfishError> {
-        self.s.get_port(chassis_id, id)
+    async fn get_port(
+        &self,
+        chassis_id: &str,
+        id: &str,
+    ) -> Result<crate::NetworkPort, RedfishError> {
+        self.s.get_port(chassis_id, id).await
     }
 
-    fn get_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_ethernet_interfaces()
+    async fn get_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_ethernet_interfaces().await
     }
 
-    fn get_ethernet_interface(&self, id: &str) -> Result<crate::EthernetInterface, RedfishError> {
-        self.s.get_ethernet_interface(id)
+    async fn get_ethernet_interface(
+        &self,
+        id: &str,
+    ) -> Result<crate::EthernetInterface, RedfishError> {
+        self.s.get_ethernet_interface(id).await
     }
 
-    fn change_uefi_password(
+    async fn change_uefi_password(
         &self,
         _current_uefi_password: &str,
         _new_uefi_password: &str,
@@ -310,43 +328,46 @@ impl Redfish for Bmc {
         ))
     }
 
-    fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
-        self.s.change_boot_order(boot_array)
+    async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
+        self.s.change_boot_order(boot_array).await
     }
-    fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError> {
-        self.s.set_internal_cpu_model(model)
-    }
-
-    fn set_host_privilege_level(&self, level: HostPrivilegeLevel) -> Result<(), RedfishError> {
-        self.s.set_host_privilege_level(level)
+    async fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError> {
+        self.s.set_internal_cpu_model(model).await
     }
 
-    fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
-        self.s.get_service_root()
+    async fn set_host_privilege_level(
+        &self,
+        level: HostPrivilegeLevel,
+    ) -> Result<(), RedfishError> {
+        self.s.set_host_privilege_level(level).await
     }
 
-    fn get_systems(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_systems()
+    async fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
+        self.s.get_service_root().await
     }
 
-    fn get_managers(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_managers()
+    async fn get_systems(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_systems().await
     }
 
-    fn get_manager(&self) -> Result<Manager, RedfishError> {
-        self.s.get_manager()
+    async fn get_managers(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_managers().await
     }
 
-    fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
-        self.s.bmc_reset_to_defaults()
+    async fn get_manager(&self) -> Result<Manager, RedfishError> {
+        self.s.get_manager().await
+    }
+
+    async fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
+        self.s.bmc_reset_to_defaults().await
     }
 }
 
 impl Bmc {
     // TODO: move this to standard.rs and replace the model/ files that just have `members`
     // with this. Probably make a model `Collection` type.
-    fn get_members(&self, url: &str) -> Result<Vec<String>, RedfishError> {
-        let (_, mut body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(url)?;
+    async fn get_members(&self, url: &str) -> Result<Vec<String>, RedfishError> {
+        let (_, mut body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(url).await?;
         let key = "Members";
         let members_json = body.remove(key).ok_or_else(|| RedfishError::MissingKey {
             key: key.to_string(),
@@ -366,12 +387,12 @@ impl Bmc {
         Ok(member_ids)
     }
 
-    fn get_kcs_privilege(&self) -> Result<supermicro::Privilege, RedfishError> {
+    async fn get_kcs_privilege(&self) -> Result<supermicro::Privilege, RedfishError> {
         let url = format!(
             "Managers/{}/Oem/Supermicro/KCSInterface",
             self.s.manager_id()
         );
-        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url)?;
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url).await?;
         let key = "Privilege";
         let p_str = body
             .get(key)
@@ -392,18 +413,21 @@ impl Bmc {
         })
     }
 
-    fn set_kcs_privilege(&self, privilege: supermicro::Privilege) -> Result<(), RedfishError> {
+    async fn set_kcs_privilege(
+        &self,
+        privilege: supermicro::Privilege,
+    ) -> Result<(), RedfishError> {
         let url = format!(
             "Managers/{}/Oem/Supermicro/KCSInterface",
             self.s.manager_id()
         );
         let body = HashMap::from([("Privilege", privilege.to_string())]);
-        self.s.client.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
-    fn is_host_interface_enabled(&self) -> Result<bool, RedfishError> {
+    async fn is_host_interface_enabled(&self) -> Result<bool, RedfishError> {
         let url = format!("Managers/{}/HostInterfaces", self.s.manager_id());
-        let host_interface_ids = self.get_members(&url)?;
+        let host_interface_ids = self.get_members(&url).await?;
         let num_interfaces = host_interface_ids.len();
         if num_interfaces != 1 {
             return Err(RedfishError::InvalidValue {
@@ -420,7 +444,7 @@ impl Bmc {
             self.s.manager_id(),
             host_interface_ids[0]
         );
-        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url)?;
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url).await?;
         let key = "InterfaceEnabled";
         body.get(key)
             .ok_or_else(|| RedfishError::MissingKey {
@@ -436,32 +460,32 @@ impl Bmc {
     }
 
     // The HostInterface allows remote BMC access
-    fn set_host_interfaces(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
+    async fn set_host_interfaces(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
         let url = format!("Managers/{}/HostInterfaces", self.s.manager_id());
         // I have only seen exactly one, but you can't be too careful
-        let host_iface_ids = self.get_members(&url)?;
+        let host_iface_ids = self.get_members(&url).await?;
         for iface_id in host_iface_ids {
-            self.set_host_interface(&iface_id, target)?;
+            self.set_host_interface(&iface_id, target).await?;
         }
         Ok(())
     }
 
-    fn set_host_interface(
+    async fn set_host_interface(
         &self,
         iface_id: &str,
         target: EnabledDisabled,
     ) -> Result<(), RedfishError> {
         let url = format!("Managers/{}/HostInterfaces/{iface_id}", self.s.manager_id());
         let body = HashMap::from([("InterfaceEnabled", target == EnabledDisabled::Enabled)]);
-        self.s.client.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
-    fn get_syslockdown(&self) -> Result<bool, RedfishError> {
+    async fn get_syslockdown(&self) -> Result<bool, RedfishError> {
         let url = format!(
             "Managers/{}/Oem/Supermicro/SysLockdown",
             self.s.manager_id()
         );
-        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url)?;
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url).await?;
         let key = "SysLockdownEnabled";
         body.get(key)
             .ok_or_else(|| RedfishError::MissingKey {
@@ -476,16 +500,16 @@ impl Bmc {
             })
     }
 
-    fn set_syslockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
+    async fn set_syslockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
         let url = format!(
             "Managers/{}/Oem/Supermicro/SysLockdown",
             self.s.manager_id()
         );
         let body = HashMap::from([("SysLockdownEnabled", target.is_enabled())]);
-        self.s.client.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
-    fn set_boot(&self, target: Boot, once: bool) -> Result<(), RedfishError> {
+    async fn set_boot(&self, target: Boot, once: bool) -> Result<(), RedfishError> {
         let url = format!("Systems/{}", self.s.system_id());
         let boot = boot::Boot {
             boot_source_override_target: Some(match target {
@@ -506,13 +530,13 @@ impl Bmc {
             ..Default::default()
         };
         let body = HashMap::from([("Boot", boot)]);
-        self.s.client.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
     // tpm_type: Defined in registries/BiosAttributeRegistry.1.0.0.json/index.json
-    fn set_tpms(&self, tpm_type: &str) -> Result<(), RedfishError> {
+    async fn set_tpms(&self, tpm_type: &str) -> Result<(), RedfishError> {
         let url = format!("Systems/{}/Bios", self.s.system_id());
-        let attrs_val = self.s.bios_attributes()?;
+        let attrs_val = self.s.bios_attributes().await?;
         let attrs = attrs_val
             .as_object()
             .ok_or_else(|| RedfishError::InvalidKeyType {
@@ -529,16 +553,16 @@ impl Bmc {
             }
         }
         let body = HashMap::from([("Attributes", new_vals)]);
-        self.s.client.patch(&url, body).map(|_status_code| ())
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
-    fn get_pcie_device(
+    async fn get_pcie_device(
         &self,
         chassis_id: &str,
         device_id: &str,
     ) -> Result<PCIeDevice, RedfishError> {
         let url = format!("Chassis/{chassis_id}/PCIeDevices/{device_id}");
-        let (_, body): (_, PCIeDevice) = self.s.client.get(&url)?;
+        let (_, body): (_, PCIeDevice) = self.s.client.get(&url).await?;
         Ok(body)
     }
 }

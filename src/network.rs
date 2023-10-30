@@ -1,8 +1,8 @@
-use std::{collections::HashMap, fs::File, time::Duration};
+use std::{collections::HashMap, time::Duration};
 
 use reqwest::{
-    blocking::Client as HttpClient, blocking::ClientBuilder as HttpClientBuilder,
-    header::HeaderValue, header::ACCEPT, header::CONTENT_TYPE, Method, StatusCode,
+    header::HeaderValue, header::ACCEPT, header::CONTENT_TYPE, Client as HttpClient,
+    ClientBuilder as HttpClientBuilder, Method, StatusCode,
 };
 use serde::{de::DeserializeOwned, Serialize};
 use tracing::{debug, error};
@@ -94,15 +94,15 @@ impl RedfishClientPool {
     ///
     /// Creating the client will immediately start a HTTP requests
     /// to set system_id, manager_id and vendor type.
-    pub fn create_client(
+    pub async fn create_client(
         &self,
         endpoint: Endpoint,
     ) -> Result<Box<dyn crate::Redfish>, RedfishError> {
         let client = RedfishHttpClient::new(self.http_client.clone(), endpoint);
         let mut s = RedfishStandard::new(client)?;
-        let service_root = s.get_service_root()?;
-        let systems = s.get_systems()?;
-        let managers = s.get_managers()?;
+        let service_root = s.get_service_root().await?;
+        let systems = s.get_systems().await?;
+        let managers = s.get_managers().await?;
         let system_id = systems.first().unwrap();
         let manager_id = managers.first().unwrap();
         s.set_system_id(system_id)?;
@@ -138,67 +138,79 @@ impl RedfishHttpClient {
         }
     }
 
-    pub fn get<T>(&self, api: &str) -> Result<(StatusCode, T), RedfishError>
+    pub async fn get<T>(&self, api: &str) -> Result<(StatusCode, T), RedfishError>
     where
         T: DeserializeOwned + ::std::fmt::Debug,
     {
-        let (status_code, resp_opt) = self.req::<T, String>(Method::GET, api, None, None, None)?;
+        let (status_code, resp_opt) = self
+            .req::<T, String>(Method::GET, api, None, None, None)
+            .await?;
         match resp_opt {
             Some(response_body) => Ok((status_code, response_body)),
             None => Err(RedfishError::NoContent),
         }
     }
 
-    pub fn post(&self, api: &str, data: HashMap<&str, String>) -> Result<StatusCode, RedfishError> {
+    pub async fn post(
+        &self,
+        api: &str,
+        data: HashMap<&str, String>,
+    ) -> Result<StatusCode, RedfishError> {
         let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) =
-            self.req(Method::POST, api, Some(data), None, None)?;
+            self.req(Method::POST, api, Some(data), None, None).await?;
         Ok(status_code)
     }
 
-    pub fn post_file<T>(&self, api: &str, file: File) -> Result<(StatusCode, T), RedfishError>
+    pub async fn post_file<T>(
+        &self,
+        api: &str,
+        file: tokio::fs::File,
+    ) -> Result<(StatusCode, T), RedfishError>
     where
         T: DeserializeOwned + ::std::fmt::Debug,
     {
         let body_option: Option<HashMap<&str, String>> = None;
         let timeout = DEFAULT_TIMEOUT
-            + file.metadata().map_or_else(
+            + file.metadata().await.map_or_else(
                 |_err| DEFAULT_TIMEOUT,
                 |m| Duration::from_secs(m.len() / MIN_UPLOAD_BANDWIDTH),
             );
-        let (status_code, resp_opt) =
-            self.req::<T, _>(Method::POST, api, body_option, Some(timeout), Some(file))?;
+        let (status_code, resp_opt) = self
+            .req::<T, _>(Method::POST, api, body_option, Some(timeout), Some(file))
+            .await?;
         match resp_opt {
             Some(response_body) => Ok((status_code, response_body)),
             None => Err(RedfishError::NoContent),
         }
     }
 
-    pub fn patch<T>(&self, api: &str, data: T) -> Result<StatusCode, RedfishError>
+    pub async fn patch<T>(&self, api: &str, data: T) -> Result<StatusCode, RedfishError>
     where
         T: Serialize + ::std::fmt::Debug,
     {
         let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) =
-            self.req(Method::PATCH, api, Some(data), None, None)?;
+            self.req(Method::PATCH, api, Some(data), None, None).await?;
         Ok(status_code)
     }
 
     // Various parts of Redfish do use DELETE, but we don't implement any of those yet,
     // hence allow dead_code.
     #[allow(dead_code)]
-    pub fn delete(&self, api: &str) -> Result<StatusCode, RedfishError> {
-        let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) =
-            self.req::<_, String>(Method::DELETE, api, None, None, None)?;
+    pub async fn delete(&self, api: &str) -> Result<StatusCode, RedfishError> {
+        let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
+            .req::<_, String>(Method::DELETE, api, None, None, None)
+            .await?;
         Ok(status_code)
     }
 
     // All the HTTP requests happen from here.
-    pub fn req<T, B>(
+    pub async fn req<T, B>(
         &self,
         method: Method,
         api: &str,
         body: Option<B>,
         override_timeout: Option<Duration>,
-        file: Option<File>,
+        file: Option<tokio::fs::File>,
     ) -> Result<(StatusCode, Option<T>), RedfishError>
     where
         T: DeserializeOwned + ::std::fmt::Debug,
@@ -264,7 +276,7 @@ impl RedfishHttpClient {
         if let Some(f) = file {
             req_b = req_b.body(f);
         }
-        let response = req_b.send().map_err(|e| RedfishError::NetworkError {
+        let response = req_b.send().await.map_err(|e| RedfishError::NetworkError {
             url: url.clone(),
             source: e,
         })?;
@@ -275,10 +287,13 @@ impl RedfishHttpClient {
             return Err(RedfishError::UnnecessaryOperation);
         }
         // read the body even if not status 2XX, because BMCs give useful error messages as JSON
-        let response_body = response.text().map_err(|e| RedfishError::NetworkError {
-            url: url.clone(),
-            source: e,
-        })?;
+        let response_body = response
+            .text()
+            .await
+            .map_err(|e| RedfishError::NetworkError {
+                url: url.clone(),
+                source: e,
+            })?;
         let mut res = None;
         if !response_body.is_empty() {
             debug!("RX {status_code} {}", truncate(&response_body, 1500));
