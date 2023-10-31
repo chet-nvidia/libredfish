@@ -10,12 +10,11 @@ pub enum RedfishError {
     #[error("Non-2XX HTTP status at {url}. {source}")]
     HTTPError { url: String, source: reqwest::Error },
 
-    #[error(
-        "HTTP {status_code} at {url}. Enable debug logs with `export RUST_LOG=debug` and re-run."
-    )]
+    #[error("HTTP {status_code} at {url}: {response_body}")]
     HTTPErrorCode {
         url: String,
         status_code: StatusCode,
+        response_body: String,
     },
 
     #[error("Could not deserialize response from {url}. Body: {body}. {source}")]
