@@ -83,6 +83,8 @@ impl Redfish for Bmc {
     async fn forge_setup(&self) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
         self.clear_tpm().await?;
+        self.boot_first(Boot::Pxe).await?;
+        // always do system lockdown last
         self.lockdown(Enabled).await
     }
 
