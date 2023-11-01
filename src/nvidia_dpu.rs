@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 
 use crate::model::task::Task;
+use crate::Boot::UefiHttp;
 use crate::HostPrivilegeLevel::Restricted;
 use crate::InternalCPUModel::Embedded;
 use crate::RoleId;
@@ -101,8 +102,10 @@ impl Redfish for Bmc {
     }
 
     async fn forge_setup(&self) -> Result<(), RedfishError> {
+        self.disable_secure_boot().await?;
         self.set_host_privilege_level(Restricted).await?;
-        self.set_internal_cpu_model(Embedded).await
+        self.set_internal_cpu_model(Embedded).await?;
+        self.boot_once(UefiHttp).await
     }
 
     async fn lockdown(&self, target: crate::EnabledDisabled) -> Result<(), RedfishError> {
