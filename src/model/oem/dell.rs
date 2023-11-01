@@ -245,6 +245,7 @@ pub struct BiosForgeAttrs {
     pub fail_safe_baud: String,
     pub con_term_type: SerialPortTermSettings,
     pub redir_after_boot: EnabledDisabled,
+    pub sriov_global_enable: EnabledDisabled,
     pub tpm_security: OnOff,
     pub tpm2_hierarchy: Tpm2HierarchySettings,
 }

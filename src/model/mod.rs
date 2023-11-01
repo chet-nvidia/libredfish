@@ -150,6 +150,37 @@ impl FromStr for EnabledDisabled {
     }
 }
 
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
+pub enum EnableDisable {
+    Enable,
+    Disable,
+}
+
+impl EnableDisable {
+    pub fn is_enabled(self) -> bool {
+        self == EnableDisable::Enable
+    }
+}
+
+impl fmt::Display for EnableDisable {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+impl FromStr for EnableDisable {
+    type Err = InvalidValueError;
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        match s {
+            "Enable" => Ok(Self::Enable),
+            "Disable" => Ok(Self::Disable),
+            x => Err(InvalidValueError(format!(
+                "Invalid EnableDisable value: {x}"
+            ))),
+        }
+    }
+}
+
 #[derive(Debug)]
 pub struct InvalidValueError(pub String);
 

@@ -1,11 +1,13 @@
 use std::collections::HashMap;
 
 use crate::model::task::Task;
+use crate::HostPrivilegeLevel::Restricted;
+use crate::InternalCPUModel::Embedded;
 use crate::RoleId;
 use crate::{
     model::{
         boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
-        oem::nvidia::{HostPrivilegeLevel, InternalCPUModel},
+        oem::nvidia_dpu::{HostPrivilegeLevel, InternalCPUModel},
         port::NetworkPortCollection,
         sel::{LogEntry, LogEntryCollection},
         service_root::ServiceRoot,
@@ -99,7 +101,8 @@ impl Redfish for Bmc {
     }
 
     async fn forge_setup(&self) -> Result<(), RedfishError> {
-        self.s.forge_setup().await
+        self.set_host_privilege_level(Restricted).await?;
+        self.set_internal_cpu_model(Embedded).await
     }
 
     async fn lockdown(&self, target: crate::EnabledDisabled) -> Result<(), RedfishError> {
@@ -129,21 +132,21 @@ impl Redfish for Bmc {
     async fn boot_once(&self, target: crate::Boot) -> Result<(), RedfishError> {
         match target {
             crate::Boot::Pxe => {
-                self.change_boot_settings(
+                self.set_boot_override(
                     BootSourceOverrideTarget::Pxe,
                     BootSourceOverrideEnabled::Once,
                 )
                 .await
             }
             crate::Boot::HardDisk => {
-                self.change_boot_settings(
+                self.set_boot_override(
                     BootSourceOverrideTarget::Hdd,
                     BootSourceOverrideEnabled::Once,
                 )
                 .await
             }
             crate::Boot::UefiHttp => {
-                self.change_boot_settings(
+                self.set_boot_override(
                     BootSourceOverrideTarget::UefiHttp,
                     BootSourceOverrideEnabled::Once,
                 )
@@ -154,9 +157,9 @@ impl Redfish for Bmc {
 
     async fn boot_first(&self, target: crate::Boot) -> Result<(), RedfishError> {
         match target {
-            crate::Boot::Pxe => self.set_boot_first(&BootOptionName::Pxe).await,
-            crate::Boot::HardDisk => self.set_boot_first(&BootOptionName::Disk).await,
-            crate::Boot::UefiHttp => self.set_boot_first(&BootOptionName::Http).await,
+            crate::Boot::Pxe => self.set_boot_order(&BootOptionName::Pxe).await,
+            crate::Boot::HardDisk => self.set_boot_order(&BootOptionName::Disk).await,
+            crate::Boot::UefiHttp => self.set_boot_order(&BootOptionName::Http).await,
         }
     }
 
@@ -318,6 +321,28 @@ impl Redfish for Bmc {
         Ok(())
     }
 
+    async fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
+        self.s.get_service_root().await
+    }
+
+    async fn get_systems(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_systems().await
+    }
+
+    async fn get_managers(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_managers().await
+    }
+
+    async fn get_manager(&self) -> Result<Manager, RedfishError> {
+        self.s.get_manager().await
+    }
+
+    async fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
+        self.s.bmc_reset_to_defaults().await
+    }
+}
+
+impl Bmc {
     async fn set_host_privilege_level(
         &self,
         level: HostPrivilegeLevel,
@@ -347,29 +372,7 @@ impl Redfish for Bmc {
             .map(|_status_code| Ok(()))?
     }
 
-    async fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
-        self.s.get_service_root().await
-    }
-
-    async fn get_systems(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_systems().await
-    }
-
-    async fn get_managers(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_managers().await
-    }
-
-    async fn get_manager(&self) -> Result<Manager, RedfishError> {
-        self.s.get_manager().await
-    }
-
-    async fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
-        self.s.bmc_reset_to_defaults().await
-    }
-}
-
-impl Bmc {
-    async fn change_boot_settings(
+    async fn set_boot_override(
         &self,
         override_taget: BootSourceOverrideTarget,
         override_enabled: BootSourceOverrideEnabled,
@@ -393,7 +396,7 @@ impl Bmc {
     }
 
     // name: The name of the device you want to make the first boot choice.
-    async fn set_boot_first(&self, name: &BootOptionName) -> Result<(), RedfishError> {
+    async fn set_boot_order(&self, name: &BootOptionName) -> Result<(), RedfishError> {
         let boot_array = match self.get_boot_options_ids_with_first(name).await? {
             None => {
                 return Err(RedfishError::MissingBootOption(name.to_string().to_owned()));

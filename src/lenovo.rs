@@ -3,7 +3,6 @@ use std::{collections::HashMap, time::Duration};
 use reqwest::Method;
 use tracing::debug;
 
-use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 use crate::model::service_root::ServiceRoot;
 use crate::model::task::Task;
 use crate::model::Manager;
@@ -84,6 +83,7 @@ impl Redfish for Bmc {
         self.setup_serial_console().await?;
         self.clear_tpm().await?;
         self.boot_first(Boot::Pxe).await?;
+        self.set_virt_enable().await?;
         // always do system lockdown last
         self.lockdown(Enabled).await
     }
@@ -397,17 +397,6 @@ impl Redfish for Bmc {
         Ok(())
     }
 
-    async fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError> {
-        self.s.set_internal_cpu_model(model).await
-    }
-
-    async fn set_host_privilege_level(
-        &self,
-        level: HostPrivilegeLevel,
-    ) -> Result<(), RedfishError> {
-        self.s.set_host_privilege_level(level).await
-    }
-
     async fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
         self.s.get_service_root().await
     }
@@ -692,6 +681,16 @@ impl Bmc {
                 url: url.to_string(),
             })?;
         Ok(is_allowed)
+    }
+
+    async fn set_virt_enable(&self) -> Result<(), RedfishError> {
+        let mut body = HashMap::new();
+        body.insert(
+            "Attributes",
+            HashMap::from([("Processors_IntelVirtualizationTechnology", "Enabled")]),
+        );
+        let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
     async fn set_boot_override(&self, target: lenovo::BootSource) -> Result<(), RedfishError> {

@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::{ODataLinks, ODataId};
+use super::{ODataId, ODataLinks};
 
 /// http://redfish.dmtf.org/schemas/v1/TaskCollection.json
 /// The TaskCollection schema contains a collection of Task instances.

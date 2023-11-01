@@ -5,7 +5,6 @@ use tracing::debug;
 
 use crate::model::account_service::ManagerAccount;
 use crate::model::chassis::{Chassis, ChassisCollection};
-use crate::model::oem::nvidia::{HostPrivilegeLevel, InternalCPUModel};
 use crate::model::power::Power;
 use crate::model::secure_boot::SecureBoot;
 use crate::model::sel::LogEntry;
@@ -367,21 +366,6 @@ impl Redfish for RedfishStandard {
         Err(RedfishError::NotSupported("change_boot_order".to_string()))
     }
 
-    async fn set_internal_cpu_model(&self, _model: InternalCPUModel) -> Result<(), RedfishError> {
-        Err(RedfishError::NotSupported(
-            "set_internal_cpu_model".to_string(),
-        ))
-    }
-
-    async fn set_host_privilege_level(
-        &self,
-        _level: HostPrivilegeLevel,
-    ) -> Result<(), RedfishError> {
-        Err(RedfishError::NotSupported(
-            "set_host_privilege_level".to_string(),
-        ))
-    }
-
     async fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
         let (_status_code, body) = self.client.get("").await?;
         Ok(body)
@@ -449,11 +433,22 @@ impl RedfishStandard {
             self.vendor.as_deref().unwrap_or("Unknown")
         );
         match self.vendor.as_deref() {
+            // nvidia dgx systems may have both ami and nvidia as vendor strings depending on hw
+            // ami also ships its bmc fw for other system vendors.
+            Some("AMI") => {
+                if self.system_id == "DGX" && self.manager_id == "BMC" {
+                    Ok(Box::new(crate::nvidia_viking::Bmc::new(self.clone())?))
+                } else {
+                    Err(RedfishError::NotSupported(format!(
+                        "vendor: AMI, system: {}, bmc: {}",
+                        self.system_id, self.manager_id
+                    )))
+                }
+            }
             Some("Dell") => Ok(Box::new(crate::dell::Bmc::new(self.clone())?)),
             Some("Lenovo") => Ok(Box::new(crate::lenovo::Bmc::new(self.clone())?)),
-            Some("Nvidia") => Ok(Box::new(crate::nvidia::Bmc::new(self.clone())?)),
+            Some("Nvidia") => Ok(Box::new(crate::nvidia_dpu::Bmc::new(self.clone())?)),
             Some("Supermicro") => Ok(Box::new(crate::supermicro::Bmc::new(self.clone())?)),
-            // Some("AMI") => Ok(Box::new(crate::viking::Bmc::new(self.clone())?)),
             _ => Ok(Box::new(self.clone())),
         }
     }
@@ -584,10 +579,12 @@ impl RedfishStandard {
         // "/redfish/v1/Managers/iDRAC.Embedded.1/SerialInterfaces/Serial.1"
         // We only want "Serial.1"
         let Some(interface_id) = odata_id.split('/').last() else {
-            return Err(RedfishError::InvalidValue{
+            return Err(RedfishError::InvalidValue {
                 url: url.to_string(),
                 field: key.to_string(),
-                err: InvalidValueError("@odata.id did not contain a slash separator value".to_string())
+                err: InvalidValueError(
+                    "@odata.id did not contain a slash separator value".to_string(),
+                ),
             });
         };
         Ok(interface_id.to_string())

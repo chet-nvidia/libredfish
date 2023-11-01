@@ -107,6 +107,7 @@ impl RedfishClientPool {
         let manager_id = managers.first().unwrap();
         s.set_system_id(system_id)?;
         s.set_manager_id(manager_id)?;
+        // call set_system_id always before calling set_vendor
         s.set_vendor(&service_root.vendor().unwrap_or("".to_string()))
     }
 

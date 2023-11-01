@@ -2,19 +2,10 @@ use std::collections::HashMap;
 
 use crate::{
     model::{
-        boot,
-        chassis::Chassis,
-        network_device_function::NetworkDeviceFunction,
-        oem::nvidia::{HostPrivilegeLevel, InternalCPUModel},
-        oem::supermicro,
-        power::Power,
-        secure_boot::SecureBoot,
-        sel::LogEntry,
-        service_root::ServiceRoot,
-        software_inventory::SoftwareInventory,
-        task::Task,
-        thermal::Thermal,
-        BootOption, Commandshell, ComputerSystem, InvalidValueError, Manager, ODataId,
+        boot, chassis::Chassis, network_device_function::NetworkDeviceFunction, oem::supermicro,
+        power::Power, secure_boot::SecureBoot, sel::LogEntry, service_root::ServiceRoot,
+        software_inventory::SoftwareInventory, task::Task, thermal::Thermal, BootOption,
+        Commandshell, ComputerSystem, InvalidValueError, Manager, ODataId,
     },
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, RoleId,
@@ -331,16 +322,6 @@ impl Redfish for Bmc {
 
     async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
         self.s.change_boot_order(boot_array).await
-    }
-    async fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError> {
-        self.s.set_internal_cpu_model(model).await
-    }
-
-    async fn set_host_privilege_level(
-        &self,
-        level: HostPrivilegeLevel,
-    ) -> Result<(), RedfishError> {
-        self.s.set_host_privilege_level(level).await
     }
 
     async fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {

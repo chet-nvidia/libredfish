@@ -123,6 +123,7 @@ pub struct BootOptions {
 pub struct BootOption {
     #[serde(flatten)]
     pub odata: ODataLinks,
+    pub alias: Option<String>,
     pub description: String,
     pub boot_option_enabled: Option<bool>,
     pub boot_option_reference: String,
