@@ -82,8 +82,10 @@ impl Redfish for Bmc {
     }
 
     async fn forge_setup(&self) -> Result<(), RedfishError> {
-        self.set_tpms("TPM 2.0").await?;
         self.setup_serial_console().await?;
+        self.set_tpms("TPM 2.0").await?;
+        self.set_virt_enable().await?;
+        self.set_uefi_nic_boot().await?;
         self.boot_first(Boot::Pxe).await?;
         // always do system lockdown last
         self.lockdown(EnabledDisabled::Enabled).await
@@ -367,6 +369,30 @@ impl Bmc {
             .map(|d| d.odata_id.split('/').last().unwrap().to_string())
             .collect();
         Ok(member_ids)
+    }
+
+    /// Enable CPU virtualization support for faster VMs
+    async fn set_virt_enable(&self) -> Result<(), RedfishError> {
+        let attrs = HashMap::from([
+            ("IntelVTforDirectedI/O(VT-d)#1E12", "Enable"),
+            ("IntelVirtualizationTechnology#3C2E", "Enable"),
+            ("SR-IOVSupport#0048", "Enabled"),
+        ]);
+        let body = HashMap::from([("Attributes", attrs)]);
+        let url = format!("Systems/{}/Bios", self.s.system_id());
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
+    }
+
+    async fn set_uefi_nic_boot(&self) -> Result<(), RedfishError> {
+        let attrs = HashMap::from([
+            ("IPv4HTTPSupport#00F7", "Enabled"),
+            ("IPv4PXESupport#00F6", "Enabled"),
+            ("IPv6HTTPSupport#00F9", "Enabled"),
+            ("IPv6PXESupport#00F8", "Enabled"),
+        ]);
+        let body = HashMap::from([("Attributes", attrs)]);
+        let url = format!("Systems/{}/Bios", self.s.system_id());
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
     async fn get_kcs_privilege(&self) -> Result<supermicro::Privilege, RedfishError> {

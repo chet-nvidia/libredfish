@@ -1,11 +1,10 @@
 [package]
 name = "libredfish"
-description = "A redfish library. Useful for querying server hardware from a BMC."
-authors = ["Chris Holcombe <xfactor973@gmail.com>", "NVIDIA Forge Engineering <swngc-forge-dev@exchange.nvidia.com>"]
+description = "Forge Redfish library"
+authors = ["NVIDIA Forge Engineering <swngc-forge-dev@exchange.nvidia.com>", "Chris Holcombe <xfactor973@gmail.com>"]
 repository = "https://gitlab-master.nvidia.com/nvmetal/libredfish"
-documentation = "https://docs.rs/libredfish"
 license = "MIT"
-version = "0.12.1"
+version = "0.12.2"
 edition = "2021"
 
 [dependencies]

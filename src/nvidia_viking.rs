@@ -459,7 +459,7 @@ impl Bmc {
     async fn set_boot_order(&self, name: BootDevices) -> Result<(), RedfishError> {
         let boot_array = match self.get_boot_options_ids_with_first(name).await? {
             None => {
-                return Err(RedfishError::MissingBootOption(name.to_string().to_owned()));
+                return Err(RedfishError::MissingBootOption(name.to_string()));
             }
             Some(b) => b,
         };
