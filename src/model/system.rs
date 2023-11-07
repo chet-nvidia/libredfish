@@ -113,7 +113,7 @@ pub struct ComputerSystem {
 pub struct BootOptions {
     #[serde(flatten)]
     pub odata: ODataLinks,
-    pub description: String,
+    pub description: Option<String>,
     pub members: Vec<ODataId>,
     pub name: String,
 }
@@ -130,7 +130,7 @@ pub struct BootOption {
     pub display_name: String,
     pub id: String,
     pub name: String,
-    pub uefi_device_path: String,
+    pub uefi_device_path: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

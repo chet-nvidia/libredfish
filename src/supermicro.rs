@@ -174,12 +174,34 @@ impl Redfish for Bmc {
     }
 
     /// Set which device we should boot from first.
-    ///
-    /// Instead of changing the normal boot order we set a continuous boot override.
-    /// Setting the boot order is complicated and requires string matching on
-    /// the DisplayName of every BootOptions. This is more reliable.
     async fn boot_first(&self, target: Boot) -> Result<(), RedfishError> {
-        self.set_boot(target, false).await
+        if target != Boot::Pxe {
+            // I don't understand it either
+            return Err(RedfishError::NotSupported("Supermicro only has network boot options. See forge-admin-cli redfish get_boot_options".to_string()));
+        }
+
+        let mut with_name_match = None; // the ID of the option matching with_name
+        let mut ordered = Vec::new(); // the final boot options
+        let all = self.s.get_boot_options().await?;
+        for b in all.members {
+            let id = b.odata_id.split('/').last().unwrap();
+            let boot_option = self.s.get_boot_option(id).await?;
+            if boot_option
+                .display_name
+                .contains("UEFI HTTP IPv4 Mellanox Network Adapter")
+            {
+                with_name_match = Some(boot_option.id);
+            } else {
+                ordered.push(boot_option.id);
+            }
+        }
+        if with_name_match.is_none() {
+            return Err(RedfishError::NotSupported(
+                "No match for PXE boot".to_string(),
+            ));
+        }
+        ordered.insert(0, with_name_match.unwrap());
+        self.change_boot_order(ordered).await
     }
 
     /// Supermicro BMC does not appear to have this.
@@ -323,7 +345,9 @@ impl Redfish for Bmc {
     }
 
     async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
-        self.s.change_boot_order(boot_array).await
+        let body = HashMap::from([("Boot", HashMap::from([("BootOrder", boot_array)]))]);
+        let url = format!("Systems/{}", self.s.system_id());
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
     async fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {

@@ -199,7 +199,7 @@ pub trait Redfish: Send + Sync + 'static {
 
 // When Carbide drops it's `IpmiCommand.launch_command` background job system, we can
 // remove the Serialize and Deserialize here.
-#[derive(Serialize, Deserialize, Clone, Copy, Debug)]
+#[derive(Serialize, Deserialize, Clone, Copy, Debug, PartialEq)]
 pub enum Boot {
     Pxe,
     HardDisk,
