@@ -4,20 +4,22 @@ use reqwest::Method;
 use tracing::debug;
 
 use crate::model::account_service::ManagerAccount;
-use crate::model::chassis::{Chassis, ChassisCollection};
+use crate::model::chassis::Chassis;
 use crate::model::power::Power;
 use crate::model::secure_boot::SecureBoot;
 use crate::model::sel::LogEntry;
 use crate::model::serial_interface::SerialInterface;
 use crate::model::service_root::ServiceRoot;
-use crate::model::software_inventory::{SoftwareInventory, SoftwareInventoryCollection};
-use crate::model::task::{Task, TaskCollection};
+use crate::model::software_inventory::SoftwareInventory;
+use crate::model::task::Task;
 use crate::model::thermal::Thermal;
-use crate::model::{power, storage, thermal, BootOption, InvalidValueError, Manager, Managers};
+use crate::model::{
+    power, storage, thermal, BootOption, InvalidValueError, Manager, Managers, ODataId,
+};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{
-    model, Boot, EnabledDisabled, EthernetInterfaceCollection, NetworkDeviceFunction, NetworkPort,
-    PowerState, Redfish, RoleId, Status, Systems,
+    model, Boot, EnabledDisabled, NetworkDeviceFunction, NetworkPort, PowerState, Redfish, RoleId,
+    Status, Systems,
 };
 use crate::{BootOptions, PCIeDevice, RedfishError};
 
@@ -198,19 +200,10 @@ impl Redfish for RedfishStandard {
     }
 
     async fn get_tasks(&self) -> Result<Vec<String>, RedfishError> {
-        let (_status_code, tasks): (_, TaskCollection) =
-            self.client.get("TaskService/Tasks/").await?;
-        if tasks.members.is_empty() {
-            return Ok(vec![]);
-        }
-        let v: Vec<String> = tasks
-            .members
-            .into_iter()
-            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
-            .collect();
-        Ok(v)
+        self.get_members("TaskService/Tasks/").await
     }
 
+    /// http://redfish.dmtf.org/schemas/v1/TaskCollection.json
     async fn get_task(&self, id: &str) -> Result<Task, RedfishError> {
         let url = format!("TaskService/Tasks/{}", id);
         let (_status_code, body) = self.client.get(&url).await?;
@@ -218,17 +211,9 @@ impl Redfish for RedfishStandard {
     }
 
     /// Vec of chassis id
+    /// http://redfish.dmtf.org/schemas/v1/ChassisCollection.json
     async fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError> {
-        let (_status_code, chassises): (_, ChassisCollection) = self.client.get("Chassis/").await?;
-        if chassises.members.is_empty() {
-            return Ok(vec![]);
-        }
-        let v: Vec<String> = chassises
-            .members
-            .into_iter()
-            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
-            .collect();
-        Ok(v)
+        self.get_members("Chassis/").await
     }
 
     async fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError> {
@@ -237,21 +222,10 @@ impl Redfish for RedfishStandard {
         Ok(body)
     }
 
+    /// http://redfish.dmtf.org/schemas/v1/EthernetInterfaceCollection.json
     async fn get_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
         let url = format!("Managers/{}/EthernetInterfaces", self.manager_id);
-        let (_status_code, eth_ifaces): (_, EthernetInterfaceCollection) =
-            self.client.get(&url).await?;
-
-        if eth_ifaces.members.is_empty() {
-            return Ok(vec![]);
-        }
-        let v: Vec<String> = eth_ifaces
-            .members
-            .into_iter()
-            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
-            .collect();
-
-        Ok(v)
+        self.get_members(&url).await
     }
 
     async fn get_ethernet_interface(
@@ -263,20 +237,9 @@ impl Redfish for RedfishStandard {
         Ok(body)
     }
 
+    /// http://redfish.dmtf.org/schemas/v1/SoftwareInventoryCollection.json#/definitions/SoftwareInventoryCollection
     async fn get_software_inventories(&self) -> Result<Vec<String>, RedfishError> {
-        let (_status_code, sw_inventories): (_, SoftwareInventoryCollection) =
-            self.client.get("UpdateService/FirmwareInventory").await?;
-
-        if sw_inventories.members.is_empty() {
-            return Ok(vec![]);
-        }
-        let v: Vec<String> = sw_inventories
-            .members
-            .into_iter()
-            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
-            .collect();
-
-        Ok(v)
+        self.get_members("UpdateService/FirmwareInventory").await
     }
 
     async fn get_system(&self) -> Result<model::ComputerSystem, RedfishError> {
@@ -425,6 +388,27 @@ impl RedfishStandard {
     // PUBLIC
     //
 
+    pub async fn get_members(&self, url: &str) -> Result<Vec<String>, RedfishError> {
+        let (_, mut body): (_, HashMap<String, serde_json::Value>) = self.client.get(url).await?;
+        let key = "Members";
+        let members_json = body.remove(key).ok_or_else(|| RedfishError::MissingKey {
+            key: key.to_string(),
+            url: url.to_string(),
+        })?;
+        let Ok(members) = serde_json::from_value::<Vec<ODataId>>(members_json) else {
+            return Err(RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "Vec<ODataId>".to_string(),
+                url: url.to_string(),
+            });
+        };
+        let member_ids: Vec<String> = members
+            .into_iter()
+            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
+            .collect();
+        Ok(member_ids)
+    }
+
     /// Fetch root URL and record the vendor, if any
     pub fn set_vendor(&mut self, vendor_id: &str) -> Result<Box<dyn crate::Redfish>, RedfishError> {
         self.vendor = Some(vendor_id.to_string());
@@ -537,57 +521,15 @@ impl RedfishStandard {
     /// I have not seen a box with any number except exactly one yet.
     pub async fn get_serial_interface_name(&self) -> Result<String, RedfishError> {
         let url = format!("Managers/{}/SerialInterfaces", self.manager_id());
-        let (_status_code, body): (reqwest::StatusCode, HashMap<String, serde_json::Value>) =
-            self.client.get(&url).await?;
-        let key = "Members";
-        let member = body
-            .get(key)
-            .ok_or_else(|| RedfishError::MissingKey {
-                key: key.to_string(),
-                url: url.to_string(),
-            })?
-            .as_array()
-            .ok_or_else(|| RedfishError::InvalidKeyType {
-                key: key.to_string(),
-                expected_type: "&str".to_string(),
-                url: url.to_string(),
-            })?
-            .first();
-        let Some(member) = member else {
+        let mut members = self.get_members(&url).await?;
+        let Some(member) = members.pop() else {
             return Err(RedfishError::InvalidValue {
                 url: url.to_string(),
                 field: "0".to_string(),
                 err: InvalidValueError("Members array is empty, no SerialInterfaces".to_string()),
             });
         };
-
-        let key = "@odata.id";
-        let odata_id = member
-            .get(key)
-            .ok_or_else(|| RedfishError::MissingKey {
-                key: key.to_string(),
-                url: url.to_string(),
-            })?
-            .as_str()
-            .ok_or_else(|| RedfishError::InvalidKeyType {
-                key: key.to_string(),
-                expected_type: "&str".to_string(),
-                url: url.to_string(),
-            })?;
-
-        // odata_id is something like
-        // "/redfish/v1/Managers/iDRAC.Embedded.1/SerialInterfaces/Serial.1"
-        // We only want "Serial.1"
-        let Some(interface_id) = odata_id.split('/').last() else {
-            return Err(RedfishError::InvalidValue {
-                url: url.to_string(),
-                field: key.to_string(),
-                err: InvalidValueError(
-                    "@odata.id did not contain a slash separator value".to_string(),
-                ),
-            });
-        };
-        Ok(interface_id.to_string())
+        Ok(member)
     }
 
     // BIOS attributes that will be applied on next restart

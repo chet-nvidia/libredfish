@@ -48,19 +48,8 @@ impl std::fmt::Display for ChassisType {
     }
 }
 
-/// http://redfish.dmtf.org/schemas/v1/ChassisCollection.json
-/// The ChassisCollection schema contains a collection of chassis instances.
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct ChassisCollection {
-    #[serde(flatten)]
-    pub odata: Option<ODataLinks>,
-    #[serde(default)]
-    pub members: Vec<ODataId>,
-}
-
 /// http://redfish.dmtf.org/schemas/v1/Chassis.v1_23_0.json
-/// The Chassis schema contains an inventory of chassis components.  
+/// The Chassis schema contains an inventory of chassis components.
 /// This can include chassis parameters such as chassis type, model, etc.
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]

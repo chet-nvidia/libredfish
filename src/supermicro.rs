@@ -5,7 +5,7 @@ use crate::{
         boot, chassis::Chassis, network_device_function::NetworkDeviceFunction, oem::supermicro,
         power::Power, secure_boot::SecureBoot, sel::LogEntry, service_root::ServiceRoot,
         software_inventory::SoftwareInventory, task::Task, thermal::Thermal, BootOption,
-        Commandshell, ComputerSystem, InvalidValueError, Manager, ODataId,
+        Commandshell, ComputerSystem, InvalidValueError, Manager,
     },
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, RoleId,
@@ -38,7 +38,7 @@ impl Redfish for Bmc {
         username: &str,
         new_password: &str,
     ) -> Result<(), RedfishError> {
-        let account_ids = self.get_members("AccountService/Accounts").await?;
+        let account_ids = self.s.get_members("AccountService/Accounts").await?;
         let mut maybe_user_id = None;
         for id in account_ids {
             let account = self.s.get_account(&id).await?;
@@ -215,7 +215,7 @@ impl Redfish for Bmc {
             return Err(RedfishError::NoContent);
         };
         let url = format!("Chassis/{chassis_id}/PCIeDevices");
-        let device_ids = self.get_members(&url).await?;
+        let device_ids = self.s.get_members(&url).await?;
         let mut out = Vec::with_capacity(device_ids.len());
         for device_id in device_ids {
             out.push(self.get_pcie_device(&chassis_id, &device_id).await?);
@@ -348,29 +348,6 @@ impl Redfish for Bmc {
 }
 
 impl Bmc {
-    // TODO: move this to standard.rs and replace the model/ files that just have `members`
-    // with this. Probably make a model `Collection` type.
-    async fn get_members(&self, url: &str) -> Result<Vec<String>, RedfishError> {
-        let (_, mut body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(url).await?;
-        let key = "Members";
-        let members_json = body.remove(key).ok_or_else(|| RedfishError::MissingKey {
-            key: key.to_string(),
-            url: url.to_string(),
-        })?;
-        let Ok(members) = serde_json::from_value::<Vec<ODataId>>(members_json) else {
-            return Err(RedfishError::InvalidKeyType {
-                key: key.to_string(),
-                expected_type: "Vec<ODataId>".to_string(),
-                url: url.to_string(),
-            });
-        };
-        let member_ids: Vec<String> = members
-            .into_iter()
-            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
-            .collect();
-        Ok(member_ids)
-    }
-
     /// Enable CPU virtualization support for faster VMs
     async fn set_virt_enable(&self) -> Result<(), RedfishError> {
         let attrs = HashMap::from([
@@ -435,7 +412,7 @@ impl Bmc {
 
     async fn is_host_interface_enabled(&self) -> Result<bool, RedfishError> {
         let url = format!("Managers/{}/HostInterfaces", self.s.manager_id());
-        let host_interface_ids = self.get_members(&url).await?;
+        let host_interface_ids = self.s.get_members(&url).await?;
         let num_interfaces = host_interface_ids.len();
         if num_interfaces != 1 {
             return Err(RedfishError::InvalidValue {
@@ -471,7 +448,7 @@ impl Bmc {
     async fn set_host_interfaces(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
         let url = format!("Managers/{}/HostInterfaces", self.s.manager_id());
         // I have only seen exactly one, but you can't be too careful
-        let host_iface_ids = self.get_members(&url).await?;
+        let host_iface_ids = self.s.get_members(&url).await?;
         for iface_id in host_iface_ids {
             self.set_host_interface(&iface_id, target).await?;
         }

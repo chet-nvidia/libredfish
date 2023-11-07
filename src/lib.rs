@@ -2,11 +2,11 @@ use std::collections::HashMap;
 use std::fmt;
 
 pub mod model;
-pub use model::chassis::{Chassis, ChassisCollection};
-pub use model::ethernet_interface::{EthernetInterface, EthernetInterfaceCollection};
-pub use model::network_device_function::{NetworkDeviceFunction, NetworkDeviceFunctionCollection};
+pub use model::chassis::Chassis;
+pub use model::ethernet_interface::EthernetInterface;
+pub use model::network_device_function::NetworkDeviceFunction;
 use model::oem::nvidia_dpu::{HostPrivilegeLevel, InternalCPUModel};
-pub use model::port::{NetworkPort, NetworkPortCollection};
+pub use model::port::NetworkPort;
 use model::service_root::ServiceRoot;
 use model::software_inventory::SoftwareInventory;
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};

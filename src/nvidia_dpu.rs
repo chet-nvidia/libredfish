@@ -9,13 +9,12 @@ use crate::{
     model::{
         boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
         oem::nvidia_dpu::{HostPrivilegeLevel, InternalCPUModel},
-        port::NetworkPortCollection,
         sel::{LogEntry, LogEntryCollection},
         service_root::ServiceRoot,
         BootOption, ComputerSystem, Manager,
     },
     standard::RedfishStandard,
-    NetworkDeviceFunction, NetworkDeviceFunctionCollection, Redfish, RedfishError,
+    NetworkDeviceFunction, Redfish, RedfishError,
 };
 
 pub struct Bmc {
@@ -237,22 +236,12 @@ impl Redfish for Bmc {
     }
 
     async fn get_ports(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {
+        // http://redfish.dmtf.org/schemas/v1/NetworkPortCollection.json
         let url = format!(
             "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/Ports",
             chassis_id
         );
-        let (_status_code, body): (_, NetworkPortCollection) = self.s.client.get(&url).await?;
-
-        if body.members.is_empty() {
-            return Ok(vec![]);
-        }
-        let v: Vec<String> = body
-            .members
-            .into_iter()
-            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
-            .collect();
-
-        Ok(v)
+        self.s.get_members(&url).await
     }
 
     async fn get_port(
@@ -281,6 +270,7 @@ impl Redfish for Bmc {
         Ok(body)
     }
 
+    /// http://redfish.dmtf.org/schemas/v1/NetworkDeviceFunctionCollection.json
     async fn get_network_device_functions(
         &self,
         chassis_id: &str,
@@ -289,17 +279,7 @@ impl Redfish for Bmc {
             "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions",
             chassis_id
         );
-        let (_status_code, netdev_funcs): (_, NetworkDeviceFunctionCollection) =
-            self.s.client.get(&url).await?;
-        if netdev_funcs.members.is_empty() {
-            return Ok(vec![]);
-        }
-        let v: Vec<String> = netdev_funcs
-            .members
-            .into_iter()
-            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
-            .collect();
-        Ok(v)
+        self.s.get_members(&url).await
     }
 
     async fn change_uefi_password(

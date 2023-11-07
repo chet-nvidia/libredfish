@@ -1,17 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::{ODataId, ODataLinks};
-
-/// http://redfish.dmtf.org/schemas/v1/TaskCollection.json
-/// The TaskCollection schema contains a collection of Task instances.
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct TaskCollection {
-    #[serde(flatten)]
-    pub odata: Option<ODataLinks>,
-    #[serde(default)]
-    pub members: Vec<ODataId>,
-}
+use super::ODataLinks;
 
 /// http://redfish.dmtf.org/schemas/v1/Task.v1_7_1.json#/definitions/Task
 /// The Task schema contains information about a task that the Redfish task service schedules or executes.

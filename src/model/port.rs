@@ -1,17 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::{LinkStatus, ODataId, ODataLinks};
-
-/// http://redfish.dmtf.org/schemas/v1/NetworkPortCollection.json
-/// The NetworkPortCollection schema contains a collection of network port instances.
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct NetworkPortCollection {
-    #[serde(flatten)]
-    pub odata: Option<ODataLinks>,
-    #[serde(default)]
-    pub members: Vec<ODataId>,
-}
+use super::{LinkStatus, ODataLinks};
 
 #[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum LinkNetworkTechnology {
@@ -27,7 +16,7 @@ impl std::fmt::Display for LinkNetworkTechnology {
 }
 
 /// http://redfish.dmtf.org/schemas/v1/NetworkPort.v1_4_1.json
-/// The NetworkPort schema contains an inventory of software components.  
+/// The NetworkPort schema contains an inventory of software components.
 /// This can include Network Device parameters such as current speed, link status, etc.
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]

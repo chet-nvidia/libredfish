@@ -2,17 +2,6 @@ use serde::{Deserialize, Serialize};
 
 use super::{LinkStatus, ODataId, ODataLinks, ResourceStatus};
 
-/// http://redfish.dmtf.org/schemas/v1/EthernetInterfaceCollection.json
-/// The EthernetInterfaceCollection schema contains a collection of Ethernet interfaces instances.
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct EthernetInterfaceCollection {
-    #[serde(flatten)]
-    pub odata: Option<ODataLinks>,
-    #[serde(default)]
-    pub members: Vec<ODataId>,
-}
-
 /// http://redfish.dmtf.org/schemas/v1/EthernetInterface.v1_6_0.json
 /// The EthernetInterface schema contains an inventory of Ethernet interface components.
 /// This can include Network Device parameters such as current IP addresses, MAC address, link status, etc.

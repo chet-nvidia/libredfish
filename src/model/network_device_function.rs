@@ -2,19 +2,8 @@ use serde::{Deserialize, Serialize};
 
 use super::{ODataId, ODataLinks};
 
-/// http://redfish.dmtf.org/schemas/v1/NetworkDeviceFunctionCollection.json
-/// The NetworkDeviceFunctionCollection schema contains a collection of network device function instances.
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct NetworkDeviceFunctionCollection {
-    #[serde(flatten)]
-    pub odata: Option<ODataLinks>,
-    #[serde(default)]
-    pub members: Vec<ODataId>,
-}
-
 /// http://redfish.dmtf.org/schemas/v1/NetworkDeviceFunction.v1_9_0.json
-/// The NetworkDeviceFunction schema contains an inventory of software components.  
+/// The NetworkDeviceFunction schema contains an inventory of software components.
 /// This can include Network Device parameters such as MAC address, MTU size
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
