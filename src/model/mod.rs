@@ -150,6 +150,12 @@ impl FromStr for EnabledDisabled {
     }
 }
 
+impl From<EnabledDisabled> for serde_json::Value {
+    fn from(val: EnabledDisabled) -> Self {
+        serde_json::Value::String(val.to_string())
+    }
+}
+
 #[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum EnableDisable {
     Enable,
@@ -178,6 +184,12 @@ impl FromStr for EnableDisable {
                 "Invalid EnableDisable value: {x}"
             ))),
         }
+    }
+}
+
+impl From<EnableDisable> for serde_json::Value {
+    fn from(val: EnableDisable) -> Self {
+        serde_json::Value::String(val.to_string())
     }
 }
 

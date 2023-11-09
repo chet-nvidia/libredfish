@@ -193,10 +193,7 @@ async fn run_integration_test(
         .await?;
 
     redfish.boot_once(libredfish::Boot::Pxe).await?;
-    if vendor_dir != "supermicro" {
-        // TODO: figure out how to set HDD boot on Supermicro
-        redfish.boot_first(libredfish::Boot::HardDisk).await?;
-    }
+    redfish.boot_first(libredfish::Boot::HardDisk).await?;
     redfish
         .power(libredfish::SystemPowerControl::ForceRestart)
         .await?;

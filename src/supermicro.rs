@@ -5,7 +5,7 @@ use crate::{
         boot, chassis::Chassis, network_device_function::NetworkDeviceFunction, oem::supermicro,
         power::Power, secure_boot::SecureBoot, sel::LogEntry, service_root::ServiceRoot,
         software_inventory::SoftwareInventory, task::Task, thermal::Thermal, BootOption,
-        Commandshell, ComputerSystem, InvalidValueError, Manager,
+        Commandshell, ComputerSystem, EnableDisable, InvalidValueError, Manager,
     },
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, RoleId,
@@ -81,11 +81,33 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
+    /// Note that you can't use this for initial setup unless you reboot and run it twice.
+    /// `boot_first` won't find the Mellanox HTTP device. `uefi_nic_boot_attrs` enables it,
+    /// but it won't show until after reboot so that step will fail on first time through.
     async fn forge_setup(&self) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
-        self.set_tpms("TPM 2.0").await?;
-        self.set_virt_enable().await?;
-        self.set_uefi_nic_boot().await?;
+
+        let mut bios_attrs: Vec<(&str, serde_json::Value)> = vec![
+            ("QuietBoot#002E", false.into()),
+            ("Re-tryBoot#0033", "EFI Boot".into()),
+            ("CSMSupport#0123", "Disabled".into()),
+            ("SecureBootEnable#0124", false.into()),
+        ];
+        bios_attrs.append(&mut self.trusted_computing_txt_attrs());
+        bios_attrs.append(&mut self.tpm_attrs());
+        bios_attrs.append(&mut self.virt_enable_attrs());
+        bios_attrs.append(&mut self.uefi_nic_boot_attrs());
+
+        let mut attrs = HashMap::new();
+        attrs.extend(bios_attrs.into_iter());
+        let body = HashMap::from([("Attributes", attrs)]);
+        let url = format!("Systems/{}/Bios", self.s.system_id());
+        self.s
+            .client
+            .patch(&url, body)
+            .await
+            .map(|_status_code| ())?;
+
         self.boot_first(Boot::Pxe).await?;
         // always do system lockdown last
         self.lockdown(EnabledDisabled::Enabled).await
@@ -168,40 +190,18 @@ impl Redfish for Bmc {
         self.s.get_boot_option(option_id).await
     }
 
-    // Boot from this device once then go back to the normal boot order
+    /// Boot from this device once then go back to the normal boot order
     async fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {
+        let _ = self.set_mellanox_first().await;
         self.set_boot(target, true).await
     }
 
     /// Set which device we should boot from first.
+    /// Sets continuous boot override. The normal boot order can only be changed with ipmitool:
+    ///  ipmitool -R 1 -N 5 -I lanplus -U ADMIN -P <pw> -H <bmc-ip> chassis bootdev pxe
     async fn boot_first(&self, target: Boot) -> Result<(), RedfishError> {
-        if target != Boot::Pxe {
-            // I don't understand it either
-            return Err(RedfishError::NotSupported("Supermicro only has network boot options. See forge-admin-cli redfish get_boot_options".to_string()));
-        }
-
-        let mut with_name_match = None; // the ID of the option matching with_name
-        let mut ordered = Vec::new(); // the final boot options
-        let all = self.s.get_boot_options().await?;
-        for b in all.members {
-            let id = b.odata_id.split('/').last().unwrap();
-            let boot_option = self.s.get_boot_option(id).await?;
-            if boot_option
-                .display_name
-                .contains("UEFI HTTP IPv4 Mellanox Network Adapter")
-            {
-                with_name_match = Some(boot_option.id);
-            } else {
-                ordered.push(boot_option.id);
-            }
-        }
-        if with_name_match.is_none() {
-            return Err(RedfishError::NotSupported(
-                "No match for PXE boot".to_string(),
-            ));
-        }
-        ordered.insert(0, with_name_match.unwrap());
-        self.change_boot_order(ordered).await
+        let _ = self.set_mellanox_first().await;
+        self.set_boot(target, false).await
     }
 
     /// Supermicro BMC does not appear to have this.
@@ -372,28 +372,46 @@ impl Redfish for Bmc {
 }
 
 impl Bmc {
-    /// Enable CPU virtualization support for faster VMs
-    async fn set_virt_enable(&self) -> Result<(), RedfishError> {
-        let attrs = HashMap::from([
-            ("IntelVTforDirectedI/O(VT-d)#1E12", "Enable"),
-            ("IntelVirtualizationTechnology#3C2E", "Enable"),
-            ("SR-IOVSupport#0048", "Enabled"),
-        ]);
-        let body = HashMap::from([("Attributes", attrs)]);
-        let url = format!("Systems/{}/Bios", self.s.system_id());
-        self.s.client.patch(&url, body).await.map(|_status_code| ())
+    /// Attributes to enable CPU virtualization support for faster VMs
+    fn virt_enable_attrs(&self) -> Vec<(&str, serde_json::Value)> {
+        vec![
+            (
+                "IntelVTforDirectedI/O(VT-d)#1E12",
+                EnableDisable::Enable.into(),
+            ), // not Enabled!
+            (
+                "IntelVirtualizationTechnology#3C2E",
+                EnableDisable::Enable.into(),
+            ), // not Enabled!
+            ("SR-IOVSupport#0048", EnabledDisabled::Enabled.into()),
+        ]
     }
 
-    async fn set_uefi_nic_boot(&self) -> Result<(), RedfishError> {
-        let attrs = HashMap::from([
-            ("IPv4HTTPSupport#00F7", "Enabled"),
-            ("IPv4PXESupport#00F6", "Enabled"),
-            ("IPv6HTTPSupport#00F9", "Enabled"),
-            ("IPv6PXESupport#00F8", "Enabled"),
-        ]);
-        let body = HashMap::from([("Attributes", attrs)]);
-        let url = format!("Systems/{}/Bios", self.s.system_id());
-        self.s.client.patch(&url, body).await.map(|_status_code| ())
+    fn uefi_nic_boot_attrs(&self) -> Vec<(&str, serde_json::Value)> {
+        use EnabledDisabled::*;
+        vec![
+            ("IPv4HTTPSupport#00F7", Enabled.into()),
+            ("IPv4PXESupport#00F6", Disabled.into()),
+            ("IPv6HTTPSupport#00F9", Enabled.into()),
+            ("IPv6PXESupport#00F8", Disabled.into()),
+        ]
+    }
+
+    /// Trusted Computing / Provision Support / TXT Support
+    fn trusted_computing_txt_attrs(&self) -> Vec<(&str, serde_json::Value)> {
+        use EnabledDisabled::*;
+        vec![
+            ("TXTSupport#0063", Enabled.into()),
+            ("TXTSupport#0074", Enabled.into()),
+        ]
+    }
+
+    // registries/BiosAttributeRegistry.1.0.0.json/index.json
+    fn tpm_attrs(&self) -> Vec<(&str, serde_json::Value)> {
+        vec![
+            ("DeviceSelect#0061", "TPM 2.0".into()),
+            ("DeviceSelect#0072", "TPM 2.0".into()),
+        ]
     }
 
     async fn get_kcs_privilege(&self) -> Result<supermicro::Privilege, RedfishError> {
@@ -524,11 +542,9 @@ impl Bmc {
             boot_source_override_target: Some(match target {
                 Boot::Pxe => boot::BootSourceOverrideTarget::Pxe,
                 Boot::HardDisk => boot::BootSourceOverrideTarget::Hdd,
-                Boot::UefiHttp => {
-                    return Err(RedfishError::NotSupported(
-                        "No Supermicro UefiHttp implementation".to_string(),
-                    ))
-                }
+                // For this one to appear you have to set boot_source_override_mode to UEFI and
+                // reboot, then choose it, then reboot to use it.
+                Boot::UefiHttp => boot::BootSourceOverrideTarget::UefiHttp,
             }),
             boot_source_override_enabled: Some(if once {
                 boot::BootSourceOverrideEnabled::Once
@@ -542,29 +558,6 @@ impl Bmc {
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
-    // tpm_type: Defined in registries/BiosAttributeRegistry.1.0.0.json/index.json
-    async fn set_tpms(&self, tpm_type: &str) -> Result<(), RedfishError> {
-        let url = format!("Systems/{}/Bios", self.s.system_id());
-        let attrs_val = self.s.bios_attributes().await?;
-        let attrs = attrs_val
-            .as_object()
-            .ok_or_else(|| RedfishError::InvalidKeyType {
-                key: "Attributes".to_string(),
-                expected_type: "Object".to_string(),
-                url: url.clone(),
-            })?;
-
-        let mut new_vals = HashMap::new();
-        for (k, v) in attrs {
-            // Our test machine has DeviceSelect#0061 and DeviceSelect#0072, presumably one per CPU
-            if k.starts_with("DeviceSelect") && v != tpm_type {
-                new_vals.insert(k, tpm_type);
-            }
-        }
-        let body = HashMap::from([("Attributes", new_vals)]);
-        self.s.client.patch(&url, body).await.map(|_status_code| ())
-    }
-
     async fn get_pcie_device(
         &self,
         chassis_id: &str,
@@ -573,5 +566,37 @@ impl Bmc {
         let url = format!("Chassis/{chassis_id}/PCIeDevices/{device_id}");
         let (_, body): (_, PCIeDevice) = self.s.client.get(&url).await?;
         Ok(body)
+    }
+
+    /// Set the DPU to be our first netboot device.
+    ///
+    /// Callers should usually ignore the error and continue. The HTTP adapter
+    /// will only appear after IPv4HTTPSupport bios setting is enabled and the host rebooted.
+    /// If the Mellanox adapter is not first everything still works, but boot takes a little longer
+    /// because it tries the other adapters too.
+    async fn set_mellanox_first(&self) -> Result<(), RedfishError> {
+        let mut with_name_match = None; // the ID of the option matching with_name
+        let mut ordered = Vec::new(); // the final boot options
+        let all = self.s.get_boot_options().await?;
+        for b in all.members {
+            let id = b.odata_id.split('/').last().unwrap();
+            let boot_option = self.s.get_boot_option(id).await?;
+            if boot_option
+                .display_name
+                .contains("UEFI HTTP IPv4 Mellanox Network Adapter")
+            {
+                with_name_match = Some(boot_option.id);
+            } else {
+                ordered.push(boot_option.id);
+            }
+        }
+        if with_name_match.is_none() {
+            // This happens if IPv4HTTPSupport#00F7 is disabled in the bios
+            return Err(RedfishError::NotSupported(
+                "No match for Mellanox HTTP adapter boot".to_string(),
+            ));
+        }
+        ordered.insert(0, with_name_match.unwrap());
+        self.change_boot_order(ordered).await
     }
 }
