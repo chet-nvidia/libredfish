@@ -391,7 +391,7 @@ impl Bmc {
         use EnabledDisabled::*;
         vec![
             ("IPv4HTTPSupport#00F7", Enabled.into()),
-            ("IPv4PXESupport#00F6", Disabled.into()),
+            ("IPv4PXESupport#00F6", Enabled.into()),
             ("IPv6HTTPSupport#00F9", Enabled.into()),
             ("IPv6PXESupport#00F8", Disabled.into()),
         ]
