@@ -99,7 +99,7 @@ impl Redfish for Bmc {
         bios_attrs.append(&mut self.uefi_nic_boot_attrs());
 
         let mut attrs = HashMap::new();
-        attrs.extend(bios_attrs.into_iter());
+        attrs.extend(bios_attrs);
         let body = HashMap::from([("Attributes", attrs)]);
         let url = format!("Systems/{}/Bios", self.s.system_id());
         self.s

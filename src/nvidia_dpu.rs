@@ -357,7 +357,7 @@ impl Bmc {
 
     async fn set_boot_override(
         &self,
-        override_taget: BootSourceOverrideTarget,
+        override_target: BootSourceOverrideTarget,
         override_enabled: BootSourceOverrideEnabled,
     ) -> Result<(), RedfishError> {
         let mut data: HashMap<String, String> = HashMap::new();
@@ -368,7 +368,7 @@ impl Bmc {
         );
         data.insert(
             "BootSourceOverrideTarget".to_string(),
-            format!("{}", override_taget),
+            format!("{}", override_target),
         );
         let url = format!("Systems/{}/Settings ", self.s.system_id());
         self.s

@@ -392,7 +392,7 @@ impl Redfish for Bmc {
         let (_status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
             .s
             .client
-            .req(Method::PATCH, &url, Some(body), Some(timeout), None)
+            .req(Method::PATCH, &url, Some(body), Some(timeout), None, None)
             .await?;
         Ok(())
     }

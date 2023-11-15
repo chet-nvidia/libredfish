@@ -1,4 +1,7 @@
+use reqwest::header::{HeaderName, IF_MATCH};
+use reqwest::Method;
 use std::collections::HashMap;
+use std::time::Duration;
 
 use crate::model::boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget};
 use crate::model::oem::nvidia_viking;
@@ -309,9 +312,37 @@ impl Redfish for Bmc {
     }
 
     async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
-        let body = HashMap::from([("Boot", HashMap::from([("BootOrder", boot_array)]))]);
+        let data = HashMap::from([("Boot", HashMap::from([("BootOrder", boot_array)]))]);
         let url = format!("Systems/{}/SD", self.s.system_id());
-        self.s.client.patch(&url, body).await?;
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url).await?;
+        let key = "@odata.etag";
+        let etag = body
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_str()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "Object".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let headers: Vec<(HeaderName, String)> = vec![(IF_MATCH, etag.to_string())];
+        let timeout = Duration::from_secs(10);
+        let (_status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
+            .s
+            .client
+            .req(
+                Method::PATCH,
+                &url,
+                Some(data),
+                Some(timeout),
+                None,
+                Some(headers),
+            )
+            .await?;
         Ok(())
     }
 
@@ -478,33 +509,59 @@ impl Bmc {
             let b: BootOption = self.s.get_boot_option(member_url.as_str()).await?;
             // dgx has alias entries for each BootOption that matches BootDevices enum
             if b.alias.is_some() && b.alias.unwrap() == with_name_str {
-                ordered.insert(0, b.id);
+                ordered.insert(0, format!("Boot{}", b.id).to_string());
                 continue;
             }
-            ordered.push(b.id);
+            ordered.push(format!("Boot{}", b.id).to_string());
         }
         Ok(Some(ordered))
     }
 
     async fn set_boot_override(
         &self,
-        override_taget: BootSourceOverrideTarget,
+        override_target: BootSourceOverrideTarget,
         override_enabled: BootSourceOverrideEnabled,
     ) -> Result<(), RedfishError> {
-        let mut data: HashMap<String, String> = HashMap::new();
-        data.insert("BootSourceOverrideMode".to_string(), "UEFI".to_string());
-        data.insert(
+        let mut boot_data: HashMap<String, String> = HashMap::new();
+        boot_data.insert("BootSourceOverrideMode".to_string(), "UEFI".to_string());
+        boot_data.insert(
             "BootSourceOverrideEnabled".to_string(),
             format!("{}", override_enabled),
         );
-        data.insert(
+        boot_data.insert(
             "BootSourceOverrideTarget".to_string(),
-            format!("{}", override_taget),
+            format!("{}", override_target),
         );
+        let data = HashMap::from([("Boot", boot_data)]);
         let url = format!("Systems/{}/SD ", self.s.system_id());
-        self.s
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url).await?;
+        let key = "@odata.etag";
+        let etag = body
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_str()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "Object".to_string(),
+                url: url.to_string(),
+            })?;
+
+        let headers: Vec<(HeaderName, String)> = vec![(IF_MATCH, etag.to_string())];
+        let timeout = Duration::from_secs(10);
+        let (_status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
+            .s
             .client
-            .patch(&url, HashMap::from([("Boot", data)]))
+            .req(
+                Method::PATCH,
+                &url,
+                Some(data),
+                Some(timeout),
+                None,
+                Some(headers),
+            )
             .await?;
         Ok(())
     }

@@ -272,7 +272,7 @@ impl Redfish for RedfishStandard {
         );
         let (_status_code, resp_opt) = self
             .client
-            .req::<Task, _>(Method::POST, &url, Some(data), None, None)
+            .req::<Task, _>(Method::POST, &url, Some(data), None, None, None)
             .await?;
         match resp_opt {
             Some(response_body) => Ok(response_body),
