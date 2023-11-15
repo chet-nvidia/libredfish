@@ -63,7 +63,7 @@ pub struct Systems {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct SystemStatus {
-    pub health: String,
+    pub health: Option<String>,
     pub health_rollup: Option<String>,
     pub state: String,
 }
@@ -146,6 +146,16 @@ pub struct PCIeDevice {
     pub part_number: Option<String>,
     pub serial_number: Option<String>,
     pub status: Option<SystemStatus>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct PCIeDevices {
+    #[serde(flatten)]
+    pub odata: ODataLinks,
+    pub description: Option<String>,
+    pub members: Vec<ODataId>,
+    pub name: String,
 }
 
 #[cfg(test)]

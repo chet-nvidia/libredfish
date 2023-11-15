@@ -3,27 +3,28 @@ use reqwest::Method;
 use std::collections::HashMap;
 use std::time::Duration;
 
-use crate::model::boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget};
-use crate::model::oem::nvidia_viking;
-use crate::model::oem::nvidia_viking::BootDevices;
-use crate::model::oem::nvidia_viking::BootDevices::Pxe;
-use crate::model::service_root::ServiceRoot;
-use crate::model::task::Task;
-use crate::model::EnableDisable::Enable;
-use crate::model::Manager;
-use crate::model::{secure_boot::SecureBoot, ComputerSystem};
 use crate::EnabledDisabled::Enabled;
 use crate::RoleId;
 use crate::{
     model::{
+        boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
         chassis::Chassis,
         network_device_function::NetworkDeviceFunction,
+        oem::nvidia_viking,
+        oem::nvidia_viking::{BootDevices, BootDevices::Pxe},
         power::Power,
+        secure_boot::SecureBoot,
         sel::{LogEntry, LogEntryCollection},
+        service_root::ServiceRoot,
         software_inventory::SoftwareInventory,
+        system::PCIeDevices,
+        task::Task,
         thermal::Thermal,
-        BootOption,
+        BootOption, ComputerSystem,
+        EnableDisable::Enable,
+        Manager,
     },
+    network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status,
     StatusInternal, SystemPowerControl,
@@ -212,7 +213,45 @@ impl Redfish for Bmc {
     }
 
     async fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError> {
-        self.s.pcie_devices().await
+        let mut out = Vec::new();
+
+        // viking has pcie devices on the daughterboard that requires enumerating all chassis
+        // the structure of pcie devices reported is also different from other vendors
+        let chassis_all = self.s.get_chassis_all().await?;
+        for chassis_id in chassis_all {
+            let chassis = self.get_chassis(&chassis_id).await?;
+            if let Some(member) = chassis.pcie_devices {
+                let mut url = member
+                    .odata_id
+                    .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+
+                let devices: PCIeDevices = match self.s.client.get(&url).await {
+                    Ok((_status, x)) => x,
+                    Err(_e) => {
+                        continue;
+                    }
+                };
+                for id in devices.members {
+                    url = id.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+                    let p: PCIeDevice = self.s.client.get(&url).await?.1;
+                    if p.id.is_none()
+                        || p.status.is_none()
+                        || !p
+                            .status
+                            .clone()
+                            .unwrap()
+                            .state
+                            .to_lowercase()
+                            .contains("enabled")
+                    {
+                        continue;
+                    }
+                    out.push(p);
+                }
+            }
+        }
+        out.sort_unstable_by(|a, b| a.manufacturer.partial_cmp(&b.manufacturer).unwrap());
+        Ok(out)
     }
 
     async fn update_firmware(&self, firmware: tokio::fs::File) -> Result<Task, RedfishError> {
@@ -340,7 +379,7 @@ impl Redfish for Bmc {
                 Some(data),
                 Some(timeout),
                 None,
-                Some(headers),
+                headers,
             )
             .await?;
         Ok(())
@@ -560,7 +599,7 @@ impl Bmc {
                 Some(data),
                 Some(timeout),
                 None,
-                Some(headers),
+                headers,
             )
             .await?;
         Ok(())

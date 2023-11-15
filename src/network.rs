@@ -9,6 +9,7 @@ use reqwest::{
 use serde::{de::DeserializeOwned, Serialize};
 use tracing::debug;
 
+use crate::model::InvalidValueError;
 pub use crate::RedfishError;
 use crate::{standard::RedfishStandard, Redfish};
 
@@ -146,7 +147,7 @@ impl RedfishHttpClient {
         T: DeserializeOwned + ::std::fmt::Debug,
     {
         let (status_code, resp_opt) = self
-            .req::<T, String>(Method::GET, api, None, None, None, None)
+            .req::<T, String>(Method::GET, api, None, None, None, Vec::new())
             .await?;
         match resp_opt {
             Some(response_body) => Ok((status_code, response_body)),
@@ -160,7 +161,7 @@ impl RedfishHttpClient {
         data: HashMap<&str, String>,
     ) -> Result<StatusCode, RedfishError> {
         let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
-            .req(Method::POST, api, Some(data), None, None, None)
+            .req(Method::POST, api, Some(data), None, None, Vec::new())
             .await?;
         Ok(status_code)
     }
@@ -186,7 +187,7 @@ impl RedfishHttpClient {
                 body_option,
                 Some(timeout),
                 Some(file),
-                None,
+                Vec::new(),
             )
             .await?;
         match resp_opt {
@@ -200,7 +201,7 @@ impl RedfishHttpClient {
         T: Serialize + ::std::fmt::Debug,
     {
         let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
-            .req(Method::PATCH, api, Some(data), None, None, None)
+            .req(Method::PATCH, api, Some(data), None, None, Vec::new())
             .await?;
         Ok(status_code)
     }
@@ -210,7 +211,7 @@ impl RedfishHttpClient {
     #[allow(dead_code)]
     pub async fn delete(&self, api: &str) -> Result<StatusCode, RedfishError> {
         let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
-            .req::<_, String>(Method::DELETE, api, None, None, None, None)
+            .req::<_, String>(Method::DELETE, api, None, None, None, Vec::new())
             .await?;
         Ok(status_code)
     }
@@ -223,7 +224,7 @@ impl RedfishHttpClient {
         body: Option<B>,
         override_timeout: Option<Duration>,
         file: Option<tokio::fs::File>,
-        custom_headers: Option<Vec<(HeaderName, String)>>,
+        custom_headers: Vec<(HeaderName, String)>,
     ) -> Result<(StatusCode, Option<T>), RedfishError>
     where
         T: DeserializeOwned + ::std::fmt::Debug,
@@ -277,13 +278,21 @@ impl RedfishHttpClient {
             req_b = req_b.header(CONTENT_TYPE, HeaderValue::from_static("application/json"));
         }
 
-        if let Some(hdrs) = custom_headers {
-            for (key, val) in hdrs.iter() {
-                req_b = req_b.header(
-                    key,
-                    HeaderValue::from_str(val).unwrap_or(HeaderValue::from_static("")),
-                );
-            }
+        for (key, val) in custom_headers.iter() {
+            let value = match HeaderValue::from_str(val) {
+                Ok(x) => x,
+                Err(e) => {
+                    return Err(RedfishError::InvalidValue {
+                        url: url.to_string(),
+                        field: "0".to_string(),
+                        err: InvalidValueError(format!(
+                            "Invalid custom header {} value: {}, error: {}",
+                            key, val, e
+                        )),
+                    })
+                }
+            };
+            req_b = req_b.header(key, value);
         }
 
         if let Some(user) = &self.endpoint.user {
