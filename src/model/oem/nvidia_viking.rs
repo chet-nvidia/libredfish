@@ -75,6 +75,18 @@ pub struct Bios {
     pub odata_context: String,
     pub attributes: BiosAttributes,
 }
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct BiosLockdownAttributes {
+    pub kcs_interface_disable: EnabledDisabled,
+    pub redfish_enable: EnabledDisabled,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SetBiosLockdownAttributes {
+    pub attributes: BiosLockdownAttributes,
+}
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]

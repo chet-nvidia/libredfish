@@ -2,8 +2,9 @@ use reqwest::header::{HeaderName, IF_MATCH};
 use reqwest::Method;
 use std::collections::HashMap;
 use std::time::Duration;
+use version_compare::Version;
 
-use crate::EnabledDisabled::Enabled;
+use crate::EnabledDisabled::{Disabled, Enabled};
 use crate::RoleId;
 use crate::{
     model::{
@@ -101,10 +102,26 @@ impl Redfish for Bmc {
     }
 
     async fn lockdown_status(&self) -> Result<Status, RedfishError> {
-        let message = String::from("Unsupported");
+        let url = &format!("Systems/{}/Bios", self.s.system_id());
+        let (_status_code, bios): (_, nvidia_viking::Bios) = self.s.client.get(url).await?;
+        let bios = bios.attributes;
+        let message = format!(
+            "ipmi_kcs_disable={}, redfish_enable={}.",
+            bios.kcs_interface_disable, bios.redfish_enable
+        )
+        .to_string();
+        // todo: fix this once dgx viking team adds support
         Ok(Status {
             message,
-            status: StatusInternal::Enabled,
+            status: if bios.kcs_interface_disable == Enabled
+            /*&& bios.redfish_enable == Disabled */
+            {
+                StatusInternal::Enabled
+            } else if bios.kcs_interface_disable == Disabled && bios.redfish_enable == Enabled {
+                StatusInternal::Disabled
+            } else {
+                StatusInternal::Partial
+            },
         })
     }
 
@@ -407,18 +424,70 @@ impl Redfish for Bmc {
 }
 
 impl Bmc {
+    async fn check_firmware_version(
+        &self,
+        firmware_id: String,
+        minimum_version: String,
+    ) -> Result<bool, RedfishError> {
+        let firmware = self.get_firmware(&firmware_id).await?;
+        if let Some(version) = firmware.version {
+            let current = Version::from(&version);
+            let minimum = Version::from(&minimum_version);
+            if current < minimum {
+                return Err(RedfishError::NotSupported(format!(
+                    "{firmware_id} {version} < {minimum_version}"
+                )));
+            }
+            return Ok(true);
+        }
+        Err(RedfishError::NotSupported(format!(
+            "{firmware_id} unknown version < {minimum_version}"
+        )))
+    }
+
     async fn enable_lockdown(&self) -> Result<(), RedfishError> {
-        // TODO: not currently supported by the viking dgx bmc, feature addition in progress.
-        Ok(())
-        // this one requires v1.1.3 sbios, etc
-        // kcs_interface_disable: EnabledDisabled::enabled
-        // this one requires additional work from viking firmware team
-        // redfish_enable: EnabledDisabled::disabled
+        let firmwares = self.get_software_inventories().await?;
+        for id in firmwares {
+            if id.contains("HostBIOS") {
+                let _ = self
+                    .check_firmware_version(id, "1.01.03".to_string())
+                    .await?;
+            } else if id.contains("HostBMC") {
+                let _ = self
+                    .check_firmware_version(id, "23.11.09".to_string())
+                    .await?;
+            }
+        }
+
+        let lockdown_attrs = nvidia_viking::BiosLockdownAttributes {
+            kcs_interface_disable: Enabled,
+            redfish_enable: Enabled, // todo: this should be disabled for the virtual usb nic, not yet implemented by dgx team
+        };
+        let set_lockdown = nvidia_viking::SetBiosLockdownAttributes {
+            attributes: lockdown_attrs,
+        };
+        let url = format!("Systems/{}/Bios/SD/", self.s.system_id());
+        self.s
+            .client
+            .patch(&url, set_lockdown)
+            .await
+            .map(|_status_code| ())
     }
 
     async fn disable_lockdown(&self) -> Result<(), RedfishError> {
-        // TODO: not currently supported by the viking dgx bmc, feature addition in progress.
-        Ok(())
+        let lockdown_attrs = nvidia_viking::BiosLockdownAttributes {
+            kcs_interface_disable: Disabled,
+            redfish_enable: Enabled,
+        };
+        let set_lockdown = nvidia_viking::SetBiosLockdownAttributes {
+            attributes: lockdown_attrs,
+        };
+        let url = format!("Systems/{}/Bios/SD/", self.s.system_id());
+        self.s
+            .client
+            .patch(&url, set_lockdown)
+            .await
+            .map(|_status_code| ())
     }
 
     async fn set_virt_enable(&self) -> Result<(), RedfishError> {
