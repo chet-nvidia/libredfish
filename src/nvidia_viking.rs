@@ -1,7 +1,8 @@
-use reqwest::header::{HeaderName, IF_MATCH};
-use reqwest::Method;
 use std::collections::HashMap;
 use std::time::Duration;
+
+use reqwest::header::{HeaderName, IF_MATCH};
+use reqwest::Method;
 use version_compare::Version;
 
 use crate::EnabledDisabled::Enabled;
@@ -108,8 +109,7 @@ impl Redfish for Bmc {
         let message = format!(
             "ipmi_kcs_disable={}, redfish_enable={}.",
             bios.kcs_interface_disable, bios.redfish_enable
-        )
-        .to_string();
+        );
         // todo: fix this once dgx viking team adds support
         Ok(Status {
             message,
