@@ -47,7 +47,7 @@ pub struct BiosAttributes {
     pub boot_order: String,
     pub console_redirection_enable0: bool,
     pub enable_sgx: EnabledDisabled,
-    pub kcs_interface_disable: EnabledDisabled,
+    pub kcs_interface_disable: String,
     pub ipv4_http: EnabledDisabled,
     pub ipv4_pxe: EnabledDisabled,
     pub ipv6_http: EnabledDisabled,
@@ -78,7 +78,7 @@ pub struct Bios {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct BiosLockdownAttributes {
-    pub kcs_interface_disable: EnabledDisabled,
+    pub kcs_interface_disable: String,
     pub redfish_enable: EnabledDisabled,
 }
 

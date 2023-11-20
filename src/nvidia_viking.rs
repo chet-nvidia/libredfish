@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use std::time::Duration;
 use version_compare::Version;
 
-use crate::EnabledDisabled::{Disabled, Enabled};
+use crate::EnabledDisabled::Enabled;
 use crate::RoleId;
 use crate::{
     model::{
@@ -113,11 +113,11 @@ impl Redfish for Bmc {
         // todo: fix this once dgx viking team adds support
         Ok(Status {
             message,
-            status: if bios.kcs_interface_disable == Enabled
+            status: if bios.kcs_interface_disable == "Deny All"
             /*&& bios.redfish_enable == Disabled */
             {
                 StatusInternal::Enabled
-            } else if bios.kcs_interface_disable == Disabled && bios.redfish_enable == Enabled {
+            } else if bios.kcs_interface_disable == "Allow All" && bios.redfish_enable == Enabled {
                 StatusInternal::Disabled
             } else {
                 StatusInternal::Partial
@@ -428,7 +428,7 @@ impl Bmc {
         &self,
         firmware_id: String,
         minimum_version: String,
-    ) -> Result<bool, RedfishError> {
+    ) -> Result<(), RedfishError> {
         let firmware = self.get_firmware(&firmware_id).await?;
         if let Some(version) = firmware.version {
             let current = Version::from(&version);
@@ -438,7 +438,7 @@ impl Bmc {
                     "{firmware_id} {version} < {minimum_version}"
                 )));
             }
-            return Ok(true);
+            return Ok(());
         }
         Err(RedfishError::NotSupported(format!(
             "{firmware_id} unknown version < {minimum_version}"
@@ -446,21 +446,14 @@ impl Bmc {
     }
 
     async fn enable_lockdown(&self) -> Result<(), RedfishError> {
-        let firmwares = self.get_software_inventories().await?;
-        for id in firmwares {
-            if id.contains("HostBIOS") {
-                let _ = self
-                    .check_firmware_version(id, "1.01.03".to_string())
-                    .await?;
-            } else if id.contains("HostBMC") {
-                let _ = self
-                    .check_firmware_version(id, "23.11.09".to_string())
-                    .await?;
-            }
-        }
+        // assuming that the viking bmc does not modify the suffixes
+        self.check_firmware_version("HostBIOS_0".to_string(), "1.01.03".to_string())
+            .await?;
+        self.check_firmware_version("HostBMC_0".to_string(), "23.11.09".to_string())
+            .await?;
 
         let lockdown_attrs = nvidia_viking::BiosLockdownAttributes {
-            kcs_interface_disable: Enabled,
+            kcs_interface_disable: "Deny All".to_string(),
             redfish_enable: Enabled, // todo: this should be disabled for the virtual usb nic, not yet implemented by dgx team
         };
         let set_lockdown = nvidia_viking::SetBiosLockdownAttributes {
@@ -476,7 +469,7 @@ impl Bmc {
 
     async fn disable_lockdown(&self) -> Result<(), RedfishError> {
         let lockdown_attrs = nvidia_viking::BiosLockdownAttributes {
-            kcs_interface_disable: Disabled,
+            kcs_interface_disable: "Allow All".to_string(),
             redfish_enable: Enabled,
         };
         let set_lockdown = nvidia_viking::SetBiosLockdownAttributes {
