@@ -42,7 +42,7 @@ pub struct EthernetInterface {
     pub name_servers: Vec<String>,
     pub speed_mbps: Option<i32>,
     #[serde(default)]
-    pub static_name_servers: Vec<ODataId>,
+    pub static_name_servers: Vec<String>,
     pub status: Option<ResourceStatus>,
     #[serde(rename = "VLANs")]
     pub vlans: Option<ODataId>,

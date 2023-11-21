@@ -5,6 +5,7 @@
 ///
 /// See tests/mockup/README for details.
 use std::{
+    collections::HashSet,
     env,
     path::PathBuf,
     process::{Child, Command},
@@ -68,10 +69,12 @@ async fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow
     boot_array.swap(0, 1);
     redfish.change_boot_order(boot_array).await?;
 
-    let eth_intefaces = redfish.get_ethernet_interfaces().await?;
-    assert!(!eth_intefaces.is_empty());
+    let _system = redfish.get_system().await?;
+
+    let manager_eth_interfaces = redfish.get_manager_ethernet_interfaces().await?;
+    assert!(!manager_eth_interfaces.is_empty());
     assert!(redfish
-        .get_ethernet_interface(&eth_intefaces[0])
+        .get_manager_ethernet_interface(&manager_eth_interfaces[0])
         .await?
         .mac_address
         .is_some());
@@ -151,6 +154,34 @@ async fn run_integration_test(
 
     if vendor_dir == "nvidia_dpu" {
         return nvidia_dpu_integration_test(redfish.as_ref()).await;
+    }
+
+    // Inspect the system
+    let _system = redfish.get_system().await?;
+
+    let mut all_macs = HashSet::new();
+    let manager_eth_interfaces = redfish.get_manager_ethernet_interfaces().await?;
+    assert!(!manager_eth_interfaces.is_empty());
+    let mut manager_eth_interface_states = Vec::new();
+    for iface in &manager_eth_interfaces {
+        let state = redfish.get_manager_ethernet_interface(iface).await?;
+        let mac = state.mac_address.clone().unwrap();
+        if !all_macs.insert(mac.clone()) {
+            panic!("Duplicate MAC address {} on interface {}", mac, iface);
+        }
+        manager_eth_interface_states.push(state);
+    }
+
+    let system_eth_interfaces = redfish.get_system_ethernet_interfaces().await?;
+    assert!(!system_eth_interfaces.is_empty());
+    let mut system_eth_interface_states = Vec::new();
+    for iface in &system_eth_interfaces {
+        let state = redfish.get_system_ethernet_interface(iface).await?;
+        let mac = state.mac_address.clone().unwrap();
+        if !all_macs.insert(mac.clone()) {
+            panic!("Duplicate MAC address {} on interface {}", mac, iface);
+        }
+        system_eth_interface_states.push(state);
     }
 
     assert_eq!(redfish.get_power_state().await?, libredfish::PowerState::On);

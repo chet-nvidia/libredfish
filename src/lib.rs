@@ -183,11 +183,23 @@ pub trait Redfish: Send + Sync + 'static {
     // Get High Speed Port details
     async fn get_port(&self, chassis_id: &str, id: &str) -> Result<NetworkPort, RedfishError>;
 
-    // List all Ethernet Interfaces
-    async fn get_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError>;
+    // List all Ethernet Interfaces for the default `Manager`
+    async fn get_manager_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError>;
 
-    // Get Ethernet Interface details
-    async fn get_ethernet_interface(&self, id: &str) -> Result<EthernetInterface, RedfishError>;
+    // Get Ethernet Interface details for an interface on the default `Manager`
+    async fn get_manager_ethernet_interface(
+        &self,
+        id: &str,
+    ) -> Result<EthernetInterface, RedfishError>;
+
+    // List all Ethernet Interfaces for the default `System`
+    async fn get_system_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError>;
+
+    // Get Ethernet Interface details for an interface on the default `System`
+    async fn get_system_ethernet_interface(
+        &self,
+        id: &str,
+    ) -> Result<EthernetInterface, RedfishError>;
 
     // Change UEFI Password
     async fn change_uefi_password(

@@ -224,15 +224,26 @@ impl Redfish for Bmc {
         self.s.get_chassis(id).await
     }
 
-    async fn get_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_ethernet_interfaces().await
+    async fn get_manager_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_manager_ethernet_interfaces().await
     }
 
-    async fn get_ethernet_interface(
+    async fn get_manager_ethernet_interface(
         &self,
         id: &str,
     ) -> Result<crate::EthernetInterface, RedfishError> {
-        self.s.get_ethernet_interface(id).await
+        self.s.get_manager_ethernet_interface(id).await
+    }
+
+    async fn get_system_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_system_ethernet_interfaces().await
+    }
+
+    async fn get_system_ethernet_interface(
+        &self,
+        id: &str,
+    ) -> Result<crate::EthernetInterface, RedfishError> {
+        self.s.get_system_ethernet_interface(id).await
     }
 
     async fn get_ports(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {

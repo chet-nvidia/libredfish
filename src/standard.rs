@@ -223,16 +223,30 @@ impl Redfish for RedfishStandard {
     }
 
     /// http://redfish.dmtf.org/schemas/v1/EthernetInterfaceCollection.json
-    async fn get_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
+    async fn get_manager_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
         let url = format!("Managers/{}/EthernetInterfaces", self.manager_id);
         self.get_members(&url).await
     }
 
-    async fn get_ethernet_interface(
+    async fn get_manager_ethernet_interface(
         &self,
         id: &str,
     ) -> Result<crate::EthernetInterface, RedfishError> {
         let url = format!("Managers/{}/EthernetInterfaces/{}", self.manager_id(), id);
+        let (_status_code, body) = self.client.get(&url).await?;
+        Ok(body)
+    }
+
+    async fn get_system_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
+        let url = format!("Systems/{}/EthernetInterfaces", self.system_id);
+        self.get_members(&url).await
+    }
+
+    async fn get_system_ethernet_interface(
+        &self,
+        id: &str,
+    ) -> Result<crate::EthernetInterface, RedfishError> {
+        let url = format!("Systems/{}/EthernetInterfaces/{}", self.system_id(), id);
         let (_status_code, body) = self.client.get(&url).await?;
         Ok(body)
     }

@@ -91,6 +91,7 @@ pub struct ComputerSystem {
     pub asset_tag: Option<String>,
     pub boot: Boot,
     pub bios_version: Option<String>,
+    pub ethernet_interfaces: Option<ODataId>,
     pub manufacturer: Option<String>,
     pub model: Option<String>,
     pub oem: Option<SystemExtensions>,
