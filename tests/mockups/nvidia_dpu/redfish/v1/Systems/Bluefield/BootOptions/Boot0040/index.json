@@ -7,5 +7,5 @@
     "DisplayName": "ubuntu0",
     "Id": "Boot0040",
     "Name": "Boot0040",
-    "UefiDevicePath": "HD(1,GPT,17A69B59-8AB8-0F43-ACE4-12EED91A47E6,0x800,0x19000)/\\EFI\\ubuntu\\shimaa64.efi"
+    "UefiDevicePath": "HD(1,GPT,2FAFB38D-05F6-DF41-AE01-F9991E2CC0F0,0x800,0x19000)/\\EFI\\ubuntu\\shimaa64.efi"
 }

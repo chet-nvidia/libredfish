@@ -17,6 +17,6 @@
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "Updateable": true,
-    "Version": "946d:ae03:0051:9774"
+    "Updateable": false,
+    "Version": "a088:c203:0008:8072"
 }

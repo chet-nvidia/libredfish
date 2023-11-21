@@ -6,9 +6,9 @@
             "target": "/redfish/v1/Systems/Bluefield/LogServices/DebugTokenService/CollectDiagnosticData"
         }
     },
-    "DateTime": "2023-08-16T13:38:35+00:00",
+    "DateTime": "2023-11-21T10:33:34+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "Debug token service",
-    "Id": "Debug token",
+    "Id": "DebugTokenService",
     "Name": "Debug token service"
 }

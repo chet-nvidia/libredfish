@@ -2410,6 +2410,14 @@
         <edmx:Include Namespace="Role.v1_3_0"/>
         <edmx:Include Namespace="Role.v1_3_1"/>
     </edmx:Reference>
+    <edmx:Reference Uri="/redfish/v1/schema/SecureBootDatabaseCollection_v1.xml">
+        <edmx:Include Namespace="SecureBootDatabaseCollection"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/redfish/v1/schema/SecureBootDatabase_v1.xml">
+        <edmx:Include Namespace="SecureBootDatabase"/>
+        <edmx:Include Namespace="SecureBootDatabase.v1_0_0"/>
+        <edmx:Include Namespace="SecureBootDatabase.v1_0_1"/>
+    </edmx:Reference>
     <edmx:Reference Uri="/redfish/v1/schema/SensorCollection_v1.xml">
         <edmx:Include Namespace="SensorCollection"/>
     </edmx:Reference>
@@ -2563,6 +2571,15 @@
         <edmx:Include Namespace="Settings.v1_3_3"/>
         <edmx:Include Namespace="Settings.v1_3_4"/>
         <edmx:Include Namespace="Settings.v1_3_5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/redfish/v1/schema/SignatureCollection_v1.xml">
+        <edmx:Include Namespace="SignatureCollection"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/redfish/v1/schema/Signature_v1.xml">
+        <edmx:Include Namespace="Signature"/>
+        <edmx:Include Namespace="Signature.v1_0_0"/>
+        <edmx:Include Namespace="Signature.v1_0_1"/>
+        <edmx:Include Namespace="Signature.v1_0_2"/>
     </edmx:Reference>
     <edmx:Reference Uri="/redfish/v1/schema/SoftwareInventoryCollection_v1.xml">
         <edmx:Include Namespace="SoftwareInventoryCollection"/>

@@ -20,7 +20,8 @@
         "AutomaticRetryAttempts": 3,
         "AutomaticRetryConfig": "Disabled",
         "AutomaticRetryConfig@Redfish.AllowableValues": [
-            "Disabled"
+            "Disabled",
+            "RetryAttempts"
         ],
         "BootNext": "",
         "BootOptions": {
@@ -50,7 +51,15 @@
             "Boot0013",
             "Boot0014",
             "Boot0015",
-            "Boot0016"
+            "Boot0016",
+            "Boot0017",
+            "Boot0018",
+            "Boot0019",
+            "Boot001A",
+            "Boot001B",
+            "Boot001C",
+            "Boot001D",
+            "Boot001E"
         ],
         "BootOrderPropertySelection": "BootOrder",
         "BootSourceOverrideEnabled": "Disabled",
@@ -60,6 +69,10 @@
             "Disabled"
         ],
         "BootSourceOverrideMode": "UEFI",
+        "BootSourceOverrideMode@Redfish.AllowableValues": [
+            "Legacy",
+            "UEFI"
+        ],
         "BootSourceOverrideTarget": "None",
         "BootSourceOverrideTarget@Redfish.AllowableValues": [
             "None",
@@ -75,7 +88,7 @@
     },
     "BootProgress": {
         "LastState": "None",
-        "LastStateTime": "1970-01-20T14:02:54.149173+00:00"
+        "LastStateTime": "1970-01-20T16:22:42.592374+00:00"
     },
     "Description": "Computer System",
     "GraphicalConsole": {
@@ -121,6 +134,11 @@
         "TotalSystemMemoryGiB": 0
     },
     "Name": "Bluefield",
+    "Oem": {
+        "Nvidia": {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/Oem/Nvidia"
+        }
+    },
     "PowerRestorePolicy": "AlwaysOn",
     "PowerState": "On",
     "ProcessorSummary": {
@@ -134,6 +152,7 @@
     "Processors": {
         "@odata.id": "/redfish/v1/Systems/Bluefield/Processors"
     },
+    "SKU": "900-9D3B6-00CV-AA0",
     "SecureBoot": {
         "@odata.id": "/redfish/v1/Systems/Bluefield/SecureBoot"
     },
@@ -148,6 +167,7 @@
             "ServiceEnabled": true
         }
     },
+    "SerialNumber": "MT2328XZ185R            ",
     "Status": {
         "Health": "OK",
         "HealthRollup": "OK",
@@ -156,5 +176,6 @@
     "Storage": {
         "@odata.id": "/redfish/v1/Systems/Bluefield/Storage"
     },
-    "SystemType": "Physical"
+    "SystemType": "Physical",
+    "UUID": "90633594-1a24-ee11-8000-a088c2088072"
 }

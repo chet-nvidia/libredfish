@@ -75,7 +75,7 @@
     "TelemetryService": {
         "@odata.id": "/redfish/v1/TelemetryService"
     },
-    "UUID": "dd663e8d-b535-4a31-8cf8-6a99cea834a7",
+    "UUID": "ace79559-b47c-419e-a99c-53f635051aa2",
     "UpdateService": {
         "@odata.id": "/redfish/v1/UpdateService"
     },

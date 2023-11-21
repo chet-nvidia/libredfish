@@ -21,10 +21,10 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 0.76
+            "Reading": 0.7
         },
         "UpperCaution": {
-            "Reading": 0.95
+            "Reading": 1.0
         }
     }
 }

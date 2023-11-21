@@ -4,28 +4,39 @@
     "Description": "Collection of BMC Dump Entries",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Dump/Entries/2",
-            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
-            "AdditionalDataSizeBytes": 5864,
-            "AdditionalDataURI": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Dump/Entries/2/attachment",
-            "Created": "2023-07-26T13:22:40+00:00",
+            "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Dump/Entries/24",
+            "@odata.type": "#LogEntry.v1_15_0.LogEntry",
+            "AdditionalDataSizeBytes": 5792,
+            "AdditionalDataURI": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Dump/Entries/24/attachment",
+            "Created": "2023-11-20T12:26:03+00:00",
             "DiagnosticDataType": "Manager",
             "EntryType": "Event",
-            "Id": "2",
+            "Id": "24",
             "Name": "BMC Dump Entry"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Dump/Entries/3",
-            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
-            "AdditionalDataSizeBytes": 5784,
-            "AdditionalDataURI": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Dump/Entries/3/attachment",
-            "Created": "2023-07-27T08:03:46+00:00",
+            "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Dump/Entries/25",
+            "@odata.type": "#LogEntry.v1_15_0.LogEntry",
+            "AdditionalDataSizeBytes": 120552,
+            "AdditionalDataURI": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Dump/Entries/25/attachment",
+            "Created": "2023-11-20T13:34:43+00:00",
             "DiagnosticDataType": "Manager",
             "EntryType": "Event",
-            "Id": "3",
+            "Id": "25",
+            "Name": "BMC Dump Entry"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Dump/Entries/26",
+            "@odata.type": "#LogEntry.v1_15_0.LogEntry",
+            "AdditionalDataSizeBytes": 6036,
+            "AdditionalDataURI": "/redfish/v1/Managers/Bluefield_BMC/LogServices/Dump/Entries/26/attachment",
+            "Created": "2023-11-21T10:29:12+00:00",
+            "DiagnosticDataType": "Manager",
+            "EntryType": "Event",
+            "Id": "26",
             "Name": "BMC Dump Entry"
         }
     ],
-    "Members@odata.count": 2,
+    "Members@odata.count": 3,
     "Name": "BMC Dump Entries"
 }

@@ -17,6 +17,6 @@
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "Updateable": true,
-    "Version": "MLNX_OFED_LINUX-23.07-0.5.0.0"
+    "Updateable": false,
+    "Version": "MLNX_OFED_LINUX-23.10-1.1.1"
 }

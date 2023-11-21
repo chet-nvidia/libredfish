@@ -32,7 +32,7 @@
         "Nvidia": {
             "@odata.type": "#NvidiaChassis.v1_0_0.NvidiaChassis",
             "AutomaticBackgroundCopyEnabled": true,
-            "BackgroundCopyStatus": "Completed",
+            "BackgroundCopyStatus": "InProgress",
             "InbandUpdatePolicyEnabled": true
         }
     },

@@ -10,7 +10,7 @@
             "ResetType@Redfish.AllowableValues": [
                 "ResetAll"
             ],
-            "target": "/redfish/v1/Managers/bmc/Actions/Manager.ResetToDefaults"
+            "target": "/redfish/v1/Managers/Bluefield_BMC/Actions/Manager.ResetToDefaults"
         }
     },
     "CommandShell": {
@@ -18,15 +18,15 @@
             "SSH"
         ],
         "MaxConcurrentSessions": 1,
-        "ServiceEnabled": false
+        "ServiceEnabled": true
     },
-    "DateTime": "2023-08-16T13:38:22+00:00",
+    "DateTime": "2023-11-21T10:33:25+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "Baseboard Management Controller",
     "EthernetInterfaces": {
         "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/EthernetInterfaces"
     },
-    "FirmwareVersion": "BF-23.07-3",
+    "FirmwareVersion": "BF-23.10-4",
     "GraphicalConsole": {
         "ConnectTypesSupported": [
             "KVMIP"
@@ -34,8 +34,8 @@
         "MaxConcurrentSessions": 4,
         "ServiceEnabled": true
     },
-    "Id": "bmc",
-    "LastResetTime": "2023-07-27T08:02:04+00:00",
+    "Id": "Bluefield_BMC",
+    "LastResetTime": "2023-11-21T10:27:39+00:00",
     "Links": {
         "ActiveSoftwareImage": {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC_Firmware"
@@ -57,10 +57,16 @@
         },
         "SoftwareImages": [
             {
+                "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/golden_image_arm"
+            },
+            {
+                "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/golden_image_nic"
+            },
+            {
                 "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC_Firmware"
             }
         ],
-        "SoftwareImages@odata.count": 1
+        "SoftwareImages@odata.count": 3
     },
     "LogServices": {
         "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/LogServices"
@@ -74,6 +80,9 @@
     "Oem": {
         "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/Oem",
         "@odata.type": "#OemManager.Oem",
+        "Nvidia": {
+            "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/Oem/Nvidia"
+        },
         "OpenBmc": {
             "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/Oem/OpenBmc",
             "@odata.type": "#OemManager.OpenBmc",
@@ -91,12 +100,12 @@
         "MaxConcurrentSessions": 15,
         "ServiceEnabled": true
     },
-    "ServiceEntryPointUUID": "dd663e8d-b535-4a31-8cf8-6a99cea834a7",
+    "ServiceEntryPointUUID": "ace79559-b47c-419e-a99c-53f635051aa2",
     "Status": {
         "Conditions": [],
         "Health": "OK",
         "HealthRollup": "OK",
         "State": "Starting"
     },
-    "UUID": "801d9a30-1241-4fb9-9a28-4c9c45ea4e30"
+    "UUID": "4b485b7c-cd6b-4217-bff8-1132f83d2cea"
 }

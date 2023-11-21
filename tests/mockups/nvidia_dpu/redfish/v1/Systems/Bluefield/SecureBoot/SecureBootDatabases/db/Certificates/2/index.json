@@ -1,0 +1,22 @@
+{
+    "@odata.id": "/redfish/v1/Systems/Bluefield/SecureBoot/SecureBootDatabases/db/Certificates/2",
+    "@odata.type": "#Certificate.v1_7_0.Certificate",
+    "CertificateString": "-----BEGIN CERTIFICATE-----\nMIIDxDCCAqygAwIBAgIJAKqNMZlj/1DAMA0GCSqGSIb3DQEBCwUAMHExHjAcBgNV\nBAoMFU1lbGxhbm94IFRlY2hub2xvZ2llczEqMCgGA1UEAwwhTWVsbGFub3ggVGVj\naG5vbG9naWVzIHNpZ25pbmcga2V5MSMwIQYJKoZIhvcNAQkBFhRzdXBwb3J0QG1l\nbGxhbm94LmNvbTAgFw0yMDA5MDQxNjEyNDdaGA8yMTIwMDgxMTE2MTI0N1owcTEe\nMBwGA1UECgwVTWVsbGFub3ggVGVjaG5vbG9naWVzMSowKAYDVQQDDCFNZWxsYW5v\neCBUZWNobm9sb2dpZXMgc2lnbmluZyBrZXkxIzAhBgkqhkiG9w0BCQEWFHN1cHBv\ncnRAbWVsbGFub3guY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\n4Rv6U0xL7yrTjpPYmeChgf9qnIcvsNmLuECMPwA74bHrbL8wy4Mlzv32prkB90Sr\n5aRlEaY2a8EjCCxlUCU4KkuMkf0Cz0zkhpOwUOd9ZaCrUVBUu+Y9hduUkZODCvFw\nqk2tF0HU56v4ZSPaPAzrnQkmjkKOP+VQ7E3VLjgJOWsmLrJoS/76Gut54F3aUr/X\nxNL9Pw1jeuZ+/eZBsta22MEXEeulvwTzn8a/GH8+jUSTJnP04TOCOoE/VIt8gw7K\nt5wCl4vPqh+40Ls5J8tQsPqt8OLhacFwmQFCciADkRwreKHbgzXVrr78Qsd621m9\n8G1CyDmxW8PkOsjCVmQSOQIDAQABo10wWzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQE\nAwIHgDAdBgNVHQ4EFgQUIBLlEiZp/8DMKIJ8YTQymmvsC4gwHwYDVR0jBBgwFoAU\nIBLlEiZp/8DMKIJ8YTQymmvsC4gwDQYJKoZIhvcNAQELBQADggEBAMTa2BWkN/CT\nhJfeuA97jYvs3btfjb7lZ6AitloHlRVbzU6rqR8uyPlJRbzyl61uvRaM4Rq+woqc\nOVmTdjYIJBX/DKQ8UNl1uQYDlxdoBw7G0A08fsR21t4ggDbqSBFBkzzTuMjc49go\n2d6vuhSqmKkFGcDXqdsHY/YHH/DguO9JZW3Zph+DnS2ySXRj+iv4pAIC66uyL5Ea\nkfRYP4VbqpIRNzHZKoFD2B13iaVUK77dWJFXsaUrdcx4zn5euSLK+8O71i18kO3g\ne+i7iubyRGBYdOml3hmkptFD4qOsl7S3lE+T11QtB8LQwZRHDH/zCl/2Bo9NHewB\nsJvhNeOM5Pk=\n-----END CERTIFICATE-----\n",
+    "CertificateType": "PEM",
+    "Id": "2",
+    "Issuer": {
+        "CommonName": "Mellanox Technologies signing key",
+        "Organization": "Mellanox Technologies"
+    },
+    "KeyUsage": [
+        "DigitalSignature"
+    ],
+    "Name": "db Certificate",
+    "Subject": {
+        "CommonName": "Mellanox Technologies signing key",
+        "Organization": "Mellanox Technologies"
+    },
+    "UefiSignatureOwner": "00000000-0000-0000-0000-000000000000",
+    "ValidNotAfter": "2120-08-11T16:12:47+00:00",
+    "ValidNotBefore": "2020-09-04T16:12:47+00:00"
+}

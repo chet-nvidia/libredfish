@@ -4,7 +4,10 @@
     "Description": "The UEFI Secure Boot associated with this system.",
     "Id": "SecureBoot",
     "Name": "UEFI Secure Boot",
-    "SecureBootCurrentBoot": "Enabled",
-    "SecureBootEnable": true,
-    "SecureBootMode": "UserMode"
+    "SecureBootCurrentBoot": "Disabled",
+    "SecureBootDatabases": {
+        "@odata.id": "/redfish/v1/Systems/Bluefield/SecureBoot/SecureBootDatabases"
+    },
+    "SecureBootEnable": false,
+    "SecureBootMode": "SetupMode"
 }

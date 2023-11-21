@@ -2,7 +2,7 @@
     "@odata.id": "/redfish/v1/Chassis/Card1/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions/eth0f0",
     "@odata.type": "#NetworkDeviceFunction.v1_9_0.NetworkDeviceFunction",
     "Ethernet": {
-        "MACAddress": "02:68:89:f8:fc:cc",
+        "MACAddress": "02:55:1a:2f:e9:73",
         "MTUSize": 1500
     },
     "Id": "eth0f0",

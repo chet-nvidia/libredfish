@@ -17,6 +17,6 @@
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "Updateable": true,
+    "Updateable": false,
     "Version": "MT_0000000884"
 }

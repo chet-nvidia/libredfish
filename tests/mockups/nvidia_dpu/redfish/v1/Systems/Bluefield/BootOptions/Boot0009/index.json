@@ -4,8 +4,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0009",
     "Description": "",
-    "DisplayName": "UEFI HTTPv4 (MAC:001ACAFFFF01)",
+    "DisplayName": "UEFI KBG40ZPZ128G TOSHIBA MEMORY Y2S200SPNSJ4 1",
     "Id": "Boot0009",
     "Name": "Boot0009",
-    "UefiDevicePath": "MAC(001ACAFFFF01,0x1)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)/Uri()"
+    "UefiDevicePath": "PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/NVMe(0x1,3B-BC-1C-04-04-8E-E3-8C)"
 }

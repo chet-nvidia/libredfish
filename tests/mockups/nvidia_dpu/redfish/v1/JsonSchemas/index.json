@@ -251,6 +251,12 @@
             "@odata.id": "/redfish/v1/JsonSchemas/RoleCollection"
         },
         {
+            "@odata.id": "/redfish/v1/JsonSchemas/SecureBootDatabase"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SecureBootDatabaseCollection"
+        },
+        {
             "@odata.id": "/redfish/v1/JsonSchemas/Sensor"
         },
         {
@@ -270,6 +276,12 @@
         },
         {
             "@odata.id": "/redfish/v1/JsonSchemas/Settings"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/Signature"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SignatureCollection"
         },
         {
             "@odata.id": "/redfish/v1/JsonSchemas/SoftwareInventory"
@@ -359,6 +371,6 @@
             "@odata.id": "/redfish/v1/JsonSchemas/redfish-schema-v1"
         }
     ],
-    "Members@odata.count": 118,
+    "Members@odata.count": 122,
     "Name": "JsonSchemaFile Collection"
 }

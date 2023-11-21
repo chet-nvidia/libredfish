@@ -26,10 +26,10 @@
         ],
         "Contains": [
             {
-                "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC"
+                "@odata.id": "/redfish/v1/Chassis/Bluefield_ERoT"
             },
             {
-                "@odata.id": "/redfish/v1/Chassis/Bluefield_ERoT"
+                "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC"
             }
         ],
         "ManagedBy": [
@@ -58,10 +58,11 @@
     "PowerSubsystem": {
         "@odata.id": "/redfish/v1/Chassis/Card1/PowerSubsystem"
     },
+    "SKU": "900-9D3B6-00CV-AA0",
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/Card1/Sensors"
     },
-    "SerialNumber": "MT2306XZ035Y            ",
+    "SerialNumber": "MT2328XZ185R            ",
     "Status": {
         "Conditions": [],
         "Health": "OK",
@@ -76,5 +77,6 @@
     },
     "TrustedComponents": {
         "@odata.id": "/redfish/v1/Chassis/Card1/TrustedComponents"
-    }
+    },
+    "UUID": "90633594-1a24-ee11-8000-a088c2088072"
 }

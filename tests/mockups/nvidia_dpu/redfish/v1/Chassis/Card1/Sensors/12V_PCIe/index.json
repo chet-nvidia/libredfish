@@ -3,7 +3,7 @@
     "@odata.type": "#Sensor.v1_2_0.Sensor",
     "Id": "12V_PCIe",
     "Name": "12V PCIe",
-    "Reading": 12.184,
+    "Reading": 12.224,
     "ReadingRangeMax": 14.4,
     "ReadingRangeMin": 0.0,
     "ReadingType": "Voltage",
@@ -21,10 +21,10 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 11.04
+            "Reading": 10.4
         },
         "UpperCaution": {
-            "Reading": 12.96
+            "Reading": 13.6
         }
     }
 }

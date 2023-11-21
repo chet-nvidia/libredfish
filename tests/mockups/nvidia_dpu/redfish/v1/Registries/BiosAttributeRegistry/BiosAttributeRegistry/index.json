@@ -217,7 +217,7 @@
             },
             {
                 "AttributeName": "DateTime",
-                "CurrentValue": "2023-08-16T08:34:36Z",
+                "CurrentValue": "2023-11-21T10:30:46Z",
                 "DisplayName": "Date and Time",
                 "DisplayOrder": 10,
                 "HelpText": "Set the BIOS time and date.",
@@ -337,6 +337,22 @@
                 "Immutable": false,
                 "MaxLength": 50,
                 "MenuPath": "./SystemConfiguration/UefiPassword",
+                "MinLength": 0,
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "Type": "String",
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "NicMode",
+                "CurrentValue": "DpuMode",
+                "DisplayName": "Enable NIC Mode",
+                "DisplayOrder": 17,
+                "HelpText": "Enable/Disable NIC Mode",
+                "Hidden": false,
+                "Immutable": true,
+                "MaxLength": 40,
+                "MenuPath": "./SystemConfiguration/NicMode",
                 "MinLength": 0,
                 "ReadOnly": false,
                 "ResetRequired": false,
@@ -489,13 +505,21 @@
                 "MenuName": "UefiPassword",
                 "MenuPath": "./SystemConfiguration/UefiPassword",
                 "ReadOnly": false
+            },
+            {
+                "DisplayName": "NicMode",
+                "DisplayOrder": 19,
+                "Hidden": false,
+                "MenuName": "NicMode",
+                "MenuPath": "./SystemConfiguration/NicMode",
+                "ReadOnly": false
             }
         ]
     },
     "RegistryVersion": "1.0.0",
     "SupportedSystems": [
         {
-            "FirmwareVersion": "BlueField:4.2.0-46-g12b0958",
+            "FirmwareVersion": "BlueField:4.5.0-40-gcbe848b",
             "ProductName": "NVIDIA BF2",
             "SystemId": "BF2-DPU"
         }

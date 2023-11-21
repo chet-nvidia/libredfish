@@ -17,6 +17,6 @@
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "Updateable": true,
-    "Version": "32.36.3062"
+    "Updateable": false,
+    "Version": "32.38.1002"
 }

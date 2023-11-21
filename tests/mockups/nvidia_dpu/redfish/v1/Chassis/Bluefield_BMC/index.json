@@ -61,7 +61,7 @@
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC/Sensors"
     },
-    "SerialNumber": "MT2306XZ035Y            ",
+    "SerialNumber": "MT2328XZ185R            ",
     "Status": {
         "Conditions": [],
         "Health": "OK",

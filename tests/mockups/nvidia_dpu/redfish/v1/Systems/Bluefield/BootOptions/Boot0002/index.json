@@ -4,8 +4,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0002",
     "Description": "",
-    "DisplayName": "UiApp",
+    "DisplayName": "NET-NIC_P1-IPV4",
     "Id": "Boot0002",
     "Name": "Boot0002",
-    "UefiDevicePath": "MemoryMapped(0xB,0xFDE2F000,0xFE6FD63F)/FvFile(462CAA21-7614-4503-836E-8AB6F4662331)"
+    "UefiDevicePath": "PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x1)/MAC(A088C2088083,0x1)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)"
 }
