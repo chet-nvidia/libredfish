@@ -86,17 +86,39 @@ impl Redfish for Bmc {
     /// but it won't show until after reboot so that step will fail on first time through.
     async fn forge_setup(&self) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
+        let bios_keys = self.bios_attributes_name_map().await?;
+        let empty_vec = vec![];
+        let mut bios_attrs: Vec<(&str, serde_json::Value)> = vec![];
 
-        let mut bios_attrs: Vec<(&str, serde_json::Value)> = vec![
-            ("QuietBoot#002E", false.into()),
-            ("Re-tryBoot#0033", "EFI Boot".into()),
-            ("CSMSupport#0123", "Disabled".into()),
-            ("SecureBootEnable#0124", false.into()),
-        ];
-        bios_attrs.append(&mut self.trusted_computing_txt_attrs());
-        bios_attrs.append(&mut self.tpm_attrs());
-        bios_attrs.append(&mut self.virt_enable_attrs());
-        bios_attrs.append(&mut self.uefi_nic_boot_attrs());
+        macro_rules! add_keys {
+            ($name:literal, $value:expr) => {
+                for real_key in bios_keys.get($name).unwrap_or(&empty_vec) {
+                    bios_attrs.push((real_key, $value.into()));
+                }
+            };
+        }
+        add_keys!("QuietBoot", false);
+        add_keys!("Re-tryBoot", "EFI Boot");
+        add_keys!("CSMSupport", "Disabled");
+        add_keys!("SecureBootEnable", false);
+
+        // Trusted Computing / Provision Support / TXT Support
+        add_keys!("TXTSupport", EnabledDisabled::Enabled);
+
+        // registries/BiosAttributeRegistry.1.0.0.json/index.json
+        add_keys!("DeviceSelect", "TPM 2.0");
+
+        // Attributes to enable CPU virtualization support for faster VMs
+        // Not that some are "Enable" and some are "Enabled". Subtle.
+        add_keys!("IntelVTforDirectedI/O(VT-d)", EnableDisable::Enable);
+        add_keys!("IntelVirtualizationTechnology", EnableDisable::Enable);
+        add_keys!("SR-IOVSupport", EnabledDisabled::Enabled);
+
+        // UEFI NIC boot
+        add_keys!("IPv4HTTPSupport", EnabledDisabled::Enabled);
+        add_keys!("IPv4PXESupport", EnabledDisabled::Enabled);
+        add_keys!("IPv6HTTPSupport", EnabledDisabled::Enabled);
+        add_keys!("IPv6PXESupport", EnabledDisabled::Disabled);
 
         let mut attrs = HashMap::new();
         attrs.extend(bios_attrs);
@@ -372,48 +394,6 @@ impl Redfish for Bmc {
 }
 
 impl Bmc {
-    /// Attributes to enable CPU virtualization support for faster VMs
-    fn virt_enable_attrs(&self) -> Vec<(&str, serde_json::Value)> {
-        vec![
-            (
-                "IntelVTforDirectedI/O(VT-d)#1E12",
-                EnableDisable::Enable.into(),
-            ), // not Enabled!
-            (
-                "IntelVirtualizationTechnology#3C2E",
-                EnableDisable::Enable.into(),
-            ), // not Enabled!
-            ("SR-IOVSupport#0048", EnabledDisabled::Enabled.into()),
-        ]
-    }
-
-    fn uefi_nic_boot_attrs(&self) -> Vec<(&str, serde_json::Value)> {
-        use EnabledDisabled::*;
-        vec![
-            ("IPv4HTTPSupport#00F7", Enabled.into()),
-            ("IPv4PXESupport#00F6", Enabled.into()),
-            ("IPv6HTTPSupport#00F9", Enabled.into()),
-            ("IPv6PXESupport#00F8", Disabled.into()),
-        ]
-    }
-
-    /// Trusted Computing / Provision Support / TXT Support
-    fn trusted_computing_txt_attrs(&self) -> Vec<(&str, serde_json::Value)> {
-        use EnabledDisabled::*;
-        vec![
-            ("TXTSupport#0063", Enabled.into()),
-            ("TXTSupport#0074", Enabled.into()),
-        ]
-    }
-
-    // registries/BiosAttributeRegistry.1.0.0.json/index.json
-    fn tpm_attrs(&self) -> Vec<(&str, serde_json::Value)> {
-        vec![
-            ("DeviceSelect#0061", "TPM 2.0".into()),
-            ("DeviceSelect#0072", "TPM 2.0".into()),
-        ]
-    }
-
     async fn get_kcs_privilege(&self) -> Result<supermicro::Privilege, RedfishError> {
         let url = format!(
             "Managers/{}/Oem/Supermicro/KCSInterface",
@@ -598,5 +578,28 @@ impl Bmc {
         }
         ordered.insert(0, with_name_match.unwrap());
         self.change_boot_order(ordered).await
+    }
+
+    // BIOS attribute names by their clean name.
+    // e.g.{ QuietBoot -> [QuietBoot#002E]
+    //       TXTSupport -> [TXTSupport#0062, TXTSupport#0072] }
+    async fn bios_attributes_name_map(&self) -> Result<HashMap<String, Vec<String>>, RedfishError> {
+        let bios_attrs = self.s.bios_attributes().await?;
+        let Some(attrs_map) = bios_attrs.as_object() else {
+                return Err(RedfishError::InvalidKeyType {
+                    key: "Attributes".to_string(),
+                    expected_type: "Map".to_string(),
+                    url: String::new(),
+                })
+        };
+        let mut by_name: HashMap<String, Vec<String>> = HashMap::with_capacity(attrs_map.len());
+        for k in attrs_map.keys() {
+            let clean_key = k.split('#').next().unwrap().to_string();
+            by_name
+                .entry(clean_key)
+                .and_modify(|e| e.push(k.clone()))
+                .or_insert(vec![k.clone()]);
+        }
+        Ok(by_name)
     }
 }
