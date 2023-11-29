@@ -219,8 +219,7 @@ impl Redfish for Bmc {
     }
 
     /// Set which device we should boot from first.
-    /// Sets continuous boot override. The normal boot order can only be changed with ipmitool:
-    ///  ipmitool -R 1 -N 5 -I lanplus -U ADMIN -P <pw> -H <bmc-ip> chassis bootdev pxe
+    /// Sets continuous boot override. The normal boot order cannot be changed, only temporarily overriden.
     async fn boot_first(&self, target: Boot) -> Result<(), RedfishError> {
         let _ = self.set_mellanox_first().await;
         self.set_boot(target, false).await
@@ -531,6 +530,8 @@ impl Bmc {
         let url = format!("Systems/{}", self.s.system_id());
         let boot = boot::Boot {
             boot_source_override_target: Some(match target {
+                // In UEFI mode Pxe gets converted to UefiBootNext, but it won't accept
+                // UefiBootNext directly.
                 Boot::Pxe => boot::BootSourceOverrideTarget::Pxe,
                 Boot::HardDisk => boot::BootSourceOverrideTarget::Hdd,
                 // For this one to appear you have to set boot_source_override_mode to UEFI and
