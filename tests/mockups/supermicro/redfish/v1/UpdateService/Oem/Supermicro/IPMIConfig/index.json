@@ -15,5 +15,6 @@
             "target": "/redfish/v1/UpdateService/Oem/Supermicro/IPMIConfig/Actions/SmcIPMIConfig.Download"
         }
     },
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"2f41aa150770a9c0c0a83324b99abc29\""
 }

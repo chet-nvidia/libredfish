@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/NTP.v1_0_0",
     "Id": "NTP.v1_0_0",
     "Name": "NTP Schema File",
@@ -14,5 +14,6 @@
             "Uri": "/schemas/v1/NTP.v1_0_0.json"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"007e0de760d6d22a1e9e5b12cf5d0977\""
 }

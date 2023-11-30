@@ -1,9 +1,9 @@
 {
-    "@odata.type": "#ServiceRoot.v1_5_2.ServiceRoot",
+    "@odata.type": "#ServiceRoot.v1_9_0.ServiceRoot",
     "@odata.id": "/redfish/v1",
     "Id": "ServiceRoot",
     "Name": "Root Service",
-    "RedfishVersion": "1.9.0",
+    "RedfishVersion": "1.11.0",
     "UUID": "00000000-0000-0000-0000-7CC25550A8FF",
     "Systems": {
         "@odata.id": "/redfish/v1/Systems"
@@ -58,6 +58,11 @@
         "SelectQuery": true,
         "ExcerptQuery": false,
         "OnlyMemberQuery": false,
+        "DeepOperations": {
+            "DeepPATCH": false,
+            "DeepPOST": false,
+            "MaxLevels": 1
+        },
         "ExpandQuery": {
             "Links": true,
             "NoLinks": true,
@@ -65,5 +70,6 @@
             "Levels": true,
             "MaxLevels": 2
         }
-    }
+    },
+    "@odata.etag": "\"07aa8f27210107923b9f51285fe5b602\""
 }

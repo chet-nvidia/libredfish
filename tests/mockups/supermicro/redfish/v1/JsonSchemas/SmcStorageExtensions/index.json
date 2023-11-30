@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/SmcStorageExtensions",
     "Id": "SmcStorageExtensions",
     "Name": "SmcStorageExtensions Schema File",
@@ -14,5 +14,6 @@
             "Uri": "/schemas/v1/SmcStorageExtensions.json"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"737991d83f13c8901513d5b5cba3298a\""
 }

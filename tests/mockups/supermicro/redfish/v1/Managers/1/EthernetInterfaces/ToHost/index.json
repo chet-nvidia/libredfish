@@ -1,7 +1,7 @@
 {
-    "@odata.type": "#EthernetInterface.v1_5_2.EthernetInterface",
+    "@odata.type": "#EthernetInterface.v1_6_3.EthernetInterface",
     "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost",
-    "Id": "1",
+    "Id": "ToHost",
     "Name": "Manager Ethernet Interface",
     "Description": "Management Network Interface",
     "Status": {
@@ -15,21 +15,13 @@
     "AutoNeg": true,
     "FullDuplex": true,
     "MTUSize": 1500,
-    "HostName": "",
-    "MaxIPv6StaticAddresses": 1,
+    "HostName": null,
     "IPv4Addresses": [
         {
             "Address": "169.254.3.254",
             "SubnetMask": "255.255.255.0",
             "AddressOrigin": "Static",
             "Gateway": "169.254.3.254"
-        }
-    ],
-    "IPv6AddressPolicyTable": [
-        {
-            "Prefix": "::1/128",
-            "Precedence": 50,
-            "Label": 0
         }
     ],
     "IPv4StaticAddresses": [
@@ -39,39 +31,16 @@
             "Gateway": "169.254.3.254"
         }
     ],
-    "IPv6StaticAddresses": [
-        {
-            "Address": "fe80::bcb5:71ff:fe8c:cc4f",
-            "PrefixLength": 64
-        },
-        {
-            "Address": "::",
-            "PrefixLength": 64
-        },
-        {
-            "Address": "::",
-            "PrefixLength": 64
-        },
-        {
-            "Address": "::",
-            "PrefixLength": 64
-        },
-        {
-            "Address": "::",
-            "PrefixLength": 64
-        }
-    ],
-    "IPv6Addresses": [
-        {
-            "Address": "fe80::bcb5:71ff:fe8c:cc4f",
-            "PrefixLength": 64,
-            "AddressOrigin": "Static",
-            "AddressState": "Failed"
-        }
-    ],
     "Links": {
         "HostInterface": {
             "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1"
         }
-    }
+    },
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcEthernetInterfaceExtensions.v1_0_2.EthernetInterface",
+            "USBConnection": "RNDIS"
+        }
+    },
+    "@odata.etag": "\"4cf6cefe9ffb1da78b08cae6222ad4cc\""
 }

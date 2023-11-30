@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/Syslog",
     "Id": "Syslog",
     "Name": "Syslog Schema File",
@@ -14,5 +14,6 @@
             "Uri": "/schemas/v1/Syslog.json"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"cfe031c87d6212de6e494070815dcaa0\""
 }

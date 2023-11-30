@@ -1,7 +1,6 @@
 {
     "@odata.type": "#RoleCollection.RoleCollection",
     "@odata.id": "/redfish/v1/AccountService/Roles",
-    "Id": "Roles",
     "Name": "Roles Collection",
     "Members@odata.count": 3,
     "Members": [
@@ -14,5 +13,6 @@
         {
             "@odata.id": "/redfish/v1/AccountService/Roles/ReadOnly"
         }
-    ]
+    ],
+    "@odata.etag": "\"430d2b6aa70dcb3690e87801ecf0adc9\""
 }

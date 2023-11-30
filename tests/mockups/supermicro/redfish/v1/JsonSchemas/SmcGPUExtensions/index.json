@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/SmcGPUExtensions",
     "Id": "SmcGPUExtensions",
     "Name": "SmcGPUExtensions Schema File",
@@ -14,5 +14,6 @@
             "Uri": "/schemas/v1/SmcGPUExtensions.json"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"aeafe79a1fd7bbd2a4b301392bf90f12\""
 }

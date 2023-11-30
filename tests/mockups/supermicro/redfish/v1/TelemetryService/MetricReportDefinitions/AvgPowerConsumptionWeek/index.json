@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#MetricDefinition.v1_0_0.MetricDefinition",
+    "@odata.type": "#MetricReportDefinition.v1_3_3.MetricReportDefinition",
     "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/AvgPowerConsumptionWeek",
     "Id": "AvgPowerConsumptionWeek",
     "Name": "Average Power Power Consumption for 1 week with sensing interval of 12 hours.",
@@ -12,7 +12,7 @@
         "LogToMetricReportsCollection"
     ],
     "ReportUpdates": "Overwrite",
-    "MetricReports": {
+    "MetricReport": {
         "@odata.id": "/redfish/v1/TelemetryService/MetricReports/AvgPowerConsumptionWeek"
     },
     "Status": {
@@ -29,5 +29,6 @@
             "CollectionTimeScope": "Interval",
             "CollectionDuration": "PT43200.0S"
         }
-    ]
+    ],
+    "@odata.etag": "\"0e08c66942021e025ef494592a24ce4d\""
 }

@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#Power.v1_6_0.Power",
+    "@odata.type": "#Power.v1_6_1.Power",
     "@odata.id": "/redfish/v1/Chassis/1/Power",
     "Id": "Power",
     "Name": "Power",
@@ -9,12 +9,15 @@
             "@odata.type": "#Power.v1_6_0.PowerControl",
             "MemberId": "0",
             "Name": "System Power Control",
-            "PowerConsumedWatts": 2165,
+            "PowerConsumedWatts": 2161,
+            "PowerRequestedWatts": 18000,
+            "PowerCapacityWatts": 18000,
+            "PowerAllocatedWatts": 18000,
             "PowerMetrics": {
                 "IntervalInMin": 5,
-                "MinConsumedWatts": 2154,
-                "MaxConsumedWatts": 2164,
-                "AverageConsumedWatts": 2158
+                "MinConsumedWatts": 2161,
+                "MaxConsumedWatts": 2165,
+                "AverageConsumedWatts": 2163
             },
             "RelatedItem": [
                 {
@@ -47,7 +50,7 @@
             "UpperThresholdFatal": 13.436,
             "LowerThresholdCritical": 10.328,
             "LowerThresholdFatal": 10.244,
-            "MinReadingRange": -0.004,
+            "MinReadingRange": 0,
             "MaxReadingRange": 21.416,
             "PhysicalContext": "VoltageRegulator",
             "RelatedItem": [
@@ -74,7 +77,7 @@
             "UpperThresholdFatal": 5.602,
             "LowerThresholdCritical": 4.3,
             "LowerThresholdFatal": 4.258,
-            "MinReadingRange": 0.016,
+            "MinReadingRange": 0,
             "MaxReadingRange": 10.726,
             "PhysicalContext": "VoltageRegulator",
             "RelatedItem": [
@@ -101,7 +104,7 @@
             "UpperThresholdFatal": 3.693,
             "LowerThresholdCritical": 2.827,
             "LowerThresholdFatal": 2.804,
-            "MinReadingRange": -0.004,
+            "MinReadingRange": 0,
             "MaxReadingRange": 5.963,
             "PhysicalContext": "VoltageRegulator",
             "RelatedItem": [
@@ -128,7 +131,7 @@
             "UpperThresholdFatal": 5.609,
             "LowerThresholdCritical": 4.31,
             "LowerThresholdFatal": 4.31,
-            "MinReadingRange": -0.006,
+            "MinReadingRange": 0,
             "MaxReadingRange": 10.679,
             "PhysicalContext": "VoltageRegulator",
             "RelatedItem": [
@@ -155,7 +158,7 @@
             "UpperThresholdFatal": 3.691,
             "LowerThresholdCritical": 2.825,
             "LowerThresholdFatal": 2.802,
-            "MinReadingRange": -0.006,
+            "MinReadingRange": 0,
             "MaxReadingRange": 5.961,
             "PhysicalContext": "VoltageRegulator",
             "RelatedItem": [
@@ -182,7 +185,7 @@
             "UpperThresholdFatal": 2.8,
             "LowerThresholdCritical": 2.216,
             "LowerThresholdFatal": 2.138,
-            "MinReadingRange": 0.012,
+            "MinReadingRange": 0,
             "MaxReadingRange": 4.984,
             "PhysicalContext": "VoltageRegulator",
             "RelatedItem": [
@@ -209,7 +212,7 @@
             "UpperThresholdFatal": 1.997,
             "LowerThresholdCritical": 1.646,
             "LowerThresholdFatal": 1.62,
-            "MinReadingRange": 0.008,
+            "MinReadingRange": 0,
             "MaxReadingRange": 3.323,
             "PhysicalContext": "VoltageRegulator",
             "RelatedItem": [
@@ -236,7 +239,7 @@
             "UpperThresholdFatal": 1.392,
             "LowerThresholdCritical": 1.049,
             "LowerThresholdFatal": 1.02,
-            "MinReadingRange": 0.001,
+            "MinReadingRange": 0,
             "MaxReadingRange": 2.5,
             "PhysicalContext": "VoltageRegulator",
             "RelatedItem": [
@@ -290,7 +293,7 @@
             "UpperThresholdFatal": 1.996,
             "LowerThresholdCritical": 1.645,
             "LowerThresholdFatal": 1.619,
-            "MinReadingRange": -0.006,
+            "MinReadingRange": 0,
             "MaxReadingRange": 3.309,
             "PhysicalContext": "VoltageRegulator",
             "RelatedItem": [
@@ -312,12 +315,12 @@
                 "State": "Enabled",
                 "Health": "OK"
             },
-            "ReadingVolts": 1.05,
+            "ReadingVolts": 1.04,
             "UpperThresholdCritical": 1.168,
             "UpperThresholdFatal": 1.197,
             "LowerThresholdCritical": 0.844,
             "LowerThresholdFatal": 0.825,
-            "MinReadingRange": -0.008,
+            "MinReadingRange": 0,
             "MaxReadingRange": 2.491,
             "PhysicalContext": "VoltageRegulator",
             "RelatedItem": [
@@ -344,7 +347,7 @@
             "UpperThresholdFatal": 1.209,
             "LowerThresholdCritical": 0.856,
             "LowerThresholdFatal": 0.827,
-            "MinReadingRange": 0.003,
+            "MinReadingRange": 0,
             "MaxReadingRange": 2.502,
             "PhysicalContext": "VoltageRegulator",
             "RelatedItem": [
@@ -362,17 +365,21 @@
             "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/0",
             "MemberId": "0",
             "Name": "Power Supply Bay 1",
-            "SensorNumber": 192,
             "Status": {
                 "State": "Enabled",
                 "Health": "OK"
             },
-            "Oem": {},
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcPowerExtensions.v1_0_0.PowerSupply",
+                    "SensorNumber": 192
+                }
+            },
             "PowerSupplyType": "AC",
             "LineInputVoltageType": "ACMidLine",
-            "LineInputVoltage": 239,
+            "LineInputVoltage": 240,
+            "PowerInputWatts": 361,
             "PowerCapacityWatts": 3000,
-            "PowerInputWatts": 363,
             "PowerOutputWatts": 329,
             "InputRanges": [
                 {
@@ -386,6 +393,7 @@
             "FirmwareVersion": "1.3",
             "SerialNumber": "P3K6GCN25IB0914",
             "PartNumber": "PWS-3K06G-2R",
+            "SparePartNumber": null,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Chassis/1"
@@ -401,18 +409,22 @@
             "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/1",
             "MemberId": "1",
             "Name": "Power Supply Bay 2",
-            "SensorNumber": 193,
             "Status": {
                 "State": "Enabled",
                 "Health": "OK"
             },
-            "Oem": {},
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcPowerExtensions.v1_0_0.PowerSupply",
+                    "SensorNumber": 193
+                }
+            },
             "PowerSupplyType": "AC",
             "LineInputVoltageType": "ACMidLine",
             "LineInputVoltage": 239,
-            "PowerCapacityWatts": 3000,
             "PowerInputWatts": 363,
-            "PowerOutputWatts": 330,
+            "PowerCapacityWatts": 3000,
+            "PowerOutputWatts": 328,
             "InputRanges": [
                 {
                     "InputType": "AC",
@@ -425,6 +437,7 @@
             "FirmwareVersion": "1.3",
             "SerialNumber": "P3K6GCN25IB0915",
             "PartNumber": "PWS-3K06G-2R",
+            "SparePartNumber": null,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Chassis/1"
@@ -440,18 +453,22 @@
             "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/2",
             "MemberId": "2",
             "Name": "Power Supply Bay 3",
-            "SensorNumber": 194,
             "Status": {
                 "State": "Enabled",
                 "Health": "OK"
             },
-            "Oem": {},
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcPowerExtensions.v1_0_0.PowerSupply",
+                    "SensorNumber": 194
+                }
+            },
             "PowerSupplyType": "AC",
             "LineInputVoltageType": "ACMidLine",
             "LineInputVoltage": 239,
+            "PowerInputWatts": 363,
             "PowerCapacityWatts": 3000,
-            "PowerInputWatts": 364,
-            "PowerOutputWatts": 332,
+            "PowerOutputWatts": 330,
             "InputRanges": [
                 {
                     "InputType": "AC",
@@ -464,6 +481,7 @@
             "FirmwareVersion": "1.3",
             "SerialNumber": "P3K6GCN25IB0908",
             "PartNumber": "PWS-3K06G-2R",
+            "SparePartNumber": null,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Chassis/1"
@@ -479,18 +497,22 @@
             "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/3",
             "MemberId": "3",
             "Name": "Power Supply Bay 4",
-            "SensorNumber": 195,
             "Status": {
                 "State": "Enabled",
                 "Health": "OK"
             },
-            "Oem": {},
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcPowerExtensions.v1_0_0.PowerSupply",
+                    "SensorNumber": 195
+                }
+            },
             "PowerSupplyType": "AC",
             "LineInputVoltageType": "ACMidLine",
             "LineInputVoltage": 239,
+            "PowerInputWatts": 342,
             "PowerCapacityWatts": 3000,
-            "PowerInputWatts": 338,
-            "PowerOutputWatts": 309,
+            "PowerOutputWatts": 314,
             "InputRanges": [
                 {
                     "InputType": "AC",
@@ -503,6 +525,7 @@
             "FirmwareVersion": "1.3",
             "SerialNumber": "P3K6GCN25IB0909",
             "PartNumber": "PWS-3K06G-2R",
+            "SparePartNumber": null,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Chassis/1"
@@ -518,18 +541,22 @@
             "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/4",
             "MemberId": "4",
             "Name": "Power Supply Bay 5",
-            "SensorNumber": 196,
             "Status": {
                 "State": "Enabled",
                 "Health": "OK"
             },
-            "Oem": {},
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcPowerExtensions.v1_0_0.PowerSupply",
+                    "SensorNumber": 196
+                }
+            },
             "PowerSupplyType": "AC",
             "LineInputVoltageType": "ACMidLine",
             "LineInputVoltage": 239,
+            "PowerInputWatts": 368,
             "PowerCapacityWatts": 3000,
-            "PowerInputWatts": 367,
-            "PowerOutputWatts": 331,
+            "PowerOutputWatts": 330,
             "InputRanges": [
                 {
                     "InputType": "AC",
@@ -542,6 +569,7 @@
             "FirmwareVersion": "1.3",
             "SerialNumber": "P3K6GCN25IB0912",
             "PartNumber": "PWS-3K06G-2R",
+            "SparePartNumber": null,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Chassis/1"
@@ -557,22 +585,35 @@
             "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/5",
             "MemberId": "5",
             "Name": "Power Supply Bay 6",
-            "SensorNumber": 197,
             "Status": {
                 "State": "Enabled",
                 "Health": "OK"
             },
-            "Oem": {},
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcPowerExtensions.v1_0_0.PowerSupply",
+                    "SensorNumber": 197
+                }
+            },
             "PowerSupplyType": "AC",
             "LineInputVoltageType": "Unknown",
-            "LineInputVoltage": 0,
-            "PowerCapacityWatts": null,
+            "LineInputVoltage": null,
             "PowerInputWatts": null,
+            "PowerCapacityWatts": null,
             "PowerOutputWatts": null,
+            "InputRanges": [
+                {
+                    "InputType": "AC",
+                    "MinimumVoltage": null,
+                    "MaximumVoltage": null,
+                    "OutputWattage": null
+                }
+            ],
             "Model": "PWS-DF009-2F",
             "FirmwareVersion": "1.0",
             "SerialNumber": "PDF92CN21CI1883",
             "PartNumber": "PWS-DF009-2F",
+            "SparePartNumber": null,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Chassis/1"
@@ -588,22 +629,35 @@
             "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/6",
             "MemberId": "6",
             "Name": "Power Supply Bay 7",
-            "SensorNumber": 198,
             "Status": {
                 "State": "Enabled",
                 "Health": "OK"
             },
-            "Oem": {},
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcPowerExtensions.v1_0_0.PowerSupply",
+                    "SensorNumber": 198
+                }
+            },
             "PowerSupplyType": "AC",
             "LineInputVoltageType": "Unknown",
-            "LineInputVoltage": 0,
-            "PowerCapacityWatts": null,
+            "LineInputVoltage": null,
             "PowerInputWatts": null,
+            "PowerCapacityWatts": null,
             "PowerOutputWatts": null,
+            "InputRanges": [
+                {
+                    "InputType": "AC",
+                    "MinimumVoltage": null,
+                    "MaximumVoltage": null,
+                    "OutputWattage": null
+                }
+            ],
             "Model": "PWS-DF009-2F",
             "FirmwareVersion": "1.0",
             "SerialNumber": "PDF92CN21CI1875",
             "PartNumber": "PWS-DF009-2F",
+            "SparePartNumber": null,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Chassis/1"
@@ -619,18 +673,22 @@
             "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/7",
             "MemberId": "7",
             "Name": "Power Supply Bay 8",
-            "SensorNumber": 199,
             "Status": {
                 "State": "Enabled",
                 "Health": "OK"
             },
-            "Oem": {},
+            "Oem": {
+                "Supermicro": {
+                    "@odata.type": "#SmcPowerExtensions.v1_0_0.PowerSupply",
+                    "SensorNumber": 199
+                }
+            },
             "PowerSupplyType": "AC",
             "LineInputVoltageType": "ACMidLine",
             "LineInputVoltage": 240,
+            "PowerInputWatts": 367,
             "PowerCapacityWatts": 3000,
-            "PowerInputWatts": 369,
-            "PowerOutputWatts": 328,
+            "PowerOutputWatts": 330,
             "InputRanges": [
                 {
                     "InputType": "AC",
@@ -643,6 +701,7 @@
             "FirmwareVersion": "1.3",
             "SerialNumber": "P3K6GCN25IB0913",
             "PartNumber": "PWS-3K06G-2R",
+            "SparePartNumber": null,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Chassis/1"
@@ -708,5 +767,6 @@
                 }
             }
         }
-    }
+    },
+    "@odata.etag": "\"635533ad88f13756d816f8ba2681b9c7\""
 }

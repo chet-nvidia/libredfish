@@ -1,8 +1,9 @@
 {
-    "@odata.type": "#AccountService.v1_7_0.AccountService",
+    "@odata.type": "#AccountService.v1_7_2.AccountService",
     "@odata.id": "/redfish/v1/AccountService",
     "Id": "AccountService",
     "Name": "Account Service",
+    "Description": "Account Service",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -10,6 +11,7 @@
     "ServiceEnabled": true,
     "MinPasswordLength": 8,
     "MaxPasswordLength": 20,
+    "AuthFailureLoggingThreshold": 3,
     "AccountLockoutThreshold": 3,
     "AccountLockoutDuration": 30,
     "AccountLockoutCounterResetAfter": 30,
@@ -26,6 +28,7 @@
         "Authentication": {
             "AuthenticationType": "UsernameAndPassword",
             "Username": "",
+            "Password": null,
             "Oem": {}
         },
         "PasswordSet": false,
@@ -44,9 +47,26 @@
         "Authentication": {
             "AuthenticationType": "UsernameAndPassword",
             "Username": "",
+            "Password": null,
             "Oem": {}
         },
         "PasswordSet": false,
         "RemoteRoleMapping": []
-    }
+    },
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcAccountServiceExtensions.v1_0_1.AccountService",
+            "LDAP": {
+                "StartTLSEnabled": false
+            },
+            "ActiveDirectory": {
+                "DNSLookupEnable": false,
+                "Prefix": "ldap",
+                "Port": 389,
+                "UserDomainNames": [],
+                "DynamicServerAddresses": []
+            }
+        }
+    },
+    "@odata.etag": "\"01dc844f1c2c3fae22b77263291f161b\""
 }

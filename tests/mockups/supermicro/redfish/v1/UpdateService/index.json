@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#UpdateService.v1_8_0.UpdateService",
+    "@odata.type": "#UpdateService.v1_8_4.UpdateService",
     "@odata.id": "/redfish/v1/UpdateService",
     "Id": "UpdateService",
     "Name": "Update Service",
@@ -37,10 +37,8 @@
             },
             "IPMIConfig": {
                 "@odata.id": "/redfish/v1/UpdateService/Oem/Supermicro/IPMIConfig"
-            },
-            "FirmwareInventory": {
-                "@odata.id": "/redfish/v1/UpdateService/Oem/Supermicro/FirmwareInventory"
             }
         }
-    }
+    },
+    "@odata.etag": "\"e9b94401dae9992fef2e71ef30cbcfdc\""
 }

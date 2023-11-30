@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#PCIeSlots.v1_2_0.PCIeSlots",
+    "@odata.type": "#PCIeSlots.v1_4_0.PCIeSlots",
     "@odata.id": "/redfish/v1/Chassis/1/PCIeSlots",
     "Id": "1",
     "Name": "PCIe Slot Information",
@@ -254,5 +254,6 @@
                 ]
             }
         }
-    ]
+    ],
+    "@odata.etag": "\"c3a5c1f7718585809b6885a46676a279\""
 }

@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/SmcEthernetInterfaceExtensions.v1_0_0",
     "Id": "SmcEthernetInterfaceExtensions.v1_0_0",
     "Name": "SmcEthernetInterfaceExtensions Schema File",
@@ -14,5 +14,6 @@
             "Uri": "/schemas/v1/SmcEthernetInterfaceExtensions.v1_0_0.json"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"2c33ac9ba1ab9a378f442cd9e505577c\""
 }

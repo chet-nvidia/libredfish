@@ -3,17 +3,27 @@
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Backup_BIOS",
     "Id": "Backup_BIOS",
     "Name": "BIOS Backup",
-    "Updateable": false,
+    "Updateable": true,
     "Version": "Not Present",
-    "SoftwareId": "Not Present",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
     },
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Bios"
+        }
+    ],
     "Actions": {
         "Oem": {}
     },
-    "Oem": {},
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcSoftwareInventoryExtensions.v1_0_0.SoftwareInventory",
+            "UniqueFilename": null
+        }
+    },
     "Manufacturer": "Supermicro",
-    "WriteProtected": false
+    "WriteProtected": false,
+    "@odata.etag": "\"36979def2d00e925212a639fb0040821\""
 }

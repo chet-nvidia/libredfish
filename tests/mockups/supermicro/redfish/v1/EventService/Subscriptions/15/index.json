@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#EventDestination.v1_7_0.EventDestination",
+    "@odata.type": "#EventDestination.v1_9_0.EventDestination",
     "@odata.id": "/redfish/v1/EventService/Subscriptions/15",
     "Id": "15",
     "Name": "EventSubscription 15",
@@ -8,6 +8,7 @@
         "Health": "OK"
     },
     "Destination": "0.0.0.0",
+    "Context": null,
     "EventFormatType": "Event",
     "Protocol": "SNMPv1",
     "SubscriptionType": "SNMPTrap",
@@ -17,8 +18,10 @@
     "EventTypes": [],
     "Oem": {
         "Supermicro": {
+            "@odata.type": "#SmcEventDestinationExtensions.v1_0_0.EventDestination",
             "Severity": "Information",
             "EnableSubscription": false
         }
-    }
+    },
+    "@odata.etag": "\"24e8a4b3def3f3d75a5a6bf7ad6579b6\""
 }

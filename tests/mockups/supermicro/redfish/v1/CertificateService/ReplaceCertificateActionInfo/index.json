@@ -23,5 +23,6 @@
             "DataType": "Object"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"8b407af504aa9e1a1cb3ce42c13c499a\""
 }

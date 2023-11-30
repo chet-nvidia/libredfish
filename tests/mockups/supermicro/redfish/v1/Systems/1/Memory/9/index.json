@@ -3,12 +3,6 @@
     "@odata.id": "/redfish/v1/Systems/1/Memory/9",
     "Id": "9",
     "Name": "Memory",
-    "MemoryLocation": {
-        "MemoryController": 2,
-        "Socket": 0,
-        "Channel": 4,
-        "Slot": 0
-    },
     "AllowedSpeedsMHz": [
         4800
     ],
@@ -18,30 +12,37 @@
     "DataWidthBits": 64,
     "DeviceLocator": "P1-DIMME1",
     "ErrorCorrection": "SingleBitECC",
-    "MemoryMedia": [
-        "DRAM"
-    ],
-    "MemoryType": "DRAM",
-    "MemoryDeviceType": "DDR5",
-    "Manufacturer": "Samsung",
-    "MaxTDPMilliWatts": [
-        122000
-    ],
-    "OperatingSpeedMhz": 4400,
-    "PartNumber": "M321R8GA0BB0-CQKZJ",
-    "RankCount": 9,
-    "SerialNumber": "80CE012314049469BE",
-    "Metrics": {
-        "@odata.id": "/redfish/v1/Systems/1/Memory/9/MemoryMetrics"
-    },
     "Location": {
         "PartLocation": {
             "ServiceLabel": "P1-DIMME1",
             "LocationType": "Slot"
         }
     },
+    "MaxTDPMilliWatts": [
+        122000
+    ],
+    "MemoryMedia": [
+        "DRAM"
+    ],
+    "MemoryType": "DRAM",
+    "MemoryDeviceType": "DDR5",
+    "Manufacturer": "Samsung",
+    "Metrics": {
+        "@odata.id": "/redfish/v1/Systems/1/Memory/9/MemoryMetrics"
+    },
+    "MemoryLocation": {
+        "MemoryController": 2,
+        "Socket": 0,
+        "Channel": 4,
+        "Slot": 0
+    },
+    "OperatingSpeedMhz": 4400,
+    "PartNumber": "M321R8GA0BB0-CQKZJ",
+    "RankCount": 9,
+    "SerialNumber": "80CE012314049469BE",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
-    }
+    },
+    "@odata.etag": "\"f4703cdd25e1228963f91f00b0f9f2c1\""
 }

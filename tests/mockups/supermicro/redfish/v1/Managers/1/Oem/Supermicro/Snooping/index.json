@@ -3,5 +3,6 @@
     "@odata.id": "/redfish/v1/Managers/1/Oem/Supermicro/Snooping",
     "Name": "Snooping",
     "Id": "Snooping",
-    "PostCode": "ad"
+    "PostCode": "ad",
+    "@odata.etag": "\"b7c3254477a6bb8abb19f4dec6c4ac16\""
 }

@@ -7,5 +7,6 @@
         {
             "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/NVMeSSD7/PCIeFunctions/1"
         }
-    ]
+    ],
+    "@odata.etag": "\"1bc4904f97b8ae3a1e065c6df4d609d9\""
 }

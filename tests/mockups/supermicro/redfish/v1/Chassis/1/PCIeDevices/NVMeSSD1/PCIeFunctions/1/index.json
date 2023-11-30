@@ -4,14 +4,15 @@
     "Id": "1",
     "Name": "NVMeSSD1",
     "Description": "NVMeSSD Device 1",
-    "FunctionId": "1",
+    "FunctionId": 1,
     "FunctionType": "Physical",
     "DeviceClass": "MassStorageController",
     "VendorId": "0x144d",
-    "ClassCode": "88 88 88",
+    "ClassCode": "0x888888",
     "Status": {
         "State": "Enabled",
         "Health": "OK",
         "HealthRollup": "OK"
-    }
+    },
+    "@odata.etag": "\"d9c1637b75601ef126f14afa699eadfb\""
 }

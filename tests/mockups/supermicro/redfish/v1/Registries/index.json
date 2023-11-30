@@ -1,22 +1,22 @@
 {
     "@odata.type": "#MessageRegistryFileCollection.MessageRegistryFileCollection",
     "@odata.id": "/redfish/v1/Registries",
-    "Id": "Registries",
     "Name": "Registry File Collection",
     "Description": "Registry Repository",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Registries/BiosAttributeRegistry.v1_0_0"
+            "@odata.id": "/redfish/v1/Registries/BiosAttributeRegistry"
         },
         {
-            "@odata.id": "/redfish/v1/Registries/Base.v1_10_3"
+            "@odata.id": "/redfish/v1/Registries/Base"
         },
         {
-            "@odata.id": "/redfish/v1/Registries/Event.v1_0_0"
+            "@odata.id": "/redfish/v1/Registries/Event"
         },
         {
-            "@odata.id": "/redfish/v1/Registries/SMC.v1_0_0"
+            "@odata.id": "/redfish/v1/Registries/SMC"
         }
     ],
-    "Members@odata.count": 4
+    "Members@odata.count": 4,
+    "@odata.etag": "\"2e96cc1f348b08e443619f3268361321\""
 }

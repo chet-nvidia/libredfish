@@ -4,8 +4,7 @@
     "Id": "BMC",
     "Name": "BMC",
     "Updateable": true,
-    "Version": "01.00.15",
-    "SoftwareId": "01.00.15",
+    "Version": "11.01.01",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -20,10 +19,12 @@
     },
     "Oem": {
         "Supermicro": {
-            "UniqueFilename": "BMC_X13AST2600-ROT-5501MS_20230426_01.00.15_STDsp.bin"
+            "@odata.type": "#SmcSoftwareInventoryExtensions.v1_0_0.SoftwareInventory",
+            "UniqueFilename": "BMC_X13AST2600-ROT-5501MS_20231117_11.01.01_OEMsp.bin"
         }
     },
     "Manufacturer": "Supermicro",
-    "ReleaseDate": "2023-04-26T00:00:00Z",
-    "WriteProtected": false
+    "ReleaseDate": "2023-11-17T00:00:00Z",
+    "WriteProtected": false,
+    "@odata.etag": "\"4037c6ca4df496bb7e5e72ff536d1a31\""
 }

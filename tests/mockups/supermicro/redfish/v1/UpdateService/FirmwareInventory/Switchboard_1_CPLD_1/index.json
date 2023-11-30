@@ -5,7 +5,6 @@
     "Name": "CPLD MainSwitchboard",
     "Updateable": true,
     "Version": "12",
-    "SoftwareId": "12",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -20,5 +19,6 @@
     },
     "Oem": {},
     "Manufacturer": "Supermicro",
-    "WriteProtected": false
+    "WriteProtected": false,
+    "@odata.etag": "\"27aa72ffda44b51077a0063603516c9d\""
 }

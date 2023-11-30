@@ -17,7 +17,7 @@
             },
             "type": "object",
             "properties": {
-                "InfoROM version": {
+                "InfoROMVersion": {
                     "readonly": true,
                     "type": [
                         "string",
@@ -26,7 +26,16 @@
                     "description": "GPU version.",
                     "longDescription": "This version was released from manufacturer of this device."
                 },
-                "Memory vendor": {
+                "FruId": {
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "FRU ID.",
+                    "longDescription": "AMD Fru ID."
+                },
+                "MemoryVendor": {
                     "readonly": true,
                     "type": [
                         "string",
@@ -44,14 +53,14 @@
                     "description": "GPU slot index.",
                     "longDescription": "The physical location of GPU in the system."
                 },
-                "Board part number": {
+                "GPUGuid": {
                     "readonly": true,
                     "type": [
                         "string",
                         "null"
                     ],
-                    "description": "The GPU part number of this device.",
-                    "longDescription": "This property shall indicate part number as provided by the manufacturer of this GPU."
+                    "description": "The GUID of this device.",
+                    "longDescription": "This property shall indicate GUID as provided by the manufacturer of this GPU."
                 },
                 "Driver": {
                     "readonly": true,
@@ -62,7 +71,25 @@
                     "description": "Driver status",
                     "longDescription": "Check the driver status."
                 },
-                "ECC statistic": {
+                "GPUVendor": {
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "GPU Vendor",
+                    "longDescription": "GPU Vendor"
+                },
+                "BoardPartNumber": {
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "The GPU part number of this device.",
+                    "longDescription": "This property shall indicate part number as provided by the manufacturer of this GPU."
+                },
+                "ECCStatistic": {
                     "readonly": true,
                     "type": [
                         "string",
@@ -71,16 +98,7 @@
                     "description": "The statistic of ECC.",
                     "longDescription": "The statistic of ECC."
                 },
-                "GPU GUID": {
-                    "readonly": true,
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "description": "The GUID of this device.",
-                    "longDescription": "This property shall indicate GUID as provided by the manufacturer of this GPU."
-                },
-                "Memory part number": {
+                "MemoryPartNumber": {
                     "readonly": true,
                     "type": [
                         "string",
@@ -89,14 +107,14 @@
                     "description": "The Memory part number on GPU.",
                     "longDescription": "This property shall indicate part number as provided by the manufacturer of this Memory on GPU."
                 },
-                "Fru ID": {
+                "ThermalValues": {
                     "readonly": true,
                     "type": [
                         "string",
                         "null"
                     ],
-                    "description": "FRU ID.",
-                    "longDescription": "AMD Fru ID."
+                    "description": "Thermal Values",
+                    "longDescription": "Thermal Values"
                 }
             }
         }

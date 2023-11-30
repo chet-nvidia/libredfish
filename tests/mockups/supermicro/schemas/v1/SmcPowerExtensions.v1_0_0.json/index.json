@@ -1,6 +1,6 @@
 {
     "definitions": {
-        "Battery": {
+        "Batteries": {
             "additionalProperties": true,
             "patternProperties": {
                 "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
@@ -40,6 +40,34 @@
                 }
             }
         },
+        "PowerSupply": {
+            "additionalProperties": true,
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "type": "object",
+            "properties": {
+                "SensorNumber": {
+                    "readonly": true,
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "description": "A numerical identifier to represent the Battery sensor.",
+                    "longDescription": "The value of this property shall be a numerical identifier for this Battery sensor that is unique within this resource."
+                }
+            }
+        },
         "Power": {
             "additionalProperties": true,
             "patternProperties": {
@@ -60,7 +88,7 @@
                 "Battery": {
                     "anyOf": [
                         {
-                            "$ref": "#/definitions/Battery"
+                            "$ref": "#/definitions/Batteries"
                         },
                         {
                             "type": "null"

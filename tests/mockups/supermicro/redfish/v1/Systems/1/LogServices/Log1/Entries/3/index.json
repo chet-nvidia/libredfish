@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#LogEntry.v1_3_1.LogEntry",
+    "@odata.type": "#LogEntry.v1_7_0.LogEntry",
     "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1/Entries/3",
     "Id": "3",
     "Name": "Health Event Log Entry 3",
@@ -11,14 +11,16 @@
     "SensorNumber": 255,
     "Message": "[LAN-0005] Dedicated LAN Link Up",
     "MessageId": "0xA301FF",
+    "GeneratorId": "0x0020",
     "Oem": {
         "Supermicro": {
             "@odata.type": "#SmcLogEntryExtensions.v1_0_1.LogEntry",
             "RawEventData": {
                 "EventDirAndType": "0x6F",
                 "SensorType": "0xD0",
-                "SensorName": ""
+                "SensorName": null
             }
         }
-    }
+    },
+    "@odata.etag": "\"9874799baaaad1b622439ccdf7acac2f\""
 }

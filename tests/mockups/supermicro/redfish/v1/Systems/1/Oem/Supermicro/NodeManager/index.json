@@ -21,12 +21,12 @@
         {
             "Mode": "Global power statistics",
             "DomainID": "Entire platform",
-            "Timestamp": "2023-10-24T18:59:59:+00:00",
-            "CurrentValue": 2167,
-            "MaximumValue": 3799,
-            "MinimumValue": 73,
-            "AverageValue": 2166,
-            "ReportingPeriod": 93584
+            "Timestamp": "2023-11-30T21:04:18:+00:00",
+            "CurrentValue": 2163,
+            "MaximumValue": 3286,
+            "MinimumValue": 1,
+            "AverageValue": 1494,
+            "ReportingPeriod": 163725
         }
     ],
     "IntelPsysEnabled": false,
@@ -36,7 +36,7 @@
         "IPMIVersion": "Intel NM IPMI version 6.0",
         "PatchVersion": 0,
         "MajorRevision": 6,
-        "MinorRevision": 4
+        "MinorRevision": 5
     },
     "Selftest": {
         "MajorCode": 85,
@@ -58,9 +58,7 @@
     "Actions": {
         "#SmcNodeManager.ClearAllPolicies": {
             "target": "/redfish/v1/Systems/1/Oem/Supermicro/NodeManager/Actions/SmcNodeManager.ClearAllPolicies"
-        },
-        "#SmcNodeManager.SetActiveNodeManager": {
-            "target": "/redfish/v1/Systems/1/Oem/Supermicro/NodeManager/Actions/SmcNodeManager.SetActiveNodeManager"
         }
-    }
+    },
+    "@odata.etag": "\"a102f5a79a554de367bda54ddbaf6ad2\""
 }

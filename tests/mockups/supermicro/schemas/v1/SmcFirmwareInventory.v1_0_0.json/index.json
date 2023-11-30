@@ -122,8 +122,8 @@
                     },
                     "readonly": true,
                     "type": "array",
-                    "description": "The ID(s) of the resources associated with this software inventory item.",
-                    "longDescription": "The value of this property shall be an array of IDs containing pointers consistent with JSON pointer syntax to the resource that is associated with this software inventory item."
+                    "description": "The IDs of the Resources associated with this software inventory item.",
+                    "longDescription": "This property shall contain an array of IDs for pointers consistent with JSON Pointer syntax to the Resource that is associated with this software inventory item."
                 },
                 "Actions": {
                     "description": "The Actions object contains the available custom actions on this resource.",
@@ -141,6 +141,7 @@
                         }
                     },
                     "longDescription": "This type shall contain the available actions for this resource.",
+                    "readonly": true,
                     "additionalProperties": false,
                     "type": "object",
                     "properties": {
@@ -187,7 +188,13 @@
                 "@odata.context": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/odata.v4_0_2.json#/definitions/context"
                 },
-                "Updatable": {
+                "UpdateStatus": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Updateable": {
                     "readonly": true,
                     "type": [
                         "boolean",
@@ -251,12 +258,6 @@
                     "longDescription": "The value of this property shall be an opaque string to provide context for the device class. For example, PCI bus 0 Device 19."
                 },
                 "UpdateErrorCode": {
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "UpdateStatus": {
                     "type": [
                         "string",
                         "null"

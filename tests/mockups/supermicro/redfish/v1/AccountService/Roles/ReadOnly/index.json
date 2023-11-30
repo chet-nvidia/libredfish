@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#Role.v1_2_3.Role",
+    "@odata.type": "#Role.v1_2_5.Role",
     "@odata.id": "/redfish/v1/AccountService/Roles/ReadOnly",
     "Id": "ReadOnly",
     "Name": "User Role",
@@ -9,5 +9,6 @@
         "Login",
         "ConfigureSelf"
     ],
-    "OemPrivileges": []
+    "OemPrivileges": [],
+    "@odata.etag": "\"043ce4c36c2a5544450528e6f2b20c0c\""
 }

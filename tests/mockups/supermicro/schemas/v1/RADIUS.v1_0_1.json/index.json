@@ -44,7 +44,10 @@
                 },
                 "RadiusSecret": {
                     "readonly": false,
-                    "type": "string",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
                     "description": "A (secret) password for the user to access the Radius server.",
                     "longDescription": "The value of this property shall not contain special characteristics and its max length is 32."
                 },

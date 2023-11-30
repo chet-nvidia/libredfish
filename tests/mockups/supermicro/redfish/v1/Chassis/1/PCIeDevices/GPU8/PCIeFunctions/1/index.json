@@ -1,14 +1,14 @@
 {
     "@odata.type": "#PCIeFunction.v1_2_3.PCIeFunction",
     "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/GPU8/PCIeFunctions/1",
-    "Id": "8",
+    "Id": "1",
     "Name": "GPU8",
     "Description": "GPU Device 8",
     "FunctionId": 1,
     "FunctionType": "Physical",
     "DeviceClass": "DisplayController",
-    "DeviceId": "0",
-    "VendorId": "0",
+    "VendorId": "0x0000",
+    "DeviceId": "0x0000",
     "Status": {
         "State": "Enabled",
         "Health": "OK",
@@ -32,5 +32,6 @@
                 "GPUCapacity2": "0"
             }
         }
-    }
+    },
+    "@odata.etag": "\"4897a490a9c0b90fd66b332704c4efc3\""
 }

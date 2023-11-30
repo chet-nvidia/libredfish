@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#NetworkAdapter.v1_3_0.NetworkAdapter",
+    "@odata.type": "#NetworkAdapter.v1_5_0.NetworkAdapter",
     "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/10",
     "Id": "10",
     "Name": "Network Adapter View",
@@ -9,6 +9,9 @@
     "PartNumber": "MBF2M516C-CECOT",
     "NetworkPorts": {
         "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/10/NetworkPorts"
+    },
+    "Ports": {
+        "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/10/Ports"
     },
     "NetworkDeviceFunctions": {
         "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/10/NetworkDeviceFunctions"
@@ -25,6 +28,11 @@
                 "NetworkPorts": [
                     {
                         "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/10/NetworkPorts/1"
+                    }
+                ],
+                "Ports": [
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/10/Ports/1"
                     }
                 ],
                 "NetworkDeviceFunctions": [
@@ -51,5 +59,6 @@
                 "MaxLanes": 16
             }
         }
-    ]
+    ],
+    "@odata.etag": "\"1bea3e781145b9a61a8a8b6bc2528723\""
 }

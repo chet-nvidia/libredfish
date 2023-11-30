@@ -10,6 +10,9 @@
                 },
                 {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/NTP.v1_0_1.json#/definitions/NTP"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/NTP.v1_0_3.json#/definitions/NTP"
                 }
             ]
         }

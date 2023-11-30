@@ -6,5 +6,6 @@
     "ServiceEnabled": false,
     "FilterRules": {
         "@odata.id": "/redfish/v1/Managers/1/Oem/Supermicro/IPAccessControl/FilterRules"
-    }
+    },
+    "@odata.etag": "\"ecbaa3f8ca55261d32edce302b8e3ddd\""
 }

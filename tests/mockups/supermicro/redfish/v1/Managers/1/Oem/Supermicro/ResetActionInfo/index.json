@@ -1,8 +1,8 @@
 {
-    "@odata.type": "#ActionInfo.v1_0_0.ActionInfo",
+    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo",
     "@odata.id": "/redfish/v1/Managers/1/Oem/Supermicro/ResetActionInfo",
     "Id": "Oem",
-    "Name": "Factory Default Action Info",
+    "Name": "OEM Factory Default Action Info",
     "Parameters": [
         {
             "Name": "Option",
@@ -10,10 +10,10 @@
             "DataType": "String",
             "AllowableValues": [
                 "PreserveUser",
-                "ClearConfig",
                 "ResetToADMIN"
             ]
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"c7210a07a9f8e722a64394297214b8e1\""
 }

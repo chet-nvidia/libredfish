@@ -1,9 +1,9 @@
 {
-    "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
+    "@odata.type": "#PCIeDevice.v1_5_0.PCIeDevice",
     "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/NIC10",
     "Id": "NIC10",
     "Name": "PCIeDevices",
-    "Description": "NIC device (riser:RSC-UNDEFINED)",
+    "Description": "NIC device",
     "Manufacturer": "Supermicro",
     "Model": "MBF2M516C-CECOT",
     "SerialNumber": "MT2321XZ02AR",
@@ -11,7 +11,7 @@
     "DeviceType": "SingleFunction",
     "FirmwareVersion": "24.38.1402",
     "Status": {
-        "State": "Disabled",
+        "State": "Enabled",
         "Health": "OK",
         "HealthRollup": "OK"
     },
@@ -31,5 +31,6 @@
             }
         ]
     },
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"e2085c7370132f6b3afe0981ffc92e35\""
 }

@@ -7,8 +7,8 @@
     "FunctionId": 1,
     "FunctionType": "Physical",
     "DeviceClass": "DisplayController",
-    "DeviceId": "0",
-    "VendorId": "0",
+    "VendorId": "0x0000",
+    "DeviceId": "0x0000",
     "Status": {
         "State": "Enabled",
         "Health": "OK",
@@ -32,5 +32,6 @@
                 "GPUCapacity2": "0"
             }
         }
-    }
+    },
+    "@odata.etag": "\"f59e2f1ebc7ae8ac77572f43a79abb03\""
 }

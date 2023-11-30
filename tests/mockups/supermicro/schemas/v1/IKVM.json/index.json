@@ -10,6 +10,9 @@
                 },
                 {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/IKVM.v1_0_1.json#/definitions/IKVM"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/IKVM.v1_0_2.json#/definitions/IKVM"
                 }
             ]
         }

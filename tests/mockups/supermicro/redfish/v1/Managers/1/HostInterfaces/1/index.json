@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#HostInterface.v1_2_2.HostInterface",
+    "@odata.type": "#HostInterface.v1_3_0.HostInterface",
     "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1",
     "Id": "1",
     "Name": "Host Interface",
@@ -15,6 +15,11 @@
         "BasicAuth",
         "RedfishSessionAuth"
     ],
+    "CredentialBootstrapping": {
+        "Enabled": true,
+        "EnableAfterReset": true,
+        "RoleId": "Administrator"
+    },
     "HostEthernetInterfaces": {
         "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1/HostEthernetInterfaces"
     },
@@ -29,7 +34,11 @@
             {
                 "@odata.id": "/redfish/v1/Systems/1"
             }
-        ]
+        ],
+        "CredentialBootstrappingRole": {
+            "@odata.id": "/redfish/v1/AccountService/Roles/Administrator"
+        }
     },
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"8689df5b64644f876ba2f789b87e0a90\""
 }

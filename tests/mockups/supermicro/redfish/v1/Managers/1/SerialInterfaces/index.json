@@ -8,5 +8,6 @@
         {
             "@odata.id": "/redfish/v1/Managers/1/SerialInterfaces/1"
         }
-    ]
+    ],
+    "@odata.etag": "\"ae31bdabd19d1a89addabf48278bf85d\""
 }

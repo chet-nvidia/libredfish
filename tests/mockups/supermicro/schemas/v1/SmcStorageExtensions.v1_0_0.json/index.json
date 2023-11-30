@@ -31,20 +31,16 @@
                     ],
                     "description": "JBOD mode(Enable/Disable) of the storage controller."
                 },
-                "BBUStatus": {
+                "BBU": {
+                    "readonly": true,
                     "anyOf": [
                         {
-                            "$ref": "#/definitions/BBUStatus"
+                            "$ref": "#/definitions/BBU"
                         },
                         {
                             "type": "null"
                         }
                     ]
-                },
-                "Status": {
-                    "longDescription": "This property shall contain any status or health properties of the resource.",
-                    "description": "This property describes the status and health of the resource and its children.",
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Status"
                 }
             }
         },
@@ -56,8 +52,8 @@
                 "Optimal",
                 "Needs To Be Replaced",
                 "Voltage Low",
-                "UnKnow",
-                "Not install",
+                "UnKnown",
+                "Not Install",
                 "Error"
             ],
             "type": "string"

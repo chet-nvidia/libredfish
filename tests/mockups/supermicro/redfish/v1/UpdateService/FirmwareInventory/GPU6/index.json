@@ -1,11 +1,10 @@
 {
     "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/GPU6",
-    "Id": "6",
+    "Id": "GPU6",
     "Name": "GPU6 System Slot1",
     "Updateable": false,
     "Version": "96.00.61.00.01",
-    "SoftwareId": "96.00.61.00.01",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -21,5 +20,6 @@
     "Oem": {},
     "Manufacturer": "Supermicro",
     "ReleaseDate": "T00:00:00Z",
-    "WriteProtected": false
+    "WriteProtected": false,
+    "@odata.etag": "\"b9506201366717a833c581afeb0c2bbb\""
 }

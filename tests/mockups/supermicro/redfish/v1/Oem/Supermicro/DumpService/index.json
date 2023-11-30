@@ -1,8 +1,9 @@
 {
-    "@odata.type": "#DumpService.v1_0_1.DumpService",
+    "@odata.type": "#DumpService.v1_0_2.DumpService",
     "@odata.id": "/redfish/v1/Oem/Supermicro/DumpService",
     "Id": "DumpService",
     "Name": "Dump Service",
+    "Description": "Dump Service",
     "Dumps": {
         "@odata.id": "/redfish/v1/Oem/Supermicro/DumpService/Dumps"
     },
@@ -15,5 +16,6 @@
         "#SmcDumpService.DeleteAll": {
             "target": "/redfish/v1/Oem/Supermicro/DumpService/Actions/SmcDumpService.DeleteAll"
         }
-    }
+    },
+    "@odata.etag": "\"051630a8e1a38e4b533fbea364e47802\""
 }

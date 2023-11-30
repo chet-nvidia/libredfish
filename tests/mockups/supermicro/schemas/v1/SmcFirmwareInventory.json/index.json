@@ -1,5 +1,71 @@
 {
     "definitions": {
+        "OemUpdateActionNotSupported": {
+            "description": "The base type for an OEM extension.",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "longDescription": "This object represents the base type for an OEM object.  The resource values shall comply with the Redfish Specification-described requirements.",
+            "additionalProperties": true,
+            "type": "object",
+            "properties": {
+                "Message": {
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "Extra information for not supported action",
+                    "longDescription": "The value of this property shall describe extra information for not supported action."
+                },
+                "NumberOfArgs": {
+                    "readonly": true,
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "description": "number of arguments",
+                    "longDescription": "The value of this property shall describe how many arguments."
+                },
+                "Resolution": {
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "resolution for not supported action",
+                    "longDescription": "The value of this property shall describe the resolution for not supported action."
+                },
+                "Description": {
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "Details for not supported action",
+                    "longDescription": "The value of this property shall describe details for not supported action."
+                },
+                "Severity": {
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "severity level for not supported action",
+                    "longDescription": "The value of this property shall describe severity of the action."
+                }
+            }
+        },
         "SmcFirmwareInventory": {
             "anyOf": [
                 {

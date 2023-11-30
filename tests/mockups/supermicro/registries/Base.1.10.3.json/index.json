@@ -7,7 +7,7 @@
     "Language": "en",
     "Description": "This registry defines the base messages for Redfish",
     "RegistryPrefix": "Base",
-    "RegistryVersion": "v1_10_3",
+    "RegistryVersion": "1.10.3",
     "OwningEntity": "DMTF",
     "Messages": {
         "Success": {

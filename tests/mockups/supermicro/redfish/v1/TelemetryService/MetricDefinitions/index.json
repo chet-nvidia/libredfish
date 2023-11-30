@@ -1,7 +1,6 @@
 {
     "@odata.type": "#MetricDefinitionCollection.MetricDefinitionCollection",
     "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions",
-    "Id": "MetricDefinitions",
     "Name": "Metric Definitions",
     "Description": "Metric Definitions view",
     "Members@odata.count": 9,
@@ -33,5 +32,6 @@
         {
             "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/MaxPowerConsumedWeek"
         }
-    ]
+    ],
+    "@odata.etag": "\"7ce6a8c7a6b34c632686fa1e939e7588\""
 }

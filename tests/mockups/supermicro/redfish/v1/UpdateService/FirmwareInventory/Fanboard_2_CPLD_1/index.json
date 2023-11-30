@@ -5,20 +5,16 @@
     "Name": "CPLD RearFanboard",
     "Updateable": true,
     "Version": "01",
-    "SoftwareId": "01",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
     },
-    "RelatedItem": [
-        {
-            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Fanboard_2_CPLD_1"
-        }
-    ],
+    "RelatedItem": [],
     "Actions": {
         "Oem": {}
     },
     "Oem": {},
     "Manufacturer": "Supermicro",
-    "WriteProtected": false
+    "WriteProtected": false,
+    "@odata.etag": "\"88c268409d9f4fedf689033dfc00e182\""
 }

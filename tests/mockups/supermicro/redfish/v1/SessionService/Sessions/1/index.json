@@ -1,9 +1,10 @@
 {
-    "@odata.type": "#Session.v1_1_2.Session",
+    "@odata.type": "#Session.v1_3_0.Session",
     "@odata.id": "/redfish/v1/SessionService/Sessions/1",
     "Id": "1",
     "Name": "User Session",
     "Description": "Manager User Session",
-    "UserName": "ADMIN",
-    "Oem": {}
+    "UserName": "root",
+    "Oem": {},
+    "@odata.etag": "\"f3678f9da8be774ace82bcde50c208bb\""
 }

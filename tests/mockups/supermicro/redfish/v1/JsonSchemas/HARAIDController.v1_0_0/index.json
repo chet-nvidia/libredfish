@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/HARAIDController.v1_0_0",
     "Id": "HARAIDController.v1_0_0",
     "Name": "HARAIDController Schema File",
@@ -14,5 +14,6 @@
             "Uri": "/schemas/v1/HARAIDController.v1_0_0.json"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"7eeef29d1d2c36e2c18e431c720dbd49\""
 }

@@ -1,11 +1,10 @@
 {
     "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/NIC9",
-    "Id": "9",
+    "Id": "NIC9",
     "Name": "NIC9 System Slot10 AOC-STGS-i2T",
     "Updateable": false,
     "Version": "3.50 0x800016DC",
-    "SoftwareId": "3.50 0x800016DC",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -20,5 +19,6 @@
     },
     "Oem": {},
     "Manufacturer": "Supermicro",
-    "WriteProtected": false
+    "WriteProtected": false,
+    "@odata.etag": "\"1f56e0e8eca3460646d4d9bf24e9ce5b\""
 }

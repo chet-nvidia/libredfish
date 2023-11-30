@@ -8,5 +8,6 @@
         {
             "@odata.id": "/redfish/v1/Systems/1/LogServices/Log1"
         }
-    ]
+    ],
+    "@odata.etag": "\"700ba70920932d7a73c802d5e9a4a047\""
 }

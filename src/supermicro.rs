@@ -5,7 +5,8 @@ use crate::{
         boot, chassis::Chassis, network_device_function::NetworkDeviceFunction, oem::supermicro,
         power::Power, secure_boot::SecureBoot, sel::LogEntry, service_root::ServiceRoot,
         software_inventory::SoftwareInventory, task::Task, thermal::Thermal, BootOption,
-        Commandshell, ComputerSystem, EnableDisable, InvalidValueError, Manager,
+        ComputerSystem, EnableDisable, InvalidValueError, Manager, SerialConsole,
+        SerialConsoleConnectionType,
     },
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, RoleId,
@@ -176,21 +177,32 @@ impl Redfish for Bmc {
     }
 
     async fn setup_serial_console(&self) -> Result<(), RedfishError> {
-        let url = format!("Managers/{}", self.s.manager_id());
-        let body = Commandshell {
-            service_enabled: true,
+        let url = format!("Systems/{}", self.s.system_id());
+        let sc = SerialConsole {
             max_concurrent_sessions: 1,
-            connect_types_supported: vec!["SSH".to_string(), "IPMI".to_string()],
-            enabled: None, // Supermicro doens't have this
+            ssh: SerialConsoleConnectionType {
+                service_enabled: true,
+                port: Some(22),
+                shared_with_manager_cli: Some(true),
+                ..Default::default()
+            },
+            ipmi: SerialConsoleConnectionType {
+                service_enabled: true,
+                port: Some(623),
+                ..Default::default()
+            },
         };
+        let body = HashMap::from([("SerialConsole", sc)]);
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
     async fn serial_console_status(&self) -> Result<Status, RedfishError> {
         let s_interface = self.s.get_serial_interface().await?;
-        let manager = self.s.get_manager().await?;
-        let sr = &manager.serial_console;
-        let is_enabled = sr.service_enabled
+        let system = self.s.get_system().await?;
+        let Some(sr) = &system.serial_console else {
+            return Err(RedfishError::NotSupported("No SerialConsole in Manager object".to_string()));
+        };
+        let is_enabled = sr.ssh.service_enabled
             && sr.max_concurrent_sessions != 0
             && s_interface.is_supermicro_default();
         let status = if is_enabled {

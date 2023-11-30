@@ -4,6 +4,7 @@
     "Id": "Syslog",
     "Name": "Syslog",
     "EnableSyslog": false,
-    "SyslogServer": "",
-    "SyslogPortNumber": 0
+    "SyslogServer": null,
+    "SyslogPortNumber": 0,
+    "@odata.etag": "\"b27af6393687bb1810b00fe52874e053\""
 }

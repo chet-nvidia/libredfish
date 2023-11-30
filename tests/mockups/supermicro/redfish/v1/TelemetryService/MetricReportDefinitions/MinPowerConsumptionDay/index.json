@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#MetricDefinition.v1_0_0.MetricDefinition",
+    "@odata.type": "#MetricReportDefinition.v1_3_3.MetricReportDefinition",
     "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/MinPowerConsumptionDay",
     "Id": "MinPowerConsumptionDay",
     "Name": "Minimum Power Consumption for 1 day with sensing interval of 1 hour.",
@@ -12,7 +12,7 @@
         "LogToMetricReportsCollection"
     ],
     "ReportUpdates": "Overwrite",
-    "MetricReports": {
+    "MetricReport": {
         "@odata.id": "/redfish/v1/TelemetryService/MetricReports/MinPowerConsumptionDay"
     },
     "Status": {
@@ -29,5 +29,6 @@
             "CollectionTimeScope": "Interval",
             "CollectionDuration": "PT3600.0S"
         }
-    ]
+    ],
+    "@odata.etag": "\"76df21c3ecb4a71e06e18e5bedfb5bf1\""
 }

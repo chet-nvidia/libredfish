@@ -1,7 +1,0 @@
-{
-    "@odata.type": "#VolumeCollection.VolumeCollection",
-    "@odata.id": "/redfish/v1/Systems/1/Storage/NVMeSSD/Volumes",
-    "Name": "Storage Volume Collection",
-    "Members": [],
-    "Members@odata.count": 0
-}

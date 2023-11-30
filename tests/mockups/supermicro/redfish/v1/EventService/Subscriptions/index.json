@@ -52,5 +52,6 @@
             "@odata.id": "/redfish/v1/EventService/Subscriptions/16"
         }
     ],
-    "Members@odata.count": 16
+    "Members@odata.count": 16,
+    "@odata.etag": "\"fae711284fecf5e86f175ec7de2fd1ce\""
 }

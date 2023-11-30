@@ -1,7 +1,6 @@
 {
-    "@odata.type": "#simplestoragecollection.simplestoragecollection",
+    "@odata.type": "#SimpleStorageCollection.SimpleStorageCollection",
     "@odata.id": "/redfish/v1/Systems/1/SimpleStorage",
-    "Id": "1",
     "Name": "Simple Storage Collection",
     "Members@odata.count": 1,
     "Description": "Simple Storage Collection",
@@ -9,5 +8,6 @@
         {
             "@odata.id": "/redfish/v1/Systems/1/SimpleStorage/1"
         }
-    ]
+    ],
+    "@odata.etag": "\"af69db761079b2c2acaa8a575a846e22\""
 }

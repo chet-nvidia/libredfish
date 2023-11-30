@@ -20,5 +20,6 @@
             "MaximumValue": 4096
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"fff33a713662d2e0a18ff53a2a2f2602\""
 }

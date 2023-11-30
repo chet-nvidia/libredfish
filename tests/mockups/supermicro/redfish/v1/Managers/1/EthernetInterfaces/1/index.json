@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#EthernetInterface.v1_5_2.EthernetInterface",
+    "@odata.type": "#EthernetInterface.v1_6_3.EthernetInterface",
     "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/1",
     "Id": "1",
     "Name": "Manager Ethernet Interface",
@@ -11,11 +11,15 @@
     "LinkStatus": "LinkUp",
     "MACAddress": "7C:C2:55:50:A8:FF",
     "SpeedMbps": 1000,
+    "SpeedMbps@Redfish.AllowableValues": [
+        "100",
+        "1000"
+    ],
     "AutoNeg": true,
     "FullDuplex": true,
     "MTUSize": 1500,
-    "HostName": "",
-    "FQDN": "",
+    "HostName": null,
+    "FQDN": null,
     "MaxIPv6StaticAddresses": 5,
     "VLAN": {
         "VLANEnable": false,
@@ -24,7 +28,7 @@
     "DHCPv4": {
         "DHCPEnabled": true,
         "UseDNSServers": false,
-        "UseGateway": false,
+        "UseGateway": true,
         "UseNTPServers": false,
         "UseStaticRoutes": false,
         "UseDomainName": false,
@@ -51,9 +55,9 @@
     },
     "IPv4StaticAddresses": [
         {
-            "Address": "",
-            "SubnetMask": "",
-            "Gateway": ""
+            "Address": null,
+            "SubnetMask": null,
+            "Gateway": null
         }
     ],
     "IPv6StaticAddresses": [
@@ -78,9 +82,11 @@
             "PrefixLength": 64
         }
     ],
+    "IPv6StaticDefaultGateways": [],
+    "IPv6DefaultGateway": null,
     "IPv6Addresses": [
         {
-            "Address": "fe80:0:0:0:7ec2:55ff:fe50:a8ff",
+            "Address": "fe80::7ec2:55ff:fe50:a8ff",
             "PrefixLength": 64,
             "AddressOrigin": "LinkLocal",
             "AddressState": "Preferred"
@@ -88,22 +94,21 @@
     ],
     "NameServers": [
         "10.217.126.14",
-        "0.0.0.0",
-        "::",
-        "::"
+        "(null)"
     ],
+    "StaticNameServers": [],
     "Oem": {
         "Supermicro": {
-            "@odata.type": "#SmcEthernetInterfaceExtensions.v1_0_1.EthernetInterface",
+            "@odata.type": "#SmcEthernetInterfaceExtensions.v1_0_2.EthernetInterface",
             "IPProtocolStatus": "Dual",
-            "DUID": "",
+            "DUID": "0E:00:00:01:00:01:27:80:7B:5E:7C:C2:55:50:A8:FF",
             "LANInterface": "Failover",
             "LANInterface@Redfish.AllowableValues": [
                 "Dedicated",
-                "Shared",
                 "Failover"
             ],
             "ActiveInterface": "Dedicated"
         }
-    }
+    },
+    "@odata.etag": "\"4f4848b014d47927e683bccd23903d3f\""
 }

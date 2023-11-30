@@ -1,5 +1,87 @@
 {
     "definitions": {
+        "Node": {
+            "additionalProperties": true,
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "type": "object",
+            "properties": {
+                "CreateDate": {
+                    "readonly": true,
+                    "longDescription": "Creation date of license",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "Creation date of license",
+                    "format": "date-time"
+                },
+                "LicenseID": {
+                    "readonly": true,
+                    "type": "number",
+                    "description": "ID of license",
+                    "longDescription": "Valid license IDs include 1/2/3/4"
+                },
+                "LicenseName": {
+                    "readonly": true,
+                    "type": "string",
+                    "description": "Name of license",
+                    "longDescription": "Valid license Names include SFT-OOB-LIC/SFT-DCMS-SINGLE/SFT-SPM-LIC/SFT-DCMS-SVC-KEY"
+                },
+                "ExpirationDate": {
+                    "readonly": true,
+                    "longDescription": "Expiration date of license",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "Expiration date of license",
+                    "format": "date-time"
+                }
+            }
+        },
+        "ProductKey": {
+            "additionalProperties": true,
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                    "type": [
+                        "array",
+                        "boolean",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ],
+                    "description": "This property shall specify a valid odata or Redfish property."
+                }
+            },
+            "type": "object",
+            "properties": {
+                "Node": {
+                    "readonly": true,
+                    "longDescription": "Valid license Node",
+                    "description": "Node of license",
+                    "$ref": "#/definitions/Node"
+                },
+                "Signature": {
+                    "readonly": true,
+                    "type": "string",
+                    "description": "Signature of license",
+                    "longDescription": "Signature date of license, it can be used to verify node product key content is correect or not"
+                }
+            }
+        },
         "QueryLicense": {
             "description": "The base type for resources and members that can be linked to.",
             "required": [
@@ -25,9 +107,6 @@
                 "@odata.type": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/odata.v4_0_2.json#/definitions/type"
                 },
-                "Licenses@odata.count": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.v4_0_2.json#/definitions/count"
-                },
                 "Description": {
                     "readonly": true,
                     "anyOf": [
@@ -45,10 +124,6 @@
                 "@odata.context": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/odata.v4_0_2.json#/definitions/context"
                 },
-                "Licenses@odata.navigationLink": {
-                    "type": "string",
-                    "format": "uri"
-                },
                 "Oem": {
                     "longDescription": "This property shall contain the OEM extensions.  All values for properties that this object contains shall conform to the Redfish Specification-described requirements.",
                     "description": "The OEM extension property.",
@@ -56,11 +131,11 @@
                 },
                 "Licenses": {
                     "items": {
-                        "$ref": "http://redfish.dmtf.org/schemas/v1/QueryLicense.json#/definitions/QueryLicense"
+                        "type": "string"
                     },
                     "readonly": true,
                     "type": "array",
-                    "description": "Contains the licenses of this collection."
+                    "description": "Licenses of license resource"
                 },
                 "Id": {
                     "readonly": true,

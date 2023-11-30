@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/FilterRule",
     "Id": "FilterRule",
     "Name": "FilterRule Schema File",
@@ -14,5 +14,6 @@
             "Uri": "/schemas/v1/FilterRule.json"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"0df788ee6665028aafa3823e81c797d9\""
 }

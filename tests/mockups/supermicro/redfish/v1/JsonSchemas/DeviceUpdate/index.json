@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/DeviceUpdate",
     "Id": "DeviceUpdate",
     "Name": "DeviceUpdate Schema File",
@@ -14,5 +14,6 @@
             "Uri": "/schemas/v1/DeviceUpdate.json"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"9a2efe9284c5f6971edfa5b70aa45898\""
 }

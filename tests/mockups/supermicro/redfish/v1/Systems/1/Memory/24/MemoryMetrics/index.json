@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#MemoryMetrics.v1_2_0.MemoryMetrics",
+    "@odata.type": "#MemoryMetrics.v1_4_0.MemoryMetrics",
     "@odata.id": "/redfish/v1/Systems/1/Memory/24/MemoryMetrics",
     "Id": "Metrics",
     "Name": "MemoryMetrics",
@@ -10,5 +10,7 @@
             "UncorrectableECCError": false
         }
     },
-    "BandwidthPercent": 0
+    "BandwidthPercent": 0,
+    "OperatingSpeedMHz": 4400,
+    "@odata.etag": "\"199cb9a81a4c9ab40fc6ee7211c8d7e0\""
 }

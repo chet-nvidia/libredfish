@@ -1,11 +1,11 @@
 {
-    "@odata.type": "#ManagerAccount.v1_5_0.ManagerAccount",
+    "@odata.type": "#ManagerAccount.v1_8_0.ManagerAccount",
     "@odata.id": "/redfish/v1/AccountService/Accounts/2",
     "Id": "2",
     "Name": "User Account",
     "RoleId": "Administrator",
     "Description": "User Account",
-    "UserName": "ADMIN",
+    "UserName": "root",
     "Password": null,
     "Locked": false,
     "Enabled": true,
@@ -16,5 +16,7 @@
         "Role": {
             "@odata.id": "/redfish/v1/AccountService/Roles/Administrator"
         }
-    }
+    },
+    "HostBootstrapAccount": false,
+    "@odata.etag": "\"62b51a98fb2c9aa1fceaebaf9e581c00\""
 }

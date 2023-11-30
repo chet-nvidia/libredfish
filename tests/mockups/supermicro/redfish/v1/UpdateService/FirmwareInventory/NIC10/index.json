@@ -1,11 +1,10 @@
 {
     "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/NIC10",
-    "Id": "10",
+    "Id": "NIC10",
     "Name": "NIC10 System Slot12 MBF2M516C-CECOT",
     "Updateable": true,
-    "Version": "0000",
-    "SoftwareId": "0000",
+    "Version": "24.38.1402",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -20,5 +19,6 @@
     },
     "Oem": {},
     "Manufacturer": "Supermicro",
-    "WriteProtected": false
+    "WriteProtected": false,
+    "@odata.etag": "\"ca002af0b06da683ce7e0b408cd2ad90\""
 }

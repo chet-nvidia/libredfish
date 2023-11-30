@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#SimpleStorage.v1_2_2.SimpleStorage",
+    "@odata.type": "#SimpleStorage.v1_3_0.SimpleStorage",
     "@odata.id": "/redfish/v1/Systems/1/SimpleStorage/1",
     "Id": "1",
     "Name": "Simple Storage",
@@ -89,5 +89,11 @@
                 "Health": "OK"
             }
         }
-    ]
+    ],
+    "Links": {
+        "Storage": {
+            "@odata.id": "/redfish/v1/Systems/1/Storage/NVMeSSD"
+        }
+    },
+    "@odata.etag": "\"c206301e71465aaf0c3b0da4f61ffbf0\""
 }

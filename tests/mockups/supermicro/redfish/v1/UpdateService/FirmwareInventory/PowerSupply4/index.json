@@ -1,11 +1,10 @@
 {
     "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/PowerSupply4",
-    "Id": "4",
+    "Id": "PowerSupply4",
     "Name": "Power supply 4",
     "Updateable": false,
     "Version": "1.3",
-    "SoftwareId": "1.3",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -20,5 +19,6 @@
     },
     "Oem": {},
     "Manufacturer": "SUPERMICRO",
-    "WriteProtected": true
+    "WriteProtected": true,
+    "@odata.etag": "\"4c4be0ee9b6323211c56b132729d6cac\""
 }

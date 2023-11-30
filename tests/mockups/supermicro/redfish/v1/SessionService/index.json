@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#SessionService.v1_1_5.SessionService",
+    "@odata.type": "#SessionService.v1_1_7.SessionService",
     "@odata.id": "/redfish/v1/SessionService",
     "Id": "SessionService",
     "Name": "Session Service",
@@ -12,5 +12,6 @@
     "SessionTimeout": 300,
     "Sessions": {
         "@odata.id": "/redfish/v1/SessionService/Sessions"
-    }
+    },
+    "@odata.etag": "\"434f62a7c3826407d2b8ce37810fc2c2\""
 }

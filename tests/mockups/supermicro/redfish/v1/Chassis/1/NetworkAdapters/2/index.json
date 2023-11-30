@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#NetworkAdapter.v1_3_0.NetworkAdapter",
+    "@odata.type": "#NetworkAdapter.v1_5_0.NetworkAdapter",
     "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/2",
     "Id": "2",
     "Name": "Network Adapter View",
@@ -9,6 +9,9 @@
     "PartNumber": "MCX75310AAS-NEAT",
     "NetworkPorts": {
         "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/2/NetworkPorts"
+    },
+    "Ports": {
+        "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/2/Ports"
     },
     "NetworkDeviceFunctions": {
         "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/2/NetworkDeviceFunctions"
@@ -25,6 +28,11 @@
                 "NetworkPorts": [
                     {
                         "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/2/NetworkPorts/1"
+                    }
+                ],
+                "Ports": [
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/2/Ports/1"
                     }
                 ],
                 "NetworkDeviceFunctions": [
@@ -51,5 +59,6 @@
                 "MaxLanes": 16
             }
         }
-    ]
+    ],
+    "@odata.etag": "\"0656a25fd41018fc01ae317f03835aa2\""
 }

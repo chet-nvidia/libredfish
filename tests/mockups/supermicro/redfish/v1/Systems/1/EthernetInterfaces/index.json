@@ -1,7 +1,6 @@
 {
     "@odata.type": "#EthernetInterfaceCollection.EthernetInterfaceCollection",
     "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces",
-    "Id": "1",
     "Description": "Collection of EthernetInterfaces for this Computer System",
     "Name": "Ethernet Network Interface Collection",
     "Members@odata.count": 12,
@@ -42,5 +41,6 @@
         {
             "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/ToManager"
         }
-    ]
+    ],
+    "@odata.etag": "\"efb9eb7eb47237e16f47c97b44ccd963\""
 }

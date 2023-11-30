@@ -1,11 +1,10 @@
 {
     "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/NVMeSSDA12",
-    "Id": "12",
-    "Name": "NVMeSSDA12",
+    "Id": "NVMeSSDA12",
+    "Name": "NVMe SSD (0,1)",
     "Updateable": false,
     "Version": "GDC5602Q",
-    "SoftwareId": "GDC5602Q",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -20,5 +19,6 @@
     },
     "Oem": {},
     "Manufacturer": "Supermicro",
-    "WriteProtected": true
+    "WriteProtected": true,
+    "@odata.etag": "\"5a601677cecc4b1c85a315fb976e0fad\""
 }

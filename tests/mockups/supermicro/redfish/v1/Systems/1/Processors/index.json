@@ -11,5 +11,6 @@
         {
             "@odata.id": "/redfish/v1/Systems/1/Processors/2"
         }
-    ]
+    ],
+    "@odata.etag": "\"152bd4e382b525d215fa7d4c35b3c7ab\""
 }

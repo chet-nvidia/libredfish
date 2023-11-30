@@ -1,11 +1,10 @@
 {
     "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/CPLD_Backplane_1",
-    "Id": "1",
+    "Id": "CPLD_Backplane_1",
     "Name": "CPLD1 Backplane 1",
     "Updateable": true,
     "Version": "03",
-    "SoftwareId": "CPLDBPN_L0",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -23,5 +22,6 @@
     },
     "Oem": {},
     "Manufacturer": "Supermicro",
-    "WriteProtected": false
+    "WriteProtected": false,
+    "@odata.etag": "\"96cd066e5c2c7b056e807edf4d24f655\""
 }

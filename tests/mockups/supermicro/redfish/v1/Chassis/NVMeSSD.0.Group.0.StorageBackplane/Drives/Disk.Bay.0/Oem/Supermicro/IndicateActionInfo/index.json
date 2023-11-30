@@ -10,5 +10,6 @@
             "DataType": "Boolean"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"6f4abc11c2e200f2615611f7fbc14caf\""
 }

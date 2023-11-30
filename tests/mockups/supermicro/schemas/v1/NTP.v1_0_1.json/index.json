@@ -1,7 +1,7 @@
 {
     "definitions": {
         "NTP": {
-            "description": "The base type for resources and members that can be linked to.",
+            "description": "Prepare for the next version of NTP schema.",
             "required": [
                 "Id",
                 "Name"

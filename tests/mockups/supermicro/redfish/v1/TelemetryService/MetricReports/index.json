@@ -1,7 +1,6 @@
 {
     "@odata.type": "#MetricReportCollection.MetricReportCollection",
     "@odata.id": "/redfish/v1/TelemetryService/MetricReports",
-    "Id": "MetricReports",
     "Name": "Metric Reports",
     "Description": "Metric Reports view",
     "Members@odata.count": 9,
@@ -33,5 +32,6 @@
         {
             "@odata.id": "/redfish/v1/TelemetryService/MetricReports/MaxPowerConsumptionWeek"
         }
-    ]
+    ],
+    "@odata.etag": "\"eee1098c4a22e05d2c71581288f589c2\""
 }

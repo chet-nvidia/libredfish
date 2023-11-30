@@ -1,7 +1,6 @@
 {
     "@odata.type": "#NetworkInterfaceCollection.NetworkInterfaceCollection",
     "@odata.id": "/redfish/v1/Systems/1/NetworkInterfaces",
-    "Id": "1",
     "Name": "Network Interface Collection",
     "Members@odata.count": 10,
     "Members": [
@@ -35,5 +34,6 @@
         {
             "@odata.id": "/redfish/v1/Systems/1/NetworkInterfaces/10"
         }
-    ]
+    ],
+    "@odata.etag": "\"2b1d020029baf4be07843b949507e14f\""
 }

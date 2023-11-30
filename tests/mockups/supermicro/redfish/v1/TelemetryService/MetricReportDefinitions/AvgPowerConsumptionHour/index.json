@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#MetricDefinition.v1_0_0.MetricDefinition",
+    "@odata.type": "#MetricReportDefinition.v1_3_3.MetricReportDefinition",
     "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/AvgPowerConsumptionHour",
     "Id": "AvgPowerConsumptionHour",
     "Name": "Average Power Consumption for 1 hour with sensing interval of 5 minutes.",
@@ -12,7 +12,7 @@
         "LogToMetricReportsCollection"
     ],
     "ReportUpdates": "Overwrite",
-    "MetricReports": {
+    "MetricReport": {
         "@odata.id": "/redfish/v1/TelemetryService/MetricReports/AvgPowerConsumptionHour"
     },
     "Status": {
@@ -27,7 +27,8 @@
             ],
             "CollectionFunction": "Average",
             "CollectionTimeScope": "Interval",
-            "CollectionDuration": "PT300S.0S"
+            "CollectionDuration": "PT300.0S"
         }
-    ]
+    ],
+    "@odata.etag": "\"95eebdf3085321aeb2fd0df98a3f3b10\""
 }

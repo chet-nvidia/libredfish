@@ -1,11 +1,10 @@
 {
     "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/GPU2",
-    "Id": "2",
+    "Id": "GPU2",
     "Name": "GPU2 System Slot1",
     "Updateable": false,
     "Version": "96.00.61.00.01",
-    "SoftwareId": "96.00.61.00.01",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -21,5 +20,6 @@
     "Oem": {},
     "Manufacturer": "Supermicro",
     "ReleaseDate": "T00:00:00Z",
-    "WriteProtected": false
+    "WriteProtected": false,
+    "@odata.etag": "\"961d6937354c29d0b73a741c8f0c858e\""
 }

@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#NetworkAdapter.v1_3_0.NetworkAdapter",
+    "@odata.type": "#NetworkAdapter.v1_5_0.NetworkAdapter",
     "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/9",
     "Id": "9",
     "Name": "Network Adapter View",
@@ -9,6 +9,9 @@
     "PartNumber": "AOC-STGS-i2T",
     "NetworkPorts": {
         "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/9/NetworkPorts"
+    },
+    "Ports": {
+        "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/9/Ports"
     },
     "NetworkDeviceFunctions": {
         "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/9/NetworkDeviceFunctions"
@@ -28,6 +31,14 @@
                     },
                     {
                         "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/9/NetworkPorts/2"
+                    }
+                ],
+                "Ports": [
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/9/Ports/1"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/9/Ports/2"
                     }
                 ],
                 "NetworkDeviceFunctions": [
@@ -57,5 +68,6 @@
                 "MaxLanes": 4
             }
         }
-    ]
+    ],
+    "@odata.etag": "\"1b8212c88cf178da99790ab26aae9113\""
 }

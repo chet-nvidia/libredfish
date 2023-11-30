@@ -1,11 +1,10 @@
 {
     "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/PowerSupply6",
-    "Id": "6",
+    "Id": "PowerSupply6",
     "Name": "Power supply 6",
     "Updateable": false,
     "Version": "1.0",
-    "SoftwareId": "1.0",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -20,5 +19,6 @@
     },
     "Oem": {},
     "Manufacturer": "SUPERMICRO",
-    "WriteProtected": true
+    "WriteProtected": true,
+    "@odata.etag": "\"7a2a208f5fc0979a227339915521acda\""
 }

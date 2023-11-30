@@ -1,7 +1,6 @@
 {
     "@odata.type": "#StorageCollection.StorageCollection",
     "@odata.id": "/redfish/v1/Systems/1/Storage",
-    "Id": "Storage",
     "Name": "Storage Collection",
     "Members@odata.count": 1,
     "Description": "Storage Collection",
@@ -9,5 +8,6 @@
         {
             "@odata.id": "/redfish/v1/Systems/1/Storage/NVMeSSD"
         }
-    ]
+    ],
+    "@odata.etag": "\"822d200be93614e8e2c2ba016d7fac1e\""
 }

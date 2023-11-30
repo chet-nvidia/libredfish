@@ -7,5 +7,6 @@
         {
             "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/GPU7/PCIeFunctions/1"
         }
-    ]
+    ],
+    "@odata.etag": "\"12ccd0f6957411d05cae3a67a273c7e8\""
 }

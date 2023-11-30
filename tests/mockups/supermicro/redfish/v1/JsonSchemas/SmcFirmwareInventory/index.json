@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/SmcFirmwareInventory",
     "Id": "SmcFirmwareInventory",
     "Name": "SmcFirmwareInventory Schema File",
@@ -14,5 +14,6 @@
             "Uri": "/schemas/v1/SmcFirmwareInventory.json"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"e56ff86e518000a354d80b3b4633f349\""
 }

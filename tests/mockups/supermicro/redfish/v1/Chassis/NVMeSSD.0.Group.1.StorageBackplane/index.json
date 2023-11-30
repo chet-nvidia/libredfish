@@ -1,12 +1,12 @@
 {
-    "@odata.type": "#Chassis.v1_11_0.Chassis",
+    "@odata.type": "#Chassis.v1_14_0.Chassis",
     "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.1.StorageBackplane",
     "Id": "NVMeSSD.0.Group.1.StorageBackplane",
     "Name": "Backplane",
     "ChassisType": "Enclosure",
     "Model": "Backplane",
-    "SerialNumber": "",
-    "PartNumber": "",
+    "SerialNumber": null,
+    "PartNumber": null,
     "Links": {
         "ManagedBy": [
             {
@@ -20,5 +20,9 @@
         ],
         "Drives": []
     },
-    "Oem": {}
+    "Drives": {
+        "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.1.StorageBackplane/Drives"
+    },
+    "Oem": {},
+    "@odata.etag": "\"055ac85eb9989225766d7549b2f79aa1\""
 }

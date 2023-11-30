@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#EthernetInterface.v1_5_1.EthernetInterface",
+    "@odata.type": "#EthernetInterface.v1_6_3.EthernetInterface",
     "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/ToManager",
     "Id": "ToManager",
     "Name": "Manager Ethernet Interface",
@@ -30,31 +30,16 @@
             "Gateway": "169.254.3.254"
         }
     ],
-    "IPv6StaticAddresses": [
-        {
-            "Address": "::",
-            "PrefixLength": 64
-        },
-        {
-            "Address": "::",
-            "PrefixLength": 64
-        },
-        {
-            "Address": "::",
-            "PrefixLength": 64
-        },
-        {
-            "Address": "::",
-            "PrefixLength": 64
-        },
-        {
-            "Address": "::",
-            "PrefixLength": 64
-        }
-    ],
     "Links": {
         "HostInterface": {
             "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1"
         }
-    }
+    },
+    "Oem": {
+        "Supermicro": {
+            "@odata.type": "#SmcEthernetInterfaceExtensions.v1_0_2.EthernetInterface",
+            "USBConnection": "RNDIS"
+        }
+    },
+    "@odata.etag": "\"66fddba915a4193017e5f243a94623ae\""
 }

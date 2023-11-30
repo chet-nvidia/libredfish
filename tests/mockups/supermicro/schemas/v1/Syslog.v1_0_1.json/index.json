@@ -61,7 +61,10 @@
                 },
                 "SyslogServer": {
                     "readonly": false,
-                    "type": "string",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
                     "description": "The Syslog server.",
                     "longDescription": "The value of this property shall be match the format of FQDN."
                 },

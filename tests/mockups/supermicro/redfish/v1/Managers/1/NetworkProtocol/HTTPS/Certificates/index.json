@@ -10,5 +10,6 @@
     ],
     "@Redfish.SupportedCertificates": [
         "PEM"
-    ]
+    ],
+    "@odata.etag": "\"86870386aab2f80b580481efe9ef0d3a\""
 }

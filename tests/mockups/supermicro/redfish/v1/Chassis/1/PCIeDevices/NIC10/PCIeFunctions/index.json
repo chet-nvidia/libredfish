@@ -7,5 +7,6 @@
         {
             "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/NIC10/PCIeFunctions/1"
         }
-    ]
+    ],
+    "@odata.etag": "\"f5c57b7cb8cd772549a8e67cc5e8481d\""
 }

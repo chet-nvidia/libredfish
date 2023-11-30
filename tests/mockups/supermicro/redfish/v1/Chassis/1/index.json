@@ -1,13 +1,17 @@
 {
-    "@odata.type": "#Chassis.v1_11_0.Chassis",
+    "@odata.type": "#Chassis.v1_14_0.Chassis",
     "@odata.id": "/redfish/v1/Chassis/1",
     "Id": "1",
     "Name": "Computer System Chassis",
     "ChassisType": "RackMount",
+    "Manufacturer": "Supermicro",
+    "Model": "X13DEG-OAD",
     "SerialNumber": "C8010MM21A30331",
     "PartNumber": "CSE-GP801TS-R000NPF",
-    "AssetTag": "",
+    "AssetTag": null,
     "IndicatorLED": "Off",
+    "LocationIndicatorActive": false,
+    "MaxPowerWatts": 18000,
     "PowerState": "On",
     "Status": {
         "State": "Enabled",
@@ -59,5 +63,6 @@
             "GUID": "35353031-4D53-7CC2-5550-A8FF00000000",
             "BoardID": "0x1d14"
         }
-    }
+    },
+    "@odata.etag": "\"f8041cec68ac2886d122293ad20dbaf7\""
 }

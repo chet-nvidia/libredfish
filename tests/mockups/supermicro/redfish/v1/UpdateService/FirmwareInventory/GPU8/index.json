@@ -1,11 +1,10 @@
 {
     "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/GPU8",
-    "Id": "8",
+    "Id": "GPU8",
     "Name": "GPU8 System Slot1",
     "Updateable": false,
     "Version": "96.00.61.00.01",
-    "SoftwareId": "96.00.61.00.01",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -21,5 +20,6 @@
     "Oem": {},
     "Manufacturer": "Supermicro",
     "ReleaseDate": "T00:00:00Z",
-    "WriteProtected": false
+    "WriteProtected": false,
+    "@odata.etag": "\"dba1d37896cca6a369a9744dd2caaaf4\""
 }

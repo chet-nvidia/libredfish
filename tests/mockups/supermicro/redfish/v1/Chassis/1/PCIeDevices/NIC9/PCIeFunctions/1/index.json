@@ -10,7 +10,7 @@
     "DeviceId": "0x1563",
     "VendorId": "0x8086",
     "ClassCode": "0x020000",
-    "SubsystemId": "0x915",
+    "SubsystemId": "0x0915",
     "SubsystemVendorId": "0x15d9",
     "Status": {
         "State": "Enabled",
@@ -27,5 +27,6 @@
             "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/NIC9"
         }
     },
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"5e190e8a6b65e5b9ba4ab3ff55dd14d7\""
 }

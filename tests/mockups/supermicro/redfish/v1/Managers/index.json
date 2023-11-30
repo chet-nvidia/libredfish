@@ -8,5 +8,6 @@
         {
             "@odata.id": "/redfish/v1/Managers/1"
         }
-    ]
+    ],
+    "@odata.etag": "\"949d681d7354924818fdd8a00b04760a\""
 }

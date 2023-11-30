@@ -101,5 +101,6 @@
         {
             "@odata.id": "/redfish/v1/Systems/1/Memory/32"
         }
-    ]
+    ],
+    "@odata.etag": "\"c6168aa0692f965c172178605b6a632b\""
 }

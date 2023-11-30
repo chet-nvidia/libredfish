@@ -16,37 +16,37 @@
         "LANInterface": {
             "enumDescriptions": {
                 "Dedicated": "This interface is using dedicated.",
+                "Shared-Onboard": "This interface is using share that uses onboard.",
+                "Shared-AIOM": "This interface is using share that uses AIOM NIC card.",
                 "Failover-Onboard": "This interface is using failover that uses dedicated and onboard.",
-                "Share-AIOM": "This interface is using share that uses AIOM NIC card.",
-                "Share": "This interface is using share that uses onboard and other NIC cards.",
+                "Failover": "This interface is using failover that uses dedicated, onboard and other NIC cards.",
                 "Failover-AOC": "This interface is using failover that uses dedicated and AOC NIC card.",
-                "Share-Onboard": "This interface is using share that uses onboard.",
-                "Share-AOC": "This interface is using share that uses AOC NIC card.",
+                "Shared": "This interface is using share that uses onboard and other NIC cards.",
                 "Failover-AIOM": "This interface is using failover that uses dedicated and AIOM NIC card.",
-                "Failover": "This interface is using failover that uses dedicated, onboard and other NIC cards."
+                "Shared-AOC": "This interface is using share that uses AOC NIC card."
             },
             "enum": [
                 "Dedicated",
-                "Share",
+                "Shared",
                 "Failover",
-                "Share-AOC",
+                "Shared-AOC",
                 "Failover-AOC",
-                "Share-AIOM",
+                "Shared-AIOM",
                 "Failover-AIOM",
-                "Share-Onboard",
+                "Shared-Onboard",
                 "Failover-Onboard"
             ],
             "type": "string"
         },
         "ActiveInterface": {
             "enumDescriptions": {
+                "Shared": "This interface is using Share mode.",
                 "Dedicated": "This interface is using Dedicated mode.",
-                "Share": "This interface is using Share mode.",
                 "Failover": "This interface is using Failover mode."
             },
             "enum": [
                 "Dedicated",
-                "Share",
+                "Shared",
                 "Failover"
             ],
             "type": "string"
@@ -68,6 +68,19 @@
             },
             "type": "object",
             "properties": {
+                "IPProtocolStatus": {
+                    "readonly": false,
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/IPProtocolStatus"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "This indicates the status of IP protocol.",
+                    "longDescription": "The value of this property shall indicate which IP protocol can be accessed."
+                },
                 "LANInterface": {
                     "readonly": false,
                     "anyOf": [
@@ -93,6 +106,14 @@
                     ],
                     "description": "This indicates the status of IP protocol.",
                     "longDescription": "The value of this property shall indicate which the interface is actived."
+                },
+                "DUID": {
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "This indicates the DHCP unique identifier."
                 }
             }
         }

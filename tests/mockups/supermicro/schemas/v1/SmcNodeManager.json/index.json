@@ -7,6 +7,9 @@
                 },
                 {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/SmcNodeManager.v1_0_0.json#/definitions/SmcNodeManager"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/SmcNodeManager.v1_0_1.json#/definitions/SmcNodeManager"
                 }
             ]
         }

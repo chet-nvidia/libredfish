@@ -82,5 +82,6 @@
         {
             "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/NVMeSSD8"
         }
-    ]
+    ],
+    "@odata.etag": "\"60e6df69396120597eec37323ccfc0d0\""
 }

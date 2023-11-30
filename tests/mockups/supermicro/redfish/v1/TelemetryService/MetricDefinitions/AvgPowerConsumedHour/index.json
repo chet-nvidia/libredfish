@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#MetricDefinition.v1_0_0.MetricDefinition",
+    "@odata.type": "#MetricDefinition.v1_1_0.MetricDefinition",
     "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/AvgPowerConsumedHour",
     "Id": "AvgPowerConsumedHour",
     "Name": "Average Power Consumed Metric Definition",
@@ -11,5 +11,6 @@
     "CalculationAlgorithm": "Average",
     "CalculationTimeInterval": "PT300S",
     "IsLinear": true,
-    "Calculable": "NonSummable"
+    "Calculable": "NonSummable",
+    "@odata.etag": "\"c3e16577c52a20718ffd58bb5f8a861b\""
 }

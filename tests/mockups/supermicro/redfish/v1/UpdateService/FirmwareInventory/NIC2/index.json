@@ -1,11 +1,10 @@
 {
     "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/NIC2",
-    "Id": "2",
+    "Id": "NIC2",
     "Name": "NIC2 System Slot2 MCX75310AAS-NEAT",
     "Updateable": false,
     "Version": "28.37.10.14",
-    "SoftwareId": "28.37.10.14",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -20,5 +19,6 @@
     },
     "Oem": {},
     "Manufacturer": "Supermicro",
-    "WriteProtected": false
+    "WriteProtected": false,
+    "@odata.etag": "\"3b05d66051ec63106164eb3e31cbb3d3\""
 }

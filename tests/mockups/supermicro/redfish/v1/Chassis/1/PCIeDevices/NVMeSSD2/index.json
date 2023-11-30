@@ -1,7 +1,7 @@
 {
-    "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
+    "@odata.type": "#PCIeDevice.v1_5_0.PCIeDevice",
     "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/NVMeSSD2",
-    "Id": "2",
+    "Id": "NVMeSSD2",
     "Name": "NVMeSSD2",
     "Description": "NVMeSSD Device 2",
     "Manufacturer": "Samsung",
@@ -27,13 +27,13 @@
     },
     "Oem": {
         "Supermicro": {
-            "Temperature": "45",
+            "@odata.type": "#SmcChassisNVMESSDExtensions.v1_0_0.SmcChassisNVMESSDExtensions",
+            "Temperature": 36,
             "Port0MaxLinkSpeed": "16.0 GT/s",
             "Port0MaxLinkWidth": "4",
             "Port1MaxLinkSpeed": "N/A",
-            "Port1MaxLinkWidth": "N/A",
-            "InitialPwrRequirement": "0",
-            "MaxPowerRequirement": "0"
+            "Port1MaxLinkWidth": "N/A"
         }
-    }
+    },
+    "@odata.etag": "\"21ffd6076be9674bce9717ba091f6f3c\""
 }

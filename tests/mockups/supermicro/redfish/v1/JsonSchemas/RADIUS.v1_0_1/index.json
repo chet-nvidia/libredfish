@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#JsonSchemaFile.v1_1_3.JsonSchemaFile",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/RADIUS.v1_0_1",
     "Id": "RADIUS.v1_0_1",
     "Name": "RADIUS Schema File",
@@ -14,5 +14,6 @@
             "Uri": "/schemas/v1/RADIUS.v1_0_1.json"
         }
     ],
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"702de6896962e4d16bd56c4c47a7d57b\""
 }

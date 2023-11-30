@@ -1,9 +1,9 @@
 {
-    "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
+    "@odata.type": "#PCIeDevice.v1_5_0.PCIeDevice",
     "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/NIC1",
     "Id": "NIC1",
     "Name": "PCIeDevices",
-    "Description": "NIC device (riser:RSC-UNDEFINED)",
+    "Description": "NIC device",
     "Manufacturer": "Supermicro",
     "Model": "MCX75310AAS-NEAT",
     "SerialNumber": "MT2317J02532",
@@ -31,5 +31,6 @@
             }
         ]
     },
-    "Oem": {}
+    "Oem": {},
+    "@odata.etag": "\"7abc923e0675d9111e9f6fa77d3a94bd\""
 }

@@ -1,5 +1,5 @@
 {
-    "@odata.type": "#TelemetryService.v1_2_0.TelemetryService",
+    "@odata.type": "#TelemetryService.v1_2_1.TelemetryService",
     "@odata.id": "/redfish/v1/TelemetryService",
     "Id": "TelemetryService",
     "Name": "Telemetry Service",
@@ -7,7 +7,7 @@
         "State": "Enabled",
         "Health": "OK"
     },
-    "SupportedCollectionFuntions": [
+    "SupportedCollectionFunctions": [
         "Average",
         "Minimum",
         "Maximum"
@@ -20,5 +20,6 @@
     },
     "MetricReports": {
         "@odata.id": "/redfish/v1/TelemetryService/MetricReports"
-    }
+    },
+    "@odata.etag": "\"b4222c40f682bd752181b17f9bd0feff\""
 }

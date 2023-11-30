@@ -1,8 +1,8 @@
 {
-    "@odata.type": "#Drive.v1_9_0.Drive",
+    "@odata.type": "#Drive.v1_11_1.Drive",
     "@odata.id": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.1",
     "Name": "Disk.Bay.1",
-    "Id": "1",
+    "Id": "Disk.Bay.1",
     "Manufacturer": "Samsung",
     "SerialNumber": "S6CKNN0W502114",
     "Model": "MZQL27T6HBLA-00A07",
@@ -10,15 +10,18 @@
     "StatusIndicator": "OK",
     "FailurePredicted": false,
     "CapacityBytes": 7681501126656,
+    "CapableSpeedGbs": 15.75,
+    "ReadyToRemove": false,
     "Oem": {
         "Supermicro": {
             "@odata.type": "#SmcDriveExtensions.v1_0_0.Drive",
-            "Temperature": 44,
+            "Temperature": 38,
             "PercentageDriveLifeUsed": 0,
             "DriveFunctional": true
         }
     },
     "IndicatorLED": "Off",
+    "LocationIndicatorActive": false,
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -33,5 +36,6 @@
                 "@Redfish.ActionInfo": "/redfish/v1/Chassis/NVMeSSD.0.Group.0.StorageBackplane/Drives/Disk.Bay.1/Oem/Supermicro/IndicateActionInfo"
             }
         }
-    }
+    },
+    "@odata.etag": "\"f1e9fc9efc1f02ae9a8602c4f19063b0\""
 }

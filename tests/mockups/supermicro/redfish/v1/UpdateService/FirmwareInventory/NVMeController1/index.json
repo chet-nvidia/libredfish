@@ -1,11 +1,10 @@
 {
     "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/NVMeController1",
-    "Id": "1",
+    "Id": "NVMeController1",
     "Name": "NVMeController1",
     "Updateable": false,
     "Version": "03",
-    "SoftwareId": "03",
     "Status": {
         "State": "Enabled",
         "Health": "OK"
@@ -20,5 +19,6 @@
     },
     "Oem": {},
     "Manufacturer": "Supermicro",
-    "WriteProtected": false
+    "WriteProtected": false,
+    "@odata.etag": "\"b1c768d19ce4a2e87b230d2448bf4b24\""
 }
