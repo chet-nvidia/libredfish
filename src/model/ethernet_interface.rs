@@ -5,7 +5,7 @@ use super::{LinkStatus, ODataId, ODataLinks, ResourceStatus};
 /// http://redfish.dmtf.org/schemas/v1/EthernetInterface.v1_6_0.json
 /// The EthernetInterface schema contains an inventory of Ethernet interface components.
 /// This can include Network Device parameters such as current IP addresses, MAC address, link status, etc.
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Default, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct EthernetInterface {
     #[serde(flatten)]

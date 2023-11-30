@@ -51,7 +51,7 @@ impl std::fmt::Display for ChassisType {
 /// http://redfish.dmtf.org/schemas/v1/Chassis.v1_23_0.json
 /// The Chassis schema contains an inventory of chassis components.
 /// This can include chassis parameters such as chassis type, model, etc.
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Default, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Chassis {
     #[serde(flatten)]

@@ -7,7 +7,7 @@ use super::ODataLinks;
 /// http://redfish.dmtf.org/schemas/v1/SecureBoot.v1_0_7.json
 /// The SecureBoot schema contains UEFI Secure Boot information and represents properties
 /// for managing the UEFI Secure Boot functionality of a system.
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Default, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct SecureBoot {
     #[serde(flatten)]
@@ -19,9 +19,10 @@ pub struct SecureBoot {
     pub secure_boot_mode: SecureBootMode,
 }
 
-#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
+#[derive(Debug, Serialize, Default, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum SecureBootMode {
     SetupMode,
+    #[default]
     UserMode,
     AuditMode,
     DeployedMode,

@@ -28,7 +28,7 @@ pub mod storage;
 pub mod task;
 pub mod thermal;
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Default, Serialize, Deserialize, Clone)]
 pub struct ODataLinks {
     #[serde(rename = "@odata.context")]
     pub odata_context: Option<String>,
@@ -119,8 +119,9 @@ pub struct ODataContext {
     pub links: LinkType,
 }
 
-#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
+#[derive(Debug, Default, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum EnabledDisabled {
+    #[default]
     Enabled,
     Disabled,
 }
