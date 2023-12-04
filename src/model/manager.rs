@@ -27,6 +27,7 @@ pub struct Manager {
     pub id: String,
     pub log_services: ODataId,
     pub manager_type: String,
+    pub model: Option<String>,
     pub name: String,
     pub network_protocol: ODataId,
     pub status: Status,
