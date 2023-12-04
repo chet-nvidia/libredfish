@@ -2,11 +2,18 @@ use std::collections::HashMap;
 
 use crate::{
     model::{
-        boot, chassis::Chassis, network_device_function::NetworkDeviceFunction, oem::supermicro,
-        power::Power, secure_boot::SecureBoot, sel::LogEntry, service_root::ServiceRoot,
-        software_inventory::SoftwareInventory, task::Task, thermal::Thermal, BootOption,
-        ComputerSystem, EnableDisable, InvalidValueError, Manager, SerialConsole,
-        SerialConsoleConnectionType,
+        boot,
+        chassis::Chassis,
+        network_device_function::NetworkDeviceFunction,
+        oem::supermicro::{self, FixedBootOrder},
+        power::Power,
+        secure_boot::SecureBoot,
+        sel::LogEntry,
+        service_root::ServiceRoot,
+        software_inventory::SoftwareInventory,
+        task::Task,
+        thermal::Thermal,
+        BootOption, ComputerSystem, EnableDisable, InvalidValueError, Manager,
     },
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, RoleId,
@@ -176,24 +183,10 @@ impl Redfish for Bmc {
         })
     }
 
+    /// On Supermicro this does nothing. Serial Console is on by default and can't be disabled
+    /// or enabled via redfish. The properties under Systems/1, key SerialConsole are read only.
     async fn setup_serial_console(&self) -> Result<(), RedfishError> {
-        let url = format!("Systems/{}", self.s.system_id());
-        let sc = SerialConsole {
-            max_concurrent_sessions: 1,
-            ssh: SerialConsoleConnectionType {
-                service_enabled: true,
-                port: Some(22),
-                shared_with_manager_cli: Some(true),
-                ..Default::default()
-            },
-            ipmi: SerialConsoleConnectionType {
-                service_enabled: true,
-                port: Some(623),
-                ..Default::default()
-            },
-        };
-        let body = HashMap::from([("SerialConsole", sc)]);
-        self.s.client.patch(&url, body).await.map(|_status_code| ())
+        Ok(())
     }
 
     async fn serial_console_status(&self) -> Result<Status, RedfishError> {
@@ -226,20 +219,38 @@ impl Redfish for Bmc {
 
     /// Boot from this device once then go back to the normal boot order
     async fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {
-        let _ = self.set_mellanox_first().await;
-        self.set_boot(target, true).await
+        if target == Boot::Pxe || target == Boot::UefiHttp {
+            let _ = self.set_mellanox_first().await;
+        }
+        self.set_boot_override(target, true).await
     }
 
     /// Set which device we should boot from first.
-    /// Sets continuous boot override. The normal boot order cannot be changed, only temporarily overriden.
     async fn boot_first(&self, target: Boot) -> Result<(), RedfishError> {
         let _ = self.set_mellanox_first().await;
-        self.set_boot(target, false).await
+        self.set_boot_order(target).await
     }
 
     /// Supermicro BMC does not appear to have this.
+    /// TODO: Verify that this really clear the TPM.
     async fn clear_tpm(&self) -> Result<(), RedfishError> {
-        Err(RedfishError::NotSupported("clear_tpm".to_string()))
+        let bios_attrs = self.s.bios_attributes().await?;
+        let Some(attrs_map) = bios_attrs.as_object() else {
+                return Err(RedfishError::InvalidKeyType {
+                    key: "Attributes".to_string(),
+                    expected_type: "Map".to_string(),
+                    url: String::new(),
+                })
+        };
+
+        // Yes the BIOS attribute to clear the TPM is called "PendingOperation<something>"
+        let Some(name) = attrs_map.keys().find(|k| k.starts_with("PendingOperation")) else {
+            return Err(RedfishError::NotSupported("Cannot clear_tpm, PendingOperation BIOS attr missing".to_string()))
+        };
+
+        let body = HashMap::from([("Attributes", HashMap::from([(name, "TPM Clear")]))]);
+        let url = format!("Systems/{}/Bios", self.s.system_id());
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
     async fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
@@ -538,7 +549,7 @@ impl Bmc {
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
-    async fn set_boot(&self, target: Boot, once: bool) -> Result<(), RedfishError> {
+    async fn set_boot_override(&self, target: Boot, once: bool) -> Result<(), RedfishError> {
         let url = format!("Systems/{}", self.s.system_id());
         let boot = boot::Boot {
             boot_source_override_target: Some(match target {
@@ -559,6 +570,61 @@ impl Bmc {
             ..Default::default()
         };
         let body = HashMap::from([("Boot", boot)]);
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
+    }
+
+    async fn get_boot_order(&self) -> Result<FixedBootOrder, RedfishError> {
+        let url = format!(
+            "Systems/{}/Oem/Supermicro/FixedBootOrder",
+            self.s.system_id()
+        );
+        let (_, fbo) = self.s.client.get(&url).await?;
+        Ok(fbo)
+    }
+
+    async fn set_boot_order(&self, target: Boot) -> Result<(), RedfishError> {
+        let mut fbo = self.get_boot_order().await?;
+
+        const HARD_DISK: &str = "UEFI Hard Disk";
+        const NETWORK: &str = "UEFI Network";
+        // The network name is not consistent because it includes the interface name
+        let Some(network) = fbo.fixed_boot_order.iter().find(|entry| entry.starts_with(NETWORK)) else {
+            return Err(RedfishError::NotSupported(format!("No match for {NETWORK} in top level boot order")));
+        };
+
+        // Make our option the first option, the other one second, and everything else (CD/ROM,
+        // USB, etc) disabled.
+        let mut order = ["Disabled"].repeat(fbo.fixed_boot_order.len());
+        match target {
+            Boot::Pxe | Boot::UefiHttp => {
+                order[0] = network;
+                order[1] = HARD_DISK;
+            }
+            Boot::HardDisk => {
+                order[0] = HARD_DISK;
+                order[1] = network;
+            }
+        }
+
+        // Set the DPU to be the first network device to boot from, for faster boots
+        if target != Boot::HardDisk {
+            let Some(pos) = fbo.uefi_network.iter().position(|s| s.contains("UEFI HTTP IPv4 Mellanox")) else {
+                return Err(RedfishError::NotSupported(format!("No match for 'UEFI HTTP IPv4 Mellanox' in network boot order")));
+            };
+            fbo.uefi_network.swap(0, pos);
+        };
+
+        let url = format!(
+            "Systems/{}/Oem/Supermicro/FixedBootOrder",
+            self.s.system_id()
+        );
+        let body = HashMap::from([
+            ("FixedBootOrder", order),
+            (
+                "UEFINetwork",
+                fbo.uefi_network.iter().map(|s| s.as_ref()).collect(),
+            ),
+        ]);
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
