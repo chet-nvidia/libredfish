@@ -33,7 +33,6 @@ pub struct Manager {
     pub status: Status,
     #[serde(rename = "UUID")]
     pub uuid: String,
-    pub virtual_media: ODataId,
     pub oem: ManagerExtensions,
 }
 
