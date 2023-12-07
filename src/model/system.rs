@@ -186,6 +186,10 @@ pub struct PCIeDevices {
 
 #[cfg(test)]
 mod test {
+    use crate::model::boot::{
+        BootSourceOverrideEnabled, BootSourceOverrideMode, BootSourceOverrideTarget,
+    };
+
     #[test]
     fn test_systems_parser() {
         let data = include_str!("testdata/systems.json");
@@ -200,6 +204,48 @@ mod test {
         let result: super::ComputerSystem = serde_json::from_str(data).unwrap();
         assert_eq!(result.power_state, crate::PowerState::On);
         assert_eq!(result.processor_summary.unwrap().count, 2);
+    }
+
+    #[test]
+    fn test_system_bluefield_boot_valid() {
+        // Old firmware versions of Bluefield deliver empty values for Boot fields
+        // that are not valid enumeration values
+        let data = include_str!("testdata/system_bluefield_boot_valid.json");
+        let result: super::ComputerSystem = serde_json::from_str(data).unwrap();
+
+        assert_eq!(
+            result.boot.boot_source_override_enabled,
+            Some(BootSourceOverrideEnabled::Disabled)
+        );
+        assert_eq!(
+            result.boot.boot_source_override_mode,
+            Some(BootSourceOverrideMode::UEFI)
+        );
+        assert_eq!(
+            result.boot.boot_source_override_target,
+            Some(BootSourceOverrideTarget::None)
+        );
+    }
+
+    #[test]
+    fn test_system_bluefield_boot_bugs() {
+        // Old firmware versions of Bluefield deliver empty values for Boot fields
+        // that are not valid enumeration values
+        let data = include_str!("testdata/system_bluefield_boot_bugs.json");
+        let result: super::ComputerSystem = serde_json::from_str(data).unwrap();
+
+        assert_eq!(
+            result.boot.boot_source_override_enabled,
+            Some(BootSourceOverrideEnabled::InvalidValue)
+        );
+        assert_eq!(
+            result.boot.boot_source_override_mode,
+            Some(BootSourceOverrideMode::InvalidValue)
+        );
+        assert_eq!(
+            result.boot.boot_source_override_target,
+            Some(BootSourceOverrideTarget::InvalidValue)
+        );
     }
 
     #[test]

@@ -22,7 +22,7 @@ pub struct Boot {
     pub uefi_target_boot_source_override: Option<String>,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub enum AutomaticRetryConfig {
     Disabled,
     RetryAttempts,
@@ -35,11 +35,13 @@ impl std::fmt::Display for AutomaticRetryConfig {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub enum BootSourceOverrideEnabled {
     Once,
     Continuous,
     Disabled,
+    #[serde(other)]
+    InvalidValue,
 }
 
 impl fmt::Display for BootSourceOverrideEnabled {
@@ -49,7 +51,7 @@ impl fmt::Display for BootSourceOverrideEnabled {
 }
 
 /// http://redfish.dmtf.org/schemas/v1/ComputerSystem.json#/definitions/BootSource
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub enum BootSourceOverrideTarget {
     None,
     Pxe,
@@ -67,6 +69,8 @@ pub enum BootSourceOverrideTarget {
     RemoteDrive,
     UefiBootNext,
     Recovery,
+    #[serde(other)]
+    InvalidValue,
 }
 
 impl fmt::Display for BootSourceOverrideTarget {
@@ -75,14 +79,16 @@ impl fmt::Display for BootSourceOverrideTarget {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 #[allow(clippy::upper_case_acronyms)]
 pub enum BootSourceOverrideMode {
     UEFI,
     Legacy,
+    #[serde(other)]
+    InvalidValue,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub enum TrustedModuleRequiredToBoot {
     Disabled,
     Required,
