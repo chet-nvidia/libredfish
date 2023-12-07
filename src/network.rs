@@ -326,6 +326,15 @@ impl RedfishHttpClient {
                 source: e,
             })?;
         let mut res = None;
+
+        if !status_code.is_success() {
+            return Err(RedfishError::HTTPErrorCode {
+                url,
+                status_code,
+                response_body,
+            });
+        }
+
         if !response_body.is_empty() {
             debug!("RX {status_code} {}", truncate(&response_body, 1500));
             match serde_json::from_str(&response_body) {
@@ -342,13 +351,6 @@ impl RedfishHttpClient {
             debug!("RX {status_code}");
         }
 
-        if !status_code.is_success() {
-            return Err(RedfishError::HTTPErrorCode {
-                url,
-                status_code,
-                response_body,
-            });
-        }
         Ok((status_code, res))
     }
 }

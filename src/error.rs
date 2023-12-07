@@ -7,9 +7,6 @@ pub enum RedfishError {
     #[error("Network error talking to BMC at {url}. {source}")]
     NetworkError { url: String, source: reqwest::Error },
 
-    #[error("Non-2XX HTTP status at {url}. {source}")]
-    HTTPError { url: String, source: reqwest::Error },
-
     #[error("HTTP {status_code} at {url}: {response_body}")]
     HTTPErrorCode {
         url: String,
