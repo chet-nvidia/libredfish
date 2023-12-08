@@ -6,16 +6,16 @@
         }
     },
     "@odata.context": "/redfish/v1/$metadata#BootOption.BootOption",
-    "@odata.etag": "\"1698080632\"",
+    "@odata.etag": "\"1700508045\"",
     "@odata.id": "/redfish/v1/Systems/DGX/BootOptions/0017",
     "@odata.type": "#BootOption.v1_0_3.BootOption",
     "Alias": "Pxe",
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0017",
-    "Description": "UEFI: PXE IPv4 Mellanox Network Adapter - B8:3F:D2:90:98:E5",
-    "DisplayName": "UEFI: PXE IPv4 Mellanox Network Adapter - B8:3F:D2:90:98:E5",
+    "Description": "UEFI: PXE IPv4 American Megatrends Inc.",
+    "DisplayName": "UEFI: PXE IPv4 American Megatrends Inc.",
     "Id": "0017",
     "Name": "Boot0017",
     "RelatedItem@odata.count": 0,
-    "UefiDevicePath": "PciRoot(0x120)/Pci(0x1,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x1)/MAC(B83FD29098E5,0x1)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)"
+    "UefiDevicePath": "PciRoot(0x0)/Pci(0x14,0x0)/USB(0xA,0x0)/USB(0x2,0x1)/MAC(9EE6564C9A8A,0x0)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)"
 }

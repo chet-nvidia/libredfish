@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_PSU3",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "50",
+    "Id": "TEMP_PSU3",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "TEMP_PSU3",
     "PhysicalContext": "Intake",
-    "Reading": 24,
+    "Reading": 25,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 55
-        },
-        "LowerCritical": {
-            "Reading": 58
-        },
-        "LowerFatal": {
-            "Reading": 60
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 55
+        },
+        "UpperCritical": {
+            "Reading": 58
+        },
+        "UpperFatal": {
+            "Reading": 60
         }
     }
 }

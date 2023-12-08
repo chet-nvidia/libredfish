@@ -4,7 +4,7 @@
     "Id": "HGX_GPU_SXM_1_Voltage_0",
     "Name": "HGX GPU SXM 1 Voltage 0",
     "PhysicalContext": "GPU",
-    "Reading": 690,
+    "Reading": 0.795,
     "ReadingType": "Voltage",
     "ReadingUnits": "V",
     "RelatedItem": [

@@ -8,12 +8,12 @@
     "Links": {
         "AssociatedEndpoints": [
             {
-                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Endpoints/GPU_SXM_8"
+                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Endpoints/GPU_SXM_1"
             }
         ],
         "ConnectedPorts": [
             {
-                "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_8/Ports/NVLink_13"
+                "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_1/Ports/NVLink_7"
             }
         ]
     },

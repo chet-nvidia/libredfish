@@ -589,7 +589,7 @@
         "OperationTimeout": {
             "Description": "Indicates that one of the internal operations necessary to complete the request timed out.  Examples of this are when an internal service provider is unable to complete the request, such as in aggregation or RDE.",
             "LongDescription": "This message shall be used to indicate that one of the internal operations necessary to complete the request timed out.  Partial results of the client operation may be returned.",
-            "Message": "A timeout internal to the service occured as part of the request.  Partial results may have been returned.",
+            "Message": "A timeout internal to the service occurred as part of the request.  Partial results may have been returned.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 0,
             "Resolution": "Resubmit the request.  If the problem persists, consider resetting the service or provider.",

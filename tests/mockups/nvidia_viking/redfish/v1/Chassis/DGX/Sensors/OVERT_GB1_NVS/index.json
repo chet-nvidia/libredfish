@@ -9,7 +9,7 @@
     "ApparentVA": null,
     "Description": null,
     "ElectricalContext": null,
-    "Id": "99",
+    "Id": "OVERT_GB1_NVS",
     "LoadPercent": null,
     "Location": {
         "AltitudeMeters": null,
@@ -76,6 +76,7 @@
     "PowerFactor": null,
     "Precision": null,
     "ReactiveVAR": null,
+    "Reading": 0,
     "ReadingRangeMax": null,
     "ReadingRangeMin": null,
     "ReadingType": null,
@@ -85,7 +86,7 @@
     "Status": {
         "Health": null,
         "HealthRollup": null,
-        "State": "Disabled"
+        "State": "Enabled"
     },
     "Thresholds": {
         "LowerCaution": {

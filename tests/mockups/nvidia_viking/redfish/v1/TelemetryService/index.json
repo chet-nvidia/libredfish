@@ -32,10 +32,10 @@
         "State": "Enabled"
     },
     "SupportedCollectionFunctions": [
-        "Average",
         "Maximum",
+        "Minimum",
         "Summation",
-        "Minimum"
+        "Average"
     ],
     "SupportedCollectionFunctions@Redfish.AllowableValues": [
         "Average",

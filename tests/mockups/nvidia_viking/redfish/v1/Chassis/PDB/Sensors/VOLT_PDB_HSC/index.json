@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/PDB/Sensors/VOLT_PDB_HSC",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "209",
+    "Id": "VOLT_PDB_HSC",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -21,16 +21,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 55.25
-        },
-        "LowerCritical": {
-            "Reading": 56.5
-        },
-        "UpperCaution": {
             "Reading": 52.75
         },
-        "UpperCritical": {
+        "LowerCritical": {
             "Reading": 51.5
+        },
+        "UpperCaution": {
+            "Reading": 55.25
+        },
+        "UpperCritical": {
+            "Reading": 56.5
         }
     }
 }

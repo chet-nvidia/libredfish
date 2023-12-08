@@ -9,9 +9,9 @@
     "Parameters": [
         {
             "AllowableValues": [
+                "DeleteAllKeys",
                 "ResetAllKeysToDefault",
-                "DeletePK",
-                "DeleteAllKeys"
+                "DeletePK"
             ],
             "DataType": "String",
             "Name": "ResetKeysType",

@@ -13,8 +13,8 @@
     "DeliveryRetryIntervalSeconds": 60,
     "Description": "Event Service",
     "EventFormatTypes": [
-        "Event",
-        "MetricReport"
+        "MetricReport",
+        "Event"
     ],
     "Id": "EventService",
     "Name": "Event Service",
@@ -34,22 +34,22 @@
         }
     },
     "RegistryPrefixes": [
-        "EventLog",
-        "HttpStatus",
-        "IPMI",
-        "Security",
-        "Base",
         "SyncAgent",
-        "Task"
+        "Base",
+        "EventLog",
+        "Task",
+        "Security",
+        "IPMI",
+        "HttpStatus"
     ],
     "ResourceTypes": [
-        "Chassis",
-        "AccountService",
         "Managers",
-        "Systems",
-        "TelemetryService",
+        "AccountService",
         "EventService",
-        "TaskService"
+        "Chassis",
+        "TaskService",
+        "TelemetryService",
+        "Systems"
     ],
     "SMTP": {
         "Authentication": "None",

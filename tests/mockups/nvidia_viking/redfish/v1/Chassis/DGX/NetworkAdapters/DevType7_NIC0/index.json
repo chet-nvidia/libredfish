@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#NetworkAdapter.NetworkAdapter",
-    "@odata.etag": "\"1698080625\"",
+    "@odata.etag": "\"1700508037\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC0",
     "@odata.type": "#NetworkAdapter.v1_5_0.NetworkAdapter",
     "Controllers": [
@@ -25,7 +25,7 @@
                 "PCIeDevices@odata.count": 1,
                 "Ports": [
                     {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC0/Ports/DevTypeE_Slot9_Instance0_PORT0"
+                        "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC0/Ports/DevTypeE_SlotF_Instance0_PORT0"
                     }
                 ],
                 "Ports@odata.count": 1

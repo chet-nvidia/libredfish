@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntryCollection.LogEntryCollection",
-    "@odata.etag": "\"1698080431\"",
+    "@odata.etag": "\"1700240348\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries",
     "@odata.type": "#LogEntryCollection.LogEntryCollection",
     "Description": "Collection of entries for this log service",
@@ -8,7 +8,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/1",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 1",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -29,7 +29,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/2",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 17",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -50,7 +50,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/3",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 18",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -71,7 +71,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/4",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 19",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -92,7 +92,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/5",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 20",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -113,7 +113,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/6",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 21",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -134,7 +134,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/7",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 22",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -155,7 +155,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/8",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 23",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -176,7 +176,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/9",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 24",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -197,7 +197,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/10",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 25",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -218,7 +218,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/11",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 26",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -239,7 +239,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/12",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 27",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -260,7 +260,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/13",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 28",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -281,7 +281,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/14",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 29",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -302,7 +302,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/15",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 30",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -323,7 +323,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/16",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 34",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -344,7 +344,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/17",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 35",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -365,7 +365,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/18",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 36",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -386,7 +386,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/19",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 37",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -407,7 +407,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/20",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 38",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -428,7 +428,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/21",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 39",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -449,7 +449,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/22",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 40",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -470,7 +470,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/23",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 41",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -491,7 +491,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/24",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 42",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -512,7 +512,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/25",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 43",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -533,7 +533,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/26",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 44",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -554,7 +554,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/27",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 45",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -575,7 +575,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/28",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:31+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 46",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -596,7 +596,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/29",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 47",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -617,7 +617,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/30",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 51",
             "EntryCode": "Fully Redundant",
             "EntryType": "SEL",
@@ -638,7 +638,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/31",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 61",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -659,7 +659,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/32",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 62",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -680,7 +680,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/33",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 63",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -701,7 +701,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/34",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 64",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -722,7 +722,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/35",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 65",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -743,7 +743,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/36",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 66",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -764,7 +764,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/37",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 67",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -785,7 +785,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/38",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 68",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -806,7 +806,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/39",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 77",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -827,7 +827,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/40",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 78",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -848,7 +848,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/41",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 79",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -869,7 +869,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/42",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 80",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -890,7 +890,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/43",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 90",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -911,7 +911,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/44",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 91",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -932,7 +932,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/45",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 92",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -953,7 +953,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/46",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 93",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -974,7 +974,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/47",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 94",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -995,7 +995,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/48",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 95",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -1016,7 +1016,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/49",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 96",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -1037,7 +1037,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/50",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 97",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -1058,7 +1058,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/51",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 106",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -1079,7 +1079,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/52",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 107",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -1100,7 +1100,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/53",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 108",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -1121,7 +1121,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/54",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 109",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -1142,7 +1142,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/55",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 133",
             "EntryCode": "Upper Non-critical - going high",
             "EntryType": "SEL",
@@ -1163,7 +1163,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/56",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 134",
             "EntryCode": "Upper Non-critical - going high",
             "EntryType": "SEL",
@@ -1184,7 +1184,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/57",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 141",
             "EntryCode": "Upper Non-critical - going high",
             "EntryType": "SEL",
@@ -1205,7 +1205,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/58",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 142",
             "EntryCode": "Upper Non-critical - going high",
             "EntryType": "SEL",
@@ -1226,7 +1226,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/59",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 164",
             "EntryCode": "Fully Redundant",
             "EntryType": "SEL",
@@ -1247,7 +1247,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/60",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 165",
             "EntryCode": "Redundancy Lost",
             "EntryType": "SEL",
@@ -1268,7 +1268,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/61",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 166",
             "EntryCode": "Non-redundant:Insufficient Resources",
             "EntryType": "SEL",
@@ -1289,7 +1289,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/62",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 172",
             "EntryCode": "Fully Redundant",
             "EntryType": "SEL",
@@ -1310,7 +1310,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/63",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 190",
             "EntryCode": "Fully Redundant",
             "EntryType": "SEL",
@@ -1331,7 +1331,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/64",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 191",
             "EntryCode": "Redundancy Lost",
             "EntryType": "SEL",
@@ -1352,7 +1352,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/65",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 192",
             "EntryCode": "Non-redundant:Insufficient Resources",
             "EntryType": "SEL",
@@ -1373,7 +1373,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/66",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 195",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1394,7 +1394,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/67",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 196",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1415,7 +1415,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/68",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 197",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1436,7 +1436,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/69",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 198",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1457,7 +1457,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/70",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 199",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1478,7 +1478,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/71",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 200",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1499,7 +1499,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/72",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 201",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1520,7 +1520,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/73",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 202",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1541,7 +1541,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/74",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 203",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1562,7 +1562,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries/75",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:08+00:00",
             "Description": "LOG 219",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1581,7 +1581,7 @@
             "Severity": "Critical"
         }
     ],
-    "Members@odata.count": 125,
+    "Members@odata.count": 221,
     "Members@odata.nextLink": "/redfish/v1/Chassis/DGX/LogServices/Logs/Entries?$skip=75",
     "Name": "Log Service Entries Collection"
 }

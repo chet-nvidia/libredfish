@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntryCollection.LogEntryCollection",
-    "@odata.etag": "\"1698160388\"",
+    "@odata.etag": "\"1700509261\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries",
     "@odata.type": "#LogEntryCollection.LogEntryCollection",
     "Description": "Collection of entries for this log service",
@@ -8,7 +8,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/76",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 130",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -29,7 +29,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/77",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 131",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -49,7 +49,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/78",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 132",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -69,7 +69,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/79",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 135",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -89,7 +89,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/80",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 136",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -109,7 +109,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/81",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 137",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -129,7 +129,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/82",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 138",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -149,7 +149,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/83",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 139",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -169,7 +169,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/84",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 140",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -189,7 +189,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/85",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 143",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -209,7 +209,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/86",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 144",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -229,7 +229,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/87",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 145",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -250,7 +250,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/88",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 146",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -270,7 +270,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/89",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 147",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -291,7 +291,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/90",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 148",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -311,7 +311,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/91",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 149",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -332,7 +332,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/92",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 150",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -352,7 +352,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/93",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 151",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -373,7 +373,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/94",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 152",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -393,7 +393,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/95",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 153",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -414,7 +414,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/96",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 154",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -434,7 +434,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/97",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 155",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -455,7 +455,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/98",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 156",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -475,7 +475,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/99",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 157",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -496,7 +496,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/100",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 158",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -516,7 +516,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/101",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 159",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -537,7 +537,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/102",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 160",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -558,7 +558,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/103",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 161",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -579,7 +579,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/104",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 162",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -599,7 +599,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/105",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 163",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -619,7 +619,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/106",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 167",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -640,7 +640,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/107",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 168",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -661,7 +661,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/108",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 169",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -682,7 +682,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/109",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 170",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -702,7 +702,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/110",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 171",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -722,7 +722,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/111",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 173",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -742,7 +742,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/112",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 174",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -762,7 +762,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/113",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 175",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -782,7 +782,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/114",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 176",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -802,7 +802,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/115",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 177",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -822,7 +822,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/116",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 178",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -842,7 +842,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/117",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 179",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -862,7 +862,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/118",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 180",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -883,7 +883,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/119",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 181",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -904,7 +904,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/120",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 182",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -924,7 +924,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/121",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 183",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -944,7 +944,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/122",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 184",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -964,7 +964,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/123",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 185",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -984,7 +984,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/124",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 186",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1004,7 +1004,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/125",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 187",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -1024,7 +1024,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/126",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 188",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1045,7 +1045,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/127",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 189",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1065,7 +1065,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/128",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 193",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1086,7 +1086,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/129",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 194",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1106,7 +1106,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/130",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 204",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1126,7 +1126,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/131",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 205",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1146,7 +1146,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/132",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 206",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1166,7 +1166,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/133",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 207",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1187,7 +1187,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/134",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 208",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1208,7 +1208,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/135",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 209",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1229,7 +1229,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/136",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 210",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1250,7 +1250,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/137",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 211",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1271,7 +1271,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/138",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 212",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1292,7 +1292,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/139",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 213",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1313,7 +1313,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/140",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 214",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1334,7 +1334,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/141",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 215",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1355,7 +1355,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/142",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 216",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1376,7 +1376,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/143",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 217",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1397,7 +1397,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/144",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 218",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1418,7 +1418,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/145",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 229",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1439,7 +1439,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/146",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 230",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1460,7 +1460,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/147",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 231",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1480,7 +1480,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/148",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 243",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1500,7 +1500,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/149",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 244",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1520,7 +1520,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/150",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:32+00:00",
+            "Created": "2023-11-17T16:59:09+00:00",
             "Description": "SEL 245",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -1538,7 +1538,7 @@
             "Severity": "OK"
         }
     ],
-    "Members@odata.count": 295,
+    "Members@odata.count": 1789,
     "Members@odata.nextLink": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries?$skip=150",
     "Name": "Log Service Entries Collection"
 }

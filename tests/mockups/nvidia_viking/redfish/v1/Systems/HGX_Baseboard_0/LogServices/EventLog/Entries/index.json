@@ -1021,7 +1021,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1044,7 +1044,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1067,7 +1067,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1090,7 +1090,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1113,7 +1113,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1136,7 +1136,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1159,7 +1159,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1182,7 +1182,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1205,7 +1205,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1228,7 +1228,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1251,7 +1251,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1292,7 +1292,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1315,7 +1315,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1338,7 +1338,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1361,7 +1361,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1402,7 +1402,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1447,7 +1447,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1470,7 +1470,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1633,7 +1633,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1656,7 +1656,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1697,7 +1697,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1742,7 +1742,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1765,7 +1765,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1788,7 +1788,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1811,7 +1811,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1834,7 +1834,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1857,7 +1857,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1880,7 +1880,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1903,7 +1903,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -1926,7 +1926,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2027,7 +2027,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2072,7 +2072,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2095,7 +2095,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2216,7 +2216,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2239,7 +2239,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2262,7 +2262,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2307,7 +2307,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2330,7 +2330,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2353,7 +2353,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2376,7 +2376,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2399,7 +2399,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2422,7 +2422,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2445,7 +2445,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2468,7 +2468,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2491,7 +2491,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2514,7 +2514,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2537,7 +2537,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2560,7 +2560,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2583,7 +2583,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2606,7 +2606,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2629,7 +2629,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2652,7 +2652,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2675,7 +2675,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2698,7 +2698,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2721,7 +2721,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2744,7 +2744,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2767,7 +2767,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2790,7 +2790,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2813,7 +2813,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2854,7 +2854,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2937,7 +2937,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -2982,7 +2982,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3043,7 +3043,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3126,7 +3126,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3149,7 +3149,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3194,7 +3194,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3217,7 +3217,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3240,7 +3240,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3263,7 +3263,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3286,7 +3286,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3309,7 +3309,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3332,7 +3332,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3375,7 +3375,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3416,7 +3416,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3481,7 +3481,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the GPU or power cycle the BaseBoard. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3687,7 +3687,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3802,7 +3802,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3825,7 +3825,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3848,7 +3848,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3871,7 +3871,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3894,7 +3894,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3917,7 +3917,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3940,7 +3940,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3963,7 +3963,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -3986,7 +3986,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -4747,7 +4747,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -4770,7 +4770,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -4793,7 +4793,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -4816,7 +4816,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -4983,7 +4983,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5006,7 +5006,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5029,7 +5029,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5052,7 +5052,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5075,7 +5075,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5129,7 +5129,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Controlled by Host BMC or a power cycle of baseboard would re-enable SMBPBI access privilege to HMC",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -5201,7 +5201,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Controlled by Host BMC or a power cycle of baseboard would re-enable SMBPBI access privilege to HMC",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -5219,7 +5219,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Controlled by Host BMC or a power cycle of baseboard would re-enable SMBPBI access privilege to HMC",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -5242,7 +5242,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5265,7 +5265,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5288,7 +5288,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5311,7 +5311,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5383,7 +5383,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Controlled by Host BMC or a power cycle of baseboard would re-enable SMBPBI access privilege to HMC",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -5401,7 +5401,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Controlled by Host BMC or a power cycle of baseboard would re-enable SMBPBI access privilege to HMC",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -5419,7 +5419,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Controlled by Host BMC or a power cycle of baseboard would re-enable SMBPBI access privilege to HMC",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -5442,7 +5442,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5465,7 +5465,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5488,7 +5488,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5511,7 +5511,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5534,7 +5534,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5557,7 +5557,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5580,7 +5580,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5603,7 +5603,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5626,7 +5626,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5649,7 +5649,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5672,7 +5672,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5695,7 +5695,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5718,7 +5718,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5741,7 +5741,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5764,7 +5764,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5787,7 +5787,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5810,7 +5810,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5833,7 +5833,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5856,7 +5856,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5879,7 +5879,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5902,7 +5902,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -5924,7 +5924,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -5946,7 +5946,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -5973,7 +5973,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6000,7 +6000,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6027,7 +6027,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6054,7 +6054,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6081,7 +6081,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6108,7 +6108,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6131,7 +6131,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6154,7 +6154,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6177,7 +6177,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6200,7 +6200,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6222,7 +6222,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6244,7 +6244,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6271,7 +6271,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6298,7 +6298,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6325,7 +6325,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6352,7 +6352,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6379,7 +6379,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6406,7 +6406,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6429,7 +6429,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6452,7 +6452,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6475,7 +6475,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6498,7 +6498,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6521,7 +6521,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6544,7 +6544,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6567,7 +6567,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6590,7 +6590,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6613,7 +6613,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6636,7 +6636,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6659,7 +6659,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6682,7 +6682,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6705,7 +6705,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6728,7 +6728,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6751,7 +6751,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6774,7 +6774,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Critical"
         },
         {
@@ -6796,7 +6796,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6818,7 +6818,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6845,7 +6845,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6872,7 +6872,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6899,7 +6899,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6926,7 +6926,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6953,7 +6953,7 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
         },
         {
@@ -6980,10 +6980,2485 @@
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
             "Resolution": "No recovery required.",
-            "Resolved": false,
+            "Resolved": true,
             "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/713",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/713/attachment",
+            "Created": "2020-03-15T07:28:11+00:00",
+            "EntryType": "Event",
+            "Id": "713",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 28'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 28"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/714",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/714/attachment",
+            "Created": "2020-03-15T07:28:15+00:00",
+            "EntryType": "Event",
+            "Id": "714",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 28'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 28"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/715",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/715/attachment",
+            "Created": "2020-03-15T07:28:17+00:00",
+            "EntryType": "Event",
+            "Id": "715",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 28'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 28"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/716",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/716/attachment",
+            "Created": "2020-03-15T07:29:02+00:00",
+            "EntryType": "Event",
+            "Id": "716",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 28'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 28"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/717",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/717/attachment",
+            "Created": "2020-03-15T07:34:12+00:00",
+            "EntryType": "Event",
+            "Id": "717",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/718",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/718/attachment",
+            "Created": "2020-03-15T07:34:15+00:00",
+            "EntryType": "Event",
+            "Id": "718",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/719",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/719/attachment",
+            "Created": "2020-03-15T07:34:18+00:00",
+            "EntryType": "Event",
+            "Id": "719",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/720",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/720/attachment",
+            "Created": "2020-03-15T07:35:04+00:00",
+            "EntryType": "Event",
+            "Id": "720",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/721",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/721/attachment",
+            "Created": "2020-03-15T07:36:12+00:00",
+            "EntryType": "Event",
+            "Id": "721",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 49'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 49"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/722",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/722/attachment",
+            "Created": "2020-03-15T07:36:17+00:00",
+            "EntryType": "Event",
+            "Id": "722",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 49'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 49"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/723",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/723/attachment",
+            "Created": "2020-03-15T07:36:18+00:00",
+            "EntryType": "Event",
+            "Id": "723",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 49'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 49"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/724",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/724/attachment",
+            "Created": "2020-03-15T07:36:24+00:00",
+            "EntryType": "Event",
+            "Id": "724",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 49'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 49"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/725",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/725/attachment",
+            "Created": "2020-03-15T07:39:44+00:00",
+            "EntryType": "Event",
+            "Id": "725",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5"
+                }
+            },
+            "Message": "The resource property GPU_SXM_5 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_5 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/726",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/726/attachment",
+            "Created": "2020-03-15T07:40:39+00:00",
+            "EntryType": "Event",
+            "Id": "726",
+            "Message": "The resource property GPU_SXM_8 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_8 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/727",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/727/attachment",
+            "Created": "2020-03-15T07:40:44+00:00",
+            "EntryType": "Event",
+            "Id": "727",
+            "Message": "The resource property GPU_SXM_7 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_7 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/728",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/728/attachment",
+            "Created": "2020-03-15T07:40:47+00:00",
+            "EntryType": "Event",
+            "Id": "728",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_6"
+                }
+            },
+            "Message": "The resource property GPU_SXM_6 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_6 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/729",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/729/attachment",
+            "Created": "2020-03-15T07:40:50+00:00",
+            "EntryType": "Event",
+            "Id": "729",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4"
+                }
+            },
+            "Message": "The resource property GPU_SXM_4 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_4 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/730",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/730/attachment",
+            "Created": "2020-03-15T07:41:49+00:00",
+            "EntryType": "Event",
+            "Id": "730",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_3"
+                }
+            },
+            "Message": "The resource property GPU_SXM_3 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_3 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/731",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/731/attachment",
+            "Created": "2020-03-15T07:41:55+00:00",
+            "EntryType": "Event",
+            "Id": "731",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_1"
+                }
+            },
+            "Message": "The resource property GPU_SXM_1 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_1 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/732",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/732/attachment",
+            "Created": "2020-03-15T07:42:52+00:00",
+            "EntryType": "Event",
+            "Id": "732",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_2"
+                }
+            },
+            "Message": "The resource property GPU_SXM_2 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_2 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/733",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/733/attachment",
+            "Created": "2020-03-15T07:49:15+00:00",
+            "EntryType": "Event",
+            "Id": "733",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 63'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 63"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/734",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/734/attachment",
+            "Created": "2020-03-15T07:49:23+00:00",
+            "EntryType": "Event",
+            "Id": "734",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 63'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 63"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/735",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/735/attachment",
+            "Created": "2020-03-15T07:49:23+00:00",
+            "EntryType": "Event",
+            "Id": "735",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 63'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 63"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/736",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/736/attachment",
+            "Created": "2020-03-15T07:49:29+00:00",
+            "EntryType": "Event",
+            "Id": "736",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 63'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 63"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/737",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/737/attachment",
+            "Created": "2020-03-15T08:01:16+00:00",
+            "EntryType": "Event",
+            "Id": "737",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 70'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 70"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/738",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/738/attachment",
+            "Created": "2020-03-15T08:01:21+00:00",
+            "EntryType": "Event",
+            "Id": "738",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 70'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 70"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/739",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/739/attachment",
+            "Created": "2020-03-15T08:01:22+00:00",
+            "EntryType": "Event",
+            "Id": "739",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 70'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 70"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/740",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/740/attachment",
+            "Created": "2020-03-15T08:01:28+00:00",
+            "EntryType": "Event",
+            "Id": "740",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 70'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 70"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/741",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/741/attachment",
+            "Created": "2020-03-31T22:34:05+00:00",
+            "EntryType": "Event",
+            "Id": "741",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 14'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 14"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/742",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/742/attachment",
+            "Created": "2020-03-31T22:42:14+00:00",
+            "EntryType": "Event",
+            "Id": "742",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 21'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 21"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/743",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/743/attachment",
+            "Created": "2020-03-31T22:42:17+00:00",
+            "EntryType": "Event",
+            "Id": "743",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 21'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 21"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/744",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/744/attachment",
+            "Created": "2020-03-31T22:42:20+00:00",
+            "EntryType": "Event",
+            "Id": "744",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 21'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 21"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/745",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/745/attachment",
+            "Created": "2020-03-31T22:42:26+00:00",
+            "EntryType": "Event",
+            "Id": "745",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 21'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 21"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/746",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/746/attachment",
+            "Created": "2020-03-31T22:43:43+00:00",
+            "EntryType": "Event",
+            "Id": "746",
+            "Message": "The resource property GPU_SXM_8 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_8 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/747",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/747/attachment",
+            "Created": "2020-03-31T22:43:49+00:00",
+            "EntryType": "Event",
+            "Id": "747",
+            "Message": "The resource property GPU_SXM_7 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_7 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/748",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/748/attachment",
+            "Created": "2020-03-31T22:43:52+00:00",
+            "EntryType": "Event",
+            "Id": "748",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_6"
+                }
+            },
+            "Message": "The resource property GPU_SXM_6 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_6 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/749",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/749/attachment",
+            "Created": "2020-03-31T22:43:57+00:00",
+            "EntryType": "Event",
+            "Id": "749",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5"
+                }
+            },
+            "Message": "The resource property GPU_SXM_5 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_5 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/750",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/750/attachment",
+            "Created": "2020-03-31T22:44:02+00:00",
+            "EntryType": "Event",
+            "Id": "750",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4"
+                }
+            },
+            "Message": "The resource property GPU_SXM_4 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_4 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/751",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/751/attachment",
+            "Created": "2020-03-31T22:44:04+00:00",
+            "EntryType": "Event",
+            "Id": "751",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_2"
+                }
+            },
+            "Message": "The resource property GPU_SXM_2 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_2 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/752",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/752/attachment",
+            "Created": "2020-03-31T22:44:07+00:00",
+            "EntryType": "Event",
+            "Id": "752",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_1"
+                }
+            },
+            "Message": "The resource property GPU_SXM_1 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_1 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/753",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/753/attachment",
+            "Created": "2020-03-31T22:44:52+00:00",
+            "EntryType": "Event",
+            "Id": "753",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_3"
+                }
+            },
+            "Message": "The resource property GPU_SXM_3 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_3 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/754",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/754/attachment",
+            "Created": "2020-03-31T23:35:24+00:00",
+            "EntryType": "Event",
+            "Id": "754",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/755",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/755/attachment",
+            "Created": "2020-03-31T23:35:27+00:00",
+            "EntryType": "Event",
+            "Id": "755",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/756",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/756/attachment",
+            "Created": "2020-03-31T23:35:31+00:00",
+            "EntryType": "Event",
+            "Id": "756",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/757",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/757/attachment",
+            "Created": "2020-03-31T23:35:36+00:00",
+            "EntryType": "Event",
+            "Id": "757",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/758",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/758/attachment",
+            "Created": "2020-03-31T23:37:24+00:00",
+            "EntryType": "Event",
+            "Id": "758",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/759",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/759/attachment",
+            "Created": "2020-03-31T23:37:29+00:00",
+            "EntryType": "Event",
+            "Id": "759",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/760",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/760/attachment",
+            "Created": "2020-03-31T23:37:31+00:00",
+            "EntryType": "Event",
+            "Id": "760",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/761",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/761/attachment",
+            "Created": "2020-03-31T23:37:37+00:00",
+            "EntryType": "Event",
+            "Id": "761",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/762",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/762/attachment",
+            "Created": "2020-03-31T23:56:21+00:00",
+            "EntryType": "Event",
+            "Id": "762",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 21'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 21"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/763",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/763/attachment",
+            "Created": "2020-03-31T23:56:27+00:00",
+            "EntryType": "Event",
+            "Id": "763",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 21'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 21"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/764",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/764/attachment",
+            "Created": "2020-03-31T23:56:28+00:00",
+            "EntryType": "Event",
+            "Id": "764",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 21'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 21"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/765",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/765/attachment",
+            "Created": "2020-03-31T23:56:34+00:00",
+            "EntryType": "Event",
+            "Id": "765",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 21'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 21"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/766",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/766/attachment",
+            "Created": "2020-03-31T23:59:48+00:00",
+            "EntryType": "Event",
+            "Id": "766",
+            "Message": "The resource property GPU_SXM_8 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_8 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/767",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/767/attachment",
+            "Created": "2020-04-01T00:00:57+00:00",
+            "EntryType": "Event",
+            "Id": "767",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5"
+                }
+            },
+            "Message": "The resource property GPU_SXM_5 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_5 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/768",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/768/attachment",
+            "Created": "2020-04-01T00:01:01+00:00",
+            "EntryType": "Event",
+            "Id": "768",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4"
+                }
+            },
+            "Message": "The resource property GPU_SXM_4 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_4 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/769",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/769/attachment",
+            "Created": "2020-04-01T00:01:05+00:00",
+            "EntryType": "Event",
+            "Id": "769",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_3"
+                }
+            },
+            "Message": "The resource property GPU_SXM_3 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_3 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/770",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/770/attachment",
+            "Created": "2020-04-01T00:01:07+00:00",
+            "EntryType": "Event",
+            "Id": "770",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_1"
+                }
+            },
+            "Message": "The resource property GPU_SXM_1 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_1 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/771",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/771/attachment",
+            "Created": "2020-04-01T00:01:53+00:00",
+            "EntryType": "Event",
+            "Id": "771",
+            "Message": "The resource property GPU_SXM_7 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_7 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/772",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/772/attachment",
+            "Created": "2020-04-01T00:01:55+00:00",
+            "EntryType": "Event",
+            "Id": "772",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_6"
+                }
+            },
+            "Message": "The resource property GPU_SXM_6 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_6 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/773",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/773/attachment",
+            "Created": "2020-04-01T00:02:02+00:00",
+            "EntryType": "Event",
+            "Id": "773",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_2"
+                }
+            },
+            "Message": "The resource property GPU_SXM_2 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_2 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/774",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/774/attachment",
+            "Created": "2020-04-01T08:08:50+00:00",
+            "EntryType": "Event",
+            "Id": "774",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/775",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/775/attachment",
+            "Created": "2020-04-01T08:08:53+00:00",
+            "EntryType": "Event",
+            "Id": "775",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/776",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/776/attachment",
+            "Created": "2020-04-01T08:08:55+00:00",
+            "EntryType": "Event",
+            "Id": "776",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/777",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/777/attachment",
+            "Created": "2020-04-01T08:09:10+00:00",
+            "EntryType": "Event",
+            "Id": "777",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/778",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/778/attachment",
+            "Created": "2020-04-01T08:11:50+00:00",
+            "EntryType": "Event",
+            "Id": "778",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/779",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/779/attachment",
+            "Created": "2020-04-01T08:11:53+00:00",
+            "EntryType": "Event",
+            "Id": "779",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/780",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/780/attachment",
+            "Created": "2020-04-01T08:11:54+00:00",
+            "EntryType": "Event",
+            "Id": "780",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/781",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/781/attachment",
+            "Created": "2020-04-01T08:12:04+00:00",
+            "EntryType": "Event",
+            "Id": "781",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 42'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 42"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/782",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/782/attachment",
+            "Created": "2020-04-01T09:59:08+00:00",
+            "EntryType": "Event",
+            "Id": "782",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 56'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 56"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/783",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/783/attachment",
+            "Created": "2020-04-01T10:00:10+00:00",
+            "EntryType": "Event",
+            "Id": "783",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 56'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 56"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/784",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/784/attachment",
+            "Created": "2020-04-01T10:00:14+00:00",
+            "EntryType": "Event",
+            "Id": "784",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 56'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 56"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/785",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/785/attachment",
+            "Created": "2020-04-01T10:00:14+00:00",
+            "EntryType": "Event",
+            "Id": "785",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 56'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 56"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/786",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/786/attachment",
+            "Created": "2020-04-01T10:01:07+00:00",
+            "EntryType": "Event",
+            "Id": "786",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 63'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 63"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/787",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/787/attachment",
+            "Created": "2020-04-01T10:02:12+00:00",
+            "EntryType": "Event",
+            "Id": "787",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 63'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 63"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/788",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/788/attachment",
+            "Created": "2020-04-01T10:02:15+00:00",
+            "EntryType": "Event",
+            "Id": "788",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 63'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 63"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/789",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/789/attachment",
+            "Created": "2020-04-01T10:02:18+00:00",
+            "EntryType": "Event",
+            "Id": "789",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 63'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 63"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/790",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/790/attachment",
+            "Created": "2020-04-04T04:17:57+00:00",
+            "EntryType": "Event",
+            "Id": "790",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 14'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 14"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/791",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/791/attachment",
+            "Created": "2020-04-04T04:24:08+00:00",
+            "EntryType": "Event",
+            "Id": "791",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 28'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 28"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/792",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/792/attachment",
+            "Created": "2020-04-04T04:24:09+00:00",
+            "EntryType": "Event",
+            "Id": "792",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 28'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 28"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/793",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/793/attachment",
+            "Created": "2020-04-04T04:24:10+00:00",
+            "EntryType": "Event",
+            "Id": "793",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 28'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 28"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/794",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/794/attachment",
+            "Created": "2020-04-04T04:24:22+00:00",
+            "EntryType": "Event",
+            "Id": "794",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 28'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 28"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/795",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/795/attachment",
+            "Created": "2020-04-04T04:26:02+00:00",
+            "EntryType": "Event",
+            "Id": "795",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/796",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/796/attachment",
+            "Created": "2020-04-04T04:26:06+00:00",
+            "EntryType": "Event",
+            "Id": "796",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/797",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/797/attachment",
+            "Created": "2020-04-04T04:26:07+00:00",
+            "EntryType": "Event",
+            "Id": "797",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/798",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/798/attachment",
+            "Created": "2020-04-04T04:26:16+00:00",
+            "EntryType": "Event",
+            "Id": "798",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 35'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 35"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/799",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/799/attachment",
+            "Created": "2020-04-04T04:29:23+00:00",
+            "EntryType": "Event",
+            "Id": "799",
+            "Message": "The resource property GPU_SXM_8 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_8 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/800",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/800/attachment",
+            "Created": "2020-04-04T04:30:35+00:00",
+            "EntryType": "Event",
+            "Id": "800",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5"
+                }
+            },
+            "Message": "The resource property GPU_SXM_5 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_5 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/801",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/801/attachment",
+            "Created": "2020-04-04T04:30:46+00:00",
+            "EntryType": "Event",
+            "Id": "801",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4"
+                }
+            },
+            "Message": "The resource property GPU_SXM_4 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_4 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/802",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/802/attachment",
+            "Created": "2020-04-04T04:30:46+00:00",
+            "EntryType": "Event",
+            "Id": "802",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_3"
+                }
+            },
+            "Message": "The resource property GPU_SXM_3 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_3 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/803",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/803/attachment",
+            "Created": "2020-04-04T04:30:48+00:00",
+            "EntryType": "Event",
+            "Id": "803",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_1"
+                }
+            },
+            "Message": "The resource property GPU_SXM_1 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_1 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/804",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/804/attachment",
+            "Created": "2020-04-04T04:31:31+00:00",
+            "EntryType": "Event",
+            "Id": "804",
+            "Message": "The resource property GPU_SXM_7 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_7 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/805",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/805/attachment",
+            "Created": "2020-04-04T04:31:35+00:00",
+            "EntryType": "Event",
+            "Id": "805",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_6"
+                }
+            },
+            "Message": "The resource property GPU_SXM_6 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_6 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/806",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/806/attachment",
+            "Created": "2020-04-04T04:31:42+00:00",
+            "EntryType": "Event",
+            "Id": "806",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_2"
+                }
+            },
+            "Message": "The resource property GPU_SXM_2 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
+            "MessageArgs": [
+                "GPU_SXM_2 ThrottleReason",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
+                "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "No recovery required.",
+            "Resolved": true,
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/807",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/807/attachment",
+            "Created": "2020-04-04T04:54:09+00:00",
+            "EntryType": "Event",
+            "Id": "807",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 49'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 49"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/808",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/808/attachment",
+            "Created": "2020-04-04T04:54:14+00:00",
+            "EntryType": "Event",
+            "Id": "808",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 49'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 49"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/809",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/809/attachment",
+            "Created": "2020-04-04T04:54:15+00:00",
+            "EntryType": "Event",
+            "Id": "809",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 49'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 49"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/810",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/810/attachment",
+            "Created": "2020-04-04T04:54:23+00:00",
+            "EntryType": "Event",
+            "Id": "810",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 49'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 49"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/811",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/811/attachment",
+            "Created": "2020-04-04T04:56:09+00:00",
+            "EntryType": "Event",
+            "Id": "811",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_3 PCIe has detected errors of type 'Correctable Error Count 56'.",
+            "MessageArgs": [
+                "NVSwitch_3 PCIe",
+                "Correctable Error Count 56"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/812",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/812/attachment",
+            "Created": "2020-04-04T04:56:13+00:00",
+            "EntryType": "Event",
+            "Id": "812",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_2 PCIe has detected errors of type 'Correctable Error Count 56'.",
+            "MessageArgs": [
+                "NVSwitch_2 PCIe",
+                "Correctable Error Count 56"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/813",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/813/attachment",
+            "Created": "2020-04-04T04:56:16+00:00",
+            "EntryType": "Event",
+            "Id": "813",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_1 PCIe has detected errors of type 'Correctable Error Count 56'.",
+            "MessageArgs": [
+                "NVSwitch_1 PCIe",
+                "Correctable Error Count 56"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/814",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/814/attachment",
+            "Created": "2020-04-04T04:56:24+00:00",
+            "EntryType": "Event",
+            "Id": "814",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
+                }
+            },
+            "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 56'.",
+            "MessageArgs": [
+                "NVSwitch_0 PCIe",
+                "Correctable Error Count 56"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
+            "Resolved": true,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/967",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/967/attachment",
+            "Created": "2020-04-04T06:42:49+00:00",
+            "EntryType": "Event",
+            "Id": "967",
+            "Message": "Awaiting for an action to proceed with activating image 'HGX-H100x8_0002_231101.1.0' on 'HGX_FW_PCIeRetimer HGX_FW_ERoT_NVSwitch_1 HGX_FW_NVSwitch_1 HGX_FW_ERoT_NVSwitch_2 HGX_FW_NVSwitch_2 HGX_FW_ERoT_NVSwitch_0 HGX_FW_NVSwitch_0 HGX_FW_ERoT_NVSwitch_3 HGX_FW_NVSwitch_3 HGX_FW_ERoT_GPU_SXM_3 HGX_FW_GPU_SXM_3 HGX_FW_ERoT_GPU_SXM_2 HGX_FW_GPU_SXM_2 HGX_FW_ERoT_GPU_SXM_4 HGX_FW_GPU_SXM_4 HGX_FW_ERoT_GPU_SXM_7 HGX_FW_GPU_SXM_7 HGX_FW_ERoT_GPU_SXM_1 HGX_FW_GPU_SXM_1 HGX_FW_ERoT_GPU_SXM_5 HGX_FW_GPU_SXM_5 HGX_FW_ERoT_GPU_SXM_6 HGX_FW_GPU_SXM_6 HGX_FW_ERoT_GPU_SXM_8 HGX_FW_GPU_SXM_8 HGX_FW_ERoT_PCIeSwitch_0 HGX_FW_PCIeSwitch_0 HGX_FW_ERoT_FPGA_0 HGX_FW_FPGA_0 HGX_FW_ERoT_BMC_0 HGX_FW_BMC_0'.",
+            "MessageArgs": [
+                "HGX-H100x8_0002_231101.1.0",
+                "HGX_FW_PCIeRetimer HGX_FW_ERoT_NVSwitch_1 HGX_FW_NVSwitch_1 HGX_FW_ERoT_NVSwitch_2 HGX_FW_NVSwitch_2 HGX_FW_ERoT_NVSwitch_0 HGX_FW_NVSwitch_0 HGX_FW_ERoT_NVSwitch_3 HGX_FW_NVSwitch_3 HGX_FW_ERoT_GPU_SXM_3 HGX_FW_GPU_SXM_3 HGX_FW_ERoT_GPU_SXM_2 HGX_FW_GPU_SXM_2 HGX_FW_ERoT_GPU_SXM_4 HGX_FW_GPU_SXM_4 HGX_FW_ERoT_GPU_SXM_7 HGX_FW_GPU_SXM_7 HGX_FW_ERoT_GPU_SXM_1 HGX_FW_GPU_SXM_1 HGX_FW_ERoT_GPU_SXM_5 HGX_FW_GPU_SXM_5 HGX_FW_ERoT_GPU_SXM_6 HGX_FW_GPU_SXM_6 HGX_FW_ERoT_GPU_SXM_8 HGX_FW_GPU_SXM_8 HGX_FW_ERoT_PCIeSwitch_0 HGX_FW_PCIeSwitch_0 HGX_FW_ERoT_FPGA_0 HGX_FW_FPGA_0 HGX_FW_ERoT_BMC_0 HGX_FW_BMC_0"
+            ],
+            "MessageId": "Update.1.0.AwaitToActivate",
+            "Name": "System Event Log Entry",
+            "Resolution": "Perform the requested action to advance the update operation.",
+            "Resolved": true,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/968",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/968/attachment",
+            "Created": "2020-04-04T07:15:12+00:00",
+            "EntryType": "Event",
+            "Id": "968",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_1"
+                }
+            },
+            "Message": "The resource property GPU_SXM_1 Driver Event Message has detected errors of type '[Mon Nov 20 16:08:50 UTC 2023][1][00] XID 62 badf5723(badf5723) badf5723 badf5723'.",
+            "MessageArgs": [
+                "GPU_SXM_1 Driver Event Message",
+                "[Mon Nov 20 16:08:50 UTC 2023][1][00] XID 62 badf5723(badf5723) badf5723 badf5723"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
         }
     ],
-    "Members@odata.count": 333,
+    "Members@odata.count": 437,
     "Name": "System Event Log Entries"
 }

@@ -1,12 +1,12 @@
 {
     "@odata.context": "/redfish/v1/$metadata#NetworkDeviceFunctionCollection.NetworkDeviceFunctionCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC10/NetworkDeviceFunctions",
     "@odata.type": "#NetworkDeviceFunctionCollection.NetworkDeviceFunctionCollection",
     "Description": "The Collection of Network Device Functions",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC10/NetworkDeviceFunctions/NetworkDeviceFunctionD"
+            "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC10/NetworkDeviceFunctions/NetworkDeviceFunctionC"
         }
     ],
     "Members@odata.count": 1,

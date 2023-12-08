@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_GB_SXM6",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "10",
+    "Id": "TEMP_GB_SXM6",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "TEMP_GB_SXM6",
     "PhysicalContext": "Intake",
-    "Reading": 30,
+    "Reading": 33,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 85
-        },
-        "LowerCritical": {
-            "Reading": 88
-        },
-        "LowerFatal": {
-            "Reading": 90
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 85
+        },
+        "UpperCritical": {
+            "Reading": 88
+        },
+        "UpperFatal": {
+            "Reading": 90
         }
     }
 }

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Storage.Storage",
-    "@odata.etag": "\"1698080632\"",
+    "@odata.etag": "\"1700508046\"",
     "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0",
     "@odata.type": "#Storage.v1_9_0.Storage",
     "Controllers": {
@@ -76,8 +76,8 @@
                 "State": "Enabled"
             },
             "SupportedControllerProtocols": [
-                "NVMe",
-                "PCIe"
+                "PCIe",
+                "NVMe"
             ],
             "SupportedDeviceProtocols": [
                 "NVMe"
@@ -97,8 +97,8 @@
                 "State": "Enabled"
             },
             "SupportedControllerProtocols": [
-                "NVMe",
-                "PCIe"
+                "PCIe",
+                "NVMe"
             ],
             "SupportedDeviceProtocols": [
                 "NVMe"
@@ -139,8 +139,8 @@
                 "State": "Enabled"
             },
             "SupportedControllerProtocols": [
-                "NVMe",
-                "PCIe"
+                "PCIe",
+                "NVMe"
             ],
             "SupportedDeviceProtocols": [
                 "NVMe"
@@ -160,8 +160,8 @@
                 "State": "Enabled"
             },
             "SupportedControllerProtocols": [
-                "NVMe",
-                "PCIe"
+                "PCIe",
+                "NVMe"
             ],
             "SupportedDeviceProtocols": [
                 "NVMe"
@@ -181,8 +181,8 @@
                 "State": "Enabled"
             },
             "SupportedControllerProtocols": [
-                "NVMe",
-                "PCIe"
+                "PCIe",
+                "NVMe"
             ],
             "SupportedDeviceProtocols": [
                 "NVMe"
@@ -202,8 +202,8 @@
                 "State": "Enabled"
             },
             "SupportedControllerProtocols": [
-                "NVMe",
-                "PCIe"
+                "PCIe",
+                "NVMe"
             ],
             "SupportedDeviceProtocols": [
                 "NVMe"
@@ -223,8 +223,8 @@
                 "State": "Enabled"
             },
             "SupportedControllerProtocols": [
-                "NVMe",
-                "PCIe"
+                "PCIe",
+                "NVMe"
             ],
             "SupportedDeviceProtocols": [
                 "NVMe"
@@ -244,8 +244,8 @@
                 "State": "Enabled"
             },
             "SupportedControllerProtocols": [
-                "NVMe",
-                "PCIe"
+                "PCIe",
+                "NVMe"
             ],
             "SupportedDeviceProtocols": [
                 "NVMe"
@@ -265,8 +265,8 @@
                 "State": "Enabled"
             },
             "SupportedControllerProtocols": [
-                "NVMe",
-                "PCIe"
+                "PCIe",
+                "NVMe"
             ],
             "SupportedDeviceProtocols": [
                 "NVMe"
@@ -286,8 +286,8 @@
                 "State": "Enabled"
             },
             "SupportedControllerProtocols": [
-                "NVMe",
-                "PCIe"
+                "PCIe",
+                "NVMe"
             ],
             "SupportedDeviceProtocols": [
                 "NVMe"

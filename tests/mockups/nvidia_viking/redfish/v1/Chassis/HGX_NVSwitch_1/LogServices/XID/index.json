@@ -1,7 +1,7 @@
 {
     "@odata.id": "/redfish/v1/Chassis/HGX_NVSwitch_1/LogServices/XID",
     "@odata.type": "#LogService.v1_1_0.LogService",
-    "DateTime": "2020-03-08T10:11:39+00:00",
+    "DateTime": "2020-04-04T11:48:28+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "XID Log Service",
     "Entries": {

@@ -5,7 +5,7 @@
     "MaxAllowableOperatingValue": 102,
     "Name": "HGX NVSwitch 1 TEMP 0",
     "PhysicalContext": "GPU",
-    "Reading": 40.09375,
+    "Reading": 40.625,
     "ReadingType": "Temperature",
     "ReadingUnits": "Cel",
     "RelatedItem": [

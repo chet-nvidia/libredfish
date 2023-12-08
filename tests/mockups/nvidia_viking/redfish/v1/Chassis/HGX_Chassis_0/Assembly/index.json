@@ -26,7 +26,7 @@
                 }
             },
             "MemberId": "1",
-            "Model": "NVIDIA",
+            "Model": "NVIDIA HGX H100 8-GPU",
             "Name": "Product FRU Assembly",
             "PartNumber": "935-24287-0000-000",
             "PhysicalContext": "GPUSubsystem",

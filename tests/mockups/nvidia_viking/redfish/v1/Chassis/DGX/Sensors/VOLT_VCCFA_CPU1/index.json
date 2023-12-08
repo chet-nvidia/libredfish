@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/VOLT_VCCFA_CPU1",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "6",
+    "Id": "VOLT_VCCFA_CPU1",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"

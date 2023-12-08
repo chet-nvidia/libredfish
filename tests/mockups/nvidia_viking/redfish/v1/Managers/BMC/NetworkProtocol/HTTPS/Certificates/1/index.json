@@ -27,8 +27,8 @@
         "State": "Georgia"
     },
     "KeyUsage": [
-        "DigitalSignature",
         "KeyEncipherment",
+        "DigitalSignature",
         "NonRepudiation"
     ],
     "Name": "Certificate Instance",

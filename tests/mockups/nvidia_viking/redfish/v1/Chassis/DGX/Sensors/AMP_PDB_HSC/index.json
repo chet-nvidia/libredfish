@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/AMP_PDB_HSC",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "210",
+    "Id": "AMP_PDB_HSC",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,10 +11,10 @@
     },
     "Name": "AMP_PDB_HSC",
     "PhysicalContext": "VoltageRegulator",
-    "Reading": 1.5,
+    "Reading": 1.75,
     "ReadingRangeMax": 63.75,
     "ReadingRangeMin": 0,
-    "ReadingType": "Amps",
+    "ReadingType": "Current",
     "Status": {
         "Health": "OK",
         "State": "Enabled"

@@ -1,23 +1,23 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/286",
     "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-    "Created": "2023-10-23T17:01:49+00:00",
-    "Description": "SEL 434",
+    "Created": "2023-11-17T16:59:10+00:00",
+    "Description": "SEL 418",
     "EntryCode": "Assert",
     "EntryType": "SEL",
-    "EventTimestamp": "2023-10-23T17:01:49+00:00",
+    "EventTimestamp": "2023-10-23T16:59:42+00:00",
     "Id": "286",
     "Links": {
         "OriginOfCondition": {
-            "@odata.id": "/redfish/v1/Systems/DGX"
+            "@odata.id": "/redfish/v1/Managers/BMC"
         }
     },
-    "Message": "Event_Data_1 : 5, Record_Type : system event record, Sensor_Number : 0, Event_Dir : Assertion event, Event_Data_2 : 128, Timestamp : 2023-10-23T17:01:49+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x0101, Event_Data_3 : 255, Event_Type : Timestamp Clock Synch, Record_ID : 434, Sensor_Type : System Event, ",
-    "MessageId": "0x0580FF",
-    "Name": "SEL 434",
-    "SensorNumber": 0,
-    "SensorType": "System Event",
+    "Message": "Event_Data_1 : 0, Record_Type : system event record, Sensor_Number : 98, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T16:59:42+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x2001, Event_Data_3 : 255, Record_ID : 418, Sensor_Type : Entity Presence, ",
+    "MessageId": "0x00FFFF",
+    "Name": "SEL 418",
+    "SensorNumber": 98,
+    "SensorType": "Entity Presence",
     "Severity": "OK"
 }

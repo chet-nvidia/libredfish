@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Memory.Memory",
-    "@odata.etag": "\"1672531218\"",
+    "@odata.etag": "\"1700502973\"",
     "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM24",
     "@odata.type": "#Memory.v1_8_0.Memory",
     "Actions": {
@@ -40,6 +40,9 @@
     "MemorySubsystemControllerManufacturerID": "0x0000",
     "MemorySubsystemControllerProductID": "0x0000",
     "MemoryType": "DRAM",
+    "Metrics": {
+        "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM24/MemoryMetrics"
+    },
     "ModuleManufacturerID": "0xCE00",
     "ModuleProductID": "0xCE00",
     "Name": "DevType2_DIMM24",

@@ -5,7 +5,7 @@
     "MaxAllowableOperatingValue": 126000,
     "Name": "HGX Chassis 0 AltitudePressure 0",
     "PhysicalContext": "GPUSubsystem",
-    "Reading": 102000,
+    "Reading": 103300,
     "ReadingType": "Altitude",
     "ReadingUnits": "Pa",
     "RelatedItem": [

@@ -1,10 +1,11 @@
 {
     "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Controls/TotalGPU_Power_0",
-    "@odata.type": "#Control.v1_0_0.Control",
+    "@odata.type": "#Control.v1_3_0.Control",
     "AllowableMax": 5600,
     "AllowableMin": 1600,
-    "ControlMode": "Override",
+    "ControlMode": "Automatic",
     "ControlType": "Power",
+    "DefaultSetPoint": 5600,
     "Id": "TotalGPU_Power_0",
     "Name": "System Power Control",
     "PhysicalContext": "GPUSubsystem",
@@ -36,9 +37,9 @@
     ],
     "Sensor": {
         "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_TotalGPU_Power_0",
-        "Reading": 565
+        "Reading": null
     },
-    "SetPoint": 4294967295,
+    "SetPoint": 5600,
     "SetPointUnits": "W",
     "Status": {
         "Health": "OK",

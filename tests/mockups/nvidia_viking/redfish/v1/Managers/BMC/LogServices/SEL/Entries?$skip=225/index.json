@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntryCollection.LogEntryCollection",
-    "@odata.etag": "\"1698160388\"",
+    "@odata.etag": "\"1700509261\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries",
     "@odata.type": "#LogEntryCollection.LogEntryCollection",
     "Description": "Collection of entries for this log service",
@@ -8,7 +8,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/226",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 321",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -29,7 +29,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/227",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 322",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -49,7 +49,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/228",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 323",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -70,7 +70,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/229",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 324",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -90,7 +90,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/230",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 325",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -111,7 +111,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/231",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 326",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -131,7 +131,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/232",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 327",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -152,7 +152,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/233",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 328",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -172,7 +172,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/234",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 329",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -193,7 +193,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/235",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 330",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -213,7 +213,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/236",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 331",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -234,7 +234,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/237",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 332",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -254,7 +254,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/238",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 341",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -275,7 +275,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/239",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 342",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -296,7 +296,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/240",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 343",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -317,7 +317,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/241",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 346",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -338,7 +338,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/242",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 347",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
@@ -359,7 +359,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/243",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 351",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -380,7 +380,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/244",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 355",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -400,7 +400,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/245",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 356",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -420,7 +420,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/246",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 357",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -440,7 +440,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/247",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 358",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -461,7 +461,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/248",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 359",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -482,7 +482,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/249",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 360",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -503,7 +503,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/250",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 361",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -524,7 +524,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/251",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 362",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -545,7 +545,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/252",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 363",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -566,7 +566,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/253",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 364",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -587,7 +587,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/254",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 365",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -608,7 +608,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/255",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 366",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -629,7 +629,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/256",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 367",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -650,7 +650,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/257",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 368",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -671,7 +671,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/258",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 369",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -692,7 +692,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/259",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 380",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -713,7 +713,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/260",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 381",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -734,7 +734,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/261",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:33+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 382",
             "EntryCode": "Assert",
             "EntryType": "SEL",
@@ -754,12 +754,154 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/262",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:35+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 394",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-01-01T00:00:05+00:00",
+            "Id": "262",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 160, Record_Type : system event record, Sensor_Number : 192, Event_Dir : Assertion event, Event_Data_2 : 1, Timestamp : 2023-01-01T00:00:05+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 255, Event_Type : OEM Specific, Record_ID : 394, Generator_ID : 0x2001, ",
+            "MessageId": "0xA001FF",
+            "Name": "SEL 394",
+            "SensorNumber": 192,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/263",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 395",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-01-01T00:00:05+00:00",
+            "Id": "263",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Systems/DGX"
+                }
+            },
+            "Message": "Event_Data_1 : 0, Record_Type : system event record, Sensor_Number : 222, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-01-01T00:00:05+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x2000, Event_Data_3 : 255, Event_Type : S0/G0 'Working, Record_ID : 395, Sensor_Type : System ACPI PowerState, ",
+            "MessageId": "0x00FFFF",
+            "Name": "SEL 395",
+            "SensorNumber": 222,
+            "SensorType": "System ACPI PowerState",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/264",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 396",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T17:00:28+00:00",
+            "Id": "264",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 163, Record_Type : system event record, Sensor_Number : 203, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:00:28+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 255, Event_Type : OEM Specific, Record_ID : 396, Generator_ID : 0x2001, ",
+            "MessageId": "0xA3FFFF",
+            "Name": "SEL 396",
+            "SensorNumber": 203,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/265",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 397",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T17:00:30+00:00",
+            "Id": "265",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/Managers/BMC"
+                }
+            },
+            "Message": "Event_Data_1 : 0, Record_Type : system event record, Sensor_Number : 243, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:00:30+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x2000, Event_Data_3 : 255, Event_Type : Entity Present, Record_ID : 397, Sensor_Type : Entity Presence, ",
+            "MessageId": "0x00FFFF",
+            "Name": "SEL 397",
+            "SensorNumber": 243,
+            "SensorType": "Entity Presence",
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/266",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 398",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T17:00:32+00:00",
+            "Id": "266",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 164, Record_Type : system event record, Sensor_Number : 203, Event_Dir : Assertion event, Event_Data_2 : 85, Timestamp : 2023-10-23T17:00:32+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 0, Event_Type : OEM Specific, Record_ID : 398, Generator_ID : 0x2001, ",
+            "MessageId": "0xA45500",
+            "Name": "SEL 398",
+            "SensorNumber": 203,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/267",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 399",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T17:00:32+00:00",
+            "Id": "267",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 161, Record_Type : system event record, Sensor_Number : 199, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:00:32+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 255, Event_Type : OEM Specific, Record_ID : 399, Generator_ID : 0x2101, ",
+            "MessageId": "0xA1FFFF",
+            "Name": "SEL 399",
+            "SensorNumber": 199,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/268",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 400",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T17:00:32+00:00",
+            "Id": "268",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 0, Record_Type : system event record, Sensor_Number : 205, Event_Dir : Assertion event, Event_Data_2 : 0, Timestamp : 2023-10-23T17:00:32+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 0, Event_Type : OEM Specific, Record_ID : 400, Generator_ID : 0x2101, ",
+            "MessageId": "0x000000",
+            "Name": "SEL 400",
+            "SensorNumber": 205,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/269",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 401",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T17:00:35+00:00",
-            "Id": "262",
+            "Id": "269",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -773,14 +915,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/263",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/270",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:35+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 402",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T17:00:35+00:00",
-            "Id": "263",
+            "Id": "270",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -794,14 +936,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/264",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/271",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:35+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 403",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T17:00:35+00:00",
-            "Id": "264",
+            "Id": "271",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/"
@@ -814,14 +956,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/265",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/272",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:35+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 404",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T17:00:35+00:00",
-            "Id": "265",
+            "Id": "272",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/"
@@ -834,14 +976,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/266",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/273",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:00:52+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 405",
             "EntryCode": "Deassert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T17:00:52+00:00",
-            "Id": "266",
+            "Id": "273",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/"
@@ -854,14 +996,94 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/267",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/274",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:42+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 406",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T17:00:56+00:00",
+            "Id": "274",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 163, Record_Type : system event record, Sensor_Number : 203, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:00:56+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 255, Event_Type : OEM Specific, Record_ID : 406, Generator_ID : 0x2001, ",
+            "MessageId": "0xA3FFFF",
+            "Name": "SEL 406",
+            "SensorNumber": 203,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/275",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 407",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T17:01:01+00:00",
+            "Id": "275",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 164, Record_Type : system event record, Sensor_Number : 203, Event_Dir : Assertion event, Event_Data_2 : 85, Timestamp : 2023-10-23T17:01:01+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 0, Event_Type : OEM Specific, Record_ID : 407, Generator_ID : 0x2001, ",
+            "MessageId": "0xA45500",
+            "Name": "SEL 407",
+            "SensorNumber": 203,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/276",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 408",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T17:01:01+00:00",
+            "Id": "276",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 161, Record_Type : system event record, Sensor_Number : 199, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:01:01+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 255, Event_Type : OEM Specific, Record_ID : 408, Generator_ID : 0x2101, ",
+            "MessageId": "0xA1FFFF",
+            "Name": "SEL 408",
+            "SensorNumber": 199,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/277",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 409",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T17:01:01+00:00",
+            "Id": "277",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 0, Record_Type : system event record, Sensor_Number : 205, Event_Dir : Assertion event, Event_Data_2 : 0, Timestamp : 2023-10-23T17:01:01+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 0, Event_Type : OEM Specific, Record_ID : 409, Generator_ID : 0x2101, ",
+            "MessageId": "0x000000",
+            "Name": "SEL 409",
+            "SensorNumber": 205,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/278",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 410",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "267",
+            "Id": "278",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -875,14 +1097,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/268",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/279",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:42+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 411",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "268",
+            "Id": "279",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -896,14 +1118,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/269",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/280",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:42+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 412",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "269",
+            "Id": "280",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -917,14 +1139,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/270",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/281",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 413",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "270",
+            "Id": "281",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -938,14 +1160,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/271",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/282",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 414",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "271",
+            "Id": "282",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -959,14 +1181,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/272",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/283",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 415",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "272",
+            "Id": "283",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -980,14 +1202,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/273",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/284",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 416",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "273",
+            "Id": "284",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -1001,14 +1223,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/274",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/285",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 417",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "274",
+            "Id": "285",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -1022,14 +1244,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/275",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/286",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 418",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "275",
+            "Id": "286",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -1043,14 +1265,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/276",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/287",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 419",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "276",
+            "Id": "287",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -1064,14 +1286,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/277",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/288",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 420",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "277",
+            "Id": "288",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -1085,14 +1307,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/278",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/289",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 421",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "278",
+            "Id": "289",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -1106,14 +1328,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/279",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/290",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 422",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "279",
+            "Id": "290",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -1127,14 +1349,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/280",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/291",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 423",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "280",
+            "Id": "291",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -1148,14 +1370,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/281",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/292",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 424",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "281",
+            "Id": "292",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -1169,14 +1391,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/282",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/293",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T16:59:43+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 425",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T16:59:42+00:00",
-            "Id": "282",
+            "Id": "293",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Managers/BMC"
@@ -1190,14 +1412,114 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/283",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/294",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:01:49+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 426",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T16:59:47+00:00",
+            "Id": "294",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 163, Record_Type : system event record, Sensor_Number : 203, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T16:59:47+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 255, Event_Type : OEM Specific, Record_ID : 426, Generator_ID : 0x2001, ",
+            "MessageId": "0xA3FFFF",
+            "Name": "SEL 426",
+            "SensorNumber": 203,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/295",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 427",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T16:59:51+00:00",
+            "Id": "295",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 164, Record_Type : system event record, Sensor_Number : 203, Event_Dir : Assertion event, Event_Data_2 : 85, Timestamp : 2023-10-23T16:59:51+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 0, Event_Type : OEM Specific, Record_ID : 427, Generator_ID : 0x2001, ",
+            "MessageId": "0xA45500",
+            "Name": "SEL 427",
+            "SensorNumber": 203,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/296",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 428",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T16:59:52+00:00",
+            "Id": "296",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 161, Record_Type : system event record, Sensor_Number : 199, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T16:59:52+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 255, Event_Type : OEM Specific, Record_ID : 428, Generator_ID : 0x2101, ",
+            "MessageId": "0xA1FFFF",
+            "Name": "SEL 428",
+            "SensorNumber": 199,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/297",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 429",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T16:59:52+00:00",
+            "Id": "297",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 0, Record_Type : system event record, Sensor_Number : 205, Event_Dir : Assertion event, Event_Data_2 : 0, Timestamp : 2023-10-23T16:59:52+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 0, Event_Type : OEM Specific, Record_ID : 429, Generator_ID : 0x2101, ",
+            "MessageId": "0x000000",
+            "Name": "SEL 429",
+            "SensorNumber": 205,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/298",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
+            "Description": "SEL 430",
+            "EntryCode": "Assert",
+            "EntryType": "SEL",
+            "EventTimestamp": "2023-10-23T17:00:29+00:00",
+            "Id": "298",
+            "Links": {
+                "OriginOfCondition": {
+                    "@odata.id": "/redfish/v1/"
+                }
+            },
+            "Message": "Event_Data_1 : 164, Record_Type : system event record, Sensor_Number : 203, Event_Dir : Assertion event, Event_Data_2 : 85, Timestamp : 2023-10-23T17:00:29+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 0, Event_Type : OEM Specific, Record_ID : 430, Generator_ID : 0x2001, ",
+            "MessageId": "0xA45500",
+            "Name": "SEL 430",
+            "SensorNumber": 203,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/299",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 431",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T17:00:29+00:00",
-            "Id": "283",
+            "Id": "299",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Systems/DGX"
@@ -1211,14 +1533,14 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/284",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/300",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:01:49+00:00",
+            "Created": "2023-11-17T16:59:10+00:00",
             "Description": "SEL 432",
             "EntryCode": "Assert",
             "EntryType": "SEL",
             "EventTimestamp": "2023-10-23T17:00:29+00:00",
-            "Id": "284",
+            "Id": "300",
             "Links": {
                 "OriginOfCondition": {
                     "@odata.id": "/redfish/v1/Systems/DGX"
@@ -1230,239 +1552,9 @@
             "SensorNumber": 255,
             "SensorType": "System Event",
             "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/285",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:01:49+00:00",
-            "Description": "SEL 433",
-            "EntryCode": "Assert",
-            "EntryType": "SEL",
-            "EventTimestamp": "2023-10-23T17:01:49+00:00",
-            "Id": "285",
-            "Links": {
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Systems/DGX"
-                }
-            },
-            "Message": "Event_Data_1 : 5, Record_Type : system event record, Sensor_Number : 255, Event_Dir : Assertion event, Event_Data_2 : 128, Timestamp : 2023-10-23T17:01:49+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x2000, Event_Data_3 : 255, Event_Type : Timestamp Clock Synch, Record_ID : 433, Sensor_Type : System Event, ",
-            "MessageId": "0x0580FF",
-            "Name": "SEL 433",
-            "SensorNumber": 255,
-            "SensorType": "System Event",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/286",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:01:49+00:00",
-            "Description": "SEL 434",
-            "EntryCode": "Assert",
-            "EntryType": "SEL",
-            "EventTimestamp": "2023-10-23T17:01:49+00:00",
-            "Id": "286",
-            "Links": {
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Systems/DGX"
-                }
-            },
-            "Message": "Event_Data_1 : 5, Record_Type : system event record, Sensor_Number : 0, Event_Dir : Assertion event, Event_Data_2 : 128, Timestamp : 2023-10-23T17:01:49+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x0101, Event_Data_3 : 255, Event_Type : Timestamp Clock Synch, Record_ID : 434, Sensor_Type : System Event, ",
-            "MessageId": "0x0580FF",
-            "Name": "SEL 434",
-            "SensorNumber": 0,
-            "SensorType": "System Event",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/287",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:03:39+00:00",
-            "Description": "SEL 438",
-            "EntryCode": "Assert",
-            "EntryType": "SEL",
-            "EventTimestamp": "2023-10-23T17:03:38+00:00",
-            "Id": "287",
-            "Links": {
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Systems/DGX/Processors"
-                }
-            },
-            "Message": "Event_Data_1 : 12, Record_Type : system event record, Sensor_Number : 232, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:03:38+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x0101, Event_Data_3 : 255, Event_Type : Correctable Machine Check Error, Record_ID : 438, Sensor_Type : Processor, ",
-            "MessageId": "0x0CFFFF",
-            "Name": "SEL 438",
-            "SensorNumber": 232,
-            "SensorType": "Processor",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/288",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:03:40+00:00",
-            "Description": "SEL 440",
-            "EntryCode": "Assert",
-            "EntryType": "SEL",
-            "EventTimestamp": "2023-10-23T17:03:40+00:00",
-            "Id": "288",
-            "Links": {
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Systems/DGX/Processors"
-                }
-            },
-            "Message": "Event_Data_1 : 12, Record_Type : system event record, Sensor_Number : 232, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:03:40+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x0101, Event_Data_3 : 255, Event_Type : Correctable Machine Check Error, Record_ID : 440, Sensor_Type : Processor, ",
-            "MessageId": "0x0CFFFF",
-            "Name": "SEL 440",
-            "SensorNumber": 232,
-            "SensorType": "Processor",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/289",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:03:42+00:00",
-            "Description": "SEL 442",
-            "EntryCode": "Assert",
-            "EntryType": "SEL",
-            "EventTimestamp": "2023-10-23T17:03:41+00:00",
-            "Id": "289",
-            "Links": {
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Systems/DGX/Processors"
-                }
-            },
-            "Message": "Event_Data_1 : 12, Record_Type : system event record, Sensor_Number : 232, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:03:41+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x0101, Event_Data_3 : 255, Event_Type : Correctable Machine Check Error, Record_ID : 442, Sensor_Type : Processor, ",
-            "MessageId": "0x0CFFFF",
-            "Name": "SEL 442",
-            "SensorNumber": 232,
-            "SensorType": "Processor",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/290",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:03:43+00:00",
-            "Description": "SEL 444",
-            "EntryCode": "Assert",
-            "EntryType": "SEL",
-            "EventTimestamp": "2023-10-23T17:03:42+00:00",
-            "Id": "290",
-            "Links": {
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Systems/DGX/Processors"
-                }
-            },
-            "Message": "Event_Data_1 : 12, Record_Type : system event record, Sensor_Number : 232, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:03:42+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x0101, Event_Data_3 : 255, Event_Type : Correctable Machine Check Error, Record_ID : 444, Sensor_Type : Processor, ",
-            "MessageId": "0x0CFFFF",
-            "Name": "SEL 444",
-            "SensorNumber": 232,
-            "SensorType": "Processor",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/291",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:03:44+00:00",
-            "Description": "SEL 446",
-            "EntryCode": "Assert",
-            "EntryType": "SEL",
-            "EventTimestamp": "2023-10-23T17:03:44+00:00",
-            "Id": "291",
-            "Links": {
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Systems/DGX/Processors"
-                }
-            },
-            "Message": "Event_Data_1 : 12, Record_Type : system event record, Sensor_Number : 232, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:03:44+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x0101, Event_Data_3 : 255, Event_Type : Correctable Machine Check Error, Record_ID : 446, Sensor_Type : Processor, ",
-            "MessageId": "0x0CFFFF",
-            "Name": "SEL 446",
-            "SensorNumber": 232,
-            "SensorType": "Processor",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/292",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:03:46+00:00",
-            "Description": "SEL 448",
-            "EntryCode": "Assert",
-            "EntryType": "SEL",
-            "EventTimestamp": "2023-10-23T17:03:45+00:00",
-            "Id": "292",
-            "Links": {
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Systems/DGX/Processors"
-                }
-            },
-            "Message": "Event_Data_1 : 12, Record_Type : system event record, Sensor_Number : 232, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:03:45+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x0101, Event_Data_3 : 255, Event_Type : Correctable Machine Check Error, Record_ID : 448, Sensor_Type : Processor, ",
-            "MessageId": "0x0CFFFF",
-            "Name": "SEL 448",
-            "SensorNumber": 232,
-            "SensorType": "Processor",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/293",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-23T17:03:47+00:00",
-            "Description": "SEL 450",
-            "EntryCode": "Assert",
-            "EntryType": "SEL",
-            "EventTimestamp": "2023-10-23T17:03:46+00:00",
-            "Id": "293",
-            "Links": {
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Systems/DGX/Processors"
-                }
-            },
-            "Message": "Event_Data_1 : 12, Record_Type : system event record, Sensor_Number : 232, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:03:46+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x0101, Event_Data_3 : 255, Event_Type : Correctable Machine Check Error, Record_ID : 450, Sensor_Type : Processor, ",
-            "MessageId": "0x0CFFFF",
-            "Name": "SEL 450",
-            "SensorNumber": 232,
-            "SensorType": "Processor",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/294",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-24T15:13:08+00:00",
-            "Description": "SEL 452",
-            "EntryCode": "Deassert",
-            "EntryType": "SEL",
-            "EventTimestamp": "2023-10-24T15:13:08+00:00",
-            "Id": "294",
-            "Links": {
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Managers/BMC"
-                }
-            },
-            "Message": "Event_Data_1 : 0, Record_Type : system event record, Sensor_Number : 234, Event_Dir : Deassertion event, Event_Data_2 : 0, Timestamp : 2023-10-24T15:13:08+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x2000, Event_Data_3 : 3, Event_Type : FRU Not Installed, Record_ID : 452, Sensor_Type : FRUState, ",
-            "MessageId": "0x000003",
-            "Name": "SEL 452",
-            "SensorNumber": 234,
-            "SensorType": "FRUState",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/295",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "Created": "2023-10-24T15:13:08+00:00",
-            "Description": "SEL 453",
-            "EntryCode": "Deassert",
-            "EntryType": "SEL",
-            "EventTimestamp": "2023-10-24T15:13:08+00:00",
-            "Id": "295",
-            "Links": {
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Managers/BMC"
-                }
-            },
-            "Message": "Event_Data_1 : 0, Record_Type : system event record, Sensor_Number : 234, Event_Dir : Deassertion event, Event_Data_2 : 0, Timestamp : 2023-10-24T15:13:08+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x2000, Event_Data_3 : 4, Event_Type : FRU Not Installed, Record_ID : 453, Sensor_Type : FRUState, ",
-            "MessageId": "0x000004",
-            "Name": "SEL 453",
-            "SensorNumber": 234,
-            "SensorType": "FRUState",
-            "Severity": "OK"
         }
     ],
-    "Members@odata.count": 295,
+    "Members@odata.count": 1789,
+    "Members@odata.nextLink": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries?$skip=300",
     "Name": "Log Service Entries Collection"
 }

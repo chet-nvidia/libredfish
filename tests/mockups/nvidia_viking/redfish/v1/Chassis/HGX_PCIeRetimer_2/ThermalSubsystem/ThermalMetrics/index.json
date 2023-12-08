@@ -9,7 +9,7 @@
             "DataSourceUri": "/redfish/v1/Chassis/HGX_PCIeRetimer_2/Sensors/HGX_PCIeRetimer_2_TEMP_0",
             "DeviceName": "PCIeRetimer_2",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "48.179688"
+            "Reading": "48.820312"
         }
     ]
 }

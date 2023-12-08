@@ -4,7 +4,7 @@
     "Id": "HGX_GPU_SXM_3_TEMP_0",
     "Name": "HGX GPU SXM 3 TEMP 0",
     "PhysicalContext": "GPU",
-    "Reading": 29.71875,
+    "Reading": 33.59375,
     "ReadingType": "Temperature",
     "ReadingUnits": "Cel",
     "RelatedItem": [

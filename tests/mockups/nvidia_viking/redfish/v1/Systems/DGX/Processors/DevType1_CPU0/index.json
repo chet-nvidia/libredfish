@@ -181,6 +181,9 @@
         "ConnectedProcessors@odata.count": 56
     },
     "Manufacturer": "Intel(R) Corporation",
+    "Metrics": {
+        "@odata.id": "/redfish/v1/Systems/DGX/Processors/DevType1_CPU0/ProcessorMetrics"
+    },
     "Name": "DevType1_CPU0",
     "ProcessorArchitecture": "x86",
     "ProcessorId": {

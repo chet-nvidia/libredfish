@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeDevice.PCIeDevice",
-    "@odata.etag": "\"1698080627\"",
+    "@odata.etag": "\"1700508040\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_1F",
     "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
     "AssetTag": "LpcBridge",

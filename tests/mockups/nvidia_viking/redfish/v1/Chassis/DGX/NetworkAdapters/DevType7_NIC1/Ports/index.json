@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PortCollection.PortCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC1/Ports",
     "@odata.type": "#PortCollection.PortCollection",
     "Description": "The Collection of Port",

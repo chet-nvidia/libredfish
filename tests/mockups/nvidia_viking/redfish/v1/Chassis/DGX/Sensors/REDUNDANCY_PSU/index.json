@@ -9,7 +9,7 @@
     "ApparentVA": null,
     "Description": null,
     "ElectricalContext": null,
-    "Id": "221",
+    "Id": "REDUNDANCY_PSU",
     "LoadPercent": null,
     "Location": {
         "AltitudeMeters": null,

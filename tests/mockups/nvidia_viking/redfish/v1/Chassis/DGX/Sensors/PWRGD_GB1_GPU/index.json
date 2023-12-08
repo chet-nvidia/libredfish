@@ -9,7 +9,7 @@
     "ApparentVA": null,
     "Description": null,
     "ElectricalContext": null,
-    "Id": "97",
+    "Id": "PWRGD_GB1_GPU",
     "LoadPercent": null,
     "Location": {
         "AltitudeMeters": null,
@@ -76,7 +76,6 @@
     "PowerFactor": null,
     "Precision": null,
     "ReactiveVAR": null,
-    "Reading": 0,
     "ReadingRangeMax": null,
     "ReadingRangeMin": null,
     "ReadingType": null,
@@ -86,7 +85,7 @@
     "Status": {
         "Health": null,
         "HealthRollup": null,
-        "State": "Enabled"
+        "State": "Disabled"
     },
     "Thresholds": {
         "LowerCaution": {

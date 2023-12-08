@@ -42,6 +42,12 @@
                     "longDescription": "Indicates the properties related to ManagerServiceInfo",
                     "readonly": true
                 },
+                "NodeManager": {
+                    "$ref": "/redfish/v1/JsonSchemas/NodeManager.v1_0_0.json#/definitions/NodeManager",
+                    "description": "The NodeManager schema contains properties related to monitoring and control of the given power capping node.",
+                    "longDescription": "The NodeManager schema contains properties related to monitoring and control of the given power capping node.",
+                    "readonly": true
+                },
                 "PowerSaveMode": {
                     "$ref": "#/definitions/PowerSaveMode",
                     "description": "The PowerSave mode is used to disable USB-Interfaces - When power save is on USB ifaces will be disabled.",

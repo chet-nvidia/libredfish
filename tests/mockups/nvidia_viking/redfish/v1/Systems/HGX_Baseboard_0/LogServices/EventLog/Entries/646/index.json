@@ -13,6 +13,6 @@
     "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
     "Name": "System Event Log Entry",
     "Resolution": "Controlled by Host BMC or a power cycle of baseboard would re-enable SMBPBI access privilege to HMC",
-    "Resolved": false,
+    "Resolved": true,
     "Severity": "Warning"
 }

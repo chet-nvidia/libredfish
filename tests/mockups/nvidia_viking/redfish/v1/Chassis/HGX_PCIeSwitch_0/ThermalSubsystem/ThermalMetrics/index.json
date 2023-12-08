@@ -9,7 +9,7 @@
             "DataSourceUri": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/Sensors/HGX_PCIeSwitch_0_TEMP_0",
             "DeviceName": "PCIeSwitch_0",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "50.996094"
+            "Reading": "42.996094"
         }
     ]
 }

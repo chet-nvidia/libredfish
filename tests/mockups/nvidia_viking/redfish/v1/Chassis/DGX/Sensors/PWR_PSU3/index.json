@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/PWR_PSU3",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "107",
+    "Id": "PWR_PSU3",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,23 +11,23 @@
     },
     "Name": "PWR_PSU3",
     "PhysicalContext": "VoltageRegulator",
-    "Reading": 260,
+    "Reading": 338,
     "ReadingRangeMax": 3315,
     "ReadingRangeMin": 0,
-    "ReadingType": "Watts",
+    "ReadingType": "Power",
     "Status": {
         "Health": "OK",
         "State": "Enabled"
     },
     "Thresholds": {
-        "LowerCaution": {
-            "Reading": 3315
-        },
         "LowerCritical": {
+            "Reading": 0
+        },
+        "UpperCaution": {
             "Reading": 3315
         },
         "UpperCritical": {
-            "Reading": 0
+            "Reading": 3315
         }
     }
 }

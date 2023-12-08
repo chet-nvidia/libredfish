@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#MemoryDomain.MemoryDomain",
-    "@odata.etag": "\"1672531219\"",
+    "@odata.etag": "\"1700502974\"",
     "@odata.id": "/redfish/v1/Systems/DGX/MemoryDomains/MemoryDomain_SystemMemory_4",
     "@odata.type": "#MemoryDomain.v1_2_3.MemoryDomain",
     "AllowsBlockProvisioning": false,
@@ -12,7 +12,7 @@
         {
             "MemorySet": [
                 {
-                    "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM16"
+                    "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM17"
                 }
             ],
             "MemorySet@odata.count": 1
@@ -28,7 +28,7 @@
         {
             "MemorySet": [
                 {
-                    "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM17"
+                    "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM19"
                 }
             ],
             "MemorySet@odata.count": 1
@@ -36,7 +36,7 @@
         {
             "MemorySet": [
                 {
-                    "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM19"
+                    "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM16"
                 }
             ],
             "MemorySet@odata.count": 1

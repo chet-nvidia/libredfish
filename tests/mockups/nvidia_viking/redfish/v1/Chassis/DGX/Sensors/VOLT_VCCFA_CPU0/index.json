@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/VOLT_VCCFA_CPU0",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "5",
+    "Id": "VOLT_VCCFA_CPU0",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "VOLT_VCCFA_CPU0",
     "PhysicalContext": "VoltageRegulator",
-    "Reading": 1.7901,
+    "Reading": 1.8063,
     "ReadingRangeMax": 2.0655,
     "ReadingRangeMin": 0,
     "ReadingType": "Voltage",

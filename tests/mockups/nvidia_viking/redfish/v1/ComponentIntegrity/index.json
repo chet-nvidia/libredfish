@@ -1,7 +1,16 @@
 {
+    "@odata.context": "/redfish/v1/$metadata#ComponentIntegrityCollection.ComponentIntegrityCollection",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/ComponentIntegrity",
     "@odata.type": "#ComponentIntegrityCollection.ComponentIntegrityCollection",
+    "Description": "The Collection for ComponentIntegrity",
     "Members": [
+        {
+            "@odata.id": "/redfish/v1/ComponentIntegrity/EROT_BIOS_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/ComponentIntegrity/EROT_BMC_0"
+        },
         {
             "@odata.id": "/redfish/v1/ComponentIntegrity/HGX_ERoT_BMC_0"
         },
@@ -48,6 +57,6 @@
             "@odata.id": "/redfish/v1/ComponentIntegrity/HGX_ERoT_PCIeSwitch_0"
         }
     ],
-    "Members@odata.count": 15,
+    "Members@odata.count": 17,
     "Name": "ComponentIntegrity Collection"
 }

@@ -69,70 +69,9 @@
     },
     "SerialNumber": "1652823090925",
     "Status": {
-        "Conditions": [
-            {
-                "LogEntry": {
-                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/676"
-                },
-                "Message": "The resource property GPU_SXM_2 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
-                "MessageArgs": [
-                    "GPU_SXM_2 ThrottleReason",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
-                ],
-                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_2"
-                },
-                "Severity": "Warning",
-                "Timestamp": "2020-02-29T09:34:09+00:00"
-            },
-            {
-                "LogEntry": {
-                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/687"
-                },
-                "Message": "The resource property GPU_SXM_2 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
-                "MessageArgs": [
-                    "GPU_SXM_2 ThrottleReason",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
-                ],
-                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_2"
-                },
-                "Severity": "Warning",
-                "Timestamp": "2020-02-29T10:35:36+00:00"
-            },
-            {
-                "LogEntry": {
-                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/710"
-                },
-                "Message": "The resource property GPU_SXM_2 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
-                "MessageArgs": [
-                    "GPU_SXM_2 ThrottleReason",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
-                ],
-                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_2"
-                },
-                "Severity": "Warning",
-                "Timestamp": "2020-03-07T08:12:37+00:00"
-            }
-        ],
-        "Health": "Critical",
-        "HealthRollup": "Critical",
+        "Conditions": [],
+        "Health": "OK",
+        "HealthRollup": "OK",
         "State": "Enabled"
     },
     "ThermalSubsystem": {

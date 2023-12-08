@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/PWR_INTB_1",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "101",
+    "Id": "PWR_INTB_1",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -14,7 +14,7 @@
     "Reading": 41.82,
     "ReadingRangeMax": 104.14,
     "ReadingRangeMin": 0,
-    "ReadingType": "Watts",
+    "ReadingType": "Power",
     "Status": {
         "Health": "OK",
         "State": "Enabled"

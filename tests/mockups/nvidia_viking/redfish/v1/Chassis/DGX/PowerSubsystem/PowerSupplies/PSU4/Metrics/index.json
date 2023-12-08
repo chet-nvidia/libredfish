@@ -16,6 +16,6 @@
     },
     "TemperatureCelsius": {
         "DataSourceUri": "/redfish/v1/Chassis/DGX/Sensors/TEMP_PSU4",
-        "Reading": 23
+        "Reading": 24
     }
 }

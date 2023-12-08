@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#ChassisCollection.ChassisCollection",
-    "@odata.etag": "\"1698080509\"",
+    "@odata.etag": "\"1700488031\"",
     "@odata.id": "/redfish/v1/Chassis",
     "@odata.type": "#ChassisCollection.ChassisCollection",
     "Description": "The Collection for Chassis",
@@ -10,6 +10,12 @@
         },
         {
             "@odata.id": "/redfish/v1/Chassis/DGX"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/EROT_BIOS_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/EROT_BMC_0"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX"
@@ -141,6 +147,6 @@
             "@odata.id": "/redfish/v1/Chassis/PDB"
         }
     ],
-    "Members@odata.count": 45,
+    "Members@odata.count": 47,
     "Name": "Chassis Collection"
 }

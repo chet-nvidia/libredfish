@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/PWR_MB_VRM_0",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "96",
+    "Id": "PWR_MB_VRM_0",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,10 +11,10 @@
     },
     "Name": "PWR_MB_VRM_0",
     "PhysicalContext": "VoltageRegulator",
-    "Reading": 156,
+    "Reading": 192,
     "ReadingRangeMax": 3060,
     "ReadingRangeMin": 0,
-    "ReadingType": "Watts",
+    "ReadingType": "Power",
     "Status": {
         "Health": "OK",
         "State": "Enabled"

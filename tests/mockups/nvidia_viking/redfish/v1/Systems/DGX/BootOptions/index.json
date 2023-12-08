@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#BootOptionCollection.BootOptionCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Systems/DGX/BootOptions",
     "@odata.type": "#BootOptionCollection.BootOptionCollection",
     "Description": "Collection of BootOption for this system",
@@ -24,9 +24,6 @@
             "@odata.id": "/redfish/v1/Systems/DGX/BootOptions/0012"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/DGX/BootOptions/0014"
-        },
-        {
             "@odata.id": "/redfish/v1/Systems/DGX/BootOptions/0016"
         },
         {
@@ -36,6 +33,6 @@
             "@odata.id": "/redfish/v1/Systems/DGX/BootOptions/0018"
         }
     ],
-    "Members@odata.count": 10,
+    "Members@odata.count": 9,
     "Name": "BootOption Collection"
 }

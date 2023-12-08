@@ -6,6 +6,18 @@
     "Description": "Resource Collection of Sensor instances",
     "Members": [
         {
+            "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_PSU4"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_PSU5"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_STBY_HSC"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_U.2_NVME0"
+        },
+        {
             "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_U.2_NVME1"
         },
         {
@@ -111,6 +123,6 @@
             "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/WATCHDOG2"
         }
     ],
-    "Members@odata.count": 260,
+    "Members@odata.count": 264,
     "Name": "Sensor Collection"
 }

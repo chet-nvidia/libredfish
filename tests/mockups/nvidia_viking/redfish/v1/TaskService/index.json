@@ -1,10 +1,10 @@
 {
     "@odata.context": "/redfish/v1/$metadata#TaskService.TaskService",
-    "@odata.etag": "\"1698080509\"",
+    "@odata.etag": "\"1700505394\"",
     "@odata.id": "/redfish/v1/TaskService",
     "@odata.type": "#TaskService.v1_1_4.TaskService",
     "CompletedTaskOverWritePolicy": "Oldest",
-    "DateTime": "2023-10-24T19:18:21+00:00",
+    "DateTime": "2023-11-20T21:26:21+00:00",
     "Description": "Task Service",
     "Id": "TaskService",
     "LifeCycleEventOnTaskStateChange": true,

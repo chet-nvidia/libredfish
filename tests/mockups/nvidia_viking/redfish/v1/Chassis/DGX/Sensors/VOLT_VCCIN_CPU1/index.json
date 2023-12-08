@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/VOLT_VCCIN_CPU1",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "253",
+    "Id": "VOLT_VCCIN_CPU1",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "VOLT_VCCIN_CPU1",
     "PhysicalContext": "VoltageRegulator",
-    "Reading": 1.8252,
+    "Reading": 1.8174,
     "ReadingRangeMax": 1.989,
     "ReadingRangeMin": 0,
     "ReadingType": "Voltage",

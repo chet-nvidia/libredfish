@@ -1,11 +1,11 @@
 {
     "@odata.context": "/redfish/v1/$metadata#NetworkDeviceFunction.NetworkDeviceFunction",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC0/NetworkDeviceFunctions/NetworkDeviceFunction0/SD",
     "@odata.type": "#NetworkDeviceFunction.v1_5_0.NetworkDeviceFunction",
     "AssignablePhysicalNetworkPorts": [
         {
-            "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC0/Ports/DevTypeE_Slot9_Instance0_PORT0"
+            "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC0/Ports/DevTypeE_SlotF_Instance0_PORT0"
         }
     ],
     "AssignablePhysicalNetworkPorts@odata.count": 1,
@@ -35,10 +35,10 @@
     "Links": {
         "Endpoints@odata.count": 0,
         "PCIeFunction": {
-            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_0B_00/PCIeFunctions/DevType3_SLT9_DevIndex3"
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_0B_00/PCIeFunctions/DevType3_SLTF_DevIndex2"
         },
         "PhysicalNetworkPortAssignment": {
-            "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC0/Ports/DevTypeE_Slot9_Instance0_PORT0"
+            "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC0/Ports/DevTypeE_SlotF_Instance0_PORT0"
         }
     },
     "MaxVirtualFunctions": 64,

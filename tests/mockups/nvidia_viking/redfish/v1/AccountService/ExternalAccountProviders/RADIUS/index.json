@@ -5,7 +5,7 @@
     "@odata.type": "#ExternalAccountProvider.v1_1_2.ExternalAccountProvider",
     "AccountProviderType": "OEM",
     "Description": "RADIUS server settings",
-    "Id": "RADIUS Server",
+    "Id": "RADIUS",
     "Name": "RADIUS Settings",
     "Oem": {
         "Ami": {

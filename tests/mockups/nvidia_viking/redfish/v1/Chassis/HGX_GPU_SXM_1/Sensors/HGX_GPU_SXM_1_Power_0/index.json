@@ -5,7 +5,7 @@
     "MaxAllowableOperatingValue": 1020,
     "Name": "HGX GPU SXM 1 Power 0",
     "PhysicalContext": "GPU",
-    "Reading": 70,
+    "Reading": null,
     "ReadingType": "Power",
     "ReadingUnits": "W",
     "RelatedItem": [

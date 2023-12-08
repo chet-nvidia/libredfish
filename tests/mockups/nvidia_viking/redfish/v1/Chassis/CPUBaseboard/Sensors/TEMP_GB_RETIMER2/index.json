@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_GB_RETIMER2",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "26",
+    "Id": "TEMP_GB_RETIMER2",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 110
-        },
-        "LowerCritical": {
-            "Reading": 113
-        },
-        "LowerFatal": {
-            "Reading": 115
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 110
+        },
+        "UpperCritical": {
+            "Reading": 113
+        },
+        "UpperFatal": {
+            "Reading": 115
         }
     }
 }

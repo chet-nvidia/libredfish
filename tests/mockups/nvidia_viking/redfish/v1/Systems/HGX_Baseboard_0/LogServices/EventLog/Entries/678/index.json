@@ -18,6 +18,6 @@
     "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
     "Name": "System Event Log Entry",
     "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-    "Resolved": false,
+    "Resolved": true,
     "Severity": "Critical"
 }

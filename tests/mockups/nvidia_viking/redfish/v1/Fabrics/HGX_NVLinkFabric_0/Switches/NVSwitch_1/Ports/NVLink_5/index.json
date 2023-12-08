@@ -13,7 +13,7 @@
         ],
         "ConnectedPorts": [
             {
-                "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_2/Ports/NVLink_4"
+                "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_2/Ports/NVLink_6"
             }
         ]
     },

@@ -8,12 +8,12 @@
     "Links": {
         "ConnectedSwitchPorts": [
             {
-                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Switches/NVSwitch_1/Ports/NVLink_3"
+                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Switches/NVSwitch_2/Ports/NVLink_39"
             }
         ],
         "ConnectedSwitches": [
             {
-                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Switches/NVSwitch_1"
+                "@odata.id": "/redfish/v1/Fabrics/HGX_NVLinkFabric_0/Switches/NVSwitch_2"
             }
         ]
     },

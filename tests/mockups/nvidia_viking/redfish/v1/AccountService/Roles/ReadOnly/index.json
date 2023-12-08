@@ -4,8 +4,8 @@
     "@odata.id": "/redfish/v1/AccountService/Roles/ReadOnly",
     "@odata.type": "#Role.v1_3_0.Role",
     "AssignedPrivileges": [
-        "Login",
-        "ConfigureSelf"
+        "ConfigureSelf",
+        "Login"
     ],
     "Description": "ReadOnly User Role",
     "Id": "ReadOnly",

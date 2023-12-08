@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TLIMIT_GB_SXM5",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "72",
+    "Id": "TLIMIT_GB_SXM5",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "TLIMIT_GB_SXM5",
     "PhysicalContext": "Intake",
-    "Reading": 58,
+    "Reading": 56,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",
@@ -19,16 +19,13 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 85
+            "Reading": 0
         },
         "LowerCritical": {
-            "Reading": 88
+            "Reading": -3
         },
         "LowerFatal": {
-            "Reading": 90
-        },
-        "UpperCaution": {
-            "Reading": 5
+            "Reading": -5
         }
     }
 }

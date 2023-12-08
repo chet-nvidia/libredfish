@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/VOLT_3.3V",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "246",
+    "Id": "VOLT_3.3V",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -21,16 +21,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 3.468
-        },
-        "LowerCritical": {
-            "Reading": 3.604
-        },
-        "UpperCaution": {
             "Reading": 3.145
         },
-        "UpperCritical": {
+        "LowerCritical": {
             "Reading": 2.975
+        },
+        "UpperCaution": {
+            "Reading": 3.468
+        },
+        "UpperCritical": {
+            "Reading": 3.604
         }
     }
 }

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#EthernetInterface.EthernetInterface",
-    "@odata.etag": "\"1698080632\"",
+    "@odata.etag": "\"1700508045\"",
     "@odata.id": "/redfish/v1/Systems/DGX/EthernetInterfaces/EthernetInterface2",
     "@odata.type": "#EthernetInterface.v1_6_2.EthernetInterface",
     "DHCPv4": {
@@ -14,6 +14,14 @@
             "SubnetMask": "0.0.0.0"
         }
     ],
+    "IPv6Addresses": [
+        {
+            "Address": "FE80::6EFE:54FF:FE48:2659",
+            "AddressOrigin": "DHCPv6",
+            "PrefixLength": 64
+        }
+    ],
+    "IPv6DefaultGateway": "::",
     "Id": "EthernetInterface2",
     "InterfaceEnabled": false,
     "LinkStatus": "LinkDown",

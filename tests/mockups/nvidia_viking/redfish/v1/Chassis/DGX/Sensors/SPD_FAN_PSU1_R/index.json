@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/SPD_FAN_PSU1_R",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "187",
+    "Id": "SPD_FAN_PSU1_R",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "SPD_FAN_PSU1_R",
     "PhysicalContext": "Fan",
-    "Reading": 4510,
+    "Reading": 4400,
     "ReadingRangeMax": 28050,
     "ReadingRangeMin": 0,
     "ReadingType": "Rotational",
@@ -20,7 +20,7 @@
         "State": "Enabled"
     },
     "Thresholds": {
-        "UpperCritical": {
+        "LowerCritical": {
             "Reading": 2200
         }
     }

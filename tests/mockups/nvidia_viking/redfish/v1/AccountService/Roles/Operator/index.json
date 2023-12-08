@@ -4,9 +4,9 @@
     "@odata.id": "/redfish/v1/AccountService/Roles/Operator",
     "@odata.type": "#Role.v1_3_0.Role",
     "AssignedPrivileges": [
-        "Login",
+        "ConfigureComponents",
         "ConfigureSelf",
-        "ConfigureComponents"
+        "Login"
     ],
     "Description": "Operator User Role",
     "Id": "Operator",

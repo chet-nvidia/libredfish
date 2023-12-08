@@ -12,49 +12,39 @@
             "Links": {
                 "PCIeDevice": [
                     {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00"
-                    },
-                    {
                         "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_01_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_02_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_03_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_04_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_05_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_25_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_28_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_29_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_A6_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_A9_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_AA_00"
                     }
                 ],
-                "PCIeDevice@odata.count": 12
+                "PCIeDevice@odata.count": 1
             },
             "Location": {
                 "PartLocation": {
-                    "LocationOrdinalValue": 0,
+                    "LocationOrdinalValue": 12,
                     "LocationType": "Slot",
                     "ServiceLabel": "M.2 NVMe Drive Slot 0"
+                }
+            },
+            "SlotType": "M2",
+            "Status": {
+                "Health": "OK",
+                "State": "Enabled"
+            }
+        },
+        {
+            "Lanes": 4,
+            "Links": {
+                "PCIeDevice": [
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_02_00"
+                    }
+                ],
+                "PCIeDevice@odata.count": 1
+            },
+            "Location": {
+                "PartLocation": {
+                    "LocationOrdinalValue": 13,
+                    "LocationType": "Slot",
+                    "ServiceLabel": "M.2 NVMe Drive Slot 1"
                 }
             },
             "SlotType": "M2",
@@ -67,48 +57,10 @@
             "Links": {
                 "PCIeDevice": [
                     {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_05_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_82_00"
-                    }
-                ],
-                "PCIeDevice@odata.count": 2
-            },
-            "Status": {
-                "Health": "OK",
-                "State": "Enabled"
-            }
-        },
-        {
-            "Links": {
-                "PCIeDevice": [
-                    {
                         "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_0B_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_BE_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_BF_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_BF_02"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_C0_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_C1_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_C2_00"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_C3_00"
                     }
                 ],
-                "PCIeDevice@odata.count": 8
+                "PCIeDevice@odata.count": 1
             },
             "Status": {
                 "Health": "OK",
@@ -298,6 +250,81 @@
             "Links": {
                 "PCIeDevice": [
                     {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_06_01"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_08_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_25_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_26_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_26_08"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_26_0C"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_26_10"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_27_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_2E_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_31_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_33_00"
+                    }
+                ],
+                "PCIeDevice@odata.count": 11
+            },
+            "Location": {
+                "PartLocation": {
+                    "LocationOrdinalValue": 7,
+                    "LocationType": "Slot",
+                    "ServiceLabel": "NIC 1, Slot 2"
+                }
+            },
+            "Status": {
+                "Health": "OK",
+                "State": "Enabled"
+            }
+        },
+        {
+            "Lanes": 8,
+            "Links": {
+                "PCIeDevice": [
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_82_00"
+                    }
+                ],
+                "PCIeDevice@odata.count": 1
+            },
+            "Location": {
+                "PartLocation": {
+                    "LocationOrdinalValue": 6,
+                    "LocationType": "Slot",
+                    "ServiceLabel": "PCIe Slot 2"
+                }
+            },
+            "PCIeType": "Gen4",
+            "Status": {
+                "Health": "OK",
+                "State": "Enabled"
+            }
+        },
+        {
+            "Lanes": 16,
+            "Links": {
+                "PCIeDevice": [
+                    {
                         "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_98_00"
                     },
                     {
@@ -378,6 +405,46 @@
             "Links": {
                 "PCIeDevice": [
                     {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_BE_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_BF_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_BF_02"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_C0_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_C1_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_C2_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_C3_00"
+                    }
+                ],
+                "PCIeDevice@odata.count": 7
+            },
+            "Location": {
+                "PartLocation": {
+                    "LocationOrdinalValue": 9,
+                    "LocationType": "Slot",
+                    "ServiceLabel": "NIC 2, Slot 2"
+                }
+            },
+            "Status": {
+                "Health": "OK",
+                "State": "Enabled"
+            }
+        },
+        {
+            "Lanes": 16,
+            "Links": {
+                "PCIeDevice": [
+                    {
                         "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_DA_00"
                     },
                     {
@@ -415,48 +482,55 @@
         },
         {
             "Lanes": 4,
-            "Location": {
-                "PartLocation": {
-                    "LocationOrdinalValue": 16,
-                    "LocationType": "Slot",
-                    "ServiceLabel": "NVMe Drive Bay 1"
-                }
+            "Links": {
+                "PCIeDevice": [
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_A6_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_A7_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_A7_08"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_A7_0C"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_A7_10"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_A8_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_AF_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_B2_00"
+                    },
+                    {
+                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_B4_00"
+                    }
+                ],
+                "PCIeDevice@odata.count": 9
             },
-            "Status": {
-                "State": "Absent"
-            }
-        },
-        {
-            "Lanes": 4,
-            "Location": {
-                "PartLocation": {
-                    "LocationOrdinalValue": 20,
-                    "LocationType": "Slot",
-                    "ServiceLabel": "NVMe Drive Bay 2"
-                }
-            },
-            "Status": {
-                "State": "Absent"
-            }
-        },
-        {
-            "Lanes": 4,
-            "Location": {
-                "PartLocation": {
-                    "LocationOrdinalValue": 24,
-                    "LocationType": "Slot",
-                    "ServiceLabel": "NVMe Drive Bay 3"
-                }
-            },
-            "Status": {
-                "State": "Absent"
-            }
-        },
-        {
-            "Lanes": 4,
             "Location": {
                 "PartLocation": {
                     "LocationOrdinalValue": 28,
+                    "LocationType": "Slot",
+                    "ServiceLabel": "NVMe Drive Bay 4"
+                }
+            },
+            "Status": {
+                "Health": "OK",
+                "State": "Enabled"
+            }
+        },
+        {
+            "Lanes": 4,
+            "Location": {
+                "PartLocation": {
+                    "LocationOrdinalValue": 16,
                     "LocationType": "Slot",
                     "ServiceLabel": "NVMe Drive Bay 4"
                 }
@@ -469,7 +543,7 @@
             "Lanes": 4,
             "Location": {
                 "PartLocation": {
-                    "LocationOrdinalValue": 16,
+                    "LocationOrdinalValue": 20,
                     "LocationType": "Slot",
                     "ServiceLabel": "NVMe Drive Bay 5"
                 }
@@ -482,22 +556,9 @@
             "Lanes": 4,
             "Location": {
                 "PartLocation": {
-                    "LocationOrdinalValue": 20,
-                    "LocationType": "Slot",
-                    "ServiceLabel": "NVMe Drive Bay 6"
-                }
-            },
-            "Status": {
-                "State": "Absent"
-            }
-        },
-        {
-            "Lanes": 4,
-            "Location": {
-                "PartLocation": {
                     "LocationOrdinalValue": 24,
                     "LocationType": "Slot",
-                    "ServiceLabel": "NVMe Drive Bay 7"
+                    "ServiceLabel": "NVMe Drive Bay 0"
                 }
             },
             "Status": {
@@ -510,7 +571,72 @@
                 "PartLocation": {
                     "LocationOrdinalValue": 28,
                     "LocationType": "Slot",
-                    "ServiceLabel": "NVMe Drive Bay 8"
+                    "ServiceLabel": "NVMe Drive Bay 1"
+                }
+            },
+            "Status": {
+                "State": "Absent"
+            }
+        },
+        {
+            "Lanes": 4,
+            "Location": {
+                "PartLocation": {
+                    "LocationOrdinalValue": 16,
+                    "LocationType": "Slot",
+                    "ServiceLabel": "NVMe Drive Bay 6"
+                }
+            },
+            "Status": {
+                "State": "Absent"
+            }
+        },
+        {
+            "Lanes": 4,
+            "Location": {
+                "PartLocation": {
+                    "LocationOrdinalValue": 20,
+                    "LocationType": "Slot",
+                    "ServiceLabel": "NVMe Drive Bay 7"
+                }
+            },
+            "Status": {
+                "State": "Absent"
+            }
+        },
+        {
+            "Lanes": 4,
+            "Location": {
+                "PartLocation": {
+                    "LocationOrdinalValue": 24,
+                    "LocationType": "Slot",
+                    "ServiceLabel": "NVMe Drive Bay 2"
+                }
+            },
+            "Status": {
+                "State": "Absent"
+            }
+        },
+        {
+            "Lanes": 4,
+            "Location": {
+                "PartLocation": {
+                    "LocationOrdinalValue": 28,
+                    "LocationType": "Slot",
+                    "ServiceLabel": "NVMe Drive Bay 3"
+                }
+            },
+            "Status": {
+                "State": "Absent"
+            }
+        },
+        {
+            "Lanes": 16,
+            "Location": {
+                "PartLocation": {
+                    "LocationOrdinalValue": 0,
+                    "LocationType": "Slot",
+                    "ServiceLabel": "Mellanox CX7 P1p1 (OSFP1)"
                 }
             },
             "Status": {

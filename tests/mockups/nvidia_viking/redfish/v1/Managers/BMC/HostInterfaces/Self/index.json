@@ -3,9 +3,9 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Managers/BMC/HostInterfaces/Self",
     "@odata.type": "#HostInterface.v1_3_0.HostInterface",
-    "AuthNoneRoleId": "HostInterfaceAdministrator",
     "AuthenticationModes": [
-        "AuthNone"
+        "RedfishSessionAuth",
+        "BasicAuth"
     ],
     "CredentialBootstrapping": {
         "EnableAfterReset": false,

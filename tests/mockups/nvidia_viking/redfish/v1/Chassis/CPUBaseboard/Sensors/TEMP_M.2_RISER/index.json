@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_M.2_RISER",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "62",
+    "Id": "TEMP_M.2_RISER",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 65
-        },
-        "LowerCritical": {
-            "Reading": 68
-        },
-        "LowerFatal": {
-            "Reading": 70
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 65
+        },
+        "UpperCritical": {
+            "Reading": 68
+        },
+        "UpperFatal": {
+            "Reading": 70
         }
     }
 }

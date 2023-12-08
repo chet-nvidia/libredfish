@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/VOLT_5V",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "247",
+    "Id": "VOLT_5V",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -21,16 +21,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 5.2374
-        },
-        "LowerCritical": {
-            "Reading": 5.5212
-        },
-        "UpperCaution": {
             "Reading": 4.7472
         },
-        "UpperCritical": {
+        "LowerCritical": {
             "Reading": 4.4892
+        },
+        "UpperCaution": {
+            "Reading": 5.2374
+        },
+        "UpperCritical": {
+            "Reading": 5.5212
         }
     }
 }

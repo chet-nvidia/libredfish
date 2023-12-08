@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#SimpleStorage.SimpleStorage",
-    "@odata.etag": "\"1698080632\"",
+    "@odata.etag": "\"1700508046\"",
     "@odata.id": "/redfish/v1/Systems/DGX/SimpleStorage/0",
     "@odata.type": "#SimpleStorage.v1_3_0.SimpleStorage",
     "Devices": [

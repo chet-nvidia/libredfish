@@ -100,7 +100,7 @@
         },
         "DownloadFirmwareFailed": {
             "Description": "Indicates that device download firmware image file from Remote Server failed.",
-            "Message": "Devcie download firmware image file from Remote Path - %1 for action %2 failed.",
+            "Message": "Device download firmware image file from Remote Path - %1 for action %2 failed.",
             "NumberOfArgs": 2,
             "ParamTypes": [
                 "string",
@@ -293,6 +293,16 @@
             "Resolution": "Set the new allowable value and resubmit the request.",
             "Severity": "Warning"
         },
+        "OTPProgrammingFailed": {
+            "Description": "Indicates that the Otp programming has failed because %1.",
+            "Message": "Indicates that the Otp programming has failed because %1.",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "Please retry after making nessasary changes to the requests",
+            "Severity": "Warning"
+        },
         "OTPProgrammingSuccess": {
             "Description": "Indicates that the OTP programming has been successfully completed.",
             "Message": "OTP Programming has been successfully completed.",
@@ -300,14 +310,11 @@
             "Resolution": "None",
             "Severity": "Warning"
         },
-        "OtpProvisioningFailed": {
-            "Description": "Indicates that the Otp provisioning has failed becasue %1.",
-            "Message": "Indicates that the Otp provisioning has failed becasue %1.",
-            "NumberOfArgs": 1,
-            "ParamTypes": [
-                "string"
-            ],
-            "Resolution": "Please retry after making nessasary changes to the requests",
+        "OTPVerificationFailed": {
+            "Description": "Indicates that the OTP programming completed but Verification Failed",
+            "Message": "OTP Programming has been completed but verification failed",
+            "NumberOfArgs": 0,
+            "Resolution": "None",
             "Severity": "Warning"
         },
         "PfrFirmwareUpdateFailed": {

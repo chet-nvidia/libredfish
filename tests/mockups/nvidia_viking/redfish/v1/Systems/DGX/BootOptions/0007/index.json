@@ -6,7 +6,7 @@
         }
     },
     "@odata.context": "/redfish/v1/$metadata#BootOption.BootOption",
-    "@odata.etag": "\"1698080632\"",
+    "@odata.etag": "\"1700508045\"",
     "@odata.id": "/redfish/v1/Systems/DGX/BootOptions/0007",
     "@odata.type": "#BootOption.v1_0_3.BootOption",
     "Alias": "Pxe",

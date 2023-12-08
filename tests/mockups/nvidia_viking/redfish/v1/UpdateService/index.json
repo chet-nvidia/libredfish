@@ -1,20 +1,21 @@
 {
     "@odata.context": "/redfish/v1/$metadata#UpdateService.UpdateService",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700494990\"",
     "@odata.id": "/redfish/v1/UpdateService",
-    "@odata.type": "#UpdateService.v1_6_0.UpdateService",
+    "@odata.type": "#UpdateService.v1_11_0.UpdateService",
     "Actions": {
         "#UpdateService.SimpleUpdate": {
             "@Redfish.ActionInfo": "/redfish/v1/UpdateService/SimpleUpdateActionInfo",
             "target": "/redfish/v1/UpdateService/Actions/SimpleUpdate"
         },
-        "#UpdateService.StartUpdate": {
-            "@Redfish.ActionInfo": "/redfish/v1/UpdateService/StartUpdateActionInfo"
-        },
         "Oem": {
-            "#UpdateService.ActivateFirmware": {
-                "@Redfish.ActionInfo": "/redfish/v1/UpdateService/ActivateFirmwareActionInfo",
-                "target": "/redfish/v1/UpdateService/Actions/Oem/UpdateService.ActivateFirmware"
+            "#NvidiaUpdateService.ClearNVRAM": {
+                "@Redfish.ActionInfo": "/redfish/v1/UpdateService/Oem/Nvidia/ClearNVRAMActionInfo",
+                "target": "/redfish/v1/UpdateService/Actions/Oem/NvidiaUpdateService.ClearNVRAM"
+            },
+            "#NvidiaUpdateService.CommitImage": {
+                "@Redfish.ActionInfo": "/redfish/v1/UpdateService/Oem/Nvidia/CommitImageActionInfo",
+                "target": "/redfish/v1/UpdateService/Actions/Oem/NvidiaUpdateService.CommitImage"
             },
             "#UpdateService.UploadCABundle": {
                 "@Redfish.ActionInfo": "/redfish/v1/UpdateService/UploadCABundleActionInfo",
@@ -33,42 +34,27 @@
         }
     },
     "Id": "UpdateService",
-    "MaxImageSizeBytes": 431820800,
+    "MaxImageSizeBytes": 429842432,
     "MultipartHttpPushUri": "/redfish/v1/UpdateService/upload",
     "Name": "Update Service",
     "Oem": {
-        "AMIUpdateService": {
+        "Ami": {
             "@odata.type": "#AMIUpdateService.v1_0_0.AMIUpdateService",
             "FlashPercentage": null,
-            "PreserveConfiguration": {
-                "Authentication": false,
-                "EXTLOG": false,
-                "FRU": false,
-                "IPMI": false,
-                "KVM": false,
-                "NTP": false,
-                "Network": false,
-                "REDFISH": false,
-                "SDR": false,
-                "SEL": false,
-                "SNMP": false,
-                "SSH": false,
-                "Syslog": false,
-                "WEB": false
+            "HttpPushUriOptions": {
+                "ForceUpdateClearConfig": false
             },
             "UpdateStatus": null,
             "UpdateTarget": null
-        },
-        "Ami": {
-            "HttpPushUriOptions": {
-                "ForceUpdateClearConfig": false
-            }
         },
         "BMC": {
             "@odata.type": "#AMIUpdateService.v1_0_0.BMC"
         }
     },
     "ServiceEnabled": true,
+    "SoftwareInventory": {
+        "@odata.id": "/redfish/v1/UpdateService/SoftwareInventory"
+    },
     "Status": {
         "Health": "OK",
         "State": "Enabled"

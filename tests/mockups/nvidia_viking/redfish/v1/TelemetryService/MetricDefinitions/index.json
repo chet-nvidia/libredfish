@@ -5,13 +5,13 @@
     "@odata.type": "#MetricDefinitionCollection.MetricDefinitionCollection",
     "Members": [
         {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/Fan_Reading"
+        },
+        {
             "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/Temperature_Reading"
         },
         {
             "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/Voltage_Reading"
-        },
-        {
-            "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/Fan_Reading"
         }
     ],
     "Members@odata.count": 3,

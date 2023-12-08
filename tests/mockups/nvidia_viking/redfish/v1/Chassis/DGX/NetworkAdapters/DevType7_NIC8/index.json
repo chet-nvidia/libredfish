@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#NetworkAdapter.NetworkAdapter",
-    "@odata.etag": "\"1698080625\"",
+    "@odata.etag": "\"1700508038\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC8",
     "@odata.type": "#NetworkAdapter.v1_5_0.NetworkAdapter",
     "Controllers": [
@@ -9,7 +9,7 @@
                 "NetworkDeviceFunctionCount": 1,
                 "NetworkPortCount": 1
             },
-            "FirmwarePackageVersion": "24.34.10.02",
+            "FirmwarePackageVersion": "nil",
             "Links": {
                 "NetworkDeviceFunctions": [
                     {
@@ -30,33 +30,6 @@
                 ],
                 "Ports@odata.count": 1
             }
-        },
-        {
-            "ControllerCapabilities": {
-                "NetworkDeviceFunctionCount": 1,
-                "NetworkPortCount": 1
-            },
-            "FirmwarePackageVersion": "nil",
-            "Links": {
-                "NetworkDeviceFunctions": [
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC8/NetworkDeviceFunctions/NetworkDeviceFunctionB"
-                    }
-                ],
-                "NetworkDeviceFunctions@odata.count": 1,
-                "PCIeDevices": [
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_AA_00"
-                    }
-                ],
-                "PCIeDevices@odata.count": 1,
-                "Ports": [
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC8/Ports/DevTypeE_Slot0_Instance17_PORT1"
-                    }
-                ],
-                "Ports@odata.count": 1
-            }
         }
     ],
     "Id": "DevType7_NIC8",
@@ -69,6 +42,6 @@
     },
     "Status": {
         "Health": "OK",
-        "State": "Disabled"
+        "State": "Enabled"
     }
 }

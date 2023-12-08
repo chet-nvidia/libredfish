@@ -20,16 +20,10 @@
         "ManagedBy@odata.count": 1
     },
     "Manufacturer": "NVIDIA",
-    "MediaControllers": {
-        "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/MediaControllers"
-    },
     "Model": "DGXH100",
     "Name": "CPUBaseboard",
     "NetworkAdapters": {
         "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/NetworkAdapters"
-    },
-    "PCIeDevices": {
-        "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/PCIeDevices"
     },
     "PartNumber": "965-24387-0002-001",
     "PowerState": null,

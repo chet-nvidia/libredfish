@@ -8,28 +8,28 @@
             "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0/Sensors/HGX_BMC_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_BMC_0/Sensors/HGX_BMC_0_Temp_0",
             "DeviceName": "HGX_BMC_0_Temp_0",
-            "Reading": "24.625000"
+            "Reading": "24.187000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_0_Temp_0",
             "DeviceName": "HSCSensor_0",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "26.937500"
+            "Reading": "27.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_1_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_1_Temp_0",
             "DeviceName": "HSCSensor_1",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "31.062500"
+            "Reading": "32.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_2_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_2_Temp_0",
             "DeviceName": "HSCSensor_2",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "30.750000"
+            "Reading": "32.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_3_Temp_0",
@@ -43,42 +43,42 @@
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_4_Temp_0",
             "DeviceName": "HSCSensor_4",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "27.062500"
+            "Reading": "27.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_5_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_5_Temp_0",
             "DeviceName": "HSCSensor_5",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "31.062500"
+            "Reading": "32.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_6_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_6_Temp_0",
             "DeviceName": "HSCSensor_6",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "30.437500"
+            "Reading": "32.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_7_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_7_Temp_0",
             "DeviceName": "HSCSensor_7",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "28.062500"
+            "Reading": "29.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_8_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_8_Temp_0",
             "DeviceName": "HSCSensor_8",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "28.750000"
+            "Reading": "29.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_9_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_HSC_9_Temp_0",
             "DeviceName": "HSCSensor_9",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "30.062500"
+            "Reading": "31.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_Inlet_0_Temp_0",
@@ -92,28 +92,28 @@
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_Inlet_1_Temp_0",
             "DeviceName": "InletSensor_1",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "31.000000"
+            "Reading": "33.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_PCB_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_PCB_0_Temp_0",
             "DeviceName": "PCBSensor_0",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "33.000000"
+            "Reading": "35.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_PCB_1_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_PCB_1_Temp_0",
             "DeviceName": "PCBSensor_1",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "32.500000"
+            "Reading": "34.500000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_PCB_2_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_PCB_2_Temp_0",
             "DeviceName": "PCBSensor_2",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "29.500000"
+            "Reading": "30.500000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_PCB_3_Temp_0",
@@ -127,224 +127,224 @@
             "DataSourceUri": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_StandbyHSC_0_Temp_0",
             "DeviceName": "StandByHSCSensor_0",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "31.937500"
+            "Reading": "33.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_FPGA_0/Sensors/HGX_FPGA_0_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_FPGA_0/Sensors/HGX_FPGA_0_TEMP_0",
             "DeviceName": "FPGA_0",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "35.996094"
+            "Reading": "30.996094"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_1/Sensors/HGX_GPU_SXM_1_DRAM_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_1/Sensors/HGX_GPU_SXM_1_DRAM_0_Temp_0",
             "DeviceName": "GPU_SXM_1",
             "PhysicalContext": "GPU",
-            "Reading": "33.000000"
+            "Reading": "35.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_1/Sensors/HGX_GPU_SXM_1_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_1/Sensors/HGX_GPU_SXM_1_TEMP_0",
             "DeviceName": "GPU_SXM_1",
             "PhysicalContext": "GPU",
-            "Reading": "26.000000"
+            "Reading": "28.843750"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_1/Sensors/HGX_GPU_SXM_1_TEMP_1",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_1/Sensors/HGX_GPU_SXM_1_TEMP_1",
             "DeviceName": "GPU_SXM_1",
             "PhysicalContext": "GPU",
-            "Reading": "61.000000"
+            "Reading": "58.156250"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_2/Sensors/HGX_GPU_SXM_2_DRAM_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_2/Sensors/HGX_GPU_SXM_2_DRAM_0_Temp_0",
             "DeviceName": "GPU_SXM_2",
             "PhysicalContext": "GPU",
-            "Reading": "38.000000"
+            "Reading": "41.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_2/Sensors/HGX_GPU_SXM_2_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_2/Sensors/HGX_GPU_SXM_2_TEMP_0",
             "DeviceName": "GPU_SXM_2",
             "PhysicalContext": "GPU",
-            "Reading": "31.218750"
+            "Reading": "35.250000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_2/Sensors/HGX_GPU_SXM_2_TEMP_1",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_2/Sensors/HGX_GPU_SXM_2_TEMP_1",
             "DeviceName": "GPU_SXM_2",
             "PhysicalContext": "GPU",
-            "Reading": "55.781250"
+            "Reading": "51.781250"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_3/Sensors/HGX_GPU_SXM_3_DRAM_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_3/Sensors/HGX_GPU_SXM_3_DRAM_0_Temp_0",
             "DeviceName": "GPU_SXM_3",
             "PhysicalContext": "GPU",
-            "Reading": "39.000000"
+            "Reading": "41.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_3/Sensors/HGX_GPU_SXM_3_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_3/Sensors/HGX_GPU_SXM_3_TEMP_0",
             "DeviceName": "GPU_SXM_3",
             "PhysicalContext": "GPU",
-            "Reading": "29.625000"
+            "Reading": "33.718750"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_3/Sensors/HGX_GPU_SXM_3_TEMP_1",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_3/Sensors/HGX_GPU_SXM_3_TEMP_1",
             "DeviceName": "GPU_SXM_3",
             "PhysicalContext": "GPU",
-            "Reading": "56.000000"
+            "Reading": "53.250000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_DRAM_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_DRAM_0_Temp_0",
             "DeviceName": "GPU_SXM_4",
             "PhysicalContext": "GPU",
-            "Reading": "36.000000"
+            "Reading": "39.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_TEMP_0",
             "DeviceName": "GPU_SXM_4",
             "PhysicalContext": "GPU",
-            "Reading": "28.718750"
+            "Reading": "31.718750"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_TEMP_1",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_TEMP_1",
             "DeviceName": "GPU_SXM_4",
             "PhysicalContext": "GPU",
-            "Reading": "58.281250"
+            "Reading": "55.281250"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5/Sensors/HGX_GPU_SXM_5_DRAM_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_5/Sensors/HGX_GPU_SXM_5_DRAM_0_Temp_0",
             "DeviceName": "GPU_SXM_5",
             "PhysicalContext": "GPU",
-            "Reading": "37.000000"
+            "Reading": "38.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5/Sensors/HGX_GPU_SXM_5_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_5/Sensors/HGX_GPU_SXM_5_TEMP_0",
             "DeviceName": "GPU_SXM_5",
             "PhysicalContext": "GPU",
-            "Reading": "28.468750"
+            "Reading": "31.281250"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_5/Sensors/HGX_GPU_SXM_5_TEMP_1",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_5/Sensors/HGX_GPU_SXM_5_TEMP_1",
             "DeviceName": "GPU_SXM_5",
             "PhysicalContext": "GPU",
-            "Reading": "58.531250"
+            "Reading": "55.718750"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_6/Sensors/HGX_GPU_SXM_6_DRAM_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_6/Sensors/HGX_GPU_SXM_6_DRAM_0_Temp_0",
             "DeviceName": "GPU_SXM_6",
             "PhysicalContext": "GPU",
-            "Reading": "38.000000"
+            "Reading": "41.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_6/Sensors/HGX_GPU_SXM_6_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_6/Sensors/HGX_GPU_SXM_6_TEMP_0",
             "DeviceName": "GPU_SXM_6",
             "PhysicalContext": "GPU",
-            "Reading": "29.937500"
+            "Reading": "33.875000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_6/Sensors/HGX_GPU_SXM_6_TEMP_1",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_6/Sensors/HGX_GPU_SXM_6_TEMP_1",
             "DeviceName": "GPU_SXM_6",
             "PhysicalContext": "GPU",
-            "Reading": "57.000000"
+            "Reading": "53.125000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_7/Sensors/HGX_GPU_SXM_7_DRAM_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_7/Sensors/HGX_GPU_SXM_7_DRAM_0_Temp_0",
             "DeviceName": "GPU_SXM_7",
             "PhysicalContext": "GPU",
-            "Reading": "37.000000"
+            "Reading": "40.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_7/Sensors/HGX_GPU_SXM_7_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_7/Sensors/HGX_GPU_SXM_7_TEMP_0",
             "DeviceName": "GPU_SXM_7",
             "PhysicalContext": "GPU",
-            "Reading": "31.468750"
+            "Reading": "35.500000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_7/Sensors/HGX_GPU_SXM_7_TEMP_1",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_7/Sensors/HGX_GPU_SXM_7_TEMP_1",
             "DeviceName": "GPU_SXM_7",
             "PhysicalContext": "GPU",
-            "Reading": "55.531250"
+            "Reading": "51.500000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_DRAM_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_DRAM_0_Temp_0",
             "DeviceName": "GPU_SXM_8",
             "PhysicalContext": "GPU",
-            "Reading": "34.000000"
+            "Reading": "36.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_TEMP_0",
             "DeviceName": "GPU_SXM_8",
             "PhysicalContext": "GPU",
-            "Reading": "26.437500"
+            "Reading": "29.250000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_TEMP_1",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_TEMP_1",
             "DeviceName": "GPU_SXM_8",
             "PhysicalContext": "GPU",
-            "Reading": "60.562500"
+            "Reading": "57.750000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_NVSwitch_0/Sensors/HGX_NVSwitch_0_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_NVSwitch_0/Sensors/HGX_NVSwitch_0_TEMP_0",
             "DeviceName": "NVSwitch_0",
             "PhysicalContext": "GPU",
-            "Reading": "39.468750"
+            "Reading": "42.218750"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_NVSwitch_1/Sensors/HGX_NVSwitch_1_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_NVSwitch_1/Sensors/HGX_NVSwitch_1_TEMP_0",
             "DeviceName": "NVSwitch_1",
             "PhysicalContext": "GPU",
-            "Reading": "39.968750"
+            "Reading": "40.906250"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_NVSwitch_2/Sensors/HGX_NVSwitch_2_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_NVSwitch_2/Sensors/HGX_NVSwitch_2_TEMP_0",
             "DeviceName": "NVSwitch_2",
             "PhysicalContext": "GPU",
-            "Reading": "38.750000"
+            "Reading": "41.312500"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_NVSwitch_3/Sensors/HGX_NVSwitch_3_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_NVSwitch_3/Sensors/HGX_NVSwitch_3_TEMP_0",
             "DeviceName": "NVSwitch_3",
             "PhysicalContext": "GPU",
-            "Reading": "41.437500"
+            "Reading": "43.906250"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_PCIeRetimer_0/Sensors/HGX_PCIeRetimer_0_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_PCIeRetimer_0/Sensors/HGX_PCIeRetimer_0_TEMP_0",
             "DeviceName": "PCIeRetimer_0",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "49.460938"
+            "Reading": "50.101562"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_PCIeRetimer_1/Sensors/HGX_PCIeRetimer_1_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_PCIeRetimer_1/Sensors/HGX_PCIeRetimer_1_TEMP_0",
             "DeviceName": "PCIeRetimer_1",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "46.257812"
+            "Reading": "46.578125"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_PCIeRetimer_2/Sensors/HGX_PCIeRetimer_2_TEMP_0",
@@ -358,42 +358,42 @@
             "DataSourceUri": "/redfish/v1/Chassis/HGX_PCIeRetimer_3/Sensors/HGX_PCIeRetimer_3_TEMP_0",
             "DeviceName": "PCIeRetimer_3",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "51.062500"
+            "Reading": "52.023438"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_PCIeRetimer_4/Sensors/HGX_PCIeRetimer_4_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_PCIeRetimer_4/Sensors/HGX_PCIeRetimer_4_TEMP_0",
             "DeviceName": "PCIeRetimer_4",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "48.179688"
+            "Reading": "48.820312"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_PCIeRetimer_5/Sensors/HGX_PCIeRetimer_5_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_PCIeRetimer_5/Sensors/HGX_PCIeRetimer_5_TEMP_0",
             "DeviceName": "PCIeRetimer_5",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "50.421875"
+            "Reading": "51.062500"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_PCIeRetimer_6/Sensors/HGX_PCIeRetimer_6_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_PCIeRetimer_6/Sensors/HGX_PCIeRetimer_6_TEMP_0",
             "DeviceName": "PCIeRetimer_6",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "51.382812"
+            "Reading": "52.023438"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_PCIeRetimer_7/Sensors/HGX_PCIeRetimer_7_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_PCIeRetimer_7/Sensors/HGX_PCIeRetimer_7_TEMP_0",
             "DeviceName": "PCIeRetimer_7",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "51.382812"
+            "Reading": "51.703125"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/Sensors/HGX_PCIeSwitch_0_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/Sensors/HGX_PCIeSwitch_0_TEMP_0",
             "DeviceName": "PCIeSwitch_0",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "50.996094"
+            "Reading": "42.996094"
         }
     ]
 }

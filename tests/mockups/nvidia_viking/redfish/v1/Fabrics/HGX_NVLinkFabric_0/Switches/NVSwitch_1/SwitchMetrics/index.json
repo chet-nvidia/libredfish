@@ -10,7 +10,7 @@
     },
     "Name": "NVSwitch_1 Metrics",
     "PCIeErrors": {
-        "CorrectableErrorCount": 21,
+        "CorrectableErrorCount": 14,
         "FatalErrorCount": 0,
         "L0ToRecoveryCount": 3,
         "NAKReceivedCount": 0,

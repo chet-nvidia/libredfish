@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/PDB/Sensors/VOLT_VCCIN_CPU1",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "253",
+    "Id": "VOLT_VCCIN_CPU1",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Chassis.Chassis",
-    "@odata.etag": "\"1698080509\"",
+    "@odata.etag": "\"1700488031\"",
     "@odata.id": "/redfish/v1/Chassis/DGX",
     "@odata.type": "#Chassis.v1_15_0.Chassis",
     "Actions": {
@@ -114,7 +114,7 @@
         "@odata.id": "/redfish/v1/Chassis/DGX/LogServices"
     },
     "Manufacturer": "NVIDIA",
-    "MaxPowerWatts": "4",
+    "MaxPowerWatts": 4,
     "Model": "DGXH100",
     "Name": "High Level Chassis",
     "NetworkAdapters": {

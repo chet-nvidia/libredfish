@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/SPD_FAN_SYS7_R",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "172",
+    "Id": "SPD_FAN_SYS7_R",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -20,7 +20,7 @@
         "State": "Enabled"
     },
     "Thresholds": {
-        "UpperCritical": {
+        "LowerCritical": {
             "Reading": 2204
         }
     }

@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/PDB/Sensors/VOLT_PDB_VRM_0",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "92",
+    "Id": "VOLT_PDB_VRM_0",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -21,16 +21,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 13
-        },
-        "LowerCritical": {
-            "Reading": 14
-        },
-        "UpperCaution": {
             "Reading": 11
         },
-        "UpperCritical": {
+        "LowerCritical": {
             "Reading": 10
+        },
+        "UpperCaution": {
+            "Reading": 13
+        },
+        "UpperCritical": {
+            "Reading": 14
         }
     }
 }

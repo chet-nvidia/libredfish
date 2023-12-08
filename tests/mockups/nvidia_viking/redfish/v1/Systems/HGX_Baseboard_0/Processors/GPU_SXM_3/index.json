@@ -18,7 +18,7 @@
     "EnvironmentMetrics": {
         "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_3/EnvironmentMetrics"
     },
-    "FirmwareVersion": "96.00.61.00.01",
+    "FirmwareVersion": "96.00.89.00.01",
     "Id": "GPU_SXM_3",
     "Links": {
         "Chassis": {
@@ -64,7 +64,7 @@
             "MIGModeEnabled": false
         }
     },
-    "OperatingSpeedMHz": 345,
+    "OperatingSpeedMHz": 690,
     "PartNumber": "2330-885-A1",
     "Ports": {
         "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_3/Ports"
@@ -74,70 +74,9 @@
     "SpeedLimitMHz": 65535,
     "SpeedLocked": true,
     "Status": {
-        "Conditions": [
-            {
-                "LogEntry": {
-                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/675"
-                },
-                "Message": "The resource property GPU_SXM_3 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
-                "MessageArgs": [
-                    "GPU_SXM_3 ThrottleReason",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
-                ],
-                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_3"
-                },
-                "Severity": "Warning",
-                "Timestamp": "2020-02-29T09:34:08+00:00"
-            },
-            {
-                "LogEntry": {
-                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/686"
-                },
-                "Message": "The resource property GPU_SXM_3 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
-                "MessageArgs": [
-                    "GPU_SXM_3 ThrottleReason",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
-                ],
-                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_3"
-                },
-                "Severity": "Warning",
-                "Timestamp": "2020-02-29T10:35:31+00:00"
-            },
-            {
-                "LogEntry": {
-                    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/712"
-                },
-                "Message": "The resource property GPU_SXM_3 ThrottleReason has detected errors of type 'xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap'.",
-                "MessageArgs": [
-                    "GPU_SXM_3 ThrottleReason",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SWPowerCap",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWThermalSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.HWPowerBrakeSlowdown",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.SyncBoost",
-                    "xyz.openbmc_project.State.ProcessorPerformance.ThrottleReasons.GPUThermalOvertTreshold"
-                ],
-                "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
-                "OriginOfCondition": {
-                    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_3"
-                },
-                "Severity": "Warning",
-                "Timestamp": "2020-03-07T08:13:23+00:00"
-            }
-        ],
-        "Health": "Critical",
-        "HealthRollup": "Critical",
+        "Conditions": [],
+        "Health": "OK",
+        "HealthRollup": "OK",
         "State": "Enabled"
     },
     "SystemInterface": {

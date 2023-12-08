@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#StorageController.v1_0_0.StorageController",
-    "@odata.etag": "\"1698080632\"",
+    "@odata.etag": "\"1700508046\"",
     "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Controllers/3",
     "@odata.type": "#StorageController.v1_0_0.StorageController",
     "AssetTag": "(NVMe_Controller_3)",
@@ -19,8 +19,8 @@
         "State": "Enabled"
     },
     "SupportedControllerProtocols": [
-        "NVMe",
-        "PCIe"
+        "PCIe",
+        "NVMe"
     ],
     "SupportedDeviceProtocols": [
         "NVMe"

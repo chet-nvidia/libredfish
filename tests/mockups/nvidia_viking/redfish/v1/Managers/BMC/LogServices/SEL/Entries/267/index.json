@@ -1,23 +1,22 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/267",
     "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-    "Created": "2023-10-23T16:59:42+00:00",
-    "Description": "SEL 410",
+    "Created": "2023-11-17T16:59:10+00:00",
+    "Description": "SEL 399",
     "EntryCode": "Assert",
     "EntryType": "SEL",
-    "EventTimestamp": "2023-10-23T16:59:42+00:00",
+    "EventTimestamp": "2023-10-23T17:00:32+00:00",
     "Id": "267",
     "Links": {
         "OriginOfCondition": {
-            "@odata.id": "/redfish/v1/Managers/BMC"
+            "@odata.id": "/redfish/v1/"
         }
     },
-    "Message": "Event_Data_1 : 0, Record_Type : system event record, Sensor_Number : 97, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T16:59:42+00:00, EvM_Rev : IPMI v2.0 Event Messages, Generator_ID : 0x2001, Event_Data_3 : 255, Record_ID : 410, Sensor_Type : Module/Board, ",
-    "MessageId": "0x00FFFF",
-    "Name": "SEL 410",
-    "SensorNumber": 97,
-    "SensorType": "Module/Board",
+    "Message": "Event_Data_1 : 161, Record_Type : system event record, Sensor_Number : 199, Event_Dir : Assertion event, Event_Data_2 : 255, Timestamp : 2023-10-23T17:00:32+00:00, EvM_Rev : IPMI v2.0 Event Messages, Event_Data_3 : 255, Event_Type : OEM Specific, Record_ID : 399, Generator_ID : 0x2101, ",
+    "MessageId": "0xA1FFFF",
+    "Name": "SEL 399",
+    "SensorNumber": 199,
     "Severity": "OK"
 }

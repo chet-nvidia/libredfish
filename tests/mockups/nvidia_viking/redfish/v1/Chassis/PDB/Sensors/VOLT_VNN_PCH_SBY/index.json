@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/PDB/Sensors/VOLT_VNN_PCH_SBY",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "248",
+    "Id": "VOLT_VNN_PCH_SBY",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -21,16 +21,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 1.104
-        },
-        "LowerCritical": {
-            "Reading": 1.1616
-        },
-        "UpperCaution": {
             "Reading": 0.9984
         },
-        "UpperCritical": {
+        "LowerCritical": {
             "Reading": 0.9504
+        },
+        "UpperCaution": {
+            "Reading": 1.104
+        },
+        "UpperCritical": {
+            "Reading": 1.1616
         }
     }
 }

@@ -22,6 +22,6 @@
     "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
     "Name": "System Event Log Entry",
     "Resolution": "No recovery required.",
-    "Resolved": false,
+    "Resolved": true,
     "Severity": "Warning"
 }

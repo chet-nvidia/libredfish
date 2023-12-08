@@ -5,19 +5,19 @@
     "@odata.type": "#InventoryCRC.v1_0_0.InventoryCRC",
     "GroupCrcList": [
         {
-            "PCIE": 1277946058
+            "PCIE": 2546679572
         },
         {
-            "CERTIFICATE": 2126475715
+            "CERTIFICATE": 1589484913
         },
         {
             "CPU": 3008343420
         },
         {
-            "DIMM": 3926697218
+            "DIMM": 3321328024
         },
         {
-            "SECUREBOOT": 3820667747
+            "SECUREBOOT": 3527732126
         }
     ],
     "Id": "InventoryCRC",

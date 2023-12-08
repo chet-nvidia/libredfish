@@ -1,12 +1,12 @@
 {
-    "@odata.type": "#MessageRegistry.v1_5_0.MessageRegistry",
+    "@odata.type": "#MessageRegistry.v1_6_0.MessageRegistry",
     "Description": "This registry defines the update status and error messages.",
     "Id": "Update.1.0.1",
     "Language": "en",
     "Messages": {
         "ActivateFailed": {
             "ArgDescriptions": [
-                "The identfier for the image.",
+                "The identifier for the image.",
                 "The URI or name of the target activating the image."
             ],
             "ArgLongDescriptions": [
@@ -36,7 +36,7 @@
         },
         "ApplyFailed": {
             "ArgDescriptions": [
-                "The identfier for the image.",
+                "The identifier for the image.",
                 "The URI or name of the target applying the image."
             ],
             "ArgLongDescriptions": [
@@ -57,7 +57,7 @@
         },
         "ApplyingOnComponent": {
             "ArgDescriptions": [
-                "The identfier for the image.",
+                "The identifier for the image.",
                 "The URI or name of the target applying the image."
             ],
             "ArgLongDescriptions": [
@@ -78,8 +78,8 @@
         },
         "AwaitToActivate": {
             "ArgDescriptions": [
-                "The identfier for the image.",
-                "The URI or name of the target awating for an action to activate the image."
+                "The identifier for the image.",
+                "The URI or name of the target awaiting for an action to activate the image."
             ],
             "ArgLongDescriptions": [
                 "This argument shall contain the identifier for the image.",
@@ -99,8 +99,8 @@
         },
         "AwaitToUpdate": {
             "ArgDescriptions": [
-                "The identfier for the image.",
-                "The URI or name of the target awating for an action to install the image."
+                "The identifier for the image.",
+                "The URI or name of the target awaiting for an action to install the image."
             ],
             "ArgLongDescriptions": [
                 "This argument shall contain the identifier for the image.",
@@ -120,7 +120,7 @@
         },
         "InstallingOnComponent": {
             "ArgDescriptions": [
-                "The identfier for the image.",
+                "The identifier for the image.",
                 "The URI or name of the target installing the image."
             ],
             "ArgLongDescriptions": [
@@ -160,7 +160,7 @@
         "TargetDetermined": {
             "ArgDescriptions": [
                 "The URI or name of the target that will be updated.",
-                "The identfier for the image."
+                "The identifier for the image."
             ],
             "ArgLongDescriptions": [
                 "This argument shall contain the URI of the resource or a unique name of the device that will be updated.",
@@ -180,7 +180,7 @@
         },
         "TransferFailed": {
             "ArgDescriptions": [
-                "The identfier for the image.",
+                "The identifier for the image.",
                 "The URI or name of the target receiving the image."
             ],
             "ArgLongDescriptions": [
@@ -201,7 +201,7 @@
         },
         "TransferringToComponent": {
             "ArgDescriptions": [
-                "The identfier for the image.",
+                "The identifier for the image.",
                 "The URI or name of the target receiving the image."
             ],
             "ArgLongDescriptions": [
@@ -232,7 +232,7 @@
         "UpdateSuccessful": {
             "ArgDescriptions": [
                 "The URI or name of the device that was updated.",
-                "The identfier for the image."
+                "The identifier for the image."
             ],
             "ArgLongDescriptions": [
                 "This argument shall contain the URI of the resource or a unique name of the device that was updated.",
@@ -252,7 +252,7 @@
         },
         "VerificationFailed": {
             "ArgDescriptions": [
-                "The identfier for the image.",
+                "The identifier for the image.",
                 "The URI or name of the target verifying the image."
             ],
             "ArgLongDescriptions": [
@@ -273,7 +273,7 @@
         },
         "VerifyingAtComponent": {
             "ArgDescriptions": [
-                "The identfier for the image.",
+                "The identifier for the image.",
                 "The URI or name of the target verifying the image."
             ],
             "ArgLongDescriptions": [

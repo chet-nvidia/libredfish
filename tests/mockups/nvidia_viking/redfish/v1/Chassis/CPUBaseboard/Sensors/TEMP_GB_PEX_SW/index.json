@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_GB_PEX_SW",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "4",
+    "Id": "TEMP_GB_PEX_SW",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "TEMP_GB_PEX_SW",
     "PhysicalContext": "Intake",
-    "Reading": 50,
+    "Reading": 41,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 115
-        },
-        "LowerCritical": {
-            "Reading": 118
-        },
-        "LowerFatal": {
-            "Reading": 120
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 115
+        },
+        "UpperCritical": {
+            "Reading": 118
+        },
+        "UpperFatal": {
+            "Reading": 120
         }
     }
 }

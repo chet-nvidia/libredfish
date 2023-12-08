@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/VOLT_12V",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "244",
+    "Id": "VOLT_12V",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -21,16 +21,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 12.586
-        },
-        "LowerCritical": {
-            "Reading": 13.206
-        },
-        "UpperCaution": {
             "Reading": 11.408
         },
-        "UpperCritical": {
+        "LowerCritical": {
             "Reading": 10.788
+        },
+        "UpperCaution": {
+            "Reading": 12.586
+        },
+        "UpperCritical": {
+            "Reading": 13.206
         }
     }
 }

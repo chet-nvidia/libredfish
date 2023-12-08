@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Manager.Manager",
-    "@odata.etag": "\"1698080553\"",
+    "@odata.etag": "\"1700509347\"",
     "@odata.id": "/redfish/v1/Managers/BMC",
     "@odata.type": "#Manager.v1_14_0.Manager",
     "Actions": {
@@ -50,6 +50,10 @@
             "#AMIVirtualMedia.EnableRMedia": {
                 "@Redfish.ActionInfo": "/redfish/v1/Managers/BMC/Oem/EnableRMediaActionInfo",
                 "target": "/redfish/v1/Managers/BMC/Actions/Oem/AMIVirtualMedia.EnableRMedia"
+            },
+            "#NVidiaManager.SetLogLevel": {
+                "@Redfish.ActionInfo": "/redfish/v1/Managers/BMC/Oem/NVidiaSetLogLevelActionInfo",
+                "target": "/redfish/v1/Managers/BMC/Actions/Oem/NVidiaManager.SetLogLevel"
             }
         }
     },
@@ -61,13 +65,13 @@
         "MaxConcurrentSessions": 36,
         "ServiceEnabled": true
     },
-    "DateTime": "2023-10-24T18:53:05+00:00",
+    "DateTime": "2023-11-20T19:55:59+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "BMC",
     "EthernetInterfaces": {
         "@odata.id": "/redfish/v1/Managers/BMC/EthernetInterfaces"
     },
-    "FirmwareVersion": "23.06.2004287508",
+    "FirmwareVersion": "23.11.20",
     "GraphicalConsole": {
         "ConnectTypesSupported": [
             "KVMIP"

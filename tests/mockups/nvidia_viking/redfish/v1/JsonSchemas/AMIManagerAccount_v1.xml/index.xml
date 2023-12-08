@@ -44,14 +44,14 @@
     </Schema>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="AMIManagerAccount.v1_0_0">
       <Annotation Term="Redfish.OwningEntity" String="AMI"/>
-      <EntityType Name="AMIManagerAccount" BaseType="AMIManagerAccount.AMIManagerAccount">
+      <ComplexType Name="AMIManagerAccount" BaseType="AMIManagerAccount.AMIManagerAccount">
         <Annotation Term="OData.Description" String="This is the schema definition for the AMIManagerAccount."/>
         <Property Name="SNMP" Type="AMIManagerAccount.v1_0_0.SNMP" Nullable="false">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="Indicates the properties related to SNMP"/>
           <Annotation Term="OData.LongDescription" String="Indicates the properties related to SNMP"/>
         </Property>       
-      </EntityType>
+      </ComplexType>
       <ComplexType Name="SNMP" Abstract="true">
 		<Property Name="AuthenticationProtocol" Type="AMIManagerAccount.v1_0_0.AuthenticationProtocol" Nullable="false">
 		<Annotation Term="OData.Description" String="AuthenticationProtocol for the SNMP."/>

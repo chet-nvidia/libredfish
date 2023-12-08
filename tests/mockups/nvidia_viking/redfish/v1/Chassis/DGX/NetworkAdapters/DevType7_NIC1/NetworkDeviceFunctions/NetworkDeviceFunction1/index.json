@@ -6,7 +6,7 @@
         }
     },
     "@odata.context": "/redfish/v1/$metadata#NetworkDeviceFunction.NetworkDeviceFunction",
-    "@odata.etag": "\"1698080625\"",
+    "@odata.etag": "\"1700508038\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC1/NetworkDeviceFunctions/NetworkDeviceFunction1",
     "@odata.type": "#NetworkDeviceFunction.v1_5_0.NetworkDeviceFunction",
     "AssignablePhysicalNetworkPorts": [
@@ -41,7 +41,7 @@
     "Links": {
         "Endpoints@odata.count": 0,
         "PCIeFunction": {
-            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_82_00/PCIeFunctions/DevType3_SL05_DevIndex9"
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_82_00/PCIeFunctions/DevType3_SL06_DevIndex8"
         },
         "PhysicalNetworkPortAssignment": {
             "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC1/Ports/DevTypeE_Slot6_Instance1_PORT0"

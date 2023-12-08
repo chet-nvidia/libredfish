@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeDevice.PCIeDevice",
-    "@odata.etag": "\"1698080627\"",
+    "@odata.etag": "\"1700508039\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_0A",
     "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
     "AssetTag": "PCIE PCH Root Port #3",

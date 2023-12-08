@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeFunction.PCIeFunction",
-    "@odata.etag": "\"1698080627\"",
+    "@odata.etag": "\"1700508039\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_00/PCIeFunctions/DevType3_SLT0_DevIndex18",
     "@odata.type": "#PCIeFunction.v1_2_3.PCIeFunction",
     "FunctionId": 0,

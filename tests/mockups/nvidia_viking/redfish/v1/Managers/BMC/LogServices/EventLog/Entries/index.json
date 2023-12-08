@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntryCollection.LogEntryCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700505418\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/EventLog/Entries",
     "@odata.type": "#LogEntryCollection.LogEntryCollection",
     "Description": "Collection of entries for this log service",

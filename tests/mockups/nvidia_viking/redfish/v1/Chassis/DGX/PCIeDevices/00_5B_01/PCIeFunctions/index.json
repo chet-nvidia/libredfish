@@ -1,12 +1,12 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeFunctionCollection.PCIeFunctionCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_5B_01/PCIeFunctions",
     "@odata.type": "#PCIeFunctionCollection.PCIeFunctionCollection",
     "Description": "The Collection of PCIeFunctions",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_5B_01/PCIeFunctions/DevType3_BRPA_DevIndex5C"
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_5B_01/PCIeFunctions/DevType3_BRPA_DevIndex5D"
         }
     ],
     "Members@odata.count": 1,

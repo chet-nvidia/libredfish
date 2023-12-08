@@ -29,9 +29,15 @@
             "HealthRollup": "OK",
             "State": "Enabled"
         },
-        "TotalSystemMemoryGiB": 640
+        "TotalSystemMemoryGiB": 632
     },
     "Name": "HGX_Baseboard_0",
+    "Oem": {
+        "Nvidia": {
+            "@odata.type": "#NvidiaComputerSystem.v1_0_0.NvidiaComputerSystem",
+            "ISTModeEnabled": false
+        }
+    },
     "PowerState": "On",
     "ProcessorSummary": {
         "Status": {

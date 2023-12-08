@@ -1,9 +1,12 @@
 {
     "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/EnvironmentMetrics",
-    "@odata.type": "#EnvironmentMetrics.v1_2_0.EnvironmentMetrics",
+    "@odata.type": "#EnvironmentMetrics.v1_3_0.EnvironmentMetrics",
     "Actions": {
         "Oem": {
             "Nvidia": {
+                "#NvidiaEnvironmentMetrics.ClearOOBSetPoint": {
+                    "target": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/EnvironmentMetrics/Actions/Oem/NvidiaEnvironmentMetrics.ClearOOBSetPoint"
+                },
                 "#NvidiaEnvironmentMetrics.ResetEDPp": {
                     "target": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/EnvironmentMetrics/Actions/Oem/NvidiaEnvironmentMetrics.ResetEDPp"
                 }
@@ -12,10 +15,10 @@
     },
     "EnergyJoules": {
         "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_5/Sensors/HGX_GPU_SXM_5_Energy_0",
-        "Reading": 6451949.195
+        "Reading": null
     },
     "EnergykWh": {
-        "Reading": 1.792208111156
+        "Reading": null
     },
     "Id": "Environment Metrics",
     "Name": "GPU_SXM_5 Environment Metrics",
@@ -26,7 +29,7 @@
                 "AllowableMax": 100,
                 "AllowableMin": 60,
                 "Persistency": null,
-                "SetPoint": 100
+                "SetPoint": 127
             }
         }
     },
@@ -34,15 +37,16 @@
         "AllowableMax": 700,
         "AllowableMin": 200,
         "ControlMode": "Automatic",
-        "Reading": 69,
-        "SetPoint": 4294967295
+        "DefaultSetPoint": 700,
+        "Reading": null,
+        "SetPoint": 700
     },
     "PowerWatts": {
         "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_5/Sensors/HGX_GPU_SXM_5_Power_0",
-        "Reading": 69
+        "Reading": null
     },
     "TemperatureCelsius": {
         "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_5/Sensors/HGX_GPU_SXM_5_TEMP_1",
-        "Reading": 58.40625
+        "Reading": 55.65625
     }
 }

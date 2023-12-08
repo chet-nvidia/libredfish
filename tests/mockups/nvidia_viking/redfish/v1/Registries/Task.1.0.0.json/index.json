@@ -15,7 +15,7 @@
             "Severity": "OK"
         },
         "Completed": {
-            "Description": "The operation is complete and completed sucessfully or with warnings.",
+            "Description": "The operation is complete and completed successfully or with warnings.",
             "Message": "Task %1 has completed.",
             "NumberOfArgs": 1,
             "ParamTypes": [

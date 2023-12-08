@@ -17,6 +17,11 @@
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/ManagerNetworkProtocol_v1.xml">
     <edmx:Include Namespace="ManagerNetworkProtocol"/>
   </edmx:Reference>
+
+  <edmx:Reference Uri="/redfish/v1/JsonSchemas/NodeManager_v1.xml">
+     <edmx:Include Namespace="NodeManager"/>
+     <edmx:Include Namespace="NodeManager.v1_0_0"/>
+  </edmx:Reference>
   <edmx:Reference Uri="/redfish/v1/JsonSchemas/AMIPreserveConfigurations_v1.xml">
     <edmx:Include Namespace="AMIPreserveConfigurations"/>
   </edmx:Reference>
@@ -84,7 +89,14 @@
             <Property Name="Actions" Type="AMIManager.v1_0_0.Actions" Nullable="false">
               <Annotation Term="OData.Description" String="The available actions for this Resource."/>
               <Annotation Term="OData.LongDescription" String="The actions property shall contain the available actions for this Resource."/>
-            </Property>
+	  </Property>
+	              <NavigationProperty Name="NodeManager" Type="NodeManager.NodeManager" Nullable="false">
+			        <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+				<Annotation Term="OData.Description" String="The NodeManager schema contains properties related to monitoring and control of the given power capping node."/>
+				<Annotation Term="OData.LongDescription" String="The NodeManager schema contains properties related to monitoring and control of the given power capping node."/>
+				<Annotation Term="OData.AutoExpandReferences"/>
+			</NavigationProperty>
+
 			<NavigationProperty Name="PreserveConfigurations" Type="AMIPreserveConfigurations.AMIPreserveConfigurations" ContainsTarget="true" Nullable="false">
 				<Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
 				<Annotation Term="OData.Description" String="The link to the PreserveConfigurations Oem URI."/>

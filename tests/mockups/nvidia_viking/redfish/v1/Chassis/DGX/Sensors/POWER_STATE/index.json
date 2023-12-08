@@ -9,7 +9,7 @@
     "ApparentVA": null,
     "Description": null,
     "ElectricalContext": null,
-    "Id": "222",
+    "Id": "POWER_STATE",
     "LoadPercent": null,
     "Location": {
         "AltitudeMeters": null,

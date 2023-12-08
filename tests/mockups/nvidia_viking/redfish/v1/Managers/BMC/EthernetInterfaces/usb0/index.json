@@ -11,7 +11,7 @@
     ],
     "Id": "usb0",
     "InterfaceEnabled": true,
-    "MACAddress": "EE:E3:9D:7C:0F:28",
+    "MACAddress": "6A:B9:F5:CB:02:B0",
     "Name": "usb0",
     "StatelessAddressAutoConfig": {
         "IPv4AutoConfigEnabled": false,

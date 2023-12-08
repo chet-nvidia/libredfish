@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#ManagerNetworkProtocol.ManagerNetworkProtocol",
-    "@odata.etag": "\"1698080553\"",
+    "@odata.etag": "\"1700509347\"",
     "@odata.id": "/redfish/v1/Managers/BMC/NetworkProtocol",
     "@odata.type": "#ManagerNetworkProtocol.v1_6_0.ManagerNetworkProtocol",
     "Description": "Network Protocol Details",

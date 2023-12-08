@@ -1,17 +1,10 @@
 {
     "@odata.context": "/redfish/v1/$metadata#VolumeCollection.VolumeCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Volumes",
     "@odata.type": "#VolumeCollection.VolumeCollection",
     "Description": "The Collection for Volumes",
-    "Members": [
-        {
-            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Volumes/VOL0"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Volumes/VOL1"
-        }
-    ],
-    "Members@odata.count": 2,
+    "Members": [],
+    "Members@odata.count": 0,
     "Name": "Volume Collection"
 }

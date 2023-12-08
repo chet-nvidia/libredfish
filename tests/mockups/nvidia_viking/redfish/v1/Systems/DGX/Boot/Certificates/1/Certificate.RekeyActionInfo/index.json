@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#ActionInfo.ActionInfo",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Systems/DGX/Boot/Certificates/1/Certificate.RekeyActionInfo",
     "@odata.type": "#ActionInfo.v1_1_2.ActionInfo",
     "Description": "This action generates a new key-pair for a certificate and produces a certificate signing request.",

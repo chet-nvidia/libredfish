@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_GB_PCB2",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "34",
+    "Id": "TEMP_GB_PCB2",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "TEMP_GB_PCB2",
     "PhysicalContext": "Intake",
-    "Reading": 32,
+    "Reading": 33,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 80
-        },
-        "LowerCritical": {
-            "Reading": 83
-        },
-        "LowerFatal": {
-            "Reading": 85
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 80
+        },
+        "UpperCritical": {
+            "Reading": 83
+        },
+        "UpperFatal": {
+            "Reading": 85
         }
     }
 }

@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_PDB1",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "54",
+    "Id": "TEMP_PDB1",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "TEMP_PDB1",
     "PhysicalContext": "Intake",
-    "Reading": 25,
+    "Reading": 24,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 60
-        },
-        "LowerCritical": {
-            "Reading": 63
-        },
-        "LowerFatal": {
-            "Reading": 65
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 60
+        },
+        "UpperCritical": {
+            "Reading": 63
+        },
+        "UpperFatal": {
+            "Reading": 65
         }
     }
 }

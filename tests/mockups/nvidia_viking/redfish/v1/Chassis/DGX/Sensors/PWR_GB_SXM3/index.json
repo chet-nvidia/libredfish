@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/PWR_GB_SXM3",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "50",
+    "Id": "PWR_GB_SXM3",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,19 +11,17 @@
     },
     "Name": "PWR_GB_SXM3",
     "PhysicalContext": "VoltageRegulator",
-    "Reading": 68,
     "ReadingRangeMax": 1020,
     "ReadingRangeMin": 0,
-    "ReadingType": "Watts",
+    "ReadingType": "Power",
     "Status": {
-        "Health": "OK",
-        "State": "Enabled"
+        "State": "Absent"
     },
     "Thresholds": {
-        "LowerCaution": {
+        "UpperCaution": {
             "Reading": 1020
         },
-        "LowerCritical": {
+        "UpperCritical": {
             "Reading": 1020
         }
     }

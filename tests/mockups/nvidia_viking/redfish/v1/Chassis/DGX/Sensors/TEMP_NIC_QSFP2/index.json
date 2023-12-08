@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_NIC_QSFP2",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "137",
+    "Id": "TEMP_NIC_QSFP2",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -17,16 +17,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 70
-        },
-        "LowerCritical": {
-            "Reading": 73
-        },
-        "LowerFatal": {
-            "Reading": 75
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 70
+        },
+        "UpperCritical": {
+            "Reading": 73
+        },
+        "UpperFatal": {
+            "Reading": 75
         }
     }
 }

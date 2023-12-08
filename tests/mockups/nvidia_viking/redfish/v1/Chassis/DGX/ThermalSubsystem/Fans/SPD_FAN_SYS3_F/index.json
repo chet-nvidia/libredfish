@@ -8,8 +8,8 @@
     "PhysicalContext": "Fan",
     "SpeedPercent": {
         "DataSourceUri": "/redfish/v1/Chassis/DGX/Sensors/SPD_FAN_SYS3_F",
-        "Reading": 4408,
-        "SpeedRPM": 4408
+        "Reading": 4350,
+        "SpeedRPM": 4350
     },
     "Status": {
         "Health": "OK",

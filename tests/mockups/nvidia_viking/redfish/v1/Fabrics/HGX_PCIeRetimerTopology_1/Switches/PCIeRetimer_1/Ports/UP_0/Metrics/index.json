@@ -11,7 +11,7 @@
     "PCIeErrors": {
         "CorrectableErrorCount": 0,
         "FatalErrorCount": 0,
-        "L0ToRecoveryCount": 36,
+        "L0ToRecoveryCount": 60,
         "NAKReceivedCount": 0,
         "NAKSentCount": 0,
         "NonFatalErrorCount": 0,

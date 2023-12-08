@@ -10,7 +10,7 @@
             "ResetType@Redfish.AllowableValues": [
                 "ResetAll"
             ],
-            "target": "/redfish/v1/Managers/bmc/Actions/Manager.ResetToDefaults"
+            "target": "/redfish/v1/Managers/HGX_BMC_0/Actions/Manager.ResetToDefaults"
         },
         "Oem": {
             "#NvidiaManager.ResetToDefaults": {
@@ -28,15 +28,15 @@
             }
         }
     },
-    "DateTime": "2020-03-08T10:10:35+00:00",
+    "DateTime": "2020-04-04T11:38:01+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "Baseboard Management Controller",
     "EthernetInterfaces": {
         "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/EthernetInterfaces"
     },
-    "FirmwareVersion": "HGX-22.10-1-rc34",
+    "FirmwareVersion": "HGX-22.10-1-rc57",
     "Id": "bmc",
-    "LastResetTime": "2020-03-07T08:05:13+00:00",
+    "LastResetTime": "2020-04-04T10:46:43+00:00",
     "Links": {
         "ActiveSoftwareImage": {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0"
@@ -75,7 +75,7 @@
     },
     "Oem": {
         "Nvidia": {
-            "@odata.type": "#NvidiaManager.v1_0_0.NvidiaManager",
+            "@odata.type": "#NvidiaManager.v1_1_0.NvidiaManager",
             "AuthenticationTLSRequired": false,
             "FirmwareBuildType": "PlatformProduction",
             "OTPProvisioned": true,

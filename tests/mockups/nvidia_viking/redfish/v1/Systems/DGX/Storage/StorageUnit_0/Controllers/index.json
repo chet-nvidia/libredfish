@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#StorageControllerCollection.StorageControllerCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Controllers",
     "@odata.type": "#StorageControllerCollection.StorageControllerCollection",
     "Description": "Collection of storage controllers",

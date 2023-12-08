@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_CPU1_MNOP",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "199",
+    "Id": "TEMP_CPU1_MNOP",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,24 +11,22 @@
     },
     "Name": "TEMP_CPU1_MNOP",
     "PhysicalContext": "Intake",
-    "Reading": 35,
     "ReadingType": "Temperature",
     "Status": {
-        "Health": "OK",
-        "State": "Enabled"
+        "State": "Absent"
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 85
-        },
-        "LowerCritical": {
-            "Reading": 88
-        },
-        "LowerFatal": {
-            "Reading": 90
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 85
+        },
+        "UpperCritical": {
+            "Reading": 88
+        },
+        "UpperFatal": {
+            "Reading": 90
         }
     }
 }

@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_NM_0_CX7_3",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "238",
+    "Id": "TEMP_NM_0_CX7_3",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "TEMP_NM_0_CX7_3",
     "PhysicalContext": "Intake",
-    "Reading": 38,
+    "Reading": 37,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 105
-        },
-        "LowerCritical": {
-            "Reading": 108
-        },
-        "LowerFatal": {
-            "Reading": 110
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 105
+        },
+        "UpperCritical": {
+            "Reading": 108
+        },
+        "UpperFatal": {
+            "Reading": 110
         }
     }
 }

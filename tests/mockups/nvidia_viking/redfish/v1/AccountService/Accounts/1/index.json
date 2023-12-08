@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#ManagerAccount.ManagerAccount",
-    "@odata.etag": "\"1698080446\"",
+    "@odata.etag": "\"1700240365\"",
     "@odata.id": "/redfish/v1/AccountService/Accounts/1",
     "@odata.type": "#ManagerAccount.v1_5_0.ManagerAccount",
     "AccountTypes": [
@@ -10,7 +10,7 @@
         "@odata.id": "/redfish/v1/AccountService/Accounts/1/Certificates"
     },
     "Description": "User Account sync from IPMI",
-    "Enabled": true,
+    "Enabled": false,
     "Id": "1",
     "Links": {
         "Role": {

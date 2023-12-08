@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogService.LogService",
-    "@odata.etag": "\"1698080509\"",
+    "@odata.etag": "\"1700488031\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/EventLog",
     "@odata.type": "#LogService.v1_2_0.LogService",
     "Actions": {
@@ -8,7 +8,7 @@
             "target": "/redfish/v1/Managers/BMC/LogServices/EventLog/Actions/LogService.ClearLog"
         }
     },
-    "DateTime": "2023-10-24T18:57:34+00:00",
+    "DateTime": "2023-11-20T21:01:04+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "Event log for this manager",
     "Entries": {
@@ -18,15 +18,6 @@
     "LogEntryType": "Event",
     "MaxNumberOfRecords": 150,
     "Name": "Event Log",
-    "Oem": {
-        "Ami": {
-            "@odata.type": "#AMILogService.1.0.0.AMILogService",
-            "IPMISELPolicy@Redfish.AllowableValues": [
-                "Circular",
-                "Linear"
-            ]
-        }
-    },
     "OverWritePolicy": "WrapsWhenFull",
     "ServiceEnabled": true,
     "Status": {

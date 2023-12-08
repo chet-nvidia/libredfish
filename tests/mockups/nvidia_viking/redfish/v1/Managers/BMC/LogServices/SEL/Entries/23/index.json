@@ -1,9 +1,9 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL/Entries/23",
     "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-    "Created": "2023-10-23T17:00:32+00:00",
+    "Created": "2023-11-17T16:59:09+00:00",
     "Description": "SEL 53",
     "EntryCode": "Assert",
     "EntryType": "SEL",

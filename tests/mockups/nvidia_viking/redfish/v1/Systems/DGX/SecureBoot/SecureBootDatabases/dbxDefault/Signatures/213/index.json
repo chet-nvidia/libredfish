@@ -1,11 +1,11 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Signature.Signature",
-    "@odata.etag": "\"1672531225\"",
+    "@odata.etag": "\"1700496325\"",
     "@odata.id": "/redfish/v1/Systems/DGX/SecureBoot/SecureBootDatabases/dbxDefault/Signatures/213",
     "@odata.type": "#Signature.v1_0_1.Signature",
     "Id": "213",
     "Name": "SHA256 Signature",
-    "SignatureString": "1E918F170A796B4B0B1400BB9BDAE75BE1CF86705C2D0FC8FB9DD0C5016B933B",
+    "SignatureString": "E9D873CBCEDE3634E0A4B3644B51E1C8A0A048272992C738513EBC96CD3E3360",
     "SignatureType": "EFI_CERT_SHA256_GUID",
     "SignatureTypeRegistry": "UEFI",
     "UefiSignatureOwner": "77FA9ABD-0359-4D32-BD60-28F4E78F784B"

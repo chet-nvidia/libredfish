@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Certificate.Certificate",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Systems/DGX/Boot/Certificates/1",
     "@odata.type": "#Certificate.v1_2_1.Certificate",
     "Actions": {
@@ -13,7 +13,7 @@
             "target": "/redfish/v1/Systems/DGX/Boot/Certificates/1/Actions/Certificate.Renew"
         }
     },
-    "CertificateString": null,
+    "CertificateString": "-----BEGIN CERTIFICATE-----\nMIIEWTCCA0GgAwIBAgIUD+0AYoZ4Hz1X4IzP6dMcfIM4fewwDQYJKoZIhvcNAQEL\nBQAwgbsxCzAJBgNVBAYTAlVTMRAwDgYDVQQIDAdHZW9yZ2lhMREwDwYDVQQHDAhO\nb3Jjcm9zczE0MDIGA1UECgwrQW1lcmljYW4gTWVnYXRyZW5kcyBJbnRlcm5hdGlv\nbmFsIExMQyAoQU1JKTEbMBkGA1UECwwSU2VydmljZSBQcm9jZXNzb3JzMRQwEgYD\nVQQDDAttZWdhcmFjLmNvbTEeMBwGCSqGSIb3DQEJARYPc3VwcG9ydEBhbWkuY29t\nMB4XDTAwMDEwMTAwMDAzOFoXDTA5MTIyOTAwMDAzOFowgbsxCzAJBgNVBAYTAlVT\nMRAwDgYDVQQIDAdHZW9yZ2lhMREwDwYDVQQHDAhOb3Jjcm9zczE0MDIGA1UECgwr\nQW1lcmljYW4gTWVnYXRyZW5kcyBJbnRlcm5hdGlvbmFsIExMQyAoQU1JKTEbMBkG\nA1UECwwSU2VydmljZSBQcm9jZXNzb3JzMRQwEgYDVQQDDAttZWdhcmFjLmNvbTEe\nMBwGCSqGSIb3DQEJARYPc3VwcG9ydEBhbWkuY29tMIIBIjANBgkqhkiG9w0BAQEF\nAAOCAQ8AMIIBCgKCAQEA+OFjtEFTmQsYHfIdl+IST1mb28mF7/WZFmVZNPvuDyLL\nl6jYv0GIixy2lObZyUwYFHAWAKM7JmqSV1TYy7bN4AtLfUGS/HXb846Wgb8yS9XF\nzT0ys1bARTRDYDOMa7tf5sQpIBABjMVkhZJh/iGdp0S3OHneuR2T2YpinXTVh+cC\npn7OD0zFe7OXxMwQaHuJ6ZO3CjOwtMeXAiIfpwgo2btOawvsguJ8RBQ/jAFMkF/W\neZV7zR902gML4UG9fBK68cjnAi3g13aG2EjouXoZEmsoYUTsWyrFXMFVvZqenxTj\nhUNXr2C4+jjteVLbJhcc83BmbD3ObuYPlMJEkspPbQIDAQABo1MwUTAdBgNVHQ4E\nFgQUCpnQakTCqYN23V9fq10TTd+D+o0wHwYDVR0jBBgwFoAUCpnQakTCqYN23V9f\nq10TTd+D+o0wDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAj7Ou\npJnsgrUbtl7Lr+t+OyNYrBb7Uzsyfrh61GIBKnHHs4xDaFXuaD+K/EuKaaFeO0Z8\nU7U/IOKKnhi/344gtIkhgetak/2cJGyBm+X3xeozgR1O7Z8PM4dn6qRxuiSoHloZ\nzky/6zkHN5cF3H3r/SqbN0qlfBJI+wttel32SgPzaFkR+PyGRDiIIGsTy5ZiOMFr\n3+P54b+3ylr48OyNt1262OUCXiQs/LVenC7xUYJsYkbpdAP8LHrixzKrE+zgSUDX\nmE+9uQZLZzFxNLsaGgu0CG+WGrfsV33LluSGRCSbiZRlcNo9rCk45DnCFsBM/5FW\nuB9tuIcvUQwZ/KkfAw==\n-----END CERTIFICATE-----",
     "CertificateType": "PEM",
     "Description": "Certificate Instance 1",
     "Id": "1",
@@ -27,8 +27,7 @@
         "State": "Georgia"
     },
     "KeyUsage": [
-        "KeyCertSign",
-        "CRLSigning"
+        null
     ],
     "Name": "Certificate Instance 1",
     "Oem": {
@@ -46,6 +45,6 @@
         "OrganizationalUnit": "Service Processors",
         "State": "Georgia"
     },
-    "ValidNotAfter": "2034-8-23T13:01:50+00:00",
-    "ValidNotBefore": "2019-8-27T13:01:50+00:00"
+    "ValidNotAfter": "2009-12-29T00:00:38+00:00",
+    "ValidNotBefore": "2000-1-1T00:00:38+00:00"
 }

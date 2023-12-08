@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_PCIE_CX7_1",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "94",
+    "Id": "TEMP_PCIE_CX7_1",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -17,16 +17,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 105
-        },
-        "LowerCritical": {
-            "Reading": 108
-        },
-        "LowerFatal": {
-            "Reading": 110
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 105
+        },
+        "UpperCritical": {
+            "Reading": 108
+        },
+        "UpperFatal": {
+            "Reading": 110
         }
     }
 }

@@ -22,7 +22,7 @@
         ],
         "FpgaType": "Discrete"
     },
-    "FirmwareVersion": "2.11",
+    "FirmwareVersion": "2.37",
     "Id": "FPGA_0",
     "Links": {
         "Chassis": {

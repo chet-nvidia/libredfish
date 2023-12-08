@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/VOLT_1.8V_SBY",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "250",
+    "Id": "VOLT_1.8V_SBY",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -21,16 +21,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 1.9012
-        },
-        "LowerCritical": {
-            "Reading": 1.9885
-        },
-        "UpperCaution": {
             "Reading": 1.7169
         },
-        "UpperCritical": {
+        "LowerCritical": {
             "Reading": 1.6296
+        },
+        "UpperCaution": {
+            "Reading": 1.9012
+        },
+        "UpperCritical": {
+            "Reading": 1.9885
         }
     }
 }

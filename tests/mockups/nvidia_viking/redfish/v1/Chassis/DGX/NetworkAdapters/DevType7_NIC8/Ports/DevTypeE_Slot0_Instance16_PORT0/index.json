@@ -1,19 +1,19 @@
 {
     "@odata.context": "/redfish/v1/$metadata",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC8/Ports/DevTypeE_Slot0_Instance16_PORT0",
     "@odata.type": "#Port.v1_3_0.Port",
     "Id": "DevTypeE_Slot0_Instance16_PORT0",
-    "InterfaceEnabled": false,
+    "InterfaceEnabled": true,
     "LinkNetworkTechnology": "Ethernet",
-    "LinkState": "Disabled",
-    "LinkStatus": "LinkDown",
+    "LinkState": "Enabled",
+    "LinkStatus": "LinkUp",
     "Name": "DevTypeE_Slot0_Instance16_PORT0",
     "PortId": "0",
     "PortProtocol": "Ethernet",
-    "SignalDetected": false,
+    "SignalDetected": true,
     "Status": {
         "Health": "OK",
-        "State": "Disabled"
+        "State": "Enabled"
     }
 }

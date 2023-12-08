@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_INT_HSC",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "81",
+    "Id": "TEMP_INT_HSC",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 120
-        },
-        "LowerCritical": {
-            "Reading": 123
-        },
-        "LowerFatal": {
-            "Reading": 125
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 120
+        },
+        "UpperCritical": {
+            "Reading": 123
+        },
+        "UpperFatal": {
+            "Reading": 125
         }
     }
 }

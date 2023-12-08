@@ -54,11 +54,6 @@
         },
         {
             "kind": "Singleton",
-            "name": "CompositionService",
-            "url": "/redfish/v1/CompositionService"
-        },
-        {
-            "kind": "Singleton",
             "name": "TelemetryService",
             "url": "/redfish/v1/TelemetryService"
         },

@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_PDB0",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "53",
+    "Id": "TEMP_PDB0",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 60
-        },
-        "LowerCritical": {
-            "Reading": 63
-        },
-        "LowerFatal": {
-            "Reading": 65
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 60
+        },
+        "UpperCritical": {
+            "Reading": 63
+        },
+        "UpperFatal": {
+            "Reading": 65
         }
     }
 }

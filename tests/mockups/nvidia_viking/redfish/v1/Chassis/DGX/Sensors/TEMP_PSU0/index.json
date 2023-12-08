@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_PSU0",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "47",
+    "Id": "TEMP_PSU0",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "TEMP_PSU0",
     "PhysicalContext": "Intake",
-    "Reading": 22,
+    "Reading": 23,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 55
-        },
-        "LowerCritical": {
-            "Reading": 58
-        },
-        "LowerFatal": {
-            "Reading": 60
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 55
+        },
+        "UpperCritical": {
+            "Reading": 58
+        },
+        "UpperFatal": {
+            "Reading": 60
         }
     }
 }

@@ -6,8 +6,8 @@
     "Description": "Metrics for this Power Supply",
     "FanSpeedPercent": {
         "DataSourceUri": "/redfish/v1/Chassis/DGX/Sensors/SPD_FAN_PSU0_R",
-        "Reading": 4620,
-        "SpeedRPM": 4620
+        "Reading": 4510,
+        "SpeedRPM": 4510
     },
     "Id": "PowerSupplyMetrics",
     "Name": "Power Supply Metrics",
@@ -16,6 +16,6 @@
     },
     "TemperatureCelsius": {
         "DataSourceUri": "/redfish/v1/Chassis/DGX/Sensors/TEMP_PSU0",
-        "Reading": 22
+        "Reading": 23
     }
 }

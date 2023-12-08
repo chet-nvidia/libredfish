@@ -6,6 +6,15 @@
     "Description": "Resource Collection of Sensor instances",
     "Members": [
         {
+            "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/SPD_FAN_PSU4_F"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/SPD_FAN_PSU4_R"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/SPD_FAN_PSU5_F"
+        },
+        {
             "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/SPD_FAN_PSU5_R"
         },
         {
@@ -145,6 +154,9 @@
         },
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/STATUS_U.2_7"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/SYSTEM_CONFIG"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_AMBIENT"
@@ -561,7 +573,7 @@
             "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/WATCHDOG2"
         }
     ],
-    "Members@odata.count": 260,
+    "Members@odata.count": 264,
     "Members@odata.nextLink": "/redfish/v1/Chassis/DGX/Sensors?$skip=150",
     "Name": "Sensor Collection"
 }

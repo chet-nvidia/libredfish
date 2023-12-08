@@ -36,7 +36,7 @@
         "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0/LogServices"
     },
     "Manufacturer": "NVIDIA",
-    "Model": "NVIDIA HGX H100 8-GPU",
+    "Model": "P2312-A04",
     "Name": "HGX_BMC_0",
     "Oem": {
         "Nvidia": {
@@ -49,7 +49,7 @@
     "PCIeSlots": {
         "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0/PCIeSlots"
     },
-    "PartNumber": "",
+    "PartNumber": "692-22312-0001-000",
     "PowerState": "On",
     "PowerSubsystem": {
         "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0/PowerSubsystem"
@@ -58,7 +58,7 @@
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0/Sensors"
     },
-    "SerialNumber": "",
+    "SerialNumber": "1323223016486",
     "Status": {
         "Conditions": [],
         "Health": "OK",

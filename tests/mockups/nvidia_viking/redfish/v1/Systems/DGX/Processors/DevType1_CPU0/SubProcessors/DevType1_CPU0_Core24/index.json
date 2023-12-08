@@ -19,6 +19,9 @@
         "ConnectedProcessors@odata.count": 2
     },
     "MaxSpeedMHz": 0,
+    "Metrics": {
+        "@odata.id": "/redfish/v1/Systems/DGX/Processors/DevType1_CPU0/SubProcessors/DevType1_CPU0_Core24/ProcessorMetrics"
+    },
     "Name": "DevType1_CPU0_Core24",
     "ProcessorType": "Core",
     "TotalThreads": 2

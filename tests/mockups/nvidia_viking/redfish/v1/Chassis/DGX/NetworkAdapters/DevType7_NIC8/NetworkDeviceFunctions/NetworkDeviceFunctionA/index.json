@@ -6,7 +6,7 @@
         }
     },
     "@odata.context": "/redfish/v1/$metadata#NetworkDeviceFunction.NetworkDeviceFunction",
-    "@odata.etag": "\"1698080625\"",
+    "@odata.etag": "\"1700508038\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC8/NetworkDeviceFunctions/NetworkDeviceFunctionA",
     "@odata.type": "#NetworkDeviceFunction.v1_5_0.NetworkDeviceFunction",
     "AssignablePhysicalNetworkPorts": [
@@ -41,13 +41,13 @@
     "Links": {
         "Endpoints@odata.count": 0,
         "PCIeFunction": {
-            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_AA_00/PCIeFunctions/DevType3__DevIndex6E"
+            "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_AA_00/PCIeFunctions/DevType3_BRPA_DevIndex6F"
         },
         "PhysicalNetworkPortAssignment": {
             "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC8/Ports/DevTypeE_Slot0_Instance16_PORT0"
         }
     },
-    "MaxVirtualFunctions": 8,
+    "MaxVirtualFunctions": 16,
     "Name": "NetworkDeviceFunctionA",
     "NetDevFuncCapabilities": [
         "Ethernet"
@@ -62,7 +62,7 @@
     ],
     "Status": {
         "Health": "OK",
-        "State": "Disabled"
+        "State": "Enabled"
     },
     "VirtualFunctionsEnabled": false,
     "iSCSIBoot": {

@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/AMP_INTB_0",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "88",
+    "Id": "AMP_INTB_0",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -14,7 +14,7 @@
     "Reading": 1.82,
     "ReadingRangeMax": 17.78,
     "ReadingRangeMin": 0,
-    "ReadingType": "Amps",
+    "ReadingType": "Current",
     "Status": {
         "Health": "OK",
         "State": "Enabled"

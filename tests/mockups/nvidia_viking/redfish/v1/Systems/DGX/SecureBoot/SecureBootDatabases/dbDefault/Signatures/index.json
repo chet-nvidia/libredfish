@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#SignatureCollection.SignatureCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/Systems/DGX/SecureBoot/SecureBootDatabases/dbDefault/Signatures",
     "@odata.type": "#SignatureCollection.SignatureCollection",
     "Description": "Signature Collection for SecureBoot Database dbDefault",

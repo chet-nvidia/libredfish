@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_GB_HSC10",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "46",
+    "Id": "TEMP_GB_HSC10",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "TEMP_GB_HSC10",
     "PhysicalContext": "Intake",
-    "Reading": 29,
+    "Reading": 30,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 125
-        },
-        "LowerCritical": {
-            "Reading": 128
-        },
-        "LowerFatal": {
-            "Reading": 130
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 125
+        },
+        "UpperCritical": {
+            "Reading": 128
+        },
+        "UpperFatal": {
+            "Reading": 130
         }
     }
 }

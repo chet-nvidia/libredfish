@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#SoftwareInventoryCollection.SoftwareInventoryCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory",
     "@odata.type": "#SoftwareInventoryCollection.SoftwareInventoryCollection",
     "Description": "Collection of Firmware Inventory resources available to the UpdateService",
@@ -208,6 +208,7 @@
     "Name": "Firmware Inventory Collection",
     "Oem": {
         "Ami": {
+            "@odata.type": "#AMIFirmwareInventoryCollection.v1_0_0.AMIFirmwareInventoryCollection",
             "FirmwareInventory": [
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/CPLDMB_0",
@@ -232,187 +233,187 @@
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0",
                     "Name": "HGX_FW_BMC_0",
-                    "Version": "HGX-22.10-1-rc34"
+                    "Version": "HGX-22.10-1-rc57"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_BMC_0",
                     "Name": "HGX_FW_ERoT_BMC_0",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_FPGA_0",
                     "Name": "HGX_FW_ERoT_FPGA_0",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_GPU_SXM_1",
                     "Name": "HGX_FW_ERoT_GPU_SXM_1",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_GPU_SXM_2",
                     "Name": "HGX_FW_ERoT_GPU_SXM_2",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_GPU_SXM_3",
                     "Name": "HGX_FW_ERoT_GPU_SXM_3",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_GPU_SXM_4",
                     "Name": "HGX_FW_ERoT_GPU_SXM_4",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_GPU_SXM_5",
                     "Name": "HGX_FW_ERoT_GPU_SXM_5",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_GPU_SXM_6",
                     "Name": "HGX_FW_ERoT_GPU_SXM_6",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_GPU_SXM_7",
                     "Name": "HGX_FW_ERoT_GPU_SXM_7",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_GPU_SXM_8",
                     "Name": "HGX_FW_ERoT_GPU_SXM_8",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_NVSwitch_0",
                     "Name": "HGX_FW_ERoT_NVSwitch_0",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_NVSwitch_1",
                     "Name": "HGX_FW_ERoT_NVSwitch_1",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_NVSwitch_2",
                     "Name": "HGX_FW_ERoT_NVSwitch_2",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_NVSwitch_3",
                     "Name": "HGX_FW_ERoT_NVSwitch_3",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_PCIeSwitch_0",
                     "Name": "HGX_FW_ERoT_PCIeSwitch_0",
-                    "Version": "00.02.0134.0000_n00"
+                    "Version": "00.02.0150.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_FPGA_0",
                     "Name": "HGX_FW_FPGA_0",
-                    "Version": "2.11"
+                    "Version": "2.37"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_GPU_SXM_1",
                     "Name": "HGX_FW_GPU_SXM_1",
-                    "Version": "96.00.61.00.01"
+                    "Version": "96.00.89.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_GPU_SXM_2",
                     "Name": "HGX_FW_GPU_SXM_2",
-                    "Version": "96.00.61.00.01"
+                    "Version": "96.00.89.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_GPU_SXM_3",
                     "Name": "HGX_FW_GPU_SXM_3",
-                    "Version": "96.00.61.00.01"
+                    "Version": "96.00.89.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_GPU_SXM_4",
                     "Name": "HGX_FW_GPU_SXM_4",
-                    "Version": "96.00.61.00.01"
+                    "Version": "96.00.89.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_GPU_SXM_5",
                     "Name": "HGX_FW_GPU_SXM_5",
-                    "Version": "96.00.61.00.01"
+                    "Version": "96.00.89.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_GPU_SXM_6",
                     "Name": "HGX_FW_GPU_SXM_6",
-                    "Version": "96.00.61.00.01"
+                    "Version": "96.00.89.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_GPU_SXM_7",
                     "Name": "HGX_FW_GPU_SXM_7",
-                    "Version": "96.00.61.00.01"
+                    "Version": "96.00.89.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_GPU_SXM_8",
                     "Name": "HGX_FW_GPU_SXM_8",
-                    "Version": "96.00.61.00.01"
+                    "Version": "96.00.89.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_NVSwitch_0",
                     "Name": "HGX_FW_NVSwitch_0",
-                    "Version": "96.10.35.00.01"
+                    "Version": "96.10.4A.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_NVSwitch_1",
                     "Name": "HGX_FW_NVSwitch_1",
-                    "Version": "96.10.35.00.01"
+                    "Version": "96.10.4A.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_NVSwitch_2",
                     "Name": "HGX_FW_NVSwitch_2",
-                    "Version": "96.10.35.00.01"
+                    "Version": "96.10.4A.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_NVSwitch_3",
                     "Name": "HGX_FW_NVSwitch_3",
-                    "Version": "96.10.35.00.01"
+                    "Version": "96.10.4A.00.01"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_PCIeRetimer_0",
                     "Name": "HGX_FW_PCIeRetimer_0",
-                    "Version": "2.4.7"
+                    "Version": "2.7.20"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_PCIeRetimer_1",
                     "Name": "HGX_FW_PCIeRetimer_1",
-                    "Version": "2.4.7"
+                    "Version": "2.7.20"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_PCIeRetimer_2",
                     "Name": "HGX_FW_PCIeRetimer_2",
-                    "Version": "2.4.7"
+                    "Version": "2.7.20"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_PCIeRetimer_3",
                     "Name": "HGX_FW_PCIeRetimer_3",
-                    "Version": "2.4.7"
+                    "Version": "2.7.20"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_PCIeRetimer_4",
                     "Name": "HGX_FW_PCIeRetimer_4",
-                    "Version": "2.4.7"
+                    "Version": "2.7.20"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_PCIeRetimer_5",
                     "Name": "HGX_FW_PCIeRetimer_5",
-                    "Version": "2.4.7"
+                    "Version": "2.7.20"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_PCIeRetimer_6",
                     "Name": "HGX_FW_PCIeRetimer_6",
-                    "Version": "2.4.7"
+                    "Version": "2.7.20"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_PCIeRetimer_7",
                     "Name": "HGX_FW_PCIeRetimer_7",
-                    "Version": "2.4.7"
+                    "Version": "2.7.20"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_PCIeSwitch_0",
@@ -482,62 +483,62 @@
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HostBIOS_0",
                     "Name": "HostBIOS_0",
-                    "Version": "01.00.07"
+                    "Version": "01.01.03"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HostBMC_0",
                     "Name": "HostBMC_0",
-                    "Version": "23.06.14"
+                    "Version": "23.11.09"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/PCIeRetimer_0",
                     "Name": "PCIeRetimer_0",
-                    "Version": "1.30.12"
+                    "Version": "2.07.19"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/PCIeRetimer_1",
                     "Name": "PCIeRetimer_1",
-                    "Version": "1.30.12"
+                    "Version": "2.07.19"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/PCIeSwitch_0",
                     "Name": "PCIeSwitch_0",
-                    "Version": "0.0.6"
+                    "Version": "0.0.7"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/PCIeSwitch_1",
                     "Name": "PCIeSwitch_1",
-                    "Version": "1.0.6"
+                    "Version": "1.0.7"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/PSU_0",
                     "Name": "PSU_0",
-                    "Version": "0202.0201.0202"
+                    "Version": "0204.0201.0202"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/PSU_1",
                     "Name": "PSU_1",
-                    "Version": "0202.0201.0202"
+                    "Version": "0204.0201.0202"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/PSU_2",
                     "Name": "PSU_2",
-                    "Version": "0202.0201.0202"
+                    "Version": "0204.0201.0202"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/PSU_3",
                     "Name": "PSU_3",
-                    "Version": "0202.0201.0202"
+                    "Version": "0204.0201.0202"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/PSU_4",
                     "Name": "PSU_4",
-                    "Version": "0202.0201.0202"
+                    "Version": "0204.0201.0202"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/PSU_5",
                     "Name": "PSU_5",
-                    "Version": "0202.0201.0202"
+                    "Version": "0204.0201.0202"
                 }
             ]
         }

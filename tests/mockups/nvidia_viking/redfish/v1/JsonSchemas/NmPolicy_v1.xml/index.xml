@@ -42,7 +42,7 @@
                 <Annotation Term="OData.LongDescription" String="The NmPolicy schema contains properties related to monitoring and control of the given policy."/>
                 <Annotation Term="Capabilities.InsertRestrictions">
                     <Record>
-                        <PropertyValue Property="Insertable" Bool="true"/>
+                        <PropertyValue Property="Insertable" Bool="false"/>
                     </Record>
                 </Annotation>
                 <Annotation Term="Capabilities.UpdateRestrictions">

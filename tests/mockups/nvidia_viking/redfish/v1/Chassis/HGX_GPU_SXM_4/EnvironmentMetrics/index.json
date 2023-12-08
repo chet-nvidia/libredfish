@@ -1,6 +1,22 @@
 {
     "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4/EnvironmentMetrics",
-    "@odata.type": "#EnvironmentMetrics.v1_2_0.EnvironmentMetrics",
+    "@odata.type": "#EnvironmentMetrics.v1_3_0.EnvironmentMetrics",
+    "Actions": {
+        "Oem": {
+            "Nvidia": {
+                "#NvidiaEnvironmentMetrics.ClearOOBSetPoint": {
+                    "target": "/redfish/v1/Chassis/HGX_GPU_SXM_4/EnvironmentMetrics/Actions/Oem/NvidiaEnvironmentMetrics.ClearOOBSetPoint"
+                }
+            }
+        }
+    },
+    "EnergyJoules": {
+        "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_Energy_0",
+        "Reading": null
+    },
+    "EnergykWh": {
+        "Reading": null
+    },
     "FanSpeedsPercent": [],
     "Id": "EnvironmentMetrics",
     "Name": "Chassis Environment Metrics",
@@ -8,5 +24,10 @@
         "Nvidia": {
             "@odata.type": "#NvidiaEnvironmentMetrics.v1_0_0.NvidiaEnvironmentMetrics"
         }
+    },
+    "PowerWatts": {
+        "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_Power_0",
+        "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_Power_0",
+        "Reading": null
     }
 }

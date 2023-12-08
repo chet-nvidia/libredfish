@@ -1,12 +1,12 @@
 {
     "@odata.context": "/redfish/v1/$metadata#SessionCollection.SessionCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1700510035\"",
     "@odata.id": "/redfish/v1/SessionService/Sessions",
     "@odata.type": "#SessionCollection.SessionCollection",
     "Description": "Collection of Sessions",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/SessionService/Sessions/551e148314dd9030db6d1f6adf4a2343"
+            "@odata.id": "/redfish/v1/SessionService/Sessions/058630306bbb50108e997509d5d74b22"
         }
     ],
     "Members@odata.count": 1,

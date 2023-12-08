@@ -3,7 +3,7 @@
     "@odata.etag": "\"1698173537\"",
     "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_MB_Rear_L",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
-    "Id": "55",
+    "Id": "TEMP_MB_Rear_L",
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded"
@@ -11,7 +11,7 @@
     },
     "Name": "TEMP_MB_Rear_L",
     "PhysicalContext": "Intake",
-    "Reading": 44,
+    "Reading": 46,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",
@@ -19,16 +19,16 @@
     },
     "Thresholds": {
         "LowerCaution": {
-            "Reading": 72
-        },
-        "LowerCritical": {
-            "Reading": 75
-        },
-        "LowerFatal": {
-            "Reading": 77
+            "Reading": 5
         },
         "UpperCaution": {
-            "Reading": 5
+            "Reading": 72
+        },
+        "UpperCritical": {
+            "Reading": 75
+        },
+        "UpperFatal": {
+            "Reading": 77
         }
     }
 }

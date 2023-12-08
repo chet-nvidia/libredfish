@@ -337,7 +337,7 @@
         },
         "HMCCommuicationFailed": {
             "Description": " HOSTBMC is failed to Commuicated with HMC ",
-            "Message": " Indicates that HOSTBMC fails to commuicate with HMC ",
+            "Message": " Indicates that HOSTBMC fails to communicate with HMC ",
             "NumberOfArgs": 0,
             "Resolution": "Makesure HMC configuration details is valid, if not correct the HMC Configuation in JSON File and restart the redfish server.",
             "Severity": "Warning"
@@ -499,6 +499,16 @@
                 "string"
             ],
             "Resolution": "Change the value of the property and resubmit the request.",
+            "Severity": "Warning"
+        },
+        "LogServiceError": {
+            "Description": "Indicates that server not able to get data for this resource.",
+            "Message": " %1 is failed, Server not able to get data for this resource. Please try again after sometime.",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "Retry this request after some time.",
             "Severity": "Warning"
         },
         "MaintenanceWindowIncorrectTime": {
@@ -664,8 +674,8 @@
             "Severity": "Critical"
         },
         "PortIsNotAvaliable": {
-            "Description": "Indicated the port number %1 for the property %2 is not avaliable.",
-            "Message": "Port number %1 for the property %2 is not avaliable.",
+            "Description": "Indicated the port number %1 for the property %2 is not available.",
+            "Message": "Port number %1 for the property %2 is not available.",
             "NumberOfArgs": 2,
             "ParamTypes": [
                 "number",
@@ -959,7 +969,7 @@
             "Description": "Indicates that the password specified is not a valid format",
             "Message": "Indicates that the password specified is not a valid format",
             "NumberOfArgs": 0,
-            "Resolution": "Password must be atleast 1 character long. White space is not allword and passowrd more than 47 characters are not allowed. Resubmit the request with correct password.",
+            "Resolution": "Password must be atleast 1 character long. White space is not allowed and password more than 47 characters are not allowed. Resubmit the request with correct password.",
             "Severity": "Warning"
         },
         "ServerUsernameFormatError": {

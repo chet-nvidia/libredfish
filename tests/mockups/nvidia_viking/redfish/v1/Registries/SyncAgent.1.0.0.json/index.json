@@ -31,7 +31,7 @@
             "ParamTypes": [
                 "string"
             ],
-            "Resolution": "Try giving patch request removing AddressOrigin propery",
+            "Resolution": "Try giving patch request removing AddressOrigin property",
             "Severity": "Warning"
         },
         "AutoNegEnabled": {
@@ -45,7 +45,7 @@
             "Severity": "Warning"
         },
         "AutoNegFalse": {
-            "Description": "Indicates that a patch is tried to set autoneg value to false witout other required properties.",
+            "Description": "Indicates that a patch is tried to set autoneg value to false without other required properties.",
             "Message": "Required all AutoNeg,SpeedMbps and FullDuplex values to set AutoNeg to false",
             "NumberOfArgs": 1,
             "ParamTypes": [
@@ -316,7 +316,7 @@
             "Severity": "Warning"
         },
         "MTUSize": {
-            "Description": "Indicates that vlaue for MTU size given is out of range .",
+            "Description": "Indicates that value for MTU size given is out of range .",
             "Message": "Value is less then 576 or more the 1500",
             "NumberOfArgs": 1,
             "ParamTypes": [
@@ -371,12 +371,12 @@
         },
         "PartialPatch": {
             "Description": "Indicates that a property was given a value in the request body, but the property is not implemented as a writable property.",
-            "Message": "Apart from read only properties, other properties are successfull",
+            "Message": "Apart from read only properties, other properties are successful",
             "NumberOfArgs": 1,
             "ParamTypes": [
                 "string"
             ],
-            "Resolution": "Try giving get request to see the changes for the successfull patch",
+            "Resolution": "Try giving get request to see the changes for the successful patch",
             "Severity": "Warning"
         },
         "PatchFormat": {
@@ -394,7 +394,7 @@
             "Severity": "Critical"
         },
         "PatchNotSupported": {
-            "Description": "Indicates that the selcted interface cannot be disabled due to NCSI suppport enabled.",
+            "Description": "Indicates that the selected interface cannot be disabled due to NCSI support enabled.",
             "Message": "NCSI support is enabled for the interface %1, the interface cannot be disabled ",
             "NumberOfArgs": 1,
             "ParamTypes": [
@@ -460,7 +460,7 @@
             "Severity": "Warning"
         },
         "RelatedPropertyMissingorInvalid": {
-            "Description": "Indicates that the opertaion failed since some related properties were missing or is invalid",
+            "Description": "Indicates that the operation failed since some related properties were missing or is invalid",
             "Message": "To set the value %1 to the property %2, the required property %3 is absent or is invalid in the request data",
             "NumberOfArgs": 3,
             "ParamTypes": [
@@ -494,12 +494,12 @@
         },
         "SameInterfaceEnabledState": {
             "Description": "Indicates that same value is given for interfaceenabled property to patch.",
-            "Message": "Trying to patch already set value for inerface state",
+            "Message": "Trying to patch already set value for interface state",
             "NumberOfArgs": 1,
             "ParamTypes": [
                 "string"
             ],
-            "Resolution": "Change patch value other than already available value for inerface state",
+            "Resolution": "Change patch value other than already available value for interface state",
             "Severity": "Warning"
         },
         "SingleEthernetEnabled": {
@@ -575,7 +575,7 @@
         },
         "UnspecifiedError": {
             "Description": "Indicates that the attempt to update the property resulted in an error with and undetermined cause.",
-            "Message": "An unspecified error occured while fulfilling the request, the value of %1 may have changed.",
+            "Message": "An unspecified error occurred while fulfilling the request, the value of %1 may have changed.",
             "NumberOfArgs": 1,
             "ParamTypes": [
                 "string"

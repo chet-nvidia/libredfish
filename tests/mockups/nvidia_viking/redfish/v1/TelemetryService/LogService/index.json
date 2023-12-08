@@ -8,7 +8,7 @@
             "target": "/redfish/v1/TelemetryService/LogService/Actions/LogService.ClearLog"
         }
     },
-    "DateTime": "2023-10-24T19:18:22+00:00",
+    "DateTime": "2023-11-20T21:26:35+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "Telemetry Log Service",
     "Entries": {
