@@ -62,4 +62,7 @@ pub enum RedfishError {
 
     #[error("Could not find user with UserName matching '{0}'")]
     UserNotFound(String),
+
+    #[error("Reqwest error: '{0}'")]
+    ReqwestError(#[from] reqwest::Error),
 }

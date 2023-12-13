@@ -609,7 +609,7 @@ impl Bmc {
         // Set the DPU to be the first network device to boot from, for faster boots
         if target != Boot::HardDisk {
             let Some(pos) = fbo.uefi_network.iter().position(|s| s.contains("UEFI HTTP IPv4 Mellanox")) else {
-                return Err(RedfishError::NotSupported(format!("No match for 'UEFI HTTP IPv4 Mellanox' in network boot order")));
+                return Err(RedfishError::NotSupported("No match for 'UEFI HTTP IPv4 Mellanox' in network boot order".to_string()));
             };
             fbo.uefi_network.swap(0, pos);
         };
