@@ -84,6 +84,16 @@ pub struct Chassis {
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct NetworkAdapter {
+    pub id: String,
+    pub manufacturer: Option<String>,
+    pub model: Option<String>,
+    pub part_number: Option<String>,
+    pub serial_number: Option<String>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Location {
     pub part_location: Option<PartLocation>,
 }
