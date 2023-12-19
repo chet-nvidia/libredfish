@@ -51,7 +51,7 @@ impl RedfishClientPoolBuilder {
     pub fn build(&self) -> Result<RedfishClientPool, RedfishError> {
         let mut builder = HttpClientBuilder::new();
         if let Some(proxy) = self.proxy.as_ref() {
-            let p = Proxy::https(proxy).map_err(RedfishError::from)?;
+            let p = Proxy::https(proxy)?;
             builder = builder.proxy(p);
         }
 
