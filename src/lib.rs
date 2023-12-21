@@ -2,7 +2,7 @@ use std::collections::HashMap;
 use std::fmt;
 
 pub mod model;
-pub use model::chassis::Chassis;
+pub use model::chassis::{Chassis, NetworkAdapter};
 pub use model::ethernet_interface::EthernetInterface;
 pub use model::network_device_function::NetworkDeviceFunction;
 use model::oem::nvidia_dpu::{HostPrivilegeLevel, InternalCPUModel};
@@ -176,6 +176,19 @@ pub trait Redfish: Send + Sync + 'static {
 
     // Get Chassis details
     async fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError>;
+
+    // List all Network Adapters for the specific Chassis
+    async fn get_chassis_network_adapters(
+        &self,
+        chassis_id: &str,
+    ) -> Result<Vec<String>, RedfishError>;
+
+    // Get Network Adapter details for the specific Chassis and Network Adapter
+    async fn get_chassis_network_adapter(
+        &self,
+        chassis_id: &str,
+        id: &str,
+    ) -> Result<NetworkAdapter, RedfishError>;
 
     // List all High Speed Ports of a given Chassis
     async fn get_ports(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError>;

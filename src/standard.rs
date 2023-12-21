@@ -4,7 +4,7 @@ use reqwest::Method;
 use tracing::debug;
 
 use crate::model::account_service::ManagerAccount;
-use crate::model::chassis::Chassis;
+use crate::model::chassis::{Chassis, NetworkAdapter};
 use crate::model::power::Power;
 use crate::model::secure_boot::SecureBoot;
 use crate::model::sel::LogEntry;
@@ -219,6 +219,24 @@ impl Redfish for RedfishStandard {
     async fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError> {
         let url = format!("Chassis/{}", id);
         let (_status_code, body) = self.client.get(&url).await?;
+        Ok(body)
+    }
+
+    async fn get_chassis_network_adapters(
+        &self,
+        chassis_id: &str,
+    ) -> Result<Vec<String>, RedfishError> {
+        let url = format!("Chassis/{}/NetworkAdapters", chassis_id);
+        self.get_members(&url).await
+    }
+
+    async fn get_chassis_network_adapter(
+        &self,
+        chassis_id: &str,
+        id: &str,
+    ) -> Result<NetworkAdapter, RedfishError> {
+        let url = format!("Chassis/{}/NetworkAdapters/{}", chassis_id, id);
+        let (_, body) = self.client.get(&url).await?;
         Ok(body)
     }
 

@@ -11,7 +11,7 @@ use crate::EnabledDisabled::Enabled;
 use crate::RoleId;
 use crate::{
     model::{
-        chassis::Chassis,
+        chassis::{Chassis, NetworkAdapter},
         network_device_function::NetworkDeviceFunction,
         oem::lenovo,
         power::Power,
@@ -349,6 +349,21 @@ impl Redfish for Bmc {
 
     async fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError> {
         self.s.get_chassis(id).await
+    }
+
+    async fn get_chassis_network_adapters(
+        &self,
+        chassis_id: &str,
+    ) -> Result<Vec<String>, RedfishError> {
+        self.s.get_chassis_network_adapters(chassis_id).await
+    }
+
+    async fn get_chassis_network_adapter(
+        &self,
+        chassis_id: &str,
+        id: &str,
+    ) -> Result<NetworkAdapter, RedfishError> {
+        self.s.get_chassis_network_adapter(chassis_id, id).await
     }
 
     async fn get_ports(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {
