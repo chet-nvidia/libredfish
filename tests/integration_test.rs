@@ -69,7 +69,8 @@ async fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow
     boot_array.swap(0, 1);
     redfish.change_boot_order(boot_array).await?;
 
-    let _system = redfish.get_system().await?;
+    let system = redfish.get_system().await?;
+    assert_ne!(system.serial_number, None);
 
     let manager_eth_interfaces = redfish.get_manager_ethernet_interfaces().await?;
     assert!(!manager_eth_interfaces.is_empty());
@@ -99,6 +100,15 @@ async fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow
         .ethernet
         .and_then(|ethernet| ethernet.mac_address)
         .is_some());
+
+    assert_ne!(chassis.iter().find(|&x| *x == "Card1"), None);
+    let chassis = redfish.get_chassis("Card1").await?;
+    assert_ne!(chassis.serial_number, None);
+
+    assert_eq!(
+        chassis.serial_number.as_ref().unwrap().trim(),
+        system.serial_number.as_ref().unwrap().trim()
+    );
 
     Ok(())
 }
@@ -174,7 +184,7 @@ async fn run_integration_test(
 
     let system_eth_interfaces = redfish.get_system_ethernet_interfaces().await?;
     assert!(!system_eth_interfaces.is_empty());
-    let mut system_eth_interface_states = Vec::new();
+    let mut system_eth_interface_states: Vec<libredfish::EthernetInterface> = Vec::new();
     for iface in &system_eth_interfaces {
         let state = redfish.get_system_ethernet_interface(iface).await?;
         let mac = state.mac_address.clone().unwrap();
@@ -182,6 +192,19 @@ async fn run_integration_test(
             panic!("Duplicate MAC address {} on interface {}", mac, iface);
         }
         system_eth_interface_states.push(state);
+    }
+
+    let chassis = redfish.get_chassis_all().await?;
+    assert!(!chassis.is_empty());
+    for chassis_id in &chassis {
+        let Ok(chassis_net_adapters) = redfish.get_chassis_network_adapters(chassis_id).await else {
+            continue;
+        };
+        for net_adapter_id in &chassis_net_adapters {
+            let value = redfish
+                .get_chassis_network_adapter(chassis_id, net_adapter_id)
+                .await?;
+        }
     }
 
     assert_eq!(redfish.get_power_state().await?, libredfish::PowerState::On);
