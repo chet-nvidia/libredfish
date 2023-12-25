@@ -83,7 +83,7 @@ pub struct PowerSuppliesOem {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct InputRanges {
-    pub input_type: String,
+    pub input_type: Option<String>,
     pub minimum_voltage: Option<i64>,
     pub maximum_voltage: Option<i64>,
     pub output_wattage: Option<i64>,
@@ -175,5 +175,8 @@ mod test {
         let test_data_lenovo = include_str!("testdata/power-lenovo.json");
         let result_lenovo: super::Power = serde_json::from_str(test_data_lenovo).unwrap();
         println!("result_lenovo: {result_lenovo:#?}");
+        let test_data_lenovo = include_str!("testdata/power-lenovo_health_critical.json");
+        let result_lenovo: super::Power = serde_json::from_str(test_data_lenovo).unwrap();
+        println!("power-lenovo_health_critical: {result_lenovo:#?}");
     }
 }
