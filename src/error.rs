@@ -66,3 +66,25 @@ pub enum RedfishError {
     #[error("Reqwest error: '{0}'")]
     ReqwestError(#[from] reqwest::Error),
 }
+
+impl RedfishError {
+    /// Returns `true` if the operation failed due to missing authentication or
+    /// invalid credentials
+    ///
+    /// This is method on `RedfishError` in order to preserve the full error
+    /// details in `RedfishError::HttpErrorCode`
+    pub fn is_unauthorized(&self) -> bool {
+        match self {
+            RedfishError::HTTPErrorCode {
+                url: _,
+                status_code,
+                response_body: _,
+            } if *status_code == StatusCode::UNAUTHORIZED
+                || *status_code == StatusCode::FORBIDDEN =>
+            {
+                true
+            }
+            _ => false,
+        }
+    }
+}
