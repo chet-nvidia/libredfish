@@ -13,9 +13,7 @@ use crate::model::service_root::ServiceRoot;
 use crate::model::software_inventory::SoftwareInventory;
 use crate::model::task::Task;
 use crate::model::thermal::Thermal;
-use crate::model::{
-    power, storage, thermal, BootOption, InvalidValueError, Manager, Managers, ODataId,
-};
+use crate::model::{power, thermal, BootOption, InvalidValueError, Manager, Managers, ODataId};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{
     model, Boot, EnabledDisabled, NetworkDeviceFunction, NetworkPort, PowerState, Redfish, RoleId,
@@ -462,6 +460,7 @@ impl RedfishStandard {
                 }
             }
             Some("Dell") => Ok(Box::new(crate::dell::Bmc::new(self.clone())?)),
+            Some("HPE") => Ok(Box::new(crate::hpe::Bmc::new(self.clone())?)),
             Some("Lenovo") => Ok(Box::new(crate::lenovo::Bmc::new(self.clone())?)),
             Some("Nvidia") => Ok(Box::new(crate::nvidia_dpu::Bmc::new(self.clone())?)),
             Some("Supermicro") => Ok(Box::new(crate::supermicro::Bmc::new(self.clone())?)),
@@ -610,30 +609,6 @@ impl RedfishStandard {
     // PRIVATE
     //
 
-    #[allow(dead_code)]
-    pub async fn get_array_controller(
-        &self,
-        controller_id: u64,
-    ) -> Result<storage::ArrayController, RedfishError> {
-        let url = format!(
-            "Systems/{}/SmartStorage/ArrayControllers/{}/",
-            self.system_id(),
-            controller_id
-        );
-        let (_status_code, body) = self.client.get(&url).await?;
-        Ok(body)
-    }
-
-    #[allow(dead_code)]
-    pub async fn get_array_controllers(&self) -> Result<storage::ArrayControllers, RedfishError> {
-        let url = format!(
-            "Systems/{}/SmartStorage/ArrayControllers/",
-            self.system_id()
-        );
-        let (_status_code, body) = self.client.get(&url).await?;
-        Ok(body)
-    }
-
     /// Query the power status from the server
     #[allow(dead_code)]
     pub async fn get_power_status(&self) -> Result<power::Power, RedfishError> {
@@ -652,95 +627,6 @@ impl RedfishStandard {
     /// Query the thermal status from the server
     pub async fn get_thermal_metrics(&self) -> Result<thermal::Thermal, RedfishError> {
         let url = format!("Chassis/{}/Thermal/", self.system_id());
-        let (_status_code, body) = self.client.get(&url).await?;
-        Ok(body)
-    }
-
-    /// Query the smart array status from the server
-    #[allow(dead_code)]
-    pub async fn get_smart_array_status(
-        &self,
-        controller_id: u64,
-    ) -> Result<storage::SmartArray, RedfishError> {
-        let url = format!(
-            "Systems/{}/SmartStorage/ArrayControllers/{}/",
-            self.system_id(),
-            controller_id
-        );
-        let (_status_code, body) = self.client.get(&url).await?;
-        Ok(body)
-    }
-
-    #[allow(dead_code)]
-    pub async fn get_logical_drives(
-        &self,
-        controller_id: u64,
-    ) -> Result<storage::LogicalDrives, RedfishError> {
-        let url = format!(
-            "Systems/{}/SmartStorage/ArrayControllers/{}/LogicalDrives/",
-            self.system_id(),
-            controller_id
-        );
-        let (_status_code, body) = self.client.get(&url).await?;
-        Ok(body)
-    }
-
-    #[allow(dead_code)]
-    pub async fn get_physical_drive(
-        &self,
-        drive_id: u64,
-        controller_id: u64,
-    ) -> Result<storage::DiskDrive, RedfishError> {
-        let url = format!(
-            "Systems/{}/SmartStorage/ArrayControllers/{}/DiskDrives/{}/",
-            self.system_id(),
-            controller_id,
-            drive_id,
-        );
-        let (_status_code, body) = self.client.get(&url).await?;
-        Ok(body)
-    }
-
-    #[allow(dead_code)]
-    pub async fn get_physical_drives(
-        &self,
-        controller_id: u64,
-    ) -> Result<storage::DiskDrives, RedfishError> {
-        let url = format!(
-            "Systems/{}/SmartStorage/ArrayControllers/{}/DiskDrives/",
-            self.system_id(),
-            controller_id
-        );
-        let (_status_code, body) = self.client.get(&url).await?;
-        Ok(body)
-    }
-
-    #[allow(dead_code)]
-    pub async fn get_storage_enclosures(
-        &self,
-        controller_id: u64,
-    ) -> Result<storage::StorageEnclosures, RedfishError> {
-        let url = format!(
-            "Systems/{}/SmartStorage/ArrayControllers/{}/StorageEnclosures/",
-            self.system_id(),
-            controller_id
-        );
-        let (_status_code, body) = self.client.get(&url).await?;
-        Ok(body)
-    }
-
-    #[allow(dead_code)]
-    pub async fn get_storage_enclosure(
-        &self,
-        controller_id: u64,
-        enclosure_id: u64,
-    ) -> Result<storage::StorageEnclosure, RedfishError> {
-        let url = format!(
-            "Systems/{}/SmartStorage/ArrayControllers/{}/StorageEnclosures/{}/",
-            self.system_id(),
-            controller_id,
-            enclosure_id,
-        );
         let (_status_code, body) = self.client.get(&url).await?;
         Ok(body)
     }

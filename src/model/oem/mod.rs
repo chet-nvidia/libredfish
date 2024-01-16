@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 
 pub mod dell;
-pub mod hp;
+pub mod hpe;
 pub mod lenovo;
 pub mod nvidia_dpu;
 pub mod nvidia_viking;

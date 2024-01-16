@@ -1,0 +1,302 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#HpeServerBootSettings.HpeServerBootSettings",
+    "@odata.etag": "W/\"E48349374A3D888888F785E45C93FCEA\"",
+    "@odata.id": "/redfish/v1/systems/1/Bios/oem/hpe/boot/settings/",
+    "@odata.type": "#HpeServerBootSettings.v2_0_0.HpeServerBootSettings",
+    "BootSources": [
+        {
+            "BootOptionNumber": "002D",
+            "BootString": "ubuntu",
+            "CorrelatableID": "HD(1,GPT,FB6B9345-267D-4A05-B014-5F904617BE65,0x800,0x219800)/\\EFI\\ubuntu\\shimx64.efi",
+            "StructuredBootString": "HD.Slot.2.3",
+            "UEFIDevicePath": "HD(1,GPT,FB6B9345-267D-4A05-B014-5F904617BE65,0x800,0x219800)/\\EFI\\ubuntu\\shimx64.efi"
+        },
+        {
+            "BootOptionNumber": "000E",
+            "BootString": "Generic USB Boot",
+            "CorrelatableID": "UsbClass(0xFFFF,0xFFFF,0xFF,0xFF,0xFF)",
+            "StructuredBootString": "Generic.USB.1.1",
+            "UEFIDevicePath": "UsbClass(0xFFFF,0xFFFF,0xFF,0xFF,0xFF)"
+        },
+        {
+            "BootOptionNumber": "002A",
+            "BootString": "Slot 5 Port 1 : Mellanox Network Adapter - B8:3F:D2:B7:6F:84 (HTTP(S) IPv4)",
+            "CorrelatableID": "PciRoot(0x7)/Pci(0x1,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NIC.Slot.5.1.Httpv4",
+            "UEFIDevicePath": "PciRoot(0x7)/Pci(0x1,0x1)/Pci(0x0,0x0)/MAC(B83FD2B76F84,0x1)/IPv4(0.0.0.0)/Uri()"
+        },
+        {
+            "BootOptionNumber": "0025",
+            "BootString": "Slot 1 Port 1 : Mellanox Network Adapter - 88:E9:A4:83:ED:D0 (PXE IPv4)",
+            "CorrelatableID": "PciRoot(0x2)/Pci(0x3,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NIC.Slot.1.1.IPv4",
+            "UEFIDevicePath": "PciRoot(0x2)/Pci(0x3,0x1)/Pci(0x0,0x0)/MAC(88E9A483EDD0,0x1)/IPv4(0.0.0.0)"
+        },
+        {
+            "BootOptionNumber": "0026",
+            "BootString": "Slot 1 Port 1 : Mellanox Network Adapter - 88:E9:A4:83:ED:D0 (HTTP(S) IPv4)",
+            "CorrelatableID": "PciRoot(0x2)/Pci(0x3,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NIC.Slot.1.1.Httpv4",
+            "UEFIDevicePath": "PciRoot(0x2)/Pci(0x3,0x1)/Pci(0x0,0x0)/MAC(88E9A483EDD0,0x1)/IPv4(0.0.0.0)/Uri()"
+        },
+        {
+            "BootOptionNumber": "0027",
+            "BootString": "Slot 4 Port 1 : Mellanox Network Adapter - 88:E9:A4:87:62:38 (PXE IPv4)",
+            "CorrelatableID": "PciRoot(0x6)/Pci(0x3,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NIC.Slot.4.1.IPv4",
+            "UEFIDevicePath": "PciRoot(0x6)/Pci(0x3,0x1)/Pci(0x0,0x0)/MAC(88E9A4876238,0x1)/IPv4(0.0.0.0)"
+        },
+        {
+            "BootOptionNumber": "0028",
+            "BootString": "Slot 4 Port 1 : Mellanox Network Adapter - 88:E9:A4:87:62:38 (HTTP(S) IPv4)",
+            "CorrelatableID": "PciRoot(0x6)/Pci(0x3,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NIC.Slot.4.1.Httpv4",
+            "UEFIDevicePath": "PciRoot(0x6)/Pci(0x3,0x1)/Pci(0x0,0x0)/MAC(88E9A4876238,0x1)/IPv4(0.0.0.0)/Uri()"
+        },
+        {
+            "BootOptionNumber": "0021",
+            "BootString": "OCP Slot 10 Port 1 : Intel(R) Ethernet Network Adapter I350-T4 for OCP NIC 3.0 (PXE IPv4)",
+            "CorrelatableID": "PciRoot(0x1)/Pci(0x1,0x3)/Pci(0x0,0x0)",
+            "StructuredBootString": "OCP.Slot.10.1.IPv4",
+            "UEFIDevicePath": "PciRoot(0x1)/Pci(0x1,0x3)/Pci(0x0,0x0)/MAC(507C6F14AD14,0x1)/IPv4(0.0.0.0)"
+        },
+        {
+            "BootOptionNumber": "0023",
+            "BootString": "OCP Slot 10 Port 1 : Intel(R) Ethernet Network Adapter I350-T4 for OCP NIC 3.0 (HTTP(S) IPv4)",
+            "CorrelatableID": "PciRoot(0x1)/Pci(0x1,0x3)/Pci(0x0,0x0)",
+            "StructuredBootString": "OCP.Slot.10.1.Httpv4",
+            "UEFIDevicePath": "PciRoot(0x1)/Pci(0x1,0x3)/Pci(0x0,0x0)/MAC(507C6F14AD14,0x1)/IPv4(0.0.0.0)/Uri()"
+        },
+        {
+            "BootOptionNumber": "0022",
+            "BootString": "OCP Slot 10 Port 1 : Intel(R) Ethernet Network Adapter I350-T4 for OCP NIC 3.0 (PXE IPv6)",
+            "CorrelatableID": "PciRoot(0x1)/Pci(0x1,0x3)/Pci(0x0,0x0)",
+            "StructuredBootString": "OCP.Slot.10.1.IPv6",
+            "UEFIDevicePath": "PciRoot(0x1)/Pci(0x1,0x3)/Pci(0x0,0x0)/MAC(507C6F14AD14,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000)"
+        },
+        {
+            "BootOptionNumber": "0024",
+            "BootString": "OCP Slot 10 Port 1 : Intel(R) Ethernet Network Adapter I350-T4 for OCP NIC 3.0 (HTTP(S) IPv6)",
+            "CorrelatableID": "PciRoot(0x1)/Pci(0x1,0x3)/Pci(0x0,0x0)",
+            "StructuredBootString": "OCP.Slot.10.1.Httpv6",
+            "UEFIDevicePath": "PciRoot(0x1)/Pci(0x1,0x3)/Pci(0x0,0x0)/MAC(507C6F14AD14,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000)/Uri()"
+        },
+        {
+            "BootOptionNumber": "000F",
+            "BootString": "NVMe Drive Port 7A Box 2 Bay 5 : NVM Express Controller - S6C1NA0TA03566-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x0)/Pci(0x3,0x2)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.2.5",
+            "UEFIDevicePath": "PciRoot(0x0)/Pci(0x3,0x2)/Pci(0x0,0x0)/NVMe(0x1,D5-2E-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "0010",
+            "BootString": "NVMe Drive Port 7A Box 2 Bay 6 : NVM Express Controller - S6C1NA0TA00940-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x0)/Pci(0x3,0x3)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.2.6",
+            "UEFIDevicePath": "PciRoot(0x0)/Pci(0x3,0x3)/Pci(0x0,0x0)/NVMe(0x1,C8-05-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "0011",
+            "BootString": "NVMe Drive Port 8A Box 2 Bay 8 : NVM Express Controller - S6C1NA0TA01433-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x1)/Pci(0x1,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.2.8",
+            "UEFIDevicePath": "PciRoot(0x1)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,8C-08-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "0012",
+            "BootString": "NVMe Drive Port 8A Box 2 Bay 7 : NVM Express Controller - S6C1NA0TA00942-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x1)/Pci(0x1,0x2)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.2.7",
+            "UEFIDevicePath": "PciRoot(0x1)/Pci(0x1,0x2)/Pci(0x0,0x0)/NVMe(0x1,CF-05-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "0013",
+            "BootString": "NVMe Drive Port 2A Box 2 Bay 3 : NVM Express Controller - S6C1NA0TA03712-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x2)/Pci(0x1,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.2.3",
+            "UEFIDevicePath": "PciRoot(0x2)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,DF-2F-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "0014",
+            "BootString": "NVMe Drive Port 2A Box 2 Bay 4 : NVM Express Controller - S6C1NA0TA00941-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x2)/Pci(0x1,0x2)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.2.4",
+            "UEFIDevicePath": "PciRoot(0x2)/Pci(0x1,0x2)/Pci(0x0,0x0)/NVMe(0x1,CE-05-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "0015",
+            "BootString": "NVMe Drive Port 1A Box 2 Bay 1 : NVM Express Controller - S6C1NA0TA03552-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x2)/Pci(0x1,0x3)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.2.1",
+            "UEFIDevicePath": "PciRoot(0x2)/Pci(0x1,0x3)/Pci(0x0,0x0)/NVMe(0x1,BD-2E-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "0016",
+            "BootString": "NVMe Drive Port 1A Box 2 Bay 2 : NVM Express Controller - S6C1NA0TA03560-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x2)/Pci(0x1,0x4)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.2.2",
+            "UEFIDevicePath": "PciRoot(0x2)/Pci(0x1,0x4)/Pci(0x0,0x0)/NVMe(0x1,CA-2E-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "0017",
+            "BootString": "NVMe Drive Port 2C Box 1 Bay 8 : NVM Express Controller - S6C1NA0TA00943-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x4)/Pci(0x3,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.1.8",
+            "UEFIDevicePath": "PciRoot(0x4)/Pci(0x3,0x1)/Pci(0x0,0x0)/NVMe(0x1,D0-05-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "0018",
+            "BootString": "NVMe Drive Port 2C Box 1 Bay 7 : NVM Express Controller - S6C1NA0TA00946-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x4)/Pci(0x3,0x2)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.1.7",
+            "UEFIDevicePath": "PciRoot(0x4)/Pci(0x3,0x2)/Pci(0x0,0x0)/NVMe(0x1,D3-05-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "0019",
+            "BootString": "NVMe Drive Port 1C Box 1 Bay 6 : NVM Express Controller - S6C1NA0TA00939-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x4)/Pci(0x3,0x3)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.1.6",
+            "UEFIDevicePath": "PciRoot(0x4)/Pci(0x3,0x3)/Pci(0x0,0x0)/NVMe(0x1,C7-05-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "001A",
+            "BootString": "NVMe Drive Port 1C Box 1 Bay 5 : NVM Express Controller - S6C1NA0TA03459-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x4)/Pci(0x3,0x4)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.1.5",
+            "UEFIDevicePath": "PciRoot(0x4)/Pci(0x3,0x4)/Pci(0x0,0x0)/NVMe(0x1,0B-2E-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "001B",
+            "BootString": "NVMe Drive Port 2B Box 1 Bay 3 : NVM Express Controller - S6C1NA0TA01534-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x5)/Pci(0x3,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.1.3",
+            "UEFIDevicePath": "PciRoot(0x5)/Pci(0x3,0x1)/Pci(0x0,0x0)/NVMe(0x1,0F-09-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "001C",
+            "BootString": "NVMe Drive Port 2B Box 1 Bay 4 : NVM Express Controller - S6C1NA0TA03632-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x5)/Pci(0x3,0x2)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.1.4",
+            "UEFIDevicePath": "PciRoot(0x5)/Pci(0x3,0x2)/Pci(0x0,0x0)/NVMe(0x1,53-2F-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "001D",
+            "BootString": "NVMe Drive Port 1B Box 1 Bay 1 : NVM Express Controller - S6C1NA0TA03457-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x5)/Pci(0x3,0x3)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.1.1",
+            "UEFIDevicePath": "PciRoot(0x5)/Pci(0x3,0x3)/Pci(0x0,0x0)/NVMe(0x1,09-2E-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "001E",
+            "BootString": "NVMe Drive Port 1B Box 1 Bay 2 : NVM Express Controller - S6C1NA0TA01531-MZXLR6T4HALA-000H3-9A382500",
+            "CorrelatableID": "PciRoot(0x5)/Pci(0x3,0x4)/Pci(0x0,0x0)",
+            "StructuredBootString": "NVMe.DriveBay.1.2",
+            "UEFIDevicePath": "PciRoot(0x5)/Pci(0x3,0x4)/Pci(0x0,0x0)/NVMe(0x1,0C-09-01-21-9A-38-25-00)"
+        },
+        {
+            "BootOptionNumber": "001F",
+            "BootString": "Slot 2 : HPE Smart Array P408i-p SR Gen10 - 447.1 GiB, RAID1 Logical Drive 1(Target:379, Lun:0)",
+            "CorrelatableID": "PciRoot(0x3)/Pci(0x1,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "HD.Slot.2.2",
+            "UEFIDevicePath": "PciRoot(0x3)/Pci(0x1,0x1)/Pci(0x0,0x0)/Scsi(0x17B,0x0)"
+        },
+        {
+            "BootOptionNumber": "0020",
+            "BootString": "Slot 5 Port 1 : Mellanox Network Adapter - B8:3F:D2:B7:6F:84 (PXE IPv4)",
+            "CorrelatableID": "PciRoot(0x7)/Pci(0x1,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NIC.Slot.5.1.IPv4",
+            "UEFIDevicePath": "PciRoot(0x7)/Pci(0x1,0x1)/Pci(0x0,0x0)/MAC(B83FD2B76F84,0x1)/IPv4(0.0.0.0)"
+        },
+        {
+            "BootOptionNumber": "0029",
+            "BootString": "Slot 5 Port 1 : Mellanox Network Adapter - B8:3F:D2:B7:6F:84 (PXE IPv6)",
+            "CorrelatableID": "PciRoot(0x7)/Pci(0x1,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NIC.Slot.5.1.IPv6",
+            "UEFIDevicePath": "PciRoot(0x7)/Pci(0x1,0x1)/Pci(0x0,0x0)/MAC(B83FD2B76F84,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000)"
+        },
+        {
+            "BootOptionNumber": "002B",
+            "BootString": "Slot 5 Port 1 : Mellanox Network Adapter - B8:3F:D2:B7:6F:84 (HTTP(S) IPv6)",
+            "CorrelatableID": "PciRoot(0x7)/Pci(0x1,0x1)/Pci(0x0,0x0)",
+            "StructuredBootString": "NIC.Slot.5.1.Httpv6",
+            "UEFIDevicePath": "PciRoot(0x7)/Pci(0x1,0x1)/Pci(0x0,0x0)/MAC(B83FD2B76F84,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000)/Uri()"
+        }
+    ],
+    "DefaultBootOrder": [
+        "Cd",
+        "Usb",
+        "EmbeddedStorage",
+        "PcieSlotStorage",
+        "EmbeddedFlexLOM",
+        "PcieSlotNic",
+        "UefiShell",
+        "iPXE"
+    ],
+    "DesiredBootDevices": [
+        {
+            "CorrelatableID": "",
+            "Lun": "",
+            "Wwn": "",
+            "iScsiTargetName": ""
+        },
+        {
+            "CorrelatableID": "",
+            "Lun": "",
+            "Wwn": "",
+            "iScsiTargetName": ""
+        },
+        {
+            "CorrelatableID": "",
+            "Lun": "",
+            "Wwn": "",
+            "iScsiTargetName": ""
+        },
+        {
+            "CorrelatableID": "",
+            "Lun": "",
+            "Wwn": "",
+            "iScsiTargetName": ""
+        },
+        {
+            "CorrelatableID": "",
+            "Lun": "",
+            "Wwn": "",
+            "iScsiTargetName": ""
+        }
+    ],
+    "Id": "settings",
+    "Name": "Boot Order Pending Settings",
+    "PersistentBootConfigOrder": [
+        "HD.Slot.2.3",
+        "Generic.USB.1.1",
+        "NIC.Slot.5.1.Httpv4",
+        "NIC.Slot.1.1.IPv4",
+        "NIC.Slot.1.1.Httpv4",
+        "NIC.Slot.4.1.IPv4",
+        "NIC.Slot.4.1.Httpv4",
+        "OCP.Slot.10.1.IPv4",
+        "OCP.Slot.10.1.Httpv4",
+        "OCP.Slot.10.1.IPv6",
+        "OCP.Slot.10.1.Httpv6",
+        "NVMe.DriveBay.2.5",
+        "NVMe.DriveBay.2.6",
+        "NVMe.DriveBay.2.8",
+        "NVMe.DriveBay.2.7",
+        "NVMe.DriveBay.2.3",
+        "NVMe.DriveBay.2.4",
+        "NVMe.DriveBay.2.1",
+        "NVMe.DriveBay.2.2",
+        "NVMe.DriveBay.1.8",
+        "NVMe.DriveBay.1.7",
+        "NVMe.DriveBay.1.6",
+        "NVMe.DriveBay.1.5",
+        "NVMe.DriveBay.1.3",
+        "NVMe.DriveBay.1.4",
+        "NVMe.DriveBay.1.1",
+        "NVMe.DriveBay.1.2",
+        "HD.Slot.2.2",
+        "NIC.Slot.5.1.IPv4",
+        "NIC.Slot.5.1.IPv6",
+        "NIC.Slot.5.1.Httpv6"
+    ]
+}

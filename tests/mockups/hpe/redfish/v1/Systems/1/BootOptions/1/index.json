@@ -1,0 +1,12 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#BootOption.BootOption",
+    "@odata.etag": "W/\"A3A6BF43\"",
+    "@odata.id": "/redfish/v1/Systems/1/BootOptions/1",
+    "@odata.type": "#BootOption.v1_0_1.BootOption",
+    "Id": "1",
+    "Alias": "None",
+    "BootOptionReference": "Boot002D",
+    "DisplayName": "ubuntu",
+    "Name": "Boot Option",
+    "UefiDevicePath": "HD(1,GPT,FB6B9345-267D-4A05-B014-5F904617BE65,0x800,0x219800)/\\EFI\\ubuntu\\shimx64.efi"
+}
