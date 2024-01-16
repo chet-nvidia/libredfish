@@ -105,11 +105,11 @@ impl Redfish for Bmc {
         // todo: kcs_enabled
         Ok(Status {
             message,
-            status: if bios.usb_boot == "Disabled" && bmc.oem.hpe.virtual_nic_enabled == "false"
+            status: if bios.usb_boot == "Disabled" && bmc.oem.hpe.virtual_nic_enabled == false
             //&& bios.kcs_enabled.is_some() && bios.kcs_enabled.unwrap() == "false"
             {
                 StatusInternal::Enabled
-            } else if bios.usb_boot == "Enabled" && bmc.oem.hpe.virtual_nic_enabled == "true"
+            } else if bios.usb_boot == "Enabled" && bmc.oem.hpe.virtual_nic_enabled == true
             // if bios.usb_boot == "Enabled" && bios.kcs_enabled.clone().is_some() && bios.kcs_enabled.clone().unwrap() == "true"
             {
                 StatusInternal::Disabled
@@ -360,7 +360,7 @@ impl Bmc {
 
     async fn enable_bmc_lockdown(&self) -> Result<(), RedfishError> {
         let lockdown_attrs = hpe::OemHpeLockdownAttrs {
-            virtual_nic_enabled: "false".to_string(),
+            virtual_nic_enabled: false,
         };
         let set_lockdown1 = hpe::OemHpeLockdown {
             hpe: lockdown_attrs,
@@ -397,7 +397,7 @@ impl Bmc {
 
     async fn disable_bmc_lockdown(&self) -> Result<(), RedfishError> {
         let lockdown_attrs = hpe::OemHpeLockdownAttrs {
-            virtual_nic_enabled: "true".to_string(),
+            virtual_nic_enabled: true,
         };
         let set_lockdown1 = hpe::OemHpeLockdown {
             hpe: lockdown_attrs,

@@ -485,7 +485,7 @@ pub struct HpType {
 #[serde(rename_all = "PascalCase")]
 pub struct OemHpeLockdownAttrs {
     #[serde(rename = "VirtualNICEnabled")]
-    pub virtual_nic_enabled: String,
+    pub virtual_nic_enabled: bool,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
