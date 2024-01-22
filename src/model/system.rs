@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 
 use super::{boot::Boot, oem::SystemExtensions, ODataId, ODataLinks};
 
-#[derive(Debug, Deserialize, Serialize, Clone, Copy)]
+#[derive(Debug, Deserialize, Serialize, PartialEq, Clone, Copy)]
 pub enum SystemPowerControl {
     /// Power on a machine
     On,

@@ -57,7 +57,12 @@ impl Redfish for Bmc {
     }
 
     async fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError> {
-        self.s.power(action).await
+        if action == SystemPowerControl::ForceRestart {
+            // hpe ilo does warm reset with gracefulrestart op
+            self.s.power(SystemPowerControl::GracefulRestart).await
+        } else {
+            self.s.power(action).await
+        }
     }
 
     async fn bmc_reset(&self) -> Result<(), RedfishError> {
