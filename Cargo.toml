@@ -4,7 +4,7 @@ description = "Forge Redfish library"
 authors = ["NVIDIA Forge Engineering <swngc-forge-dev@exchange.nvidia.com>", "Chris Holcombe <xfactor973@gmail.com>"]
 repository = "https://gitlab-master.nvidia.com/nvmetal/libredfish"
 license = "MIT"
-version = "0.16.1"
+version = "0.16.2"
 edition = "2021"
 
 [dependencies]
