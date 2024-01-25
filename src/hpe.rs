@@ -105,16 +105,21 @@ impl Redfish for Bmc {
         let (_status, bmc): (_, hpe::SetOemHpeLockdown) = self.s.client.get(url.as_str()).await?;
         let message = format!(
             "usb_boot={}, virtual_nic_enabled={}",
-            bios.usb_boot, bmc.oem.hpe.virtual_nic_enabled
+            bios.usb_boot.clone().unwrap_or("Unknown".to_string()),
+            bmc.oem.hpe.virtual_nic_enabled
         );
         // todo: kcs_enabled
         Ok(Status {
             message,
-            status: if bios.usb_boot == "Disabled" && bmc.oem.hpe.virtual_nic_enabled == false
+            status: if bios.usb_boot.is_some()
+                && bios.usb_boot.clone().unwrap() == "Disabled"
+                && !bmc.oem.hpe.virtual_nic_enabled
             //&& bios.kcs_enabled.is_some() && bios.kcs_enabled.unwrap() == "false"
             {
                 StatusInternal::Enabled
-            } else if bios.usb_boot == "Enabled" && bmc.oem.hpe.virtual_nic_enabled == true
+            } else if bios.usb_boot.is_some()
+                && bios.usb_boot.clone().unwrap() == "Enabled"
+                && bmc.oem.hpe.virtual_nic_enabled
             // if bios.usb_boot == "Enabled" && bios.kcs_enabled.clone().is_some() && bios.kcs_enabled.clone().unwrap() == "true"
             {
                 StatusInternal::Disabled
@@ -480,10 +485,10 @@ impl Bmc {
         device: BootDevices,
     ) -> Result<Option<Vec<String>>, RedfishError> {
         let with_name_str = match device {
-            BootDevices::Pxe => { "nic." },
-            BootDevices::UefiHttp => { "nic." },
-            BootDevices::Hdd=> { "hd." },
-            _ => { "." },
+            BootDevices::Pxe => "nic.",
+            BootDevices::UefiHttp => "nic.",
+            BootDevices::Hdd => "hd.",
+            _ => ".",
         };
         let mut ordered = Vec::new(); // the final boot options
         let url = format!("Systems/{}/Bios/oem/hpe/boot/", self.s.system_id());

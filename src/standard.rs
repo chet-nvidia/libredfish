@@ -372,7 +372,14 @@ impl Redfish for RedfishStandard {
         let v: Vec<String> = systems
             .members
             .into_iter()
-            .map(|d| d.odata_id.trim_matches('/').split('/').last().unwrap().to_string())
+            .map(|d| {
+                d.odata_id
+                    .trim_matches('/')
+                    .split('/')
+                    .last()
+                    .unwrap()
+                    .to_string()
+            })
             .collect();
 
         Ok(v)
@@ -394,7 +401,14 @@ impl Redfish for RedfishStandard {
         let v: Vec<String> = bmcs
             .members
             .into_iter()
-            .map(|d| d.odata_id.trim_matches('/').split('/').last().unwrap().to_string())
+            .map(|d| {
+                d.odata_id
+                    .trim_matches('/')
+                    .split('/')
+                    .last()
+                    .unwrap()
+                    .to_string()
+            })
             .collect();
         Ok(v)
     }
