@@ -1,4 +1,6 @@
-use std::collections::HashMap;
+use std::{collections::HashMap, time};
+use tokio::time::sleep;
+use tracing::debug;
 
 use crate::{
     model::{
@@ -12,12 +14,14 @@ use crate::{
         software_inventory::SoftwareInventory,
         task::Task,
         thermal::Thermal,
-        BootOption, ComputerSystem, Manager, OnOff,
+        BootOption, ComputerSystem, InvalidValueError, Manager, OnOff,
     },
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, RoleId,
     Status, StatusInternal, SystemPowerControl,
 };
+
+const UEFI_PASSWORD_NAME: &str = "SetupPassword";
 
 pub struct Bmc {
     s: RedfishStandard,
@@ -432,12 +436,24 @@ impl Redfish for Bmc {
 
     async fn change_uefi_password(
         &self,
-        _current_uefi_password: &str,
-        _new_uefi_password: &str,
+        current_uefi_password: &str,
+        new_uefi_password: &str,
     ) -> Result<(), RedfishError> {
-        Err(RedfishError::NotSupported(
-            "change_uefi_password".to_string(),
-        ))
+        // The uefi password cant be changed if the host is in lockdown
+        if self.is_lockdown().await? {
+            return Err(RedfishError::Lockdown);
+        }
+
+        self.s
+            .change_bios_password(UEFI_PASSWORD_NAME, current_uefi_password, new_uefi_password)
+            .await?;
+
+        let bios_config_job_id = self.create_bios_config_job().await?;
+
+        // if we reboot the host before the job has been scheduled, we don't have a guarantee that the password change will happen once the host comes up
+        return self
+            .poll_job_state(&bios_config_job_id, JobState::Scheduled)
+            .await;
     }
 
     async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
@@ -479,7 +495,7 @@ impl Bmc {
         );
         let mut body = HashMap::new();
         body.insert("JobID", "JID_CLEARALL".to_string());
-        self.s.client.post(&url, body).await.map(|_status_code| ())
+        self.s.client.post(&url, body).await.map(|_resp| ())
     }
 
     // Is system lockdown enabled?
@@ -909,5 +925,125 @@ impl Bmc {
             .patch(&url, set_tpm_disabled)
             .await
             .map(|_status_code| ())
+    }
+
+    pub async fn create_bios_config_job(&self) -> Result<String, RedfishError> {
+        let url = "Managers/iDRAC.Embedded.1/Jobs";
+
+        let mut arg = HashMap::new();
+        arg.insert(
+            "TargetSettingsURI",
+            "/redfish/v1/Systems/System.Embedded.1/Bios/Settings".to_string(),
+        );
+
+        match self.s.client.post(url, arg).await? {
+            (_, Some(headers)) => {
+                let key = "location";
+                Ok(headers
+                    .get(key)
+                    .ok_or_else(|| RedfishError::MissingKey {
+                        key: key.to_string(),
+                        url: url.to_string(),
+                    })?
+                    .to_str()
+                    .map_err(|e| RedfishError::InvalidValue {
+                        url: url.to_string(),
+                        field: key.to_string(),
+                        err: InvalidValueError(e.to_string()),
+                    })?
+                    .split('/')
+                    .last()
+                    .ok_or_else(|| RedfishError::InvalidValue {
+                        url: url.to_string(),
+                        field: key.to_string(),
+                        err: InvalidValueError(
+                            "unable to parse job_id from location string".to_string(),
+                        ),
+                    })?
+                    .to_string())
+            }
+            (_, None) => Err(RedfishError::NoHeader),
+        }
+    }
+
+    pub async fn get_job_state(&self, job_id: &str) -> Result<JobState, RedfishError> {
+        let url = format!("Managers/iDRAC.Embedded.1/Jobs/{}", job_id);
+        let (_status_code, body): (_, HashMap<String, serde_json::Value>) =
+            self.s.client.get(&url).await?;
+        let key = "JobState";
+        let val = body
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_str()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "&str".to_string(),
+                url: url.to_string(),
+            })?;
+
+        Ok(JobState::from_str(val))
+    }
+
+    pub async fn poll_job_state(
+        &self,
+        job_id: &str,
+        job_state: JobState,
+    ) -> Result<(), RedfishError> {
+        // TODO: make timeout more dynamic, currently 30 seconds
+        let mut cycle = 0;
+        let max_cycles = 60;
+        let sleep_duration = time::Duration::from_millis(500);
+        let mut current_job_state = JobState::Unknown;
+        while cycle < max_cycles {
+            current_job_state = self.get_job_state(job_id).await?;
+            if current_job_state == job_state {
+                return Ok(());
+            }
+            sleep(sleep_duration).await;
+            cycle += 1;
+        }
+
+        debug!(
+            "Job {} did not reach the {} state; last known state: {}",
+            job_id,
+            job_state.as_str(),
+            current_job_state.as_str()
+        );
+
+        Err(RedfishError::NoContent)
+    }
+}
+
+#[derive(PartialEq)]
+pub enum JobState {
+    Scheduled,
+    Running,
+    Completed,
+    CompletedWithErrors,
+    Unknown,
+}
+
+impl JobState {
+    fn as_str(&self) -> &'static str {
+        match self {
+            JobState::Scheduled => "Scheduled",
+            JobState::Running => "Running",
+            JobState::Completed => "Completed",
+            JobState::CompletedWithErrors => "Completed With Errors",
+            _ => "Unknown",
+        }
+    }
+
+    fn from_str(s: &str) -> JobState {
+        match s {
+            "Scheduled" => JobState::Scheduled,
+            "Running" => JobState::Running,
+            "Completed" => JobState::Completed,
+            "CompletedWithErrors" => JobState::CompletedWithErrors,
+            _ => JobState::Unknown,
+        }
     }
 }

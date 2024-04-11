@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::time::Duration;
 
-use reqwest::header::{HeaderName, IF_MATCH};
+use reqwest::header::{HeaderMap, HeaderName, IF_MATCH};
 use reqwest::Method;
 use version_compare::Version;
 
@@ -31,6 +31,8 @@ use crate::{
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status,
     StatusInternal, SystemPowerControl,
 };
+
+const UEFI_PASSWORD_NAME: &str = "AdminPassword";
 
 pub struct Bmc {
     s: RedfishStandard,
@@ -385,12 +387,12 @@ impl Redfish for Bmc {
 
     async fn change_uefi_password(
         &self,
-        _current_uefi_password: &str,
-        _new_uefi_password: &str,
+        current_uefi_password: &str,
+        new_uefi_password: &str,
     ) -> Result<(), RedfishError> {
-        Err(RedfishError::NotSupported(
-            "change_uefi_password".to_string(),
-        ))
+        self.s
+            .change_bios_password(UEFI_PASSWORD_NAME, current_uefi_password, new_uefi_password)
+            .await
     }
 
     async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
@@ -413,7 +415,11 @@ impl Redfish for Bmc {
 
         let headers: Vec<(HeaderName, String)> = vec![(IF_MATCH, etag.to_string())];
         let timeout = Duration::from_secs(10);
-        let (_status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
+        let (_status_code, _resp_body, _resp_headers): (
+            _,
+            Option<HashMap<String, serde_json::Value>>,
+            Option<HeaderMap>,
+        ) = self
             .s
             .client
             .req(
@@ -678,7 +684,11 @@ impl Bmc {
 
         let headers: Vec<(HeaderName, String)> = vec![(IF_MATCH, etag.to_string())];
         let timeout = Duration::from_secs(10);
-        let (_status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
+        let (_status_code, _resp_body, _resp_headers): (
+            _,
+            Option<HashMap<String, serde_json::Value>>,
+            Option<HeaderMap>,
+        ) = self
             .s
             .client
             .req(

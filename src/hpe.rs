@@ -318,12 +318,12 @@ impl Redfish for Bmc {
 
     async fn change_uefi_password(
         &self,
-        _current_uefi_password: &str,
-        _new_uefi_password: &str,
+        current_uefi_password: &str,
+        new_uefi_password: &str,
     ) -> Result<(), RedfishError> {
-        Err(RedfishError::NotSupported(
-            "change_uefi_password".to_string(),
-        ))
+        self.s
+            .change_uefi_password(current_uefi_password, new_uefi_password)
+            .await
     }
 
     async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {

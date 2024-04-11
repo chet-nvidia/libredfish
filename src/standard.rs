@@ -21,6 +21,8 @@ use crate::{
 };
 use crate::{BootOptions, PCIeDevice, RedfishError};
 
+const UEFI_PASSWORD_NAME: &str = "AdministratorPassword";
+
 /// The calls that use the Redfish standard without any OEM extensions.
 #[derive(Clone)]
 pub struct RedfishStandard {
@@ -45,7 +47,7 @@ impl Redfish for RedfishStandard {
         self.client
             .post("AccountService/Accounts", data)
             .await
-            .map(|_status_code| Ok(()))?
+            .map(|_resp| Ok(()))?
     }
 
     async fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError> {
@@ -73,10 +75,7 @@ impl Redfish for RedfishStandard {
         let mut arg = HashMap::new();
         arg.insert("ResetType", action.to_string());
         // Lenovo: The expected HTTP response code is 204 No Content
-        self.client
-            .post(&url, arg)
-            .await
-            .map(|_status_code| Ok(()))?
+        self.client.post(&url, arg).await.map(|_resp| Ok(()))?
     }
 
     async fn bmc_reset(&self) -> Result<(), RedfishError> {
@@ -85,10 +84,7 @@ impl Redfish for RedfishStandard {
         // Dell only has GracefulRestart. The spec, and Lenovo, also have ForceRestart.
         // Response code 204 No Content is fine.
         arg.insert("ResetType", "GracefulRestart".to_string());
-        self.client
-            .post(&url, arg)
-            .await
-            .map(|_status_code| Ok(()))?
+        self.client.post(&url, arg).await.map(|_resp| Ok(()))?
     }
 
     async fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
@@ -300,7 +296,7 @@ impl Redfish for RedfishStandard {
             "Systems/{}/SecureBoot/SecureBootDatabases/db/Certificates",
             self.system_id()
         );
-        let (_status_code, resp_opt) = self
+        let (_status_code, resp_opt, _resp_headers) = self
             .client
             .req::<Task, _>(Method::POST, &url, Some(data), None, None, Vec::new())
             .await?;
@@ -347,12 +343,12 @@ impl Redfish for RedfishStandard {
 
     async fn change_uefi_password(
         &self,
-        _current_uefi_password: &str,
-        _new_uefi_password: &str,
+        current_uefi_password: &str,
+        new_uefi_password: &str,
     ) -> Result<(), RedfishError> {
-        Err(RedfishError::NotSupported(
-            "change_uefi_password".to_string(),
-        ))
+        return self
+            .change_bios_password(UEFI_PASSWORD_NAME, current_uefi_password, new_uefi_password)
+            .await;
     }
 
     async fn change_boot_order(&self, _boot_array: Vec<String>) -> Result<(), RedfishError> {
@@ -420,10 +416,7 @@ impl Redfish for RedfishStandard {
         );
         let mut arg = HashMap::new();
         arg.insert("ResetToDefaultsType", "ResetAll".to_string());
-        self.client
-            .post(&url, arg)
-            .await
-            .map(|_status_code| Ok(()))?
+        self.client.post(&url, arg).await.map(|_resp| Ok(()))?
     }
 }
 
@@ -643,6 +636,30 @@ impl RedfishStandard {
         let url = format!("Chassis/{}/Thermal/", self.system_id());
         let (_status_code, body) = self.client.get(&url).await?;
         Ok(body)
+    }
+
+    pub async fn change_bios_password(
+        &self,
+        password_name: &str,
+        current_bios_password: &str,
+        new_bios_password: &str,
+    ) -> Result<(), RedfishError> {
+        let mut url = format!("Systems/{}/Bios/", self.system_id);
+
+        match self.vendor.as_deref() {
+            Some("HPE") => {
+                url = format!("{}Settings/Actions/Bios.ChangePasswords", url);
+            }
+            _ => {
+                url = format!("{}Actions/Bios.ChangePassword", url);
+            }
+        }
+
+        let mut arg = HashMap::new();
+        arg.insert("PasswordName", password_name.to_string());
+        arg.insert("OldPassword", current_bios_password.to_string());
+        arg.insert("NewPassword", new_bios_password.to_string());
+        self.client.post(&url, arg).await.map(|_resp| Ok(()))?
     }
 }
 

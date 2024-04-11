@@ -2,6 +2,7 @@ use std::string::{String, ToString};
 use std::vec::Vec;
 use std::{collections::HashMap, time::Duration};
 
+use reqwest::header::HeaderMap;
 use reqwest::Proxy;
 use reqwest::{
     header::{HeaderName, HeaderValue, ACCEPT, CONTENT_TYPE},
@@ -159,7 +160,7 @@ impl RedfishHttpClient {
     where
         T: DeserializeOwned + ::std::fmt::Debug,
     {
-        let (status_code, resp_opt) = self
+        let (status_code, resp_opt, _resp_headers) = self
             .req::<T, String>(Method::GET, api, None, None, None, Vec::new())
             .await?;
         match resp_opt {
@@ -172,11 +173,15 @@ impl RedfishHttpClient {
         &self,
         api: &str,
         data: HashMap<&str, String>,
-    ) -> Result<StatusCode, RedfishError> {
-        let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
+    ) -> Result<(StatusCode, Option<HeaderMap>), RedfishError> {
+        let (status_code, _resp_body, resp_headers): (
+            _,
+            Option<HashMap<String, serde_json::Value>>,
+            Option<HeaderMap>,
+        ) = self
             .req(Method::POST, api, Some(data), None, None, Vec::new())
             .await?;
-        Ok(status_code)
+        Ok((status_code, resp_headers))
     }
 
     pub async fn post_file<T>(
@@ -193,7 +198,7 @@ impl RedfishHttpClient {
                 |_err| DEFAULT_TIMEOUT,
                 |m| Duration::from_secs(m.len() / MIN_UPLOAD_BANDWIDTH),
             );
-        let (status_code, resp_opt) = self
+        let (status_code, resp_opt, _resp_headers) = self
             .req::<T, _>(
                 Method::POST,
                 api,
@@ -213,7 +218,11 @@ impl RedfishHttpClient {
     where
         T: Serialize + ::std::fmt::Debug,
     {
-        let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
+        let (status_code, _resp_body, _resp_headers): (
+            _,
+            Option<HashMap<String, serde_json::Value>>,
+            Option<HeaderMap>,
+        ) = self
             .req(Method::PATCH, api, Some(data), None, None, Vec::new())
             .await?;
         Ok(status_code)
@@ -223,7 +232,11 @@ impl RedfishHttpClient {
     // hence allow dead_code.
     #[allow(dead_code)]
     pub async fn delete(&self, api: &str) -> Result<StatusCode, RedfishError> {
-        let (status_code, _resp_body): (_, Option<HashMap<String, serde_json::Value>>) = self
+        let (status_code, _resp_body, _resp_headers): (
+            _,
+            Option<HashMap<String, serde_json::Value>>,
+            Option<HeaderMap>,
+        ) = self
             .req::<_, String>(Method::DELETE, api, None, None, None, Vec::new())
             .await?;
         Ok(status_code)
@@ -238,7 +251,7 @@ impl RedfishHttpClient {
         override_timeout: Option<Duration>,
         file: Option<tokio::fs::File>,
         custom_headers: Vec<(HeaderName, String)>,
-    ) -> Result<(StatusCode, Option<T>), RedfishError>
+    ) -> Result<(StatusCode, Option<T>, Option<HeaderMap>), RedfishError>
     where
         T: DeserializeOwned + ::std::fmt::Debug,
         B: Serialize + ::std::fmt::Debug,
@@ -272,7 +285,7 @@ impl RedfishHttpClient {
         override_timeout: Option<Duration>,
         file: Option<tokio::fs::File>,
         custom_headers: &[(HeaderName, String)],
-    ) -> Result<(StatusCode, Option<T>), RedfishError>
+    ) -> Result<(StatusCode, Option<T>, Option<HeaderMap>), RedfishError>
     where
         T: DeserializeOwned + ::std::fmt::Debug,
         B: Serialize + ::std::fmt::Debug,
@@ -358,6 +371,7 @@ impl RedfishHttpClient {
             url: url.clone(),
             source: e,
         })?;
+
         let status_code = response.status();
         if status_code == StatusCode::CONFLICT {
             // 409 No Content is how Dell responds if we try to turn off a system that's already off, etc.
@@ -365,6 +379,12 @@ impl RedfishHttpClient {
             return Err(RedfishError::UnnecessaryOperation);
         }
         debug!("RX {status_code}");
+
+        let mut res_headers = None;
+        if !response.headers().is_empty() {
+            res_headers = Some(response.headers().clone());
+        }
+
         // read the body even if not status 2XX, because BMCs give useful error messages as JSON
         let response_body = response
             .text()
@@ -396,7 +416,8 @@ impl RedfishHttpClient {
                 }
             };
         }
-        Ok((status_code, res))
+
+        Ok((status_code, res, res_headers))
     }
 }
 

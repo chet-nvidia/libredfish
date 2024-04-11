@@ -31,6 +31,9 @@ pub enum RedfishError {
     #[error("Remote returned empty body")]
     NoContent,
 
+    #[error("Remote returned empty header")]
+    NoHeader,
+
     #[error("No such boot option {0}")]
     MissingBootOption(String),
 
