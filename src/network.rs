@@ -1,5 +1,3 @@
-use std::string::{String, ToString};
-use std::vec::Vec;
 use std::{collections::HashMap, time::Duration};
 
 use reqwest::header::HeaderMap;
