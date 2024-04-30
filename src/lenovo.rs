@@ -4,6 +4,7 @@ use reqwest::header::HeaderMap;
 use reqwest::Method;
 use tracing::debug;
 
+use crate::model::account_service::ManagerAccount;
 use crate::model::service_root::ServiceRoot;
 use crate::model::task::Task;
 use crate::model::Manager;
@@ -50,8 +51,16 @@ impl Redfish for Bmc {
         self.s.create_user(username, password, role_id).await
     }
 
+    async fn change_username(&self, old_name: &str, new_name: &str) -> Result<(), RedfishError> {
+        self.s.change_username(old_name, new_name).await
+    }
+
     async fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError> {
         self.s.change_password(user, new).await
+    }
+
+    async fn get_accounts(&self) -> Result<Vec<ManagerAccount>, RedfishError> {
+        self.s.get_accounts().await
     }
 
     async fn get_power_state(&self) -> Result<PowerState, RedfishError> {

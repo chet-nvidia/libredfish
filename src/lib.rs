@@ -2,6 +2,7 @@ use std::collections::HashMap;
 use std::fmt;
 
 pub mod model;
+use model::account_service::ManagerAccount;
 pub use model::chassis::{Chassis, NetworkAdapter};
 pub use model::ethernet_interface::EthernetInterface;
 pub use model::network_device_function::NetworkDeviceFunction;
@@ -35,8 +36,14 @@ use crate::model::thermal::Thermal;
 /// Interface to a BMC Redfish server. All calls will include one or more HTTP network calls.
 #[async_trait::async_trait]
 pub trait Redfish: Send + Sync + 'static {
+    /// Rename a user
+    async fn change_username(&self, old_name: &str, new_name: &str) -> Result<(), RedfishError>;
+
     /// Change password for the user
     async fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError>;
+
+    /// List current user accounts
+    async fn get_accounts(&self) -> Result<Vec<ManagerAccount>, RedfishError>;
 
     /// Create a new user
     async fn create_user(
