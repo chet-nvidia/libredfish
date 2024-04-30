@@ -87,6 +87,7 @@ impl Redfish for Bmc {
         self.clear_tpm().await?;
         self.boot_first(Boot::Pxe).await?;
         self.set_virt_enable().await?;
+        self.set_uefi_boot_only().await?;
         // always do system lockdown last
         self.lockdown(Enabled).await
     }
@@ -728,6 +729,33 @@ impl Bmc {
         body.insert(
             "Attributes",
             HashMap::from([("Processors_IntelVirtualizationTechnology", "Enabled")]),
+        );
+        let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
+    }
+
+    /// Set so that we only UEFI IPv4 HTTP boot, and we retry that.
+    ///
+    /// Disable PXE Boot
+    /// Disable LegacyBIOS Mode
+    /// Set Bootmode to UEFI
+    /// Enable IPv4 HTTP Boot
+    /// Disable IPv4 PXE Boot
+    /// Disable IPv6 PXE Boot
+    /// Enable Infinite Boot Mode
+    async fn set_uefi_boot_only(&self) -> Result<(), RedfishError> {
+        let mut body = HashMap::new();
+        body.insert(
+            "Attributes",
+            HashMap::from([
+                ("LegacyBIOS_NonOnboardPXE", "Disabled"),
+                ("LegacyBIOS_LegacyBIOS", "Disabled"),
+                ("BootModes_SystemBootMode", "UEFIMode"),
+                ("NetworkStackSettings_IPv4HTTPSupport", "Enabled"),
+                ("NetworkStackSettings_IPv4PXESupport", "Disabled"),
+                ("NetworkStackSettings_IPv6PXESupport", "Disabled"),
+                ("BootModes_InfiniteBootRetry", "Enabled"),
+            ]),
         );
         let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
         self.s.client.patch(&url, body).await.map(|_status_code| ())
