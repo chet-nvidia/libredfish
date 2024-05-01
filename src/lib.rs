@@ -117,6 +117,11 @@ pub trait Redfish: Send + Sync + 'static {
     /// call this to setup bios and bmc for Nvidia Forge use
     async fn forge_setup(&self) -> Result<(), RedfishError>;
 
+    /// Apply a standard BMC password policy. This varies a lot by vendor,
+    /// but at a minimum we want passwords to never expire, because our BMCs are
+    /// not actively used by humans.
+    async fn set_forge_password_policy(&self) -> Result<(), RedfishError>;
+
     /// Lock the BIOS and BMC ready for tenant use. Disabled reverses the changes.
     async fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError>;
 

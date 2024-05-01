@@ -140,6 +140,20 @@ impl Redfish for Bmc {
         self.lockdown(EnabledDisabled::Enabled).await
     }
 
+    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+        use serde_json::Value::Number;
+        let body = HashMap::from([
+            ("AccountLockoutThreshold", Number(0.into())),
+            ("AccountLockoutDuration", Number(0.into())),
+            ("AccountLockoutCounterResetAfter", Number(0.into())),
+        ]);
+        self.s
+            .client
+            .patch("AccountService", body)
+            .await
+            .map(|_status_code| ())
+    }
+
     async fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
         use EnabledDisabled::*;
         match target {

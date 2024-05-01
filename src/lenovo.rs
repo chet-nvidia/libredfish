@@ -101,6 +101,54 @@ impl Redfish for Bmc {
         self.lockdown(Enabled).await
     }
 
+    /// Redfish equivalent of `accseccfg -pew 0 -pe 0 -chgnew off -rc 0 -ci 0 -lf 0`
+    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+        use serde_json::Value;
+        let mut body = HashMap::from([
+            (
+                "AccountLockoutThreshold".to_string(),
+                Value::Number(0.into()),
+            ), // -lf 0
+            (
+                "AccountLockoutDuration".to_string(),
+                // 60 secs is the shortest Lenovo allows. The docs say 0 disables it, but my
+                // test Lenovo rejects 0.
+                Value::Number(60.into()),
+            ),
+        ]);
+        let lenovo = Value::Object(serde_json::Map::from_iter(vec![
+            (
+                "PasswordExpirationPeriodDays".to_string(),
+                Value::Number(0.into()),
+            ), // -pe 0
+            (
+                "PasswordChangeOnFirstAccess".to_string(),
+                Value::Bool(false),
+            ), // -chgnew off
+            (
+                "MinimumPasswordChangeIntervalHours".to_string(),
+                Value::Number(0.into()),
+            ), // -ci 0
+            (
+                "MinimumPasswordReuseCycle".to_string(),
+                Value::Number(0.into()),
+            ), // -rc 0
+            (
+                "PasswordExpirationWarningPeriod".to_string(),
+                Value::Number(0.into()),
+            ), // -pew 0
+        ]));
+        let mut oem = serde_json::Map::new();
+        oem.insert("Lenovo".to_string(), lenovo);
+        body.insert("Oem".to_string(), serde_json::Value::Object(oem));
+
+        self.s
+            .client
+            .patch("AccountService", body)
+            .await
+            .map(|_status_code| ())
+    }
+
     async fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
         use EnabledDisabled::*;
         match target {

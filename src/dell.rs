@@ -124,6 +124,18 @@ impl Redfish for Bmc {
             .await
     }
 
+    /// iDRAC does not suport changing password policy. They support IP blocking instead.
+    /// https://github.com/dell/iDRAC-Redfish-Scripting/issues/295
+    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+        // These are all password policy a Dell has, and they are all read only.
+        // Redfish will reject attempts to modify them.
+        // - AccountLockoutThreshold
+        // - AccountLockoutDuration
+        // - AccountLockoutCounterResetAfter
+        // - AuthFailureLoggingThreshold
+        Ok(())
+    }
+
     async fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
         use EnabledDisabled::*;
         match target {

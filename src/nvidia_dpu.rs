@@ -117,6 +117,10 @@ impl Redfish for Bmc {
         self.boot_once(UefiHttp).await
     }
 
+    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+        self.s.set_forge_password_policy().await
+    }
+
     async fn lockdown(&self, target: crate::EnabledDisabled) -> Result<(), RedfishError> {
         self.s.lockdown(target).await
     }
