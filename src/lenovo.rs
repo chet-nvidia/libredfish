@@ -1,4 +1,4 @@
-use std::{collections::HashMap, time::Duration};
+use std::{collections::HashMap, path::Path, time::Duration};
 
 use reqwest::header::HeaderMap;
 use reqwest::Method;
@@ -351,6 +351,14 @@ impl Redfish for Bmc {
         firmware: tokio::fs::File,
     ) -> Result<crate::model::task::Task, RedfishError> {
         self.s.update_firmware(firmware).await
+    }
+
+    async fn update_firmware_multipart(
+        &self,
+        filename: &Path,
+        reboot: bool,
+    ) -> Result<String, RedfishError> {
+        self.s.update_firmware_multipart(filename, reboot).await
     }
 
     async fn get_tasks(&self) -> Result<Vec<String>, RedfishError> {

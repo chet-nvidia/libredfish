@@ -1,4 +1,7 @@
-use std::collections::{HashMap, HashSet};
+use std::{
+    collections::{HashMap, HashSet},
+    path::Path,
+};
 
 use reqwest::Method;
 use tracing::debug;
@@ -227,6 +230,16 @@ impl Redfish for RedfishStandard {
     async fn update_firmware(&self, firmware: tokio::fs::File) -> Result<Task, RedfishError> {
         let (_status_code, body) = self.client.post_file("UpdateService", firmware).await?;
         Ok(body)
+    }
+
+    async fn update_firmware_multipart(
+        &self,
+        _filename: &Path,
+        _reboot: bool,
+    ) -> Result<String, RedfishError> {
+        Err(RedfishError::NotSupported(
+            "Multipart firmware updates not currently supported on this platform".to_string(),
+        ))
     }
 
     async fn get_tasks(&self) -> Result<Vec<String>, RedfishError> {

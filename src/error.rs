@@ -68,6 +68,9 @@ pub enum RedfishError {
 
     #[error("Reqwest error: '{0}'")]
     ReqwestError(#[from] reqwest::Error),
+
+    #[error("Issue with file: {0}")]
+    FileError(String),
 }
 
 impl RedfishError {
