@@ -1,18 +1,14 @@
-use crate::{model::InvalidValueError, standard::RedfishStandard, Redfish, RedfishError};
+use std::{collections::HashMap, path::Path, time::Duration};
+
 use reqwest::{
     header::{HeaderMap, HeaderName, HeaderValue, ACCEPT, CONTENT_TYPE},
     multipart::{Form, Part},
     Client as HttpClient, ClientBuilder as HttpClientBuilder, Method, Proxy, StatusCode,
 };
 use serde::{de::DeserializeOwned, Serialize};
-use std::{
-    collections::HashMap,
-    path::Path,
-    string::{String, ToString},
-    time::Duration,
-    vec::Vec,
-};
 use tracing::debug;
+
+use crate::{model::InvalidValueError, standard::RedfishStandard, Redfish, RedfishError};
 
 pub const REDFISH_ENDPOINT: &str = "redfish/v1";
 const DEFAULT_TIMEOUT: Duration = Duration::from_secs(20);
