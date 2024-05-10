@@ -1,3 +1,10 @@
+use std::{collections::HashMap, path::Path, time};
+
+use serde::Serialize;
+use tokio::fs::File;
+use tokio::time::sleep;
+use tracing::debug;
+
 use crate::{
     model::{
         account_service::ManagerAccount,
@@ -17,11 +24,6 @@ use crate::{
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, RoleId,
     Status, StatusInternal, SystemPowerControl,
 };
-use serde::Serialize;
-use std::{collections::HashMap, path::Path, time};
-use tokio::fs::File;
-use tokio::time::sleep;
-use tracing::debug;
 
 const UEFI_PASSWORD_NAME: &str = "SetupPassword";
 
@@ -117,6 +119,8 @@ impl Redfish for Bmc {
             .patch(&url, set_forge_attrs)
             .await
             .map(|_status_code| ())?;
+
+        self.forge_setup_oem().await?;
 
         self.setup_bmc_remote_access().await?;
         // always do system lockdown last.
@@ -940,6 +944,20 @@ impl Bmc {
             })
             .cloned()?;
         Ok((v, url.to_string()))
+    }
+
+    async fn forge_setup_oem(&self) -> Result<(), RedfishError> {
+        let manager_id = self.s.manager_id();
+        let url = format!("Managers/{manager_id}/Oem/Dell/DellAttributes/{manager_id}");
+
+        let mut attributes = HashMap::new();
+        // racadm set idrac.webserver.HostHeaderCheck 0
+        attributes.insert("WebServer.1.HostHeaderCheck", "Disabled".to_string());
+        // racadm set iDRAC.IPMILan.Enable 1
+        attributes.insert("IPMILan.1.Enable", "Enabled".to_string());
+
+        let body = HashMap::from([("Attributes", attributes)]);
+        self.s.client.patch(&url, body).await.map(|_resp| ())
     }
 
     // TPM is enabled by default so we never call this.
