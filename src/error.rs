@@ -71,6 +71,9 @@ pub enum RedfishError {
 
     #[error("Issue with file: {0}")]
     FileError(String),
+
+    #[error("Could not identify BMC vendor")]
+    MissingVendor,
 }
 
 impl RedfishError {

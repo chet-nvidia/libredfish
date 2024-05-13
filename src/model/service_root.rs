@@ -1,4 +1,5 @@
 use std::collections::HashMap;
+use std::fmt;
 
 use serde::{Deserialize, Serialize};
 
@@ -15,9 +16,26 @@ pub struct ServiceRoot {
     pub oem: Option<HashMap<String, serde_json::Value>>,
 }
 
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RedfishVendor {
+    Lenovo,
+    Dell,
+    Nvidia,
+    Supermicro,
+    AMI,
+    Hpe,
+    Unknown,
+}
+
+impl fmt::Display for RedfishVendor {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
 impl ServiceRoot {
     /// Vendor provided by Redfish ServiceRoot
-    pub fn vendor(&self) -> Option<String> {
+    pub fn vendor_string(&self) -> Option<String> {
         // If there is no "Vendor" key in ServiceRoot, look for an "Oem" entry. It will have a
         // single key which is the vendor name.
         self.vendor.as_ref().cloned().or_else(|| match &self.oem {
@@ -25,14 +43,31 @@ impl ServiceRoot {
             None => None,
         })
     }
+
+    pub fn vendor(&self) -> Option<RedfishVendor> {
+        let Some(v) = self.vendor_string() else {
+            return None;
+        };
+        Some(match v.as_str() {
+            "AMI" => RedfishVendor::AMI,
+            "Dell" => RedfishVendor::Dell,
+            "HPE" => RedfishVendor::Hpe,
+            "Lenovo" => RedfishVendor::Lenovo,
+            "Nvidia" => RedfishVendor::Nvidia,
+            "Supermicro" => RedfishVendor::Supermicro,
+            _ => RedfishVendor::Unknown,
+        })
+    }
 }
 
 #[cfg(test)]
 mod test {
+    use crate::model::service_root::RedfishVendor;
+
     #[test]
     fn test_supermicro_service_root() {
         let data = include_str!("testdata/supermicro_service_root.json");
         let result: super::ServiceRoot = serde_json::from_str(data).unwrap();
-        assert_eq!(result.vendor().unwrap(), "Supermicro");
+        assert_eq!(result.vendor().unwrap(), RedfishVendor::Supermicro);
     }
 }
