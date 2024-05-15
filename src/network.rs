@@ -110,7 +110,21 @@ impl RedfishClientPool {
         &self,
         endpoint: Endpoint,
     ) -> Result<Box<dyn crate::Redfish>, RedfishError> {
-        let client = RedfishHttpClient::new(self.http_client.clone(), endpoint);
+        self.create_client_with_custom_headers(endpoint, Vec::default())
+            .await
+    }
+
+    /// Creates a Redfish BMC client for a certain endpoint and adds custom headers to subsequent requests.
+    ///
+    /// Creating the client will immediately start a HTTP requests
+    /// to set system_id, manager_id and vendor type.
+    /// `custom_headers` will be added to any headers used by vendor specific implementations or the http client.
+    pub async fn create_client_with_custom_headers(
+        &self,
+        endpoint: Endpoint,
+        custom_headers: Vec<(HeaderName, String)>,
+    ) -> Result<Box<dyn crate::Redfish>, RedfishError> {
+        let client = RedfishHttpClient::new(self.http_client.clone(), endpoint, custom_headers);
         let mut s = RedfishStandard::new(client);
         let service_root = s.get_service_root().await?;
         let systems = s.get_systems().await?;
@@ -135,7 +149,7 @@ impl RedfishClientPool {
         &self,
         endpoint: Endpoint,
     ) -> Result<Box<RedfishStandard>, RedfishError> {
-        let client = RedfishHttpClient::new(self.http_client.clone(), endpoint);
+        let client = RedfishHttpClient::new(self.http_client.clone(), endpoint, Vec::default());
         let s = RedfishStandard::new(client);
         Ok(Box::new(s))
     }
@@ -146,13 +160,19 @@ impl RedfishClientPool {
 pub struct RedfishHttpClient {
     endpoint: Endpoint,
     http_client: HttpClient,
+    custom_headers: Vec<(HeaderName, String)>,
 }
 
 impl RedfishHttpClient {
-    pub fn new(http_client: HttpClient, endpoint: Endpoint) -> Self {
+    pub fn new(
+        http_client: HttpClient,
+        endpoint: Endpoint,
+        custom_headers: Vec<(HeaderName, String)>,
+    ) -> Self {
         Self {
             endpoint,
             http_client,
+            custom_headers,
         }
     }
 
@@ -250,12 +270,14 @@ impl RedfishHttpClient {
         body: Option<B>,
         override_timeout: Option<Duration>,
         file: Option<tokio::fs::File>,
-        custom_headers: Vec<(HeaderName, String)>,
+        mut custom_headers: Vec<(HeaderName, String)>,
     ) -> Result<(StatusCode, Option<T>, Option<HeaderMap>), RedfishError>
     where
         T: DeserializeOwned + ::std::fmt::Debug,
         B: Serialize + ::std::fmt::Debug,
     {
+        custom_headers.extend_from_slice(&self.custom_headers);
+
         let is_file = file.is_some();
         match self
             ._req(&method, api, &body, override_timeout, file, &custom_headers)
