@@ -1,0 +1,13 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/HGX_ERoT_BMC_0/Certificates/CertChain",
+    "@odata.type": "#Certificate.v1_5_0.Certificate",
+    "CertificateType": "PEMchain",
+    "CertificateUsageTypes": [
+        "Device"
+    ],
+    "Id": "CertChain",
+    "Name": "HGX_ERoT_BMC_0 Certificate Chain",
+    "SPDM": {
+        "SlotId": 0
+    }
+}

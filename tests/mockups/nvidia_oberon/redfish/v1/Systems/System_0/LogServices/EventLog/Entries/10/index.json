@@ -1,0 +1,20 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/10",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/10/attachment",
+    "Created": "2024-05-10T22:26:14+00:00",
+    "EntryType": "Event",
+    "Id": "10",
+    "Message": "xyz.openbmc_project.State.BMC.Error.MultiUserTargetFailure",
+    "Modified": "2024-05-10T22:26:14+00:00",
+    "Name": "System Event Log Entry",
+    "Oem": {
+        "Nvidia": {
+            "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+            "Device": "",
+            "ErrorId": ""
+        }
+    },
+    "Resolved": false,
+    "Severity": "Critical"
+}

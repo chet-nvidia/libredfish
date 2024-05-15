@@ -1,0 +1,24 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/9",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/9/attachment",
+    "Created": "2024-05-10T22:22:38+00:00",
+    "EntryType": "Event",
+    "Id": "9",
+    "Message": "The resource has been created successfully.",
+    "MessageArgs": [
+        ""
+    ],
+    "MessageId": "ResourceEvent.1.2.ResourceCreated",
+    "Name": "System Event Log Entry",
+    "Oem": {
+        "Nvidia": {
+            "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+            "Device": "",
+            "ErrorId": ""
+        }
+    },
+    "Resolution": "",
+    "Resolved": false,
+    "Severity": "OK"
+}

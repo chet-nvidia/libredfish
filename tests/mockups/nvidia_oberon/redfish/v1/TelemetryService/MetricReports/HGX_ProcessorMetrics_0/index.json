@@ -1,0 +1,21 @@
+{
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReports/HGX_ProcessorMetrics_0",
+    "@odata.type": "#MetricReport.v1_4_2.MetricReport",
+    "Id": "HGX_ProcessorMetrics_0",
+    "MetricReportDefinition": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/HGX_ProcessorMetrics_0"
+    },
+    "MetricValues": [
+        {
+            "MetricProperty": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_0/Status/State",
+            "MetricValue": "Enabled",
+            "Timestamp": "1970-01-03T14:50:21.404+00:00"
+        },
+        {
+            "MetricProperty": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_1/Status/State",
+            "MetricValue": "Enabled",
+            "Timestamp": "1970-01-03T14:50:27.469+00:00"
+        }
+    ],
+    "Name": "HGX_ProcessorMetrics_0"
+}

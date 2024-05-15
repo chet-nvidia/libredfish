@@ -1,0 +1,24 @@
+{
+    "@odata.id": "/redfish/v1/Managers/BMC_0/NetworkProtocol/HTTPS/Certificates/1",
+    "@odata.type": "#Certificate.v1_0_0.Certificate",
+    "CertificateString": "-----BEGIN CERTIFICATE-----\nMIICPTCCAcSgAwIBAgIERYmlQjAKBggqhkjOPQQDAjA0MQswCQYDVQQGEwJVUzEQ\nMA4GA1UECgwHT3BlbkJNQzETMBEGA1UEAwwKb2Jlcm9uLWJtYzAeFw0yNDA1MTAy\nMjIyMzhaFw0zNDA1MDgyMjIyMzhaMDQxCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdP\ncGVuQk1DMRMwEQYDVQQDDApvYmVyb24tYm1jMHYwEAYHKoZIzj0CAQYFK4EEACID\nYgAEkMNVi+ui3mAVhk8R6Y9c0PPP0CQovkA+W3RhLyFGzFu1NBBYqGJqq0H70opJ\nVNCzfm6LoXD75qCkyDRl287mCNH+VdJ7rvQd8GI3Q/Mg4AhMfXdMw6trXcFw6Nnq\ne2ymo4GmMIGjMA8GA1UdEwEB/wQFMAMBAf8wFQYDVR0RBA4wDIIKb2Jlcm9uLWJt\nYzAdBgNVHQ4EFgQUdX4N+Axt3ZGpr7PCoySesKt/SBowCQYDVR0jBAIwADALBgNV\nHQ8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwLQYJYIZIAYb4QgENBCAWHkdl\nbmVyYXRlZCBmcm9tIE9wZW5CTUMgc2VydmljZTAKBggqhkjOPQQDAgNnADBkAjAC\nKzpbNdmjmmgDZZUx8rvMKGoM5bFWmr2bTz5QuqHZpIVpKHXoNHnF9aZ1m490sjkC\nMFFoGtkDxUEgoiH0hIoqucuHmqGl78TnvmKM0Sq6lHplvt+zRRiGei5qRqzCI8eu\now==\n-----END CERTIFICATE-----\n",
+    "Description": "HTTPS Certificate",
+    "Id": "1",
+    "Issuer": {
+        "CommonName": "oberon-bmc",
+        "Country": "US",
+        "Organization": "OpenBMC"
+    },
+    "KeyUsage": [
+        "KeyEncipherment",
+        "ServerAuthentication"
+    ],
+    "Name": "HTTPS Certificate",
+    "Subject": {
+        "CommonName": "oberon-bmc",
+        "Country": "US",
+        "Organization": "OpenBMC"
+    },
+    "ValidNotAfter": "2034-05-08T22:22:38+00:00",
+    "ValidNotBefore": "2024-05-10T22:22:38+00:00"
+}

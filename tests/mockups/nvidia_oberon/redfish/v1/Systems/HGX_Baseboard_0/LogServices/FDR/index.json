@@ -1,0 +1,22 @@
+{
+    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FDR",
+    "@odata.type": "#LogService.v1_2_0.LogService",
+    "Actions": {
+        "#LogService.ClearLog": {
+            "target": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FDR/Actions/LogService.ClearLog"
+        },
+        "#LogService.CollectDiagnosticData": {
+            "target": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FDR/Actions/LogService.CollectDiagnosticData"
+        }
+    },
+    "DateTime": "1970-01-03T14:49:49+00:00",
+    "DateTimeLocalOffset": "+00:00",
+    "Description": "System FDR LogService",
+    "Entries": {
+        "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FDR/Entries"
+    },
+    "Id": "FDR",
+    "Name": "FDR LogService",
+    "OverWritePolicy": "Unknown",
+    "ServiceEnabled": false
+}

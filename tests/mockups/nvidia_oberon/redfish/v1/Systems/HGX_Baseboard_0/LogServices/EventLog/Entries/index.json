@@ -1,0 +1,2759 @@
+{
+    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries",
+    "@odata.type": "#LogEntryCollection.LogEntryCollection",
+    "Description": "Collection of System Event Log Entries",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12861",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12861/attachment",
+            "Created": "1970-01-03T11:58:20+00:00",
+            "EntryType": "Event",
+            "Id": "12861",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12862",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12862/attachment",
+            "Created": "1970-01-03T11:59:26+00:00",
+            "EntryType": "Event",
+            "Id": "12862",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12863",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12863/attachment",
+            "Created": "1970-01-03T11:59:27+00:00",
+            "EntryType": "Event",
+            "Id": "12863",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12864",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12864/attachment",
+            "Created": "1970-01-03T12:03:25+00:00",
+            "EntryType": "Event",
+            "Id": "12864",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12865",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12865/attachment",
+            "Created": "1970-01-03T12:04:27+00:00",
+            "EntryType": "Event",
+            "Id": "12865",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12866",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12866/attachment",
+            "Created": "1970-01-03T12:04:28+00:00",
+            "EntryType": "Event",
+            "Id": "12866",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12867",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12867/attachment",
+            "Created": "1970-01-03T12:08:33+00:00",
+            "EntryType": "Event",
+            "Id": "12867",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12868",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12868/attachment",
+            "Created": "1970-01-03T12:09:28+00:00",
+            "EntryType": "Event",
+            "Id": "12868",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12869",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12869/attachment",
+            "Created": "1970-01-03T12:09:29+00:00",
+            "EntryType": "Event",
+            "Id": "12869",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12870",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12870/attachment",
+            "Created": "1970-01-03T12:13:37+00:00",
+            "EntryType": "Event",
+            "Id": "12870",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12871",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12871/attachment",
+            "Created": "1970-01-03T12:14:29+00:00",
+            "EntryType": "Event",
+            "Id": "12871",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12872",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12872/attachment",
+            "Created": "1970-01-03T12:14:30+00:00",
+            "EntryType": "Event",
+            "Id": "12872",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12873",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12873/attachment",
+            "Created": "1970-01-03T12:18:46+00:00",
+            "EntryType": "Event",
+            "Id": "12873",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12874",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12874/attachment",
+            "Created": "1970-01-03T12:19:30+00:00",
+            "EntryType": "Event",
+            "Id": "12874",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12875",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12875/attachment",
+            "Created": "1970-01-03T12:19:31+00:00",
+            "EntryType": "Event",
+            "Id": "12875",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12876",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12876/attachment",
+            "Created": "1970-01-03T12:23:50+00:00",
+            "EntryType": "Event",
+            "Id": "12876",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12877",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12877/attachment",
+            "Created": "1970-01-03T12:24:31+00:00",
+            "EntryType": "Event",
+            "Id": "12877",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12878",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12878/attachment",
+            "Created": "1970-01-03T12:24:32+00:00",
+            "EntryType": "Event",
+            "Id": "12878",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12879",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12879/attachment",
+            "Created": "1970-01-03T12:28:59+00:00",
+            "EntryType": "Event",
+            "Id": "12879",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12880",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12880/attachment",
+            "Created": "1970-01-03T12:29:33+00:00",
+            "EntryType": "Event",
+            "Id": "12880",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12881",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12881/attachment",
+            "Created": "1970-01-03T12:29:33+00:00",
+            "EntryType": "Event",
+            "Id": "12881",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12882",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12882/attachment",
+            "Created": "1970-01-03T12:34:02+00:00",
+            "EntryType": "Event",
+            "Id": "12882",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12883",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12883/attachment",
+            "Created": "1970-01-03T12:34:34+00:00",
+            "EntryType": "Event",
+            "Id": "12883",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12884",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12884/attachment",
+            "Created": "1970-01-03T12:34:34+00:00",
+            "EntryType": "Event",
+            "Id": "12884",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12885",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12885/attachment",
+            "Created": "1970-01-03T12:39:12+00:00",
+            "EntryType": "Event",
+            "Id": "12885",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12886",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12886/attachment",
+            "Created": "1970-01-03T12:39:35+00:00",
+            "EntryType": "Event",
+            "Id": "12886",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12887",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12887/attachment",
+            "Created": "1970-01-03T12:39:35+00:00",
+            "EntryType": "Event",
+            "Id": "12887",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12888",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12888/attachment",
+            "Created": "1970-01-03T12:44:14+00:00",
+            "EntryType": "Event",
+            "Id": "12888",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12889",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12889/attachment",
+            "Created": "1970-01-03T12:44:36+00:00",
+            "EntryType": "Event",
+            "Id": "12889",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12890",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12890/attachment",
+            "Created": "1970-01-03T12:44:36+00:00",
+            "EntryType": "Event",
+            "Id": "12890",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12891",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12891/attachment",
+            "Created": "1970-01-03T12:49:25+00:00",
+            "EntryType": "Event",
+            "Id": "12891",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12892",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12892/attachment",
+            "Created": "1970-01-03T12:49:37+00:00",
+            "EntryType": "Event",
+            "Id": "12892",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12893",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12893/attachment",
+            "Created": "1970-01-03T12:49:37+00:00",
+            "EntryType": "Event",
+            "Id": "12893",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12894",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12894/attachment",
+            "Created": "1970-01-03T12:54:27+00:00",
+            "EntryType": "Event",
+            "Id": "12894",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12895",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12895/attachment",
+            "Created": "1970-01-03T12:54:38+00:00",
+            "EntryType": "Event",
+            "Id": "12895",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12896",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12896/attachment",
+            "Created": "1970-01-03T12:54:38+00:00",
+            "EntryType": "Event",
+            "Id": "12896",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12897",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12897/attachment",
+            "Created": "1970-01-03T12:59:38+00:00",
+            "EntryType": "Event",
+            "Id": "12897",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12898",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12898/attachment",
+            "Created": "1970-01-03T12:59:39+00:00",
+            "EntryType": "Event",
+            "Id": "12898",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12899",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12899/attachment",
+            "Created": "1970-01-03T12:59:39+00:00",
+            "EntryType": "Event",
+            "Id": "12899",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12900",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12900/attachment",
+            "Created": "1970-01-03T13:04:40+00:00",
+            "EntryType": "Event",
+            "Id": "12900",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12901",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12901/attachment",
+            "Created": "1970-01-03T13:04:40+00:00",
+            "EntryType": "Event",
+            "Id": "12901",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12902",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12902/attachment",
+            "Created": "1970-01-03T13:05:13+00:00",
+            "EntryType": "Event",
+            "Id": "12902",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12903",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12903/attachment",
+            "Created": "1970-01-03T13:09:41+00:00",
+            "EntryType": "Event",
+            "Id": "12903",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12904",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12904/attachment",
+            "Created": "1970-01-03T13:09:41+00:00",
+            "EntryType": "Event",
+            "Id": "12904",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12905",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12905/attachment",
+            "Created": "1970-01-03T13:10:47+00:00",
+            "EntryType": "Event",
+            "Id": "12905",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12906",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12906/attachment",
+            "Created": "1970-01-03T13:14:42+00:00",
+            "EntryType": "Event",
+            "Id": "12906",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12907",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12907/attachment",
+            "Created": "1970-01-03T13:14:42+00:00",
+            "EntryType": "Event",
+            "Id": "12907",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12908",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12908/attachment",
+            "Created": "1970-01-03T13:16:22+00:00",
+            "EntryType": "Event",
+            "Id": "12908",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12909",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12909/attachment",
+            "Created": "1970-01-03T13:19:43+00:00",
+            "EntryType": "Event",
+            "Id": "12909",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12910",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12910/attachment",
+            "Created": "1970-01-03T13:19:43+00:00",
+            "EntryType": "Event",
+            "Id": "12910",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12911",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12911/attachment",
+            "Created": "1970-01-03T13:21:56+00:00",
+            "EntryType": "Event",
+            "Id": "12911",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12912",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12912/attachment",
+            "Created": "1970-01-03T13:24:44+00:00",
+            "EntryType": "Event",
+            "Id": "12912",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12913",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12913/attachment",
+            "Created": "1970-01-03T13:24:44+00:00",
+            "EntryType": "Event",
+            "Id": "12913",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12914",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12914/attachment",
+            "Created": "1970-01-03T13:27:30+00:00",
+            "EntryType": "Event",
+            "Id": "12914",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12915",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12915/attachment",
+            "Created": "1970-01-03T13:29:45+00:00",
+            "EntryType": "Event",
+            "Id": "12915",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12916",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12916/attachment",
+            "Created": "1970-01-03T13:29:45+00:00",
+            "EntryType": "Event",
+            "Id": "12916",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12917",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12917/attachment",
+            "Created": "1970-01-03T13:33:05+00:00",
+            "EntryType": "Event",
+            "Id": "12917",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12918",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12918/attachment",
+            "Created": "1970-01-03T13:34:46+00:00",
+            "EntryType": "Event",
+            "Id": "12918",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12919",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12919/attachment",
+            "Created": "1970-01-03T13:34:46+00:00",
+            "EntryType": "Event",
+            "Id": "12919",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12920",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12920/attachment",
+            "Created": "1970-01-03T13:38:39+00:00",
+            "EntryType": "Event",
+            "Id": "12920",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12921",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12921/attachment",
+            "Created": "1970-01-03T13:39:47+00:00",
+            "EntryType": "Event",
+            "Id": "12921",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12922",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12922/attachment",
+            "Created": "1970-01-03T13:39:47+00:00",
+            "EntryType": "Event",
+            "Id": "12922",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12923",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12923/attachment",
+            "Created": "1970-01-03T13:44:13+00:00",
+            "EntryType": "Event",
+            "Id": "12923",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12924",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12924/attachment",
+            "Created": "1970-01-03T13:44:48+00:00",
+            "EntryType": "Event",
+            "Id": "12924",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12925",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12925/attachment",
+            "Created": "1970-01-03T13:44:48+00:00",
+            "EntryType": "Event",
+            "Id": "12925",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12926",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12926/attachment",
+            "Created": "1970-01-03T13:49:48+00:00",
+            "EntryType": "Event",
+            "Id": "12926",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12927",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12927/attachment",
+            "Created": "1970-01-03T13:49:49+00:00",
+            "EntryType": "Event",
+            "Id": "12927",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12928",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12928/attachment",
+            "Created": "1970-01-03T13:49:49+00:00",
+            "EntryType": "Event",
+            "Id": "12928",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12929",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12929/attachment",
+            "Created": "1970-01-03T13:54:50+00:00",
+            "EntryType": "Event",
+            "Id": "12929",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12930",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12930/attachment",
+            "Created": "1970-01-03T13:54:50+00:00",
+            "EntryType": "Event",
+            "Id": "12930",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12931",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12931/attachment",
+            "Created": "1970-01-03T13:55:22+00:00",
+            "EntryType": "Event",
+            "Id": "12931",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12932",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12932/attachment",
+            "Created": "1970-01-03T13:59:51+00:00",
+            "EntryType": "Event",
+            "Id": "12932",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12933",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12933/attachment",
+            "Created": "1970-01-03T13:59:51+00:00",
+            "EntryType": "Event",
+            "Id": "12933",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12934",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12934/attachment",
+            "Created": "1970-01-03T14:00:57+00:00",
+            "EntryType": "Event",
+            "Id": "12934",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12935",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12935/attachment",
+            "Created": "1970-01-03T14:04:52+00:00",
+            "EntryType": "Event",
+            "Id": "12935",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12936",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12936/attachment",
+            "Created": "1970-01-03T14:04:52+00:00",
+            "EntryType": "Event",
+            "Id": "12936",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12937",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12937/attachment",
+            "Created": "1970-01-03T14:06:31+00:00",
+            "EntryType": "Event",
+            "Id": "12937",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12938",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12938/attachment",
+            "Created": "1970-01-03T14:09:53+00:00",
+            "EntryType": "Event",
+            "Id": "12938",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12939",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12939/attachment",
+            "Created": "1970-01-03T14:09:53+00:00",
+            "EntryType": "Event",
+            "Id": "12939",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12940",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12940/attachment",
+            "Created": "1970-01-03T14:12:06+00:00",
+            "EntryType": "Event",
+            "Id": "12940",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12941",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12941/attachment",
+            "Created": "1970-01-03T14:14:54+00:00",
+            "EntryType": "Event",
+            "Id": "12941",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12942",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12942/attachment",
+            "Created": "1970-01-03T14:14:54+00:00",
+            "EntryType": "Event",
+            "Id": "12942",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12943",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12943/attachment",
+            "Created": "1970-01-03T14:17:40+00:00",
+            "EntryType": "Event",
+            "Id": "12943",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12944",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12944/attachment",
+            "Created": "1970-01-03T14:19:55+00:00",
+            "EntryType": "Event",
+            "Id": "12944",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12945",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12945/attachment",
+            "Created": "1970-01-03T14:19:55+00:00",
+            "EntryType": "Event",
+            "Id": "12945",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12946",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12946/attachment",
+            "Created": "1970-01-03T14:23:15+00:00",
+            "EntryType": "Event",
+            "Id": "12946",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12947",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12947/attachment",
+            "Created": "1970-01-03T14:24:56+00:00",
+            "EntryType": "Event",
+            "Id": "12947",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12948",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12948/attachment",
+            "Created": "1970-01-03T14:24:56+00:00",
+            "EntryType": "Event",
+            "Id": "12948",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12949",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12949/attachment",
+            "Created": "1970-01-03T14:28:49+00:00",
+            "EntryType": "Event",
+            "Id": "12949",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12950",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12950/attachment",
+            "Created": "1970-01-03T14:29:57+00:00",
+            "EntryType": "Event",
+            "Id": "12950",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12951",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12951/attachment",
+            "Created": "1970-01-03T14:29:57+00:00",
+            "EntryType": "Event",
+            "Id": "12951",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12952",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12952/attachment",
+            "Created": "1970-01-03T14:34:23+00:00",
+            "EntryType": "Event",
+            "Id": "12952",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12953",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12953/attachment",
+            "Created": "1970-01-03T14:34:58+00:00",
+            "EntryType": "Event",
+            "Id": "12953",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12954",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12954/attachment",
+            "Created": "1970-01-03T14:34:58+00:00",
+            "EntryType": "Event",
+            "Id": "12954",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12955",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12955/attachment",
+            "Created": "1970-01-03T14:39:57+00:00",
+            "EntryType": "Event",
+            "Id": "12955",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12956",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12956/attachment",
+            "Created": "1970-01-03T14:39:59+00:00",
+            "EntryType": "Event",
+            "Id": "12956",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12957",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12957/attachment",
+            "Created": "1970-01-03T14:39:59+00:00",
+            "EntryType": "Event",
+            "Id": "12957",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12958",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12958/attachment",
+            "Created": "1970-01-03T14:45:00+00:00",
+            "EntryType": "Event",
+            "Id": "12958",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12959",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12959/attachment",
+            "Created": "1970-01-03T14:45:00+00:00",
+            "EntryType": "Event",
+            "Id": "12959",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  0"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12960",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/12960/attachment",
+            "Created": "1970-01-03T14:45:32+00:00",
+            "EntryType": "Event",
+            "Id": "12960",
+            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "MessageArgs": [
+                "GPU OOB Library",
+                "FPGA HSR Backend access Error on  -1"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6716",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6716/attachment",
+            "Created": "1970-01-23T06:30:59+00:00",
+            "EntryType": "Event",
+            "Id": "6716",
+            "Message": "Device 'FW_GPU_1' successfully updated with image '96.00.A6.00.01'.",
+            "MessageArgs": [
+                "FW_GPU_1",
+                "96.00.A6.00.01"
+            ],
+            "MessageId": "Update.1.0.UpdateSuccessful",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6717",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6717/attachment",
+            "Created": "1970-01-23T06:30:59+00:00",
+            "EntryType": "Event",
+            "Id": "6717",
+            "Message": "Awaiting for an action to proceed with activating image '96.00.A6.00.01' on 'FW_GPU_1'.",
+            "MessageArgs": [
+                "96.00.A6.00.01",
+                "FW_GPU_1"
+            ],
+            "MessageId": "Update.1.0.AwaitToActivate",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Medium-specific reset or DC power cycle or AC power cycle",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6718",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6718/attachment",
+            "Created": "1970-01-23T06:32:22+00:00",
+            "EntryType": "Event",
+            "Id": "6718",
+            "Message": "Device 'MAX10 CPLD' successfully updated with image '0.17'.",
+            "MessageArgs": [
+                "MAX10 CPLD",
+                "0.17"
+            ],
+            "MessageId": "Update.1.0.UpdateSuccessful",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6720",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6720/attachment",
+            "Created": "1970-01-23T06:34:35+00:00",
+            "EntryType": "Event",
+            "Id": "6720",
+            "Message": "Device 'CPU_1' successfully updated with image '01.02.04'.",
+            "MessageArgs": [
+                "CPU_1",
+                "01.02.04"
+            ],
+            "MessageId": "Update.1.0.UpdateSuccessful",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6721",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6721/attachment",
+            "Created": "1970-01-23T06:34:35+00:00",
+            "EntryType": "Event",
+            "Id": "6721",
+            "Message": "Awaiting for an action to proceed with activating image '01.02.04' on 'CPU_1'.",
+            "MessageArgs": [
+                "01.02.04",
+                "CPU_1"
+            ],
+            "MessageId": "Update.1.0.AwaitToActivate",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "AC power cycle",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6722",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6722/attachment",
+            "Created": "1970-01-23T06:34:40+00:00",
+            "EntryType": "Event",
+            "Id": "6722",
+            "Message": "Device 'CPU_0' successfully updated with image '01.02.04'.",
+            "MessageArgs": [
+                "CPU_0",
+                "01.02.04"
+            ],
+            "MessageId": "Update.1.0.UpdateSuccessful",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6723",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6723/attachment",
+            "Created": "1970-01-23T06:34:40+00:00",
+            "EntryType": "Event",
+            "Id": "6723",
+            "Message": "Awaiting for an action to proceed with activating image '01.02.04' on 'CPU_0'.",
+            "MessageArgs": [
+                "01.02.04",
+                "CPU_0"
+            ],
+            "MessageId": "Update.1.0.AwaitToActivate",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "AC power cycle",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6725",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6725/attachment",
+            "Created": "1970-01-23T06:39:11+00:00",
+            "EntryType": "Event",
+            "Id": "6725",
+            "Message": "Device '30' successfully updated with image 'GH200-24.05-2'.",
+            "MessageArgs": [
+                "30",
+                "GH200-24.05-2"
+            ],
+            "MessageId": "Update.1.0.UpdateSuccessful",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6726",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6726/attachment",
+            "Created": "1970-01-23T06:39:11+00:00",
+            "EntryType": "Event",
+            "Id": "6726",
+            "Message": "Awaiting for an action to proceed with activating image 'GH200-24.05-2' on '30'.",
+            "MessageArgs": [
+                "GH200-24.05-2",
+                "30"
+            ],
+            "MessageId": "Update.1.0.AwaitToActivate",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "System reboot or AC power cycle",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6727",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/6727/attachment",
+            "Created": "1970-01-23T06:39:11+00:00",
+            "EntryType": "Event",
+            "Id": "6727",
+            "Message": "Awaiting for an action to proceed with activating image 'P4764_0002_240506.1.1' on 'ERoT_GPU_0 FW_GPU_0 ERoT_GPU_1 FW_GPU_1 JAMPLAYER ERoT_CPU_1 CPU_1 ERoT_CPU_0 CPU_0 HMC_ERoT_HMC_0'.",
+            "MessageArgs": [
+                "P4764_0002_240506.1.1",
+                "ERoT_GPU_0 FW_GPU_0 ERoT_GPU_1 FW_GPU_1 JAMPLAYER ERoT_CPU_1 CPU_1 ERoT_CPU_0 CPU_0 HMC_ERoT_HMC_0"
+            ],
+            "MessageId": "Update.1.0.AwaitToActivate",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Perform the requested action to advance the update operation.",
+            "Resolved": false,
+            "Severity": "OK"
+        }
+    ],
+    "Members@odata.count": 110,
+    "Name": "System Event Log Entries"
+}

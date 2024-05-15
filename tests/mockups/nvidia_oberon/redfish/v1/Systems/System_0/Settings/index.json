@@ -1,0 +1,12 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/Settings",
+    "@odata.type": "#ComputerSystem.v1_17_0.ComputerSystem",
+    "Boot": {
+        "AutomaticRetryConfig": "RetryAttempts",
+        "BootOrder": [],
+        "BootSourceOverrideEnabled": "Disabled",
+        "BootSourceOverrideTarget": "None"
+    },
+    "Id": "Settings",
+    "Name": "System_0 Pending Settings"
+}

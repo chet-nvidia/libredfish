@@ -1,0 +1,31 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Dump/Entries",
+    "@odata.type": "#LogEntryCollection.LogEntryCollection",
+    "Description": "Collection of BMC Dump Entries",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Dump/Entries/3899",
+            "@odata.type": "#LogEntry.v1_15_0.LogEntry",
+            "AdditionalDataSizeBytes": 11780,
+            "AdditionalDataURI": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Dump/Entries/3899/attachment",
+            "Created": "1970-01-01T00:00:24+00:00",
+            "DiagnosticDataType": "Manager",
+            "EntryType": "Event",
+            "Id": "3899",
+            "Name": "BMC Dump Entry"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Dump/Entries/3900",
+            "@odata.type": "#LogEntry.v1_15_0.LogEntry",
+            "AdditionalDataSizeBytes": 182992,
+            "AdditionalDataURI": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Dump/Entries/3900/attachment",
+            "Created": "1970-01-01T00:02:10+00:00",
+            "DiagnosticDataType": "Manager",
+            "EntryType": "Event",
+            "Id": "3900",
+            "Name": "BMC Dump Entry"
+        }
+    ],
+    "Members@odata.count": 2,
+    "Name": "BMC Dump Entries"
+}
