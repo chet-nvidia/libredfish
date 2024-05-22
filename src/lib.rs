@@ -116,6 +116,9 @@ pub trait Redfish: Send + Sync + 'static {
     /// call this to setup bios and bmc for Nvidia Forge use
     async fn forge_setup(&self) -> Result<(), RedfishError>;
 
+    /// Is everything that forge_setup does already done?
+    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError>;
+
     /// Apply a standard BMC password policy. This varies a lot by vendor,
     /// but at a minimum we want passwords to never expire, because our BMCs are
     /// not actively used by humans.
@@ -250,6 +253,12 @@ pub enum Boot {
     UefiHttp,
 }
 
+impl fmt::Display for Boot {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
 /// The current status of something (lockdown, serial_console), saying whether it has been enabled,
 /// disabled, or the necessary settings are only partially applied.
 #[derive(Clone, PartialEq, Debug)]
@@ -269,6 +278,12 @@ enum StatusInternal {
     Enabled,
     Partial,
     Disabled,
+}
+
+impl fmt::Display for StatusInternal {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
 }
 
 /// BMC User Roles
@@ -306,5 +321,47 @@ impl Status {
     /// enable or disabled. Format of message will change, do not parse.
     pub fn message(&self) -> &str {
         &self.message
+    }
+}
+
+#[derive(Debug)]
+pub struct ForgeSetupStatus {
+    pub is_done: bool,
+    pub diffs: Vec<ForgeSetupDiff>,
+}
+
+impl fmt::Display for ForgeSetupStatus {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        if self.is_done {
+            write!(f, "OK")
+        } else {
+            write!(
+                f,
+                "Mismatch: {:?}",
+                self.diffs
+                    .iter()
+                    .map(|d| d.to_string())
+                    .collect::<Vec<_>>()
+                    .join(", ")
+            )?;
+            Ok(())
+        }
+    }
+}
+
+#[derive(Debug)]
+pub struct ForgeSetupDiff {
+    pub key: String,
+    pub expected: String,
+    pub actual: String,
+}
+
+impl fmt::Display for ForgeSetupDiff {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(
+            f,
+            "{} is '{}' expected '{}'",
+            self.key, self.actual, self.expected
+        )
     }
 }

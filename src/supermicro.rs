@@ -17,8 +17,8 @@ use crate::{
         BootOption, ComputerSystem, EnableDisable, InvalidValueError, Manager,
     },
     standard::RedfishStandard,
-    Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, RoleId,
-    Status, StatusInternal, SystemPowerControl,
+    Boot, BootOptions, EnabledDisabled, ForgeSetupStatus, PCIeDevice, PowerState, Redfish,
+    RedfishError, RoleId, Status, StatusInternal, SystemPowerControl,
 };
 
 pub struct Bmc {
@@ -138,6 +138,10 @@ impl Redfish for Bmc {
         self.boot_first(Boot::Pxe).await?;
         // always do system lockdown last
         self.lockdown(EnabledDisabled::Enabled).await
+    }
+
+    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+        Err(RedfishError::NotSupported("forge_setup_status".to_string()))
     }
 
     async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {

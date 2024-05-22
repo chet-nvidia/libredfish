@@ -6,7 +6,6 @@ use version_compare::Version;
 
 use crate::model::account_service::ManagerAccount;
 use crate::EnabledDisabled::Enabled;
-use crate::RoleId;
 use crate::{
     model::{
         boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
@@ -31,6 +30,7 @@ use crate::{
     Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status,
     StatusInternal, SystemPowerControl,
 };
+use crate::{ForgeSetupDiff, ForgeSetupStatus, RoleId};
 
 const UEFI_PASSWORD_NAME: &str = "AdminPassword";
 
@@ -102,6 +102,71 @@ impl Redfish for Bmc {
         self.set_uefi_nic_boot().await?;
         self.set_boot_order(Pxe).await?;
         self.lockdown(Enabled).await
+    }
+
+    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+        let mut diffs = vec![];
+
+        let sc = self.serial_console_status().await?;
+        if !sc.is_fully_enabled() {
+            diffs.push(ForgeSetupDiff {
+                key: "serial_console".to_string(),
+                expected: "Enabled".to_string(),
+                actual: sc.status.to_string(),
+            });
+        }
+
+        let virt = self.get_virt_enabled().await?;
+        if !virt.is_enabled() {
+            diffs.push(ForgeSetupDiff {
+                key: "virt".to_string(),
+                expected: "Enabled".to_string(),
+                actual: virt.to_string(),
+            });
+        }
+
+        let url = format!("Systems/{}/Bios/SD/", self.s.system_id());
+        let uefi: nvidia_viking::SetUefiHttpAttributes = self.s.client.get(&url).await?.1;
+        let needed = [
+            ("Ipv4Http", uefi.attributes.ipv4_http),
+            ("Ipv4Pxe", uefi.attributes.ipv4_pxe),
+            ("Ipv6Http", uefi.attributes.ipv6_http),
+            ("Ipv6Pxe", uefi.attributes.ipv6_pxe),
+        ];
+        for (name, val) in needed {
+            if !val.is_enabled() {
+                diffs.push(ForgeSetupDiff {
+                    key: name.to_string(),
+                    expected: "Enabled".to_string(),
+                    actual: val.to_string(),
+                });
+            }
+        }
+
+        // TODO: Many BootOptions have Alias="Pxe". This probably isn't doing what we want.
+        // see get_boot_options_ids_with_first
+        let boot_first = self.s.get_first_boot_option().await?;
+        if boot_first.alias != Some(Pxe.to_string()) {
+            diffs.push(ForgeSetupDiff {
+                key: "boot_first".to_string(),
+                expected: Pxe.to_string(),
+                actual: format!("{:?}", boot_first.alias.as_deref().unwrap_or("_missing_")),
+            });
+        }
+
+        let lockdown = self.lockdown_status().await?;
+        if !lockdown.is_fully_enabled() {
+            diffs.push(ForgeSetupDiff {
+                key: "lockdown".to_string(),
+                expected: "Enabled".to_string(),
+                actual: lockdown.status.to_string(),
+            });
+        }
+
+        Ok(ForgeSetupStatus {
+            is_done: diffs.is_empty(),
+            diffs,
+        })
     }
 
     async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
@@ -563,6 +628,16 @@ impl Bmc {
             .map(|_status_code| ())
     }
 
+    async fn get_virt_enabled(&self) -> Result<EnabledDisabled, RedfishError> {
+        let url = format!("Systems/{}/Bios/SD/", self.s.system_id());
+        let virt: nvidia_viking::SetVirtAttributes = self.s.client.get(&url).await?.1;
+        if virt.attributes.sriov_enable.is_enabled() && virt.attributes.vtd_support.is_enabled() {
+            Ok(EnabledDisabled::Enabled)
+        } else {
+            Ok(EnabledDisabled::Disabled)
+        }
+    }
+
     async fn set_uefi_nic_boot(&self) -> Result<(), RedfishError> {
         let uefi_nic_boot = nvidia_viking::UefiHttpAttributes {
             ipv4_http: Enabled,
@@ -673,6 +748,9 @@ impl Bmc {
             let member_url = member.replace("Boot", "");
             let b: BootOption = self.s.get_boot_option(member_url.as_str()).await?;
             // dgx has alias entries for each BootOption that matches BootDevices enum
+            //
+            // TODO: Many BootOptions have Alias="Pxe". This probably isn't doing what we want.
+            //
             if b.alias.is_some() && b.alias.unwrap() == with_name_str {
                 ordered.insert(0, format!("Boot{}", b.id).to_string());
                 continue;

@@ -195,7 +195,7 @@ pub struct SetBiosLockdownAttrs {
     pub attributes: BiosLockdownAttrs,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, Eq, PartialEq)]
 pub enum UefiVariableAccessSettings {
     Standard,
     Controlled,
@@ -277,7 +277,7 @@ pub struct SetBiosSerialAttrs {
     pub attributes: BiosSerialAttrs,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, Eq, PartialEq)]
 pub enum SerialCommSettings {
     OnConRedir, // preferred
     OnNoConRedir,
@@ -306,7 +306,7 @@ impl FromStr for SerialCommSettings {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, Eq, PartialEq)]
 pub enum SerialPortSettings {
     Com1, // preferred
     Com2,
@@ -318,7 +318,7 @@ impl fmt::Display for SerialPortSettings {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, Eq, PartialEq)]
 pub enum SerialPortExtSettings {
     Serial1, // preferred
     Serial2,
@@ -331,7 +331,7 @@ impl fmt::Display for SerialPortExtSettings {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, Eq, PartialEq)]
 pub enum SerialPortTermSettings {
     Vt100Vt220, // preferred
     Ansi,
@@ -394,7 +394,7 @@ pub struct SetBiosTpmAttrs {
     pub attributes: BiosTpmAttrs,
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Serialize, Deserialize, Clone, Eq, PartialEq)]
 pub enum Tpm2HierarchySettings {
     Enabled,
     Disabled,

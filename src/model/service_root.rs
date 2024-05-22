@@ -45,9 +45,7 @@ impl ServiceRoot {
     }
 
     pub fn vendor(&self) -> Option<RedfishVendor> {
-        let Some(v) = self.vendor_string() else {
-            return None;
-        };
+        let v = self.vendor_string()?;
         Some(match v.as_str() {
             "AMI" => RedfishVendor::AMI,
             "Dell" => RedfishVendor::Dell,

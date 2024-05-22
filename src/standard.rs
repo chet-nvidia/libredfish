@@ -6,7 +6,6 @@ use std::{
 use reqwest::Method;
 use tracing::debug;
 
-use crate::model::chassis::{Chassis, NetworkAdapter};
 use crate::model::power::Power;
 use crate::model::secure_boot::SecureBoot;
 use crate::model::sel::LogEntry;
@@ -21,6 +20,10 @@ use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{
     model, Boot, EnabledDisabled, NetworkDeviceFunction, NetworkPort, PowerState, Redfish, RoleId,
     Status, Systems,
+};
+use crate::{
+    model::chassis::{Chassis, NetworkAdapter},
+    ForgeSetupStatus,
 };
 use crate::{BootOptions, PCIeDevice, RedfishError};
 
@@ -140,6 +143,10 @@ impl Redfish for RedfishStandard {
 
     async fn forge_setup(&self) -> Result<(), RedfishError> {
         Err(RedfishError::NotSupported("forge_setup".to_string()))
+    }
+
+    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+        Err(RedfishError::NotSupported("forge_setup_status".to_string()))
     }
 
     async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
@@ -558,6 +565,18 @@ impl RedfishStandard {
         let url = format!("Systems/{}/BootOptions", self.system_id());
         let (_status_code, body) = self.client.get(&url).await?;
         Ok(body)
+    }
+
+    pub async fn get_first_boot_option(&self) -> Result<BootOption, RedfishError> {
+        let boot_options = self.get_boot_options().await?;
+        let Some(member) = boot_options.members.first() else {
+            return Err(RedfishError::NoContent);
+        };
+        let url = member
+            .odata_id
+            .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+        let b: BootOption = self.client.get(&url).await?.1;
+        Ok(b)
     }
 
     // The URL differs for Lenovo, but the rest is the same

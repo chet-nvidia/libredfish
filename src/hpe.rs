@@ -20,8 +20,8 @@ use crate::{
     standard::RedfishStandard,
     Boot, BootOptions, EnabledDisabled,
     EnabledDisabled::{Disabled, Enabled},
-    PCIeDevice, PowerState, Redfish, RedfishError, RoleId, Status, StatusInternal,
-    SystemPowerControl,
+    ForgeSetupStatus, PCIeDevice, PowerState, Redfish, RedfishError, RoleId, Status,
+    StatusInternal, SystemPowerControl,
 };
 
 pub struct Bmc {
@@ -97,6 +97,10 @@ impl Redfish for Bmc {
         self.set_uefi_nic_boot().await?;
         self.set_boot_order(BootDevices::Pxe).await?;
         self.lockdown(Enabled).await
+    }
+
+    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+        Err(RedfishError::NotSupported("forge_setup_status".to_string()))
     }
 
     async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {

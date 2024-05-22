@@ -24,8 +24,8 @@ use crate::{
     },
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
-    Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status,
-    StatusInternal, SystemPowerControl,
+    Boot, BootOptions, EnabledDisabled, ForgeSetupDiff, ForgeSetupStatus, PCIeDevice, PowerState,
+    Redfish, RedfishError, Status, StatusInternal, SystemPowerControl,
 };
 
 const UEFI_PASSWORD_NAME: &str = "UefiAdminPassword";
@@ -99,6 +99,75 @@ impl Redfish for Bmc {
         self.set_uefi_boot_only().await?;
         // always do system lockdown last
         self.lockdown(Enabled).await
+
+        // If you change forge_setup also change forge_setup_status
+    }
+
+    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+        let mut diffs = vec![];
+
+        let sc = self.serial_console_status().await?;
+        if !sc.is_fully_enabled() {
+            diffs.push(ForgeSetupDiff {
+                key: "serial_console".to_string(),
+                expected: "Enabled".to_string(),
+                actual: sc.status.to_string(),
+            });
+        }
+
+        // clear_tpm has no 'check' operation, so skip that
+
+        let boot_first = self.s.get_first_boot_option().await?;
+        if boot_first.name != "Network" {
+            // Boot::Pxe maps to lenovo::BootOptionName::Network
+            diffs.push(ForgeSetupDiff {
+                key: "boot_first".to_string(),
+                expected: lenovo::BootOptionName::Network.to_string(),
+                actual: boot_first.name.to_string(),
+            });
+        }
+
+        let virt = self.get_virt_enabled().await?;
+        if virt != EnabledDisabled::Enabled {
+            diffs.push(ForgeSetupDiff {
+                key: "Processors_IntelVirtualizationTechnology".to_string(),
+                expected: EnabledDisabled::Enabled.to_string(),
+                actual: virt.to_string(),
+            });
+        }
+
+        let bios = self.s.bios_attributes().await?;
+        for (key, expected) in self.uefi_boot_only_attributes() {
+            let Some(actual) = bios.get(key) else {
+                diffs.push(ForgeSetupDiff {
+                    key: key.to_string(),
+                    expected: expected.to_string(),
+                    actual: "_missing_".to_string(),
+                });
+                continue;
+            };
+            if actual.as_str().unwrap_or("_wrong_type_") != expected {
+                diffs.push(ForgeSetupDiff {
+                    key: key.to_string(),
+                    expected: expected.to_string(),
+                    actual: actual.to_string(),
+                });
+            }
+        }
+
+        let lockdown = self.lockdown_status().await?;
+        if !lockdown.is_fully_enabled() {
+            diffs.push(ForgeSetupDiff {
+                key: "lockdown".to_string(),
+                expected: "Enabled".to_string(),
+                actual: lockdown.status.to_string(),
+            });
+        }
+
+        Ok(ForgeSetupStatus {
+            is_done: diffs.is_empty(),
+            diffs,
+        })
     }
 
     /// Redfish equivalent of `accseccfg -pew 0 -pe 0 -chgnew off -rc 0 -ci 0 -lf 0`
@@ -799,6 +868,29 @@ impl Bmc {
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
+    async fn get_virt_enabled(&self) -> Result<EnabledDisabled, RedfishError> {
+        let bios = self.s.bios_attributes().await?;
+        let key = "Processors_IntelVirtualizationTechnology";
+        let Some(val) = bios.get(key) else {
+            return Err(RedfishError::MissingKey {
+                key: key.to_string(),
+                url: "bios".to_string(),
+            });
+        };
+        let Some(val) = val.as_str() else {
+            return Err(RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "str".to_string(),
+                url: "bios".to_string(),
+            });
+        };
+        val.parse().map_err(|_e| RedfishError::InvalidKeyType {
+            key: key.to_string(),
+            expected_type: "EnabledDisabled".to_string(),
+            url: "bios".to_string(),
+        })
+    }
+
     /// Set so that we only UEFI IPv4 HTTP boot, and we retry that.
     ///
     /// Disable PXE Boot
@@ -810,20 +902,21 @@ impl Bmc {
     /// Enable Infinite Boot Mode
     async fn set_uefi_boot_only(&self) -> Result<(), RedfishError> {
         let mut body = HashMap::new();
-        body.insert(
-            "Attributes",
-            HashMap::from([
-                ("LegacyBIOS_NonOnboardPXE", "Disabled"),
-                ("LegacyBIOS_LegacyBIOS", "Disabled"),
-                ("BootModes_SystemBootMode", "UEFIMode"),
-                ("NetworkStackSettings_IPv4HTTPSupport", "Enabled"),
-                ("NetworkStackSettings_IPv4PXESupport", "Disabled"),
-                ("NetworkStackSettings_IPv6PXESupport", "Disabled"),
-                ("BootModes_InfiniteBootRetry", "Enabled"),
-            ]),
-        );
+        body.insert("Attributes", self.uefi_boot_only_attributes());
         let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
         self.s.client.patch(&url, body).await.map(|_status_code| ())
+    }
+
+    fn uefi_boot_only_attributes(&self) -> HashMap<&str, &str> {
+        HashMap::from([
+            ("LegacyBIOS_NonOnboardPXE", "Disabled"),
+            ("LegacyBIOS_LegacyBIOS", "Disabled"),
+            ("BootModes_SystemBootMode", "UEFIMode"),
+            ("NetworkStackSettings_IPv4HTTPSupport", "Enabled"),
+            ("NetworkStackSettings_IPv4PXESupport", "Disabled"),
+            ("NetworkStackSettings_IPv6PXESupport", "Disabled"),
+            ("BootModes_InfiniteBootRetry", "Enabled"),
+        ])
     }
 
     async fn set_boot_override(&self, target: lenovo::BootSource) -> Result<(), RedfishError> {

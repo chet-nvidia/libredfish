@@ -1,11 +1,12 @@
 use std::{collections::HashMap, path::Path};
 
+use serde::Deserialize;
+
 use crate::model::account_service::ManagerAccount;
 use crate::model::task::Task;
 use crate::Boot::UefiHttp;
 use crate::HostPrivilegeLevel::Restricted;
 use crate::InternalCPUModel::Embedded;
-use crate::RoleId;
 use crate::{
     model::{
         boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
@@ -18,6 +19,7 @@ use crate::{
     standard::RedfishStandard,
     NetworkDeviceFunction, Redfish, RedfishError,
 };
+use crate::{ForgeSetupDiff, ForgeSetupStatus, RoleId};
 
 pub struct Bmc {
     s: RedfishStandard,
@@ -115,6 +117,70 @@ impl Redfish for Bmc {
         self.set_host_privilege_level(Restricted).await?;
         self.set_internal_cpu_model(Embedded).await?;
         self.boot_once(UefiHttp).await
+    }
+
+    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+        let mut diffs = vec![];
+
+        let sb = self.get_secure_boot().await?;
+        if !sb.secure_boot_enable {
+            diffs.push(ForgeSetupDiff {
+                key: "SecureBoot".to_string(),
+                expected: "true".to_string(),
+                actual: "false".to_string(),
+            });
+        }
+
+        let bios = self.s.bios_attributes().await?;
+        let key = "Host Privilege Level";
+        let Some(hpl) = bios.get(key) else {
+            return Err(RedfishError::MissingKey {
+                key: key.to_string(),
+                url: "Systems/{}/Bios".to_string(),
+            });
+        };
+        let actual = HostPrivilegeLevel::deserialize(hpl).map_err(|e| {
+            RedfishError::JsonDeserializeError {
+                url: "Systems/{}/Bios".to_string(),
+                body: hpl.to_string(),
+                source: e,
+            }
+        })?;
+        let expected = HostPrivilegeLevel::Restricted;
+        if actual != expected {
+            diffs.push(ForgeSetupDiff {
+                key: key.to_string(),
+                actual: actual.to_string(),
+                expected: expected.to_string(),
+            });
+        }
+
+        let key = "Internal CPU Model";
+        let Some(icm) = bios.get(key) else {
+            return Err(RedfishError::MissingKey {
+                key: key.to_string(),
+                url: "Systems/{}/Bios".to_string(),
+            });
+        };
+        let actual =
+            InternalCPUModel::deserialize(icm).map_err(|e| RedfishError::JsonDeserializeError {
+                url: "Systems/{}/Bios".to_string(),
+                body: hpl.to_string(),
+                source: e,
+            })?;
+        let expected = InternalCPUModel::Embedded;
+        if actual != expected {
+            diffs.push(ForgeSetupDiff {
+                key: key.to_string(),
+                actual: actual.to_string(),
+                expected: expected.to_string(),
+            });
+        }
+
+        Ok(ForgeSetupStatus {
+            is_done: diffs.is_empty(),
+            diffs,
+        })
     }
 
     async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
