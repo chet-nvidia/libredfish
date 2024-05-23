@@ -17,9 +17,13 @@ use crate::{
         BootOption, ComputerSystem, EnableDisable, InvalidValueError, Manager,
     },
     standard::RedfishStandard,
-    Boot, BootOptions, EnabledDisabled, ForgeSetupStatus, PCIeDevice, PowerState, Redfish,
-    RedfishError, RoleId, Status, StatusInternal, SystemPowerControl,
+    Boot, BootOptions, EnabledDisabled, ForgeSetupDiff, ForgeSetupStatus, PCIeDevice, PowerState,
+    Redfish, RedfishError, RoleId, Status, StatusInternal, SystemPowerControl,
 };
+
+const MELLANOX_UEFI_HTTP4: &str = "UEFI HTTP IPv4 Mellanox Network Adapter";
+const HARD_DISK: &str = "UEFI Hard Disk";
+const NETWORK: &str = "UEFI Network";
 
 pub struct Bmc {
     s: RedfishStandard,
@@ -91,40 +95,8 @@ impl Redfish for Bmc {
     /// but it won't show until after reboot so that step will fail on first time through.
     async fn forge_setup(&self) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
-        let bios_keys = self.bios_attributes_name_map().await?;
-        let empty_vec = vec![];
-        let mut bios_attrs: Vec<(&str, serde_json::Value)> = vec![];
 
-        macro_rules! add_keys {
-            ($name:literal, $value:expr) => {
-                for real_key in bios_keys.get($name).unwrap_or(&empty_vec) {
-                    bios_attrs.push((real_key, $value.into()));
-                }
-            };
-        }
-        add_keys!("QuietBoot", false);
-        add_keys!("Re-tryBoot", "EFI Boot");
-        add_keys!("CSMSupport", "Disabled");
-        add_keys!("SecureBootEnable", false);
-
-        // Trusted Computing / Provision Support / TXT Support
-        add_keys!("TXTSupport", EnabledDisabled::Enabled);
-
-        // registries/BiosAttributeRegistry.1.0.0.json/index.json
-        add_keys!("DeviceSelect", "TPM 2.0");
-
-        // Attributes to enable CPU virtualization support for faster VMs
-        // Not that some are "Enable" and some are "Enabled". Subtle.
-        add_keys!("IntelVTforDirectedI/O(VT-d)", EnableDisable::Enable);
-        add_keys!("IntelVirtualizationTechnology", EnableDisable::Enable);
-        add_keys!("SR-IOVSupport", EnabledDisabled::Enabled);
-
-        // UEFI NIC boot
-        add_keys!("IPv4HTTPSupport", EnabledDisabled::Enabled);
-        add_keys!("IPv4PXESupport", EnabledDisabled::Enabled);
-        add_keys!("IPv6HTTPSupport", EnabledDisabled::Enabled);
-        add_keys!("IPv6PXESupport", EnabledDisabled::Disabled);
-
+        let bios_attrs = self.forge_setup_attrs().await?;
         let mut attrs = HashMap::new();
         attrs.extend(bios_attrs);
         let body = HashMap::from([("Attributes", attrs)]);
@@ -141,7 +113,74 @@ impl Redfish for Bmc {
     }
 
     async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
-        Err(RedfishError::NotSupported("forge_setup_status".to_string()))
+        let mut diffs = vec![];
+
+        let sc = self.serial_console_status().await?;
+        if !sc.is_fully_enabled() {
+            diffs.push(ForgeSetupDiff {
+                key: "serial_console".to_string(),
+                expected: "Enabled".to_string(),
+                actual: sc.status.to_string(),
+            });
+        }
+
+        let bios = self.s.bios_attributes().await?;
+        let expected_attrs = self.forge_setup_attrs().await?;
+        for (key, expected) in expected_attrs {
+            let Some(actual) = bios.get(&key) else {
+                diffs.push(ForgeSetupDiff {
+                    key: key.to_string(),
+                    expected: expected.to_string(),
+                    actual: "_missing_".to_string(),
+                });
+                continue;
+            };
+            // expected and actual are serde_json::Value which are not comparable, so to_string
+            let act = actual.to_string();
+            let exp = expected.to_string();
+            if act != exp {
+                diffs.push(ForgeSetupDiff {
+                    key: key.to_string(),
+                    expected: exp,
+                    actual: act,
+                });
+            }
+        }
+
+        // Supermicro has an Oem/FixedBootOrder separate from regular boot order
+        // Must boot from network
+        let fbo = self.get_boot_order().await?;
+        let actual = fbo.fixed_boot_order.first();
+        if actual.map(|s| s.as_str()) != Some(NETWORK) {
+            diffs.push(ForgeSetupDiff {
+                key: "boot_order".to_string(),
+                expected: NETWORK.to_string(),
+                actual: format!("{actual:?}"),
+            });
+        }
+        // The DPU should be the first NIC we try
+        let boot_first = self.s.get_first_boot_option().await?;
+        if !boot_first.display_name.contains(MELLANOX_UEFI_HTTP4) {
+            diffs.push(ForgeSetupDiff {
+                key: "boot_first".to_string(),
+                expected: MELLANOX_UEFI_HTTP4.to_string(),
+                actual: boot_first.display_name,
+            });
+        }
+
+        let lockdown = self.lockdown_status().await?;
+        if !lockdown.is_fully_enabled() {
+            diffs.push(ForgeSetupDiff {
+                key: "lockdown".to_string(),
+                expected: "Enabled".to_string(),
+                actual: lockdown.status.to_string(),
+            });
+        }
+
+        Ok(ForgeSetupStatus {
+            is_done: diffs.is_empty(),
+            diffs,
+        })
     }
 
     async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
@@ -209,7 +248,7 @@ impl Redfish for Bmc {
         let system = self.s.get_system().await?;
         let Some(sr) = &system.serial_console else {
             return Err(RedfishError::NotSupported(
-                "No SerialConsole in Manager object".to_string(),
+                "No SerialConsole in System object. Maybe it's in Manager and you have old firmware?".to_string(),
             ));
         };
         let is_enabled = sr.ssh.service_enabled
@@ -469,6 +508,43 @@ impl Redfish for Bmc {
 }
 
 impl Bmc {
+    async fn forge_setup_attrs(&self) -> Result<Vec<(String, serde_json::Value)>, RedfishError> {
+        let mut bios_keys = self.bios_attributes_name_map().await?;
+        let mut bios_attrs: Vec<(String, serde_json::Value)> = vec![];
+
+        macro_rules! add_keys {
+            ($name:literal, $value:expr) => {
+                for real_key in bios_keys.remove($name).unwrap_or(vec![]) {
+                    bios_attrs.push((real_key, $value.into()));
+                }
+            };
+        }
+        add_keys!("QuietBoot", false);
+        add_keys!("Re-tryBoot", "EFI Boot");
+        add_keys!("CSMSupport", "Disabled");
+        add_keys!("SecureBootEnable", false);
+
+        // Trusted Computing / Provision Support / TXT Support
+        add_keys!("TXTSupport", EnabledDisabled::Enabled);
+
+        // registries/BiosAttributeRegistry.1.0.0.json/index.json
+        add_keys!("DeviceSelect", "TPM 2.0");
+
+        // Attributes to enable CPU virtualization support for faster VMs
+        // Not that some are "Enable" and some are "Enabled". Subtle.
+        add_keys!("IntelVTforDirectedI/O(VT-d)", EnableDisable::Enable);
+        add_keys!("IntelVirtualizationTechnology", EnableDisable::Enable);
+        add_keys!("SR-IOVSupport", EnabledDisabled::Enabled);
+
+        // UEFI NIC boot
+        add_keys!("IPv4HTTPSupport", EnabledDisabled::Enabled);
+        add_keys!("IPv4PXESupport", EnabledDisabled::Enabled);
+        add_keys!("IPv6HTTPSupport", EnabledDisabled::Enabled);
+        add_keys!("IPv6PXESupport", EnabledDisabled::Disabled);
+
+        Ok(bios_attrs)
+    }
+
     async fn get_kcs_privilege(&self) -> Result<supermicro::Privilege, RedfishError> {
         let url = format!(
             "Managers/{}/Oem/Supermicro/KCSInterface",
@@ -627,8 +703,6 @@ impl Bmc {
     async fn set_boot_order(&self, target: Boot) -> Result<(), RedfishError> {
         let mut fbo = self.get_boot_order().await?;
 
-        const HARD_DISK: &str = "UEFI Hard Disk";
-        const NETWORK: &str = "UEFI Network";
         // The network name is not consistent because it includes the interface name
         let Some(network) = fbo
             .fixed_boot_order
