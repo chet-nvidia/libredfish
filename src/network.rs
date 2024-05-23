@@ -134,6 +134,7 @@ impl RedfishClientPool {
         s.set_system_id(system_id)?;
         // call set_system_id always before calling set_vendor
         s.set_manager_id(manager_id)?;
+        s.set_service_root(service_root.clone())?;
 
         let Some(vendor) = service_root.vendor() else {
             return Err(RedfishError::MissingVendor);
@@ -449,6 +450,7 @@ impl RedfishHttpClient {
         file: tokio::fs::File,
         parameters: String,
         api: &str,
+        drop_redfish_url_part: bool,
     ) -> Result<(StatusCode, Option<String>, String), RedfishError> {
         let user = match &self.endpoint.user {
             Some(user) => user,
@@ -462,15 +464,18 @@ impl RedfishHttpClient {
             }
         };
 
+        // Some (Lenovo, perhaps others) vendors have nonstandard endpoint names for multipart upload.
+        let with_redfish_endpoint = if drop_redfish_url_part {
+            api.to_string()
+        } else {
+            format!("{}/{}", REDFISH_ENDPOINT, api)
+        };
         let url = match self.endpoint.port {
             Some(p) => format!(
-                "https://{}:{}/{}/{}",
-                self.endpoint.host, p, REDFISH_ENDPOINT, api
+                "https://{}:{}/{}",
+                self.endpoint.host, p, with_redfish_endpoint
             ),
-            None => format!(
-                "https://{}/{}/{}",
-                self.endpoint.host, REDFISH_ENDPOINT, api
-            ),
+            None => format!("https://{}/{}", self.endpoint.host, with_redfish_endpoint),
         };
 
         let length = filename
@@ -514,7 +519,7 @@ impl RedfishHttpClient {
         let loc = response
             .headers()
             .get("Location")
-            .map(|x| x.to_str().unwrap().to_string());
+            .map(|x| x.to_str().unwrap_or_default().to_string());
 
         // read the body even if not status 2XX, because BMCs give useful error messages as JSON
         let response_body = response

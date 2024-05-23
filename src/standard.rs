@@ -1,5 +1,6 @@
 use std::{
     collections::{HashMap, HashSet},
+    default,
     path::Path,
 };
 
@@ -36,6 +37,7 @@ pub struct RedfishStandard {
     pub vendor: Option<RedfishVendor>,
     manager_id: String,
     system_id: String,
+    service_root: ServiceRoot,
 }
 
 #[async_trait::async_trait]
@@ -543,6 +545,12 @@ impl RedfishStandard {
         Ok(())
     }
 
+    /// Saves the service_root for later use
+    pub fn set_service_root(&mut self, service_root: ServiceRoot) -> Result<(), RedfishError> {
+        self.service_root = service_root;
+        Ok(())
+    }
+
     /// Create client object
     pub fn new(client: RedfishHttpClient) -> Self {
         Self {
@@ -550,6 +558,7 @@ impl RedfishStandard {
             manager_id: "".to_string(),
             system_id: "".to_string(),
             vendor: None,
+            service_root: default::Default::default(),
         }
     }
 
@@ -559,6 +568,22 @@ impl RedfishStandard {
 
     pub fn manager_id(&self) -> &str {
         &self.manager_id
+    }
+
+    /// Gets the location of the update service from the saved service root
+    pub fn update_service(&self) -> String {
+        self.service_root
+            .update_service
+            .clone()
+            .unwrap_or_default()
+            .get("@odata.id")
+            .unwrap_or(&serde_json::Value::String(
+                "/redfish/v1/UpdateService".to_string(), // Sane default
+            ))
+            .as_str()
+            .unwrap_or_default()
+            .replace("/redfish/v1/", "") // Remove starting /redfish/v1 as we add it elsewhere
+            .to_string()
     }
 
     pub async fn get_boot_options(&self) -> Result<model::BootOptions, RedfishError> {

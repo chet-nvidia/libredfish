@@ -2,6 +2,8 @@ use std::{collections::HashMap, path::Path, time::Duration};
 
 use reqwest::header::HeaderMap;
 use reqwest::Method;
+use serde::{Deserialize, Serialize};
+use tokio::fs::File;
 use tracing::debug;
 
 use crate::model::account_service::ManagerAccount;
@@ -425,9 +427,51 @@ impl Redfish for Bmc {
     async fn update_firmware_multipart(
         &self,
         filename: &Path,
-        reboot: bool,
+        _reboot: bool,
     ) -> Result<String, RedfishError> {
-        self.s.update_firmware_multipart(filename, reboot).await
+        let firmware = File::open(&filename)
+            .await
+            .map_err(|e| RedfishError::FileError(format!("Could not open file: {}", e)))?;
+
+        // The Python example code followed the schema to get the actual endpoint; this may or may not be needed, but
+        // it's safest not to assume that it will always be the same thing.
+        let (_status_code, update_service): (_, UpdateService) =
+            self.s.client.get(self.s.update_service().as_str()).await?;
+
+        if update_service.multipart_http_push_uri.is_empty() {
+            return Err(RedfishError::NotSupported(
+                "Host BMC does not support HTTP multipart push".to_string(),
+            ));
+        }
+
+        let parameters = serde_json::to_string(&UpdateParameters::new()).map_err(|e| {
+            RedfishError::JsonSerializeError {
+                url: "".to_string(),
+                object_debug: "".to_string(),
+                source: e,
+            }
+        })?;
+
+        let (_status_code, _loc, body) = self
+            .s
+            .client
+            .req_update_firmware_multipart(
+                filename,
+                firmware,
+                parameters,
+                &update_service.multipart_http_push_uri,
+                true,
+            )
+            .await?;
+
+        let task: Task =
+            serde_json::from_str(&body).map_err(|e| RedfishError::JsonDeserializeError {
+                url: update_service.multipart_http_push_uri,
+                body,
+                source: e,
+            })?;
+
+        Ok(task.id)
     }
 
     async fn get_tasks(&self) -> Result<Vec<String>, RedfishError> {
@@ -439,7 +483,12 @@ impl Redfish for Bmc {
     }
 
     async fn get_firmware(&self, id: &str) -> Result<SoftwareInventory, RedfishError> {
-        self.s.get_firmware(id).await
+        let mut inv = self.s.get_firmware(id).await?;
+        // Lenovo prepends the last two characters of their "Build/Vendor" ID and a dash to most of the versions.  This confuses things, so trim off anything that's before a dash.
+        inv.version = inv
+            .version
+            .map(|x| x.split('-').last().unwrap_or("").to_string());
+        Ok(inv)
     }
 
     async fn get_software_inventories(&self) -> Result<Vec<String>, RedfishError> {
@@ -991,5 +1040,28 @@ impl Bmc {
             self.s.client.get(&url).await?;
         let log_entries = log_entry_collection.members;
         Ok(log_entries)
+    }
+}
+
+#[derive(Debug, Default, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase", default)]
+struct UpdateService {
+    multipart_http_push_uri: String,
+}
+
+#[derive(Debug, Default, Serialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+struct UpdateParameters {
+    targets: Vec<String>,
+    #[serde(rename = "@Redfish.OperationApplyTime")]
+    operation_apply_time: String,
+}
+
+impl UpdateParameters {
+    fn new() -> Self {
+        Self {
+            targets: vec![],
+            operation_apply_time: "OnStartUpdateRequest".to_string(),
+        }
     }
 }

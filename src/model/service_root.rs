@@ -14,6 +14,7 @@ pub struct ServiceRoot {
     #[serde(rename = "UUID")]
     pub uuid: Option<String>,
     pub oem: Option<HashMap<String, serde_json::Value>>,
+    pub update_service: Option<HashMap<String, serde_json::Value>>,
 }
 
 #[derive(Clone, Copy, Debug, PartialEq)]

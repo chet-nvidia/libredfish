@@ -459,7 +459,7 @@ impl Redfish for Bmc {
         self.s.update_firmware(firmware).await
     }
 
-    // update_firmware_multipart returns a string with the task ID
+    /// update_firmware_multipart returns a string with the task ID
     async fn update_firmware_multipart(
         &self,
         filename: &Path,
@@ -485,6 +485,7 @@ impl Redfish for Bmc {
                 firmware,
                 parameters,
                 "UpdateService/MultipartUpload",
+                false,
             )
             .await?;
 
