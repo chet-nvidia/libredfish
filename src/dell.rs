@@ -46,8 +46,16 @@ impl Redfish for Bmc {
         self.s.change_username(old_name, new_name).await
     }
 
-    async fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError> {
-        self.s.change_password(user, new).await
+    async fn change_password(&self, username: &str, new_pass: &str) -> Result<(), RedfishError> {
+        self.s.change_password(username, new_pass).await
+    }
+
+    async fn change_password_by_id(
+        &self,
+        account_id: &str,
+        new_pass: &str,
+    ) -> Result<(), RedfishError> {
+        self.s.change_password_by_id(account_id, new_pass).await
     }
 
     async fn get_accounts(&self) -> Result<Vec<ManagerAccount>, RedfishError> {

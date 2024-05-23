@@ -65,6 +65,15 @@ impl Redfish for Bmc {
         self.s.change_password(user, new).await
     }
 
+    /// Note that DPU account_ids are not numbers but usernames: "root", "forge_admin", etc
+    async fn change_password_by_id(
+        &self,
+        account_id: &str,
+        new_pass: &str,
+    ) -> Result<(), RedfishError> {
+        self.s.change_password_by_id(account_id, new_pass).await
+    }
+
     async fn get_accounts(&self) -> Result<Vec<ManagerAccount>, RedfishError> {
         self.s.get_accounts().await
     }

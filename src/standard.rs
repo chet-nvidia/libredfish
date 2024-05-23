@@ -69,11 +69,19 @@ impl Redfish for RedfishStandard {
             .map(|_status_code| Ok(()))?
     }
 
-    async fn change_password(&self, user: &str, new: &str) -> Result<(), RedfishError> {
+    async fn change_password(&self, user: &str, new_pass: &str) -> Result<(), RedfishError> {
         let account = self.get_account_by_name(user).await?;
-        let url = format!("AccountService/Accounts/{}", account.id);
+        self.change_password_by_id(&account.id, new_pass).await
+    }
+
+    async fn change_password_by_id(
+        &self,
+        account_id: &str,
+        new_pass: &str,
+    ) -> Result<(), RedfishError> {
+        let url = format!("AccountService/Accounts/{}", account_id);
         let mut data = HashMap::new();
-        data.insert("Password", new);
+        data.insert("Password", new_pass);
         self.client
             .patch(&url, &data)
             .await
