@@ -124,6 +124,7 @@ pub trait Redfish: Send + Sync + 'static {
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError>;
 
     /// call this to setup bios and bmc for Nvidia Forge use
+    /// remember to call lockdown() afterwards to secure the server
     async fn forge_setup(&self) -> Result<(), RedfishError>;
 
     /// Is everything that forge_setup does already done?

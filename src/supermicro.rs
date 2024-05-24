@@ -116,8 +116,7 @@ impl Redfish for Bmc {
             .map(|_status_code| ())?;
 
         self.boot_first(Boot::Pxe).await?;
-        // always do system lockdown last
-        self.lockdown(EnabledDisabled::Enabled).await
+        Ok(())
     }
 
     async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {

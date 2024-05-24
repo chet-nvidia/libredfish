@@ -109,7 +109,7 @@ impl Redfish for Bmc {
         self.set_virt_enable().await?;
         self.set_uefi_nic_boot().await?;
         self.set_boot_order(Pxe).await?;
-        self.lockdown(Enabled).await
+        Ok(())
     }
 
     async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {

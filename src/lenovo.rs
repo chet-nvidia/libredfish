@@ -11,7 +11,6 @@ use crate::model::service_root::ServiceRoot;
 use crate::model::task::Task;
 use crate::model::Manager;
 use crate::model::{secure_boot::SecureBoot, ComputerSystem};
-use crate::EnabledDisabled::Enabled;
 use crate::RoleId;
 use crate::{
     model::{
@@ -107,10 +106,7 @@ impl Redfish for Bmc {
         self.boot_first(Boot::Pxe).await?;
         self.set_virt_enable().await?;
         self.set_uefi_boot_only().await?;
-        // always do system lockdown last
-        self.lockdown(Enabled).await
-
-        // If you change forge_setup also change forge_setup_status
+        Ok(())
     }
 
     async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
