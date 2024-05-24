@@ -11,7 +11,6 @@ use crate::model::service_root::ServiceRoot;
 use crate::model::task::Task;
 use crate::model::Manager;
 use crate::model::{secure_boot::SecureBoot, ComputerSystem};
-use crate::RoleId;
 use crate::{
     model::{
         chassis::{Chassis, NetworkAdapter},
@@ -28,6 +27,7 @@ use crate::{
     Boot, BootOptions, EnabledDisabled, ForgeSetupDiff, ForgeSetupStatus, PCIeDevice, PowerState,
     Redfish, RedfishError, Status, StatusInternal, SystemPowerControl,
 };
+use crate::{JobState, RoleId};
 
 const UEFI_PASSWORD_NAME: &str = "UefiAdminPassword";
 
@@ -595,7 +595,7 @@ impl Redfish for Bmc {
         &self,
         current_uefi_password: &str,
         new_uefi_password: &str,
-    ) -> Result<(), RedfishError> {
+    ) -> Result<Option<String>, RedfishError> {
         self.s
             .change_bios_password(UEFI_PASSWORD_NAME, current_uefi_password, new_uefi_password)
             .await
@@ -643,6 +643,9 @@ impl Redfish for Bmc {
 
     async fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
         self.s.bmc_reset_to_defaults().await
+    }
+    async fn get_job_state(&self, job_id: &str) -> Result<JobState, RedfishError> {
+        self.s.get_job_state(job_id).await
     }
 }
 

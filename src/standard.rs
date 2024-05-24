@@ -19,8 +19,8 @@ use crate::model::{account_service::ManagerAccount, service_root::RedfishVendor}
 use crate::model::{power, thermal, BootOption, InvalidValueError, Manager, Managers, ODataId};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{
-    model, Boot, EnabledDisabled, NetworkDeviceFunction, NetworkPort, PowerState, Redfish, RoleId,
-    Status, Systems,
+    model, Boot, EnabledDisabled, JobState, NetworkDeviceFunction, NetworkPort, PowerState,
+    Redfish, RoleId, Status, Systems,
 };
 use crate::{
     model::chassis::{Chassis, NetworkAdapter},
@@ -411,10 +411,9 @@ impl Redfish for RedfishStandard {
         &self,
         current_uefi_password: &str,
         new_uefi_password: &str,
-    ) -> Result<(), RedfishError> {
-        return self
-            .change_bios_password(UEFI_PASSWORD_NAME, current_uefi_password, new_uefi_password)
-            .await;
+    ) -> Result<Option<String>, RedfishError> {
+        self.change_bios_password(UEFI_PASSWORD_NAME, current_uefi_password, new_uefi_password)
+            .await
     }
 
     async fn change_boot_order(&self, _boot_array: Vec<String>) -> Result<(), RedfishError> {
@@ -483,6 +482,10 @@ impl Redfish for RedfishStandard {
         let mut arg = HashMap::new();
         arg.insert("ResetToDefaultsType", "ResetAll".to_string());
         self.client.post(&url, arg).await.map(|_resp| Ok(()))?
+    }
+
+    async fn get_job_state(&self, _job_id: &str) -> Result<JobState, RedfishError> {
+        Err(RedfishError::NotSupported("get_job_state".to_string()))
     }
 }
 
@@ -763,7 +766,7 @@ impl RedfishStandard {
         password_name: &str,
         current_bios_password: &str,
         new_bios_password: &str,
-    ) -> Result<(), RedfishError> {
+    ) -> Result<Option<String>, RedfishError> {
         let mut url = format!("Systems/{}/Bios/", self.system_id);
 
         match self.vendor {
@@ -779,7 +782,7 @@ impl RedfishStandard {
         arg.insert("PasswordName", password_name.to_string());
         arg.insert("OldPassword", current_bios_password.to_string());
         arg.insert("NewPassword", new_bios_password.to_string());
-        self.client.post(&url, arg).await.map(|_resp| Ok(()))?
+        self.client.post(&url, arg).await.map(|_resp| Ok(None))?
     }
 }
 

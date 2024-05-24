@@ -1,9 +1,7 @@
-use std::{collections::HashMap, path::Path, time};
+use std::{collections::HashMap, path::Path};
 
 use serde::{Deserialize, Serialize};
 use tokio::fs::File;
-use tokio::time::sleep;
-use tracing::debug;
 
 use crate::{
     model::{
@@ -21,8 +19,8 @@ use crate::{
         BootOption, ComputerSystem, InvalidValueError, Manager, OnOff,
     },
     standard::RedfishStandard,
-    Boot, BootOptions, EnabledDisabled, ForgeSetupDiff, ForgeSetupStatus, PCIeDevice, PowerState,
-    Redfish, RedfishError, RoleId, Status, StatusInternal, SystemPowerControl,
+    Boot, BootOptions, EnabledDisabled, ForgeSetupDiff, ForgeSetupStatus, JobState, PCIeDevice,
+    PowerState, Redfish, RedfishError, RoleId, Status, StatusInternal, SystemPowerControl,
 };
 
 const UEFI_PASSWORD_NAME: &str = "SetupPassword";
@@ -613,7 +611,7 @@ impl Redfish for Bmc {
         &self,
         current_uefi_password: &str,
         new_uefi_password: &str,
-    ) -> Result<(), RedfishError> {
+    ) -> Result<Option<String>, RedfishError> {
         // The uefi password cant be changed if the host is in lockdown
         if self.is_lockdown().await? {
             return Err(RedfishError::Lockdown);
@@ -623,12 +621,7 @@ impl Redfish for Bmc {
             .change_bios_password(UEFI_PASSWORD_NAME, current_uefi_password, new_uefi_password)
             .await?;
 
-        let bios_config_job_id = self.create_bios_config_job().await?;
-
-        // if we reboot the host before the job has been scheduled, we don't have a guarantee that the password change will happen once the host comes up
-        return self
-            .poll_job_state(&bios_config_job_id, JobState::Scheduled)
-            .await;
+        Ok(Some(self.create_bios_config_job().await?))
     }
 
     async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
@@ -653,6 +646,27 @@ impl Redfish for Bmc {
 
     async fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
         self.s.bmc_reset_to_defaults().await
+    }
+
+    async fn get_job_state(&self, job_id: &str) -> Result<JobState, RedfishError> {
+        let url = format!("Managers/iDRAC.Embedded.1/Jobs/{}", job_id);
+        let (_status_code, body): (_, HashMap<String, serde_json::Value>) =
+            self.s.client.get(&url).await?;
+        let key = "JobState";
+        let val = body
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .as_str()
+            .ok_or_else(|| RedfishError::InvalidKeyType {
+                key: key.to_string(),
+                expected_type: "&str".to_string(),
+                url: url.to_string(),
+            })?;
+
+        Ok(JobState::from_str(val))
     }
 }
 
@@ -1159,56 +1173,6 @@ impl Bmc {
         }
     }
 
-    pub async fn get_job_state(&self, job_id: &str) -> Result<JobState, RedfishError> {
-        let url = format!("Managers/iDRAC.Embedded.1/Jobs/{}", job_id);
-        let (_status_code, body): (_, HashMap<String, serde_json::Value>) =
-            self.s.client.get(&url).await?;
-        let key = "JobState";
-        let val = body
-            .get(key)
-            .ok_or_else(|| RedfishError::MissingKey {
-                key: key.to_string(),
-                url: url.to_string(),
-            })?
-            .as_str()
-            .ok_or_else(|| RedfishError::InvalidKeyType {
-                key: key.to_string(),
-                expected_type: "&str".to_string(),
-                url: url.to_string(),
-            })?;
-
-        Ok(JobState::from_str(val))
-    }
-
-    pub async fn poll_job_state(
-        &self,
-        job_id: &str,
-        job_state: JobState,
-    ) -> Result<(), RedfishError> {
-        // TODO: make timeout more dynamic, currently 30 seconds
-        let mut cycle = 0;
-        let max_cycles = 60;
-        let sleep_duration = time::Duration::from_millis(500);
-        let mut current_job_state = JobState::Unknown;
-        while cycle < max_cycles {
-            current_job_state = self.get_job_state(job_id).await?;
-            if current_job_state == job_state {
-                return Ok(());
-            }
-            sleep(sleep_duration).await;
-            cycle += 1;
-        }
-
-        debug!(
-            "Job {} did not reach the {} state; last known state: {}",
-            job_id,
-            job_state.as_str(),
-            current_job_state.as_str()
-        );
-
-        Err(RedfishError::NoContent)
-    }
-
     fn forge_setup_attrs(&self) -> dell::BiosForgeAttrs {
         dell::BiosForgeAttrs {
             in_band_manageability_interface: EnabledDisabled::Disabled,
@@ -1222,37 +1186,6 @@ impl Bmc {
             sriov_global_enable: EnabledDisabled::Enabled,
             tpm_security: OnOff::On,
             tpm2_hierarchy: dell::Tpm2HierarchySettings::Clear,
-        }
-    }
-}
-
-#[derive(PartialEq)]
-pub enum JobState {
-    Scheduled,
-    Running,
-    Completed,
-    CompletedWithErrors,
-    Unknown,
-}
-
-impl JobState {
-    fn as_str(&self) -> &'static str {
-        match self {
-            JobState::Scheduled => "Scheduled",
-            JobState::Running => "Running",
-            JobState::Completed => "Completed",
-            JobState::CompletedWithErrors => "Completed With Errors",
-            _ => "Unknown",
-        }
-    }
-
-    fn from_str(s: &str) -> JobState {
-        match s {
-            "Scheduled" => JobState::Scheduled,
-            "Running" => JobState::Running,
-            "Completed" => JobState::Completed,
-            "CompletedWithErrors" => JobState::CompletedWithErrors,
-            _ => JobState::Unknown,
         }
     }
 }
