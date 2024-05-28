@@ -130,8 +130,8 @@ pub struct SerialConsole {
     pub ipmi: SerialConsoleConnectionType,
 }
 
-#[derive(Default, Debug, Serialize, Deserialize, Clone)]
 #[serde_with::skip_serializing_none]
+#[derive(Default, Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct SerialConsoleConnectionType {
     pub service_enabled: bool,

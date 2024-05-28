@@ -2,15 +2,24 @@ use std::cmp::Ordering;
 
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize, Deserialize, Clone, Eq)]
+#[serde_with::skip_serializing_none]
+#[derive(Debug, Serialize, Deserialize, Clone, Eq, Default)]
 #[serde(rename_all = "PascalCase")]
 pub struct ManagerAccount {
-    pub id: String,
+    // Set on GET. Do not set for POST/PATCH
+    pub id: Option<String>,
+
     #[serde(rename = "UserName")]
     pub username: String,
-    pub name: String,
-    pub description: String,
+
+    // Set this for POST/PATCH. Not populated by GET.
+    pub password: Option<String>,
+
+    // A RoleId converted to string
     pub role_id: String,
+
+    pub name: Option<String>,
+    pub description: Option<String>,
     pub enabled: Option<bool>,
     pub locked: Option<bool>,
 }

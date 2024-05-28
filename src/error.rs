@@ -77,6 +77,9 @@ pub enum RedfishError {
 
     #[error("Password change required")]
     PasswordChangeRequired,
+
+    #[error("Maximum amount of user accounts reached. Delete one to continue.")]
+    TooManyUsers,
 }
 
 impl RedfishError {

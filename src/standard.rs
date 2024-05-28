@@ -60,7 +60,12 @@ impl Redfish for RedfishStandard {
 
     async fn change_username(&self, old_name: &str, new_name: &str) -> Result<(), RedfishError> {
         let account = self.get_account_by_name(old_name).await?;
-        let url = format!("AccountService/Accounts/{}", account.id);
+        let Some(account_id) = account.id else {
+            return Err(RedfishError::UserNotFound(format!(
+                "{old_name} has no ID field"
+            )));
+        };
+        let url = format!("AccountService/Accounts/{account_id}");
         let mut data = HashMap::new();
         data.insert("UserName", new_name);
         self.client
@@ -71,7 +76,12 @@ impl Redfish for RedfishStandard {
 
     async fn change_password(&self, user: &str, new_pass: &str) -> Result<(), RedfishError> {
         let account = self.get_account_by_name(user).await?;
-        self.change_password_by_id(&account.id, new_pass).await
+        let Some(account_id) = account.id else {
+            return Err(RedfishError::UserNotFound(format!(
+                "{user} has no ID field"
+            )));
+        };
+        self.change_password_by_id(&account_id, new_pass).await
     }
 
     async fn change_password_by_id(
@@ -733,6 +743,31 @@ impl RedfishStandard {
             }
         }
         Err(RedfishError::UserNotFound(username.to_string()))
+    }
+
+    /// Dell ships with all sixteen user accounts populated but disabled.
+    /// To create an account we have to edit one of them.
+    pub async fn edit_account(
+        &self,
+        account_id: u8,
+        username: &str,
+        password: &str,
+        role_id: RoleId,
+        enabled: bool,
+    ) -> Result<(), RedfishError> {
+        let url = format!("AccountService/Accounts/{account_id}");
+        let account = ManagerAccount {
+            id: None, // it's in the URL, must not be set here
+            username: username.to_string(),
+            password: Some(password.to_string()),
+            enabled: Some(enabled),
+            role_id: role_id.to_string(),
+            ..Default::default()
+        };
+        self.client
+            .patch(&url, &account)
+            .await
+            .map(|_status_code| Ok(()))?
     }
 
     //

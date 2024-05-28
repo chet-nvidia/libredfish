@@ -25,6 +25,8 @@ use crate::{
 
 const UEFI_PASSWORD_NAME: &str = "SetupPassword";
 
+const MAX_ACCOUNT_ID: u8 = 16;
+
 pub struct Bmc {
     s: RedfishStandard,
 }
@@ -37,7 +39,32 @@ impl Redfish for Bmc {
         password: &str,
         role_id: RoleId,
     ) -> Result<(), RedfishError> {
-        self.s.create_user(username, password, role_id).await
+        // Find an unused ID
+        // 'root' is typically ID 2 on an iDrac, and ID 1 might be special
+        let mut account_id = 3;
+        let mut is_free = false;
+        while !is_free && account_id <= MAX_ACCOUNT_ID {
+            let a = match self.s.get_account_by_id(&account_id.to_string()).await {
+                Ok(a) => a,
+                Err(_) => {
+                    is_free = true;
+                    break;
+                }
+            };
+            if let Some(false) = a.enabled {
+                is_free = true;
+                break;
+            }
+            account_id += 1;
+        }
+        if !is_free {
+            return Err(RedfishError::TooManyUsers);
+        }
+
+        // Edit that unused account to be ours. That's how iDrac account creation works.
+        self.s
+            .edit_account(account_id, username, password, role_id, true)
+            .await
     }
 
     async fn change_username(&self, old_name: &str, new_name: &str) -> Result<(), RedfishError> {
