@@ -286,8 +286,9 @@ impl Redfish for Bmc {
                 self.enable_bmc_lockdown(dell::BootDevices::PXE).await
             }
             Disabled => {
-                self.disable_bmc_lockdown(dell::BootDevices::PXE).await
-                //self.disable_bios_lockdown().await
+                self.disable_bmc_lockdown(dell::BootDevices::PXE).await?;
+                // BIOS lockdown blocks impi, ensure it's disabled even though we never set it
+                self.disable_bios_lockdown().await
             }
         }
     }
@@ -837,7 +838,6 @@ impl Bmc {
             .map(|_status_code| ())
     }
 
-    /*
     async fn disable_bios_lockdown(&self) -> Result<(), RedfishError> {
         let apply_time = dell::SetSettingsApplyTime {
             apply_time: dell::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
@@ -857,7 +857,6 @@ impl Bmc {
             .await
             .map(|_status_code| ())
     }
-    */
 
     async fn disable_bmc_lockdown(&self, entry: dell::BootDevices) -> Result<(), RedfishError> {
         let apply_time = dell::SetSettingsApplyTime {
