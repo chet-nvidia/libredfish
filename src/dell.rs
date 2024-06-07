@@ -299,7 +299,6 @@ impl Redfish for Bmc {
         let disabled = EnabledDisabled::Disabled.to_string();
 
         // BIOS lockdown
-        /*
         let url = format!("Systems/{}/Bios", self.s.system_id());
         let (_status_code, bios): (_, dell::Bios) = self.s.client.get(&url).await?;
 
@@ -313,7 +312,6 @@ impl Redfish for Bmc {
             && uefi_var == dell::UefiVariableAccessSettings::Controlled.to_string();
         let is_bios_unlocked = in_band == enabled
             && uefi_var == dell::UefiVariableAccessSettings::Standard.to_string();
-        */
 
         // BMC lockdown
 
@@ -356,9 +354,9 @@ impl Redfish for Bmc {
 
         Ok(Status {
             message,
-            status: if is_bmc_locked {
+            status: if is_bios_locked && is_bmc_locked {
                 StatusInternal::Enabled
-            } else if is_bmc_unlocked {
+            } else if is_bios_unlocked && is_bmc_unlocked {
                 StatusInternal::Disabled
             } else {
                 StatusInternal::Partial
@@ -770,28 +768,6 @@ impl Bmc {
             .await
             .map(|_status_code| ())
     }
-
-    /* SystemLockdown covers all of this so we don't need it
-    async fn enable_bios_lockdown(&self) -> Result<(), RedfishError> {
-        let apply_time = dell::SetSettingsApplyTime {
-            apply_time: dell::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
-        };
-        let lockdown = dell::BiosLockdownAttrs {
-            in_band_manageability_interface: EnabledDisabled::Disabled,
-            uefi_variable_access: dell::UefiVariableAccessSettings::Controlled,
-        };
-        let set_lockdown_attrs = dell::SetBiosLockdownAttrs {
-            redfish_settings_apply_time: apply_time,
-            attributes: lockdown,
-        };
-        let url = format!("Systems/{}/Bios/Settings/", self.s.system_id());
-        self.s
-            .client
-            .patch(&url, set_lockdown_attrs)
-            .await
-            .map(|_status_code| ())
-    }
-    */
 
     async fn enable_bmc_lockdown(&self, entry: dell::BootDevices) -> Result<(), RedfishError> {
         let apply_time = dell::SetSettingsApplyTime {
