@@ -432,6 +432,7 @@ impl Redfish for Bmc {
         &self,
         filename: &Path,
         _reboot: bool,
+        timeout: Duration,
     ) -> Result<String, RedfishError> {
         let firmware = File::open(&filename)
             .await
@@ -465,6 +466,7 @@ impl Redfish for Bmc {
                 parameters,
                 &update_service.multipart_http_push_uri,
                 true,
+                timeout,
             )
             .await?;
 

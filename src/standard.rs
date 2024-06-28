@@ -2,6 +2,7 @@ use std::{
     collections::{HashMap, HashSet},
     default,
     path::Path,
+    time::Duration,
 };
 
 use reqwest::Method;
@@ -263,6 +264,7 @@ impl Redfish for RedfishStandard {
         &self,
         _filename: &Path,
         _reboot: bool,
+        _timeout: Duration,
     ) -> Result<String, RedfishError> {
         Err(RedfishError::NotSupported(
             "Multipart firmware updates not currently supported on this platform".to_string(),

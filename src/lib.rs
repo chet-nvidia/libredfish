@@ -1,4 +1,4 @@
-use std::{collections::HashMap, fmt, path::Path};
+use std::{collections::HashMap, fmt, path::Path, time::Duration};
 
 pub mod model;
 use model::account_service::ManagerAccount;
@@ -176,6 +176,7 @@ pub trait Redfish: Send + Sync + 'static {
         &self,
         firmware: &Path,
         reboot: bool,
+        timeout: Duration,
     ) -> Result<String, RedfishError>;
 
     /*

@@ -1,4 +1,4 @@
-use std::{collections::HashMap, path::Path};
+use std::{collections::HashMap, path::Path, time::Duration};
 
 use serde::{Deserialize, Serialize};
 use tokio::fs::File;
@@ -491,6 +491,7 @@ impl Redfish for Bmc {
         &self,
         filename: &Path,
         reboot: bool,
+        timeout: Duration,
     ) -> Result<String, RedfishError> {
         let firmware = File::open(&filename)
             .await
@@ -513,6 +514,7 @@ impl Redfish for Bmc {
                 parameters,
                 "UpdateService/MultipartUpload",
                 false,
+                timeout,
             )
             .await?;
 
