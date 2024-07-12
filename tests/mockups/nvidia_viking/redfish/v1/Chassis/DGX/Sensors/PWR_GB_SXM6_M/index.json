@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/PWR_GB_SXM6_M",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
     "Id": "PWR_GB_SXM6_M",
@@ -11,11 +11,13 @@
     },
     "Name": "PWR_GB_SXM6_M",
     "PhysicalContext": "VoltageRegulator",
+    "Reading": 44,
     "ReadingRangeMax": 1020,
     "ReadingRangeMin": 0,
     "ReadingType": "Power",
     "Status": {
-        "State": "Absent"
+        "Health": "OK",
+        "State": "Enabled"
     },
     "Thresholds": {
         "UpperCaution": {

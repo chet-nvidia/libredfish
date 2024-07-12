@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#CupsService.CupsService",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/CupsService",
     "@odata.type": "#CupsService.v1_0_0.CupsService",
     "AveragingPeriod": "PT6S",

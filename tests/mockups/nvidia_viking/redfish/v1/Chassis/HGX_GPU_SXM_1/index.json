@@ -67,7 +67,7 @@
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_1/Sensors"
     },
-    "SerialNumber": "1652823090823",
+    "SerialNumber": "1652923003067",
     "Status": {
         "Conditions": [],
         "Health": "OK",
@@ -77,6 +77,6 @@
     "ThermalSubsystem": {
         "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_1/ThermalSubsystem"
     },
-    "UUID": "796fa965-2cde-9ed1-b0a8-ef1964f31a32",
+    "UUID": "9dad5bfd-a732-23fe-40ad-465d0cbe5f95",
     "WidthMm": 0
 }

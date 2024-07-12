@@ -15,7 +15,16 @@ use std::{
 };
 
 use anyhow::{anyhow, Context};
-use libredfish::Redfish;
+use libredfish::model::service_root::RedfishVendor;
+use libredfish::model::{ComputerSystem, ODataId};
+use libredfish::{
+    model::{
+        resource::{IsResource, ResourceCollection},
+        Manager,
+    },
+    Chassis, EthernetInterface, NetworkAdapter, PCIeDevice, Redfish,
+};
+use tracing::debug;
 
 const ROOT_DIR: &str = env!("CARGO_MANIFEST_DIR");
 const PYTHON_VENV_DIR: &str = "libredfish-python-venv";
@@ -275,6 +284,155 @@ async fn run_integration_test(
         _ = redfish.get_system_event_log().await?;
     }
 
+    if vendor_dir == "nvidia_viking" {
+        redfish.set_boot_order_dpu_first(None).await?
+    }
+    resource_tests(&redfish).await?;
+
+    Ok(())
+}
+
+async fn resource_tests(redfish: &Box<dyn Redfish>) -> Result<(), anyhow::Error> {
+    pub enum UriType {
+        ODataId(ODataId),
+        OptionODataId(Option<ODataId>),
+    }
+    fn verify_collection<T: serde::de::DeserializeOwned + IsResource>(
+        col: &ResourceCollection<T>,
+        vendor: RedfishVendor,
+    ) {
+        assert_eq!(
+            col.count as usize - col.failed_to_deserialize_count as usize,
+            col.members.len()
+        );
+        let collection_type = col
+            .odata
+            .clone()
+            .odata_type
+            .split(".")
+            .last()
+            .unwrap_or_default()
+            .replace("Collection", "");
+        for m in &col.members {
+            let member_odata_type = m.odata_type();
+            let member_odata_type = member_odata_type
+                .split(".")
+                .last()
+                .unwrap_or("unknown-type");
+            // viking's mockup data contains some chassis w.o @odata.type, until we clean up mockup data we
+            // need to bypass that case
+            if member_odata_type == "" && vendor == RedfishVendor::AMI {
+                continue;
+            }
+            assert_eq!(collection_type, member_odata_type);
+        }
+    }
+    async fn test_type<T>(
+        redfish: &Box<dyn Redfish>,
+        uri: UriType,
+        vendor: RedfishVendor,
+    ) -> Result<ResourceCollection<T>, anyhow::Error>
+    where
+        T: serde::de::DeserializeOwned + IsResource,
+    {
+        let id: ODataId = match uri {
+            UriType::ODataId(x) => x,
+            UriType::OptionODataId(x) => match x {
+                Some(x) => x,
+                None => return Err(anyhow!("Uri is none Option<ODataId>")),
+            },
+        };
+
+        match redfish.get_collection(id).await.and_then(|c| c.try_get()) {
+            Ok(x) => {
+                verify_collection(&x, vendor);
+                Ok(x)
+            }
+            Err(e) => return Err(anyhow!(e.to_string())),
+        }
+    }
+
+    let service_root = redfish.get_service_root().await?;
+    assert!(service_root.vendor().is_some());
+    let vendor = service_root.vendor().unwrap();
+    let _managers_rc = test_type::<Manager>(
+        redfish,
+        UriType::OptionODataId(service_root.managers.clone()),
+        vendor,
+    )
+    .await?;
+    let chassis_rc = test_type::<Chassis>(
+        redfish,
+        UriType::OptionODataId(service_root.chassis.clone()),
+        vendor,
+    )
+    .await?;
+    let _systems_rc = test_type::<ComputerSystem>(
+        redfish,
+        UriType::OptionODataId(service_root.systems.clone()),
+        vendor,
+    )
+    .await?;
+
+    let chassis_id: &str;
+    match vendor {
+        RedfishVendor::Lenovo | RedfishVendor::Supermicro | RedfishVendor::Hpe => chassis_id = "1",
+        RedfishVendor::AMI => chassis_id = "DGX",
+        RedfishVendor::Nvidia => chassis_id = "Card1",
+        RedfishVendor::Dell => chassis_id = "System.Embedded.1",
+        _ => return Err(anyhow!("Unknown vendor")),
+    };
+    if vendor != RedfishVendor::Nvidia {
+        let ch = match chassis_rc
+            .members
+            .iter()
+            .into_iter()
+            .find(|c| c.id.clone().unwrap_or_default() == chassis_id)
+        {
+            Some(x) => x,
+            None => return Err(anyhow!("Chassis with id {} not found", chassis_id)),
+        };
+
+        if let Some(pcie_devs_oid) = ch.pcie_devices.as_ref() {
+            debug!("Testing pcie_devices");
+            let _pcie_devs_rc = test_type::<PCIeDevice>(
+                redfish,
+                UriType::ODataId(pcie_devs_oid.to_owned()),
+                vendor,
+            )
+            .await?;
+        }
+
+        if let Some(nw_adapters_oid) = ch.network_adapters.as_ref() {
+            debug!("Testing network_adapters");
+            let _nw_adapter_rc = test_type::<NetworkAdapter>(
+                redfish,
+                UriType::ODataId(nw_adapters_oid.to_owned()),
+                vendor,
+            )
+            .await?;
+        }
+
+        let sys = redfish.get_system().await?;
+        let sys2 = redfish
+            .get_resource(sys.odata.odata_id.into())
+            .await
+            .and_then(|t| t.try_get::<ComputerSystem>())?;
+
+        assert_eq!(sys.model.as_ref(), sys2.model.as_ref());
+        assert_eq!(sys.id, sys2.id);
+
+        if let Some(sys_ethernet_interfaces_id) = sys.ethernet_interfaces.as_ref() {
+            debug!("Testing system.ethernet_interfaces");
+            let nw_ethernet_rc = test_type::<EthernetInterface>(
+                redfish,
+                UriType::ODataId(sys_ethernet_interfaces_id.to_owned()),
+                vendor,
+            )
+            .await?;
+            debug!("{} ethernet_interfaces found", nw_ethernet_rc.count);
+        }
+    }
     Ok(())
 }
 

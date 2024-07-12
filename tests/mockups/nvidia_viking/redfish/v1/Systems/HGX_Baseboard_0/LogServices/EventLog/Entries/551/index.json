@@ -2,13 +2,13 @@
     "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/551",
     "@odata.type": "#LogEntry.v1_9_0.LogEntry",
     "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/551/attachment",
-    "Created": "2020-01-01T02:46:44+00:00",
+    "Created": "2020-01-01T02:30:32+00:00",
     "EntryType": "Event",
     "Id": "551",
-    "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][181796864][00] SXID 1 dSeverity 0 Engine instance 04 Sub-engine instance 15'.",
+    "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Wed Jun 24 19:06:47 UTC 1970][181010432][00] SXID 1 dSeverity 0 Engine instance 04 Sub-engine instance 14'.",
     "MessageArgs": [
         "NVSwitch_3 Driver Event Message",
-        "[Fri Mar 27 23:12:31 UTC 1970][181796864][00] SXID 1 dSeverity 0 Engine instance 04 Sub-engine instance 15"
+        "[Wed Jun 24 19:06:47 UTC 1970][181010432][00] SXID 1 dSeverity 0 Engine instance 04 Sub-engine instance 14"
     ],
     "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
     "Name": "System Event Log Entry",

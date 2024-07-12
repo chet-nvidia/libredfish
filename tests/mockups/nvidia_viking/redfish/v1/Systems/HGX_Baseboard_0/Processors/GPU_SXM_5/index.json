@@ -64,13 +64,13 @@
             "MIGModeEnabled": false
         }
     },
-    "OperatingSpeedMHz": 690,
+    "OperatingSpeedMHz": 345,
     "PartNumber": "2330-885-A1",
     "Ports": {
         "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_SXM_5/Ports"
     },
     "ProcessorType": "GPU",
-    "SerialNumber": "1652823088619",
+    "SerialNumber": "1652923003447",
     "SpeedLimitMHz": 65535,
     "SpeedLocked": true,
     "Status": {
@@ -88,6 +88,6 @@
             "PCIeType": "Gen5"
         }
     },
-    "UUID": "4ddbd144-fab6-f89b-4a9c-5ff434c89ae8",
+    "UUID": "5a189e8a-ac6e-eee2-9dbd-f70a4c135389",
     "Version": "A1"
 }

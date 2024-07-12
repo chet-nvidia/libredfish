@@ -1,6 +1,9 @@
-use serde::{Deserialize, Serialize};
-
-use super::{ODataId, ODataLinks, OnOff, ResourceStatus};
+use super::resource::OData;
+use super::{ODataId, ODataLinks, OnOff, PCIeFunction, ResourceStatus};
+use crate::NetworkDeviceFunction;
+use serde::{Deserialize, Deserializer, Serialize};
+use serde_json::Value;
+use tracing::debug;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct ChassisActions {
@@ -15,7 +18,7 @@ pub struct ChassisAction {
     pub target: Option<String>, // URL path of the action
 }
 
-#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, Default, Copy, Clone, Eq, PartialEq)]
 pub enum ChassisType {
     Rack,
     Blade,
@@ -39,7 +42,21 @@ pub enum ChassisType {
     StorageEnclosure,
     ImmersionTank,
     HeatExchanger,
+    #[default]
     Other,
+}
+
+// A custom deserializer. If serialization fails then use the default value of the type.
+fn ok_or_default<'a, T, D>(deserializer: D) -> Result<T, D::Error>
+where
+    T: Deserialize<'a> + Default,
+    D: Deserializer<'a>,
+{
+    let v: Value = Deserialize::deserialize(deserializer)?;
+    Ok(T::deserialize(v).unwrap_or_else(|e1| {
+        debug!("Deserialization err: {}. Using default", e1);
+        T::default()
+    }))
 }
 
 impl std::fmt::Display for ChassisType {
@@ -58,6 +75,8 @@ pub struct Chassis {
     pub odata: Option<ODataLinks>,
     pub actions: Option<ChassisActions>,
     pub assembly: Option<ODataId>,
+    // Use default is missing or invalid enum value
+    #[serde(default, deserialize_with = "ok_or_default")]
     pub chassis_type: Option<ChassisType>,
     pub controls: Option<ODataId>,
     pub environment_metrics: Option<ODataId>,
@@ -73,6 +92,7 @@ pub struct Chassis {
     pub pcie_slots: Option<ODataId>,
     pub part_number: Option<String>,
     pub power: Option<ODataId>,
+    #[serde(default)] // Viking returns Chassis w.o power_state, so default will be used
     pub power_state: Option<OnOff>,
     pub power_subsystem: Option<ODataId>,
     pub sensors: Option<ODataId>,
@@ -86,11 +106,36 @@ pub struct Chassis {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct NetworkAdapter {
+    #[serde(flatten)]
+    pub odata: OData,
     pub id: String,
     pub manufacturer: Option<String>,
     pub model: Option<String>,
     pub part_number: Option<String>,
     pub serial_number: Option<String>,
+    pub ports: Option<ODataId>,
+    pub network_device_functions: Option<ODataId>,
+    pub name: Option<String>,
+    pub status: Option<ResourceStatus>,
+    pub controllers: Option<Vec<NetworkAdapterController>>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct NetworkAdapterController {
+    pub firmware_package_version: Option<String>,
+    pub links: Option<NetworkAdapterControllerLinks>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct NetworkAdapterControllerLinks {
+    pub network_device_functions: Option<Vec<ODataId>>,
+    pub ports: Option<Vec<ODataId>>,
+    // Deprecated, but some old systems still use them
+    pub network_ports: Option<Vec<ODataId>>,
+    #[serde(default, rename = "PCIeDevices")]
+    pub pcie_devices: Option<Vec<ODataId>>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -101,4 +146,12 @@ pub struct Location {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct PartLocation {
     pub location_type: Option<String>,
+}
+// This is a convenient container struct to hold
+// details of a network interface.
+pub struct ForgeNetworkAdapter {
+    pub is_dpu: bool,
+    pub mac_address: Option<String>,
+    pub network_device_function: NetworkDeviceFunction,
+    pub pcie_function: PCIeFunction,
 }

@@ -4,7 +4,7 @@
     "Id": "HGX_GPU_SXM_4_DRAM_0_Power_0",
     "Name": "HGX GPU SXM 4 DRAM 0 Power 0",
     "PhysicalContext": "GPU",
-    "Reading": null,
+    "Reading": 44.006,
     "ReadingType": "Power",
     "ReadingUnits": "W",
     "RelatedItem": [

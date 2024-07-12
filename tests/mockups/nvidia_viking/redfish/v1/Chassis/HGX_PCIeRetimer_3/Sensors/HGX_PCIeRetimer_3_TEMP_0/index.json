@@ -4,7 +4,7 @@
     "Id": "HGX_PCIeRetimer_3_TEMP_0",
     "Name": "HGX PCIeRetimer 3 TEMP 0",
     "PhysicalContext": "GPUSubsystem",
-    "Reading": 52.6640625,
+    "Reading": 55.546875,
     "ReadingType": "Temperature",
     "ReadingUnits": "Cel",
     "RelatedItem": [

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#EthernetInterface.EthernetInterface",
-    "@odata.etag": "\"1700509347\"",
+    "@odata.etag": "\"1720626637\"",
     "@odata.id": "/redfish/v1/Managers/BMC/EthernetInterfaces/eth0",
     "@odata.type": "#EthernetInterface.v1_6_2.EthernetInterface",
     "AutoNeg": true,
@@ -11,20 +11,19 @@
         "OperatingMode": "Stateless"
     },
     "Description": "Ethernet Interface eth0",
-    "FQDN": "SPR5CFF35FBEB33.naomi.com",
     "FullDuplex": true,
-    "HostName": "SPR5CFF35FBEB33",
+    "HostName": "SPR5CFF35FBE6E9",
     "IPv4Addresses": [
         {
-            "Address": "10.217.132.225",
+            "Address": "10.225.49.221",
             "AddressOrigin": "DHCP",
-            "Gateway": "10.217.132.193",
+            "Gateway": "10.225.49.193",
             "SubnetMask": "255.255.255.192"
         }
     ],
     "IPv6Addresses": [
         {
-            "Address": "fe80::5eff:35ff:fefb:eb33",
+            "Address": "fe80::5eff:35ff:fefb:e6e9",
             "AddressOrigin": "LinkLocal",
             "PrefixLength": 64
         }
@@ -33,16 +32,16 @@
     "Id": "eth0",
     "InterfaceEnabled": true,
     "LinkStatus": "LinkUp",
-    "MACAddress": "5C:FF:35:FB:EB:33",
+    "MACAddress": "5C:FF:35:FB:E6:E9",
     "MTUSize": 1500,
     "MaxIPv6StaticAddresses": 16,
     "Name": "eth0",
     "NameServers": [
-        "10.217.126.14",
+        "10.225.4.3",
         "::",
         "::"
     ],
-    "PermanentMACAddress": "5C:FF:35:FB:EB:33",
+    "PermanentMACAddress": "5C:FF:35:FB:E6:E9",
     "SpeedMbps": 1000,
     "StatelessAddressAutoConfig": {
         "IPv4AutoConfigEnabled": false,

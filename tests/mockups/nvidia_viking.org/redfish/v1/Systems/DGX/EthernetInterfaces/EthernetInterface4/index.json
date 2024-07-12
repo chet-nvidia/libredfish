@@ -1,0 +1,49 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#EthernetInterface.EthernetInterface",
+    "@odata.etag": "\"1700508045\"",
+    "@odata.id": "/redfish/v1/Systems/DGX/EthernetInterfaces/EthernetInterface4",
+    "@odata.type": "#EthernetInterface.v1_6_2.EthernetInterface",
+    "DHCPv4": {
+        "DHCPEnabled": false
+    },
+    "EthernetInterfaceType": "Physical",
+    "IPv4Addresses": [
+        {
+            "Address": "0.0.0.0",
+            "AddressOrigin": "Static",
+            "SubnetMask": "0.0.0.0"
+        }
+    ],
+    "IPv6Addresses": [
+        {
+            "Address": "FE80::BA3F:D2FF:FE90:98E4",
+            "AddressOrigin": "Static",
+            "PrefixLength": 64
+        }
+    ],
+    "IPv6DefaultGateway": "::",
+    "Id": "EthernetInterface4",
+    "InterfaceEnabled": true,
+    "LinkStatus": "LinkUp",
+    "Links": {
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/DGX"
+        },
+        "Endpoints@odata.count": 0,
+        "NetworkDeviceFunction": {
+            "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC8/NetworkDeviceFunctions/NetworkDeviceFunctionA"
+        }
+    },
+    "MACAddress": "B8:3F:D2:90:98:E4",
+    "MTUSize": 1500,
+    "Name": "EthernetInterface4",
+    "PermanentMACAddress": "B8:3F:D2:90:98:E4",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "UefiDevicePath": "PciRoot(0x120)/Pci(0x1,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)",
+    "VLANs": {
+        "@odata.id": "/redfish/v1/Systems/DGX/EthernetInterfaces/EthernetInterface4/VLANs"
+    }
+}

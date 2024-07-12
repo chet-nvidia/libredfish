@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/JsonSchemas/AMIServiceRoot.v1_0_0",
     "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "Description": "AMIServiceRoot.v1_0_0 schema",

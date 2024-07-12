@@ -8,7 +8,7 @@
             "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0/Sensors/HGX_BMC_0_Temp_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_BMC_0/Sensors/HGX_BMC_0_Temp_0",
             "DeviceName": "HGX_BMC_0_Temp_0",
-            "Reading": "24.187000"
+            "Reading": "25.687000"
         }
     ]
 }

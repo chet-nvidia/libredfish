@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Chassis.Chassis",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1714057499\"",
     "@odata.id": "/redfish/v1/Chassis/HGX",
     "@odata.type": "#Chassis.v1_15_0.Chassis",
     "AssetTag": "",

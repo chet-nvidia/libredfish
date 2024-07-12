@@ -14,8 +14,8 @@
             "Name": "Board FRU Assembly",
             "PartNumber": "699-25612-0002-205",
             "PhysicalContext": "GPUSubsystem",
-            "ProductionDate": "2023-08-18T08:29:00Z",
-            "SerialNumber": "1663223550945",
+            "ProductionDate": "2023-07-31T05:38:00Z",
+            "SerialNumber": "1662823551934",
             "Vendor": "NVIDIA"
         },
         {
@@ -30,7 +30,7 @@
             "Name": "Product FRU Assembly",
             "PartNumber": "935-24287-0000-000",
             "PhysicalContext": "GPUSubsystem",
-            "SerialNumber": "1663323652571",
+            "SerialNumber": "1663123650029",
             "Vendor": "NVIDIA",
             "Version": "00"
         },

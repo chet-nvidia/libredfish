@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Signature.Signature",
-    "@odata.etag": "\"1700496325\"",
+    "@odata.etag": "\"1708254258\"",
     "@odata.id": "/redfish/v1/Systems/DGX/SecureBoot/SecureBootDatabases/dbxDefault/Signatures/202",
     "@odata.type": "#Signature.v1_0_1.Signature",
     "Id": "202",

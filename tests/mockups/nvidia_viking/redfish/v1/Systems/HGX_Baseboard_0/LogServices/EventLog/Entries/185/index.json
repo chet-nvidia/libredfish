@@ -2,17 +2,17 @@
     "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/185",
     "@odata.type": "#LogEntry.v1_9_0.LogEntry",
     "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/185/attachment",
-    "Created": "1970-01-01T00:14:10+00:00",
+    "Created": "1970-01-01T00:10:21+00:00",
     "EntryType": "Event",
     "Id": "185",
-    "Message": "Device 'HGX_FW_BMC_0' successfully updated with image 'HGX-22.10-1-rc34'.",
+    "Message": "Awaiting for an action to proceed with activating image '2.11' on 'HGX_FW_FPGA_0'.",
     "MessageArgs": [
-        "HGX_FW_BMC_0",
-        "HGX-22.10-1-rc34"
+        "2.11",
+        "HGX_FW_FPGA_0"
     ],
-    "MessageId": "Update.1.0.UpdateSuccessful",
+    "MessageId": "Update.1.0.AwaitToActivate",
     "Name": "System Event Log Entry",
-    "Resolution": "",
+    "Resolution": "AC power cycle",
     "Resolved": false,
     "Severity": "OK"
 }

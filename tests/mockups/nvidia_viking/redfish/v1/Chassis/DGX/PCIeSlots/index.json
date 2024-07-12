@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeSlots.PCIeSlots",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/PCIeSlots",
     "@odata.type": "#PCIeSlots.v1_1_1.PCIeSlots",
     "Description": "PcieSlot_0",
@@ -246,7 +246,6 @@
             }
         },
         {
-            "Lanes": 16,
             "Links": {
                 "PCIeDevice": [
                     {
@@ -284,13 +283,6 @@
                     }
                 ],
                 "PCIeDevice@odata.count": 11
-            },
-            "Location": {
-                "PartLocation": {
-                    "LocationOrdinalValue": 7,
-                    "LocationType": "Slot",
-                    "ServiceLabel": "NIC 1, Slot 2"
-                }
             },
             "Status": {
                 "Health": "OK",
@@ -481,7 +473,6 @@
             }
         },
         {
-            "Lanes": 4,
             "Links": {
                 "PCIeDevice": [
                     {
@@ -513,13 +504,6 @@
                     }
                 ],
                 "PCIeDevice@odata.count": 9
-            },
-            "Location": {
-                "PartLocation": {
-                    "LocationOrdinalValue": 28,
-                    "LocationType": "Slot",
-                    "ServiceLabel": "NVMe Drive Bay 4"
-                }
             },
             "Status": {
                 "Health": "OK",

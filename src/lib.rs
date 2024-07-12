@@ -7,15 +7,15 @@ pub use model::ethernet_interface::EthernetInterface;
 pub use model::network_device_function::NetworkDeviceFunction;
 use model::oem::nvidia_dpu::{HostPrivilegeLevel, InternalCPUModel};
 pub use model::port::NetworkPort;
+pub use model::resource::{Collection, OData, Resource};
 use model::service_root::ServiceRoot;
 use model::software_inventory::SoftwareInventory;
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
 use model::task::Task;
 pub use model::EnabledDisabled;
 use model::Manager;
-use model::{secure_boot::SecureBoot, BootOption, ComputerSystem};
+use model::{secure_boot::SecureBoot, BootOption, ComputerSystem, ODataId, PCIeFunction};
 use serde::{Deserialize, Serialize};
-
 mod dell;
 mod error;
 mod hpe;
@@ -256,6 +256,63 @@ pub trait Redfish: Send + Sync + 'static {
     ) -> Result<Option<String>, RedfishError>;
 
     async fn get_job_state(&self, job_id: &str) -> Result<JobState, RedfishError>;
+
+    /// A kind-of-generic method to retrieve any Redfish resource. A resource is a top level object defined by Redfish spec snd
+    /// implements trait named IsResource. A resource should have @odata.type and @odata.id annotations as defined by the spec.
+    ///
+    /// Method takes OdatIaD as the input that is defined as the URI for the resource.
+    ///
+    /// The following two macros are provided to implement IsResource trait for objects. Use the one that mathces
+    /// the struct depending on how @odata.id and @odata.type are captured. Example use of macros:
+    ///
+    ///  impl_is_resource_for_option_odatalinks!(crate::EthernetInterface);   # captures @odata.xxxx annotations in Option<ODataLinks>
+    ///  impl_is_resource!(crate::model::PCIeDevice);                         # Uses OData instead
+    ///
+    ///
+    /// This method returns Resource struct that contains the raw JSON and can be converted to an resource by calling try_get<T>()
+    /// method. Resource::try_get<T>() method will desrialize JSON making surethat requested type T matches with @odata.type. Error will be
+    /// returned otherwise. This imposes a restriction on naming struct's for resources. @odata.type has the format #<ResourceType>.<Version>.<TermName>
+    /// Struct name for @odata.type should be named <TermName>. For example, @odata.type for systems is "@odata.type": "#ComputerSystem.v1_17_0.ComputerSystem".
+    /// Corresponding RUST struct is named ComputerSystem.
+    ///
+    /// Example ussage:
+    /// let chassis : Chassis =  redfish.get_resource(chassis_odata_id)
+    ///                             .await
+    ///                              .and_then(|r| {r.try_get()})?;
+    ///
+    ///
+    async fn get_resource(&self, id: ODataId) -> Result<Resource, RedfishError>;
+
+    /// A kind-of-generic api to retrieve any resource. See get_resource() api for more details.
+    /// This method returns Collection object that contains raw JSON and can be conveted to
+    /// generic type ResourceCollection<T> via generic method try_get()
+    /// Sample usage:
+    ///
+    /// let rc_nw_adapter : ResourceCollection<NetworkAdapter> =  self.s.get_collection(na_id)
+    ///                                                              .await
+    ///                                                              .and_then(|r| r.try_get())?;
+    /// try_get() will make sure that @odata.type of the returned collection matches with requested type T; error is
+    /// returned otherwise.
+    /// ODataId passed in should be a URI of resource collection as defined by Redfish spec. Resource collection's @odata.type
+    /// ends with suffix Collection. For example, @odata.type of EthernetInfetface collection is
+    ///
+    ///    "#EthernetInterfaceCollection.EthernetInterfaceCollection"
+    ///
+    /// This collection can only be connverted to ResourceCollection<EthernetInterface>
+    ///
+    /// This method fetches all member objects of the collection in a single request by appending
+    /// '?$expand=.($levels=1)' to the URI as defined by the spec.
+    async fn get_collection(&self, id: ODataId) -> Result<Collection, RedfishError>;
+
+    /// This method will change the boot order so that system will attempt to boot from the dpu first.
+    /// Method will make a platforn specifc best errert to identify the dpu specific boot option.
+    /// It will choose Uefi Http IPv4 option if any.
+    /// If dpu's mac can be passed in as  mac_address to identify the dpu, otherwise method will attempt to find the dpu
+    /// by enumeration NetworkAdapters and associated resources.
+    async fn set_boot_order_dpu_first(
+        &self,
+        mac_address: Option<String>,
+    ) -> Result<(), RedfishError>;
 }
 
 // When Carbide drops it's `IpmiCommand.launch_command` background job system, we can

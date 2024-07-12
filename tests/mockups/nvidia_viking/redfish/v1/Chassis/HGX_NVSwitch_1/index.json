@@ -71,5 +71,5 @@
     "ThermalSubsystem": {
         "@odata.id": "/redfish/v1/Chassis/HGX_NVSwitch_1/ThermalSubsystem"
     },
-    "UUID": "710a432e-8ae0-b7ac-dcc8-d69e80900ae8"
+    "UUID": "b9131154-7bef-a91d-5139-d977a31d3d77"
 }

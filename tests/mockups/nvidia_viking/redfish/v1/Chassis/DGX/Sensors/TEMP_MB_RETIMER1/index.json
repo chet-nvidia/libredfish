@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_MB_RETIMER1",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
     "Id": "TEMP_MB_RETIMER1",
@@ -11,7 +11,7 @@
     },
     "Name": "TEMP_MB_RETIMER1",
     "PhysicalContext": "Intake",
-    "Reading": 51,
+    "Reading": 53,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",

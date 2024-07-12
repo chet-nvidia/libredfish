@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PowerSupplyMetrics.PowerSupplyMetrics",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/PowerSubsystem/PowerSupplies/PSU4/Metrics",
     "@odata.type": "#PowerSupplyMetrics.v1_0_1.PowerSupplyMetrics",
     "Description": "Metrics for this Power Supply",
@@ -16,6 +16,6 @@
     },
     "TemperatureCelsius": {
         "DataSourceUri": "/redfish/v1/Chassis/DGX/Sensors/TEMP_PSU4",
-        "Reading": 24
+        "Reading": 26
     }
 }

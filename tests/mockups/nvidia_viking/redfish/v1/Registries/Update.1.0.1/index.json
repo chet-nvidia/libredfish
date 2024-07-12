@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#MessageRegistryFile.MessageRegistryFile",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Registries/Update.1.0.1",
     "@odata.type": "#MessageRegistryFile.v1_1_3.MessageRegistryFile",
     "Description": "Registry for Update.1.0.1",

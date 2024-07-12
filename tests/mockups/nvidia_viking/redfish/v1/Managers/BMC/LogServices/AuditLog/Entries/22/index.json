@@ -1,25 +1,26 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1708998243\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/AuditLog/Entries/22",
     "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-    "Created": "2023-10-23T17:00:31+00:00",
-    "Description": "LogService.ClearLog - Logs action was triggered which requires attention",
-    "EntryCode": "Informational",
+    "Created": "2024-02-27T01:44:03+00:00",
+    "Description": "The value of attribute BootComplete at /redfish/v1/Oem/Ami/InventoryData was successfully updated from false to true.",
     "EntryType": "Event",
-    "EventTimestamp": "2023-10-23T17:00:31+00:00",
+    "EventTimestamp": "2024-02-27T01:44:03+00:00",
     "Id": "22",
     "Links": {
         "OriginOfCondition": {
-            "@odata.id": "/redfish/v1/Chassis/DGX/LogServices/Logs"
+            "@odata.id": "/redfish/v1/Oem/Ami/InventoryData"
         }
     },
-    "Message": "LogService.ClearLog - Logs action was triggered which requires attention",
+    "Message": "User: mIt1EX7Ya3WpSKYI, IP: 169.254.0.18, Protocol: https - The value of attribute BootComplete at /redfish/v1/Oem/Ami/InventoryData was successfully updated from false to true.",
     "MessageArgs": [
-        "LogService.ClearLog",
-        "Logs"
+        "BootComplete",
+        "/redfish/v1/Oem/Ami/InventoryData",
+        "false",
+        "true"
     ],
-    "MessageId": "Security.1.0.Alert",
-    "Name": "Log entry 22",
+    "MessageId": "Security.1.0.ResourceModified",
+    "Name": "Audit Log Entry 22",
     "Severity": "OK"
 }

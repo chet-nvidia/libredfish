@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#SerialInterface.SerialInterface",
-    "@odata.etag": "\"1700503799\"",
+    "@odata.etag": "\"1709709807\"",
     "@odata.id": "/redfish/v1/Managers/BMC/SerialInterfaces/IPMI-SOL",
     "@odata.type": "#SerialInterface.v1_1_5.SerialInterface",
     "BitRate": "115200",

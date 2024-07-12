@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#AMIInventoryStatus.v1_0_0.AMIInventoryStatus",
-    "@odata.etag": "\"1700508048\"",
+    "@odata.etag": "\"1719888167\"",
     "@odata.id": "/redfish/v1/Oem/Ami/InventoryData/Status",
     "@odata.type": "#AMIInventoryStatus.v1_0_0.AMIInventoryStatus",
     "Description": "Detailed Post Status for Bios Inventory file",
@@ -15,7 +15,7 @@
             "BiosAttributeRegistry113.en-US.1.1.3.json Processed Successfully",
             "Inventory Backup file updated successfully."
         ],
-        "ProcessingTime": 17625.92,
+        "ProcessingTime": 30572.31,
         "Status": "Completed"
     },
     "Name": "PostStatus for Bios Inventory file"

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#TelemetryService.TelemetryService",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/TelemetryService",
     "@odata.type": "#TelemetryService.v1_2_1.TelemetryService",
     "Actions": {
@@ -32,10 +32,10 @@
         "State": "Enabled"
     },
     "SupportedCollectionFunctions": [
-        "Maximum",
-        "Minimum",
+        "Average",
         "Summation",
-        "Average"
+        "Maximum",
+        "Minimum"
     ],
     "SupportedCollectionFunctions@Redfish.AllowableValues": [
         "Average",

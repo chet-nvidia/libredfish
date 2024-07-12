@@ -7,7 +7,7 @@ authors = [
 ]
 repository = "https://gitlab-master.nvidia.com/nvmetal/libredfish"
 license = "MIT"
-version = "0.21.7"
+version = "0.21.8"
 edition = "2021"
 
 [dependencies]
@@ -22,11 +22,12 @@ reqwest = { version = "0.11", default-features = false, features = [
 ], registry = "cratesio" }
 serde = { version = "1", features = ["derive"], registry = "cratesio" }
 serde_with = { version = "3.4", registry = "cratesio" }
-serde_json = { version = "1", registry = "cratesio" }
+serde_json = { version = "1", features = ["raw_value"], registry = "cratesio" }
 thiserror = { version = "1", registry = "cratesio" }
 tokio = { version = "1", features = ["full"], registry = "cratesio" }
 tracing = { version = "0.1", registry = "cratesio" }
 version-compare = { version = "0.1.1", registry = "cratesio" }
+regex = "1.10.5"
 
 [dev-dependencies]
 anyhow = { version = "1", registry = "cratesio" }

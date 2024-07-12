@@ -1,48 +1,26 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntryCollection.LogEntryCollection",
-    "@odata.etag": "\"1700514054\"",
+    "@odata.etag": "\"1720649567\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries",
     "@odata.type": "#LogEntryCollection.LogEntryCollection",
     "Description": "Collection of entries for this log service",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/37",
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/38",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
             "AdditionalDataSizeBytes": 24077,
-            "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/37/Attachment",
-            "Created": "2000-01-01T00:00:08+00:00",
+            "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/38/Attachment",
+            "Created": "2000-01-01T00:00:10+00:00",
             "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2000-01-01T00:00:08+00:00",
-            "Id": "37",
+            "EventTimestamp": "2000-01-01T00:00:10+00:00",
+            "Id": "38",
             "Message": "Indicates that a DiagnosticDump of type OEM with file name DebugLogs.json was created.",
             "MessageArgs": [
                 "OEM",
                 "DebugLogs.json"
-            ],
-            "MessageId": "Ami.1.0.DiagnosticDumpCreated",
-            "Name": "Log entry 37",
-            "SensorType": "System Event",
-            "Severity": "Warning"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/38",
-            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 17239,
-            "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/38/Attachment",
-            "Created": "2000-01-01T00:00:08+00:00",
-            "Description": "Configuration Json files",
-            "DiagnosticDataType": "OEM",
-            "EntryCode": "Informational",
-            "EntryType": "Oem",
-            "EventTimestamp": "2000-01-01T00:00:08+00:00",
-            "Id": "38",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name nvidia_nvprsvconf.json was created.",
-            "MessageArgs": [
-                "OEM",
-                "nvidia_nvprsvconf.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 38",
@@ -52,19 +30,19 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/39",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 10404,
+            "AdditionalDataSizeBytes": 17239,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/39/Attachment",
-            "Created": "2000-01-01T00:00:08+00:00",
+            "Created": "2000-01-01T00:00:09+00:00",
             "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2000-01-01T00:00:08+00:00",
+            "EventTimestamp": "2000-01-01T00:00:09+00:00",
             "Id": "39",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name nvidianmconfig.json was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name nvidia_nvprsvconf.json was created.",
             "MessageArgs": [
                 "OEM",
-                "nvidianmconfig.json"
+                "nvidia_nvprsvconf.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 39",
@@ -74,19 +52,19 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/40",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 922,
+            "AdditionalDataSizeBytes": 10404,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/40/Attachment",
-            "Created": "2023-06-14T19:41:27+00:00",
+            "Created": "2000-01-01T00:00:10+00:00",
             "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2023-06-14T19:41:27+00:00",
+            "EventTimestamp": "2000-01-01T00:00:10+00:00",
             "Id": "40",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name NvidiaServiceMonitorConfig.json was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name nvidianmconfig.json was created.",
             "MessageArgs": [
                 "OEM",
-                "NvidiaServiceMonitorConfig.json"
+                "nvidianmconfig.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 40",
@@ -96,19 +74,19 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/41",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 1706,
+            "AdditionalDataSizeBytes": 922,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/41/Attachment",
-            "Created": "2000-01-01T00:00:08+00:00",
+            "Created": "2023-06-14T19:41:27+00:00",
             "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2000-01-01T00:00:08+00:00",
+            "EventTimestamp": "2023-06-14T19:41:27+00:00",
             "Id": "41",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name StorageMonitor.json was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name NvidiaServiceMonitorConfig.json was created.",
             "MessageArgs": [
                 "OEM",
-                "StorageMonitor.json"
+                "NvidiaServiceMonitorConfig.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 41",
@@ -118,19 +96,19 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/42",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 541,
+            "AdditionalDataSizeBytes": 1706,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/42/Attachment",
-            "Created": "2000-01-01T00:00:08+00:00",
+            "Created": "2000-01-01T00:00:10+00:00",
             "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2000-01-01T00:00:08+00:00",
+            "EventTimestamp": "2000-01-01T00:00:10+00:00",
             "Id": "42",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name USBNetMonConfig.json was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name StorageMonitor.json was created.",
             "MessageArgs": [
                 "OEM",
-                "USBNetMonConfig.json"
+                "StorageMonitor.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 42",
@@ -140,19 +118,19 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/43",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 2094,
+            "AdditionalDataSizeBytes": 541,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/43/Attachment",
-            "Created": "2000-01-01T00:00:08+00:00",
+            "Created": "2000-01-01T00:00:10+00:00",
             "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2000-01-01T00:00:08+00:00",
+            "EventTimestamp": "2000-01-01T00:00:10+00:00",
             "Id": "43",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name NvidiaNMService_service.json was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name USBNetMonConfig.json was created.",
             "MessageArgs": [
                 "OEM",
-                "NvidiaNMService_service.json"
+                "USBNetMonConfig.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 43",
@@ -162,19 +140,19 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/44",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 656,
+            "AdditionalDataSizeBytes": 2094,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/44/Attachment",
-            "Created": "2000-01-01T00:00:08+00:00",
+            "Created": "2000-01-01T00:00:10+00:00",
             "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2000-01-01T00:00:08+00:00",
+            "EventTimestamp": "2000-01-01T00:00:10+00:00",
             "Id": "44",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name updatePolicy.json was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name NvidiaNMService_service.json was created.",
             "MessageArgs": [
                 "OEM",
-                "updatePolicy.json"
+                "NvidiaNMService_service.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 44",
@@ -184,19 +162,19 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/45",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 5013,
+            "AdditionalDataSizeBytes": 656,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/45/Attachment",
-            "Created": "2000-01-01T00:00:08+00:00",
+            "Created": "2000-01-01T00:00:09+00:00",
             "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2000-01-01T00:00:08+00:00",
+            "EventTimestamp": "2000-01-01T00:00:09+00:00",
             "Id": "45",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name nvidia_mctp_config.json was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name updatePolicy.json was created.",
             "MessageArgs": [
                 "OEM",
-                "nvidia_mctp_config.json"
+                "updatePolicy.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 45",
@@ -206,19 +184,19 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/46",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 1480,
+            "AdditionalDataSizeBytes": 5013,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/46/Attachment",
-            "Created": "2000-01-01T00:00:08+00:00",
+            "Created": "2000-01-01T00:00:10+00:00",
             "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2000-01-01T00:00:08+00:00",
+            "EventTimestamp": "2000-01-01T00:00:10+00:00",
             "Id": "46",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name NvidiaLogService_service.json was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name nvidia_mctp_config.json was created.",
             "MessageArgs": [
                 "OEM",
-                "NvidiaLogService_service.json"
+                "nvidia_mctp_config.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 46",
@@ -228,19 +206,19 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/47",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 2510,
+            "AdditionalDataSizeBytes": 1480,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/47/Attachment",
-            "Created": "2000-01-01T00:00:08+00:00",
+            "Created": "2000-01-01T00:00:10+00:00",
             "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2000-01-01T00:00:08+00:00",
+            "EventTimestamp": "2000-01-01T00:00:10+00:00",
             "Id": "47",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name nvidiacustomactions.json was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name NvidiaLogService_service.json was created.",
             "MessageArgs": [
                 "OEM",
-                "nvidiacustomactions.json"
+                "NvidiaLogService_service.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 47",
@@ -250,19 +228,19 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/48",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 557,
+            "AdditionalDataSizeBytes": 2510,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/48/Attachment",
-            "Created": "2000-01-01T00:00:07+00:00",
+            "Created": "2000-01-01T00:00:10+00:00",
             "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2000-01-01T00:00:07+00:00",
+            "EventTimestamp": "2000-01-01T00:00:10+00:00",
             "Id": "48",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name PCCMonConfig.json was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name nvidiacustomactions.json was created.",
             "MessageArgs": [
                 "OEM",
-                "PCCMonConfig.json"
+                "nvidiacustomactions.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 48",
@@ -272,7 +250,7 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/49",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 2824,
+            "AdditionalDataSizeBytes": 493,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/49/Attachment",
             "Created": "2000-01-01T00:00:08+00:00",
             "Description": "Configuration Json files",
@@ -281,10 +259,10 @@
             "EntryType": "Oem",
             "EventTimestamp": "2000-01-01T00:00:08+00:00",
             "Id": "49",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name vikingspr_topology.json was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name PCCMonConfig.json was created.",
             "MessageArgs": [
                 "OEM",
-                "vikingspr_topology.json"
+                "PCCMonConfig.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 49",
@@ -294,19 +272,19 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/50",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 3585,
+            "AdditionalDataSizeBytes": 2824,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/50/Attachment",
-            "Created": "2023-11-20T19:45:08+00:00",
-            "Description": "Postcode files",
+            "Created": "2000-01-01T00:00:10+00:00",
+            "Description": "Configuration Json files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2023-11-20T19:45:08+00:00",
+            "EventTimestamp": "2000-01-01T00:00:10+00:00",
             "Id": "50",
-            "Message": "Indicates that a DiagnosticDump of type OEM with file name cur_postcode.txt was created.",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name vikingspr_topology.json was created.",
             "MessageArgs": [
                 "OEM",
-                "cur_postcode.txt"
+                "vikingspr_topology.json"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
             "Name": "Log entry 50",
@@ -316,22 +294,44 @@
         {
             "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/51",
             "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-            "AdditionalDataSizeBytes": 4045,
+            "AdditionalDataSizeBytes": 2755,
             "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/51/Attachment",
-            "Created": "2023-11-20T18:50:05+00:00",
+            "Created": "2024-06-29T04:18:25+00:00",
             "Description": "Postcode files",
             "DiagnosticDataType": "OEM",
             "EntryCode": "Informational",
             "EntryType": "Oem",
-            "EventTimestamp": "2023-11-20T18:50:05+00:00",
+            "EventTimestamp": "2024-06-29T04:18:25+00:00",
             "Id": "51",
+            "Message": "Indicates that a DiagnosticDump of type OEM with file name cur_postcode.txt was created.",
+            "MessageArgs": [
+                "OEM",
+                "cur_postcode.txt"
+            ],
+            "MessageId": "Ami.1.0.DiagnosticDumpCreated",
+            "Name": "Log entry 51",
+            "SensorType": "System Event",
+            "Severity": "Warning"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/52",
+            "@odata.type": "#LogEntry.v1_7_0.LogEntry",
+            "AdditionalDataSizeBytes": 2800,
+            "AdditionalDataURI": "/redfish/v1/Managers/BMC/LogServices/DiagnosticLog/Entries/52/Attachment",
+            "Created": "2024-06-28T10:04:24+00:00",
+            "Description": "Postcode files",
+            "DiagnosticDataType": "OEM",
+            "EntryCode": "Informational",
+            "EntryType": "Oem",
+            "EventTimestamp": "2024-06-28T10:04:24+00:00",
+            "Id": "52",
             "Message": "Indicates that a DiagnosticDump of type OEM with file name pre_postcode.txt was created.",
             "MessageArgs": [
                 "OEM",
                 "pre_postcode.txt"
             ],
             "MessageId": "Ami.1.0.DiagnosticDumpCreated",
-            "Name": "Log entry 51",
+            "Name": "Log entry 52",
             "SensorType": "System Event",
             "Severity": "Warning"
         }

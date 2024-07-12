@@ -1,0 +1,32 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#Drive.Drive",
+    "@odata.etag": "\"1700508046\"",
+    "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/USB_Device5_PortA",
+    "@odata.type": "#Drive.v1_11_0.Drive",
+    "AssetTag": null,
+    "BlockSizeBytes": 2048,
+    "CapacityBytes": 2048,
+    "EncryptionAbility": "None",
+    "FailurePredicted": false,
+    "Id": "USB_Device5_PortA",
+    "IndicatorLED": null,
+    "Links": {
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/DGX"
+        },
+        "Endpoints@odata.count": 0,
+        "Volumes@odata.count": 0
+    },
+    "Manufacturer": "American Megatreds Inc.",
+    "MediaType": "HDD",
+    "Model": "Virtual Cdrom Device",
+    "Name": "USB_Device5_PortA",
+    "Protocol": "USB",
+    "ReadyToRemove": true,
+    "Revision": "USB2.00",
+    "SerialNumber": "AAAABBBBCCCC1",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    }
+}

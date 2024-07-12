@@ -58,7 +58,7 @@
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0/Sensors"
     },
-    "SerialNumber": "1323223016486",
+    "SerialNumber": "1322423030852",
     "Status": {
         "Conditions": [],
         "Health": "OK",

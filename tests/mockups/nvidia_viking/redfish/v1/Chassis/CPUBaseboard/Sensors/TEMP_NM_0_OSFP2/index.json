@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/CPUBaseboard/Sensors/TEMP_NM_0_OSFP2",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
     "Id": "TEMP_NM_0_OSFP2",

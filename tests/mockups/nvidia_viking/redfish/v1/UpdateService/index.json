@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#UpdateService.UpdateService",
-    "@odata.etag": "\"1700494990\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/UpdateService",
     "@odata.type": "#UpdateService.v1_11_0.UpdateService",
     "Actions": {
@@ -34,7 +34,7 @@
         }
     },
     "Id": "UpdateService",
-    "MaxImageSizeBytes": 429842432,
+    "MaxImageSizeBytes": 419627008,
     "MultipartHttpPushUri": "/redfish/v1/UpdateService/upload",
     "Name": "Update Service",
     "Oem": {

@@ -2,22 +2,17 @@
     "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/616",
     "@odata.type": "#LogEntry.v1_9_0.LogEntry",
     "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/616/attachment",
-    "Created": "2020-01-15T08:56:05+00:00",
+    "Created": "2020-01-05T02:36:18+00:00",
     "EntryType": "Event",
     "Id": "616",
-    "Links": {
-        "OriginOfCondition": {
-            "@odata.id": "/redfish/v1/Chassis/HGX_PCIeSwitch_0/PCIeDevices/PCIeSwitch_0"
-        }
-    },
-    "Message": "The resource property NVSwitch_0 PCIe has detected errors of type 'Correctable Error Count 21'.",
+    "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Sat Mar 28 23:44:12 UTC 1970][14024704][00] SXID 0 dNVSWITCH SMBPBI server is online.st'.",
     "MessageArgs": [
-        "NVSwitch_0 PCIe",
-        "Correctable Error Count 21"
+        "NVSwitch_3 Driver Event Message",
+        "[Sat Mar 28 23:44:12 UTC 1970][14024704][00] SXID 0 dNVSWITCH SMBPBI server is online.st"
     ],
     "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
     "Name": "System Event Log Entry",
-    "Resolution": "Reset the link. If problem persists, isolate the server for RMA evaluation.",
-    "Resolved": true,
+    "Resolution": "",
+    "Resolved": false,
     "Severity": "Critical"
 }

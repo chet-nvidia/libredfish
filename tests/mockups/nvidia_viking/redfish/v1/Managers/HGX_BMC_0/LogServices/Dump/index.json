@@ -9,7 +9,7 @@
             "target": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Dump/Actions/LogService.CollectDiagnosticData"
         }
     },
-    "DateTime": "2020-04-04T11:47:29+00:00",
+    "DateTime": "2020-12-11T16:35:14+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "BMC Dump LogService",
     "Entries": {

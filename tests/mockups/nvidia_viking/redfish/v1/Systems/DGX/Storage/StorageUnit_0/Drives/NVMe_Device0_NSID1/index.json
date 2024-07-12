@@ -1,34 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Drive.Drive",
-    "@odata.etag": "\"1700508045\"",
+    "@odata.etag": "\"1719888159\"",
     "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/NVMe_Device0_NSID1",
-    "@odata.type": "#Drive.v1_11_0.Drive",
-    "AssetTag": null,
-    "BlockSizeBytes": 512,
-    "CapableSpeedGbs": 63.02,
-    "CapacityBytes": 1920383410176,
-    "EncryptionAbility": "None",
-    "FailurePredicted": false,
-    "Id": "NVMe_Device0_NSID1",
-    "IndicatorLED": null,
-    "Links": {
-        "Chassis": {
-            "@odata.id": "/redfish/v1/Chassis/DGX"
-        },
-        "Endpoints@odata.count": 0,
-        "Volumes@odata.count": 0
-    },
-    "Manufacturer": "N/A",
-    "MediaType": "SSD",
-    "Model": "SAMSUNG MZ1L21T9HCLS-00A07",
-    "Name": "NVMe_Device0_NSID1",
-    "NegotiatedSpeedGbs": 31.51,
-    "Protocol": "NVMe",
-    "Revision": "NVMe Spec v1.4",
-    "RotationSpeedRPM": 0,
-    "SerialNumber": "S666NN0W308223",
-    "Status": {
-        "Health": "OK",
-        "State": "Enabled"
-    }
+    "@odata.type": "#Drive.v1_11_0.Drive"
 }

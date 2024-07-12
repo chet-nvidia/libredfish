@@ -9,21 +9,21 @@
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_DRAM_0_Temp_0",
             "DeviceName": "GPU_SXM_4",
             "PhysicalContext": "GPU",
-            "Reading": "38.000000"
+            "Reading": "43.000000"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_TEMP_0",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_TEMP_0",
             "DeviceName": "GPU_SXM_4",
             "PhysicalContext": "GPU",
-            "Reading": "31.750000"
+            "Reading": "35.343750"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_TEMP_1",
             "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_4/Sensors/HGX_GPU_SXM_4_TEMP_1",
             "DeviceName": "GPU_SXM_4",
             "PhysicalContext": "GPU",
-            "Reading": "55.250000"
+            "Reading": "51.625000"
         }
     ]
 }

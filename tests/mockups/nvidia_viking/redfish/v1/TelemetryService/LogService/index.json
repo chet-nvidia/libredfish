@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogService.LogService",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/TelemetryService/LogService",
     "@odata.type": "#LogService.v1_2_0.LogService",
     "Actions": {
@@ -8,7 +8,7 @@
             "target": "/redfish/v1/TelemetryService/LogService/Actions/LogService.ClearLog"
         }
     },
-    "DateTime": "2023-11-20T21:26:35+00:00",
+    "DateTime": "2024-07-10T22:54:14+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "Telemetry Log Service",
     "Entries": {

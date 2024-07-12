@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#EthernetInterface.EthernetInterface",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1714057499\"",
     "@odata.id": "/redfish/v1/Managers/BMC/EthernetInterfaces/usb0",
     "@odata.type": "#EthernetInterface.v1_6_2.EthernetInterface",
     "IPv4Addresses": [
@@ -11,7 +11,7 @@
     ],
     "Id": "usb0",
     "InterfaceEnabled": true,
-    "MACAddress": "6A:B9:F5:CB:02:B0",
+    "MACAddress": "2A:1A:5A:BB:71:A5",
     "Name": "usb0",
     "StatelessAddressAutoConfig": {
         "IPv4AutoConfigEnabled": false,

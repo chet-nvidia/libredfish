@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Processor.Processor",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Systems/DGX/Processors/DevType1_CPU0/SubProcessors/DevType1_CPU0_Core46_Thread0",
     "@odata.type": "#Processor.v1_10_0.Processor",
     "Id": "DevType1_CPU0_Core46_Thread0",

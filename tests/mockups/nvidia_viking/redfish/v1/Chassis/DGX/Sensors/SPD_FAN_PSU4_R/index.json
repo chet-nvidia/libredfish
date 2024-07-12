@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/SPD_FAN_PSU4_R",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
     "Id": "SPD_FAN_PSU4_R",
@@ -11,11 +11,13 @@
     },
     "Name": "SPD_FAN_PSU4_R",
     "PhysicalContext": "Fan",
+    "Reading": 4950,
     "ReadingRangeMax": 28050,
     "ReadingRangeMin": 0,
     "ReadingType": "Rotational",
     "Status": {
-        "State": "Absent"
+        "Health": "OK",
+        "State": "Enabled"
     },
     "Thresholds": {
         "LowerCritical": {

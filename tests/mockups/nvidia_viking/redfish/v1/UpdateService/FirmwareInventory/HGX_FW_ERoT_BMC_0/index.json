@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#SoftwareInventory.SoftwareInventory",
-    "@odata.etag": "\"1700510035\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_ERoT_BMC_0",
     "@odata.type": "#SoftwareInventory.v1_2_3.SoftwareInventory",
     "Id": "HGX_FW_ERoT_BMC_0",

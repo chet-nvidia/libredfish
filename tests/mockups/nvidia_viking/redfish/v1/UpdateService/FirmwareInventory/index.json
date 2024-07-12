@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#SoftwareInventoryCollection.SoftwareInventoryCollection",
-    "@odata.etag": "\"1700510035\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory",
     "@odata.type": "#SoftwareInventoryCollection.SoftwareInventoryCollection",
     "Description": "Collection of Firmware Inventory resources available to the UpdateService",
@@ -213,22 +213,22 @@
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/CPLDMB_0",
                     "Name": "CPLDMB_0",
-                    "Version": "0.2.1.6"
+                    "Version": "0.2.1.8"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/CPLDMID_0",
                     "Name": "CPLDMID_0",
-                    "Version": "0.2.0.7"
+                    "Version": "0.2.1.1"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/EROT_BIOS_0",
                     "Name": "EROT_BIOS_0",
-                    "Version": "00.04.0015.0000_n00"
+                    "Version": "00.04.0026.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/EROT_BMC_0",
                     "Name": "EROT_BMC_0",
-                    "Version": "00.04.0015.0000_n00"
+                    "Version": "00.04.0026.0000_n00"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0",
@@ -488,7 +488,7 @@
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/HostBMC_0",
                     "Name": "HostBMC_0",
-                    "Version": "23.11.09"
+                    "Version": "23.11.21"
                 },
                 {
                     "DataSourceUri": "/redfish/v1/UpdateService/FirmwareInventory/PCIeRetimer_0",

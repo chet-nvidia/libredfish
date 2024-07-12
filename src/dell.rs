@@ -19,8 +19,9 @@ use crate::{
         BootOption, ComputerSystem, InvalidValueError, Manager, OnOff,
     },
     standard::RedfishStandard,
-    Boot, BootOptions, EnabledDisabled, ForgeSetupDiff, ForgeSetupStatus, JobState, PCIeDevice,
-    PowerState, Redfish, RedfishError, RoleId, Status, StatusInternal, SystemPowerControl,
+    Boot, BootOptions, Collection, EnabledDisabled, ForgeSetupDiff, ForgeSetupStatus, JobState,
+    ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource, RoleId, Status,
+    StatusInternal, SystemPowerControl,
 };
 
 const UEFI_PASSWORD_NAME: &str = "SetupPassword";
@@ -695,6 +696,21 @@ impl Redfish for Bmc {
             })?;
 
         Ok(JobState::from_str(val))
+    }
+
+    async fn get_collection(&self, id: ODataId) -> Result<Collection, RedfishError> {
+        self.s.get_collection(id).await
+    }
+
+    async fn get_resource(&self, id: ODataId) -> Result<Resource, RedfishError> {
+        self.s.get_resource(id).await
+    }
+
+    async fn set_boot_order_dpu_first(
+        &self,
+        mac_address: Option<String>,
+    ) -> Result<(), RedfishError> {
+        self.s.set_boot_order_dpu_first(mac_address).await
     }
 }
 

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/PDB/Sensors/VOLT_12V_SBY",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
     "Id": "VOLT_12V_SBY",
@@ -11,7 +11,7 @@
     },
     "Name": "VOLT_12V_SBY",
     "PhysicalContext": "VoltageRegulator",
-    "Reading": 12.152,
+    "Reading": 12.09,
     "ReadingRangeMax": 15.81,
     "ReadingRangeMin": 0,
     "ReadingType": "Voltage",

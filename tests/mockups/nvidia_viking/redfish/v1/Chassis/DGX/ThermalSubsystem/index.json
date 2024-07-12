@@ -1,10 +1,94 @@
 {
     "@odata.context": "/redfish/v1/$metadata#ThermalSubsystem.ThermalSubsystem",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem",
     "@odata.type": "#ThermalSubsystem.v1_0_0.ThermalSubsystem",
     "Description": "ThermalSubsytem for this Chassis",
     "FanRedundancy": [
+        {
+            "MaxSupportedInGroup": 12,
+            "MinNeededInGroup": 1,
+            "RedundancyGroup": [
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU0_F"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU0_R"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU1_F"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU1_R"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU2_F"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU2_R"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU3_F"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU3_R"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU4_F"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU4_R"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU5_F"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU5_R"
+                }
+            ],
+            "RedundancyGroup@odata.count": 12,
+            "RedundancyType": "NPlusM",
+            "Status": {
+                "Health": "OK",
+                "State": "Enabled"
+            }
+        },
+        {
+            "MaxSupportedInGroup": 8,
+            "MinNeededInGroup": 1,
+            "RedundancyGroup": [
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS1_R"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS1_F"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS2_R"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS2_F"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS3_R"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS3_F"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS4_R"
+                },
+                {
+                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS4_F"
+                }
+            ],
+            "RedundancyGroup@odata.count": 8,
+            "RedundancyType": "NPlusM",
+            "Status": {
+                "Health": "OK",
+                "State": "Enabled"
+            }
+        },
         {
             "MaxSupportedInGroup": 16,
             "MinNeededInGroup": 1,
@@ -59,90 +143,6 @@
                 }
             ],
             "RedundancyGroup@odata.count": 16,
-            "RedundancyType": "NPlusM",
-            "Status": {
-                "Health": "OK",
-                "State": "Enabled"
-            }
-        },
-        {
-            "MaxSupportedInGroup": 8,
-            "MinNeededInGroup": 1,
-            "RedundancyGroup": [
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS1_R"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS1_F"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS2_R"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS2_F"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS3_R"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS3_F"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS4_R"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_SYS4_F"
-                }
-            ],
-            "RedundancyGroup@odata.count": 8,
-            "RedundancyType": "NPlusM",
-            "Status": {
-                "Health": "OK",
-                "State": "Enabled"
-            }
-        },
-        {
-            "MaxSupportedInGroup": 12,
-            "MinNeededInGroup": 1,
-            "RedundancyGroup": [
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU0_F"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU0_R"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU1_F"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU1_R"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU2_F"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU2_R"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU3_F"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU3_R"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU4_F"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU4_R"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU5_F"
-                },
-                {
-                    "@odata.id": "/redfish/v1/Chassis/DGX/ThermalSubsystem/Fans/SPD_FAN_PSU5_R"
-                }
-            ],
-            "RedundancyGroup@odata.count": 12,
             "RedundancyType": "NPlusM",
             "Status": {
                 "Health": "OK",

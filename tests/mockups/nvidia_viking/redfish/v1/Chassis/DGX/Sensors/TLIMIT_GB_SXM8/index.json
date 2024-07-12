@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TLIMIT_GB_SXM8",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
     "Id": "TLIMIT_GB_SXM8",
@@ -11,7 +11,7 @@
     },
     "Name": "TLIMIT_GB_SXM8",
     "PhysicalContext": "Intake",
-    "Reading": 58,
+    "Reading": 56,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",

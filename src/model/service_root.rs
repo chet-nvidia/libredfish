@@ -1,6 +1,8 @@
 use std::collections::HashMap;
 use std::fmt;
 
+use crate::model;
+use model::{OData, ODataId};
 use serde::{Deserialize, Serialize};
 
 /// https://redfish.dmtf.org/schemas/v1/ServiceRoot.v1_16_0.json
@@ -8,6 +10,8 @@ use serde::{Deserialize, Serialize};
 #[derive(Debug, Default, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct ServiceRoot {
+    #[serde(flatten)]
+    pub odata: OData,
     pub product: Option<String>,
     pub redfish_version: String,
     pub vendor: Option<String>,
@@ -15,6 +19,17 @@ pub struct ServiceRoot {
     pub uuid: Option<String>,
     pub oem: Option<HashMap<String, serde_json::Value>>,
     pub update_service: Option<HashMap<String, serde_json::Value>>,
+    pub account_service: Option<ODataId>,
+    pub certificate_service: Option<ODataId>,
+    pub chassis: Option<ODataId>,
+    pub event_service: Option<ODataId>,
+    pub license_service: Option<ODataId>,
+    pub fabrics: Option<ODataId>,
+    pub managers: Option<ODataId>,
+    pub session_service: Option<ODataId>,
+    pub systems: Option<ODataId>,
+    pub tasks: Option<ODataId>,
+    pub telemetry_service: Option<ODataId>,
 }
 
 #[derive(Clone, Copy, Debug, PartialEq)]

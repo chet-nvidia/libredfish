@@ -80,6 +80,17 @@ pub enum RedfishError {
 
     #[error("Maximum amount of user accounts reached. Delete one to continue.")]
     TooManyUsers,
+
+    #[error("Expected type: {expected}, actual: {actual}. Resource type: {resource_type}, resource uri: {resource_uri}")]
+    TypeMismatch {
+        expected: String,
+        actual: String,
+        resource_type: String,
+        resource_uri: String,
+    },
+
+    #[error("Error: {error}")]
+    GenericError { error: String },
 }
 
 impl RedfishError {

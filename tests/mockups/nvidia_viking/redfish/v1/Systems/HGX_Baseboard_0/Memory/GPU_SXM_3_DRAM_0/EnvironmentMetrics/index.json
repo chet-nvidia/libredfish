@@ -3,22 +3,22 @@
     "@odata.type": "#EnvironmentMetrics.v1_2_0.EnvironmentMetrics",
     "EnergyJoules": {
         "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_3/Sensors/HGX_GPU_SXM_3_Energy_0",
-        "Reading": null
+        "Reading": 57424289.774
     },
     "EnergykWh": {
-        "Reading": null
+        "Reading": 15.95119161665
     },
     "Id": "EnvironmentMetrics",
     "Name": "GPU_SXM_3_DRAM_0 Environment Metrics",
     "PowerLimitWatts": {
-        "Reading": null
+        "Reading": 73.249
     },
     "PowerWatts": {
         "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_3/Sensors/HGX_GPU_SXM_3_Power_0",
-        "Reading": null
+        "Reading": 73.249
     },
     "TemperatureCelsius": {
         "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_3/Sensors/HGX_GPU_SXM_3_TEMP_1",
-        "Reading": 53.40625
+        "Reading": 53
     }
 }

@@ -2,7 +2,9 @@ use std::{fmt, str::FromStr};
 
 use serde::{Deserialize, Serialize};
 pub mod manager;
+pub mod resource;
 pub use manager::*;
+pub use resource::OData;
 pub mod serial_interface;
 
 pub mod system;
@@ -37,6 +39,8 @@ pub struct ODataLinks {
     pub odata_id: String,
     #[serde(rename = "@odata.type")]
     pub odata_type: String,
+    #[serde(rename = "@odata.etag")]
+    pub odata_etag: Option<String>,
     #[serde(rename = "links")]
     pub links: Option<LinkType>,
 }
@@ -106,10 +110,37 @@ pub enum LinkType {
     },
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone)]
+#[derive(Debug, Default, Serialize, Deserialize, Clone)]
 pub struct ODataId {
     #[serde(rename = "@odata.id")]
     pub odata_id: String,
+}
+
+impl From<String> for ODataId {
+    fn from(item: String) -> Self {
+        ODataId { odata_id: item }
+    }
+}
+
+impl From<&str> for ODataId {
+    fn from(item: &str) -> Self {
+        ODataId {
+            odata_id: item.to_string(),
+        }
+    }
+}
+
+// This is Redfish spec defined object that is required to
+// make changes to underlying resource
+#[derive(Debug, Default, Serialize, Deserialize, Clone)]
+pub struct RedfishSettings {
+    pub e_tag: Option<String>,
+    #[serde(rename = "@odata.type")]
+    pub odata_type: Option<String>,
+    pub messages: Option<Vec<String>>,
+    pub time: Option<String>,
+    #[serde(rename = "SettingsObject")]
+    pub settings_object: Option<ODataId>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -242,9 +273,10 @@ impl fmt::Display for InvalidValueError {
     }
 }
 
-#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq, Default)]
 pub enum OnOff {
     On,
+    #[default]
     Off,
 }
 

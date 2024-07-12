@@ -1,23 +1,23 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-    "@odata.etag": "\"1697738603\"",
+    "@odata.etag": "\"1708996860\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/AuditLog/Entries/17",
     "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-    "Created": "2023-10-19T18:03:23+00:00",
-    "Description": "Access to the resource located at /Oem/Ami/InventoryData was allowed.",
+    "Created": "2024-02-27T01:21:00+00:00",
+    "Description": "The resource at /redfish/v1/Oem/Ami/InventoryData (inventory.json) has been successfully created.",
     "EntryType": "Event",
-    "EventTimestamp": "2023-10-19T18:03:23+00:00",
+    "EventTimestamp": "2024-02-27T01:21:00+00:00",
     "Id": "17",
     "Links": {
         "OriginOfCondition": {
             "@odata.id": "/redfish/v1/Oem/Ami/InventoryData"
         }
     },
-    "Message": "User: in-band-user, IP: 169.254.0.18, Protocol: https - Access to the resource located at /Oem/Ami/InventoryData was allowed.",
+    "Message": "User: zqL66PafjHC9OsJv, IP: 169.254.0.18, Protocol: https - The resource at /redfish/v1/Oem/Ami/InventoryData (inventory.json) has been successfully created.",
     "MessageArgs": [
-        "/Oem/Ami/InventoryData"
+        "/redfish/v1/Oem/Ami/InventoryData (inventory.json)"
     ],
-    "MessageId": "Security.1.0.AccessAllowed",
+    "MessageId": "Security.1.0.ResourceCreated",
     "Name": "Audit Log Entry 17",
     "Severity": "OK"
 }

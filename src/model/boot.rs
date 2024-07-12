@@ -2,6 +2,8 @@ use std::fmt;
 
 use serde::{Deserialize, Serialize};
 
+use super::ODataId;
+
 /// https://redfish.dmtf.org/schemas/v1/ComputerSystem.v1_20_1.json
 /// The boot information for this resource.
 #[serde_with::skip_serializing_none]
@@ -20,6 +22,7 @@ pub struct Boot {
     pub http_boot_uri: Option<String>,
     pub trusted_module_required_to_boot: Option<TrustedModuleRequiredToBoot>,
     pub uefi_target_boot_source_override: Option<String>,
+    pub boot_options: Option<ODataId>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]

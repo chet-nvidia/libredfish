@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#AccountService.AccountService",
-    "@odata.etag": "\"1700240365\"",
+    "@odata.etag": "\"946684846\"",
     "@odata.id": "/redfish/v1/AccountService",
     "@odata.type": "#AccountService.v1_8_0.AccountService",
     "AccountLockoutCounterResetAfter": 30,

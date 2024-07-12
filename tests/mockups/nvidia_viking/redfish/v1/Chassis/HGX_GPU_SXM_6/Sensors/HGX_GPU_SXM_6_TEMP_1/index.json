@@ -5,7 +5,7 @@
     "Implementation": "Synthesized",
     "Name": "HGX GPU SXM 6 TEMP 1",
     "PhysicalContext": "GPU",
-    "Reading": 53.03125,
+    "Reading": 56,
     "ReadingType": "Temperature",
     "ReadingUnits": "Cel",
     "RelatedItem": [

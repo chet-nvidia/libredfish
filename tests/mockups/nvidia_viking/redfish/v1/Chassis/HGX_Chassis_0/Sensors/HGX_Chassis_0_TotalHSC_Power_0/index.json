@@ -5,7 +5,7 @@
     "MaxAllowableOperatingValue": 21207,
     "Name": "HGX Chassis 0 TotalHSC Power 0",
     "PhysicalContext": "GPUSubsystem",
-    "Reading": 1059.659,
+    "Reading": 824.855,
     "ReadingType": "Power",
     "ReadingUnits": "W",
     "RelatedItem": [

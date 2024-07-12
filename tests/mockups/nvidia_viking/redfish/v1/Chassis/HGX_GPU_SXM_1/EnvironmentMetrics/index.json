@@ -12,10 +12,10 @@
     },
     "EnergyJoules": {
         "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_1/Sensors/HGX_GPU_SXM_1_Energy_0",
-        "Reading": null
+        "Reading": 56078524.284
     },
     "EnergykWh": {
-        "Reading": null
+        "Reading": 15.577367869129
     },
     "FanSpeedsPercent": [],
     "Id": "EnvironmentMetrics",
@@ -28,6 +28,6 @@
     "PowerWatts": {
         "@odata.id": "/redfish/v1/Chassis/HGX_GPU_SXM_1/Sensors/HGX_GPU_SXM_1_Power_0",
         "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_1/Sensors/HGX_GPU_SXM_1_Power_0",
-        "Reading": null
+        "Reading": 71.706
     }
 }

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/OVERT_GB1_GPU",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
     "Accuracy": null,
@@ -76,7 +76,6 @@
     "PowerFactor": null,
     "Precision": null,
     "ReactiveVAR": null,
-    "Reading": 0,
     "ReadingRangeMax": null,
     "ReadingRangeMin": null,
     "ReadingType": null,
@@ -86,7 +85,7 @@
     "Status": {
         "Health": null,
         "HealthRollup": null,
-        "State": "Enabled"
+        "State": "Disabled"
     },
     "Thresholds": {
         "LowerCaution": {

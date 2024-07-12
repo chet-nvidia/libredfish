@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#TriggersCollection.TriggersCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/TelemetryService/Triggers",
     "@odata.type": "#TriggersCollection.TriggersCollection",
     "Members": [],

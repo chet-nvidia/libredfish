@@ -1,9 +1,9 @@
 Redfish service captured by the Redfish Mockup Creator, Version 1.2.0
-Created: 2023-11-20 13:53:53
-Service: https://127.0.0.1:8225
-User: ubuntu
+Created: 2024-07-10 15:09:38
+Service: https://127.0.0.1:18443
+User: forge_admin
 Description: 
-Total response time: 5513.855782032013
-Average response time: 0.6567241283982864
-Minimum response time: 0.34911179542541504, /redfish
-Maximum response time: 11.76941442489624, /redfish/v1/Managers/BMC/LogServices/DecodedLog/Entries
+Total response time: 2676.9188373088837
+Average response time: 0.5259172568386805
+Minimum response time: 0.19482707977294922, /redfish
+Maximum response time: 20.94677495956421, /redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries

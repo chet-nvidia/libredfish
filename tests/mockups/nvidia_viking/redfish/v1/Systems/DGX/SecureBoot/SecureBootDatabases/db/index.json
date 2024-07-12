@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#SecureBootDatabase.SecureBootDatabase",
-    "@odata.etag": "\"1700496323\"",
+    "@odata.etag": "\"1708254257\"",
     "@odata.id": "/redfish/v1/Systems/DGX/SecureBoot/SecureBootDatabases/db",
     "@odata.type": "#SecureBootDatabase.v1_0_0.SecureBootDatabase",
     "Actions": {

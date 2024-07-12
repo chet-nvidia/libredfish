@@ -9,7 +9,7 @@
             "DataSourceUri": "/redfish/v1/Chassis/HGX_NVSwitch_1/Sensors/HGX_NVSwitch_1_TEMP_0",
             "DeviceName": "NVSwitch_1",
             "PhysicalContext": "GPU",
-            "Reading": "40.687500"
+            "Reading": "38.250000"
         }
     ]
 }

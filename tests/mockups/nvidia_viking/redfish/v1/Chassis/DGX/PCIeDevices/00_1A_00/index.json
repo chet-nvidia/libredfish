@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeDevice.PCIeDevice",
-    "@odata.etag": "\"1700508040\"",
+    "@odata.etag": "\"1719888148\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_1A_00",
     "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
     "AssetTag": "RISER-1 Top Slot,Slot-1 (CPU0)",

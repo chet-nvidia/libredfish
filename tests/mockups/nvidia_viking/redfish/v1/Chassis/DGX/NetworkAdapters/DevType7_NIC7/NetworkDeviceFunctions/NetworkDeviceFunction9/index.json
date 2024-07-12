@@ -6,7 +6,7 @@
         }
     },
     "@odata.context": "/redfish/v1/$metadata#NetworkDeviceFunction.NetworkDeviceFunction",
-    "@odata.etag": "\"1700508038\"",
+    "@odata.etag": "\"1719888144\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC7/NetworkDeviceFunctions/NetworkDeviceFunction9",
     "@odata.type": "#NetworkDeviceFunction.v1_5_0.NetworkDeviceFunction",
     "AssignablePhysicalNetworkPorts": [

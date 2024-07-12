@@ -9,7 +9,7 @@
             "DataSourceUri": "/redfish/v1/Chassis/HGX_FPGA_0/Sensors/HGX_FPGA_0_TEMP_0",
             "DeviceName": "FPGA_0",
             "PhysicalContext": "GPUSubsystem",
-            "Reading": "31.996094"
+            "Reading": "32.996094"
         }
     ]
 }

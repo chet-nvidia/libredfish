@@ -1,23 +1,25 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-    "@odata.etag": "\"1698080617\"",
+    "@odata.etag": "\"1720647997\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/AuditLog/Entries/27",
     "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-    "Created": "2023-10-23T17:03:37+00:00",
-    "Description": "Access to the resource located at /Oem/Ami/InventoryData was allowed.",
+    "Created": "2024-02-28T20:10:27+00:00",
+    "Description": "LogService.ClearLog - SEL action was triggered which requires attention",
+    "EntryCode": "Informational",
     "EntryType": "Event",
-    "EventTimestamp": "2023-10-23T17:03:37+00:00",
+    "EventTimestamp": "2024-02-28T20:10:27+00:00",
     "Id": "27",
     "Links": {
         "OriginOfCondition": {
-            "@odata.id": "/redfish/v1/Oem/Ami/InventoryData"
+            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL"
         }
     },
-    "Message": "User: in-band-user, IP: 169.254.0.18, Protocol: https - Access to the resource located at /Oem/Ami/InventoryData was allowed.",
+    "Message": "LogService.ClearLog - SEL action was triggered which requires attention",
     "MessageArgs": [
-        "/Oem/Ami/InventoryData"
+        "LogService.ClearLog",
+        "SEL"
     ],
-    "MessageId": "Security.1.0.AccessAllowed",
-    "Name": "Audit Log Entry 27",
+    "MessageId": "Security.1.0.Alert",
+    "Name": "Log entry 27",
     "Severity": "OK"
 }

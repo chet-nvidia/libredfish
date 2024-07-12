@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#NetworkAdapterCollection.NetworkAdapterCollection",
-    "@odata.etag": "\"1700510035\"",
+    "@odata.etag": "\"1720544020\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters",
     "@odata.type": "#NetworkAdapterCollection.NetworkAdapterCollection",
     "Description": "The Collection of Network Adapters",

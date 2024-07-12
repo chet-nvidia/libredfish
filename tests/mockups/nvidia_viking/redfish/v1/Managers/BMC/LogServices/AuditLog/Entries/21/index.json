@@ -1,25 +1,23 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1708998242\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/AuditLog/Entries/21",
     "@odata.type": "#LogEntry.v1_7_0.LogEntry",
-    "Created": "2023-10-23T17:00:31+00:00",
-    "Description": "LogService.ClearLog - SEL action was triggered which requires attention",
-    "EntryCode": "Informational",
+    "Created": "2024-02-27T01:44:02+00:00",
+    "Description": "The resource at /redfish/v1/Oem/Ami/InventoryData (inventory.json) has been successfully created.",
     "EntryType": "Event",
-    "EventTimestamp": "2023-10-23T17:00:31+00:00",
+    "EventTimestamp": "2024-02-27T01:44:02+00:00",
     "Id": "21",
     "Links": {
         "OriginOfCondition": {
-            "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL"
+            "@odata.id": "/redfish/v1/Oem/Ami/InventoryData"
         }
     },
-    "Message": "LogService.ClearLog - SEL action was triggered which requires attention",
+    "Message": "User: mIt1EX7Ya3WpSKYI, IP: 169.254.0.18, Protocol: https - The resource at /redfish/v1/Oem/Ami/InventoryData (inventory.json) has been successfully created.",
     "MessageArgs": [
-        "LogService.ClearLog",
-        "SEL"
+        "/redfish/v1/Oem/Ami/InventoryData (inventory.json)"
     ],
-    "MessageId": "Security.1.0.Alert",
-    "Name": "Log entry 21",
+    "MessageId": "Security.1.0.ResourceCreated",
+    "Name": "Audit Log Entry 21",
     "Severity": "OK"
 }

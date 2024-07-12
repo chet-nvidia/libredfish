@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/TEMP_GB_NVS4",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
     "Id": "TEMP_GB_NVS4",
@@ -11,7 +11,7 @@
     },
     "Name": "TEMP_GB_NVS4",
     "PhysicalContext": "Intake",
-    "Reading": 42,
+    "Reading": 39,
     "ReadingType": "Temperature",
     "Status": {
         "Health": "OK",

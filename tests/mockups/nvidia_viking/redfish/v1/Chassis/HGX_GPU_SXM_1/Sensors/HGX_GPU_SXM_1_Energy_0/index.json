@@ -4,7 +4,7 @@
     "Id": "HGX_GPU_SXM_1_Energy_0",
     "Name": "HGX GPU SXM 1 Energy 0",
     "PhysicalContext": "GPU",
-    "Reading": null,
+    "Reading": 56079061.373,
     "ReadingType": "EnergyJoules",
     "ReadingUnits": "J",
     "RelatedItem": [

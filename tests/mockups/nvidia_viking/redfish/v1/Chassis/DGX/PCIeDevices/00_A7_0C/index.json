@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeDevice.PCIeDevice",
-    "@odata.etag": "\"1700508043\"",
+    "@odata.etag": "\"1719888153\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_A7_0C",
     "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
     "DeviceType": "SingleFunction",

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogService.LogService",
-    "@odata.etag": "\"1700488031\"",
+    "@odata.etag": "\"1720456768\"",
     "@odata.id": "/redfish/v1/Managers/BMC/LogServices/SEL",
     "@odata.type": "#LogService.v1_2_0.LogService",
     "Actions": {
@@ -8,7 +8,7 @@
             "target": "/redfish/v1/Managers/BMC/LogServices/SEL/Actions/LogService.ClearLog"
         }
     },
-    "DateTime": "2023-11-20T19:56:20+00:00",
+    "DateTime": "2024-07-10T22:11:37+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "IPMI SEL events for this manager",
     "Entries": {

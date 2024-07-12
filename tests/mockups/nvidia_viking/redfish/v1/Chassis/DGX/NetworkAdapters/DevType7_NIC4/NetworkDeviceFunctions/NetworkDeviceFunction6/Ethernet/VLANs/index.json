@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#VLanNetworkInterfaceCollection.VLanNetworkInterfaceCollection",
-    "@odata.etag": "\"1700510035\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC4/NetworkDeviceFunctions/NetworkDeviceFunction6/Ethernet/VLANs",
     "@odata.type": "#VLanNetworkInterfaceCollection.VLanNetworkInterfaceCollection",
     "Description": "Collection of VLANs for this system",

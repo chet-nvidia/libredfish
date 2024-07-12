@@ -1,15 +1,18 @@
+use std::vec;
 use std::{collections::HashMap, path::Path, time::Duration};
 
 use reqwest::header::{HeaderMap, HeaderName, IF_MATCH};
 use reqwest::Method;
+use tracing::debug;
 use version_compare::Version;
 
 use crate::model::account_service::ManagerAccount;
+use crate::model::resource::{IsResource, ResourceCollection};
 use crate::EnabledDisabled::Enabled;
 use crate::{
     model::{
         boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
-        chassis::{Chassis, NetworkAdapter},
+        chassis::{Chassis, ForgeNetworkAdapter, NetworkAdapter},
         network_device_function::NetworkDeviceFunction,
         oem::nvidia_viking,
         oem::nvidia_viking::{BootDevices, BootDevices::Pxe},
@@ -27,8 +30,8 @@ use crate::{
     },
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
-    Boot, BootOptions, EnabledDisabled, PCIeDevice, PowerState, Redfish, RedfishError, Status,
-    StatusInternal, SystemPowerControl,
+    Boot, BootOptions, Collection, EnabledDisabled, ODataId, PCIeDevice, PCIeFunction, PowerState,
+    Redfish, RedfishError, Resource, Status, StatusInternal, SystemPowerControl,
 };
 use crate::{ForgeSetupDiff, ForgeSetupStatus, JobState, RoleId};
 
@@ -108,7 +111,7 @@ impl Redfish for Bmc {
         self.clear_tpm().await?;
         self.set_virt_enable().await?;
         self.set_uefi_nic_boot().await?;
-        self.set_boot_order(Pxe).await?;
+        self.set_boot_order_dpu_first(None).await?;
         Ok(())
     }
 
@@ -504,42 +507,7 @@ impl Redfish for Bmc {
     }
 
     async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
-        let data = HashMap::from([("Boot", HashMap::from([("BootOrder", boot_array)]))]);
-        let url = format!("Systems/{}/SD", self.s.system_id());
-        let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url).await?;
-        let key = "@odata.etag";
-        let etag = body
-            .get(key)
-            .ok_or_else(|| RedfishError::MissingKey {
-                key: key.to_string(),
-                url: url.to_string(),
-            })?
-            .as_str()
-            .ok_or_else(|| RedfishError::InvalidKeyType {
-                key: key.to_string(),
-                expected_type: "Object".to_string(),
-                url: url.to_string(),
-            })?;
-
-        let headers: Vec<(HeaderName, String)> = vec![(IF_MATCH, etag.to_string())];
-        let timeout = Duration::from_secs(10);
-        let (_status_code, _resp_body, _resp_headers): (
-            _,
-            Option<HashMap<String, serde_json::Value>>,
-            Option<HeaderMap>,
-        ) = self
-            .s
-            .client
-            .req(
-                Method::PATCH,
-                &url,
-                Some(data),
-                Some(timeout),
-                None,
-                headers,
-            )
-            .await?;
-        Ok(())
+        self.change_boot_order_with_etag(boot_array, None).await
     }
 
     async fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
@@ -564,6 +532,189 @@ impl Redfish for Bmc {
 
     async fn get_job_state(&self, job_id: &str) -> Result<JobState, RedfishError> {
         self.s.get_job_state(job_id).await
+    }
+
+    async fn get_collection(&self, id: ODataId) -> Result<Collection, RedfishError> {
+        self.s.get_collection(id).await
+    }
+
+    async fn get_resource(&self, id: ODataId) -> Result<Resource, RedfishError> {
+        self.s.get_resource(id).await
+    }
+
+    //
+    // Details of changing boot order in DGX H100 can be found at
+    // https://docs.nvidia.com/dgx/dgxh100-user-guide/redfish-api-supp.html#modifying-the-boot-order-on-dgx-h100-using-redfish.
+
+    async fn set_boot_order_dpu_first(&self, address: Option<String>) -> Result<(), RedfishError> {
+        let mut system: ComputerSystem = self.s.get_system().await?;
+        let mac_address = match address {
+            Some(x) => x.replace(':', "").to_uppercase(),
+            None => {
+                // We will find dpu mac address
+                // First find the chassis that contains this system.
+                let mut chassis_id: ODataId = "/redfish/v1/Chassis/DGX".into();
+                if let Some(links) = system.links {
+                    if let Some(chassis_links) = links.chassis {
+                        if !chassis_links.is_empty() {
+                            // We will select only the first
+                            chassis_id = chassis_links.first().unwrap().to_owned();
+                        }
+                    }
+                }
+
+                let adapters = self.get_all_network_adapters(chassis_id).await?;
+                // Will ignore ones without mac address
+                let dpu_mac_addresses: Vec<String> = adapters
+                    .into_iter()
+                    .filter_map(|x3| {
+                        if x3.is_dpu && x3.mac_address.is_some() {
+                            return Some(
+                                x3.mac_address
+                                    .unwrap()
+                                    .to_string()
+                                    .replace(':', "")
+                                    .to_uppercase(),
+                            );
+                        }
+                        None
+                    })
+                    .collect();
+
+                debug!("dpu mac_address: {}", dpu_mac_addresses.join(","));
+                if dpu_mac_addresses.is_empty() {
+                    return Err(RedfishError::GenericError {
+                        error: "no dpu with a mac_address found".to_string(),
+                    });
+                }
+                dpu_mac_addresses.first().unwrap().to_owned()
+            }
+        };
+
+        debug!("Using DPU with mac_address {}", mac_address);
+
+        // Get all boot options
+        let all_boot_options: Vec<BootOption> = match system.boot.boot_options {
+            None => {
+                return Err(RedfishError::MissingKey {
+                    key: "boot.boot_options".to_string(),
+                    url: system.odata.odata_id.to_string(),
+                });
+            }
+            Some(boot_options_id) => self
+                .get_collection(boot_options_id)
+                .await
+                .and_then(|t1| t1.try_get::<BootOption>())
+                .iter()
+                .flat_map(move |x1| x1.members.clone())
+                .collect::<Vec<BootOption>>(),
+        };
+
+        // We should use system_settings.settings_object if it exits for updating boot order
+        if let Some(red_settings) = system.redfish_settings {
+            if let Some(settings_object_id) = red_settings.settings_object {
+                system = self
+                    .get_resource(settings_object_id)
+                    .await
+                    .and_then(|t| t.try_get())?;
+            }
+        }
+
+        debug!("Current boot order {}", system.boot.boot_order.join(","));
+        let mut new_boot_order = system.boot.boot_order.clone();
+
+        // find the Ipv4 uefihttp boot option available for the mac_address and move it to the front of new_boot_order.
+        let boot_options_for_dpu = all_boot_options
+            .clone()
+            .into_iter()
+            .filter_map(|v| {
+                let path = v
+                    .uefi_device_path
+                    .clone()
+                    .unwrap_or_default()
+                    .to_uppercase();
+                if path.contains(mac_address.as_str())
+                    && path.contains("IPV4")
+                    && v.alias
+                        .clone()
+                        .unwrap_or("".to_string())
+                        .to_uppercase()
+                        .contains("UEFIHTTP")
+                {
+                    Some(v)
+                } else {
+                    None
+                }
+            })
+            .collect::<Vec<BootOption>>();
+        debug!(
+            "{} boot options available for dpu {}",
+            boot_options_for_dpu.len(),
+            mac_address
+        );
+        debug!("{all_boot_options:?}");
+        debug!(
+            "boot options for mac {} are {:?}",
+            mac_address, boot_options_for_dpu
+        );
+
+        let mut selected_boot_option = match boot_options_for_dpu.first() {
+            Some(x) => x.to_owned(),
+            None => {
+                return Err(RedfishError::GenericError {
+                    error: format!(
+                        "no IPv4 Uefi Http boot option found for mac address {}",
+                        mac_address
+                    ),
+                })
+            }
+        };
+
+        // For some reason collection doesn't include @odata.etag property which is required for PATCH'ing as per the doc
+        if selected_boot_option.odata.odata_etag.is_none() {
+            selected_boot_option = self
+                .get_resource(selected_boot_option.odata.clone().odata_id.into())
+                .await
+                .and_then(|t2| t2.try_get())?;
+            if selected_boot_option.odata.odata_etag.is_none() {
+                return Err(RedfishError::MissingKey {
+                    key: "@odata.etag".to_string(),
+                    url: selected_boot_option.odata_id(),
+                });
+            };
+        };
+
+        // reorder new_boot
+        let index = match new_boot_order
+            .iter()
+            .position(|x| *x == selected_boot_option.boot_option_reference.as_ref())
+        {
+            Some(u) => u,
+            None => {
+                return Err(RedfishError::GenericError {
+                    error: format!(
+                        "Boot option {} is not found in boot order list {}",
+                        selected_boot_option.boot_option_reference,
+                        new_boot_order.join(",")
+                    ),
+                })
+            }
+        };
+        new_boot_order.remove(index);
+        new_boot_order.insert(0, selected_boot_option.boot_option_reference.clone());
+        debug!("current boot order is {:?}", system.boot.boot_order.clone());
+        debug!("new boot order is {new_boot_order:?}");
+        debug!(
+            "new boot order etag {}",
+            selected_boot_option
+                .odata
+                .odata_etag
+                .clone()
+                .unwrap_or_default()
+        );
+
+        self.change_boot_order_with_etag(new_boot_order, selected_boot_option.odata.odata_etag)
+            .await
     }
 }
 
@@ -836,5 +987,178 @@ impl Bmc {
             self.s.client.get(&url).await?;
         let log_entries = log_entry_collection.members;
         Ok(log_entries)
+    }
+
+    // This func will return a list of ForgeNetworkAdapter, that is convenient container for all
+    // networking related Redfish resources such as NetworkAdapter, PCIeDevice etc.,
+    // We will identify DPU by PCI VENDOR ID and PCI DEVICE ID
+    async fn get_all_network_adapters(
+        &self,
+        chassis_id: ODataId,
+    ) -> Result<Vec<ForgeNetworkAdapter>, RedfishError> {
+        let mellanox_vendor_id = "0X15B3".to_string();
+        let mellanox_dpu_device_ids = vec![
+            "0XA2DF".to_string(), // BF4 Family integrated network controller [BlueField-4 integrated network controller]
+            "0XA2D9".to_string(), // MT43162 BlueField-3 Lx integrated ConnectX-7 network controller
+            "0XA2DC".to_string(), // MT43244 BlueField-3 integrated ConnectX-7 network controller
+            "0XA2D2".to_string(), // MT416842 BlueField integrated ConnectX-5 network controller
+            "0XA2D6".to_string(), // MT42822 BlueField-2 integrated ConnectX-6 Dx network controller
+        ];
+
+        let mut adapters: Vec<ForgeNetworkAdapter> = Vec::new();
+
+        let odgx: Chassis = self
+            .s
+            .get_resource(chassis_id)
+            .await
+            .and_then(|r| r.try_get())?;
+
+        let na_id = match odgx.network_adapters {
+            Some(id) => id,
+            None => {
+                return Err(RedfishError::MissingKey {
+                    key: "network_adapters".to_string(),
+                    url: odgx.odata.unwrap().odata_id,
+                })
+            }
+        };
+
+        let rc_nw_adapter: ResourceCollection<NetworkAdapter> = self
+            .s
+            .get_collection(na_id)
+            .await
+            .and_then(|r| r.try_get())?;
+
+        debug!("Got {} NAs ", rc_nw_adapter.count);
+
+        // Get nw_device_functions
+        for nw_adapter in rc_nw_adapter.members {
+            let nw_dev_func_oid = match nw_adapter.network_device_functions {
+                Some(x) => x,
+                None => {
+                    // TODO debug
+                    continue;
+                }
+            };
+
+            let rc_nw_func: ResourceCollection<NetworkDeviceFunction> = self
+                .get_collection(nw_dev_func_oid)
+                .await
+                .and_then(|r| r.try_get())?;
+            debug!(
+                "Got {} nw dev funcs for {}",
+                rc_nw_func.count, rc_nw_adapter.name
+            );
+
+            for nw_dev_func in rc_nw_func.members {
+                let nw_dev_func_oid = match nw_dev_func.odata.clone() {
+                    Some(x) => x.odata_id,
+                    None => {
+                        debug!(
+                            "NetworkDeviceFunction without odata_id: {}",
+                            nw_dev_func.id.unwrap_or_default()
+                        );
+                        continue;
+                    }
+                };
+                let pcie_func_id = match nw_dev_func.links.clone() {
+                    Some(l) => match l.pcie_function {
+                        Some(p) => p,
+                        None => {
+                            debug!("links.pcie_function is missing in {}", nw_dev_func_oid);
+                            continue;
+                        }
+                    },
+                    None => {
+                        debug!("links_function is missing in {}", nw_dev_func_oid);
+                        continue;
+                    }
+                };
+
+                let pcie_func: PCIeFunction = self
+                    .get_resource(pcie_func_id)
+                    .await
+                    .and_then(|r| r.try_get())?;
+
+                let mac_address: Option<String> = match nw_dev_func.ethernet.clone() {
+                    Some(x) => x.mac_address,
+                    None => None,
+                };
+                let mut is_dpu = false;
+                if pcie_func
+                    .vendor_id
+                    .clone()
+                    .unwrap_or("unknown-vendor".to_string())
+                    .to_uppercase()
+                    == mellanox_vendor_id
+                    && mellanox_dpu_device_ids.clone().into_iter().any(|d| {
+                        *d == pcie_func
+                            .device_id
+                            .clone()
+                            .unwrap_or("unknown-device".to_string())
+                            .to_uppercase()
+                    })
+                {
+                    is_dpu = true
+                }
+                adapters.push(ForgeNetworkAdapter {
+                    is_dpu,
+                    mac_address,
+                    network_device_function: nw_dev_func,
+                    pcie_function: pcie_func,
+                });
+            }
+        }
+        Ok(adapters)
+    }
+
+    async fn change_boot_order_with_etag(
+        &self,
+        boot_array: Vec<String>,
+        oetag: Option<String>,
+    ) -> Result<(), RedfishError> {
+        let data = HashMap::from([("Boot", HashMap::from([("BootOrder", boot_array)]))]);
+        let url = format!("Systems/{}/SD", self.s.system_id());
+        let etag = match oetag {
+            Some(x) => x,
+            None => {
+                let (_, body): (_, HashMap<String, serde_json::Value>) =
+                    self.s.client.get(&url).await?;
+                let key = "@odata.etag";
+                let t = body
+                    .get(key)
+                    .ok_or_else(|| RedfishError::MissingKey {
+                        key: key.to_string(),
+                        url: url.to_string(),
+                    })?
+                    .as_str()
+                    .ok_or_else(|| RedfishError::InvalidKeyType {
+                        key: key.to_string(),
+                        expected_type: "Object".to_string(),
+                        url: url.to_string(),
+                    })?;
+                t.to_string()
+            }
+        };
+
+        let headers: Vec<(HeaderName, String)> = vec![(IF_MATCH, etag.to_string())];
+        let timeout = Duration::from_secs(10);
+        let (_status_code, _resp_body, _resp_headers): (
+            _,
+            Option<HashMap<String, serde_json::Value>>,
+            Option<HeaderMap>,
+        ) = self
+            .s
+            .client
+            .req(
+                Method::PATCH,
+                &url,
+                Some(data),
+                Some(timeout),
+                None,
+                headers,
+            )
+            .await?;
+        Ok(())
     }
 }

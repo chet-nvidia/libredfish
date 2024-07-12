@@ -28,7 +28,7 @@
             }
         }
     },
-    "DateTime": "2020-04-04T11:38:01+00:00",
+    "DateTime": "2020-12-11T16:22:59+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "Baseboard Management Controller",
     "EthernetInterfaces": {
@@ -36,7 +36,7 @@
     },
     "FirmwareVersion": "HGX-22.10-1-rc57",
     "Id": "bmc",
-    "LastResetTime": "2020-04-04T10:46:43+00:00",
+    "LastResetTime": "2020-10-12T21:10:04+00:00",
     "Links": {
         "ActiveSoftwareImage": {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0"
@@ -90,12 +90,12 @@
         "MaxConcurrentSessions": 15,
         "ServiceEnabled": true
     },
-    "ServiceEntryPointUUID": "4e9cf9ca-bf8e-4331-977a-859616cd5d5b",
+    "ServiceEntryPointUUID": "969bc779-c8e7-4469-a885-4b6c19fdec13",
     "Status": {
         "Conditions": [],
         "Health": "OK",
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "UUID": "bd419ab3-bcb6-48cb-8b1d-c5352908d821"
+    "UUID": "3e246e3e-49f8-40bf-8baa-36a7e1791de6"
 }

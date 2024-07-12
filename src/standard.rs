@@ -5,7 +5,7 @@ use std::{
     time::Duration,
 };
 
-use reqwest::Method;
+use reqwest::{Method, StatusCode};
 use tracing::debug;
 
 use crate::model::power::Power;
@@ -27,7 +27,7 @@ use crate::{
     model::chassis::{Chassis, NetworkAdapter},
     ForgeSetupStatus,
 };
-use crate::{BootOptions, PCIeDevice, RedfishError};
+use crate::{BootOptions, Collection, PCIeDevice, RedfishError, Resource};
 
 const UEFI_PASSWORD_NAME: &str = "AdministratorPassword";
 
@@ -498,6 +498,34 @@ impl Redfish for RedfishStandard {
 
     async fn get_job_state(&self, _job_id: &str) -> Result<JobState, RedfishError> {
         Err(RedfishError::NotSupported("get_job_state".to_string()))
+    }
+
+    async fn get_resource(&self, id: ODataId) -> Result<Resource, RedfishError> {
+        let url = id.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+        let (_, mut resource): (StatusCode, Resource) = self.client.get(url.as_str()).await?;
+
+        resource.url = url;
+        Ok(resource)
+    }
+
+    // This function appends ?$expand=.($levels=1) to the URL, as defined by Redfish spec, to expand first level URIs.
+    async fn get_collection(&self, id: ODataId) -> Result<Collection, RedfishError> {
+        let url = format!(
+            "{}?$expand=.($levels=1)",
+            id.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "")
+        );
+        let (_, body): (_, HashMap<String, serde_json::Value>) =
+            self.client.get(url.as_str()).await?;
+        Ok(Collection {
+            url: url.clone(),
+            body,
+        })
+    }
+
+    async fn set_boot_order_dpu_first(&self, _address: Option<String>) -> Result<(), RedfishError> {
+        Err(RedfishError::NotSupported(
+            "set_boot_order_dpu_first".to_string(),
+        ))
     }
 }
 

@@ -17,7 +17,7 @@ use crate::{
         BootOption, ComputerSystem, Manager,
     },
     standard::RedfishStandard,
-    NetworkDeviceFunction, Redfish, RedfishError,
+    Collection, NetworkDeviceFunction, ODataId, Redfish, RedfishError, Resource,
 };
 use crate::{ForgeSetupDiff, ForgeSetupStatus, JobState, RoleId};
 
@@ -461,6 +461,23 @@ impl Redfish for Bmc {
 
     async fn get_job_state(&self, job_id: &str) -> Result<JobState, RedfishError> {
         self.s.get_job_state(job_id).await
+    }
+
+    async fn get_collection(&self, id: ODataId) -> Result<Collection, RedfishError> {
+        self.s.get_collection(id).await
+    }
+
+    async fn get_resource(&self, id: ODataId) -> Result<Resource, RedfishError> {
+        self.s.get_resource(id).await
+    }
+
+    async fn set_boot_order_dpu_first(
+        &self,
+        _mac_address: Option<String>,
+    ) -> Result<(), RedfishError> {
+        Err(RedfishError::NotSupported(
+            "set_dpu_first_boot_order".to_string(),
+        ))
     }
 }
 

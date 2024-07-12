@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#ManagerAccount.ManagerAccount",
-    "@odata.etag": "\"1700510035\"",
+    "@odata.etag": "\"1720647997\"",
     "@odata.id": "/redfish/v1/AccountService/Accounts/2",
     "@odata.type": "#ManagerAccount.v1_5_0.ManagerAccount",
     "AccountTypes": [
@@ -22,5 +22,5 @@
     "Password": null,
     "PasswordChangeRequired": false,
     "RoleId": "HostInterfaceAdministrator",
-    "UserName": "8hpyscyd0wD1KN7f"
+    "UserName": "S6AmJsX9uejbhS2r"
 }

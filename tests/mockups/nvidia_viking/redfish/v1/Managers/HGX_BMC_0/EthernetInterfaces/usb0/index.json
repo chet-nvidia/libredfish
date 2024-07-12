@@ -35,7 +35,7 @@
     "IPv6AddressPolicyTable": [],
     "IPv6Addresses": [
         {
-            "Address": "fe80::d093:ecff:febb:a6a",
+            "Address": "fe80::5007:acff:fe41:40fe",
             "AddressOrigin": "LinkLocal",
             "AddressState": null,
             "PrefixLength": 64
@@ -46,7 +46,7 @@
     "Id": "usb0",
     "InterfaceEnabled": true,
     "LinkStatus": "LinkUp",
-    "MACAddress": "d2:93:ec:bb:0a:6a",
+    "MACAddress": "52:07:ac:41:40:fe",
     "MTUSize": 1500,
     "Name": "Manager Ethernet Interface",
     "NameServers": [],

@@ -1,8 +1,7 @@
 use std::fmt;
 
+use super::{boot::Boot, oem::SystemExtensions, OData, ODataId, ODataLinks, RedfishSettings};
 use serde::{Deserialize, Serialize};
-
-use super::{boot::Boot, oem::SystemExtensions, ODataId, ODataLinks};
 
 #[derive(Debug, Deserialize, Serialize, PartialEq, Clone, Copy)]
 pub enum SystemPowerControl {
@@ -81,6 +80,7 @@ pub struct ComponentStatus {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct SystemProcessors {
+    #[serde(default)]
     pub count: i64,
     pub logical_processor_count: Option<i64>,
     pub model: Option<String>,
@@ -98,7 +98,12 @@ pub struct TrustedModule {
 #[derive(Debug, Serialize, Default, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct ComputerSystem {
+    #[serde(flatten)]
+    pub odata: OData,
+    #[serde(rename = "@Redfish.Settings")]
+    pub redfish_settings: Option<RedfishSettings>,
     pub asset_tag: Option<String>,
+    #[serde(default)] // Some viking ComputerSystem has no Boot property; so use the default
     pub boot: Boot,
     pub bios_version: Option<String>,
     pub ethernet_interfaces: Option<ODataId>,
@@ -108,6 +113,7 @@ pub struct ComputerSystem {
     pub oem: Option<SystemExtensions>,
     // Dell: String. Lenovo: always null
     //pub part_number: String,
+    #[serde(default)]
     pub power_state: PowerState,
     pub processor_summary: Option<SystemProcessors>,
     #[serde(rename = "SKU")]
@@ -119,6 +125,14 @@ pub struct ComputerSystem {
     #[serde(default, rename = "PCIeDevices")]
     pub pcie_devices: Vec<ODataId>, // not in Supermicro
     pub serial_console: Option<SerialConsole>, // Newer Redfish impls, inc Supermicro
+    pub links: Option<ComputerSystemLinks>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Default, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct ComputerSystemLinks {
+    pub chassis: Option<Vec<ODataId>>,
+    pub managed_by: Option<Vec<ODataId>>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -171,6 +185,8 @@ pub struct BootOption {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct PCIeDevice {
+    #[serde(flatten)]
+    pub odata: OData,
     pub description: Option<String>,
     pub firmware_version: Option<String>,
     pub id: Option<String>,
@@ -181,6 +197,26 @@ pub struct PCIeDevice {
     pub part_number: Option<String>,
     pub serial_number: Option<String>,
     pub status: Option<SystemStatus>,
+    #[serde(default, rename = "PCIeFunctions")]
+    pub pcie_functions: Option<ODataId>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct PCIeFunction {
+    #[serde(flatten)]
+    pub odata: OData,
+    pub class_code: Option<String>,
+    pub device_class: Option<String>,
+    pub device_id: Option<String>,
+    pub function_id: Option<i32>,
+    pub function_type: Option<String>,
+    pub id: Option<String>,
+    pub name: Option<String>,
+    pub status: Option<SystemStatus>,
+    pub subsystem_id: Option<String>,
+    pub subsystem_vendor_id: Option<String>,
+    pub vendor_id: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

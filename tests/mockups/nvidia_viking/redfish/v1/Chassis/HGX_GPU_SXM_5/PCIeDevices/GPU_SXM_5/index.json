@@ -23,12 +23,12 @@
         "PCIeType": "Gen5"
     },
     "PartNumber": "2330-885-A1",
-    "SerialNumber": "1652823088619",
+    "SerialNumber": "1652923003447",
     "Status": {
         "Conditions": [],
         "Health": "OK",
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "UUID": "4ddbd144-fab6-f89b-4a9c-5ff434c89ae8"
+    "UUID": "5a189e8a-ac6e-eee2-9dbd-f70a4c135389"
 }

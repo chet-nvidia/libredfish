@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#EventService.EventService",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/EventService",
     "@odata.type": "#EventService.v1_5_0.EventService",
     "Actions": {
@@ -34,22 +34,22 @@
         }
     },
     "RegistryPrefixes": [
-        "SyncAgent",
-        "Base",
-        "EventLog",
-        "Task",
+        "HttpStatus",
         "Security",
+        "Base",
+        "Task",
         "IPMI",
-        "HttpStatus"
+        "EventLog",
+        "SyncAgent"
     ],
     "ResourceTypes": [
-        "Managers",
-        "AccountService",
-        "EventService",
-        "Chassis",
         "TaskService",
         "TelemetryService",
-        "Systems"
+        "AccountService",
+        "Systems",
+        "Managers",
+        "EventService",
+        "Chassis"
     ],
     "SMTP": {
         "Authentication": "None",

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/Sensors/VOLT_5V",
     "@odata.type": "#Sensor.v1_0_2.Sensor",
     "Id": "VOLT_5V",
@@ -11,7 +11,7 @@
     },
     "Name": "VOLT_5V",
     "PhysicalContext": "VoltageRegulator",
-    "Reading": 5.0568,
+    "Reading": 5.0052,
     "ReadingRangeMax": 6.579,
     "ReadingRangeMin": 0,
     "ReadingType": "Voltage",

@@ -14,10 +14,10 @@
                 "RuntimeError": false,
                 "TrainingError": false
             },
-            "RXNoProtocolBytes": 0,
-            "TXNoProtocolBytes": 0
+            "RXNoProtocolBytes": 1759136756,
+            "TXNoProtocolBytes": 1759036997
         }
     },
-    "RXBytes": 0,
-    "TXBytes": 0
+    "RXBytes": 2863446781,
+    "TXBytes": 2762061425
 }

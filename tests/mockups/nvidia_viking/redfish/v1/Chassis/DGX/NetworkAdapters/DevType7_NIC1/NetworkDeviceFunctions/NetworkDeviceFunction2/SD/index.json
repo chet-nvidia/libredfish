@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#NetworkDeviceFunction.NetworkDeviceFunction",
-    "@odata.etag": "\"1700510035\"",
+    "@odata.etag": "\"1720647997\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC1/NetworkDeviceFunctions/NetworkDeviceFunction2/SD",
     "@odata.type": "#NetworkDeviceFunction.v1_5_0.NetworkDeviceFunction",
     "AssignablePhysicalNetworkPorts": [
@@ -18,9 +18,9 @@
         "FibreChannelOverEthernet"
     ],
     "Ethernet": {
-        "MACAddress": "6C:FE:54:48:26:59",
+        "MACAddress": "6C:FE:54:41:15:79",
         "MTUSize": 1500,
-        "PermanentMACAddress": "6C:FE:54:48:26:59",
+        "PermanentMACAddress": "6C:FE:54:41:15:79",
         "VLANs": {
             "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC1/NetworkDeviceFunctions/NetworkDeviceFunction2/Ethernet/VLANs"
         }

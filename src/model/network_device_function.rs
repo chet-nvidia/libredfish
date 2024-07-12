@@ -16,6 +16,14 @@ pub struct NetworkDeviceFunction {
     pub name: Option<String>,
     pub net_dev_func_capabilities: Vec<String>,
     pub net_dev_func_type: Option<String>,
+    pub links: Option<NetworkDeviceFunctionLinks>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct NetworkDeviceFunctionLinks {
+    #[serde(default, rename = "PCIeFunction")]
+    pub pcie_function: Option<ODataId>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

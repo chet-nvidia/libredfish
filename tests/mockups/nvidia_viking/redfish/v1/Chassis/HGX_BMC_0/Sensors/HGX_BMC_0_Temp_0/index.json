@@ -3,7 +3,7 @@
     "@odata.type": "#Sensor.v1_2_0.Sensor",
     "Id": "HGX_BMC_0_Temp_0",
     "Name": "HGX BMC 0 Temp 0",
-    "Reading": 24.187,
+    "Reading": 25.625,
     "ReadingRangeMax": 127,
     "ReadingRangeMin": -128,
     "ReadingType": "Temperature",

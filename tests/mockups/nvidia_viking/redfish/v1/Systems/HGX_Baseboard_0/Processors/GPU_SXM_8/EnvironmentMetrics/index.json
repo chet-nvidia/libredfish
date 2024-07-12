@@ -15,10 +15,10 @@
     },
     "EnergyJoules": {
         "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_Energy_0",
-        "Reading": null
+        "Reading": 58624544.686
     },
     "EnergykWh": {
-        "Reading": null
+        "Reading": 16.284595759139
     },
     "Id": "Environment Metrics",
     "Name": "GPU_SXM_8 Environment Metrics",
@@ -29,7 +29,7 @@
                 "AllowableMax": 100,
                 "AllowableMin": 60,
                 "Persistency": null,
-                "SetPoint": 127
+                "SetPoint": 100
             }
         }
     },
@@ -38,15 +38,15 @@
         "AllowableMin": 200,
         "ControlMode": "Automatic",
         "DefaultSetPoint": 700,
-        "Reading": null,
+        "Reading": 74.656,
         "SetPoint": 700
     },
     "PowerWatts": {
         "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_Power_0",
-        "Reading": null
+        "Reading": 74.656
     },
     "TemperatureCelsius": {
         "DataSourceUri": "/redfish/v1/Chassis/HGX_GPU_SXM_8/Sensors/HGX_GPU_SXM_8_TEMP_1",
-        "Reading": 58.0625
+        "Reading": 56.71875
     }
 }

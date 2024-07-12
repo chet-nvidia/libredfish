@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#ServiceRoot.ServiceRoot",
-    "@odata.etag": "\"1700510035\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1",
     "@odata.type": "#ServiceRoot.v1_13_0.ServiceRoot",
     "AccountService": {
@@ -14,9 +14,6 @@
     },
     "ComponentIntegrity": {
         "@odata.id": "/redfish/v1/ComponentIntegrity"
-    },
-    "CompositionService": {
-        "@odata.id": "/redfish/v1/CompositionService"
     },
     "Description": "The service root for all Redfish requests on this host",
     "EventService": {
@@ -91,7 +88,7 @@
     "TelemetryService": {
         "@odata.id": "/redfish/v1/TelemetryService"
     },
-    "UUID": "9374839c-bfde-1000-02bb-33ebfb35ff5c",
+    "UUID": "b1273e3e-bfde-1000-02bc-e9e6fb35ff5c",
     "UpdateService": {
         "@odata.id": "/redfish/v1/UpdateService"
     },

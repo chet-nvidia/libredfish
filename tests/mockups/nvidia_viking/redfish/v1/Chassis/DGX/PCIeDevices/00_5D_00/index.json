@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeDevice.PCIeDevice",
-    "@odata.etag": "\"1700508042\"",
+    "@odata.etag": "\"1719888150\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_5D_00",
     "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
     "AssetTag": "Slot D (DMI Slot),(CPU1)",

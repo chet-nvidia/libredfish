@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#MemoryChunks.MemoryChunks",
-    "@odata.etag": "\"1700502974\"",
+    "@odata.etag": "\"1708994436\"",
     "@odata.id": "/redfish/v1/Systems/DGX/MemoryDomains/MemoryDomain_SystemMemory_1/MemoryChunks/MemoryDomain_SystemMemory_1_Chunk_2",
     "@odata.type": "#MemoryChunks.v1_4_0.MemoryChunks",
     "AddressRangeType": "Volatile",

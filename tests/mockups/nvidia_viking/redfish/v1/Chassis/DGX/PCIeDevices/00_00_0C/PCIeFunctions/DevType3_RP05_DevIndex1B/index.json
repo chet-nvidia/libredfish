@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeFunction.PCIeFunction",
-    "@odata.etag": "\"1700508039\"",
+    "@odata.etag": "\"1719888146\"",
     "@odata.id": "/redfish/v1/Chassis/DGX/PCIeDevices/00_00_0C/PCIeFunctions/DevType3_RP05_DevIndex1B",
     "@odata.type": "#PCIeFunction.v1_2_3.PCIeFunction",
     "ClassCode": "0x060400",

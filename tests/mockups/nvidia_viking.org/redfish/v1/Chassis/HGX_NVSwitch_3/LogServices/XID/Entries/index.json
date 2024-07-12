@@ -1,0 +1,373 @@
+{
+    "@odata.id": "/redfish/v1/Chassis/HGX_NVSwitch_3/LogServices/XID/Entries",
+    "@odata.type": "#LogEntryCollection.LogEntryCollection",
+    "Description": "Collection of XID Log Entries",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/542",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-01T02:42:52+00:00",
+            "EntryType": "Event",
+            "Id": "542",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][181338112][00] SXID 1 dNon-fatal'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Fri Mar 27 23:12:31 UTC 1970][181338112][00] SXID 1 dNon-fatal",
+                "PRI WRITE PRT error",
+                "instance"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/544",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-01T02:42:55+00:00",
+            "EntryType": "Event",
+            "Id": "544",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][181403648][00] SXID 1 dSeverity 0 Engine instance 04 Sub-engine instance 14'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Fri Mar 27 23:12:31 UTC 1970][181403648][00] SXID 1 dSeverity 0 Engine instance 04 Sub-engine instance 14"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/546",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-01T02:42:57+00:00",
+            "EntryType": "Event",
+            "Id": "546",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][181469184][02] SXID 1 dData {0x01e26900'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Fri Mar 27 23:12:31 UTC 1970][181469184][02] SXID 1 dData {0x01e26900",
+                "0x00000003",
+                "0x4b409602",
+                "0xbadf510a",
+                "0x00"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/547",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-01T02:43:01+00:00",
+            "EntryType": "Event",
+            "Id": "547",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][181534720][00] SXID 1 dNon-fatal'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Fri Mar 27 23:12:31 UTC 1970][181534720][00] SXID 1 dNon-fatal",
+                "PRI WRITE PRT error",
+                "instance"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/549",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-01T02:46:40+00:00",
+            "EntryType": "Event",
+            "Id": "549",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][181665792][02] SXID 1 dData {0x01f16900'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Fri Mar 27 23:12:31 UTC 1970][181665792][02] SXID 1 dData {0x01f16900",
+                "0x00000003",
+                "0x4b409202",
+                "0xbadf510a",
+                "0x00"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/550",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-01T02:46:42+00:00",
+            "EntryType": "Event",
+            "Id": "550",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][181731328][00] SXID 1 dNon-fatal'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Fri Mar 27 23:12:31 UTC 1970][181731328][00] SXID 1 dNon-fatal",
+                "PRI WRITE PRT error",
+                "instance"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/551",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-01T02:46:44+00:00",
+            "EntryType": "Event",
+            "Id": "551",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][181796864][00] SXID 1 dSeverity 0 Engine instance 04 Sub-engine instance 15'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Fri Mar 27 23:12:31 UTC 1970][181796864][00] SXID 1 dSeverity 0 Engine instance 04 Sub-engine instance 15"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/552",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-01T02:46:46+00:00",
+            "EntryType": "Event",
+            "Id": "552",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][181862400][02] SXID 1 dData {0x01f1e900'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Fri Mar 27 23:12:31 UTC 1970][181862400][02] SXID 1 dData {0x01f1e900",
+                "0x00000003",
+                "0x4b409602",
+                "0xbadf510a",
+                "0x00"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/553",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-01T02:46:47+00:00",
+            "EntryType": "Event",
+            "Id": "553",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][181927936][00] SXID 1 dNon-fatal'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Fri Mar 27 23:12:31 UTC 1970][181927936][00] SXID 1 dNon-fatal",
+                "PRI WRITE PRT error",
+                "instance"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/554",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-01T02:46:49+00:00",
+            "EntryType": "Event",
+            "Id": "554",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][181993472][00] SXID 1 dSeverity 0 Engine instance 04 Sub-engine instance 15'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Fri Mar 27 23:12:31 UTC 1970][181993472][00] SXID 1 dSeverity 0 Engine instance 04 Sub-engine instance 15"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/555",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-01T02:46:50+00:00",
+            "EntryType": "Event",
+            "Id": "555",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Fri Mar 27 23:12:31 UTC 1970][182059008][02] SXID 1 dData {0x01f2e900'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Fri Mar 27 23:12:31 UTC 1970][182059008][02] SXID 1 dData {0x01f2e900",
+                "0x00000003",
+                "0x4b409202",
+                "0xbadf510a",
+                "0x00"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/602",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-15T08:02:32+00:00",
+            "EntryType": "Event",
+            "Id": "602",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Wed Apr 29 06:57:53 UTC 1970][14352384][00] SXID 0 dNVSWITCH SMBPBI server is online.en'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Wed Apr 29 06:57:53 UTC 1970][14352384][00] SXID 0 dNVSWITCH SMBPBI server is online.en"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/603",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-15T08:02:34+00:00",
+            "EntryType": "Event",
+            "Id": "603",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Tue Jun 23 15:53:21 UTC 1970][14417920][00] SXID 0 dNVSWITCH SMBPBI server is online.40'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Tue Jun 23 15:53:21 UTC 1970][14417920][00] SXID 0 dNVSWITCH SMBPBI server is online.40"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/604",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-15T08:02:35+00:00",
+            "EntryType": "Event",
+            "Id": "604",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Thu Jun 11 12:58:25 UTC 1970][14483456][00] SXID 0 dNVSWITCH SMBPBI server is online.st'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Thu Jun 11 12:58:25 UTC 1970][14483456][00] SXID 0 dNVSWITCH SMBPBI server is online.st"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/605",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-15T08:02:37+00:00",
+            "EntryType": "Event",
+            "Id": "605",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Sun Mar 22 09:10:09 UTC 1970][14548992][00] SXID 0 dNVSWITCH SMBPBI server is online.st'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Sun Mar 22 09:10:09 UTC 1970][14548992][00] SXID 0 dNVSWITCH SMBPBI server is online.st"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/606",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-15T08:02:38+00:00",
+            "EntryType": "Event",
+            "Id": "606",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Tue Feb 17 18:26:57 UTC 1970][14614528][00] SXID 0 dNVSWITCH SMBPBI server is online.en'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Tue Feb 17 18:26:57 UTC 1970][14614528][00] SXID 0 dNVSWITCH SMBPBI server is online.en"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/607",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-15T08:02:40+00:00",
+            "EntryType": "Event",
+            "Id": "607",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Thu Mar 26 22:49:21 UTC 1970][14680064][00] SXID 0 dNVSWITCH SMBPBI server is online.en'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Thu Mar 26 22:49:21 UTC 1970][14680064][00] SXID 0 dNVSWITCH SMBPBI server is online.en"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/608",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-15T08:02:42+00:00",
+            "EntryType": "Event",
+            "Id": "608",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Mon Apr  6 14:10:58 UTC 1970][14745600][00] SXID 0 dNVSWITCH SMBPBI server is online.40'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Mon Apr  6 14:10:58 UTC 1970][14745600][00] SXID 0 dNVSWITCH SMBPBI server is online.40"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/609",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-15T08:02:43+00:00",
+            "EntryType": "Event",
+            "Id": "609",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Tue Jun  9 07:38:26 UTC 1970][14811136][00] SXID 0 dNVSWITCH SMBPBI server is online.st'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Tue Jun  9 07:38:26 UTC 1970][14811136][00] SXID 0 dNVSWITCH SMBPBI server is online.st"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/610",
+            "@odata.type": "#LogEntry.v1_9_0.LogEntry",
+            "Created": "2020-01-15T08:02:45+00:00",
+            "EntryType": "Event",
+            "Id": "610",
+            "Message": "The resource property NVSwitch_3 Driver Event Message has detected errors of type '[Mon Jan 19 05:41:06 UTC 1970][14876672][00] SXID 0 dNVSWITCH SMBPBI server is online.st'.",
+            "MessageArgs": [
+                "NVSwitch_3 Driver Event Message",
+                "[Mon Jan 19 05:41:06 UTC 1970][14876672][00] SXID 0 dNVSWITCH SMBPBI server is online.st"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Name": "System Event Log Entry",
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "Critical"
+        }
+    ],
+    "Members@odata.count": 20,
+    "Name": "XID Log Entries"
+}

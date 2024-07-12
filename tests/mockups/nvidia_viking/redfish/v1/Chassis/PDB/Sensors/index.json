@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#SensorCollection.SensorCollection",
-    "@odata.etag": "\"1698173537\"",
+    "@odata.etag": "\"1720649379\"",
     "@odata.id": "/redfish/v1/Chassis/PDB/Sensors",
     "@odata.type": "#SensorCollection.SensorCollection",
     "Description": "Resource Collection of Sensor instances",

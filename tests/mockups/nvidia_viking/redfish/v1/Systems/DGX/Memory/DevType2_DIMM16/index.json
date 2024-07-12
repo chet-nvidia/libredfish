@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Memory.Memory",
-    "@odata.etag": "\"1700502972\"",
+    "@odata.etag": "\"1708994435\"",
     "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM16",
     "@odata.type": "#Memory.v1_8_0.Memory",
     "Actions": {
@@ -27,7 +27,7 @@
         }
     },
     "LogicalSizeMiB": 0,
-    "Manufacturer": "Samsung",
+    "Manufacturer": "Micron",
     "MemoryLocation": {
         "Channel": 0,
         "MemoryController": 0,
@@ -43,15 +43,15 @@
     "Metrics": {
         "@odata.id": "/redfish/v1/Systems/DGX/Memory/DevType2_DIMM16/MemoryMetrics"
     },
-    "ModuleManufacturerID": "0xCE00",
-    "ModuleProductID": "0xCE00",
+    "ModuleManufacturerID": "0x2C00",
+    "ModuleProductID": "0x2C00",
     "Name": "DevType2_DIMM16",
     "NonVolatileSizeMiB": 0,
     "OperatingMemoryModes": [
         "Volatile"
     ],
     "OperatingSpeedMhz": 4400,
-    "PartNumber": "M321R8GA0BB0-CQKDS  ",
+    "PartNumber": "MTC40F2046S1RC48BA1 ",
     "PersistentRegionNumberLimit": 0,
     "PersistentRegionSizeLimitMiB": 0,
     "PersistentRegionSizeMaxMiB": 0,
@@ -61,7 +61,7 @@
         "DataLockCapable": false,
         "PassphraseCapable": false
     },
-    "SerialNumber": "04B7CEFF",
+    "SerialNumber": "401550EC",
     "Status": {
         "Health": "OK",
         "State": "Enabled"

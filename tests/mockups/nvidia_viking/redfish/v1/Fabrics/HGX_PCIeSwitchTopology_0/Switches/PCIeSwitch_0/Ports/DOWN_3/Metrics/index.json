@@ -9,7 +9,7 @@
         }
     },
     "PCIeErrors": {
-        "CorrectableErrorCount": 14,
+        "CorrectableErrorCount": 140,
         "FatalErrorCount": 0,
         "L0ToRecoveryCount": 3,
         "NAKReceivedCount": 0,

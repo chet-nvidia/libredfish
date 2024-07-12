@@ -1,32 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Drive.Drive",
-    "@odata.etag": "\"1700508045\"",
+    "@odata.etag": "\"1719888159\"",
     "@odata.id": "/redfish/v1/Systems/DGX/Storage/StorageUnit_0/Drives/USB_Device3_PortA",
-    "@odata.type": "#Drive.v1_11_0.Drive",
-    "AssetTag": null,
-    "BlockSizeBytes": 512,
-    "CapacityBytes": 1098907648,
-    "EncryptionAbility": "None",
-    "FailurePredicted": false,
-    "Id": "USB_Device3_PortA",
-    "IndicatorLED": null,
-    "Links": {
-        "Chassis": {
-            "@odata.id": "/redfish/v1/Chassis/DGX"
-        },
-        "Endpoints@odata.count": 0,
-        "Volumes@odata.count": 0
-    },
-    "Manufacturer": "American Megatreds Inc.",
-    "MediaType": "HDD",
-    "Model": "Virtual HDisk Device",
-    "Name": "USB_Device3_PortA",
-    "Protocol": "USB",
-    "ReadyToRemove": true,
-    "Revision": "USB2.00",
-    "SerialNumber": "AAAABBBBCCCC3",
-    "Status": {
-        "Health": "OK",
-        "State": "Enabled"
-    }
+    "@odata.type": "#Drive.v1_11_0.Drive"
 }

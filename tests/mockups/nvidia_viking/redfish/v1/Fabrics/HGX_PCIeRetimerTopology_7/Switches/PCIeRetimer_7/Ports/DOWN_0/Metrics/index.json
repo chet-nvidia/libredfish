@@ -9,9 +9,9 @@
         }
     },
     "PCIeErrors": {
-        "CorrectableErrorCount": 373,
+        "CorrectableErrorCount": 1,
         "FatalErrorCount": 0,
-        "L0ToRecoveryCount": 4,
+        "L0ToRecoveryCount": 10,
         "NAKReceivedCount": 0,
         "NAKSentCount": 0,
         "NonFatalErrorCount": 0,

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#EthernetInterface.EthernetInterface",
-    "@odata.etag": "\"1700508045\"",
+    "@odata.etag": "\"1719888159\"",
     "@odata.id": "/redfish/v1/Systems/DGX/EthernetInterfaces/EthernetInterface2",
     "@odata.type": "#EthernetInterface.v1_6_2.EthernetInterface",
     "DHCPv4": {
@@ -16,7 +16,7 @@
     ],
     "IPv6Addresses": [
         {
-            "Address": "FE80::6EFE:54FF:FE48:2659",
+            "Address": "FE80::6EFE:54FF:FE41:1579",
             "AddressOrigin": "DHCPv6",
             "PrefixLength": 64
         }
@@ -34,10 +34,10 @@
             "@odata.id": "/redfish/v1/Chassis/DGX/NetworkAdapters/DevType7_NIC1/NetworkDeviceFunctions/NetworkDeviceFunction2"
         }
     },
-    "MACAddress": "6C:FE:54:48:26:59",
+    "MACAddress": "6C:FE:54:41:15:79",
     "MTUSize": 1500,
     "Name": "EthernetInterface2",
-    "PermanentMACAddress": "6C:FE:54:48:26:59",
+    "PermanentMACAddress": "6C:FE:54:41:15:79",
     "Status": {
         "Health": "OK",
         "State": "Disabled"

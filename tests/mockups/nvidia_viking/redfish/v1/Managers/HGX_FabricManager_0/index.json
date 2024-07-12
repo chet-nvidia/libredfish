@@ -25,6 +25,6 @@
         "Conditions": [],
         "Health": "OK",
         "HealthRollup": "OK",
-        "State": "UnavailableOffline"
+        "State": "Enabled"
     }
 }

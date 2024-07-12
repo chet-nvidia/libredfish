@@ -1,0 +1,44 @@
+{
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFileCollection.JsonSchemaFileCollection",
+    "@odata.etag": "\"1698173537\"",
+    "@odata.id": "/redfish/v1/JsonSchemas",
+    "@odata.type": "#JsonSchemaFileCollection.JsonSchemaFileCollection",
+    "Description": "List of JSON Oem schemas and Extensions.",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/PowerSupplyCollection"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/ManagerNetworkProtocol"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/MessageRegistry"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/odata"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/EventDestinationCollection"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/SessionCollection"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/AttributeRegistry"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/StorageControllerCollection"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/TelemetryService"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/redfish-payload-annotations"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/odata-v4"
+        }
+    ],
+    "Members@odata.count": 161,
+    "Name": "Schema Repository"
+}

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#ChassisCollection.ChassisCollection",
-    "@odata.etag": "\"1700488031\"",
+    "@odata.etag": "\"1715513087\"",
     "@odata.id": "/redfish/v1/Chassis",
     "@odata.type": "#ChassisCollection.ChassisCollection",
     "Description": "The Collection for Chassis",

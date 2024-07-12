@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Chassis.Chassis",
-    "@odata.etag": "\"1700488031\"",
+    "@odata.etag": "\"1715513087\"",
     "@odata.id": "/redfish/v1/Chassis/DGX",
     "@odata.type": "#Chassis.v1_15_0.Chassis",
     "Actions": {
@@ -126,7 +126,7 @@
     "PCIeSlots": {
         "@odata.id": "/redfish/v1/Chassis/DGX/PCIeSlots"
     },
-    "PartNumber": "965-24387-0002-001",
+    "PartNumber": "965-24387-0002-000",
     "Power": {
         "@odata.id": "/redfish/v1/Chassis/DGX/Power"
     },
@@ -138,7 +138,7 @@
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/DGX/Sensors"
     },
-    "SerialNumber": "1663523000270",
+    "SerialNumber": "1663123000052",
     "Status": {
         "Health": "OK",
         "HealthRollup": "OK",
