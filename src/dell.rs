@@ -568,8 +568,19 @@ impl Redfish for Bmc {
         &self,
         chassis_id: &str,
         id: &str,
+        port: Option<&str>,
     ) -> Result<NetworkDeviceFunction, RedfishError> {
-        self.s.get_network_device_function(chassis_id, id).await
+        let Some(port) = port else {
+            return Err(RedfishError::GenericError {
+                error: "Port is missing for Dell.".to_string(),
+            });
+        };
+        let url = format!(
+            "Chassis/{}/NetworkAdapters/{}/NetworkDeviceFunctions/{}",
+            chassis_id, id, port
+        );
+        let (_status_code, body) = self.s.client.get(&url).await?;
+        Ok(body)
     }
 
     async fn get_network_device_functions(

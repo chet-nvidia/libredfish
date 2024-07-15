@@ -110,7 +110,7 @@ async fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow
     let netdev_funcs = redfish.get_network_device_functions(&chassis[0]).await?;
     assert!(!netdev_funcs.is_empty());
     assert!(redfish
-        .get_network_device_function(&chassis[0], &netdev_funcs[0])
+        .get_network_device_function(&chassis[0], &netdev_funcs[0], None)
         .await?
         .ethernet
         .and_then(|ethernet| ethernet.mac_address)

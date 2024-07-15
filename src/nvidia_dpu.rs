@@ -396,6 +396,7 @@ impl Redfish for Bmc {
         &self,
         chassis_id: &str,
         id: &str,
+        _port: Option<&str>,
     ) -> Result<NetworkDeviceFunction, RedfishError> {
         let url = format!(
             "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions/{}",

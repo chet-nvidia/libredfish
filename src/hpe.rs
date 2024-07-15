@@ -309,8 +309,11 @@ impl Redfish for Bmc {
         &self,
         chassis_id: &str,
         id: &str,
+        port: Option<&str>,
     ) -> Result<NetworkDeviceFunction, RedfishError> {
-        self.s.get_network_device_function(chassis_id, id).await
+        self.s
+            .get_network_device_function(chassis_id, id, port)
+            .await
     }
 
     async fn get_network_device_functions(

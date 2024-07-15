@@ -405,6 +405,7 @@ impl Redfish for RedfishStandard {
         &self,
         _chassis_id: &str,
         _id: &str,
+        _port: Option<&str>,
     ) -> Result<NetworkDeviceFunction, RedfishError> {
         Err(RedfishError::NotSupported(
             "get_network_device_function".to_string(),
