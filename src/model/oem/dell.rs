@@ -1257,6 +1257,20 @@ pub struct AttributesResult {
     pub name: String,
 }
 
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct ShareParameters {
+    pub target: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SystemConfiguration {
+    pub shutdown_type: String,
+    pub share_parameters: ShareParameters,
+    pub import_buffer: String,
+}
+
 #[cfg(test)]
 mod test {
     #[test]

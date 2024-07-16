@@ -719,6 +719,13 @@ impl Redfish for Bmc {
         self.change_boot_order_with_etag(new_boot_order, selected_boot_option.odata.odata_etag)
             .await
     }
+
+    async fn clear_uefi_password(
+        &self,
+        current_uefi_password: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        self.change_uefi_password(current_uefi_password, "").await
+    }
 }
 
 impl Bmc {

@@ -480,6 +480,13 @@ impl Redfish for Bmc {
             "set_dpu_first_boot_order".to_string(),
         ))
     }
+
+    async fn clear_uefi_password(
+        &self,
+        current_uefi_password: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        self.change_uefi_password(current_uefi_password, "").await
+    }
 }
 
 impl Bmc {

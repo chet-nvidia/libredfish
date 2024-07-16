@@ -314,6 +314,11 @@ pub trait Redfish: Send + Sync + 'static {
         &self,
         mac_address: Option<String>,
     ) -> Result<(), RedfishError>;
+
+    async fn clear_uefi_password(
+        &self,
+        current_uefi_password: &str,
+    ) -> Result<Option<String>, RedfishError>;
 }
 
 // When Carbide drops it's `IpmiCommand.launch_command` background job system, we can

@@ -1,5 +1,6 @@
 use std::{collections::HashMap, path::Path, time::Duration};
 
+use reqwest::{header::HeaderMap, Method};
 use serde::{Deserialize, Serialize};
 use tokio::fs::File;
 
@@ -8,7 +9,7 @@ use crate::{
         account_service::ManagerAccount,
         chassis::{Chassis, NetworkAdapter},
         network_device_function::NetworkDeviceFunction,
-        oem::dell,
+        oem::dell::{self, ShareParameters, SystemConfiguration},
         power::Power,
         secure_boot::SecureBoot,
         sel::{LogEntry, LogEntryCollection},
@@ -723,6 +724,14 @@ impl Redfish for Bmc {
     ) -> Result<(), RedfishError> {
         self.s.set_boot_order_dpu_first(mac_address).await
     }
+
+    async fn clear_uefi_password(
+        &self,
+        current_uefi_password: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        let job_id = self.clear_uefi_password(current_uefi_password).await?;
+        Ok(Some(job_id))
+    }
 }
 
 impl Bmc {
@@ -1217,6 +1226,79 @@ impl Bmc {
             sriov_global_enable: EnabledDisabled::Enabled,
             tpm_security: OnOff::On,
             tpm2_hierarchy: dell::Tpm2HierarchySettings::Clear,
+        }
+    }
+
+    /// Dells endpoint to change the UEFI password has a bug for updating it once it is set.
+    /// Use the ImportSystemConfiguration endpoint as a hack to clear the UEFI password instead.
+    /// Detailed here: https://github.com/dell/iDRAC-Redfish-Scripting/issues/308
+    async fn clear_uefi_password(
+        &self,
+        current_uefi_password: &str,
+    ) -> Result<String, RedfishError> {
+        let system_configuration = SystemConfiguration {
+            shutdown_type: "Forced".to_string(),
+            share_parameters: ShareParameters {
+                target: "BIOS".to_string(),
+            },
+            import_buffer: format!(
+                r##"<SystemConfiguration><Component FQDD="BIOS.Setup.1-1"><!-- <Attribute Name="OldSysPassword"></Attribute>--><!-- <Attribute Name="NewSysPassword"></Attribute>--><Attribute Name="OldSetupPassword">{current_uefi_password}</Attribute><Attribute Name="NewSetupPassword"></Attribute></Component></SystemConfiguration>"##
+            ),
+        };
+
+        self.import_system_configuration(system_configuration).await
+    }
+
+    /// import_system_configuration returns the job ID for importing this sytem configuration
+    async fn import_system_configuration(
+        &self,
+        system_configuration: SystemConfiguration,
+    ) -> Result<String, RedfishError> {
+        let url = "Managers/iDRAC.Embedded.1/Actions/Oem/EID_674_Manager.ImportSystemConfiguration";
+        let (_status_code, _resp_body, resp_headers): (
+            _,
+            Option<HashMap<String, serde_json::Value>>,
+            Option<HeaderMap>,
+        ) = self
+            .s
+            .client
+            .req(
+                Method::POST,
+                url,
+                Some(system_configuration),
+                None,
+                None,
+                Vec::new(),
+            )
+            .await?;
+
+        match resp_headers {
+            Some(headers) => {
+                let key = "location";
+                Ok(headers
+                    .get(key)
+                    .ok_or_else(|| RedfishError::MissingKey {
+                        key: key.to_string(),
+                        url: url.to_string(),
+                    })?
+                    .to_str()
+                    .map_err(|e| RedfishError::InvalidValue {
+                        url: url.to_string(),
+                        field: key.to_string(),
+                        err: InvalidValueError(e.to_string()),
+                    })?
+                    .split('/')
+                    .last()
+                    .ok_or_else(|| RedfishError::InvalidValue {
+                        url: url.to_string(),
+                        field: key.to_string(),
+                        err: InvalidValueError(
+                            "unable to parse job_id from location string".to_string(),
+                        ),
+                    })?
+                    .to_string())
+            }
+            None => Err(RedfishError::NoHeader),
         }
     }
 }

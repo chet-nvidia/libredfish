@@ -538,6 +538,13 @@ impl Redfish for Bmc {
     ) -> Result<(), RedfishError> {
         self.s.set_boot_order_dpu_first(mac_address).await
     }
+
+    async fn clear_uefi_password(
+        &self,
+        current_uefi_password: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        self.change_uefi_password(current_uefi_password, "").await
+    }
 }
 
 impl Bmc {

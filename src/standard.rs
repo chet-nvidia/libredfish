@@ -528,6 +528,13 @@ impl Redfish for RedfishStandard {
             "set_boot_order_dpu_first".to_string(),
         ))
     }
+
+    async fn clear_uefi_password(
+        &self,
+        current_uefi_password: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        self.change_uefi_password(current_uefi_password, "").await
+    }
 }
 
 impl RedfishStandard {
