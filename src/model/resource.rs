@@ -34,7 +34,7 @@ pub struct OData {
     pub odata_etag: Option<String>,
     // Responses for resources and resource collections may contain an @odata.context property that
     // describes the source of the payload
-    #[serde(rename = "@odata.etag")]
+    #[serde(rename = "@odata.context")]
     pub odata_context: Option<String>,
 }
 
