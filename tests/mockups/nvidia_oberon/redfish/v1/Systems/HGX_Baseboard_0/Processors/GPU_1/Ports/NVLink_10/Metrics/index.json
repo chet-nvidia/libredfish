@@ -5,7 +5,7 @@
     "Name": "NVLink_10 Port Metrics",
     "Oem": {
         "Nvidia": {
-            "@odata.type": "#NvidiaPortMetrics.v1_1_0.NvidiaPortMetrics",
+            "@odata.type": "#NvidiaPortMetrics.v1_3_0.NvidiaPortMetrics",
             "NVLinkDataRxBandwidthGbps": 0.0,
             "NVLinkDataTxBandwidthGbps": 0.0,
             "NVLinkErrors": {

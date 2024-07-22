@@ -1,8 +1,8 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/Fabric.v1_3_0.json",
+    "$id": "http://redfish.dmtf.org/schemas/v1/Fabric.v1_3_1.json",
     "$ref": "#/definitions/Fabric",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Actions": {
             "additionalProperties": false,
@@ -166,7 +166,7 @@
                         }
                     ],
                     "description": "The UUID for this fabric.",
-                    "longDescription": "This property shall contain a universal unique identifier number for the fabric.",
+                    "longDescription": "This property shall contain a universally unique identifier number for the fabric.",
                     "readonly": false,
                     "versionAdded": "v1_3_0"
                 },
@@ -235,6 +235,6 @@
         }
     },
     "owningEntity": "DMTF",
-    "release": "2021.4",
-    "title": "#Fabric.v1_3_0.Fabric"
+    "release": "2022.1",
+    "title": "#Fabric.v1_3_1.Fabric"
 }

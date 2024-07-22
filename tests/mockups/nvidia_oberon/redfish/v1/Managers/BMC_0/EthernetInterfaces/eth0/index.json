@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Managers/BMC_0/EthernetInterfaces/eth0",
-    "@odata.type": "#EthernetInterface.v1_6_0.EthernetInterface",
+    "@odata.type": "#EthernetInterface.v1_9_0.EthernetInterface",
     "DHCPv4": {
         "DHCPEnabled": true,
         "UseDNSServers": true,
@@ -8,52 +8,53 @@
         "UseNTPServers": true
     },
     "DHCPv6": {
-        "OperatingMode": "Stateful",
+        "OperatingMode": "Enabled",
         "UseDNSServers": true,
         "UseDomainName": true,
         "UseNTPServers": true
     },
     "Description": "Management Network Interface",
+    "EthernetInterfaceType": "Physical",
     "FQDN": "oberon-bmc",
     "HostName": "oberon-bmc",
     "IPv4Addresses": [
         {
-            "Address": "10.136.207.62",
+            "Address": "10.114.223.28",
             "AddressOrigin": "DHCP",
-            "Gateway": "10.136.207.1",
-            "SubnetMask": "255.255.255.0"
+            "Gateway": "10.114.192.1",
+            "SubnetMask": "255.255.224.0"
         }
     ],
     "IPv4StaticAddresses": [],
     "IPv6AddressPolicyTable": [],
     "IPv6Addresses": [
         {
-            "Address": "fe80::3e6d:66ff:fe01:a66c",
+            "Address": "fe80::4ab0:2dff:fefb:b32e",
             "AddressOrigin": "LinkLocal",
-            "AddressState": null,
+            "AddressState": "Preferred",
             "PrefixLength": 64
         }
     ],
     "IPv6DefaultGateway": "0:0:0:0:0:0:0:0",
     "IPv6StaticAddresses": [],
+    "IPv6StaticDefaultGateways": [],
     "Id": "eth0",
     "InterfaceEnabled": true,
     "LinkStatus": "LinkUp",
-    "MACAddress": "3c:6d:66:01:a6:6c",
+    "MACAddress": "48:b0:2d:fb:b3:2e",
     "MTUSize": 1500,
     "Name": "Manager Ethernet Interface",
     "NameServers": [
-        "10.10.10.53",
-        "10.10.10.54"
+        "10.117.218.5",
+        "10.117.218.6",
+        "172.16.136.26"
     ],
-    "SpeedMbps": 0,
+    "SpeedMbps": 1000,
+    "StatelessAddressAutoConfig": {
+        "IPv6AutoConfigEnabled": true
+    },
     "StaticNameServers": [],
     "Status": {
-        "Health": "OK",
-        "HealthRollup": "OK",
         "State": "Enabled"
-    },
-    "VLANs": {
-        "@odata.id": "/redfish/v1/Managers/BMC_0/EthernetInterfaces/eth0/VLANs"
     }
 }

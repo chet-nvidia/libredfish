@@ -1,5 +1,4 @@
 {
-    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFileCollection.JsonSchemaFileCollection",
     "@odata.id": "/redfish/v1/JsonSchemas",
     "@odata.type": "#JsonSchemaFileCollection.JsonSchemaFileCollection",
     "Description": "Collection of JsonSchemaFiles",
@@ -99,6 +98,12 @@
         },
         {
             "@odata.id": "/redfish/v1/JsonSchemas/Fabric"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/FabricAdapter"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/FabricAdapterCollection"
         },
         {
             "@odata.id": "/redfish/v1/JsonSchemas/FabricCollection"
@@ -248,6 +253,9 @@
             "@odata.id": "/redfish/v1/JsonSchemas/ProcessorMetrics"
         },
         {
+            "@odata.id": "/redfish/v1/JsonSchemas/Protocol"
+        },
+        {
             "@odata.id": "/redfish/v1/JsonSchemas/Redundancy"
         },
         {
@@ -332,6 +340,9 @@
             "@odata.id": "/redfish/v1/JsonSchemas/Thermal"
         },
         {
+            "@odata.id": "/redfish/v1/JsonSchemas/ThermalMetrics"
+        },
+        {
             "@odata.id": "/redfish/v1/JsonSchemas/ThermalSubsystem"
         },
         {
@@ -378,8 +389,17 @@
         },
         {
             "@odata.id": "/redfish/v1/JsonSchemas/redfish-schema-v1"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/OemManager"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/OemComputerSystem"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/OemVirtualMedia"
         }
     ],
-    "Members@odata.count": 125,
+    "Members@odata.count": 132,
     "Name": "JsonSchemaFile Collection"
 }

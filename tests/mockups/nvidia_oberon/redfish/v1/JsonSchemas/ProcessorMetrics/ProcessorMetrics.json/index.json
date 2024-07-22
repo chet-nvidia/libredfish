@@ -1,8 +1,8 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/ProcessorMetrics.v1_6_0.json",
+    "$id": "http://redfish.dmtf.org/schemas/v1/ProcessorMetrics.v1_6_3.json",
     "$ref": "#/definitions/ProcessorMetrics",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2022 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Actions": {
             "additionalProperties": false,
@@ -64,7 +64,7 @@
                 },
                 "ResidencyPercent": {
                     "description": "The percentage of time that the processor or core has spent in this particular level of C-state.",
-                    "longDescription": "This property shall contain the percentage of time that the processor or core has spent in this particular level of C-state.  When this resource is subordinate to the ProcessorSummary object, this property is not applicable.",
+                    "longDescription": "This property shall contain the percentage of time, `0` to `100`, that the processor or core has spent in this particular level of C-state.  When this resource is subordinate to the ProcessorSummary object, this property is not applicable.",
                     "minimum": 0,
                     "readonly": true,
                     "type": [
@@ -143,7 +143,7 @@
                 },
                 "OccupancyPercent": {
                     "description": "The total cache occupancy percentage.",
-                    "longDescription": "This property shall contain the total cache occupancy percentage of the processor or core.",
+                    "longDescription": "This property shall contain the total cache occupancy percentage, `0` to `100`, of the processor or core.",
                     "minimum": 0,
                     "readonly": true,
                     "type": [
@@ -183,7 +183,7 @@
                 "LifeTime": {
                     "$ref": "#/definitions/LifeTime",
                     "description": "The cache metrics for the lifetime of this processor.",
-                    "longDescription": "This property shall contain properties that describe the metrics for the lifetime of cache memory for this processor.",
+                    "longDescription": "This property shall contain properties that describe the metrics for the lifetime of the cache memory for this processor.",
                     "versionAdded": "v1_2_0"
                 }
             },
@@ -267,7 +267,7 @@
                     ]
                 },
                 "CorrectableCoreErrorCount": {
-                    "description": "The number of the correctable core errors.",
+                    "description": "The number of correctable core errors.",
                     "longDescription": "This property shall contain the number of correctable core errors, such as TLB or cache errors.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of CorrectableCoreErrorCount over all processors.",
                     "readonly": true,
                     "type": [
@@ -277,8 +277,8 @@
                     "versionAdded": "v1_5_0"
                 },
                 "CorrectableOtherErrorCount": {
-                    "description": "The number of the correctable errors of all other components.",
-                    "longDescription": "This property shall contain the number of the correctable errors of all other components.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of CorrectableOtherErrorCount over all processors.",
+                    "description": "The number of correctable errors of all other components.",
+                    "longDescription": "This property shall contain the number of correctable errors of all other components.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of CorrectableOtherErrorCount over all processors.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -314,7 +314,7 @@
                     ]
                 },
                 "UncorrectableCoreErrorCount": {
-                    "description": "The number of the uncorrectable core errors.",
+                    "description": "The number of uncorrectable core errors.",
                     "longDescription": "This property shall contain the number of uncorrectable core errors, such as TLB or cache errors.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of UncorrectableCoreErrorCount over all processors.",
                     "readonly": true,
                     "type": [
@@ -324,8 +324,8 @@
                     "versionAdded": "v1_5_0"
                 },
                 "UncorrectableOtherErrorCount": {
-                    "description": "The number of the uncorrectable errors of all other components.",
-                    "longDescription": "This property shall contain the number of the uncorrectable errors of all other components.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of UncorrectableOtherErrorCount over all processors.",
+                    "description": "The number of uncorrectable errors of all other components.",
+                    "longDescription": "This property shall contain the number of uncorrectable errors of all other components.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of UncorrectableOtherErrorCount over all processors.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -365,7 +365,7 @@
             },
             "properties": {
                 "CorrectableECCErrorCount": {
-                    "description": "The number of the correctable errors of cache memory since reset or ClearCurrentPeriod action for this processor.",
+                    "description": "The number of correctable errors of cache memory since reset or ClearCurrentPeriod action for this processor.",
                     "longDescription": "This property shall contain the number of correctable errors of cache memory since reset or ClearCurrentPeriod action for this processor.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of CorrectableECCErrorCount over all processors.",
                     "readonly": true,
                     "type": [
@@ -375,7 +375,7 @@
                     "versionAdded": "v1_2_0"
                 },
                 "UncorrectableECCErrorCount": {
-                    "description": "The number of the uncorrectable errors of cache memory since reset or ClearCurrentPeriod action for this processor.",
+                    "description": "The number of uncorrectable errors of cache memory since reset or ClearCurrentPeriod action for this processor.",
                     "longDescription": "This property shall contain the number of uncorrectable errors of cache memory since reset or ClearCurrentPeriod action for this processor.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of UncorrectableECCErrorCount over all processors.",
                     "readonly": true,
                     "type": [
@@ -407,8 +407,8 @@
             },
             "properties": {
                 "CorrectableECCErrorCount": {
-                    "description": "The number of the correctable errors for the lifetime of the cache memory.",
-                    "longDescription": "This property shall contain the number of the correctable errors for the lifetime of cache memory.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of CorrectableECCErrorCount over all processors.",
+                    "description": "The number of correctable errors for the lifetime of the cache memory.",
+                    "longDescription": "This property shall contain the number of correctable errors for the lifetime of the cache memory.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of CorrectableECCErrorCount over all processors.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -417,8 +417,8 @@
                     "versionAdded": "v1_2_0"
                 },
                 "UncorrectableECCErrorCount": {
-                    "description": "The number of the uncorrectable errors for the lifetime of the cache memory.",
-                    "longDescription": "This property shall contain the number of the uncorrectable errors for the lifetime of cache memory.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of UncorrectableECCErrorCount over all processors.",
+                    "description": "The number of uncorrectable errors for the lifetime of the cache memory.",
+                    "longDescription": "This property shall contain the number of uncorrectable errors for the lifetime of the cache memory.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of UncorrectableECCErrorCount over all processors.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -500,7 +500,7 @@
                 },
                 "BandwidthPercent": {
                     "description": "The bandwidth usage of this processor as a percentage.",
-                    "longDescription": "This property shall contain the bandwidth usage of the processor as a percentage.  When this resource is subordinate to the ProcessorSummary object, this property shall be the CPU utilization over all processors as a percentage.",
+                    "longDescription": "This property shall contain the bandwidth usage of the processor as a percentage, typically `0` to `100`.  When this resource is subordinate to the ProcessorSummary object, this property shall be the CPU utilization over all processors as a percentage.",
                     "minimum": 0,
                     "readonly": true,
                     "type": [
@@ -525,8 +525,8 @@
                 },
                 "ConsumedPowerWatt": {
                     "deprecated": "This property has been deprecated in favor of the properties in EnvironmentMetrics.",
-                    "description": "The power, in watts, that the processor has consumed.",
-                    "longDescription": "This property shall contain the power, in watts, that the processor has consumed.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of power, in watts, that all processors have consumed.",
+                    "description": "The power, in watt units, that the processor has consumed.",
+                    "longDescription": "This property shall contain the power, in watt units, that the processor has consumed.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of power, in watt units, that all processors have consumed.",
                     "readonly": true,
                     "type": [
                         "number",
@@ -558,7 +558,7 @@
                     "versionAdded": "v1_3_0"
                 },
                 "CorrectableCoreErrorCount": {
-                    "description": "The number of the correctable core errors.",
+                    "description": "The number of correctable core errors.",
                     "longDescription": "This property shall contain the number of correctable core errors, such as TLB or cache errors.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of CorrectableCoreErrorCount over all processors.",
                     "readonly": true,
                     "type": [
@@ -568,8 +568,8 @@
                     "versionAdded": "v1_5_0"
                 },
                 "CorrectableOtherErrorCount": {
-                    "description": "The number of the correctable errors of all other components.",
-                    "longDescription": "This property shall contain the number of the correctable errors of all other components.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of CorrectableOtherErrorCount over all processors.",
+                    "description": "The number of correctable errors of all other components.",
+                    "longDescription": "This property shall contain the number of correctable errors of all other components.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of CorrectableOtherErrorCount over all processors.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -603,7 +603,7 @@
                 },
                 "KernelPercent": {
                     "description": "The percentage of time spent in kernel mode.",
-                    "longDescription": "This property shall contain total percentage of time the processor has spent in kernel mode.  When this resource is subordinate to the ProcessorSummary object, this property shall be the average KernelPercent over all processors.",
+                    "longDescription": "This property shall contain total percentage of time, `0` to `100`, the processor has spent in kernel mode.  When this resource is subordinate to the ProcessorSummary object, this property shall be the average KernelPercent over all processors.",
                     "minimum": 0,
                     "readonly": true,
                     "type": [
@@ -651,7 +651,7 @@
                 "PowerLimitThrottleDuration": {
                     "description": "The total duration of throttling caused by a power limit of the processor since reset.",
                     "longDescription": "This property shall contain the total duration of throttling caused by a power limit of the processor since reset.",
-                    "pattern": "-?P(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(.\\d+)?S)?)?",
+                    "pattern": "^P(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(.\\d+)?S)?)?$",
                     "readonly": true,
                     "type": [
                         "string",
@@ -672,7 +672,7 @@
                 "TemperatureCelsius": {
                     "deprecated": "This property has been deprecated in favor of the properties in EnvironmentMetrics.",
                     "description": "The temperature of the processor.",
-                    "longDescription": "This property shall contain the temperature, in Celsius, of the processor.  When this resource is subordinate to the ProcessorSummary object, this property shall be the average temperature, in Celsius, over all processors.",
+                    "longDescription": "This property shall contain the temperature, in degree Celsius units, of the processor.  When this resource is subordinate to the ProcessorSummary object, this property shall be the average temperature, in Celsius, over all processors.",
                     "readonly": true,
                     "type": [
                         "number",
@@ -684,7 +684,7 @@
                 "ThermalLimitThrottleDuration": {
                     "description": "The total duration of throttling caused by a thermal limit of the processor since reset.",
                     "longDescription": "This property shall contain the total duration of throttling caused by a thermal limit of the processor since reset.",
-                    "pattern": "-?P(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(.\\d+)?S)?)?",
+                    "pattern": "^P(\\d+D)?(T(\\d+H)?(\\d+M)?(\\d+(.\\d+)?S)?)?$",
                     "readonly": true,
                     "type": [
                         "string",
@@ -693,7 +693,7 @@
                     "versionAdded": "v1_6_0"
                 },
                 "ThrottlingCelsius": {
-                    "description": "The CPU margin to throttle (temperature offset in degree Celsius).",
+                    "description": "The CPU margin to throttle (temperature offset in degree Celsius units).",
                     "longDescription": "This property shall contain the CPU margin to throttle based on an offset between the maximum temperature in which the processor can operate, and the processor's current temperature.  When this resource is subordinate to the ProcessorSummary object, this property is not applicable.",
                     "readonly": true,
                     "type": [
@@ -703,7 +703,7 @@
                     "units": "Cel"
                 },
                 "UncorrectableCoreErrorCount": {
-                    "description": "The number of the uncorrectable core errors.",
+                    "description": "The number of uncorrectable core errors.",
                     "longDescription": "This property shall contain the number of uncorrectable core errors, such as TLB or cache errors.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of UncorrectableCoreErrorCount over all processors.",
                     "readonly": true,
                     "type": [
@@ -713,8 +713,8 @@
                     "versionAdded": "v1_5_0"
                 },
                 "UncorrectableOtherErrorCount": {
-                    "description": "The number of the uncorrectable errors of all other components.",
-                    "longDescription": "This property shall contain the number of the uncorrectable errors of all other components.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of UncorrectableOtherErrorCount over all processors.",
+                    "description": "The number of uncorrectable errors of all other components.",
+                    "longDescription": "This property shall contain the number of uncorrectable errors of all other components.  When this resource is subordinate to the ProcessorSummary object, this property shall be the sum of UncorrectableOtherErrorCount over all processors.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -724,7 +724,7 @@
                 },
                 "UserPercent": {
                     "description": "The percentage of time spent in user mode.",
-                    "longDescription": "This property shall contain total percentage of time the processor has spent in user mode.  When this resource is subordinate to the ProcessorSummary object, this property shall be the average UserPercent over all processors.",
+                    "longDescription": "This property shall contain total percentage of time, `0` to `100`, the processor has spent in user mode.  When this resource is subordinate to the ProcessorSummary object, this property shall be the average UserPercent over all processors.",
                     "minimum": 0,
                     "readonly": true,
                     "type": [
@@ -745,5 +745,5 @@
     },
     "owningEntity": "DMTF",
     "release": "2022.2",
-    "title": "#ProcessorMetrics.v1_6_0.ProcessorMetrics"
+    "title": "#ProcessorMetrics.v1_6_3.ProcessorMetrics"
 }

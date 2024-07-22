@@ -1,0 +1,17 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/4503",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "Created": "2024-07-11T07:26:49+00:00",
+    "EntryType": "Event",
+    "Id": "4503",
+    "Message": "Transfer of image 'COMP_VERSION' to 'FW_BMC_0' failed.",
+    "MessageArgs": [
+        "COMP_VERSION",
+        "FW_BMC_0"
+    ],
+    "MessageId": "Update.1.0.TransferFailed",
+    "Name": "System Event Log Entry",
+    "Resolution": "None.",
+    "Resolved": false,
+    "Severity": "Critical"
+}

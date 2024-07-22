@@ -6,7 +6,7 @@
         }
     },
     "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_0",
-    "@odata.type": "#Processor.v1_13_0.Processor",
+    "@odata.type": "#Processor.v1_20_0.Processor",
     "EnvironmentMetrics": {
         "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_0/EnvironmentMetrics"
     },
@@ -29,7 +29,7 @@
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded",
-            "ServiceLabel": ""
+            "ServiceLabel": "Processor Module 0"
         }
     },
     "Manufacturer": "NVIDIA",
@@ -47,7 +47,9 @@
     "Name": "Processor",
     "Oem": {
         "Nvidia": {
-            "@odata.type": "#NvidiaProcessor.v1_0_0.NvidiaProcessor",
+            "@odata.type": "#NvidiaProcessor.v1_2_0.NvidiaGPU",
+            "CCDevModeEnabled": false,
+            "CCModeEnabled": false,
             "MIGModeEnabled": false
         }
     },

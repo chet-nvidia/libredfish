@@ -4,68 +4,78 @@
     "Description": "Collection of System Event Log Entries",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/1",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/1/attachment",
-            "Created": "2024-05-10T22:19:31+00:00",
-            "EntryType": "Event",
-            "Id": "1",
-            "Message": "Failed to set GPIO line BMC_EP_PERST_EN-O to 0",
-            "Modified": "2024-05-10T22:19:31+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
             "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/10",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
             "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/10/attachment",
-            "Created": "2024-05-10T22:26:14+00:00",
+            "Created": "2024-07-01T18:57:14+00:00",
             "EntryType": "Event",
             "Id": "10",
-            "Message": "xyz.openbmc_project.State.BMC.Error.MultiUserTargetFailure",
-            "Modified": "2024-05-10T22:26:14+00:00",
+            "Message": "FAN_2_F sensor crossed a critical low threshold going low. Reading=0.000000 Threshold=2204.000000.",
+            "MessageArgs": [
+                "FAN_2_F",
+                "0.000000",
+                "2204.000000"
+            ],
+            "MessageId": "OpenBMC.0.1.SensorThresholdCriticalLowGoingLow",
             "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
+            "Resolution": "Check the sensor or subsystem for errors.",
             "Resolved": false,
-            "Severity": "Critical"
+            "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/11",
+            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/100",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/11/attachment",
-            "Created": "2024-05-10T22:26:24+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/100/attachment",
+            "Created": "2024-07-03T04:13:17+00:00",
             "EntryType": "Event",
-            "Id": "11",
-            "Message": "HGX_GPU_0_DRAM_0_Temp_0 sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
+            "Id": "100",
+            "Message": "TEMP_SSD_03 sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
             "MessageArgs": [
-                "HGX_GPU_0_DRAM_0_Temp_0",
+                "TEMP_SSD_03",
                 "0.000000",
                 "5.000000"
             ],
             "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingLow",
             "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolution": "",
+            "Resolution": "Check the sensor or subsystem for errors.",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/102",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/102/attachment",
+            "Created": "2024-07-03T04:14:31+00:00",
+            "EntryType": "Event",
+            "Id": "102",
+            "Message": "TEMP_SSD_02 sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
+            "MessageArgs": [
+                "TEMP_SSD_02",
+                "0.000000",
+                "5.000000"
+            ],
+            "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingLow",
+            "Name": "System Event Log Entry",
+            "Resolution": "Check the sensor or subsystem for errors.",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/11",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/11/attachment",
+            "Created": "2024-07-01T18:57:14+00:00",
+            "EntryType": "Event",
+            "Id": "11",
+            "Message": "FAN_3_R sensor crossed a critical low threshold going low. Reading=0.000000 Threshold=2204.000000.",
+            "MessageArgs": [
+                "FAN_3_R",
+                "0.000000",
+                "2204.000000"
+            ],
+            "MessageId": "OpenBMC.0.1.SensorThresholdCriticalLowGoingLow",
+            "Name": "System Event Log Entry",
+            "Resolution": "Check the sensor or subsystem for errors.",
             "Resolved": false,
             "Severity": "OK"
         },
@@ -73,517 +83,22 @@
             "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/12",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
             "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/12/attachment",
-            "Created": "2024-05-10T22:26:24+00:00",
+            "Created": "2024-07-01T18:57:14+00:00",
             "EntryType": "Event",
             "Id": "12",
-            "Message": "HGX_GPU_1_DRAM_0_Temp_0 sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
+            "Message": "FAN_5_F sensor crossed a critical low threshold going low. Reading=0.000000 Threshold=2204.000000.",
             "MessageArgs": [
-                "HGX_GPU_1_DRAM_0_Temp_0",
+                "FAN_5_F",
                 "0.000000",
-                "5.000000"
+                "2204.000000"
             ],
-            "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingLow",
+            "MessageId": "OpenBMC.0.1.SensorThresholdCriticalLowGoingLow",
             "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolution": "",
-            "Resolved": false,
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/13",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/13/attachment",
-            "Created": "2024-05-13T01:58:12+00:00",
-            "EntryType": "Event",
-            "Id": "13",
-            "Message": "xyz.openbmc_project.Sensor.Threshold.Error.TemperatureWarningLow",
-            "Modified": "2024-05-13T01:58:12+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Warning"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/14",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/14/attachment",
-            "Created": "2024-05-13T01:58:12+00:00",
-            "EntryType": "Event",
-            "Id": "14",
-            "Message": "xyz.openbmc_project.Sensor.Threshold.Error.TemperatureWarningLow",
-            "Modified": "2024-05-13T01:58:12+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Warning"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/15",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/15/attachment",
-            "Created": "2024-05-13T01:58:12+00:00",
-            "EntryType": "Event",
-            "Id": "15",
-            "Message": "Failed to set GPIO line BMC_EP_PERST_EN-O to 0",
-            "Modified": "2024-05-13T01:58:12+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/16",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/16/attachment",
-            "Created": "2024-05-13T02:01:54+00:00",
-            "EntryType": "Event",
-            "Id": "16",
-            "Message": "xyz.openbmc_project.State.Host.Error.HostStartMinFailure",
-            "Modified": "2024-05-13T02:01:54+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/17",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/17/attachment",
-            "Created": "2024-05-13T02:01:54+00:00",
-            "EntryType": "Event",
-            "Id": "17",
-            "Message": "xyz.openbmc_project.State.Host.Error.HostStartFailure",
-            "Modified": "2024-05-13T02:01:54+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/18",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/18/attachment",
-            "Created": "2024-05-13T02:01:55+00:00",
-            "EntryType": "Event",
-            "Id": "18",
-            "Message": "Failed to set GPIO line BMC_EP_PERST_EN-O to 0",
-            "Modified": "2024-05-13T02:01:55+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/19",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/19/attachment",
-            "Created": "2024-05-13T02:05:38+00:00",
-            "EntryType": "Event",
-            "Id": "19",
-            "Message": "xyz.openbmc_project.State.Host.Error.HostShutdownFailure",
-            "Modified": "2024-05-13T02:05:38+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/2",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/2/attachment",
-            "Created": "2024-05-10T22:19:32+00:00",
-            "EntryType": "Event",
-            "Id": "2",
-            "Message": "Baseboard Standby Power ON.",
-            "Modified": "2024-05-10T22:19:32+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/20",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/20/attachment",
-            "Created": "2024-05-13T02:05:38+00:00",
-            "EntryType": "Event",
-            "Id": "20",
-            "Message": "xyz.openbmc_project.State.Host.Error.HostRebootFailure",
-            "Modified": "2024-05-13T02:05:38+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/21",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/21/attachment",
-            "Created": "2024-05-13T02:09:09+00:00",
-            "EntryType": "Event",
-            "Id": "21",
-            "Message": "powerctrl.sh cannot run because bmc-boot-complete (bmc_ready.sh) has not activated successfully",
-            "Modified": "2024-05-13T02:09:09+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/22",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/22/attachment",
-            "Created": "2024-05-13T02:10:27+00:00",
-            "EntryType": "Event",
-            "Id": "22",
-            "Message": "Failed to set GPIO line BMC_EP_PERST_EN-O to 0",
-            "Modified": "2024-05-13T02:10:27+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/23",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/23/attachment",
-            "Created": "2024-05-13T02:14:11+00:00",
-            "EntryType": "Event",
-            "Id": "23",
-            "Message": "xyz.openbmc_project.State.BMC.Error.MultiUserTargetFailure",
-            "Modified": "2024-05-13T02:14:11+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/24",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/24/attachment",
-            "Created": "2024-05-13T02:15:43+00:00",
-            "EntryType": "Event",
-            "Id": "24",
-            "Message": "HGX_GPU_0_DRAM_0_Temp_0 sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
-            "MessageArgs": [
-                "HGX_GPU_0_DRAM_0_Temp_0",
-                "0.000000",
-                "5.000000"
-            ],
-            "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingLow",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolution": "",
-            "Resolved": false,
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/25",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/25/attachment",
-            "Created": "2024-05-13T02:15:43+00:00",
-            "EntryType": "Event",
-            "Id": "25",
-            "Message": "HGX_GPU_1_DRAM_0_Temp_0 sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
-            "MessageArgs": [
-                "HGX_GPU_1_DRAM_0_Temp_0",
-                "0.000000",
-                "5.000000"
-            ],
-            "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingLow",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolution": "",
-            "Resolved": false,
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/26",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/26/attachment",
-            "Created": "2024-05-13T02:15:43+00:00",
-            "EntryType": "Event",
-            "Id": "26",
-            "Message": "HMC_Temperature_Sensor sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
-            "MessageArgs": [
-                "HMC_Temperature_Sensor",
-                "0.000000",
-                "5.000000"
-            ],
-            "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingLow",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolution": "",
-            "Resolved": false,
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/27",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/27/attachment",
-            "Created": "2024-05-13T02:15:44+00:00",
-            "EntryType": "Event",
-            "Id": "27",
-            "Message": "HMC_Temperature_Sensor sensor crossed a warning low threshold going high. Reading=37.000000 Threshold=5.000000.",
-            "MessageArgs": [
-                "HMC_Temperature_Sensor",
-                "37.000000",
-                "5.000000"
-            ],
-            "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingHigh",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolution": "",
-            "Resolved": false,
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/3",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/3/attachment",
-            "Created": "2024-05-10T22:20:06+00:00",
-            "EntryType": "Event",
-            "Id": "3",
-            "Message": "powerctrl.sh cannot run because bmc-boot-complete (bmc_ready.sh) has not activated successfully",
-            "Modified": "2024-05-10T22:20:06+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/4",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/4/attachment",
-            "Created": "2024-05-10T22:20:16+00:00",
-            "EntryType": "Event",
-            "Id": "4",
-            "Message": "powerctrl.sh cannot run because bmc-boot-complete (bmc_ready.sh) has not activated successfully",
-            "Modified": "2024-05-10T22:20:16+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/5",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/5/attachment",
-            "Created": "2024-05-10T22:20:19+00:00",
-            "EntryType": "Event",
-            "Id": "5",
-            "Message": "powerctrl.sh cannot run because bmc-boot-complete (bmc_ready.sh) has not activated successfully",
-            "Modified": "2024-05-10T22:20:19+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/6",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/6/attachment",
-            "Created": "2024-05-10T22:20:25+00:00",
-            "EntryType": "Event",
-            "Id": "6",
-            "Message": "powerctrl.sh cannot run because bmc-boot-complete (bmc_ready.sh) has not activated successfully",
-            "Modified": "2024-05-10T22:20:25+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/7",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/7/attachment",
-            "Created": "2024-05-10T22:22:26+00:00",
-            "EntryType": "Event",
-            "Id": "7",
-            "Message": "Failed to set GPIO line BMC_EP_PERST_EN-O to 0",
-            "Modified": "2024-05-10T22:22:26+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "Critical"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/8",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/8/attachment",
-            "Created": "2024-05-10T22:22:27+00:00",
-            "EntryType": "Event",
-            "Id": "8",
-            "Message": "Baseboard Standby Power ON.",
-            "Modified": "2024-05-10T22:22:27+00:00",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolved": false,
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/9",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/9/attachment",
-            "Created": "2024-05-10T22:22:38+00:00",
-            "EntryType": "Event",
-            "Id": "9",
-            "Message": "The resource has been created successfully.",
-            "MessageArgs": [
-                ""
-            ],
-            "MessageId": "ResourceEvent.1.2.ResourceCreated",
-            "Name": "System Event Log Entry",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-                    "Device": "",
-                    "ErrorId": ""
-                }
-            },
-            "Resolution": "",
+            "Resolution": "Check the sensor or subsystem for errors.",
             "Resolved": false,
             "Severity": "OK"
         }
     ],
-    "Members@odata.count": 27,
+    "Members@odata.count": 5,
     "Name": "System Event Log Entries"
 }

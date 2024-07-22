@@ -6,10 +6,11 @@
             "target": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Actions/LogService.ClearLog"
         },
         "#LogService.CollectDiagnosticData": {
+            "@Redfish.ActionInfo": "/redfish/v1/Managers/BMC_0/LogServices/Dump/CollectDiagnosticDataActionInfo",
             "target": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Actions/LogService.CollectDiagnosticData"
         }
     },
-    "DateTime": "2024-05-15T17:11:28+00:00",
+    "DateTime": "2024-07-22T15:47:49+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "BMC Dump LogService",
     "Entries": {

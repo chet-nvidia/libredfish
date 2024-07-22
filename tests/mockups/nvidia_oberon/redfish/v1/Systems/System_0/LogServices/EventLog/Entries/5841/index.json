@@ -1,0 +1,18 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/5841",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "Created": "2024-07-22T15:15:28+00:00",
+    "EntryType": "Event",
+    "Id": "5841",
+    "Message": "ProcessMemory_bmcweb sensor crossed a warning high threshold going high. Reading=10.065852 Threshold=10.000000.",
+    "MessageArgs": [
+        "ProcessMemory_bmcweb",
+        "10.065852",
+        "10.000000"
+    ],
+    "MessageId": "OpenBMC.0.4.SensorThresholdWarningHighGoingHigh",
+    "Name": "System Event Log Entry",
+    "Resolution": "None",
+    "Resolved": false,
+    "Severity": "Warning"
+}

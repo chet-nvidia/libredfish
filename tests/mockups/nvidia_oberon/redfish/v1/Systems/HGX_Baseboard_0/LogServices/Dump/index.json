@@ -6,10 +6,11 @@
             "target": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/Dump/Actions/LogService.ClearLog"
         },
         "#LogService.CollectDiagnosticData": {
+            "@Redfish.ActionInfo": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/Dump/CollectDiagnosticDataActionInfo",
             "target": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/Dump/Actions/LogService.CollectDiagnosticData"
         }
     },
-    "DateTime": "1970-01-03T14:49:47+00:00",
+    "DateTime": "2024-07-22T15:49:17+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "System Dump LogService",
     "Entries": {

@@ -2,7 +2,7 @@
     "$id": "http://redfish.dmtf.org/schemas/v1/LogEntryCollection.json",
     "$ref": "#/definitions/LogEntryCollection",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2022 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "LogEntryCollection": {
             "anyOf": [
@@ -98,7 +98,8 @@
                 "/redfish/v1/Chassis/{ChassisId}/LogServices/{LogServiceId}/Entries",
                 "/redfish/v1/JobService/Log/Entries",
                 "/redfish/v1/TelemetryService/LogService/Entries",
-                "/redfish/v1/Systems/{ComputerSystemId}/Memory/{MemoryId}/DeviceLog/Entries"
+                "/redfish/v1/Systems/{ComputerSystemId}/Memory/{MemoryId}/DeviceLog/Entries",
+                "/redfish/v1/Chassis/{ChassisId}/PCIeDevices/{PCIeDeviceId}/CXLLogicalDevices/{CXLLogicalDeviceId}/DeviceLog/Entries"
             ]
         }
     },

@@ -5,8 +5,12 @@
     "Id": "FW_BMC_0",
     "Manufacturer": "NVIDIA",
     "Name": "Software Inventory",
-    "RelatedItem": [],
-    "RelatedItem@odata.count": 0,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/BMC_0"
+        }
+    ],
+    "RelatedItem@odata.count": 1,
     "SoftwareId": "0x0010",
     "Status": {
         "Conditions": [],
@@ -15,6 +19,6 @@
         "State": "Enabled"
     },
     "Updateable": true,
-    "Version": "OberonGH-24.03-7",
+    "Version": "BF-24.07-5",
     "WriteProtected": false
 }

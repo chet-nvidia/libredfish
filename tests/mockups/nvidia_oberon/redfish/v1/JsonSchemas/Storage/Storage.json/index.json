@@ -1,8 +1,8 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/Storage.v1_13_0.json",
+    "$id": "http://redfish.dmtf.org/schemas/v1/Storage.v1_15_1.json",
     "$ref": "#/definitions/Storage",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2022 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Actions": {
             "additionalProperties": false,
@@ -36,6 +36,21 @@
                 }
             },
             "type": "object"
+        },
+        "AutoVolumeCreate": {
+            "enum": [
+                "Disabled",
+                "NonRAID",
+                "RAID0",
+                "RAID1"
+            ],
+            "enumDescriptions": {
+                "Disabled": "Do not automatically create volumes.",
+                "NonRAID": "Automatically create non-RAID volumes.",
+                "RAID0": "Automatically create RAID0 volumes.",
+                "RAID1": "Automatically create RAID1 volumes."
+            },
+            "type": "string"
         },
         "CacheSummary": {
             "additionalProperties": false,
@@ -92,6 +107,32 @@
             ],
             "type": "object"
         },
+        "EncryptionMode": {
+            "enum": [
+                "Disabled",
+                "UseExternalKey",
+                "UseLocalKey"
+            ],
+            "enumDescriptions": {
+                "Disabled": "Encryption is disabled on the storage subsystem.",
+                "UseExternalKey": "The storage subsystem uses one or more external keys for encryption.",
+                "UseLocalKey": "The storage subsystem uses a local key for encryption."
+            },
+            "type": "string"
+        },
+        "HotspareActivationPolicy": {
+            "enum": [
+                "OnDriveFailure",
+                "OnDrivePredictedFailure",
+                "OEM"
+            ],
+            "enumDescriptions": {
+                "OEM": "The hot spare drive will take over for the original drive in an algorithm custom to the OEM.",
+                "OnDriveFailure": "The hot spare drive will take over for the original drive when the original drive has been marked as failed by the storage domain.",
+                "OnDrivePredictedFailure": "The hot spare drive will take over for the original drive when the original drive has been predicted to fail in the future by the storage domain."
+            },
+            "type": "string"
+        },
         "Links": {
             "additionalProperties": false,
             "description": "The links to other resources that are related to this resource.",
@@ -134,6 +175,19 @@
                     "versionAdded": "v1_11_0"
                 },
                 "HostingStorageSystems@odata.count": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/count"
+                },
+                "NVMeoFDiscoverySubsystems": {
+                    "description": "An array of links to the discovery subsystems that discovered this subsystem in an NVMe-oF environment.",
+                    "items": {
+                        "$ref": "http://redfish.dmtf.org/schemas/v1/Storage.json#/definitions/Storage"
+                    },
+                    "longDescription": "This property shall contain an array of links to resources of type Storage that represent the discovery subsystems that discovered this subsystem in an NVMe-oF environment.",
+                    "readonly": true,
+                    "type": "array",
+                    "versionAdded": "v1_15_0"
+                },
+                "NVMeoFDiscoverySubsystems@odata.count": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/count"
                 },
                 "Oem": {
@@ -296,14 +350,26 @@
         },
         "SetEncryptionKey": {
             "additionalProperties": false,
-            "description": "This action sets the encryption key for the storage subsystem.",
-            "longDescription": "This action shall set the encryption key for the storage subsystem.",
+            "description": "This action sets the local encryption key for the storage subsystem.",
+            "longDescription": "This action shall set the local encryption key for the storage subsystem.",
             "parameters": {
+                "CurrentEncryptionKey": {
+                    "description": "The current local encryption key on the storage subsystem.",
+                    "longDescription": "This parameter shall contain the current local encryption key on the storage subsystem.  Services may reject the action request if this parameter is not provided.",
+                    "type": "string",
+                    "versionAdded": "v1_14_0"
+                },
                 "EncryptionKey": {
-                    "description": "The encryption key to set on the storage subsystem.",
-                    "longDescription": "This parameter shall contain the encryption key to set on the storage subsystem.",
+                    "description": "The local encryption key to set on the storage subsystem.",
+                    "longDescription": "This parameter shall contain the local encryption key to set on the storage subsystem.",
                     "requiredParameter": true,
                     "type": "string"
+                },
+                "EncryptionKeyIdentifier": {
+                    "description": "The local encryption key identifier used by the storage subsystem.",
+                    "longDescription": "This property shall contain the local encryption key identifier used by the storage subsystem.",
+                    "type": "string",
+                    "versionAdded": "v1_14_0"
                 }
             },
             "patternProperties": {
@@ -369,6 +435,27 @@
                     "description": "The available actions for this resource.",
                     "longDescription": "This property shall contain the available actions for this resource."
                 },
+                "AutoVolumeCreate": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/AutoVolumeCreate"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Indicates if this storage subsystem automatically creates new volumes for unassigned drives.",
+                    "longDescription": "This property shall indicate if volumes are created automatically for each unassigned drive attached to this storage subsystem.",
+                    "readonly": false,
+                    "versionAdded": "v1_15_0"
+                },
+                "Connections": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/ConnectionCollection.json#/definitions/ConnectionCollection",
+                    "description": "The collection of links to the connections that this storage subsystem contains.",
+                    "longDescription": "This property shall contain a link to a resource collection of type ConnectionCollection.  The members of this collection shall reference Connection resources subordinate to Fabric resources.",
+                    "readonly": true,
+                    "versionAdded": "v1_15_0"
+                },
                 "ConsistencyGroups": {
                     "$ref": "http://redfish.dmtf.org/schemas/swordfish/v1/ConsistencyGroupCollection.json#/definitions/ConsistencyGroupCollection",
                     "description": "The consistency groups, each of which contains a set of volumes that are treated by an application or set of applications as a single resource, that are managed by this storage subsystem.",
@@ -406,10 +493,24 @@
                 "Drives@odata.count": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/count"
                 },
+                "EncryptionMode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/EncryptionMode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The encryption mode of this storage subsystem.",
+                    "longDescription": "This property shall contain the encryption mode of this storage subsystem.",
+                    "readonly": false,
+                    "versionAdded": "v1_14_0"
+                },
                 "EndpointGroups": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/EndpointGroupCollection.json#/definitions/EndpointGroupCollection",
                     "description": "All of the endpoint groups, each of which contains a set of endpoints that are used for a common purpose such as an ACL or logical identification, that belong to this storage subsystem.",
-                    "longDescription": "This property shall contain a link to a resource collection of type EndpointGroupCollection.  This property shall be implemented when atomic control is needed to perform mapping, masking and zoning operations.",
+                    "longDescription": "This property shall contain a link to a resource collection of type EndpointGroupCollection.  This property shall be implemented when atomic control is needed to perform mapping, masking, and zoning operations.",
                     "readonly": true,
                     "versionAdded": "v1_8_0"
                 },
@@ -419,6 +520,20 @@
                     "longDescription": "This property shall contain a link to a resource collection of type FileSystemCollection.  This property shall be used when file systems are shared or exported by the storage subsystem.",
                     "readonly": true,
                     "versionAdded": "v1_8_0"
+                },
+                "HotspareActivationPolicy": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/HotspareActivationPolicy"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The policy under which hot spare drives in this storage domain will activate.",
+                    "longDescription": "This property shall contain the policy under which all drives operating as hot spares in this storage domain will activate.",
+                    "readonly": false,
+                    "versionAdded": "v1_14_0"
                 },
                 "Id": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
@@ -437,6 +552,16 @@
                     "$ref": "#/definitions/Links",
                     "description": "The links to other resources that are related to this resource.",
                     "longDescription": "This property shall contain links to resources that are related to but are not contained by, or subordinate to, this resource."
+                },
+                "LocalEncryptionKeyIdentifier": {
+                    "description": "The local encryption key identifier used by the storage subsystem.",
+                    "longDescription": "This property shall contain the local encryption key identifier used by the storage subsystem when EncryptionMode contains `UseLocalKey`.",
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "versionAdded": "v1_14_0"
                 },
                 "Name": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
@@ -481,10 +606,12 @@
                 },
                 "StorageGroups": {
                     "$ref": "http://redfish.dmtf.org/schemas/swordfish/v1/StorageGroupCollection.json#/definitions/StorageGroupCollection",
+                    "deprecated": "This property was deprecated in favor of the Connections property.",
                     "description": "All of the storage groups, each of which contains a set of volumes and endpoints that are managed as a group for mapping and masking, that belong to this storage subsystem.",
                     "longDescription": "This property shall contain a link to a resource collection of type StorageGroupsCollection.  This property shall be used when implementing mapping and masking.",
                     "readonly": true,
-                    "versionAdded": "v1_8_0"
+                    "versionAdded": "v1_8_0",
+                    "versionDeprecated": "v1_15_0"
                 },
                 "StoragePools": {
                     "$ref": "http://redfish.dmtf.org/schemas/swordfish/v1/StoragePoolCollection.json#/definitions/StoragePoolCollection",
@@ -511,7 +638,7 @@
         "StorageController": {
             "additionalProperties": false,
             "description": "The StorageController schema describes a storage controller and its properties.  A storage controller represents a physical or virtual storage device that produces volumes.",
-            "longDescription": "This resource shall represent a resource that represents a storage controller in the Redfish Specification.",
+            "longDescription": "This resource shall represent a storage controller in the Redfish Specification.",
             "patternProperties": {
                 "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
                     "description": "This property shall specify a valid odata or Redfish property.",
@@ -597,7 +724,7 @@
                 "Location": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Location",
                     "description": "The location of the storage controller.",
-                    "longDescription": "This property shall contain location information of the associated storage controller.",
+                    "longDescription": "This property shall contain the location information of the associated storage controller.",
                     "versionAdded": "v1_4_0"
                 },
                 "Manufacturer": {
@@ -674,7 +801,7 @@
                 },
                 "SKU": {
                     "description": "The SKU for this storage controller.",
-                    "longDescription": "This property shall contain the stock-keeping unit number for this storage storage controller.",
+                    "longDescription": "This property shall contain the stock-keeping unit number for this storage controller.",
                     "readonly": true,
                     "type": [
                         "string",
@@ -707,11 +834,11 @@
                     "longDescription": "This property shall contain any status or health properties of the resource."
                 },
                 "SupportedControllerProtocols": {
-                    "description": "The supported set of protocols for communicating to this storage controller.",
+                    "description": "The supported set of protocols for communicating with this storage controller.",
                     "items": {
                         "$ref": "http://redfish.dmtf.org/schemas/v1/Protocol.json#/definitions/Protocol"
                     },
-                    "longDescription": "This property shall contain the supported set of protocols for communicating to this storage controller.",
+                    "longDescription": "This property shall contain the supported set of protocols for communicating with this storage controller.",
                     "readonly": true,
                     "type": "array"
                 },
@@ -817,7 +944,7 @@
                     "items": {
                         "$ref": "http://redfish.dmtf.org/schemas/v1/PCIeFunction.json#/definitions/PCIeFunction"
                     },
-                    "longDescription": "This property shall contain an array of links to resources of type PCIeFunction that represents the PCIe functions associated with this resource.",
+                    "longDescription": "This property shall contain an array of links to resources of type PCIeFunction that represent the PCIe functions associated with this resource.",
                     "type": "array",
                     "versionAdded": "v1_7_0"
                 },
@@ -864,6 +991,6 @@
         }
     },
     "owningEntity": "DMTF",
-    "release": "2022.1",
-    "title": "#Storage.v1_13_0.Storage"
+    "release": "2023.1",
+    "title": "#Storage.v1_15_1.Storage"
 }

@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Chassis/HGX_GPU_1",
-    "@odata.type": "#Chassis.v1_21_0.Chassis",
+    "@odata.type": "#Chassis.v1_22_0.Chassis",
     "Assembly": {
         "@odata.id": "/redfish/v1/Chassis/HGX_GPU_1/Assembly"
     },
@@ -20,6 +20,9 @@
                 "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0"
             }
         ],
+        "ContainedBy": {
+            "@odata.id": "/redfish/v1/Chassis/HGX_ProcessorModule_1"
+        },
         "ManagedBy": [
             {
                 "@odata.id": "/redfish/v1/Managers/HGX_BMC_0"
@@ -34,7 +37,7 @@
     "Location": {
         "PartLocation": {
             "LocationType": "Embedded",
-            "ServiceLabel": ""
+            "ServiceLabel": "Processor Module 1"
         }
     },
     "LogServices": {
@@ -43,10 +46,11 @@
     "Manufacturer": "NVIDIA",
     "MaxPowerWatts": 0,
     "MinPowerWatts": 0,
-    "Name": "GPU_1",
+    "Model": "",
+    "Name": "HGX_GPU_1",
     "Oem": {
         "Nvidia": {
-            "@odata.type": "#NvidiaChassis.v1_0_0.NvidiaChassis"
+            "@odata.type": "#NvidiaChassis.v1_1_0.NvidiaChassis"
         }
     },
     "PCIeDevices": {

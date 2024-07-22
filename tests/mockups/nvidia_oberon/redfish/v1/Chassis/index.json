@@ -3,13 +3,19 @@
     "@odata.type": "#ChassisCollection.ChassisCollection",
     "Members": [
         {
+            "@odata.id": "/redfish/v1/Chassis/BMC_0"
+        },
+        {
             "@odata.id": "/redfish/v1/Chassis/CPLD_0"
         },
         {
-            "@odata.id": "/redfish/v1/Chassis/ERoT_BMC_0"
+            "@odata.id": "/redfish/v1/Chassis/CPU_0"
         },
         {
-            "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0"
+            "@odata.id": "/redfish/v1/Chassis/CPU_1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/ERoT_BMC_0"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_CPLD_0"
@@ -49,8 +55,14 @@
         },
         {
             "@odata.id": "/redfish/v1/Chassis/HGX_GPU_1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/HGX_ProcessorModule_0"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/HGX_ProcessorModule_1"
         }
     ],
-    "Members@odata.count": 16,
+    "Members@odata.count": 20,
     "Name": "Chassis Collection"
 }

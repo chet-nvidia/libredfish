@@ -1,5 +1,5 @@
 {
-    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_1/PCIeDevices/GPU_1/PCIeFunctions",
+    "@odata.id": "/redfish/v1/Chassis/HGX_GPU_1/PCIeDevices/GPU_1/PCIeFunctions/",
     "@odata.type": "#PCIeFunctionCollection.PCIeFunctionCollection",
     "Description": "Collection of PCIe Functions for PCIe Device GPU_1",
     "Members": [],

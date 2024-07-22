@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Chassis/ERoT_BMC_0",
-    "@odata.type": "#Chassis.v1_17_0.Chassis",
+    "@odata.type": "#Chassis.v1_22_0.Chassis",
     "Actions": {
         "Oem": {
             "#CAKInstall": {

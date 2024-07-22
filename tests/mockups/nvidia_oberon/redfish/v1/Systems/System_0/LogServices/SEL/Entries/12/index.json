@@ -1,25 +1,18 @@
 {
     "@odata.id": "/redfish/v1/Systems/System_0/LogServices/SEL/Entries/12",
     "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-    "Created": "2024-05-10T22:26:24+00:00",
+    "Created": "2024-07-01T18:57:14+00:00",
     "EntryType": "SEL",
     "Id": "12",
-    "Message": "HGX_GPU_1_DRAM_0_Temp_0 sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
+    "Message": "FAN_5_F sensor crossed a critical low threshold going low. Reading=0.000000 Threshold=2204.000000.",
     "MessageArgs": [
-        "HGX_GPU_1_DRAM_0_Temp_0",
+        "FAN_5_F",
         "0.000000",
-        "5.000000"
+        "2204.000000"
     ],
-    "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingLow",
+    "MessageId": "OpenBMC.0.1.SensorThresholdCriticalLowGoingLow",
     "Name": "System Event Log Entry",
-    "Oem": {
-        "Nvidia": {
-            "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
-            "Device": "",
-            "ErrorId": ""
-        }
-    },
-    "Resolution": "",
+    "Resolution": "Check the sensor or subsystem for errors.",
     "Resolved": false,
     "Severity": "OK"
 }

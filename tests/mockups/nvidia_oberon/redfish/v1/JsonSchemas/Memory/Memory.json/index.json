@@ -1,8 +1,8 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/Memory.v1_16_0.json",
+    "$id": "http://redfish.dmtf.org/schemas/v1/Memory.v1_19_0.json",
     "$ref": "#/definitions/Memory",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2022 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Actions": {
             "additionalProperties": false,
@@ -23,8 +23,17 @@
                 }
             },
             "properties": {
+                "#Memory.DisableMasterPassphrase": {
+                    "$ref": "#/definitions/DisableMasterPassphrase"
+                },
                 "#Memory.DisablePassphrase": {
                     "$ref": "#/definitions/DisablePassphrase"
+                },
+                "#Memory.FreezeSecurityState": {
+                    "$ref": "#/definitions/FreezeSecurityState"
+                },
+                "#Memory.InjectPersistentPoison": {
+                    "$ref": "#/definitions/InjectPersistentPoison"
                 },
                 "#Memory.OverwriteUnit": {
                     "$ref": "#/definitions/OverwriteUnit"
@@ -35,8 +44,14 @@
                 "#Memory.ResetToDefaults": {
                     "$ref": "#/definitions/ResetToDefaults"
                 },
+                "#Memory.ScanMedia": {
+                    "$ref": "#/definitions/ScanMedia"
+                },
                 "#Memory.SecureEraseUnit": {
                     "$ref": "#/definitions/SecureEraseUnit"
+                },
+                "#Memory.SetMasterPassphrase": {
+                    "$ref": "#/definitions/SetMasterPassphrase"
                 },
                 "#Memory.SetPassphrase": {
                     "$ref": "#/definitions/SetPassphrase"
@@ -84,9 +99,101 @@
             },
             "type": "string"
         },
+        "CXL": {
+            "additionalProperties": false,
+            "description": "CXL properties for a memory device.",
+            "longDescription": "This type shall contain CXL-specific properties for a memory device.",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "LabelStorageSizeBytes": {
+                    "description": "The size of the label storage area in bytes of this memory device.",
+                    "longDescription": "This property shall contain the size of the label storage area in bytes of this memory device.",
+                    "readonly": true,
+                    "type": "integer",
+                    "units": "By",
+                    "versionAdded": "v1_17_0"
+                },
+                "StagedNonVolatileSizeMiB": {
+                    "description": "Total device non-volatile memory capacity in MiB staged for next activation.  The value is in multiples of 256 MiB.",
+                    "longDescription": "The value of this property shall indicate the total device non-volatile memory capacity in mebibytes.  The value shall be in multiples of 256 mebibytes.",
+                    "readonly": false,
+                    "type": "integer",
+                    "units": "MiBy",
+                    "versionAdded": "v1_17_0"
+                },
+                "StagedVolatileSizeMiB": {
+                    "description": "Total device volatile memory capacity in MiB staged for next activation.  This value is in multiples of 256 MiB.",
+                    "longDescription": "The value of this property shall indicate the total device volatile memory capacity in mebibytes staged for next activation.  This value shall be in multiples of 256 mebibytes.",
+                    "readonly": false,
+                    "type": "integer",
+                    "units": "MiBy",
+                    "versionAdded": "v1_17_0"
+                }
+            },
+            "type": "object"
+        },
+        "DisableMasterPassphrase": {
+            "additionalProperties": false,
+            "description": "Disables the master passphrase for the given region.",
+            "longDescription": "This action shall disable the master passphrase on the supplied region provided the supplied master passphrase matches that of the region.",
+            "parameters": {
+                "Passphrase": {
+                    "description": "The master passphrase for the specified region.",
+                    "longDescription": "This parameter shall contain the master passphrase for the specified region.",
+                    "requiredParameter": true,
+                    "type": "string"
+                },
+                "RegionId": {
+                    "description": "The memory region ID to which to disable the master passphrase.",
+                    "longDescription": "This parameter shall contain the memory region ID to which to disable the master passphrase.",
+                    "requiredParameter": true,
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "versionAdded": "v1_17_0"
+        },
         "DisablePassphrase": {
             "additionalProperties": false,
-            "description": "Disable passphrase for given regions.",
+            "description": "Disable passphrase for the given region.",
             "longDescription": "This action shall disable the need for passphrases on the supplied region provided the supplied passphrase matches that of the region.",
             "parameters": {
                 "Passphrase": {
@@ -144,6 +251,117 @@
             },
             "type": "string"
         },
+        "FreezeSecurityState": {
+            "additionalProperties": false,
+            "description": "Freezes the security state of the memory device.",
+            "longDescription": "This action shall freeze the security state of the memory device.",
+            "parameters": {},
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "versionAdded": "v1_17_0"
+        },
+        "HealthData": {
+            "additionalProperties": false,
+            "description": "The health data of a memory device.",
+            "longDescription": "This type shall contain the health data of a memory device.",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "PredictedMediaLifeLeftPercent": {
+                    "deprecated": "This property has been deprecated in favor of PredictedMediaLifeLeftPercent in the MemoryMetrics resource.",
+                    "description": "The current health of the memory device as a percentage.",
+                    "longDescription": "This property shall contain the current health of the memory device as a percentage, `0` to `100`.",
+                    "maximum": 100,
+                    "minimum": 0,
+                    "readonly": true,
+                    "type": [
+                        "number",
+                        "null"
+                    ],
+                    "units": "%",
+                    "versionAdded": "v1_17_0",
+                    "versionDeprecated": "v1_19_0"
+                }
+            },
+            "type": "object"
+        },
+        "InjectPersistentPoison": {
+            "additionalProperties": false,
+            "description": "Injects poison to a specific persistent memory address in the memory device.",
+            "longDescription": "This action shall inject poison to a specific persistent memory address in the memory device.",
+            "parameters": {
+                "PhysicalAddress": {
+                    "description": "The device persistent physical address in which to perform a poison injection as a hex-encoded string.",
+                    "longDescription": "This parameter shall contain the device persistent physical address in which to perform a poison injection as a hex-encoded string.",
+                    "pattern": "^0x[0-9a-fA-F]+$",
+                    "requiredParameter": true,
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "versionAdded": "v1_17_0"
+        },
         "Links": {
             "additionalProperties": false,
             "description": "The links to other resources that are related to this resource.",
@@ -164,11 +382,11 @@
             },
             "properties": {
                 "Batteries": {
-                    "description": "The batteries that provide power to this memory device during a power loss event.",
+                    "description": "The batteries that provide power to this memory device during a power-loss event.",
                     "items": {
                         "$ref": "http://redfish.dmtf.org/schemas/v1/Battery.json#/definitions/Battery"
                     },
-                    "longDescription": "This property shall contain an array of links to resources of type Battery that represent the batteries that provide power to this memory device during a power loss event, such as with battery-backed NVDIMMs.  This property shall not be present if the batteries power the containing chassis as a whole rather than the individual memory device.",
+                    "longDescription": "This property shall contain an array of links to resources of type Battery that represent the batteries that provide power to this memory device during a power-loss event, such as with battery-backed NVDIMMs.  This property shall not be present if the batteries power the containing chassis as a whole rather than the individual memory device.",
                     "readonly": true,
                     "type": "array",
                     "versionAdded": "v1_15_0"
@@ -182,6 +400,45 @@
                     "longDescription": "This property shall contain a link to a resource of type Chassis that represents the physical container associated with this memory device.",
                     "readonly": true,
                     "versionAdded": "v1_2_0"
+                },
+                "Endpoints": {
+                    "description": "An array of links to the endpoints associated with this memory.",
+                    "items": {
+                        "$ref": "http://redfish.dmtf.org/schemas/v1/Endpoint.json#/definitions/Endpoint"
+                    },
+                    "longDescription": "This property shall contain an array of links to resources of type Endpoint that represent the endpoints associated with this memory.",
+                    "readonly": true,
+                    "type": "array",
+                    "versionAdded": "v1_17_0"
+                },
+                "Endpoints@odata.count": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/count"
+                },
+                "MemoryMediaSources": {
+                    "description": "An array of memory chunks providing media for this memory.",
+                    "items": {
+                        "$ref": "http://redfish.dmtf.org/schemas/v1/MemoryChunks.json#/definitions/MemoryChunks"
+                    },
+                    "longDescription": "This property shall contain an array of links to resources of type MemoryChunks that represent the memory chunk instances providing media for this memory.",
+                    "readonly": true,
+                    "type": "array",
+                    "versionAdded": "v1_17_0"
+                },
+                "MemoryMediaSources@odata.count": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/count"
+                },
+                "MemoryRegionMediaSources": {
+                    "description": "An array of memory regions providing media for this memory.",
+                    "items": {
+                        "$ref": "http://redfish.dmtf.org/schemas/v1/MemoryRegion.json#/definitions/MemoryRegion"
+                    },
+                    "longDescription": "This property shall contain an array of links to resources of type MemoryRegion that represent the memory region instances providing media for this memory.",
+                    "readonly": true,
+                    "type": "array",
+                    "versionAdded": "v1_18_0"
+                },
+                "MemoryRegionMediaSources@odata.count": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/count"
                 },
                 "Oem": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Oem",
@@ -206,8 +463,8 @@
         },
         "Memory": {
             "additionalProperties": false,
-            "description": "The Memory schema represents a memory device, such as a DIMM, and its configuration.",
-            "longDescription": "This resource shall represent a memory device in a Redfish implementation.",
+            "description": "The Memory schema represents a memory device, such as a DIMM, and its configuration.  It also describes the location, such as a slot, socket, or bay, where a unit can be installed, by populating a resource instance with an absent state if a unit is not present.",
+            "longDescription": "This resource shall represent a memory device in a Redfish implementation.  It may also represent a location, such as a slot, socket, or bay, where a unit may be installed, but the State property within the Status property contains `Absent`.",
             "patternProperties": {
                 "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
                     "description": "This property shall specify a valid odata or Redfish property.",
@@ -267,7 +524,7 @@
                     "items": {
                         "type": "integer"
                     },
-                    "longDescription": "This property shall contain the speed supported by this memory device.",
+                    "longDescription": "This property shall contain the speeds supported by this memory device.",
                     "readonly": true,
                     "type": "array",
                     "units": "MHz"
@@ -300,6 +557,12 @@
                         "integer",
                         "null"
                     ]
+                },
+                "CXL": {
+                    "$ref": "#/definitions/CXL",
+                    "description": "CXL properties for this memory device.",
+                    "longDescription": "This property shall contain CXL-specific properties for this memory device.",
+                    "versionAdded": "v1_17_0"
                 },
                 "CacheSizeMiB": {
                     "description": "Total size of the cache portion memory in MiB.",
@@ -373,7 +636,7 @@
                 "DeviceLocator": {
                     "deprecated": "This property has been deprecated in favor of the ServiceLabel property within Location.",
                     "description": "Location of the memory device in the platform.",
-                    "longDescription": "This property shall contain location of the memory device in the platform, typically marked in the silk screen.",
+                    "longDescription": "This property shall contain the location of the memory device in the platform, typically marked in the silk screen.",
                     "readonly": true,
                     "type": [
                         "string",
@@ -437,6 +700,12 @@
                     "type": "array",
                     "versionDeprecated": "v1_3_0"
                 },
+                "HealthData": {
+                    "$ref": "#/definitions/HealthData",
+                    "description": "The health data of this memory device.",
+                    "longDescription": "This property shall contain the health data of this memory device.",
+                    "versionAdded": "v1_17_0"
+                },
                 "Id": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
                     "readonly": true
@@ -468,7 +737,7 @@
                 "Location": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Location",
                     "description": "The location of the memory device.",
-                    "longDescription": "This property shall contain location information of the associated memory device.",
+                    "longDescription": "This property shall contain the location information of the associated memory device.",
                     "versionAdded": "v1_4_0"
                 },
                 "LocationIndicatorActive": {
@@ -486,6 +755,7 @@
                     "description": "The link to the log service associated with this memory.",
                     "longDescription": "This property shall contain a link to a resource of type LogService.",
                     "readonly": true,
+                    "uriSegment": "DeviceLog",
                     "versionAdded": "v1_13_0"
                 },
                 "LogicalSizeMiB": {
@@ -509,11 +779,11 @@
                     ]
                 },
                 "MaxTDPMilliWatts": {
-                    "description": "Set of maximum power budgets supported by the memory device in milliwatts.",
+                    "description": "Set of maximum power budgets supported by the memory device in milliwatt units.",
                     "items": {
                         "type": "integer"
                     },
-                    "longDescription": "This property shall contain an array of maximum power budgets supported by the memory device in milliwatts.",
+                    "longDescription": "This property shall contain an array of maximum power budgets supported by the memory device in milliwatt units.",
                     "readonly": true,
                     "type": "array",
                     "units": "mW"
@@ -595,7 +865,8 @@
                     "$ref": "http://redfish.dmtf.org/schemas/v1/MemoryMetrics.json#/definitions/MemoryMetrics",
                     "description": "The link to the metrics associated with this memory device.",
                     "longDescription": "The link to the metrics associated with this memory device.",
-                    "readonly": true
+                    "readonly": true,
+                    "uriSegment": "MemoryMetrics"
                 },
                 "Model": {
                     "description": "The product model number of this device.",
@@ -632,6 +903,14 @@
                 "Name": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
                     "readonly": true
+                },
+                "NonVolatileSizeLimitMiB": {
+                    "description": "The total non-volatile memory capacity in mebibytes (MiB).",
+                    "longDescription": "This property shall contain the total non-volatile memory capacity in mebibytes (MiB).",
+                    "readonly": false,
+                    "type": "integer",
+                    "units": "MiBy",
+                    "versionAdded": "v1_17_0"
                 },
                 "NonVolatileSizeMiB": {
                     "description": "Total size of the non-volatile portion memory in MiB.",
@@ -723,6 +1002,13 @@
                     "units": "MiBy",
                     "versionAdded": "v1_2_0"
                 },
+                "PoisonListMaxMediaErrorRecords": {
+                    "description": "The maximum number of media error records this device can track in its poison list.",
+                    "longDescription": "This property shall contain the maximum number of media error records this device can track in its poison list.",
+                    "readonly": false,
+                    "type": "integer",
+                    "versionAdded": "v1_17_0"
+                },
                 "PowerManagementPolicy": {
                     "$ref": "#/definitions/PowerManagementPolicy",
                     "description": "Power management policy information.",
@@ -764,6 +1050,12 @@
                     "readonly": false,
                     "versionAdded": "v1_7_0"
                 },
+                "SecurityStates": {
+                    "$ref": "#/definitions/SecurityStateInfo",
+                    "description": "The security states of this memory device.",
+                    "longDescription": "This property shall contain the security states of this memory device.",
+                    "versionAdded": "v1_17_0"
+                },
                 "SerialNumber": {
                     "description": "The product serial number of this device.",
                     "longDescription": "This property shall indicate the serial number as provided by the manufacturer of this memory device.",
@@ -775,7 +1067,7 @@
                 },
                 "SpareDeviceCount": {
                     "description": "Number of unused spare devices available in the memory device.",
-                    "longDescription": "This property shall contain the number of unused spare devices available in the memory device.  If memory devices fails, the spare device could be used.",
+                    "longDescription": "This property shall contain the number of unused spare devices available in the memory device.  If the memory device fails, the spare devices could be used.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -862,6 +1154,14 @@
                     "units": "MiBy",
                     "versionAdded": "v1_2_0"
                 },
+                "VolatileSizeLimitMiB": {
+                    "description": "The total volatile memory capacity in mebibytes (MiB).",
+                    "longDescription": "This property shall contain the total volatile memory capacity in mebibytes (MiB).",
+                    "readonly": false,
+                    "type": "integer",
+                    "units": "MiBy",
+                    "versionAdded": "v1_17_0"
+                },
                 "VolatileSizeMiB": {
                     "description": "Total size of the volatile portion memory in MiB.",
                     "longDescription": "This property shall contain the total size of the volatile portion memory in MiB.",
@@ -919,6 +1219,7 @@
                 "Logical",
                 "HBM",
                 "HBM2",
+                "HBM2E",
                 "HBM3",
                 "GDDR",
                 "GDDR2",
@@ -928,7 +1229,8 @@
                 "GDDR5X",
                 "GDDR6",
                 "DDR5",
-                "OEM"
+                "OEM",
+                "LPDDR5_SDRAM"
             ],
             "enumDescriptions": {
                 "DDR": "DDR.",
@@ -955,10 +1257,12 @@
                 "GDDR6": "Double data rate type six synchronous graphics random-access memory.",
                 "HBM": "High Bandwidth Memory.",
                 "HBM2": "The second generation of High Bandwidth Memory.",
+                "HBM2E": "An updated version of the second generation of High Bandwidth Memory.",
                 "HBM3": "The third generation of High Bandwidth Memory.",
                 "LPDDR3_SDRAM": "LPDDR3 SDRAM.",
                 "LPDDR4_SDRAM": "LPDDR4 SDRAM.",
-                "Logical": "Logical Non-volatile device.",
+                "LPDDR5_SDRAM": "LPDDR5 SDRAM.",
+                "Logical": "Logical device, such as when the memory is fabric-attached.",
                 "OEM": "OEM-defined.",
                 "PipelinedNibble": "Pipelined Nibble.",
                 "ROM": "ROM.",
@@ -975,7 +1279,9 @@
                 "GDDR6": "v1_11_0",
                 "HBM": "v1_7_0",
                 "HBM2": "v1_7_0",
+                "HBM2E": "v1_17_0",
                 "HBM3": "v1_11_0",
+                "LPDDR5_SDRAM": "v1_19_0",
                 "Logical": "v1_4_0",
                 "OEM": "v1_11_0"
             },
@@ -1066,11 +1372,11 @@
                 "IntelOptane"
             ],
             "enumDescriptions": {
-                "DRAM": "The memory device is comprised of volatile memory.",
+                "DRAM": "The memory device is composed of volatile memory.",
                 "IntelOptane": "The memory device is an Intel Optane Persistent Memory Module.",
-                "NVDIMM_F": "The memory device is comprised of non-volatile memory.",
-                "NVDIMM_N": "The memory device is comprised of volatile memory backed by non-volatile memory.",
-                "NVDIMM_P": "The memory device is comprised of a combination of non-volatile and volatile memory."
+                "NVDIMM_F": "The memory device is composed of non-volatile memory.",
+                "NVDIMM_N": "The memory device is composed of volatile memory backed by non-volatile memory.",
+                "NVDIMM_P": "The memory device is composed of a combination of non-volatile and volatile memory."
             },
             "enumLongDescriptions": {
                 "DRAM": "This value shall represent a volatile DRAM memory device.",
@@ -1184,8 +1490,8 @@
             },
             "properties": {
                 "AveragePowerBudgetMilliWatts": {
-                    "description": "Average power budget, in milliwatts.",
-                    "longDescription": "This property shall contain the average power budget, in milliwatts.",
+                    "description": "Average power budget, in milliwatt units.",
+                    "longDescription": "This property shall contain the average power budget, in milliwatt units.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -1194,8 +1500,8 @@
                     "units": "mW"
                 },
                 "MaxTDPMilliWatts": {
-                    "description": "Maximum TDP in milliwatts.",
-                    "longDescription": "This property shall contain the maximum TDP in milliwatts.",
+                    "description": "Maximum TDP in milliwatt units.",
+                    "longDescription": "This property shall contain the maximum TDP in milliwatt units.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -1204,8 +1510,8 @@
                     "units": "mW"
                 },
                 "PeakPowerBudgetMilliWatts": {
-                    "description": "Peak power budget, in milliwatts.",
-                    "longDescription": "This property shall contain the peak power budget, in milliwatts.",
+                    "description": "Peak power budget, in milliwatt units.",
+                    "longDescription": "This property shall contain the peak power budget, in milliwatt units.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -1244,6 +1550,16 @@
                 }
             },
             "properties": {
+                "MasterPassphraseEnabled": {
+                    "description": "An indication of whether the master passphrase is enabled for this region.",
+                    "longDescription": "This property shall indicate whether the master passphrase is enabled for this region.",
+                    "readonly": true,
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "versionAdded": "v1_17_0"
+                },
                 "MemoryClassification": {
                     "anyOf": [
                         {
@@ -1318,7 +1634,7 @@
                 "ResetType": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/ResetType",
                     "description": "The type of reset.",
-                    "longDescription": "This parameter shall contain the type of reset.  The service can accept a request without the parameter and perform an implementation specific default reset."
+                    "longDescription": "This parameter shall contain the type of reset.  The service can accept a request without the parameter and perform an implementation-specific default reset."
                 }
             },
             "patternProperties": {
@@ -1381,6 +1697,58 @@
             },
             "type": "object",
             "versionAdded": "v1_16_0"
+        },
+        "ScanMedia": {
+            "additionalProperties": false,
+            "description": "Scans the media of the memory device.",
+            "longDescription": "This action shall scan the media of the memory device.",
+            "parameters": {
+                "Length": {
+                    "description": "The length of the target region to scan in bytes from the physical address.",
+                    "longDescription": "This parameter shall contain the length of the target region to scan in bytes from the PhysicalAddress parameter.",
+                    "requiredParameter": true,
+                    "type": "integer"
+                },
+                "NoEventLog": {
+                    "description": "Indicates whether events related to the media scan are not logged.",
+                    "longDescription": "This parameter shall indicate whether events related to the media scan are not logged.  If not provided by the client, the value shall be assumed to be `false`.",
+                    "type": "boolean"
+                },
+                "PhysicalAddress": {
+                    "description": "The starting device physical address to scan as a hex-encoded string.",
+                    "longDescription": "This parameter shall contain the starting device physical address to scan as a hex-encoded string.",
+                    "pattern": "^0x[0-9a-fA-F]+$",
+                    "requiredParameter": true,
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "versionAdded": "v1_17_0"
         },
         "SecureEraseUnit": {
             "additionalProperties": false,
@@ -1508,6 +1876,48 @@
             },
             "type": "object"
         },
+        "SecurityStateInfo": {
+            "additionalProperties": false,
+            "description": "The security states of a memory device.",
+            "longDescription": "This type shall contain the security states of a memory device.",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "MasterPassphraseAttemptCountReached": {
+                    "description": "An indication of whether an incorrect master passphrase attempt count has been reached.",
+                    "longDescription": "This property shall indicate whether an incorrect master passphrase attempt count has been reached.",
+                    "readonly": true,
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "versionAdded": "v1_17_0"
+                },
+                "UserPassphraseAttemptCountReached": {
+                    "description": "An indication of whether an incorrect user passphrase attempt count has been reached.",
+                    "longDescription": "This property shall indicate whether an incorrect user passphrase attempt count has been reached.",
+                    "readonly": true,
+                    "type": [
+                        "boolean",
+                        "null"
+                    ],
+                    "versionAdded": "v1_17_0"
+                }
+            },
+            "type": "object"
+        },
         "SecurityStates": {
             "enum": [
                 "Enabled",
@@ -1534,6 +1944,52 @@
                 "Unlocked": "v1_7_0"
             },
             "type": "string"
+        },
+        "SetMasterPassphrase": {
+            "additionalProperties": false,
+            "description": "Sets the master passphrase for the given region.",
+            "longDescription": "This action shall set the supplied master passphrase to the supplied region.",
+            "parameters": {
+                "Passphrase": {
+                    "description": "The master passphrase to set for the specified region.",
+                    "longDescription": "This parameter shall contain the master passphrase to set for the specified region.",
+                    "requiredParameter": true,
+                    "type": "string"
+                },
+                "RegionId": {
+                    "description": "The memory region ID to which to apply the master passphrase.",
+                    "longDescription": "This parameter shall contain the memory region ID to which to apply the master passphrase.",
+                    "requiredParameter": true,
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "versionAdded": "v1_17_0"
         },
         "SetPassphrase": {
             "additionalProperties": false,
@@ -1627,6 +2083,6 @@
         }
     },
     "owningEntity": "DMTF",
-    "release": "2022.2",
-    "title": "#Memory.v1_16_0.Memory"
+    "release": "2023.3",
+    "title": "#Memory.v1_19_0.Memory"
 }

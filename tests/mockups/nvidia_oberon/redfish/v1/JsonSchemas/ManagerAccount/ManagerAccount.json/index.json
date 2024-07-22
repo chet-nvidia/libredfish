@@ -1,8 +1,8 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/ManagerAccount.v1_9_0.json",
+    "$id": "http://redfish.dmtf.org/schemas/v1/ManagerAccount.v1_12_0.json",
     "$ref": "#/definitions/ManagerAccount",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2022 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Actions": {
             "additionalProperties": false,
@@ -23,6 +23,9 @@
                 }
             },
             "properties": {
+                "#ManagerAccount.ChangePassword": {
+                    "$ref": "#/definitions/ChangePassword"
+                },
                 "Oem": {
                     "$ref": "#/definitions/OemActions",
                     "description": "The available OEM-specific actions for this resource.",
@@ -31,6 +34,52 @@
                 }
             },
             "type": "object"
+        },
+        "ChangePassword": {
+            "additionalProperties": false,
+            "description": "This action changes the account password.",
+            "longDescription": "This action shall change the account password while requiring password for the current session.  This action prevents session hijacking.",
+            "parameters": {
+                "NewPassword": {
+                    "description": "The new account password.",
+                    "longDescription": "This parameter shall contain the new password.",
+                    "requiredParameter": true,
+                    "type": "string"
+                },
+                "SessionAccountPassword": {
+                    "description": "The password of the account tied to the current session.",
+                    "longDescription": "This parameter shall contain the password of the current session's account.  A user changing their own password shall provide their current password for this parameter.  An administrator changing the password for a different user shall provide their own password for this parameter.  If the request is performed with HTTP Basic authentication, this parameter shall contain the same password encoded in the `Authorization` header.",
+                    "requiredParameter": true,
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "versionAdded": "v1_11_0"
         },
         "Links": {
             "additionalProperties": false,
@@ -127,13 +176,13 @@
                 "Actions": {
                     "$ref": "#/definitions/Actions",
                     "description": "The available actions for this resource.",
-                    "longDescription": "The actions property shall contain the available actions for this resource.",
+                    "longDescription": "This property shall contain the available actions for this resource.",
                     "versionAdded": "v1_1_0"
                 },
                 "Certificates": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/CertificateCollection.json#/definitions/CertificateCollection",
-                    "description": "The link to a collection of certificates used for this account.",
-                    "longDescription": "This property shall contain a link to a resource collection of type CertificateCollection.",
+                    "description": "The link to a collection of user identity certificates for this account.",
+                    "longDescription": "This property shall contain a link to a resource collection of type CertificateCollection that represents the user identity certificates for this account.",
                     "readonly": true,
                     "versionAdded": "v1_2_0"
                 },
@@ -147,6 +196,16 @@
                         }
                     ],
                     "readonly": true
+                },
+                "EmailAddress": {
+                    "description": "The email address associated with this account.",
+                    "longDescription": "This property shall contain the email address associated with this account.",
+                    "readonly": false,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "versionAdded": "v1_11_0"
                 },
                 "Enabled": {
                     "description": "An indication of whether an account is enabled.  An administrator can disable it without deleting the user information.  If `true`, the account is enabled and the user can log in.  If `false`, the account is disabled and, in the future, the user cannot log in.",
@@ -183,6 +242,19 @@
                     "readonly": false,
                     "type": "boolean"
                 },
+                "MFABypass": {
+                    "anyOf": [
+                        {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/AccountService.json#/definitions/MFABypass"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The multi-factor authentication bypass settings for this account.",
+                    "longDescription": "This property shall contain the multi-factor authentication bypass settings for this account.",
+                    "versionAdded": "v1_10_0"
+                },
                 "Name": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
                     "readonly": true
@@ -205,6 +277,16 @@
                     "description": "The OEM extension property.",
                     "longDescription": "This property shall contain the OEM extensions.  All values for properties that this object contains shall conform to the Redfish Specification-described requirements."
                 },
+                "OneTimePasscodeDeliveryAddress": {
+                    "description": "The address used to receive one-time passcode messages for multi-factor authentication.",
+                    "longDescription": "This property shall contain the contact address for receiving one-time passcode messages for multi-factor authentication for this account when the Enabled property in the OneTimePasscode property in AccountService resource contains `true`.  This is typically the contact email address associated with the account, but may be a separate, relay email address for delivery via SMS or other contact method.",
+                    "readonly": false,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "versionAdded": "v1_11_0"
+                },
                 "Password": {
                     "description": "The password.  Use this property with a PATCH or PUT to write the password for the account.  This property is `null` in responses.",
                     "longDescription": "This property shall contain the password for this account.  The value shall be `null` in responses.",
@@ -212,7 +294,8 @@
                     "type": [
                         "string",
                         "null"
-                    ]
+                    ],
+                    "writeOnly": true
                 },
                 "PasswordChangeRequired": {
                     "description": "An indication of whether the service requires that the password for this account be changed before further access to the account is allowed.",
@@ -234,6 +317,16 @@
                         "null"
                     ],
                     "versionAdded": "v1_6_0"
+                },
+                "PhoneNumber": {
+                    "description": "The contact phone number associated with this account.",
+                    "longDescription": "This property shall contain the contact phone number associated with this account.",
+                    "readonly": false,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "versionAdded": "v1_11_0"
                 },
                 "RoleId": {
                     "description": "The role for this account.",
@@ -346,17 +439,27 @@
             "enum": [
                 "None",
                 "CBC_DES",
-                "CFB128_AES128"
+                "CFB128_AES128",
+                "CFB128_AES192",
+                "CFB128_AES256"
             ],
             "enumDescriptions": {
                 "CBC_DES": "CBC-DES encryption.",
                 "CFB128_AES128": "CFB128-AES-128 encryption.",
+                "CFB128_AES192": "CFB128-AES-192 encryption.",
+                "CFB128_AES256": "CFB128-AES-256 encryption.",
                 "None": "No encryption."
             },
             "enumLongDescriptions": {
                 "CBC_DES": "This value shall indicate encryption conforms to the RFC3414-defined CBC-DES encryption protocol.",
                 "CFB128_AES128": "This value shall indicate encryption conforms to the RFC3826-defined CFB128-AES-128 encryption protocol.",
+                "CFB128_AES192": "This value shall indicate encryption conforms to the CFB128-AES-192 encryption protocol, extended from RFC3826.",
+                "CFB128_AES256": "This value shall indicate encryption conforms to the CFB128-AES-256 encryption protocol, extended from RFC3826.",
                 "None": "This value shall indicate there is no encryption."
+            },
+            "enumVersionAdded": {
+                "CFB128_AES192": "v1_12_0",
+                "CFB128_AES256": "v1_12_0"
             },
             "type": "string"
         },
@@ -388,7 +491,8 @@
                         "string",
                         "null"
                     ],
-                    "versionAdded": "v1_4_0"
+                    "versionAdded": "v1_4_0",
+                    "writeOnly": true
                 },
                 "AuthenticationKeySet": {
                     "description": "Indicates if the AuthenticationKey property is set.",
@@ -420,7 +524,8 @@
                         "string",
                         "null"
                     ],
-                    "versionAdded": "v1_4_0"
+                    "versionAdded": "v1_4_0",
+                    "writeOnly": true
                 },
                 "EncryptionKeySet": {
                     "description": "Indicates if the EncryptionKey property is set.",
@@ -448,6 +553,6 @@
         }
     },
     "owningEntity": "DMTF",
-    "release": "2022.1",
-    "title": "#ManagerAccount.v1_9_0.ManagerAccount"
+    "release": "2023.3",
+    "title": "#ManagerAccount.v1_12_0.ManagerAccount"
 }

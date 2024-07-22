@@ -1,5 +1,4 @@
 {
-    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/redfish-error",
     "@odata.type": "#JsonSchemaFile.v1_0_2.JsonSchemaFile",
     "Description": "redfish-error Schema File Location",

@@ -1,8 +1,8 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/AggregationSource.v1_2_0.json",
+    "$id": "http://redfish.dmtf.org/schemas/v1/AggregationSource.v1_4_0.json",
     "$ref": "#/definitions/AggregationSource",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Actions": {
             "additionalProperties": false,
@@ -23,6 +23,12 @@
                 }
             },
             "properties": {
+                "#AggregationSource.GenerateSSHIdentityKeyPair": {
+                    "$ref": "#/definitions/GenerateSSHIdentityKeyPair"
+                },
+                "#AggregationSource.RemoveSSHIdentityKeyPair": {
+                    "$ref": "#/definitions/RemoveSSHIdentityKeyPair"
+                },
                 "Oem": {
                     "$ref": "#/definitions/OemActions",
                     "description": "The available OEM-specific actions for this resource.",
@@ -70,7 +76,7 @@
                 "AggregationType": {
                     "$ref": "#/definitions/AggregationType",
                     "description": "The type of aggregation used towards the aggregation source.",
-                    "longDescription": "This property shall contain the type of aggregation used for the connection method towards the aggregation source.  If this property is not present, the value shall be assumed to be `Complete`.",
+                    "longDescription": "This property shall contain the type of aggregation used for the connection method towards the aggregation source.  If this property is not present, the value shall be assumed to be `Full`.",
                     "readonly": false,
                     "versionAdded": "v1_2_0"
                 },
@@ -120,7 +126,8 @@
                     "type": [
                         "string",
                         "null"
-                    ]
+                    ],
+                    "writeOnly": true
                 },
                 "SNMP": {
                     "anyOf": [
@@ -134,6 +141,25 @@
                     "description": "SNMP settings of the aggregation source.",
                     "longDescription": "This property shall contain the SNMP settings of the aggregation source.",
                     "versionAdded": "v1_1_0"
+                },
+                "SSHSettings": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/SSHSettingsType"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Settings for an aggregation source using SSH as part of the associated connection method.",
+                    "longDescription": "This property shall contain the settings for an aggregation source using SSH as part of the associated connection method.",
+                    "versionAdded": "v1_3_0"
+                },
+                "Status": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Status",
+                    "description": "The status and health of the resource and its subordinate or dependent resources.",
+                    "longDescription": "This property shall contain any status or health properties of the resource.",
+                    "versionAdded": "v1_3_0"
                 },
                 "UserName": {
                     "description": "The user name for accessing the aggregation source.",
@@ -167,6 +193,56 @@
                 "NotificationsOnly": "This value shall indicate that the aggregator is only aggregating notifications or events from the aggregation source according to the connection method used.  This value shall not be used with connection methods that do not include notifications."
             },
             "type": "string"
+        },
+        "GenerateSSHIdentityKeyPair": {
+            "additionalProperties": false,
+            "description": "This action generates a new SSH identity key-pair to be used with this aggregation source.  The generated public key is stored in the Key resource referenced by the PublicIdentityKey property in SSHSettings.  Any existing key-pair is deleted and replaced by the new key-pair.",
+            "longDescription": "This action shall generate a new SSH identity key-pair to be used with this aggregation source.  The service shall store the generated public key in the Key resource referenced by the PublicIdentityKey property in SSHSettings.  If the aggregation source already has an associated SSH identity key-pair, the service shall delete the key-pair and replace it with the new key-pair.",
+            "parameters": {
+                "Curve": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Key.json#/definitions/ECDSACurveType",
+                    "description": "The curve to use with the SSH key if the KeyType parameter contains `ECDSA`.",
+                    "longDescription": "This parameter shall contain the curve to use with the SSH key.  This parameter shall be required if the KeyType parameter contains `ECDSA` and shall be rejected for other values."
+                },
+                "KeyLength": {
+                    "description": "The length of the SSH key, in bits, if the KeyType parameter contains `RSA`.",
+                    "longDescription": "This parameter shall contain the length of the SSH key, in bits.  This parameter shall be required if the KeyType parameter contains `RSA` and shall be rejected for other values.",
+                    "type": "integer"
+                },
+                "KeyType": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Key.json#/definitions/SSHKeyType",
+                    "description": "The type of SSH key.",
+                    "longDescription": "This parameter shall contain the type of SSH key.",
+                    "requiredParameter": true
+                }
+            },
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "versionAdded": "v1_3_0"
         },
         "Links": {
             "additionalProperties": false,
@@ -210,7 +286,7 @@
                     "items": {
                         "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Resource"
                     },
-                    "longDescription": "This property shall contain an array of links to the resources added to the service through the aggregation source.  It is recommended that this be the minimal number of properties needed to find the resources that would be lost when the aggregation source is deleted.  For example, this could be the pointers to the members of the root level collections or the manager of a BMC.",
+                    "longDescription": "This property shall contain an array of links to the resources added to the service through the aggregation source.  It is recommended that this be the minimal number of properties needed to find the resources that would be lost when the aggregation source is deleted.  For example, this could be the pointers to the members of the root-level collections or the manager of a BMC.",
                     "readonly": true,
                     "type": "array"
                 },
@@ -240,6 +316,39 @@
             },
             "properties": {},
             "type": "object"
+        },
+        "RemoveSSHIdentityKeyPair": {
+            "additionalProperties": false,
+            "description": "This action removes the SSH identity key-pair used with this aggregation source.",
+            "longDescription": "This action shall remove the private SSH identity key-pair used with this aggregation source.",
+            "parameters": {},
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object",
+            "versionAdded": "v1_3_0"
         },
         "SNMPAuthenticationProtocols": {
             "enum": [
@@ -278,17 +387,27 @@
             "enum": [
                 "None",
                 "CBC_DES",
-                "CFB128_AES128"
+                "CFB128_AES128",
+                "CFB128_AES192",
+                "CFB128_AES256"
             ],
             "enumDescriptions": {
                 "CBC_DES": "CBC-DES encryption.",
                 "CFB128_AES128": "CFB128-AES-128 encryption.",
+                "CFB128_AES192": "CFB128-AES-192 encryption.",
+                "CFB128_AES256": "CFB128-AES-256 encryption.",
                 "None": "No encryption."
             },
             "enumLongDescriptions": {
                 "CBC_DES": "This value shall indicate encryption conforms to the RFC3414-defined CBC-DES encryption protocol.",
-                "CFB128_AES128": "This value shall indicate encryption conforms to the RFC3414-defined CFB128-AES-128 encryption protocol.",
+                "CFB128_AES128": "This value shall indicate encryption conforms to the RFC3826-defined CFB128-AES-128 encryption protocol.",
+                "CFB128_AES192": "This value shall indicate encryption conforms to the CFB128-AES-192 encryption protocol, extended from RFC3826.",
+                "CFB128_AES256": "This value shall indicate encryption conforms to the CFB128-AES-256 encryption protocol, extended from RFC3826.",
                 "None": "This value shall indicate there is no encryption."
+            },
+            "enumVersionAdded": {
+                "CFB128_AES192": "v1_4_0",
+                "CFB128_AES256": "v1_4_0"
             },
             "type": "string"
         },
@@ -320,7 +439,8 @@
                         "string",
                         "null"
                     ],
-                    "versionAdded": "v1_1_0"
+                    "versionAdded": "v1_1_0",
+                    "writeOnly": true
                 },
                 "AuthenticationKeySet": {
                     "description": "Indicates if the AuthenticationKey property is set.",
@@ -352,7 +472,8 @@
                         "string",
                         "null"
                     ],
-                    "versionAdded": "v1_1_0"
+                    "versionAdded": "v1_1_0",
+                    "writeOnly": true
                 },
                 "EncryptionKeySet": {
                     "description": "Indicates if the EncryptionKey property is set.",
@@ -383,13 +504,97 @@
                         "string",
                         "null"
                     ],
-                    "versionAdded": "v1_2_0"
+                    "versionAdded": "v1_2_0",
+                    "writeOnly": true
                 }
             },
             "type": "object"
+        },
+        "SSHSettingsType": {
+            "additionalProperties": false,
+            "description": "Settings for an aggregation source using SSH as part of the associated connection method.",
+            "longDescription": "This type shall contain the settings for an aggregation source using SSH as part of the associated connection method.",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "PresentedPublicHostKey": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Key.json#/definitions/Key",
+                    "description": "A link to the last public host key presented by the remote service corresponding to the aggregation source.  A client that trusts this public host key can add the public host key to the TrustedPublicHostKeys collection to allow SSH communication with the aggregation source.",
+                    "longDescription": "This property shall contain a link to a resource of type Key that represents the last public host key presented by the remote service corresponding to the aggregation source.  This property shall not be present if a public host key has not yet been presented by the remote service.",
+                    "readonly": true,
+                    "versionAdded": "v1_3_0"
+                },
+                "PresentedPublicHostKeyTimestamp": {
+                    "description": "The date and time when the key referenced by the PresentedPublicHostKey property was last updated.",
+                    "format": "date-time",
+                    "longDescription": "This property shall contain the date and time when the key referenced by the PresentedPublicHostKey property was last updated.",
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "versionAdded": "v1_3_0"
+                },
+                "PublicIdentityKey": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Key.json#/definitions/Key",
+                    "description": "A link to the public key that is used with the aggregation source when the authentication method is configured to use a public key.  The GenerateSSHIdentityKeyPair and RemoveSSHIdentityKeyPair are used to update the key for this aggregation source.",
+                    "longDescription": "This property shall contain a link to a resource of type Key that represents the public key that is used with the aggregation source when UserAuthenticationMethod contains `PublicKey`.  This property shall not be present if a key-pair is not available.  The State property within Status shall contain `Disabled` if a key-pair is not available and UserAuthenticationMethod contains `PublicKey`.",
+                    "readonly": true,
+                    "versionAdded": "v1_3_0"
+                },
+                "TrustedPublicHostKeys": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/KeyCollection.json#/definitions/KeyCollection",
+                    "description": "A link to the trusted public host keys of the remote service corresponding to the aggregation source.  These trusted public host keys are used for authentication of the remote service with SSH.  An SSH public host key of the remote service can be added to this collection to allow for public key-based SSH authentication.",
+                    "longDescription": "This property shall contain a link to a resource collection of type KeyCollection that represents the trusted public host keys of the remote service corresponding to the aggregation source.  If the associated connection method specifies SSH tunneling, the service shall compare the public host key presented by the remote service with members of this collection to determine if the remote service can be trusted.  If the remote service cannot be trusted, the State property within Status shall contain `Disabled` and the service shall not connect to the remote service.",
+                    "readonly": true,
+                    "versionAdded": "v1_3_0"
+                },
+                "UserAuthenticationMethod": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/UserAuthenticationMethod"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The client user authentication method.",
+                    "longDescription": "This property shall contain the client user authentication method.",
+                    "readonly": false,
+                    "versionAdded": "v1_3_0"
+                }
+            },
+            "type": "object"
+        },
+        "UserAuthenticationMethod": {
+            "enum": [
+                "PublicKey",
+                "Password"
+            ],
+            "enumDescriptions": {
+                "Password": "SSH user authentication with a password.",
+                "PublicKey": "SSH user authentication with a public key."
+            },
+            "enumLongDescriptions": {
+                "Password": "This value shall indicate SSH user authentication with a password specified by the Password property.",
+                "PublicKey": "This value shall indicate SSH user authentication with a public key specified by the PublicIdentityKey property in SSHSettings."
+            },
+            "type": "string"
         }
     },
     "owningEntity": "DMTF",
-    "release": "2021.3",
-    "title": "#AggregationSource.v1_2_0.AggregationSource"
+    "release": "2023.3",
+    "title": "#AggregationSource.v1_4_0.AggregationSource"
 }

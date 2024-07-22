@@ -1,0 +1,18 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/5822",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "Created": "2024-07-22T08:16:14+00:00",
+    "EntryType": "Event",
+    "Id": "5822",
+    "Message": "FAN_1_F sensor crossed a critical low threshold going low. Reading=0.000000 Threshold=2204.000000.",
+    "MessageArgs": [
+        "FAN_1_F",
+        "0.000000",
+        "2204.000000"
+    ],
+    "MessageId": "OpenBMC.0.1.SensorThresholdCriticalLowGoingLow",
+    "Name": "System Event Log Entry",
+    "Resolution": "Check the sensor or subsystem for errors.",
+    "Resolved": false,
+    "Severity": "Critical"
+}

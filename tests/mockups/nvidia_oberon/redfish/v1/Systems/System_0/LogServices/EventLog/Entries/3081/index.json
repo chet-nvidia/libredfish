@@ -1,0 +1,17 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/3081",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "Created": "2024-07-01T11:55:26+00:00",
+    "EntryType": "Event",
+    "Id": "3081",
+    "Message": "The resource property HGX_FW_Debug_Token_Erase has detected errors of type 'Device Discovery Failure'.",
+    "MessageArgs": [
+        "HGX_FW_Debug_Token_Erase",
+        "Device Discovery Failure"
+    ],
+    "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+    "Name": "System Event Log Entry",
+    "Resolution": "Retry the firmware update operation and if issue still persists reset the baseboard.",
+    "Resolved": false,
+    "Severity": "Critical"
+}

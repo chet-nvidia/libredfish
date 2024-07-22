@@ -5,12 +5,8 @@
     "Id": "HGX_FW_BMC_0",
     "Manufacturer": "NVIDIA",
     "Name": "Software Inventory",
-    "RelatedItem": [
-        {
-            "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0"
-        }
-    ],
-    "RelatedItem@odata.count": 1,
+    "RelatedItem": [],
+    "RelatedItem@odata.count": 0,
     "SoftwareId": "0x001E",
     "Status": {
         "Conditions": [],
@@ -19,6 +15,6 @@
         "State": "Enabled"
     },
     "Updateable": true,
-    "Version": "GH200-24.05-2",
+    "Version": "HGXB-24.07-1",
     "WriteProtected": false
 }

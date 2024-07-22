@@ -16,6 +16,9 @@
             "@odata.id": "/redfish/v1/Registries/OpenBMC"
         },
         {
+            "@odata.id": "/redfish/v1/Registries/Platform"
+        },
+        {
             "@odata.id": "/redfish/v1/Registries/BiosAttributeRegistry"
         },
         {
@@ -29,8 +32,11 @@
         },
         {
             "@odata.id": "/redfish/v1/Registries/HGX_OpenBMC"
+        },
+        {
+            "@odata.id": "/redfish/v1/Registries/HGX_Platform"
         }
     ],
-    "Members@odata.count": 9,
+    "Members@odata.count": 11,
     "Name": "MessageRegistryFile Collection"
 }

@@ -1,0 +1,18 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/100",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "Created": "2024-07-03T04:13:17+00:00",
+    "EntryType": "Event",
+    "Id": "100",
+    "Message": "TEMP_SSD_03 sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
+    "MessageArgs": [
+        "TEMP_SSD_03",
+        "0.000000",
+        "5.000000"
+    ],
+    "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingLow",
+    "Name": "System Event Log Entry",
+    "Resolution": "Check the sensor or subsystem for errors.",
+    "Resolved": false,
+    "Severity": "OK"
+}

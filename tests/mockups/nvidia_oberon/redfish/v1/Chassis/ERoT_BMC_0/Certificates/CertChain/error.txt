@@ -1,0 +1,18 @@
+HTTP 200
+Allow: GET
+OData-Version: 4.0
+Strict-Transport-Security: max-age=31536000; includeSubdomains
+X-Frame-Options: DENY
+Pragma: no-cache
+Cache-Control: no-store, max-age=0
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Permissions-Policy: accelerometer=(),ambient-light-sensor=(),autoplay=(),battery=(),camera=(),display-capture=(),document-domain=(),encrypted-media=(),fullscreen=(),gamepad=(),geolocation=(),gyroscope=(),layout-animations=(self),legacy-image-formats=(self),magnetometer=(),microphone=(),midi=(),oversized-images=(self),payment=(),picture-in-picture=(),publickey-credentials-get=(),speaker-selection=(),sync-xhr=(self),unoptimized-images=(self),unsized-media=(self),usb=(),screen-wak-lock=(),web-share=(),xr-spatial-tracking=()
+X-Permitted-Cross-Domain-Policies: none
+Cross-Origin-Embedder-Policy: require-corp
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Resource-Policy: same-origin
+Content-Security-Policy: default-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self' wss:; form-action 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'none'
+Date: Mon, 22 Jul 2024 15:48:07 GMT
+Content-Length: 0
+

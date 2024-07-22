@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---->
 <!--################################################################################       -->
-<!--# Redfish Schema:  Bios v1.2.0                                                         -->
+<!--# Redfish Schema:  Bios v1.2.2                                                         -->
 <!--#                                                                                      -->
 <!--# For a detailed change log, see the README file contained in the DSP8010 bundle,      -->
 <!--# available at http://www.dmtf.org/standards/redfish                                   -->
-<!--# Copyright 2014-2022 DMTF.                                                            -->
+<!--# Copyright 2014-2023 DMTF.                                                            -->
 <!--# For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright -->
 <!--################################################################################       -->
 <!---->
@@ -34,7 +34,6 @@
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
 
       <EntityType Name="Bios" BaseType="Resource.v1_0_0.Resource" Abstract="true">
-        <Annotation Term="OData.AdditionalProperties" Bool="true"/>
         <Annotation Term="OData.Description" String="The Bios schema contains properties related to the BIOS attribute registry.  The attribute registry describes the system-specific BIOS attributes and actions for changing to BIOS settings.  Changes to the BIOS typically require a system reset before they take effect.  It is likely that a client finds the `@Redfish.Settings` term in this resource, and if it is found, the client makes requests to change BIOS settings by modifying the resource identified by the `@Redfish.Settings` term."/>
         <Annotation Term="OData.LongDescription" String="This resource shall represent BIOS attributes for a Redfish implementation."/>
         <Annotation Term="Capabilities.InsertRestrictions">
@@ -103,7 +102,7 @@
         </Property>
         <Property Name="Attributes" Type="Bios.v1_0_0.Attributes" Nullable="false">
           <Annotation Term="OData.Description" String="The list of BIOS attributes specific to the manufacturer or provider."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the list of BIOS attributes specific to the manufacturer or provider.  BIOS attribute settings appear as additional properties in this object, and can be looked up in the attribute registry by their AttributeName."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the list of BIOS attributes specific to the manufacturer or provider.  BIOS attribute settings appear as additional properties in this object and can be looked up in the attribute registry by their AttributeName."/>
         </Property>
       </EntityType>
 
@@ -131,7 +130,7 @@
           <Collection>
             <Record>
               <PropertyValue Property="Pattern" String="^[A-Za-z][A-Za-z0-9_]+$"/>
-              <PropertyValue Property="Type" String="Edm.Primitive"/>
+              <PropertyValue Property="Type" String="Edm.PrimitiveType"/>
             </Record>
           </Collection>
         </Annotation>
@@ -188,8 +187,20 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Bios.v1_0_9">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various description to use proper normative terminology and clarify behavior of the ResetBios action."/>
+      <Annotation Term="OData.Description" String="This version was created to correct various descriptions to use proper normative terminology and clarify behavior of the ResetBios action."/>
       <EntityType Name="Bios" BaseType="Bios.v1_0_8.Bios"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Bios.v1_0_10">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to remove the additional properties term in the root of the resource, which was incorrectly set to `true`."/>
+      <EntityType Name="Bios" BaseType="Bios.v1_0_9.Bios"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Bios.v1_0_11">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="Bios" BaseType="Bios.v1_0_10.Bios"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Bios.v1_1_0">
@@ -229,8 +240,20 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Bios.v1_1_2">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various description to use proper normative terminology and clarify behavior of the ResetBios action."/>
+      <Annotation Term="OData.Description" String="This version was created to correct various descriptions to use proper normative terminology and clarify behavior of the ResetBios action."/>
       <EntityType Name="Bios" BaseType="Bios.v1_1_1.Bios"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Bios.v1_1_3">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to remove the additional properties term in the root of the resource, which was incorrectly set to `true`."/>
+      <EntityType Name="Bios" BaseType="Bios.v1_1_2.Bios"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Bios.v1_1_4">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="Bios" BaseType="Bios.v1_1_3.Bios"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Bios.v1_2_0">
@@ -244,6 +267,18 @@
           <Annotation Term="OData.LongDescription" String="This property shall indicate whether there is a pending request to reset the BIOS attributes to default values.  A successful completion of the ResetBios action shall set this property to `true`.  Applying the default attribute values to this resource shall set this property to `false`.  Services may reject modification requests to the settings resource if this property contains `true`."/>
         </Property>
       </EntityType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Bios.v1_2_1">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to remove the additional properties term in the root of the resource, which was incorrectly set to `true`."/>
+      <EntityType Name="Bios" BaseType="Bios.v1_2_0.Bios"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Bios.v1_2_2">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="Bios" BaseType="Bios.v1_2_1.Bios"/>
     </Schema>
 
   </edmx:DataServices>

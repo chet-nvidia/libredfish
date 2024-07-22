@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Chassis/HGX_ERoT_GPU_0",
-    "@odata.type": "#Chassis.v1_17_0.Chassis",
+    "@odata.type": "#Chassis.v1_22_0.Chassis",
     "Actions": {
         "Oem": {
             "#CAKInstall": {
@@ -64,7 +64,7 @@
     "Name": "HGX_ERoT_GPU_0",
     "Oem": {
         "Nvidia": {
-            "@odata.type": "#NvidiaChassis.v1_0_0.NvidiaChassis",
+            "@odata.type": "#NvidiaChassis.v1_3_0.NvidiaRoTChassis",
             "AutomaticBackgroundCopyEnabled": true,
             "BackgroundCopyStatus": "Completed",
             "InbandUpdatePolicyEnabled": true,
@@ -72,7 +72,7 @@
         }
     },
     "SKU": "0x4A353681",
-    "SerialNumber": "0x0802061717062004",
+    "SerialNumber": "0x0602060617043A0C",
     "Status": {
         "Conditions": [],
         "Health": "OK",

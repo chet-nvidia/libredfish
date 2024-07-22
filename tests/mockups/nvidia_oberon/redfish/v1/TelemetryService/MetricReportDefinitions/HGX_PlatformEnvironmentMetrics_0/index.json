@@ -20,35 +20,8 @@
     },
     "Wildcards": [
         {
-            "Name": "GWild",
-            "Values": []
-        },
-        {
-            "Name": "NWild",
-            "Values": []
-        },
-        {
-            "Name": "PRWild",
-            "Values": []
-        },
-        {
-            "Name": "PSWild",
-            "Values": []
-        },
-        {
-            "Name": "FWild",
-            "Values": [
-                "0"
-            ]
-        },
-        {
             "Name": "BSWild",
             "Values": [
-                "HGX_Chassis_0_HSC_0_Power_0",
-                "HGX_Chassis_0_HSC_1_Power_0",
-                "HGX_Chassis_0_TotalGPU_Power_0",
-                "HGX_Chassis_0_HSC_0_Temp_0",
-                "HGX_Chassis_0_HSC_1_Temp_0",
                 "HGX_Chassis_0_Inlet_0_Temp_0",
                 "HGX_Chassis_0_Inlet_1_Temp_0",
                 "HGX_Chassis_0_Inlet_2_Temp_0",
@@ -65,6 +38,28 @@
         },
         {
             "Name": "CWild",
+            "Values": []
+        },
+        {
+            "Name": "FWild",
+            "Values": [
+                "0"
+            ]
+        },
+        {
+            "Name": "GWild",
+            "Values": []
+        },
+        {
+            "Name": "NWild",
+            "Values": []
+        },
+        {
+            "Name": "PRWild",
+            "Values": []
+        },
+        {
+            "Name": "PSWild",
             "Values": []
         }
     ]

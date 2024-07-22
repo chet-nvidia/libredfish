@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Managers/HGX_BMC_0",
-    "@odata.type": "#Manager.v1_14_0.Manager",
+    "@odata.type": "#Manager.v1_16_0.Manager",
     "Actions": {
         "#Manager.Reset": {
             "@Redfish.ActionInfo": "/redfish/v1/Managers/HGX_BMC_0/ResetActionInfo",
@@ -32,25 +32,22 @@
             }
         }
     },
-    "DateTime": "1970-01-03T14:42:28+00:00",
+    "DateTime": "2024-07-22T15:48:12+00:00",
     "DateTimeLocalOffset": "+00:00",
-    "DedicatedNetworkPorts": {
-        "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/DedicatedNetworkPorts"
-    },
     "Description": "Baseboard Management Controller",
     "EthernetInterfaces": {
         "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/EthernetInterfaces"
     },
-    "FirmwareVersion": "GH200-24.05-2",
+    "FirmwareVersion": "HGXB-24.07-1",
     "Id": "HGX_BMC_0",
-    "LastResetTime": "9999-12-31T23:59:59+00:00",
+    "LastResetTime": "2024-07-22T09:35:52+00:00",
     "Links": {
         "ActiveSoftwareImage": {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0"
         },
         "ManagerForChassis": [
             {
-                "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0"
+                "@odata.id": "/redfish/v1/Chassis/HGX_CPLD_0"
             }
         ],
         "ManagerForChassis@odata.count": 1,
@@ -74,6 +71,9 @@
     "LogServices": {
         "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices"
     },
+    "ManagerDiagnosticData": {
+        "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/ManagerDiagnosticData"
+    },
     "ManagerType": "BMC",
     "Model": "OpenBmc",
     "Name": "OpenBmc Manager",
@@ -87,13 +87,12 @@
             "FirmwareBuildType": null,
             "OTPProvisioned": false,
             "PersistentStorageSettings": {
-                "Enabled": false,
                 "Status": {
                     "State": "Enabled"
                 }
-            }
-        },
-        "UptimeSeconds": 225748.88
+            },
+            "UptimeSeconds": 22338.83
+        }
     },
     "PowerState": "On",
     "SerialConsole": {
@@ -104,12 +103,12 @@
         "MaxConcurrentSessions": 15,
         "ServiceEnabled": true
     },
-    "ServiceEntryPointUUID": "ca0811b7-f7c9-49a3-96c5-a6f681940cb1",
+    "ServiceEntryPointUUID": "819690bd-5628-4b79-a69f-b674f777b01d",
     "Status": {
         "Conditions": [],
         "Health": "OK",
         "HealthRollup": "OK",
-        "State": "Starting"
+        "State": "Enabled"
     },
-    "UUID": "9571f477-d4a1-493f-85f2-17c83b5ade34"
+    "UUID": "5419ea15-8400-4106-b9c1-52a2d43005d9"
 }

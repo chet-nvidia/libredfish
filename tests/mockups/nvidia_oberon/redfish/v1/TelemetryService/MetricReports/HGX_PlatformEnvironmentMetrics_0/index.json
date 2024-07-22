@@ -8,39 +8,17 @@
     "MetricValues": [
         {
             "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_Inlet_0_Temp_0",
-            "MetricValue": "31.996094",
+            "MetricValue": "24.996094",
             "Oem": {
                 "Nvidia": {
                     "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
                     "MetricValueStale": false
                 }
             },
-            "Timestamp": "1970-01-03T14:50:46.891+00:00"
+            "Timestamp": "2024-07-22T15:50:26.294+00:00"
         },
         {
             "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_Inlet_1_Temp_0",
-            "MetricValue": "32.996094",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
-                    "MetricValueStale": false
-                }
-            },
-            "Timestamp": "1970-01-03T14:50:46.904+00:00"
-        },
-        {
-            "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_Inlet_2_Temp_0",
-            "MetricValue": "30.996094",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
-                    "MetricValueStale": false
-                }
-            },
-            "Timestamp": "1970-01-03T14:50:46.917+00:00"
-        },
-        {
-            "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_Inlet_3_Temp_0",
             "MetricValue": "28.996094",
             "Oem": {
                 "Nvidia": {
@@ -48,21 +26,76 @@
                     "MetricValueStale": false
                 }
             },
-            "Timestamp": "1970-01-03T14:50:46.930+00:00"
+            "Timestamp": "2024-07-22T15:50:26.295+00:00"
+        },
+        {
+            "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_Inlet_2_Temp_0",
+            "MetricValue": "24.996094",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
+                    "MetricValueStale": false
+                }
+            },
+            "Timestamp": "2024-07-22T15:50:26.296+00:00"
+        },
+        {
+            "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_Inlet_3_Temp_0",
+            "MetricValue": "24.996094",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
+                    "MetricValueStale": false
+                }
+            },
+            "Timestamp": "2024-07-22T15:50:26.298+00:00"
         },
         {
             "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_Module_0_Temp_0",
-            "MetricValue": "36.996094",
+            "MetricValue": "26.996094",
             "Oem": {
                 "Nvidia": {
                     "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
                     "MetricValueStale": false
                 }
             },
-            "Timestamp": "1970-01-03T14:50:46.943+00:00"
+            "Timestamp": "2024-07-22T15:50:26.299+00:00"
         },
         {
             "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_Module_1_Temp_0",
+            "MetricValue": "26.996094",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
+                    "MetricValueStale": false
+                }
+            },
+            "Timestamp": "2024-07-22T15:50:26.300+00:00"
+        },
+        {
+            "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_PCB_0_Temp_0",
+            "MetricValue": "25.000000",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
+                    "MetricValueStale": false
+                }
+            },
+            "Timestamp": "2024-07-22T15:50:26.282+00:00"
+        },
+        {
+            "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_PCB_1_Temp_0",
+            "MetricValue": "26.000000",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
+                    "MetricValueStale": false
+                }
+            },
+            "Timestamp": "2024-07-22T15:50:26.292+00:00"
+        },
+        {
+            "MetricProperty": "/redfish/v1/Chassis/HGX_FPGA_0/Sensors/HGX_FPGA_0_Temp_0",
             "MetricValue": "36.996094",
             "Oem": {
                 "Nvidia": {
@@ -70,40 +103,7 @@
                     "MetricValueStale": false
                 }
             },
-            "Timestamp": "1970-01-03T14:50:46.956+00:00"
-        },
-        {
-            "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_PCB_0_Temp_0",
-            "MetricValue": "32.000000",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
-                    "MetricValueStale": false
-                }
-            },
-            "Timestamp": "1970-01-03T14:50:46.862+00:00"
-        },
-        {
-            "MetricProperty": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors/HGX_Chassis_0_PCB_1_Temp_0",
-            "MetricValue": "32.500000",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
-                    "MetricValueStale": false
-                }
-            },
-            "Timestamp": "1970-01-03T14:50:46.877+00:00"
-        },
-        {
-            "MetricProperty": "/redfish/v1/Chassis/HGX_FPGA_0/Sensors/HGX_FPGA_0_Temp_0",
-            "MetricValue": "38.996094",
-            "Oem": {
-                "Nvidia": {
-                    "@odata.type": "#NvidiaMetricReport.v1_0_0.NvidiaMetricReport",
-                    "MetricValueStale": false
-                }
-            },
-            "Timestamp": "1970-01-03T14:50:46.969+00:00"
+            "Timestamp": "2024-07-22T15:50:26.302+00:00"
         }
     ],
     "Name": "HGX_PlatformEnvironmentMetrics_0",

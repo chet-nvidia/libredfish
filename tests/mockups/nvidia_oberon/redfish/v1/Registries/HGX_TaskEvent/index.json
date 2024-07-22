@@ -2,7 +2,7 @@
     "@odata.id": "/redfish/v1/Registries/HGX_TaskEvent",
     "@odata.type": "#MessageRegistryFile.v1_1_0.MessageRegistryFile",
     "Description": "DMTF TaskEvent Message Registry File Location",
-    "Id": "TaskEvent",
+    "Id": "HGX_TaskEvent",
     "Languages": [
         "en"
     ],

@@ -4,10 +4,15 @@
         "ApplyTime": "OnReset"
     },
     "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_0/Settings",
-    "@odata.type": "#Processor.v1_13_0.Processor",
+    "@odata.type": "#Processor.v1_20_0.Processor",
     "Id": "Settings",
     "MemorySummary": {
         "ECCModeEnabled": false
     },
-    "Name": "GPU_0PendingSettings"
+    "Name": "GPU_0PendingSettings",
+    "Oem": {
+        "Nvidia": {
+            "@odata.type": "#NvidiaProcessor.v1_2_0.NvidiaGPU"
+        }
+    }
 }

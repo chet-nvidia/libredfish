@@ -3,6 +3,9 @@
     "@odata.type": "#ComputerSystem.v1_17_0.ComputerSystem",
     "Boot": {
         "AutomaticRetryConfig": "RetryAttempts",
+        "BootOptions": {
+            "@odata.id": "/redfish/v1/Systems/System_0/Settings/BootOptions"
+        },
         "BootOrder": [],
         "BootSourceOverrideEnabled": "Disabled",
         "BootSourceOverrideTarget": "None"

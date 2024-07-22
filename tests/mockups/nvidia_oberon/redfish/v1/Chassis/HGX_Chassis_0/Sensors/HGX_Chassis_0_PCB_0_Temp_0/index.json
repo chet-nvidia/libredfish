@@ -5,7 +5,7 @@
     "MaxAllowableOperatingValue": 127,
     "Name": "HGX Chassis 0 PCB 0 Temp 0",
     "PhysicalContext": "GPUSubsystem",
-    "Reading": 32.0,
+    "Reading": 25.0,
     "ReadingType": "Temperature",
     "ReadingUnits": "Cel",
     "RelatedItem": [

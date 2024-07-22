@@ -1,0 +1,17 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/3082",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "Created": "2024-07-01T11:55:26+00:00",
+    "EntryType": "Event",
+    "Id": "3082",
+    "Message": "Transfer of image '0.0' to 'HGX_FW_Debug_Token_Erase' failed.",
+    "MessageArgs": [
+        "0.0",
+        "HGX_FW_Debug_Token_Erase"
+    ],
+    "MessageId": "Update.1.0.TransferFailed",
+    "Name": "System Event Log Entry",
+    "Resolution": "None.",
+    "Resolved": false,
+    "Severity": "Critical"
+}

@@ -1,0 +1,19 @@
+{
+    "@odata.id": "/redfish/v1/Managers/BMC_0/ManagerDiagnosticData",
+    "@odata.type": "#ManagerDiagnosticData.v1_2_0.ManagerDiagnosticData",
+    "FreeStorageSpaceKiB": 12144,
+    "Id": "ManagerDiagnosticData",
+    "MemoryStatistics": {
+        "AvailableBytes": 616534016,
+        "BuffersAndCacheBytes": 280375296,
+        "FreeBytes": 478707712,
+        "SharedBytes": 135081984,
+        "TotalBytes": 899407872
+    },
+    "Name": "Manager Diagnostic Data",
+    "ProcessorStatistics": {
+        "KernelPercent": 22.7912,
+        "UserPercent": 18.2229
+    },
+    "ServiceRootUptimeSeconds": 2005.737
+}

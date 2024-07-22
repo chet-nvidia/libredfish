@@ -1,0 +1,18 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/5832",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "Created": "2024-07-22T14:35:16+00:00",
+    "EntryType": "Event",
+    "Id": "5832",
+    "Message": "ProcessCPU_systemdjournal sensor crossed a warning high threshold going high. Reading=15.192091 Threshold=15.000000.",
+    "MessageArgs": [
+        "ProcessCPU_systemdjournal",
+        "15.192091",
+        "15.000000"
+    ],
+    "MessageId": "OpenBMC.0.4.SensorThresholdWarningHighGoingHigh",
+    "Name": "System Event Log Entry",
+    "Resolution": "None",
+    "Resolved": false,
+    "Severity": "Warning"
+}

@@ -2,7 +2,7 @@
     "@Redfish.Copyright": "Copyright 2022 OpenBMC. All rights reserved.",
     "@odata.type": "#MessageRegistry.v1_4_0.MessageRegistry",
     "Description": "This registry defines the base messages for OpenBMC.",
-    "Id": "OpenBMC.0.4.1",
+    "Id": "OpenBMC.0.4.0",
     "Language": "en",
     "Messages": {
         "ADDDCCorrectable": {
@@ -20,7 +20,7 @@
             "Severity": "Warning"
         },
         "AsyncError": {
-            "Description": "Indicates that the SMBPBI Async Command Failed",
+            "Description": "Indicates that the SMBPBI Async Command Failed.",
             "Message": "%1 Respresents Error Code",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
@@ -268,10 +268,7 @@
             "Description": "Indicates BMC firmware rebooted.",
             "Message": "BMC firmware rebooted due to reason %1.",
             "MessageSeverity": "OK",
-            "NumberOfArgs": 1,
-            "ParamTypes": [
-                "string"
-            ],
+            "NumberOfArgs": 0,
             "Resolution": "None.",
             "Severity": "OK"
         },
@@ -301,8 +298,8 @@
             "Severity": "Warning"
         },
         "BMCSystemResourceInfo": {
-            "Description": "Indicates BMC resource consumtion by process interms of storage, CPU and memory or any other resource",
-            "Message": "Processes consuming HIGH %1 Resource are %2",
+            "Description": "Indicates BMC resource consumtion by process interms of storage, CPU and memory or any other resource.",
+            "Message": "Processes consuming HIGH Resource %1 are %2",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
             "ParamTypes": [
@@ -311,6 +308,17 @@
             ],
             "Resolution": "None.",
             "Severity": "Warning"
+        },
+        "BMCSystemTimeUpdated": {
+            "Description": "Indicates that the BMC system time has been updated.",
+            "Message": "The BMC system time has been updated to %1.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "OK"
         },
         "CPLDFirmwarePanicReason": {
             "Description": "Indicates the reason for CPLD firmware panic.",
@@ -405,18 +413,6 @@
             "Resolution": "None.",
             "Severity": "Critical"
         },
-        "ComponentUpdateSkipped": {
-            "Description": "Indicates that component fimware update is skipped.",
-            "Message": "The update operation for the component '%1' is skipped because '%2'.",
-            "MessageSeverity": "OK",
-            "NumberOfArgs": 2,
-            "ParamTypes": [
-                "string",
-                "string"
-            ],
-            "Resolution": "None.",
-            "Severity": "OK"
-        },
         "DCPowerOff": {
             "Description": "Indicates that the system DC power is off.",
             "Message": "Host system DC power is off",
@@ -430,6 +426,28 @@
             "Message": "Host system DC power is on",
             "MessageSeverity": "OK",
             "NumberOfArgs": 0,
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
+        "DebugTokenRequestSuccess": {
+            "Description": "Signifies the successful completion of the debug token request.",
+            "Message": "The operation to request a debug token for device '%1' has been successfully completed.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
+        "DebugTokenStatusSuccess": {
+            "Description": "Signifies the successful completion of the debug token status request.",
+            "Message": "The operation to obtain a token status for device '%1' has been successfully completed.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
             "Resolution": "None.",
             "Severity": "OK"
         },
@@ -483,7 +501,8 @@
             "Description": "Indicates that a system fan has been removed.",
             "Message": "%1 removed.",
             "MessageSeverity": "OK",
-            "NumberOfArgs": 0,
+            "NumberOfArgs": 1,
+            "ParamTypes": [],
             "Resolution": "None.",
             "Severity": "OK"
         },
@@ -591,6 +610,34 @@
             ],
             "Resolution": "None.",
             "Severity": "Critical"
+        },
+        "IPCCriticalThresholdCrossed": {
+            "Description": "Indicates that the IPC monitor has detected a service crossing the critical threshold limit set on a property",
+            "Message": "DBus IPC Monitor detected %1 unit crossing critical threshold set on %2 IPC property. Property Reading=%3 Threshold=%4.",
+            "MessageSeverity": "Critical",
+            "NumberOfArgs": 4,
+            "ParamTypes": [
+                "string",
+                "string",
+                "number",
+                "number"
+            ],
+            "Resolution": "None.",
+            "Severity": "Critical"
+        },
+        "IPCWarningThresholdCrossed": {
+            "Description": "Indicates that the IPC monitor has detected a service crossing the warning threshold limit set on a property",
+            "Message": "DBus IPC Monitor detected %1 unit crossing warning threshold set on %2 IPC property. Property Reading=%3 Threshold=%4.",
+            "MessageSeverity": "Warning",
+            "NumberOfArgs": 4,
+            "ParamTypes": [
+                "string",
+                "string",
+                "number",
+                "number"
+            ],
+            "Resolution": "None.",
+            "Severity": "Warning"
         },
         "IPMIWatchdog": {
             "Description": "Indicates that there is a host watchdog event.",
@@ -1701,7 +1748,10 @@
             "Description": "Indicates that a power supply input power was restored.",
             "Message": "Power supply %1 power restored.",
             "MessageSeverity": "OK",
-            "NumberOfArgs": 0,
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
             "Resolution": "None.",
             "Severity": "OK"
         },
@@ -1910,7 +1960,7 @@
             "Severity": "Critical"
         },
         "SensorCableStatusEnable": {
-            "Description": "Indicates that a cable sensor moved from error status to enable status .",
+            "Description": "Indicates that a cable sensor moved from error status to enable status.",
             "Message": "%1 sensor is now enabled.",
             "MessageSeverity": "OK",
             "NumberOfArgs": 1,
@@ -1921,7 +1971,7 @@
             "Severity": "OK"
         },
         "SensorCableStatusError": {
-            "Description": "Indicates that a cable sensor moved from enable status to error status .",
+            "Description": "Indicates that a cable sensor moved from enable status to error status.",
             "Message": "%1 sensor is now in error.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 1,
@@ -2045,6 +2095,18 @@
             ],
             "Resolution": "None.",
             "Severity": "Warning"
+        },
+        "ServiceRestartReason": {
+            "Description": "Indicates Service restarted.",
+            "Message": "Service %1 restarted due to reason %2.",
+            "MessageSeverity": "Critical",
+            "NumberOfArgs": 2,
+            "ParamTypes": [
+                "string",
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "Critical"
         },
         "ServiceStarted": {
             "Description": "Indicates that a service has started successfully.",
@@ -2246,5 +2308,5 @@
     "Name": "OpenBMC Message Registry",
     "OwningEntity": "OpenBMC",
     "RegistryPrefix": "OpenBMC",
-    "RegistryVersion": "0.4.1"
+    "RegistryVersion": "0.4.0"
 }

@@ -1,0 +1,15 @@
+{
+    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/57",
+    "@odata.type": "#LogEntry.v1_15_0.LogEntry",
+    "AdditionalDataSizeBytes": 368,
+    "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/57/attachment",
+    "Created": "1970-01-01T00:00:00.325315+00:00",
+    "DiagnosticDataType": "CPER",
+    "EntryType": "Event",
+    "Id": "57",
+    "Message": "A platform error occurred.",
+    "MessageId": "Platform.1.0.PlatformError",
+    "Name": "FaultLog Dump Entry",
+    "Resolution": "Check additional diagnostic data if available.",
+    "Severity": "Warning"
+}

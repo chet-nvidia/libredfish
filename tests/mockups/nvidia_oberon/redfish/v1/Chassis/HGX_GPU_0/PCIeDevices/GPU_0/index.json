@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Chassis/HGX_GPU_0/PCIeDevices/GPU_0",
-    "@odata.type": "#PCIeDevice.v1_5_0.PCIeDevice",
+    "@odata.type": "#PCIeDevice.v1_14_0.PCIeDevice",
     "DeviceType": "SingleFunction",
     "Id": "GPU_0",
     "Manufacturer": "NVIDIA",
@@ -8,7 +8,7 @@
     "Name": "PCIe Device",
     "Oem": {
         "Nvidia": {
-            "@odata.type": "#NvidiaPCIeDevice.v1_0_0.NvidiaPCIeDevice",
+            "@odata.type": "#NvidiaPCIeDevice.v1_1_0.NvidiaPCIeDevice",
             "NVLinkReferenceClockEnabled": false
         }
     },

@@ -1,0 +1,20 @@
+{
+    "@odata.id": "/redfish/v1/JsonSchemas/OemComputerSystem",
+    "@odata.type": "#JsonSchemaFile.v1_0_2.JsonSchemaFile",
+    "Description": "OemComputerSystem Schema File Location",
+    "Id": "OemComputerSystem",
+    "Languages": [
+        "en"
+    ],
+    "Languages@odata.count": 1,
+    "Location": [
+        {
+            "Language": "en",
+            "PublicationUri": "http://redfish.dmtf.org/schemas/v1/OemComputerSystem.json",
+            "Uri": "/redfish/v1/JsonSchemas/OemComputerSystem/OemComputerSystem.json"
+        }
+    ],
+    "Location@odata.count": 1,
+    "Name": "OemComputerSystem Schema File",
+    "Schema": "#OemComputerSystem.OemComputerSystem"
+}

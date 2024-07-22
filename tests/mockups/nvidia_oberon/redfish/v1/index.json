@@ -41,6 +41,7 @@
         "@odata.id": "/redfish/v1/Managers"
     },
     "Name": "Root Service",
+    "Product": "P3809",
     "ProtocolFeaturesSupported": {
         "DeepOperations": {
             "DeepPATCH": false,
@@ -54,11 +55,11 @@
             "MaxLevels": 6,
             "NoLinks": true
         },
-        "FilterQuery": false,
+        "FilterQuery": true,
         "OnlyMemberQuery": true,
         "SelectQuery": true
     },
-    "RedfishVersion": "1.9.0",
+    "RedfishVersion": "1.17.0",
     "Registries": {
         "@odata.id": "/redfish/v1/Registries"
     },
@@ -77,8 +78,9 @@
     "TelemetryService": {
         "@odata.id": "/redfish/v1/TelemetryService"
     },
-    "UUID": "5be2d00b-db02-44f3-933f-3b2554203e56",
+    "UUID": "eb3a1bda-4c82-405d-939c-b775b7d9660f",
     "UpdateService": {
         "@odata.id": "/redfish/v1/UpdateService"
-    }
+    },
+    "Vendor": "NVIDIA"
 }

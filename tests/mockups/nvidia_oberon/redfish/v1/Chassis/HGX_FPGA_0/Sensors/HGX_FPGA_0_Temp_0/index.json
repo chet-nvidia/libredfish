@@ -5,7 +5,7 @@
     "MaxAllowableOperatingValue": 127,
     "Name": "HGX FPGA 0 Temp 0",
     "PhysicalContext": "GPUSubsystem",
-    "Reading": 38.99609375,
+    "Reading": 36.99609375,
     "ReadingType": "Temperature",
     "ReadingUnits": "Cel",
     "RelatedItem": [

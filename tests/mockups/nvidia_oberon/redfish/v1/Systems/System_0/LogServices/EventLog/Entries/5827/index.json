@@ -1,0 +1,18 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/5827",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "Created": "2024-07-22T13:46:41+00:00",
+    "EntryType": "Event",
+    "Id": "5827",
+    "Message": "ProcessCPU_rsyslogd sensor crossed a critical high threshold going high. Reading=15.602476 Threshold=15.000000.",
+    "MessageArgs": [
+        "ProcessCPU_rsyslogd",
+        "15.602476",
+        "15.000000"
+    ],
+    "MessageId": "OpenBMC.0.4.SensorThresholdCriticalHighGoingHigh",
+    "Name": "System Event Log Entry",
+    "Resolution": "None",
+    "Resolved": false,
+    "Severity": "Critical"
+}

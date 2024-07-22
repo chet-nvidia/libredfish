@@ -4,12 +4,12 @@
     "Actions": {
         "#ComponentIntegrity.SPDMGetSignedMeasurements": {
             "@Redfish.ActionInfo": "/redfish/v1/ComponentIntegrity/HGX_ERoT_GPU_0/SPDMGetSignedMeasurementsActionInfo",
-            "target": "/redfish/v1/ComponentIntegrity/HGX_ERoT_GPU_0/Actions/SPDMGetSignedMeasurements"
+            "target": "/redfish/v1/ComponentIntegrity/HGX_ERoT_GPU_0/Actions/ComponentIntegrity.SPDMGetSignedMeasurements"
         }
     },
     "ComponentIntegrityEnabled": true,
     "ComponentIntegrityType": "SPDM",
-    "ComponentIntegrityTypeVersion": "unknown",
+    "ComponentIntegrityTypeVersion": "1.1.0",
     "Id": "HGX_ERoT_GPU_0",
     "Links": {
         "ComponentsProtected": [

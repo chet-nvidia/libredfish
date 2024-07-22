@@ -6,7 +6,7 @@
         }
     },
     "@odata.id": "/redfish/v1/Systems/System_0",
-    "@odata.type": "#ComputerSystem.v1_17_0.ComputerSystem",
+    "@odata.type": "#ComputerSystem.v1_22_0.ComputerSystem",
     "Actions": {
         "#ComputerSystem.Reset": {
             "@Redfish.ActionInfo": "/redfish/v1/Systems/System_0/ResetActionInfo",
@@ -45,6 +45,7 @@
             "Usb"
         ],
         "RemainingAutomaticRetryAttempts": 3,
+        "StopBootOnFault": "Never",
         "TrustedModuleRequiredToBoot": "Disabled"
     },
     "BootProgress": {
@@ -67,12 +68,12 @@
         "TimeoutAction": "ResetSystem"
     },
     "Id": "System_0",
-    "IndicatorLED": "Off",
-    "LastResetTime": "2024-05-13T02:05:38+00:00",
+    "IndicatorLED": "Lit",
+    "LastResetTime": "2024-07-22T06:29:20+00:00",
     "Links": {
         "Chassis": [
             {
-                "@odata.id": "/redfish/v1/Chassis/CPLD_0"
+                "@odata.id": "/redfish/v1/Chassis/BMC_0"
             }
         ],
         "ManagedBy": [
@@ -81,7 +82,7 @@
             }
         ]
     },
-    "LocationIndicatorActive": false,
+    "LocationIndicatorActive": true,
     "LogServices": {
         "@odata.id": "/redfish/v1/Systems/System_0/LogServices"
     },
@@ -89,12 +90,7 @@
         "@odata.id": "/redfish/v1/Systems/System_0/Memory"
     },
     "MemorySummary": {
-        "Status": {
-            "Health": "OK",
-            "HealthRollup": "OK",
-            "State": "Disabled"
-        },
-        "TotalSystemMemoryGiB": 0
+        "TotalSystemMemoryGiB": 480
     },
     "Name": "System_0",
     "Oem": {
@@ -106,12 +102,9 @@
     "PowerRestorePolicy": "LastState",
     "PowerState": "Off",
     "ProcessorSummary": {
-        "Count": 0,
-        "Status": {
-            "Health": "OK",
-            "HealthRollup": "OK",
-            "State": "Disabled"
-        }
+        "CoreCount": 144,
+        "Count": 2,
+        "Model": "ARMv9"
     },
     "Processors": {
         "@odata.id": "/redfish/v1/Systems/System_0/Processors"
@@ -131,8 +124,8 @@
         }
     },
     "Status": {
+        "Conditions": [],
         "Health": "OK",
-        "HealthRollup": "OK",
         "State": "Disabled"
     },
     "Storage": {

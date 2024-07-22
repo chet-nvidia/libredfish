@@ -1,7 +1,0 @@
-{
-    "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/HGX_CPU_0/Ports",
-    "@odata.type": "#PortCollection.PortCollection",
-    "Members": [],
-    "Members@odata.count": 0,
-    "Name": "NVLink Port Collection"
-}

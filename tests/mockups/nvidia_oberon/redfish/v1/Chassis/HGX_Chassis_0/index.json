@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0",
-    "@odata.type": "#Chassis.v1_21_0.Chassis",
+    "@odata.type": "#Chassis.v1_22_0.Chassis",
     "Assembly": {
         "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Assembly"
     },
@@ -20,9 +20,6 @@
         ],
         "Contains": [
             {
-                "@odata.id": "/redfish/v1/Chassis/HGX_ERoT_BMC_0"
-            },
-            {
                 "@odata.id": "/redfish/v1/Chassis/HGX_ERoT_FPGA_0"
             },
             {
@@ -35,19 +32,13 @@
                 "@odata.id": "/redfish/v1/Chassis/HGX_ERoT_GPU_0"
             },
             {
-                "@odata.id": "/redfish/v1/Chassis/HGX_ERoT_GPU_1"
-            },
-            {
-                "@odata.id": "/redfish/v1/Chassis/HGX_CPU_0"
-            },
-            {
-                "@odata.id": "/redfish/v1/Chassis/HGX_CPU_1"
-            },
-            {
                 "@odata.id": "/redfish/v1/Chassis/HGX_FPGA_0"
             },
             {
-                "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0"
+                "@odata.id": "/redfish/v1/Chassis/HGX_ERoT_BMC_0"
+            },
+            {
+                "@odata.id": "/redfish/v1/Chassis/HGX_ERoT_GPU_1"
             }
         ],
         "ManagedBy": [
@@ -62,12 +53,14 @@
     "Manufacturer": "NVIDIA",
     "MaxPowerWatts": 0,
     "MinPowerWatts": 0,
-    "Name": "Chassis_0",
+    "Name": "HGX_Chassis_0",
     "Oem": {
         "Nvidia": {
-            "@odata.type": "#NvidiaChassis.v1_0_0.NvidiaChassis",
+            "@odata.type": "#NvidiaChassis.v1_1_0.NvidiaChassis",
             "HardwareWriteProtected": false,
-            "HardwareWriteProtectedControl": true
+            "HardwareWriteProtectedControl": true,
+            "PartNumber": "675-24984-0000-TS1",
+            "SerialNumber": "172WWYYZZZZZZ"
         }
     },
     "PCIeDevices": {
@@ -76,7 +69,7 @@
     "PCIeSlots": {
         "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/PCIeSlots"
     },
-    "PartNumber": "694-24486-0000-EV2",
+    "PartNumber": "",
     "PowerState": "On",
     "PowerSubsystem": {
         "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/PowerSubsystem"
@@ -84,7 +77,7 @@
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0/Sensors"
     },
-    "SerialNumber": "1580924760199",
+    "SerialNumber": "",
     "Status": {
         "Conditions": [],
         "Health": "OK",

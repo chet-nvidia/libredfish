@@ -3,6 +3,9 @@
     "@odata.type": "#ComponentIntegrityCollection.ComponentIntegrityCollection",
     "Members": [
         {
+            "@odata.id": "/redfish/v1/ComponentIntegrity/0"
+        },
+        {
             "@odata.id": "/redfish/v1/ComponentIntegrity/HGX_ERoT_BMC_0"
         },
         {
@@ -21,6 +24,6 @@
             "@odata.id": "/redfish/v1/ComponentIntegrity/HGX_ERoT_GPU_1"
         }
     ],
-    "Members@odata.count": 6,
+    "Members@odata.count": 7,
     "Name": "ComponentIntegrity Collection"
 }

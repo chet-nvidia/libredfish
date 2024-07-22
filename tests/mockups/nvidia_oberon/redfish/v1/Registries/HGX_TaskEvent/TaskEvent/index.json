@@ -8,12 +8,12 @@
                     "MessageRegistryFile",
                     "HGX_TaskEvent"
                 ],
-                "MessageId": "Base.1.15.0.ResourceNotFound",
+                "MessageId": "Base.1.16.0.ResourceNotFound",
                 "MessageSeverity": "Critical",
                 "Resolution": "Provide a valid resource identifier and resubmit the request."
             }
         ],
-        "code": "Base.1.15.0.ResourceNotFound",
+        "code": "Base.1.16.0.ResourceNotFound",
         "message": "The requested resource of type MessageRegistryFile named 'HGX_TaskEvent' was not found."
     }
 }

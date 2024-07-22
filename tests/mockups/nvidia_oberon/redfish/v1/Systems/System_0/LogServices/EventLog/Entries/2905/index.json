@@ -1,0 +1,17 @@
+{
+    "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/2905",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "Created": "2024-07-01T09:10:11+00:00",
+    "EntryType": "Event",
+    "Id": "2905",
+    "Message": "The resource property FW_BMC_0 has detected errors of type 'ERoT is busy'.",
+    "MessageArgs": [
+        "FW_BMC_0",
+        "ERoT is busy"
+    ],
+    "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+    "Name": "System Event Log Entry",
+    "Resolution": "Wait for background copy operation to complete and rate limit threshold to be cleared.",
+    "Resolved": false,
+    "Severity": "Critical"
+}

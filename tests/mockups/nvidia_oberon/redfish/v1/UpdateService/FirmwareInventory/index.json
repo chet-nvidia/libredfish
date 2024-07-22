@@ -12,6 +12,9 @@
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/FW_ERoT_BMC_0"
         },
         {
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/UEFI"
+        },
+        {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0"
         },
         {
@@ -57,6 +60,6 @@
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_InfoROM_GPU_1"
         }
     ],
-    "Members@odata.count": 18,
+    "Members@odata.count": 19,
     "Name": "Software Inventory Collection"
 }
