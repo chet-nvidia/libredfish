@@ -19,7 +19,7 @@ pub struct Manager {
     #[serde(flatten)]
     pub odata: ODataLinks,
     pub actions: Action,
-    pub command_shell: Commandshell,
+    pub command_shell: Option<Commandshell>,
     pub description: Option<String>,
     pub ethernet_interfaces: ODataId,
     pub firmware_version: String,

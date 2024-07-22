@@ -1,8 +1,7 @@
 use serde::{Deserialize, Serialize};
 
-use crate::EnabledDisabled;
-
 use super::ODataLinks;
+use crate::EnabledDisabled;
 
 /// http://redfish.dmtf.org/schemas/v1/SecureBoot.v1_0_7.json
 /// The SecureBoot schema contains UEFI Secure Boot information and represents properties
@@ -14,9 +13,9 @@ pub struct SecureBoot {
     pub odata: ODataLinks,
     pub id: String,
     pub name: String,
-    pub secure_boot_current_boot: EnabledDisabled,
-    pub secure_boot_enable: bool,
-    pub secure_boot_mode: SecureBootMode,
+    pub secure_boot_current_boot: Option<EnabledDisabled>,
+    pub secure_boot_enable: Option<bool>,
+    pub secure_boot_mode: Option<SecureBootMode>,
 }
 
 #[derive(Debug, Serialize, Default, Deserialize, Copy, Clone, Eq, PartialEq)]
