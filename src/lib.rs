@@ -399,6 +399,17 @@ impl Status {
     pub fn message(&self) -> &str {
         &self.message
     }
+
+    // build_fake creates a Status for use in test environments, as its details are private.
+    pub fn build_fake(enabled: EnabledDisabled) -> Self {
+        Self {
+            status: match enabled {
+                EnabledDisabled::Enabled => StatusInternal::Enabled,
+                EnabledDisabled::Disabled => StatusInternal::Disabled,
+            },
+            message: "Fake".to_string(),
+        }
+    }
 }
 
 #[derive(Debug)]
