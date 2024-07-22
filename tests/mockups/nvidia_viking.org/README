@@ -1,9 +1,0 @@
-Redfish service captured by the Redfish Mockup Creator, Version 1.2.0
-Created: 2023-11-20 13:53:53
-Service: https://127.0.0.1:8225
-User: ubuntu
-Description: 
-Total response time: 5513.855782032013
-Average response time: 0.6567241283982864
-Minimum response time: 0.34911179542541504, /redfish
-Maximum response time: 11.76941442489624, /redfish/v1/Managers/BMC/LogServices/DecodedLog/Entries
