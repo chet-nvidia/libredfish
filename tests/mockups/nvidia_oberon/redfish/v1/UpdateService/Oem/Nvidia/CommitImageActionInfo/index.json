@@ -5,7 +5,9 @@
     "Name": "CommitImage Action Info",
     "Parameters": [
         {
-            "AllowableValues": [],
+            "AllowableValues": [
+                "/redfish/v1/UpdateService/FirmwareInventory/FW_FPGA_0"
+            ],
             "DataType": "StringArray",
             "Name": "Targets",
             "Required": "false"

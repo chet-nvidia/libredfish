@@ -1,8 +1,8 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/EthernetInterface.v1_12_0.json",
+    "$id": "http://redfish.dmtf.org/schemas/v1/EthernetInterface.v1_9_0.json",
     "$ref": "#/definitions/EthernetInterface",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2022 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Actions": {
             "additionalProperties": false,
@@ -372,7 +372,7 @@
                 },
                 "HostName": {
                     "description": "The DNS host name, without any domain information.",
-                    "longDescription": "This property shall contain the DNS host name for this interface.  Modifying this property may modify the HostName in one or more EthernetInterface resources that belong to the same system, manager, or other device.  If this interface is subordinate to a ComputerSystem resource, modifying this property may modify the HostName of the ComputerSystem resource that contains this interface.  If this interface is subordinate to a Manager resource, modifying this property may modify the HostName of the ManagerNetworkProtocol resource of the Manager resource that contains this interface.",
+                    "longDescription": "This property shall contain DNS host name for this interface.",
                     "readonly": false,
                     "type": [
                         "string",
@@ -399,7 +399,7 @@
                             }
                         ]
                     },
-                    "longDescription": "This property shall contain an array of objects that represent all IPv4 static addresses assigned to, but not necessarily in use by, this interface.  The IPv4Addresses property shall also list the addresses that this interface uses.",
+                    "longDescription": "This property shall contain an array of objects that represent all IPv4 static addresses assigned to, but not necessarily in use by, this interface.  The IPv4Addresses property shall also list the addresses that this interface uses .",
                     "type": "array",
                     "versionAdded": "v1_4_0"
                 },
@@ -434,16 +434,6 @@
                         "string",
                         "null"
                     ]
-                },
-                "IPv6Enabled": {
-                    "description": "An indication of whether IPv6 is enabled on this interface.",
-                    "longDescription": "This property shall indicate whether IPv6 is enabled on this interface.  If this property contains `false`, the interface shall not contain any assigned IPv6 addresses, shall not initiate DHCPv6 requests, and shall not send or process ICMPv6 packets.  If this property is not present, but this interface contains other IPv6 properties, the value shall be assumed to be `true`.",
-                    "readonly": false,
-                    "type": [
-                        "boolean",
-                        "null"
-                    ],
-                    "versionAdded": "v1_12_0"
                 },
                 "IPv6StaticAddresses": {
                     "description": "The IPv6 static addresses assigned to this interface.  See IPv6Addresses for the addresses in use by this interface.",
@@ -524,7 +514,7 @@
                 },
                 "MTUSize": {
                     "description": "The currently configured maximum transmission unit (MTU), in bytes, on this interface.",
-                    "longDescription": "This property shall contain the size, in bytes, of the largest protocol data unit (PDU) that can be passed in an Ethernet (MAC) frame on this interface.",
+                    "longDescription": "This property shall contain the size, in bytes, of largest protocol data unit (PDU) that can be passed in an Ethernet (MAC) frame on this interface.",
                     "readonly": false,
                     "type": [
                         "integer",
@@ -571,23 +561,9 @@
                     "longDescription": "This property shall contain the permanent MAC address of this interface, or port.  Typically, this value is programmed during manufacturing.  This address is not assignable.",
                     "readonly": true
                 },
-                "RoutingScope": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/RoutingScope"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The routing scope for this interface.",
-                    "longDescription": "This property shall contain the routing scope for this interface.  This property shall only be present if this interface belongs to a virtual machine or container.",
-                    "readonly": true,
-                    "versionAdded": "v1_11_0"
-                },
                 "SpeedMbps": {
                     "description": "The current speed, in Mbit/s, of this interface.",
-                    "longDescription": "This property shall contain the link speed of the interface, in megabits per second (Mbit/s) units.  This property shall be writable only when the AutoNeg property is `false`.",
+                    "longDescription": "This property shall contain the link speed of the interface, in Mbit/s.  This property shall be writable only when the AutoNeg property is `false`.",
                     "readonly": false,
                     "type": [
                         "integer",
@@ -752,19 +728,6 @@
                 }
             },
             "properties": {
-                "AffiliatedInterfaces": {
-                    "description": "The links to the Ethernet interfaces that are affiliated with this interface, such as a VLAN or a team that uses this interface.",
-                    "items": {
-                        "$ref": "http://redfish.dmtf.org/schemas/v1/EthernetInterface.json#/definitions/EthernetInterface"
-                    },
-                    "longDescription": "This property shall contain an array of links to resources of type EthernetInterface that represent the Ethernet interfaces that are affiliated with this interface.  EthernetInterface resources referenced in this property shall reference this resource in their RelatedInterfaces property.",
-                    "readonly": true,
-                    "type": "array",
-                    "versionAdded": "v1_10_0"
-                },
-                "AffiliatedInterfaces@odata.count": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/count"
-                },
                 "Chassis": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Chassis.json#/definitions/Chassis",
                     "description": "The link to the chassis that contains this Ethernet interface.",
@@ -809,7 +772,7 @@
                     "versionDeprecated": "v1_7_0"
                 },
                 "NetworkDeviceFunctions": {
-                    "description": "The link to the network device functions that constitute this Ethernet interface.",
+                    "description": "The link to the network device functions that comprise this Ethernet interface.",
                     "items": {
                         "$ref": "http://redfish.dmtf.org/schemas/v1/NetworkDeviceFunction.json#/definitions/NetworkDeviceFunction"
                     },
@@ -840,7 +803,7 @@
                     "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/count"
                 },
                 "RelatedInterfaces": {
-                    "description": "The links to the Ethernet interfaces that constitute this Ethernet interface.",
+                    "description": "The links to the Ethernet interfaces that comprise this Ethernet interface.",
                     "items": {
                         "$ref": "http://redfish.dmtf.org/schemas/v1/EthernetInterface.json#/definitions/EthernetInterface"
                     },
@@ -882,27 +845,6 @@
             },
             "properties": {},
             "type": "object"
-        },
-        "RoutingScope": {
-            "enum": [
-                "External",
-                "HostOnly",
-                "Internal",
-                "Limited"
-            ],
-            "enumDescriptions": {
-                "External": "Externally accessible.",
-                "HostOnly": "Only accessible to a dedicated interface on the host.",
-                "Internal": "Only accessible to internal networking on the host, such as when virtual machines or containers are allowed to communicate with each other on the same host system as well as a dedicated interface on the hosting system.",
-                "Limited": "Accessible through IP translation provided by the hosting system."
-            },
-            "enumLongDescriptions": {
-                "External": "This value shall indicate this interface is externally accessible as if it were physically on the same network as the hosting system.",
-                "HostOnly": "This value shall indicate this interface is only accessible to a dedicated interface on the hosting system.",
-                "Internal": "This value shall indicate this interface is only accessible to internal networking on the host, such as when virtual machines or containers are allowed to communicate with each other on the same host system as well as a dedicated interface on the hosting system.",
-                "Limited": "This value shall indicate this interface is accessible through IP translation provided by the hosting system, such as a NAT (network address translation)."
-            },
-            "type": "string"
         },
         "StatelessAddressAutoConfiguration": {
             "additionalProperties": false,
@@ -971,6 +913,6 @@
         }
     },
     "owningEntity": "DMTF",
-    "release": "2023.3",
-    "title": "#EthernetInterface.v1_12_0.EthernetInterface"
+    "release": "2022.2",
+    "title": "#EthernetInterface.v1_9_0.EthernetInterface"
 }

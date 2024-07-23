@@ -1,9 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Chassis/CPLD_0/ThermalSubsystem",
     "@odata.type": "#ThermalSubsystem.v1_0_0.ThermalSubsystem",
-    "Fans": {
-        "@odata.id": "/redfish/v1/Chassis/CPLD_0/ThermalSubsystem/Fans"
-    },
     "Id": "ThermalSubsystem",
     "Name": "Thermal Subsystem",
     "Status": {

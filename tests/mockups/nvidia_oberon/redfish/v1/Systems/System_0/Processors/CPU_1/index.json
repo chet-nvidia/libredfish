@@ -6,7 +6,7 @@
         }
     },
     "@odata.id": "/redfish/v1/Systems/System_0/Processors/CPU_1",
-    "@odata.type": "#Processor.v1_20_0.Processor",
+    "@odata.type": "#Processor.v1_13_0.Processor",
     "EnvironmentMetrics": {
         "@odata.id": "/redfish/v1/Systems/System_0/Processors/CPU_1/EnvironmentMetrics"
     },
@@ -21,6 +21,7 @@
     "Metrics": {
         "@odata.id": "/redfish/v1/Systems/System_0/Processors/CPU_1/ProcessorMetrics"
     },
+    "Model": "Grace A02",
     "Name": "Processor",
     "PartNumber": "",
     "Ports": {
@@ -31,7 +32,7 @@
         "IdentificationRegisters": "0x00000002036B0241"
     },
     "ProcessorType": "CPU",
-    "SerialNumber": "0x000000017809E147100000000B020180",
+    "SerialNumber": "0x00000001780A01851400000005000180",
     "Socket": "G1:1.0",
     "Status": {
         "Conditions": [],

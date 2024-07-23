@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---->
 <!--################################################################################       -->
-<!--# Redfish Schema:  Endpoint v1.8.1                                                     -->
+<!--# Redfish Schema:  Endpoint v1.7.0                                                     -->
 <!--#                                                                                      -->
 <!--# For a detailed change log, see the README file contained in the DSP8010 bundle,      -->
 <!--# available at http://www.dmtf.org/standards/redfish                                   -->
-<!--# Copyright 2014-2023 DMTF.                                                            -->
+<!--# Copyright 2014-2022 DMTF.                                                            -->
 <!--# For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright -->
 <!--################################################################################       -->
 <!---->
@@ -21,12 +21,14 @@
     <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
   </edmx:Reference>
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
-    <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
     <edmx:Include Namespace="Validation.v1_0_0" Alias="Validation"/>
   </edmx:Reference>
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
     <edmx:Include Namespace="Resource"/>
     <edmx:Include Namespace="Resource.v1_0_0"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
+    <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
   </edmx:Reference>
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Redundancy_v1.xml">
     <edmx:Include Namespace="Redundancy"/>
@@ -247,8 +249,8 @@
           <Annotation Term="OData.LongDescription" String="This value shall indicate the entity this endpoint represents is a storage initiator.  The EntityLink property, if present, should be of type StorageController."/>
         </Member>
         <Member Name="RootComplex">
-          <Annotation Term="OData.Description" String="The entity is a PCIe root complex."/>
-          <Annotation Term="OData.LongDescription" String="This value shall indicate the entity this endpoint represents is a PCIe root complex.  The EntityLink property, if present, should be of type ComputerSystem."/>
+          <Annotation Term="OData.Description" String="The entity is a PCI(e) root complex."/>
+          <Annotation Term="OData.LongDescription" String="This value shall indicate the entity this endpoint represents is a PCI(e) root complex.  The EntityLink property, if present, should be of type ComputerSystem."/>
         </Member>
         <Member Name="NetworkController">
           <Annotation Term="OData.Description" String="The entity is a network controller."/>
@@ -267,8 +269,8 @@
           <Annotation Term="OData.LongDescription" String="This value shall indicate the entity this endpoint represents is a display controller."/>
         </Member>
         <Member Name="Bridge">
-          <Annotation Term="OData.Description" String="The entity is a PCIe bridge."/>
-          <Annotation Term="OData.LongDescription" String="This value shall indicate the entity this endpoint represents is a PCIe bridge."/>
+          <Annotation Term="OData.Description" String="The entity is a PCI(e) bridge."/>
+          <Annotation Term="OData.LongDescription" String="This value shall indicate the entity this endpoint represents is a PCI(e) bridge."/>
         </Member>
         <Member Name="Processor">
           <Annotation Term="OData.Description" String="The entity is a processor."/>
@@ -370,30 +372,6 @@
             </Collection>
           </Annotation>
         </Member>
-        <Member Name="Memory">
-          <Annotation Term="OData.Description" String="The entity is a memory device."/>
-          <Annotation Term="OData.LongDescription" String="This value shall indicate the entity this endpoint represents is a memory device.  The EntityLink property, if present, should be of type Memory."/>
-          <Annotation Term="Redfish.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
-                <PropertyValue Property="Version" String="v1_8_0"/>
-              </Record>
-            </Collection>
-          </Annotation>
-        </Member>
-        <Member Name="CXLDevice">
-          <Annotation Term="OData.Description" String="The entity is a CXL logical device."/>
-          <Annotation Term="OData.LongDescription" String="This value shall indicate the entity this endpoint represents is a CXL logical device.  The EntityLink property, if present, should be of type CXLLogicalDevice."/>
-          <Annotation Term="Redfish.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
-                <PropertyValue Property="Version" String="v1_8_0"/>
-              </Record>
-            </Collection>
-          </Annotation>
-        </Member>
       </EnumType>
 
       <EnumType Name="EntityRole">
@@ -471,7 +449,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_0_6">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to force the regeneration of JSON Schema so that URI properties use the uri-reference format, clarifies the EntityRole enumeration descriptions, and adds a missing term to several properties to disallow them from being `null`."/>
+      <Annotation Term="OData.Description" String="This version was created to force the regeneration of JSON Schema so that URI properties use the uri-reference format, clarifies the EntityRole enumeration descriptions, and adds a missing term to several properties to disallow them from being null."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_0_5.Endpoint"/>
     </Schema>
 
@@ -495,7 +473,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_0_10">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to specify 64-bit integers in OpenAPI."/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_0_9.Endpoint"/>
     </Schema>
 
@@ -511,12 +489,6 @@
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_0_11.Endpoint"/>
     </Schema>
 
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_0_13">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
-      <EntityType Name="Endpoint" BaseType="Endpoint.v1_0_12.Endpoint"/>
-    </Schema>
-
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_1_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2017.3"/>
@@ -524,6 +496,7 @@
         <Property Name="IPTransportDetails" Type="Collection(Endpoint.v1_1_0.IPTransportDetails)" Nullable="false">
           <Annotation Term="OData.Description" String="An array of details for each IP transport supported by this endpoint.  The array structure can model multiple IP addresses for this endpoint."/>
           <Annotation Term="OData.LongDescription" String="This array shall contain the details for each IP transport supported by this endpoint."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
         </Property>
       </EntityType>
 
@@ -553,10 +526,10 @@
           <Annotation Term="OData.Description" String="The IPv6 addresses assigned to the endpoint."/>
           <Annotation Term="OData.LongDescription" String="This property shall contain the IPv6Address."/>
         </Property>
-        <Property Name="Port" Type="Edm.Int64" Nullable="false">
+        <Property Name="Port" Type="Edm.Decimal" Nullable="false">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The UDP or TCP port number used by the endpoint."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain a specified UDP or TCP port number used for communication with the endpoint."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain an specify UDP or TCP port number used for communication with the endpoint."/>
           <Annotation Term="Validation.Minimum" Int="0"/>
           <Annotation Term="Validation.Maximum" Int="65535"/>
         </Property>
@@ -577,7 +550,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_1_3">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to force the regeneration of JSON Schema so that URI properties use the uri-reference format, clarifies the EntityRole enumeration descriptions, and adds a missing term to several properties to disallow them from being `null`."/>
+      <Annotation Term="OData.Description" String="This version was created to force the regeneration of JSON Schema so that URI properties use the uri-reference format, clarifies the EntityRole enumeration descriptions, and adds a missing term to several properties to disallow them from being null."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_1_2.Endpoint"/>
     </Schema>
 
@@ -601,7 +574,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_1_7">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to specify 64-bit integers in OpenAPI."/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_1_6.Endpoint"/>
     </Schema>
 
@@ -615,12 +588,6 @@
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="OData.Description" String="This version was created to correct a typographical error in the SubsystemId long description."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_1_8.Endpoint"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_1_10">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors.  It was also created to correct the data type of the Port property to only allow for integers."/>
-      <EntityType Name="Endpoint" BaseType="Endpoint.v1_1_9.Endpoint"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_2_0">
@@ -651,7 +618,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_2_2">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to force the regeneration of JSON Schema so that URI properties use the uri-reference format, clarifies the EntityRole enumeration descriptions, and adds a missing term to several properties to disallow them from being `null`."/>
+      <Annotation Term="OData.Description" String="This version was created to force the regeneration of JSON Schema so that URI properties use the uri-reference format, clarifies the EntityRole enumeration descriptions, and adds a missing term to several properties to disallow them from being null."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_2_1.Endpoint"/>
     </Schema>
 
@@ -675,7 +642,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_2_6">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to specify 64-bit integers in OpenAPI."/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_2_5.Endpoint"/>
     </Schema>
 
@@ -691,12 +658,6 @@
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_2_7.Endpoint"/>
     </Schema>
 
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_2_9">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors.  It was also created to correct the data type of the Port property to only allow for integers."/>
-      <EntityType Name="Endpoint" BaseType="Endpoint.v1_2_8.Endpoint"/>
-    </Schema>
-
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_3_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2018.3"/>
@@ -707,7 +668,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_3_1">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to force the regeneration of JSON Schema so that URI properties use the uri-reference format, clarifies the EntityRole enumeration descriptions, and adds a missing term to several properties to disallow them from being `null`."/>
+      <Annotation Term="OData.Description" String="This version was created to force the regeneration of JSON Schema so that URI properties use the uri-reference format, clarifies the EntityRole enumeration descriptions, and adds a missing term to several properties to disallow them from being null."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_3_0.Endpoint"/>
     </Schema>
 
@@ -731,7 +692,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_3_5">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to specify 64-bit integers in OpenAPI."/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_3_4.Endpoint"/>
     </Schema>
 
@@ -745,12 +706,6 @@
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="OData.Description" String="This version was created to correct a typographical error in the SubsystemId long description."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_3_6.Endpoint"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_3_8">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors.  It was also created to correct the data type of the Port property to only allow for integers."/>
-      <EntityType Name="Endpoint" BaseType="Endpoint.v1_3_7.Endpoint"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_4_0">
@@ -854,7 +809,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_4_3">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to specify 64-bit integers in OpenAPI."/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_4_2.Endpoint"/>
     </Schema>
 
@@ -876,12 +831,6 @@
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_4_5.Endpoint"/>
     </Schema>
 
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_4_7">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors.  It was also created to correct the data type of the Port property to only allow for integers."/>
-      <EntityType Name="Endpoint" BaseType="Endpoint.v1_4_6.Endpoint"/>
-    </Schema>
-
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_5_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2020.3"/>
@@ -900,7 +849,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_5_1">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to specify 64-bit integers in OpenAPI."/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_5_0.Endpoint"/>
     </Schema>
 
@@ -920,12 +869,6 @@
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="OData.Description" String="This version was created to clarify the usage of the ConnectedPorts property inside of Links."/>
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_5_3.Endpoint"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_5_5">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors.  It was also created to correct the data type of the Port property to only allow for integers."/>
-      <EntityType Name="Endpoint" BaseType="Endpoint.v1_5_4.Endpoint"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_6_0">
@@ -956,12 +899,6 @@
       <EntityType Name="Endpoint" BaseType="Endpoint.v1_6_1.Endpoint"/>
     </Schema>
 
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_6_3">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors.  It was also created to correct the data type of the Port property to only allow for integers."/>
-      <EntityType Name="Endpoint" BaseType="Endpoint.v1_6_2.Endpoint"/>
-    </Schema>
-
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_7_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2022.1"/>
@@ -976,26 +913,6 @@
           <Annotation Term="OData.AutoExpandReferences"/>
         </NavigationProperty>
       </ComplexType>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_7_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors.  It was also created to correct the data type of the Port property to only allow for integers."/>
-      <EntityType Name="Endpoint" BaseType="Endpoint.v1_7_0.Endpoint"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_8_0">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="Redfish.Release" String="2022.3"/>
-      <Annotation Term="OData.Description" String="This version was created to add `CXLDevice` and `Memory` to EntityType."/>
-
-      <EntityType Name="Endpoint" BaseType="Endpoint.v1_7_0.Endpoint"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Endpoint.v1_8_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors.  It was also created to correct the data type of the Port property to only allow for integers."/>
-      <EntityType Name="Endpoint" BaseType="Endpoint.v1_8_0.Endpoint"/>
     </Schema>
 
   </edmx:DataServices>

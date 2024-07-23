@@ -4,14 +4,10 @@
     "Description": "Manager Network Service",
     "FQDN": "oberon-hmc",
     "HTTP": {
-        "Port": null,
-        "ProtocolEnabled": false
+        "Port": 80,
+        "ProtocolEnabled": true
     },
     "HostName": "oberon-hmc",
-    "IPMI": {
-        "Port": null,
-        "ProtocolEnabled": false
-    },
     "Id": "NetworkProtocol",
     "Name": "Manager Network Protocol",
     "SSH": {

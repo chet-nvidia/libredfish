@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/UpdateService",
-    "@odata.type": "#UpdateService.v1_11_0.UpdateService",
+    "@odata.type": "#UpdateService.v1_8_0.UpdateService",
     "Actions": {
         "Oem": {
             "Nvidia": {
@@ -23,6 +23,7 @@
     },
     "HttpPushUri": "/redfish/v1/UpdateService/update",
     "HttpPushUriOptions": {
+        "ForceUpdate": false,
         "HttpPushUriApplyTime": {
             "ApplyTime": "OnReset"
         }
@@ -38,14 +39,6 @@
         ]
     },
     "Name": "Update Service",
-    "Oem": {
-        "Nvidia": {
-            "@odata.type": "#NvidiaUpdateService.v1_0_0.NvidiaUpdateService",
-            "PersistentStorage": {
-                "@odata.id": "/redfish/v1/UpdateService/Oem/Nvidia/PersistentStorage"
-            }
-        }
-    },
     "ServiceEnabled": true,
     "SoftwareInventory": {
         "@odata.id": "/redfish/v1/UpdateService/SoftwareInventory"

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---->
 <!--################################################################################       -->
-<!--# Redfish Schema:  SoftwareInventory v1.10.1                                           -->
+<!--# Redfish Schema:  SoftwareInventory v1.8.0                                            -->
 <!--#                                                                                      -->
 <!--# For a detailed change log, see the README file contained in the DSP8010 bundle,      -->
 <!--# available at http://www.dmtf.org/standards/redfish                                   -->
-<!--# Copyright 2014-2023 DMTF.                                                            -->
+<!--# Copyright 2014-2022 DMTF.                                                            -->
 <!--# For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright -->
 <!--################################################################################       -->
 <!---->
@@ -24,9 +24,6 @@
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
     <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
     <edmx:Include Namespace="Validation.v1_0_0" Alias="Validation"/>
-  </edmx:Reference>
-  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/PhysicalContext_v1.xml">
-    <edmx:Include Namespace="PhysicalContext"/>
   </edmx:Reference>
 
   <edmx:DataServices>
@@ -251,7 +248,7 @@
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_4_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2020.4"/>
-      <Annotation Term="OData.Description" String="This version was created to add the Measurement property in support of DSP0274."/>
+      <Annotation Term="OData.Description" String="This version was created to add Measurement property in support of DSP0274."/>
 
       <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_3_0.SoftwareInventory">
         <Property Name="Measurement" Type="SoftwareInventory.MeasurementBlock" Nullable="false">
@@ -273,32 +270,26 @@
         <Property Name="MeasurementSpecification" Type="Edm.Int64">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The DSP0274-defined MeasurementSpecification field of the measurement block."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the value of the DSP0274-defined MeasurementSpecification field of the measurement block."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the value of DSP0274-defined MeasurementSpecification field of the measurement block."/>
         </Property>
         <Property Name="MeasurementSize" Type="Edm.Int64">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The DSP0274-defined MeasurementSize field of the measurement block."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the value of the DSP0274-defined MeasurementSize field of the measurement block."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the value of DSP0274-defined MeasurementSize field of the measurement block."/>
         </Property>
         <Property Name="Measurement" Type="Edm.String">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The hexadecimal string representation of the numeric value of the DSP0274-defined Measurement field of the measurement block."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the value of the hexadecimal string representation of the numeric value of the DSP0274-defined Measurement field of the measurement block."/>
+          <Annotation Term="OData.Description" String="The hexadecimal string representation of the numeric value of the DSP0274-defined Measurement field  of the measurement block."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the value of the hexadecimal string representation of the numeric value of the DSP0274-defined Measurement field  of the measurement block."/>
           <Annotation Term="Validation.Pattern" String="^[0-9a-fA-F]+$"/>
         </Property>
       </ComplexType>
     </Schema>
 
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_4_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
-      <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_4_0.SoftwareInventory"/>
-    </Schema>
-
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_5_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2021.2"/>
-      <Annotation Term="OData.Description" String="This version was created to add the MeasurementIndex property to the MeasurementBlock complex type in support of DSP0274."/>
+      <Annotation Term="OData.Description" String="This version was created to add MeasurementIndex property to MeasurementBlock complex type in support of DSP0274."/>
 
       <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_4_0.SoftwareInventory"/>
 
@@ -306,15 +297,9 @@
         <Property Name="MeasurementIndex" Type="Edm.Int64">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The DSP0274-defined Index field of the measurement block."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the value of the DSP0274-defined Index field of the measurement block."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the value of DSP0274-defined Index field of the measurement block."/>
         </Property>
       </ComplexType>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_5_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
-      <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_5_0.SoftwareInventory"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_6_0">
@@ -323,12 +308,6 @@
       <Annotation Term="OData.Description" String="This version was created to deprecate Measurement in favor of measurement reporting in the ComponentIntegrity resource."/>
 
       <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_5_0.SoftwareInventory"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_6_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
-      <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_6_0.SoftwareInventory"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_7_0">
@@ -356,19 +335,13 @@
         <Property Name="Kernel" Type="Edm.String">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The kernel version contained in this software."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the kernel version contained in this software.  For strict POSIX software, the value shall contain the output of `uname -srm`.  For Microsoft Windows, the value shall contain the output of `ver`, from Command Prompt."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the kernel version contained in this software.  For strict POSIX software, the value shall contain the output of `uname -srm`.  For Microsoft Windows, the value shall contain the output of `ver`."/>
         </Property>
         <Property Name="Oem" Type="Resource.Oem" Nullable="false">
           <Annotation Term="OData.Description" String="The OEM extension property."/>
           <Annotation Term="OData.LongDescription" String="This property shall contain the OEM extensions.  All values for properties contained in this object shall conform to the Redfish Specification-described requirements."/>
         </Property>
       </ComplexType>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_7_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
-      <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_7_0.SoftwareInventory"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_8_0">
@@ -384,85 +357,6 @@
           <Annotation Term="OData.LongDescription" String="This property shall contain the operating system name of this software."/>
         </Property>
       </ComplexType>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_8_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
-      <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_8_0.SoftwareInventory"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_9_0">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="Redfish.Release" String="2022.3"/>
-
-      <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_8_0.SoftwareInventory">
-        <Property Name="VersionScheme" Type="SoftwareInventory.v1_9_0.VersionScheme">
-          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The format of the version."/>
-          <Annotation Term="OData.LongDescription" String="This property shall describe the scheme used to format the value of the Version property."/>
-        </Property>
-      </EntityType>
-
-      <EnumType Name="VersionScheme">
-        <Member Name="SemVer">
-          <Annotation Term="OData.Description" String="Version follows Semantic Versioning 2.0 rules."/>
-          <Annotation Term="OData.LongDescription" String="This value shall indicate that the value of the Version property conforms to the format and rules of the Semantic Version 2.0 specification, and may include pre-release or build metadata."/>
-        </Member>
-        <Member Name="DotIntegerNotation">
-          <Annotation Term="OData.Description" String="Version formatted as dot-separated integers."/>
-          <Annotation Term="OData.LongDescription" String="This value shall indicate that the value of the Version property contains a sequence of integers separated by period (dot) characters, and shall follow the pattern `^\d+(\.\d+)*$`.  Leading zeros in the sequence shall be ignored."/>
-        </Member>
-        <Member Name="OEM">
-          <Annotation Term="OData.Description" String="Version follows OEM-defined format."/>
-          <Annotation Term="OData.LongDescription" String="This value shall indicate that the value of the Version property follows a format and rules as defined by the vendor or manufacturer."/>
-        </Member>
-      </EnumType>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_9_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
-      <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_9_0.SoftwareInventory"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_10_0">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="Redfish.Release" String="2023.2"/>
-
-      <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_9_0.SoftwareInventory">
-        <Property Name="ReleaseType" Type="SoftwareInventory.v1_10_0.ReleaseType">
-          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The type of release."/>
-          <Annotation Term="OData.LongDescription" String="This property shall describe the type of release for the software."/>
-        </Property>
-        <Property Name="AssociatedPhysicalContext" Type="PhysicalContext.PhysicalContext" Nullable="false">
-          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The area or device to which the software applies.  Used to distinguish when different parts of a device have different software components."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain a description of the physical context for the software inventory data."/>
-        </Property>
-      </EntityType>
-
-      <EnumType Name="ReleaseType">
-        <Member Name="Production">
-          <Annotation Term="OData.Description" String="This release is ready for use in production environments."/>
-          <Annotation Term="OData.LongDescription" String="This value shall indicate that the software is ready for use in production environments."/>
-        </Member>
-        <Member Name="Prototype">
-          <Annotation Term="OData.Description" String="This release is intended for development or internal use."/>
-          <Annotation Term="OData.LongDescription" String="This value shall indicate that the software is designed for development or internal use."/>
-        </Member>
-        <Member Name="Other">
-          <Annotation Term="OData.Description" String="The Redfish service does not have enough data to make a determination about this release."/>
-          <Annotation Term="OData.LongDescription" String="This value shall indicate that the Redfish service cannot determine if this release is validated or prototype."/>
-        </Member>
-      </EnumType>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SoftwareInventory.v1_10_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
-      <EntityType Name="SoftwareInventory" BaseType="SoftwareInventory.v1_10_0.SoftwareInventory"/>
     </Schema>
 
   </edmx:DataServices>

@@ -3,10 +3,10 @@
     "@odata.type": "#LogService.v1_2_0.LogService",
     "Actions": {
         "#LogService.CollectDiagnosticData": {
-            "target": "/redfish/v1/Systems/System_0/LogServices/DebugTokenService/LogService.CollectDiagnosticData"
+            "target": "/redfish/v1/Systems/System_0/LogServices/DebugTokenService/CollectDiagnosticData"
         }
     },
-    "DateTime": "2024-07-22T15:47:54+00:00",
+    "DateTime": "2024-07-23T19:12:55+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "Debug Token Service",
     "Entries": {

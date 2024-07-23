@@ -1,8 +1,8 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/Switch.v1_9_2.json",
+    "$id": "http://redfish.dmtf.org/schemas/v1/Switch.v1_8_0.json",
     "$ref": "#/definitions/Switch",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Actions": {
             "additionalProperties": false,
@@ -30,48 +30,6 @@
                     "$ref": "#/definitions/OemActions",
                     "description": "The available OEM-specific actions for this resource.",
                     "longDescription": "This property shall contain the available OEM-specific actions for this resource."
-                }
-            },
-            "type": "object"
-        },
-        "CXL": {
-            "additionalProperties": false,
-            "description": "CXL properties for a switch.",
-            "longDescription": "This type shall contain CXL-specific properties for a switch.",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
-                    "description": "This property shall specify a valid odata or Redfish property.",
-                    "type": [
-                        "array",
-                        "boolean",
-                        "integer",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ]
-                }
-            },
-            "properties": {
-                "MaxVCSsSupported": {
-                    "description": "The maximum number of Virtual CXL Switches (VCSs) supported in this switch.",
-                    "longDescription": "This property shall contain the maximum number of Virtual CXL Switches (VCSs) supported in this switch.",
-                    "readonly": true,
-                    "type": "integer",
-                    "versionAdded": "v1_9_0"
-                },
-                "TotalNumbervPPBs": {
-                    "description": "The total number of virtual PCI-to-PCI bridges (vPPBs) supported in this switch.",
-                    "longDescription": "This property shall contain the total number of virtual PCI-to-PCI bridges (vPPBs) supported in this switch.",
-                    "readonly": true,
-                    "type": "integer",
-                    "versionAdded": "v1_9_0"
-                },
-                "VCS": {
-                    "$ref": "#/definitions/VCSSwitch",
-                    "description": "Virtual CXL Switch (VCS) properties for this switch.",
-                    "longDescription": "This property shall contain Virtual CXL Switch (VCS) properties for this switch.",
-                    "versionAdded": "v1_9_0"
                 }
             },
             "type": "object"
@@ -252,12 +210,6 @@
                         "null"
                     ]
                 },
-                "CXL": {
-                    "$ref": "#/definitions/CXL",
-                    "description": "CXL properties for this switch.",
-                    "longDescription": "This property shall contain CXL-specific properties for this switch.",
-                    "versionAdded": "v1_9_0"
-                },
                 "Certificates": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/CertificateCollection.json#/definitions/CertificateCollection",
                     "description": "The link to a collection of certificates for device identity and attestation.",
@@ -267,7 +219,7 @@
                 },
                 "CurrentBandwidthGbps": {
                     "description": "The current internal bandwidth of this switch.",
-                    "longDescription": "This property shall contain the internal unidirectional bandwidth of this switch currently negotiated and running.",
+                    "longDescription": "This property shall contain the internal bandwidth of this switch currently negotiated and running.",
                     "readonly": true,
                     "type": [
                         "number",
@@ -356,7 +308,7 @@
                 "Location": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Location",
                     "description": "The location of the switch.",
-                    "longDescription": "This property shall contain the location information of the associated switch.",
+                    "longDescription": "This property shall contain location information of the associated switch.",
                     "versionAdded": "v1_1_0"
                 },
                 "LocationIndicatorActive": {
@@ -386,7 +338,7 @@
                 },
                 "MaxBandwidthGbps": {
                     "description": "The maximum internal bandwidth of this switch as currently configured.",
-                    "longDescription": "This property shall contain the maximum internal unidirectional bandwidth this switch is capable of being configured.  If capable of autonegotiation, the switch shall attempt to negotiate to the specified maximum bandwidth.",
+                    "longDescription": "This property shall contain the maximum internal bandwidth this switch is capable of being configured.  If capable of autonegotiation, the switch shall attempt to negotiate to the specified maximum bandwidth.",
                     "readonly": true,
                     "type": [
                         "number",
@@ -411,7 +363,6 @@
                     "description": "The link to the metrics associated with this switch.",
                     "longDescription": "This property shall contain a link to the metrics associated with this switch.",
                     "readonly": true,
-                    "uriSegment": "SwitchMetrics",
                     "versionAdded": "v1_7_0"
                 },
                 "Model": {
@@ -537,7 +488,7 @@
                         }
                     ],
                     "description": "The UUID for this switch.",
-                    "longDescription": "This property shall contain a universally unique identifier number for the switch.",
+                    "longDescription": "This property shall contain a universal unique identifier number for the switch.",
                     "readonly": true,
                     "versionAdded": "v1_3_0"
                 }
@@ -549,38 +500,9 @@
                 "Name"
             ],
             "type": "object"
-        },
-        "VCSSwitch": {
-            "additionalProperties": false,
-            "description": "Virtual CXL Switch (VCS) properties for a switch.",
-            "longDescription": "This type shall contain Virtual CXL Switch (VCS) properties for a switch.",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
-                    "description": "This property shall specify a valid odata or Redfish property.",
-                    "type": [
-                        "array",
-                        "boolean",
-                        "integer",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ]
-                }
-            },
-            "properties": {
-                "HDMDecoders": {
-                    "description": "The number of Host Device Memory (HDM) Decoders supported by this switch.",
-                    "longDescription": "This property shall contain the number of Host Device Memory (HDM) Decoders supported by this switch.",
-                    "readonly": true,
-                    "type": "integer",
-                    "versionAdded": "v1_9_0"
-                }
-            },
-            "type": "object"
         }
     },
     "owningEntity": "DMTF",
-    "release": "2022.3",
-    "title": "#Switch.v1_9_2.Switch"
+    "release": "2021.4",
+    "title": "#Switch.v1_8_0.Switch"
 }

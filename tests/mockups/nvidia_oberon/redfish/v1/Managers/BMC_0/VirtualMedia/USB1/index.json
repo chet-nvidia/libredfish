@@ -9,7 +9,6 @@
             "target": "/redfish/v1/Managers/BMC_0/VirtualMedia/USB1/Actions/VirtualMedia.InsertMedia"
         }
     },
-    "ConnectedVia": "NotConnected",
     "Id": "USB1",
     "Inserted": false,
     "MediaTypes": [
@@ -24,5 +23,6 @@
         }
     },
     "TransferMethod": "Stream",
+    "UserName": "",
     "WriteProtected": true
 }

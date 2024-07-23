@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---->
 <!--################################################################################       -->
-<!--# Redfish Schema:  Switch v1.9.2                                                       -->
+<!--# Redfish Schema:  Switch v1.8.0                                                       -->
 <!--#                                                                                      -->
 <!--# For a detailed change log, see the README file contained in the DSP8010 bundle,      -->
 <!--# available at http://www.dmtf.org/standards/redfish                                   -->
-<!--# Copyright 2014-2023 DMTF.                                                            -->
+<!--# Copyright 2014-2022 DMTF.                                                            -->
 <!--# For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright -->
 <!--################################################################################       -->
 <!---->
@@ -289,13 +289,13 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_0_8">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to specify 64-bit integers in OpenAPI."/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
       <EntityType Name="Switch" BaseType="Switch.v1_0_7.Switch"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_0_9">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various descriptions to use proper normative terminology."/>
+      <Annotation Term="OData.Description" String="This version was created to correct various description to use proper normative terminology."/>
       <EntityType Name="Switch" BaseType="Switch.v1_0_8.Switch"/>
     </Schema>
 
@@ -306,7 +306,7 @@
       <EntityType Name="Switch" BaseType="Switch.v1_0_3.Switch">
         <Property Name="Location" Type="Resource.Location" Nullable="false">
           <Annotation Term="OData.Description" String="The location of the switch."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the location information of the associated switch."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain location information of the associated switch."/>
         </Property>
       </EntityType>
     </Schema>
@@ -319,7 +319,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_1_2">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to force the regeneration of JSON Schema so that URI properties use the uri-reference format, and to add a missing term to the LogServices property to disallow it from being `null`."/>
+      <Annotation Term="OData.Description" String="This version was created to force the regeneration of JSON Schema so that URI properties use the uri-reference format, and to add a missing term to the LogServices property to disallow it from being null."/>
       <EntityType Name="Switch" BaseType="Switch.v1_1_1.Switch"/>
     </Schema>
 
@@ -337,20 +337,14 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_1_5">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to specify 64-bit integers in OpenAPI."/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
       <EntityType Name="Switch" BaseType="Switch.v1_1_4.Switch"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_1_6">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various descriptions to use proper normative terminology."/>
+      <Annotation Term="OData.Description" String="This version was created to correct various description to use proper normative terminology."/>
       <EntityType Name="Switch" BaseType="Switch.v1_1_5.Switch"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_1_7">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_1_6.Switch"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_2_0">
@@ -380,14 +374,8 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_2_3">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various descriptions to use proper normative terminology."/>
+      <Annotation Term="OData.Description" String="This version was created to correct various description to use proper normative terminology."/>
       <EntityType Name="Switch" BaseType="Switch.v1_2_2.Switch"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_2_4">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_2_3.Switch"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_3_0">
@@ -403,7 +391,7 @@
         <Property Name="UUID" Type="Resource.UUID">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The UUID for this switch."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain a universally unique identifier number for the switch."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain a universal unique identifier number for the switch."/>
         </Property>
       </EntityType>
 
@@ -431,14 +419,8 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_3_3">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various descriptions to use proper normative terminology."/>
+      <Annotation Term="OData.Description" String="This version was created to correct various description to use proper normative terminology."/>
       <EntityType Name="Switch" BaseType="Switch.v1_3_2.Switch"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_3_4">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_3_3.Switch"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_4_0">
@@ -455,13 +437,13 @@
         <Property Name="CurrentBandwidthGbps" Type="Edm.Decimal">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The current internal bandwidth of this switch."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the internal unidirectional bandwidth of this switch currently negotiated and running."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the internal bandwidth of this switch currently negotiated and running."/>
           <Annotation Term="Measures.Unit" String="Gbit/s"/>
         </Property>
         <Property Name="MaxBandwidthGbps" Type="Edm.Decimal">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The maximum internal bandwidth of this switch as currently configured."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the maximum internal unidirectional bandwidth this switch is capable of being configured.  If capable of autonegotiation, the switch shall attempt to negotiate to the specified maximum bandwidth."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the maximum internal bandwidth this switch is capable of being configured.  If capable of autonegotiation, the switch shall attempt to negotiate to the specified maximum bandwidth."/>
           <Annotation Term="Measures.Unit" String="Gbit/s"/>
         </Property>
       </EntityType>
@@ -484,14 +466,8 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_4_2">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various descriptions to use proper normative terminology."/>
+      <Annotation Term="OData.Description" String="This version was created to correct various description to use proper normative terminology."/>
       <EntityType Name="Switch" BaseType="Switch.v1_4_1.Switch"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_4_3">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to update the long descriptions of CurrentBandwidthGbps and MaxBandwidthGbps properties to show speeds are unidirectional.  It was also created to correct various typographical errors."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_4_2.Switch"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_5_0">
@@ -524,7 +500,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_5_1">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to correct various descriptions to use proper normative terminology."/>
+      <Annotation Term="OData.Description" String="This version was created to correct various description to use proper normative terminology."/>
       <EntityType Name="Switch" BaseType="Switch.v1_5_0.Switch"/>
     </Schema>
 
@@ -532,12 +508,6 @@
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="OData.Description" String="This version was created to correct version tags within the schema file."/>
       <EntityType Name="Switch" BaseType="Switch.v1_5_1.Switch"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_5_3">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to update the long descriptions of CurrentBandwidthGbps and MaxBandwidthGbps properties to show speeds are unidirectional.  It was also created to correct various typographical errors."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_5_2.Switch"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_6_0">
@@ -560,12 +530,6 @@
       </EntityType>
     </Schema>
 
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_6_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to update the long descriptions of CurrentBandwidthGbps and MaxBandwidthGbps properties to show speeds are unidirectional.  It was also created to correct various typographical errors."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_6_0.Switch"/>
-    </Schema>
-
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_7_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2021.3"/>
@@ -576,21 +540,8 @@
           <Annotation Term="OData.Description" String="The link to the metrics associated with this switch."/>
           <Annotation Term="OData.LongDescription" String="This property shall contain a link to the metrics associated with this switch."/>
           <Annotation Term="OData.AutoExpandReferences"/>
-          <Annotation Term="Redfish.URISegment" String="SwitchMetrics"/>
         </NavigationProperty>
       </EntityType>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_7_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to add the URI segment annotation to Metrics."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_7_0.Switch"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_7_2">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to update the long descriptions of CurrentBandwidthGbps and MaxBandwidthGbps properties to show speeds are unidirectional.  It was also created to correct various typographical errors."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_7_1.Switch"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_8_0">
@@ -599,71 +550,6 @@
       <Annotation Term="OData.Description" String="This version was created to deprecate Measurements in favor of measurement reporting in the ComponentIntegrity resource."/>
 
       <EntityType Name="Switch" BaseType="Switch.v1_7_0.Switch"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_8_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to add the URI segment annotation to Metrics."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_8_0.Switch"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_8_2">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to update the long descriptions of CurrentBandwidthGbps and MaxBandwidthGbps properties to show speeds are unidirectional.  It was also created to correct various typographical errors."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_8_1.Switch"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_9_0">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="Redfish.Release" String="2022.3"/>
-
-      <EntityType Name="Switch" BaseType="Switch.v1_8_0.Switch">
-        <Property Name="CXL" Type="Switch.v1_9_0.CXL" Nullable="false">
-          <Annotation Term="OData.Description" String="CXL properties for this switch."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain CXL-specific properties for this switch."/>
-        </Property>
-      </EntityType>
-
-      <ComplexType Name="CXL">
-        <Annotation Term="OData.Description" String="CXL properties for a switch."/>
-        <Annotation Term="OData.LongDescription" String="This type shall contain CXL-specific properties for a switch."/>
-        <Property Name="MaxVCSsSupported" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The maximum number of Virtual CXL Switches (VCSs) supported in this switch."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the maximum number of Virtual CXL Switches (VCSs) supported in this switch."/>
-        </Property>
-        <Property Name="TotalNumbervPPBs" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The total number of virtual PCI-to-PCI bridges (vPPBs) supported in this switch."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the total number of virtual PCI-to-PCI bridges (vPPBs) supported in this switch."/>
-        </Property>
-        <Property Name="VCS" Type="Switch.v1_9_0.VCSSwitch" Nullable="false">
-          <Annotation Term="OData.Description" String="Virtual CXL Switch (VCS) properties for this switch."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain Virtual CXL Switch (VCS) properties for this switch."/>
-        </Property>
-      </ComplexType>
-
-      <ComplexType Name="VCSSwitch">
-        <Annotation Term="OData.Description" String="Virtual CXL Switch (VCS) properties for a switch."/>
-        <Annotation Term="OData.LongDescription" String="This type shall contain Virtual CXL Switch (VCS) properties for a switch."/>
-        <Property Name="HDMDecoders" Type="Edm.Int64" Nullable="false">
-          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The number of Host Device Memory (HDM) Decoders supported by this switch."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the number of Host Device Memory (HDM) Decoders supported by this switch."/>
-        </Property>
-      </ComplexType>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_9_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to add the URI segment annotation to Metrics."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_9_0.Switch"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Switch.v1_9_2">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to update the long descriptions of CurrentBandwidthGbps and MaxBandwidthGbps properties to show speeds are unidirectional.  It was also created to correct various typographical errors."/>
-      <EntityType Name="Switch" BaseType="Switch.v1_9_1.Switch"/>
     </Schema>
 
   </edmx:DataServices>

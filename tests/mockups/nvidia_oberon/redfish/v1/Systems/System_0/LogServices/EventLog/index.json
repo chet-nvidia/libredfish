@@ -1,12 +1,12 @@
 {
     "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog",
-    "@odata.type": "#LogService.v1_2_0.LogService",
+    "@odata.type": "#LogService.v1_1_0.LogService",
     "Actions": {
         "#LogService.ClearLog": {
             "target": "/redfish/v1/Systems/System_0/LogServices/EventLog/Actions/LogService.ClearLog"
         }
     },
-    "DateTime": "2024-07-22T15:47:51+00:00",
+    "DateTime": "2024-07-23T19:12:36+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "System Event Log Service",
     "Entries": {
@@ -16,10 +16,10 @@
     "Name": "Event Log Service",
     "Oem": {
         "Nvidia": {
-            "@odata.type": "#NvidiaLogService.v1_3_0.NvidiaLogService",
+            "@odata.type": "#NvidiaLogService.v1_1_0.NvidiaLogService",
             "AutoClearResolvedLogEnabled": false,
-            "LatestEntryID": "5846",
-            "LatestEntryTimeStamp": "2024-07-22T15:17:18+00:00"
+            "LatestEntryID": "44287",
+            "LatestEntryTimeStamp": "2024-07-23T19:12:35+00:00"
         }
     },
     "OverWritePolicy": "WrapsWhenFull"

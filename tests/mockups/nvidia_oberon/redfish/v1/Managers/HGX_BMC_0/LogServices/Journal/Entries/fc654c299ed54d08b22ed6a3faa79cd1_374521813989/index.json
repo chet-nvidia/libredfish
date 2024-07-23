@@ -1,0 +1,11 @@
+{
+    "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/fc654c299ed54d08b22ed6a3faa79cd1_374521813989",
+    "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+    "Created": "2024-07-22T05:36:33+00:00",
+    "EntryType": "Oem",
+    "Id": "fc654c299ed54d08b22ed6a3faa79cd1_374521813989",
+    "Message": "gpumgrd: SHMEMDEBUG: Error while updating value and timestamp for: xyz.openbmc_project.Inventory.Item.Port./xyz/openbmc_project/inventory/system/processors/GPU_1/Ports/NVLink_11.LinkState",
+    "Name": "BMC Journal Entry",
+    "OemRecordFormat": "BMC Journal Entry",
+    "Severity": "Warning"
+}

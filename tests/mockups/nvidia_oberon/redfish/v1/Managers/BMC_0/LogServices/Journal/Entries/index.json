@@ -2,63 +2,7 @@
     "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Journal/Entries",
     "@odata.type": "#LogEntryCollection.LogEntryCollection",
     "Description": "Collection of BMC Journal Entries",
-    "Members": [
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Journal/Entries/2571b8ec61b1454d80d23246f087d168_24598930189",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "Created": "2024-07-22T15:03:25.030791+00:00",
-            "EntryType": "Oem",
-            "Id": "2571b8ec61b1454d80d23246f087d168_24598930189",
-            "Message": "bmcweb: Mq\r\ufffd\ufffdV\ufffd&N\u0005\u05f7\u0016\u00192\r\ufffd\ufffdJ\ufffd\fmI\ufffd\r\ufffd/\u0006\th\u000b\ufffd\ufffd@\ufffds\ufffdbu\ufffd\u05cf\ufffd\ufffdp\u0014\u0010\u001c\ufffd\ufffdK\u0014@5\ufffdL\ufffdk1\ufffdJ\ufffd\u0017m\ufffd<\u0007W\u0001\ufffd\ufffd\ufffd<\ufffd\ufffdU\ufffd\ufffd\u04d2\ufffd\ufffd\ufffd!\ufffd{\ufffd_\ufffd{\ufffd\ufffdd\ufffd\ufffd\ufffdjj\u0005\ufffd]P\ufffd,\ufffd\ufffdE\ufffd\ufffd\u0015\ufffdQ\ufffdo\ufffd*1\ufffd\ufffd\ufffd\ufffdp(\ufffd\ufffd\ufffd\u06f1Xp[\u293b\ufffdk\ufffdr\ufffd\ufffd\ufffdJ\ufffd\ufffd\ufffd\ufffd\u000bb\ufffd\ufffd\ufffd\u16a6o\u000bB\ufffd\ufffd\ufffdVh\ufffd\ufffd\ufffd\u001f\ufffd\ufffd\ufffd\ufffd\ufffd`\ufffdY\t{\ufffd",
-            "Name": "BMC Journal Entry",
-            "OemRecordFormat": "BMC Journal Entry",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Journal/Entries/2571b8ec61b1454d80d23246f087d168_24598930189_1",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "Created": "2024-07-22T15:03:25.030791+00:00",
-            "EntryType": "Oem",
-            "Id": "2571b8ec61b1454d80d23246f087d168_24598930189_1",
-            "Message": "bmcweb: g_\u0007\ufffd\ufffd \ufffdz\ufffd_\ufffd[\ufffd\u001e\ufffd6\ufffd\ufffdG\u000bI;\ufffd\u0010\ufffd\ufffd\ufffd@\ufffd\u0001\ufffd\ufffd8\u001b\ufffd\ufffd\ufffd\ufffd0\u0006I7g\ufffd\ufffdS?\\\ufffd\ufffd8\ufffdAv\ufffd\ufffdrr\ufffdmNSh$\ufffdQ\ufffd\u0179\u0017\ufffd\ufffd\ufffdc",
-            "Name": "BMC Journal Entry",
-            "OemRecordFormat": "BMC Journal Entry",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Journal/Entries/2571b8ec61b1454d80d23246f087d168_24598930189_2",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "Created": "2024-07-22T15:03:25.030791+00:00",
-            "EntryType": "Oem",
-            "Id": "2571b8ec61b1454d80d23246f087d168_24598930189_2",
-            "Message": "bmcweb: \ufffd",
-            "Name": "BMC Journal Entry",
-            "OemRecordFormat": "BMC Journal Entry",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Journal/Entries/2571b8ec61b1454d80d23246f087d168_24598930189_3",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "Created": "2024-07-22T15:03:25.030791+00:00",
-            "EntryType": "Oem",
-            "Id": "2571b8ec61b1454d80d23246f087d168_24598930189_3",
-            "Message": "bmcweb: \ufffd2h\ufffd|,UY\ufffd\u0010*\ufffd\u0007\ufffd`\ufffd\ufffd\ufffd[-'\ufffd-T \ufffdQ1\ufffd\u0013\ufffdg\ufffdc\ufffd(\ufffd\ufffd!\u0011\ufffd\ufffd\ufffd\ufffdU\ufffdg\ufffdc\ufffd\ufffd\ufffd\ufffdl\ufffd\\\ufffd\ufffd\ufffd\u0005\ufffd7\ufffd",
-            "Name": "BMC Journal Entry",
-            "OemRecordFormat": "BMC Journal Entry",
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Journal/Entries/2571b8ec61b1454d80d23246f087d168_24598930189_4",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "Created": "2024-07-22T15:03:25.030791+00:00",
-            "EntryType": "Oem",
-            "Id": "2571b8ec61b1454d80d23246f087d168_24598930189_4",
-            "Message": "bmcweb: \ufffd\ufffd\u0007\u0017\ufffd\ufffd\ufffd\ufffd\u0001\u0011\ufffd\u0003\ufffdq<9%\ufffd-\u0007\ufffd!\u000f\ufffdL\ufffd\u063e\ufffd-\u0016~\ufffd\u0016\ufffd\ufffd\ufffdoH\u01e2\ufffd\ufffd^\u0139\ufffd\ufffd\u0001\ufffdK\u226b;\ufffd\u0017)b>(\ufffd\udbb3\udfca\u07e5\ufffdP\ufffd\ufffd\u0012\ufffd\ufffd2-X\u001e<\ufffd\ufffdQ!/6\u0001\ufffd5\ufffd\u0002F\ufffd0\u0263\u0310\u000b\ufffdT\ufffd.\ufffd\u0004\u05d9\ufffdo\u001f\u001fB0\u0017\ufffd8\ufffd\ufffdPG\ufffd\u0113\u07dc\ufffd\ufffd\u0014\ufffd\ufffd\ufffdp>\u0019\ufffd5\ufffd\ufffd\u0321\ufffd\ufffd9\ufffd\ufffdE4{\ufffdP\u000f\ufffdL}\ua18b\ufffdu\ufffd\ufffdu\u0015W\ufffd\ufffdNIV\ufffd[\ufffd\ufffdN\ufffd\u0013\ufffd\ufffdH\ufffd\ufffd\ufffd\u0010\ufffdvz\ufffd/\ufffd\ufffd\ufffd\ufffd?g|\ufffd\ufffd\ufffd\ufffd{\u007f\u0012\ufffd\ufffd2\ufffd\ufffd-%\ufffd\u0013\ufffd:\ufffd\u0770Z\ufffdN\ufffd\ufffdL\ufffd!3\ufffd\u0015\ufffd\u001e\ufffdb\b\ufffd\ufffd&\u0011\ufffd<>\ufffd\ufffd\ufffdA1\ufffd\ufffd\ufffd\ufffdWw\\;D5\ufffd\u0015\ufffd\u000f\ufffd\ufffd\u000b\u0001\u0013}\ufffd\ufffd\ufffdI\ufffd{\ufffd\ufffd\ufffd\u0013@w\ufffd\ufffd+z\ufffd\ufffdd\ufffdsY\ufffdg\u0019\ufffd-\ufffd-\u0003\ufffdvq\u06f1z7{\ufffdG\ufffd\ufffd\ufffdq2@\ufffd!\u0002\ufffd2\ufffd7\ufffd\ufffd\u0014\u0015\u0007\ufffdX\ufffd\ufffd\ufffd\ufffd\\\ufffdc\t}\ufffd*Utk#Kfd\u000b\ufffdm\ufffdYo\ufffd\ufffd\ufffd\u0003\ufffd\ufffd\u000f3\u000e\ufffd\ufffd =\ufffd\ufffd\ufffd\ufffd\u0007\u0012\ufffd&\ufffd\ufffd\ufffd\u000eV)\ufffd\ufffd\ufffd\u0012\ufffdl\ufffd\ufffddlh&i\ufffd_\ufffdakM\ufffd\ufffd\ufffd\ufffdW\ufffd|\ufffd\ufffd\ufffdf<\ufffdk\"\ufffd\ufffd\ufffd5\ufffd\ufffd\u00d0\ufffd\ufffd\ufffd\ufffd\ufffdv\ufffdl\ufffd=\ufffd$R\ufffd\u0506&\u000f_g\ufffd\ufffd\ufffd\ufffd\ufffd b@\ufffd@\\9\u0006\u0007&\ufffd6\ufffd\ufffd\ufffdO<R\ufffd3\ufffd\u0017\u001b\ufffd\ufffd\ufffd\ufffd\ufffdN`\ufffd\ufffd]\ufffd\ufffd5\u0018pl\u0234\ufffdn\ufffd0\ufffd\ufffd\ufffd\ufffdaV\u0001\ufffd?\ufffd\u0005\ufffd",
-            "Name": "BMC Journal Entry",
-            "OemRecordFormat": "BMC Journal Entry",
-            "Severity": "OK"
-        }
-    ],
-    "Members@odata.count": 5,
+    "Members": [],
+    "Members@odata.count": 0,
     "Name": "Open BMC Journal Entries"
 }

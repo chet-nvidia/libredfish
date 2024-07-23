@@ -3,12 +3,38 @@
     "@odata.type": "#ComputerSystem.v1_17_0.ComputerSystem",
     "Boot": {
         "AutomaticRetryConfig": "RetryAttempts",
-        "BootOptions": {
-            "@odata.id": "/redfish/v1/Systems/System_0/Settings/BootOptions"
-        },
-        "BootOrder": [],
-        "BootSourceOverrideEnabled": "Disabled",
-        "BootSourceOverrideTarget": "None"
+        "BootOrder": [
+            "Boot0002",
+            "Boot0003",
+            "Boot0001",
+            "Boot000C",
+            "Boot000D",
+            "Boot000E",
+            "Boot0004",
+            "Boot0008",
+            "Boot0010",
+            "Boot0012",
+            "Boot0014",
+            "Boot000F",
+            "Boot001C",
+            "Boot001A",
+            "Boot0005",
+            "Boot0006",
+            "Boot0007",
+            "Boot0009",
+            "Boot000A",
+            "Boot000B",
+            "Boot0011",
+            "Boot0013",
+            "Boot0015",
+            "Boot0019",
+            "Boot0016",
+            "Boot0017",
+            "Boot001B",
+            "Boot001D"
+        ],
+        "BootSourceOverrideEnabled": "Continuous",
+        "BootSourceOverrideTarget": "Hdd"
     },
     "Id": "Settings",
     "Name": "System_0 Pending Settings"

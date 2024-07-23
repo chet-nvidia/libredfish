@@ -4,6 +4,7 @@
     "Actions": {
         "#SecureBootDatabase.ResetKeys": {
             "ResetKeysType@Redfish.AllowableValues": [
+                "ResetAllKeysToDefault",
                 "DeleteAllKeys"
             ],
             "target": "/redfish/v1/Systems/System_0/SecureBoot/SecureBootDatabases/dbx/Actions/SecureBootDatabase.ResetKeys"

@@ -2,7 +2,7 @@
     "@odata.id": "/redfish/v1/Registries/HGX_OpenBMC",
     "@odata.type": "#MessageRegistryFile.v1_1_0.MessageRegistryFile",
     "Description": "OpenBMC Message Registry File Location",
-    "Id": "HGX_OpenBMC",
+    "Id": "OpenBMC",
     "Languages": [
         "en"
     ],
@@ -15,5 +15,5 @@
     ],
     "Location@odata.count": 1,
     "Name": "OpenBMC Message Registry File",
-    "Registry": "OpenBMC.0.4.0"
+    "Registry": "OpenBMC.0.4.1"
 }

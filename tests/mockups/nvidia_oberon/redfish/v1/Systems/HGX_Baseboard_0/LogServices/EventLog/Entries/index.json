@@ -4,89 +4,129 @@
     "Description": "Collection of System Event Log Entries",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/1",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40236",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/1/attachment",
-            "Created": "2024-07-22T09:37:45+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40236/attachment",
+            "Created": "1970-03-15T15:35:41+00:00",
             "EntryType": "Event",
-            "Id": "1",
-            "Message": "BMC Boot",
-            "Modified": "2024-07-22T09:37:45+00:00",
+            "Id": "40236",
+            "Message": "Device 'MAX10 CPLD' successfully updated with image '0.17'.",
+            "MessageArgs": [
+                "MAX10 CPLD",
+                "0.17"
+            ],
+            "MessageId": "Update.1.0.UpdateSuccessful",
             "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
             "Resolved": false,
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/117",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40237",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/117/attachment",
-            "Created": "2024-07-22T12:57:55+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40237/attachment",
+            "Created": "1970-03-15T15:35:53+00:00",
             "EntryType": "Event",
-            "Id": "117",
-            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "Id": "40237",
+            "Message": "Device 'FW_FPGA_0' successfully updated with image '0.3C'.",
             "MessageArgs": [
-                "GPU OOB Library",
-                "FPGA HSR Backend access Error on  0"
+                "FW_FPGA_0",
+                "0.3C"
             ],
-            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "MessageId": "Update.1.0.UpdateSuccessful",
             "Name": "System Event Log Entry",
-            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
             "Resolved": false,
-            "Severity": "Critical"
+            "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/118",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40238",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/118/attachment",
-            "Created": "2024-07-22T12:57:56+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40238/attachment",
+            "Created": "1970-03-15T15:35:53+00:00",
             "EntryType": "Event",
-            "Id": "118",
-            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  1'.",
+            "Id": "40238",
+            "Message": "Awaiting for an action to proceed with activating image '0.3C' on 'FW_FPGA_0'.",
             "MessageArgs": [
-                "GPU OOB Library",
-                "FPGA HSR Backend access Error on  1"
+                "0.3C",
+                "FW_FPGA_0"
             ],
-            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "MessageId": "Update.1.0.AwaitToActivate",
             "Name": "System Event Log Entry",
-            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "AC power cycle",
             "Resolved": false,
-            "Severity": "Critical"
+            "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/119",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40239",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/119/attachment",
-            "Created": "2024-07-22T13:00:37+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40239/attachment",
+            "Created": "1970-03-15T15:37:51+00:00",
             "EntryType": "Event",
-            "Id": "119",
-            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  -1'.",
+            "Id": "40239",
+            "Message": "Device 'CPU_0' successfully updated with image '01.02.04'.",
             "MessageArgs": [
-                "GPU OOB Library",
-                "FPGA HSR Backend access Error on  -1"
+                "CPU_0",
+                "01.02.04"
             ],
-            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "MessageId": "Update.1.0.UpdateSuccessful",
             "Name": "System Event Log Entry",
-            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
             "Resolved": false,
-            "Severity": "Critical"
+            "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/120",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40240",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/120/attachment",
-            "Created": "2024-07-22T13:02:56+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40240/attachment",
+            "Created": "1970-03-15T15:37:51+00:00",
             "EntryType": "Event",
-            "Id": "120",
-            "Message": "The resource property GPU OOB Library has detected errors of type 'FPGA HSR Backend access Error on  0'.",
+            "Id": "40240",
+            "Message": "Awaiting for an action to proceed with activating image '01.02.04' on 'CPU_0'.",
             "MessageArgs": [
-                "GPU OOB Library",
-                "FPGA HSR Backend access Error on  0"
+                "01.02.04",
+                "CPU_0"
             ],
-            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "MessageId": "Update.1.0.AwaitToActivate",
             "Name": "System Event Log Entry",
-            "Resolution": "Power cycle the baseboard. If the issue still persist, reach out to NVIDIA.",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "AC power cycle",
             "Resolved": false,
-            "Severity": "Critical"
+            "Severity": "OK"
         }
     ],
     "Members@odata.count": 5,

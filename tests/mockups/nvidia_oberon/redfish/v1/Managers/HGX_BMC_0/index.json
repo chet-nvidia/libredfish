@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Managers/HGX_BMC_0",
-    "@odata.type": "#Manager.v1_16_0.Manager",
+    "@odata.type": "#Manager.v1_14_0.Manager",
     "Actions": {
         "#Manager.Reset": {
             "@Redfish.ActionInfo": "/redfish/v1/Managers/HGX_BMC_0/ResetActionInfo",
@@ -32,22 +32,25 @@
             }
         }
     },
-    "DateTime": "2024-07-22T15:48:12+00:00",
+    "DateTime": "2024-07-23T19:13:30+00:00",
     "DateTimeLocalOffset": "+00:00",
+    "DedicatedNetworkPorts": {
+        "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/DedicatedNetworkPorts"
+    },
     "Description": "Baseboard Management Controller",
     "EthernetInterfaces": {
         "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/EthernetInterfaces"
     },
-    "FirmwareVersion": "HGXB-24.07-1",
+    "FirmwareVersion": "GH200-24.05-2",
     "Id": "HGX_BMC_0",
-    "LastResetTime": "2024-07-22T09:35:52+00:00",
+    "LastResetTime": "2024-07-17T21:34:33+00:00",
     "Links": {
         "ActiveSoftwareImage": {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0"
         },
         "ManagerForChassis": [
             {
-                "@odata.id": "/redfish/v1/Chassis/HGX_CPLD_0"
+                "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0"
             }
         ],
         "ManagerForChassis@odata.count": 1,
@@ -58,9 +61,8 @@
         ],
         "ManagerForServers@odata.count": 1,
         "ManagerInChassis": {
-            "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0"
+            "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0"
         },
-        "ManagerInChassis@odata.count": 1,
         "SoftwareImages": [
             {
                 "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0"
@@ -70,9 +72,6 @@
     },
     "LogServices": {
         "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices"
-    },
-    "ManagerDiagnosticData": {
-        "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/ManagerDiagnosticData"
     },
     "ManagerType": "BMC",
     "Model": "OpenBmc",
@@ -87,12 +86,13 @@
             "FirmwareBuildType": null,
             "OTPProvisioned": false,
             "PersistentStorageSettings": {
+                "Enabled": false,
                 "Status": {
                     "State": "Enabled"
                 }
-            },
-            "UptimeSeconds": 22338.83
-        }
+            }
+        },
+        "UptimeSeconds": 509936.06
     },
     "PowerState": "On",
     "SerialConsole": {
@@ -103,12 +103,12 @@
         "MaxConcurrentSessions": 15,
         "ServiceEnabled": true
     },
-    "ServiceEntryPointUUID": "819690bd-5628-4b79-a69f-b674f777b01d",
+    "ServiceEntryPointUUID": "79194bf2-ed96-46ea-a575-cd83f65bc14c",
     "Status": {
         "Conditions": [],
         "Health": "OK",
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "UUID": "5419ea15-8400-4106-b9c1-52a2d43005d9"
+    "UUID": "444f239f-e70a-4d1a-a7e2-b197fc3dffe5"
 }

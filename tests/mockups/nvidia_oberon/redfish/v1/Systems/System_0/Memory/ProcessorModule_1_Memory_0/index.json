@@ -17,16 +17,7 @@
             "ServiceLabel": "LP5x_1 LP5x_1"
         }
     },
-    "Manufacturer": "NVIDIA",
-    "MemoryLocation": {
-        "Channel": 0,
-        "MemoryController": 0,
-        "Slot": 0,
-        "Socket": 0
-    },
-    "MemoryMedia": [
-        "DRAM"
-    ],
+    "Manufacturer": "",
     "MemoryType": "DRAM",
     "Metrics": {
         "@odata.id": "/redfish/v1/Systems/System_0/Memory/ProcessorModule_1_Memory_0/MemoryMetrics"
@@ -41,7 +32,7 @@
     "OperatingSpeedMhz": 0,
     "PartNumber": "",
     "RankCount": 3,
-    "SerialNumber": "9223381661802939459",
+    "SerialNumber": "9223382827358634235",
     "SparePartNumber": "",
     "Status": {
         "Conditions": [],

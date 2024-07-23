@@ -4,31 +4,89 @@
     "Description": "Collection of System Event Log Entries",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/10",
+            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/363",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/10/attachment",
-            "Created": "2024-07-01T18:57:14+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/363/attachment",
+            "Created": "2024-07-17T00:25:24+00:00",
             "EntryType": "Event",
-            "Id": "10",
-            "Message": "FAN_2_F sensor crossed a critical low threshold going low. Reading=0.000000 Threshold=2204.000000.",
+            "Id": "363",
+            "Message": "The resource property Firmware Update Service has detected errors of type 'No Matching Devices'.",
             "MessageArgs": [
-                "FAN_2_F",
-                "0.000000",
-                "2204.000000"
+                "Firmware Update Service",
+                "No Matching Devices"
             ],
-            "MessageId": "OpenBMC.0.1.SensorThresholdCriticalLowGoingLow",
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Name": "System Event Log Entry",
-            "Resolution": "Check the sensor or subsystem for errors.",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "Verify the FW package has devices that are listed in the Redfish FW Inventory",
+            "Resolved": false,
+            "Severity": "Critical"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/38288",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/38288/attachment",
+            "Created": "2024-07-23T01:21:56+00:00",
+            "EntryType": "Event",
+            "Id": "38288",
+            "Message": "TEMP_SSD_00 sensor crossed a warning low threshold going high. Reading=29.000000 Threshold=5.000000.",
+            "MessageArgs": [
+                "TEMP_SSD_00",
+                "29.000000",
+                "5.000000"
+            ],
+            "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingHigh",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
             "Resolved": false,
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/100",
+            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/38290",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/100/attachment",
-            "Created": "2024-07-03T04:13:17+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/38290/attachment",
+            "Created": "2024-07-23T01:23:57+00:00",
             "EntryType": "Event",
-            "Id": "100",
+            "Id": "38290",
+            "Message": "TEMP_SSD_00 sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
+            "MessageArgs": [
+                "TEMP_SSD_00",
+                "0.000000",
+                "5.000000"
+            ],
+            "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingLow",
+            "Name": "System Event Log Entry",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
+            "Resolved": false,
+            "Severity": "OK"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/38292",
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/38292/attachment",
+            "Created": "2024-07-23T01:24:02+00:00",
+            "EntryType": "Event",
+            "Id": "38292",
             "Message": "TEMP_SSD_03 sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
             "MessageArgs": [
                 "TEMP_SSD_03",
@@ -37,64 +95,40 @@
             ],
             "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingLow",
             "Name": "System Event Log Entry",
-            "Resolution": "Check the sensor or subsystem for errors.",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
             "Resolved": false,
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/102",
+            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/38294",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/102/attachment",
-            "Created": "2024-07-03T04:14:31+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/38294/attachment",
+            "Created": "2024-07-23T01:24:09+00:00",
             "EntryType": "Event",
-            "Id": "102",
-            "Message": "TEMP_SSD_02 sensor crossed a warning low threshold going low. Reading=0.000000 Threshold=5.000000.",
+            "Id": "38294",
+            "Message": "TEMP_SSD_03 sensor crossed a warning low threshold going high. Reading=29.000000 Threshold=5.000000.",
             "MessageArgs": [
-                "TEMP_SSD_02",
-                "0.000000",
+                "TEMP_SSD_03",
+                "29.000000",
                 "5.000000"
             ],
-            "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingLow",
+            "MessageId": "OpenBMC.0.1.SensorThresholdWarningLowGoingHigh",
             "Name": "System Event Log Entry",
-            "Resolution": "Check the sensor or subsystem for errors.",
-            "Resolved": false,
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/11",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/11/attachment",
-            "Created": "2024-07-01T18:57:14+00:00",
-            "EntryType": "Event",
-            "Id": "11",
-            "Message": "FAN_3_R sensor crossed a critical low threshold going low. Reading=0.000000 Threshold=2204.000000.",
-            "MessageArgs": [
-                "FAN_3_R",
-                "0.000000",
-                "2204.000000"
-            ],
-            "MessageId": "OpenBMC.0.1.SensorThresholdCriticalLowGoingLow",
-            "Name": "System Event Log Entry",
-            "Resolution": "Check the sensor or subsystem for errors.",
-            "Resolved": false,
-            "Severity": "OK"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/12",
-            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/System_0/LogServices/EventLog/Entries/12/attachment",
-            "Created": "2024-07-01T18:57:14+00:00",
-            "EntryType": "Event",
-            "Id": "12",
-            "Message": "FAN_5_F sensor crossed a critical low threshold going low. Reading=0.000000 Threshold=2204.000000.",
-            "MessageArgs": [
-                "FAN_5_F",
-                "0.000000",
-                "2204.000000"
-            ],
-            "MessageId": "OpenBMC.0.1.SensorThresholdCriticalLowGoingLow",
-            "Name": "System Event Log Entry",
-            "Resolution": "Check the sensor or subsystem for errors.",
+            "Oem": {
+                "Nvidia": {
+                    "@odata.type": "#NvidiaLogEntry.v1_1_0.NvidiaLogEntry",
+                    "Device": "",
+                    "ErrorId": ""
+                }
+            },
+            "Resolution": "",
             "Resolved": false,
             "Severity": "OK"
         }

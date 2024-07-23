@@ -1,11 +1,11 @@
 {
     "@odata.id": "/redfish/v1/Managers/BMC_0/NetworkProtocol/HTTPS/Certificates/1",
     "@odata.type": "#Certificate.v1_0_0.Certificate",
-    "CertificateString": "-----BEGIN CERTIFICATE-----\nMIICODCCAb6gAwIBAgIEWOW2izAKBggqhkjOPQQDAjAyMQswCQYDVQQGEwJVUzEQ\nMA4GA1UECgwHT3BlbkJNQzERMA8GA1UEAwwIdGVzdGhvc3QwHhcNMjQwNzIyMDgw\nMTA3WhcNMzQwNzIwMDgwMTA3WjAyMQswCQYDVQQGEwJVUzEQMA4GA1UECgwHT3Bl\nbkJNQzERMA8GA1UEAwwIdGVzdGhvc3QwdjAQBgcqhkjOPQIBBgUrgQQAIgNiAAT7\nDPpG4lfL23Vh9zuKMZd7c5RraaNGE4Pxlt038fZuJdTw7ftFy63fmACnVsgYeqqx\n7NHdtZAivXs/WnMay1Noa3QHPdZ5bnPbOcmoDyP+foN5FfvMoKdOkgMTkCydHJSj\ngaQwgaEwDwYDVR0TAQH/BAUwAwEB/zATBgNVHREEDDAKggh0ZXN0aG9zdDAdBgNV\nHQ4EFgQUzHtyBNRAfNHbcNBVtnFYcv+wlB0wCQYDVR0jBAIwADALBgNVHQ8EBAMC\nBaAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwLQYJYIZIAYb4QgENBCAWHkdlbmVyYXRl\nZCBmcm9tIE9wZW5CTUMgc2VydmljZTAKBggqhkjOPQQDAgNoADBlAjEAwQf2jysy\nkj9/W3z0ze7rZc4iTerfs9Oe9P4bfeRVvSi4bgh6DukB2fWs0dFNV/rtAjAX5wcJ\nNNuxcmnZA0SLZ+yJjyKkIbG5i1YmAamqLKN66juThngWjoAt1z13KNFToqY=\n-----END CERTIFICATE-----\n",
+    "CertificateString": "-----BEGIN CERTIFICATE-----\nMIICPjCCAcSgAwIBAgIEJpgS7jAKBggqhkjOPQQDAjA0MQswCQYDVQQGEwJVUzEQ\nMA4GA1UECgwHT3BlbkJNQzETMBEGA1UEAwwKb2Jlcm9uLWJtYzAeFw0yNDA0MTIw\nOTIwMzBaFw0zNDA0MTAwOTIwMzBaMDQxCzAJBgNVBAYTAlVTMRAwDgYDVQQKDAdP\ncGVuQk1DMRMwEQYDVQQDDApvYmVyb24tYm1jMHYwEAYHKoZIzj0CAQYFK4EEACID\nYgAEVp7lGFeyBZp9KSRVVRS+4DYJwEe3WIEFtmR3YmDbgH7U5y8WVCwNdj25Jck6\ntrEMg4V2pWw8lzU15iPzCb5+FUNiSmMBfGVXt9M07l0AQmJPUuyoxrgWG4zu0zcu\nWsEUo4GmMIGjMA8GA1UdEwEB/wQFMAMBAf8wFQYDVR0RBA4wDIIKb2Jlcm9uLWJt\nYzAdBgNVHQ4EFgQUBYBBn4wRiOS3cpqWXpkyjRYjd8IwCQYDVR0jBAIwADALBgNV\nHQ8EBAMCBaAwEwYDVR0lBAwwCgYIKwYBBQUHAwEwLQYJYIZIAYb4QgENBCAWHkdl\nbmVyYXRlZCBmcm9tIE9wZW5CTUMgc2VydmljZTAKBggqhkjOPQQDAgNoADBlAjEA\n9ZBozS9SCzvHzlAba+Fe/t7RRUE44WD65oljK09IAyjh2fmPhrBJ1KA5Wk7YZ21c\nAjACYK9v5RFpy8kC49Etcpf9+7CFdgXUj/EV0xKkeNcSkQF6Ka5F/LNegGDuwkMj\nuwE=\n-----END CERTIFICATE-----\n",
     "Description": "HTTPS Certificate",
     "Id": "1",
     "Issuer": {
-        "CommonName": "testhost",
+        "CommonName": "oberon-bmc",
         "Country": "US",
         "Organization": "OpenBMC"
     },
@@ -15,10 +15,10 @@
     ],
     "Name": "HTTPS Certificate",
     "Subject": {
-        "CommonName": "testhost",
+        "CommonName": "oberon-bmc",
         "Country": "US",
         "Organization": "OpenBMC"
     },
-    "ValidNotAfter": "2034-07-20T08:01:07+00:00",
-    "ValidNotBefore": "2024-07-22T08:01:07+00:00"
+    "ValidNotAfter": "2034-04-10T09:20:30+00:00",
+    "ValidNotBefore": "2024-04-12T09:20:30+00:00"
 }

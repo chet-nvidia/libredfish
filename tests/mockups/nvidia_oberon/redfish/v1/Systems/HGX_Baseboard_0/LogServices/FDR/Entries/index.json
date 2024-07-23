@@ -2,20 +2,7 @@
     "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FDR/Entries",
     "@odata.type": "#LogEntryCollection.LogEntryCollection",
     "Description": "Collection of FDR Dump Entries",
-    "Members": [
-        {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FDR/Entries/1",
-            "@odata.type": "#LogEntry.v1_15_0.LogEntry",
-            "AdditionalDataSizeBytes": 209715200,
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FDR/Entries/1/attachment",
-            "Created": "1970-01-01T00:28:41.650814+00:00",
-            "DiagnosticDataType": "OEM",
-            "EntryType": "Event",
-            "Id": "1",
-            "Name": "FDR Dump Entry",
-            "OEMDiagnosticDataType": "FDR"
-        }
-    ],
-    "Members@odata.count": 1,
+    "Members": [],
+    "Members@odata.count": 0,
     "Name": "FDR Dump Entries"
 }

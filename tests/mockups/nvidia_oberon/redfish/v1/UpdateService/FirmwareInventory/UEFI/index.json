@@ -4,7 +4,7 @@
     "Description": "Other image",
     "Id": "UEFI",
     "Manufacturer": "NVIDIA",
-    "Name": "UEFI",
+    "Name": "Software Inventory",
     "RelatedItem": [],
     "RelatedItem@odata.count": 0,
     "SoftwareId": "UEFI",
@@ -15,5 +15,5 @@
         "State": "Enabled"
     },
     "Updateable": false,
-    "Version": "buildbrain-gcid-36102704"
+    "Version": "buildbrain-gcid-35803827"
 }

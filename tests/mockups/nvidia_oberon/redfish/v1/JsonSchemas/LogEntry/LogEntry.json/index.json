@@ -1,8 +1,8 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/LogEntry.v1_16_0.json",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LogEntry.v1_13_0.json",
     "$ref": "#/definitions/LogEntry",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2022 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Actions": {
             "additionalProperties": false,
@@ -31,73 +31,6 @@
                 }
             },
             "type": "object"
-        },
-        "CPER": {
-            "additionalProperties": false,
-            "description": "Details for a CPER section or record associated with a log entry.",
-            "longDescription": "This object shall contain the details for a CPER section or record that is the source of a log entry.",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
-                    "description": "This property shall specify a valid odata or Redfish property.",
-                    "type": [
-                        "array",
-                        "boolean",
-                        "integer",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ]
-                }
-            },
-            "properties": {
-                "NotificationType": {
-                    "description": "The CPER Notification Type for a CPER record.",
-                    "longDescription": "This property shall contain the CPER Notification Type for a CPER record that corresponds to the contents of the DiagnosticData property or data retrieved from the URI specified by the AdditionalDataURI property.  This property shall only be present if DiagnosticDataType contains `CPER`.",
-                    "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-                    "readonly": true,
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "versionAdded": "v1_15_0"
-                },
-                "Oem": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Oem",
-                    "description": "The OEM extension property.",
-                    "longDescription": "This property shall contain the OEM extensions.  All values for properties contained in this object shall conform to the Redfish Specification-described requirements.",
-                    "versionAdded": "v1_15_0"
-                },
-                "SectionType": {
-                    "description": "The CPER Section Type.",
-                    "longDescription": "This property shall contain the CPER Section Type for a CPER section that corresponds to the contents of the DiagnosticData property or data retrieved from the URI specified by the AdditionalDataURI property.  This property shall only be present if DiagnosticDataType contains `CPERSection`.",
-                    "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
-                    "readonly": true,
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "versionAdded": "v1_15_0"
-                }
-            },
-            "type": "object"
-        },
-        "CXLEntryType": {
-            "enum": [
-                "DynamicCapacity",
-                "Informational",
-                "Warning",
-                "Failure",
-                "Fatal"
-            ],
-            "enumDescriptions": {
-                "DynamicCapacity": "A CXL Dynamic Capacity log entry.",
-                "Failure": "A CXL failure log entry.",
-                "Fatal": "A CXL fatal log entry.",
-                "Informational": "A CXL informational log entry.",
-                "Warning": "A CXL warning log entry."
-            },
-            "type": "string"
         },
         "EventSeverity": {
             "enum": [
@@ -236,8 +169,8 @@
                     "versionAdded": "v1_2_0"
                 },
                 "AdditionalDataSizeBytes": {
-                    "description": "The size of the additional data for this log entry.",
-                    "longDescription": "This property shall contain the size of the additional data retrieved from the URI specified by the AdditionalDataURI property for this log entry.",
+                    "description": "The size of the additional data for the log entry.",
+                    "longDescription": "This property shall contain the size of the additional data referenced by the AdditionalDataURI property for the log entry.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -247,28 +180,15 @@
                     "versionAdded": "v1_7_0"
                 },
                 "AdditionalDataURI": {
-                    "description": "The URI at which to access the additional data for this log entry, such as diagnostic data, image captures, or other files.",
+                    "description": "The URI at which to access the additional data for the log entry, such as diagnostic data, image captures, or other files.",
                     "format": "uri-reference",
-                    "longDescription": "This property shall contain the URI at which to access the additional data for this log entry, using the Redfish protocol and authentication methods.  If both DiagnosticData and AdditionalDataURI are present, DiagnosticData shall contain the Base64-encoding of the data retrieved from the URI specified by the AdditionalDataURI property.",
+                    "longDescription": "This property shall contain the URI at which to access the additional data for the log entry, using the Redfish protocol and authentication methods.",
                     "readonly": true,
                     "type": [
                         "string",
                         "null"
                     ],
                     "versionAdded": "v1_7_0"
-                },
-                "CPER": {
-                    "$ref": "#/definitions/CPER",
-                    "description": "Details for a CPER section or record associated with this log entry.",
-                    "longDescription": "This property shall contain the details for a CPER section or record that is the source of this log entry.",
-                    "versionAdded": "v1_15_0"
-                },
-                "CXLEntryType": {
-                    "$ref": "#/definitions/CXLEntryType",
-                    "description": "The specific CXL entry type.",
-                    "longDescription": "This property shall contain the specific CXL entry type.  This property shall only be present if EntryType contains `CXL`.",
-                    "readonly": true,
-                    "versionAdded": "v1_14_0"
                 },
                 "Created": {
                     "description": "The date and time when the log entry was created.",
@@ -288,16 +208,6 @@
                     ],
                     "readonly": true
                 },
-                "DiagnosticData": {
-                    "description": "A Base64-encoded set of diagnostic data associated with this log entry.",
-                    "longDescription": "This property shall contain a Base64-encoded string that represents diagnostic data associated with this log entry.  The contents shall depend on the value of the DiagnosticDataType property.  The length of the value should not exceed 4 KB.  Larger diagnostic data payloads should omit this property and use the AdditionalDataURI property to reference the data.  If both DiagnosticData and AdditionalDataURI are present, DiagnosticData shall contain the Base64-encoding of the data retrieved from the URI specified by the AdditionalDataURI property.",
-                    "readonly": true,
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "versionAdded": "v1_15_0"
-                },
                 "DiagnosticDataType": {
                     "anyOf": [
                         {
@@ -307,8 +217,8 @@
                             "type": "null"
                         }
                     ],
-                    "description": "The type of data available in the DiagnosticData property or retrieved from the URI specified by the AdditionalDataURI property.",
-                    "longDescription": "This property shall contain the type of data available in the DiagnosticData property or retrieved from the URI specified by the AdditionalDataURI property.",
+                    "description": "The type of diagnostic data available at the AdditionalDataURI location.",
+                    "longDescription": "This property shall contain the type of diagnostic data contained at the URI referenced by AdditionalDataURI.",
                     "readonly": true,
                     "versionAdded": "v1_7_0"
                 },
@@ -328,7 +238,7 @@
                 "EntryType": {
                     "$ref": "#/definitions/LogEntryType",
                     "description": "The type of log entry.",
-                    "longDescription": "This property shall represent the type of log entry.  If the resource represents an IPMI SEL entry, the value shall contain `SEL`.  If the resource represents a Redfish event log entry, the value shall contain `Event`.  If the resource represents a CXL event record, the value shall contain `CXL`.  If the resource represents an OEM log entry format, the value shall contain `Oem`.",
+                    "longDescription": "This property shall represent the type of log entry.  If the resource represents an IPMI SEL entry, the value shall contain `SEL`.  If the resource represents a Redfish event log entry, the value shall contain `Event`.  If the resource represents an OEM log entry format, the value shall contain `Oem`.",
                     "readonly": true
                 },
                 "EventGroupId": {
@@ -365,14 +275,6 @@
                     "versionAdded": "v1_1_0",
                     "versionDeprecated": "v1_4_0"
                 },
-                "FirstOverflowTimestamp": {
-                    "description": "The timestamp of the first overflow captured after this log entry.",
-                    "format": "date-time",
-                    "longDescription": "This property shall contain the timestamp of the first overflow captured after this log entry.  If this log entry is the most recent log entry in the log service, this property shall not be present if no overflow errors occurred after the time of this log entry.  If this log entry is not the most recent log entry in the log service, this property shall not be present if no overflow errors occurred between the time of this log entry and the time of the next log entry.",
-                    "readonly": true,
-                    "type": "string",
-                    "versionAdded": "v1_14_0"
-                },
                 "GeneratorId": {
                     "description": "An identifier of the device that has generated the IPMI SEL Event Record.",
                     "longDescription": "If EntryType is `SEL`, this property shall contain the 'Generator ID' field of the IPMI SEL Event Record.  If EntryType is not `SEL`, this property should not be present.",
@@ -388,22 +290,14 @@
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
                     "readonly": true
                 },
-                "LastOverflowTimestamp": {
-                    "description": "The timestamp of the last overflow captured after this log entry.",
-                    "format": "date-time",
-                    "longDescription": "This property shall contain the timestamp of the last overflow captured after this log entry.  If this log entry is the most recent log entry in the log service, this property shall not be present if no overflow errors occurred after the time of this log entry.  If this log entry is not the most recent log entry in the log service, this property shall not be present if no overflow errors occurred between the time of this log entry and the time of the next log entry.",
-                    "readonly": true,
-                    "type": "string",
-                    "versionAdded": "v1_14_0"
-                },
                 "Links": {
                     "$ref": "#/definitions/Links",
                     "description": "The links to other resources that are related to this resource.",
                     "longDescription": "This property shall contain links to resources that are related to but are not contained by, or subordinate to, this resource."
                 },
                 "Message": {
-                    "description": "The message of the log entry.  This property decodes from the entry type.  If the entry type is `Event`, this property contains a message.  If the entry type is `SEL`, this property contains an SEL-specific message.  If the entry type is `CXL`, this property contains a CXL event record.  Otherwise, this property contains an OEM-specific log entry.  In most cases, this property contains the actual log entry.",
-                    "longDescription": "This property shall contain the message of the log entry.  This property decodes from the entry type.  If the entry type is `Event`, this property contains a message.  If the entry type is `SEL`, this property contains an SEL-specific message, following the format specified in Table 32-1, SEL Event Records, in the IPMI Specification v2.0 revision 1.1.  If the entry type is `CXL`, this property contains the CXL event record as a string of hex bytes in the pattern `^([a-fA-F0-9]{2})+$`.  Otherwise, this property contains an OEM-specific log entry.  In most cases, this property contains the actual log entry.",
+                    "description": "The message of the log entry.  This property decodes from the entry type.  If the entry type is `Event`, this property contains a message.  If the entry type is `SEL`, this property contains an SEL-specific message.  Otherwise, this property contains an OEM-specific log entry.  In most cases, this property contains the actual log entry.",
+                    "longDescription": "This property shall contain the message of the log entry.  This property decodes from the entry type.  If the entry type is `Event`, this property contains a message.  If the entry type is `SEL`, this property contains an SEL-specific message, following the format specified in Table 32-1, SEL Event Records, in the IPMI Specification v2.0 revision 1.1.  Otherwise, this property contains an OEM-specific log entry.  In most cases, this property contains the actual log entry.",
                     "readonly": true,
                     "type": [
                         "string",
@@ -411,17 +305,17 @@
                     ]
                 },
                 "MessageArgs": {
-                    "description": "An array of message arguments that are substituted for the arguments in the message when looked up in the message registry.",
+                    "description": "The arguments for the message.",
                     "items": {
                         "type": "string"
                     },
-                    "longDescription": "This property shall contain an array of message arguments that are substituted for the arguments in the message when looked up in the message registry.  It has the same semantics as the MessageArgs property in the Redfish MessageRegistry schema.  If the corresponding ParamType value contains `number`, the service shall convert the number to a string representation of the number.",
+                    "longDescription": "This property shall contain message arguments to substitute into the included or looked-up message.",
                     "readonly": true,
                     "type": "array"
                 },
                 "MessageId": {
                     "description": "The MessageId, event data, or OEM-specific information.  This property decodes from the entry type.  If the entry type is `Event`, this property contains a Redfish Specification-defined MessageId.  If the entry type is `SEL`, this property contains the Event Data.  Otherwise, this property contains OEM-specific information.",
-                    "longDescription": "This property shall contain the MessageId, event data, or OEM-specific information.  This property decodes from the entry type.  If the entry type is `Event`, this property contains a Redfish Specification-defined MessageId property of the event.  If the entry type is `SEL`, the format should follow the pattern `^0[xX](([a-fA-F]|[0-9]){2}){4}$`, which results in a string in the form '0xNNaabbcc', where 'NN' is the EventDir/EventType byte, 'aa' is the Event Data 1 byte, 'bb' is Event Data 2 byte, 'cc' is Event Data 3 byte, corresponding with bytes 13-16 in the IPMI SEL Event Record.  If the entry type is `CXL`, this property shall not be present.  Otherwise, this property contains OEM-specific information.",
+                    "longDescription": "This property shall contain the MessageId, event data, or OEM-specific information.  This property decodes from the entry type.  If the entry type is `Event`, this property contains a Redfish Specification-defined MessageId property of the event.  If the entry type is `SEL`, the format should follow the pattern '^0[xX](([a-fA-F]|[0-9]){2}){4}$', which results in a string in the form '0xNNaabbcc', where 'NN' is the EventDir/EventType byte, 'aa' is the Event Data 1 byte, 'bb' is Event Data 2 byte, 'cc' is Event Data 3 byte, corresponding with bytes 13-16 in the IPMI SEL Event Record.  Otherwise, this property contains OEM-specific information.",
                     "readonly": true,
                     "type": "string"
                 },
@@ -438,8 +332,8 @@
                     "readonly": true
                 },
                 "OEMDiagnosticDataType": {
-                    "description": "The OEM-defined type of data available in the DiagnosticData property or retrieved from the URI specified by the AdditionalDataURI property.",
-                    "longDescription": "This property shall contain the OEM-defined type of data available in the DiagnosticData property or retrieved from the URI specified by the AdditionalDataURI property.  This property shall be present if DiagnosticDataType is `OEM`.",
+                    "description": "The OEM-defined type of diagnostic data at the AdditionalDataURI location.",
+                    "longDescription": "This property shall contain the OEM-defined type of diagnostic data contained at the URI referenced by AdditionalDataURI.  This property shall be present if DiagnosticDataType is `OEM`.",
                     "readonly": true,
                     "type": [
                         "string",
@@ -495,20 +389,6 @@
                     "readonly": true,
                     "versionAdded": "v1_11_0"
                 },
-                "OverflowErrorCount": {
-                    "description": "The count of overflow errors that occurred after this log entry.",
-                    "longDescription": "This property shall contain the count of overflow errors that occurred after this log entry.  If this log entry is the most recent log entry in the log service, this property shall not be present if no overflow errors occurred after the time of this log entry.  If this log entry is not the most recent log entry in the log service, this property shall not be present if no overflow errors occurred between the time of this log entry and the time of the next log entry.",
-                    "readonly": true,
-                    "type": "integer",
-                    "versionAdded": "v1_14_0"
-                },
-                "Persistency": {
-                    "description": "Indicates whether the log entry is persistent across a cold reset of the device.",
-                    "longDescription": "This property shall indicate whether the log entry is persistent across a cold reset of the device.",
-                    "readonly": true,
-                    "type": "boolean",
-                    "versionAdded": "v1_14_0"
-                },
                 "Resolution": {
                     "description": "Used to provide suggestions on how to resolve the situation that caused the log entry.",
                     "longDescription": "This property shall contain the resolution of the log entry.  Services should replace the resolution defined in the message registry with a more specific resolution in a log entry.",
@@ -516,18 +396,9 @@
                     "type": "string",
                     "versionAdded": "v1_9_0"
                 },
-                "ResolutionSteps": {
-                    "description": "The list of recommended steps to resolve the cause of the log entry.",
-                    "items": {
-                        "$ref": "http://redfish.dmtf.org/schemas/v1/ResolutionStep.json#/definitions/ResolutionStep"
-                    },
-                    "longDescription": "This property shall contain an array of recommended steps to resolve the cause of the log entry.  This property shall not be present if the Severity property contains `OK`.  A client can stop executing the resolution steps once the Resolved property resource contains `true` or the Health property in the associated resource referenced by the OriginOfCondition property contains `OK`.",
-                    "type": "array",
-                    "versionAdded": "v1_16_0"
-                },
                 "Resolved": {
                     "description": "Indicates if the cause of the log entry has been resolved or repaired.",
-                    "longDescription": "This property shall contain an indication if the cause of the log entry has been resolved or repaired.  The value `true` shall indicate if the cause of the log entry has been resolved or repaired.  This property shall contain the value `false` if the log entry is still active.  The value `false` shall be the initial state.  Clients should ignore this property if Severity contains `OK`.",
+                    "longDescription": "This property shall contain an indication if the cause of the log entry has been resolved or repaired.  The value `true` shall indicate if the cause of the log entry has been resolved or repaired.  This property shall contain the value `false` if the log entry is still active.  The value `false` shall be the initial state.",
                     "readonly": false,
                     "type": [
                         "boolean",
@@ -577,7 +448,7 @@
                         }
                     ],
                     "description": "The severity of the log entry.",
-                    "longDescription": "This property shall contain the severity of the condition that created the log entry.  If EntryType contains `Event`, services can replace the value defined in the message registry with a value more applicable to the implementation.",
+                    "longDescription": "This property shall contain the severity of the condition that created the log entry, as defined in the Status section of the Redfish Specification.",
                     "readonly": true
                 },
                 "SpecificEventExistsInGroup": {
@@ -734,17 +605,12 @@
             "enum": [
                 "Event",
                 "SEL",
-                "Oem",
-                "CXL"
+                "Oem"
             ],
             "enumDescriptions": {
-                "CXL": "A CXL log entry.",
                 "Event": "A Redfish-defined message.",
                 "Oem": "An entry in an OEM-defined format.",
                 "SEL": "A legacy IPMI System Event Log (SEL) entry."
-            },
-            "enumVersionAdded": {
-                "CXL": "v1_14_0"
             },
             "type": "string"
         },
@@ -853,7 +719,7 @@
                 "Module/Board": "A sensor for a module or board.",
                 "Monitor ASIC/IC": "A sensor for a monitor ASIC or IC.",
                 "OEM": "An OEM-defined sensor.",
-                "OS Stop/Shutdown": "A sensor for an OS stop or shutdown event.",
+                "OS Stop/Shutdown": "A sensor for an OS stop or shutdown event",
                 "Other FRU": "A sensor for another type of FRU.",
                 "Other Units-based Sensor": "A sensor for a miscellaneous analog sensor.",
                 "POST Memory Resize": "A sensor for a POST memory resize event.",
@@ -882,6 +748,6 @@
         }
     },
     "owningEntity": "DMTF",
-    "release": "2023.3",
-    "title": "#LogEntry.v1_16_0.LogEntry"
+    "release": "2022.2",
+    "title": "#LogEntry.v1_13_0.LogEntry"
 }

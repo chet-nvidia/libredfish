@@ -6,7 +6,7 @@
             "target": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Actions/LogService.ClearLog"
         }
     },
-    "DateTime": "2024-07-22T15:49:18+00:00",
+    "DateTime": "2024-07-23T19:13:40+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "System FaultLog LogService",
     "Entries": {

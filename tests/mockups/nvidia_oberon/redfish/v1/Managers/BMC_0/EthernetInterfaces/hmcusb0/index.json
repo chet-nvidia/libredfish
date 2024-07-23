@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Managers/BMC_0/EthernetInterfaces/hmcusb0",
-    "@odata.type": "#EthernetInterface.v1_9_0.EthernetInterface",
+    "@odata.type": "#EthernetInterface.v1_6_0.EthernetInterface",
     "DHCPv4": {
         "DHCPEnabled": false,
         "UseDNSServers": true,
@@ -14,7 +14,6 @@
         "UseNTPServers": true
     },
     "Description": "Management Network Interface",
-    "EthernetInterfaceType": "Physical",
     "FQDN": "oberon-bmc",
     "HostName": "oberon-bmc",
     "IPv4Addresses": [
@@ -34,23 +33,31 @@
         }
     ],
     "IPv6AddressPolicyTable": [],
-    "IPv6Addresses": [],
+    "IPv6Addresses": [
+        {
+            "Address": "fe80::f837:2cff:fed0:d2d5",
+            "AddressOrigin": "LinkLocal",
+            "AddressState": null,
+            "PrefixLength": 64
+        }
+    ],
     "IPv6DefaultGateway": "0:0:0:0:0:0:0:0",
     "IPv6StaticAddresses": [],
-    "IPv6StaticDefaultGateways": [],
     "Id": "hmcusb0",
     "InterfaceEnabled": true,
     "LinkStatus": "LinkUp",
-    "MACAddress": "9a:5d:86:71:7d:02",
+    "MACAddress": "fa:37:2c:d0:d2:d5",
     "MTUSize": 1500,
     "Name": "Manager Ethernet Interface",
     "NameServers": [],
-    "SpeedMbps": 425,
-    "StatelessAddressAutoConfig": {
-        "IPv6AutoConfigEnabled": false
-    },
+    "SpeedMbps": 0,
     "StaticNameServers": [],
     "Status": {
+        "Health": "OK",
+        "HealthRollup": "OK",
         "State": "Enabled"
+    },
+    "VLANs": {
+        "@odata.id": "/redfish/v1/Managers/BMC_0/EthernetInterfaces/hmcusb0/VLANs"
     }
 }

@@ -1,8 +1,8 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/Port.v1_11_0.json",
+    "$id": "http://redfish.dmtf.org/schemas/v1/Port.v1_7_0.json",
     "$ref": "#/definitions/Port",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2022 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Actions": {
             "additionalProperties": false,
@@ -26,140 +26,10 @@
                 "#Port.Reset": {
                     "$ref": "#/definitions/Reset"
                 },
-                "#Port.ResetPPB": {
-                    "$ref": "#/definitions/ResetPPB"
-                },
                 "Oem": {
                     "$ref": "#/definitions/OemActions",
                     "description": "The available OEM-specific actions for this resource.",
                     "longDescription": "This property shall contain the available OEM-specific actions for this resource."
-                }
-            },
-            "type": "object"
-        },
-        "CXL": {
-            "additionalProperties": false,
-            "description": "CXL properties for a port.",
-            "longDescription": "This type shall contain CXL-specific properties for a port.",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
-                    "description": "This property shall specify a valid odata or Redfish property.",
-                    "type": [
-                        "array",
-                        "boolean",
-                        "integer",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ]
-                }
-            },
-            "properties": {
-                "Congestion": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/Congestion"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The congestion properties for this CXL port.",
-                    "longDescription": "This property shall contain the congestion properties for this CXL port.",
-                    "versionAdded": "v1_8_0"
-                },
-                "ConnectedDeviceMode": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/ConnectedDeviceMode"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The connected device mode.",
-                    "longDescription": "This property shall contain the CXL Specification-defined 'Connected Device Mode'.",
-                    "readonly": true,
-                    "versionAdded": "v1_8_0"
-                },
-                "ConnectedDeviceType": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/ConnectedDeviceType"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The connected device type.",
-                    "longDescription": "This property shall contain the CXL Specification-defined 'Connected Device Type'.",
-                    "readonly": true,
-                    "versionAdded": "v1_8_0"
-                },
-                "CurrentPortConfigurationState": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/CurrentPortConfigurationState"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The current port configuration state.",
-                    "longDescription": "This property shall contain the CXL Specification-defined 'Current Port Configuration State'.",
-                    "readonly": true,
-                    "versionAdded": "v1_8_0"
-                },
-                "MaxLogicalDeviceCount": {
-                    "description": "The maximum number of logical devices supported.",
-                    "longDescription": "This property shall contain the CXL Specification-defined 'Supported LD Count'.",
-                    "readonly": true,
-                    "type": [
-                        "integer",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
-                },
-                "QoSTelemetryCapabilities": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/QoSTelemetryCapabilities"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The quality of service telemetry capabilities for this CXL port.",
-                    "longDescription": "This property shall contain the quality of service telemetry capabilities for this CXL port.",
-                    "versionAdded": "v1_8_0"
-                },
-                "SupportedCXLModes": {
-                    "description": "The supported device modes.",
-                    "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/definitions/ConnectedDeviceMode"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "longDescription": "This property shall contain the CXL Specification-defined 'Supported CXL Modes'.  This property shall not contain the value `Disconnected`.",
-                    "readonly": true,
-                    "type": "array",
-                    "versionAdded": "v1_11_0"
-                },
-                "TemporaryThroughputReductionEnabled": {
-                    "description": "Indicates whether temporary throughput reduction is enabled.",
-                    "longDescription": "This property shall indicate whether the CXL Specification-defined 'Temporary Throughput Reduction' mechanism is enabled.",
-                    "readonly": false,
-                    "type": [
-                        "boolean",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
                 }
             },
             "type": "object"
@@ -207,187 +77,6 @@
             },
             "type": "object"
         },
-        "Congestion": {
-            "additionalProperties": false,
-            "description": "The congestion properties for a CXL port.",
-            "longDescription": "This type shall contain the congestion properties for a CXL port.",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
-                    "description": "This property shall specify a valid odata or Redfish property.",
-                    "type": [
-                        "array",
-                        "boolean",
-                        "integer",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ]
-                }
-            },
-            "properties": {
-                "BackpressureSampleInterval": {
-                    "description": "The interval for the CXL Specification-defined 'Egress Port Congestion' mechanism to take samples in nanoseconds.",
-                    "longDescription": "This property shall contain the CXL Specification-defined 'Backpressure Sample Interval' in nanoseconds.",
-                    "readonly": false,
-                    "type": [
-                        "integer",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
-                },
-                "CompletionCollectionInterval": {
-                    "description": "The interval for the CXL Specification-defined 'Completion Counting' mechanism to collect the number of transmitted responses in a single counter in nanoseconds.",
-                    "longDescription": "This property shall contain the CXL Specification-defined 'Completion Collection Interval' in nanoseconds.",
-                    "readonly": false,
-                    "type": [
-                        "integer",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
-                },
-                "CongestionTelemetryEnabled": {
-                    "description": "Indicates whether congestion telemetry collection is enabled for this port.",
-                    "longDescription": "This property shall indicate whether congestion telemetry collection is enabled for this port.",
-                    "readonly": false,
-                    "type": [
-                        "boolean",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
-                },
-                "EgressModeratePercentage": {
-                    "description": "The threshold for moderate egress port congestion as a percentage.",
-                    "longDescription": "This property shall contain the threshold for moderate egress port congestion for the CXL Specification-defined 'Egress Port Congestion' mechanism as a percentage, `0` to `100`.",
-                    "maximum": 100,
-                    "minimum": 0,
-                    "readonly": false,
-                    "type": [
-                        "integer",
-                        "null"
-                    ],
-                    "units": "%",
-                    "versionAdded": "v1_8_0"
-                },
-                "EgressSeverePercentage": {
-                    "description": "The threshold for severe egress port congestion as a percentage.",
-                    "longDescription": "This property shall contain the CXL Specification-defined 'Egress Severe Percentage' as a percentage, `0` to `100`.",
-                    "maximum": 100,
-                    "minimum": 0,
-                    "readonly": false,
-                    "type": [
-                        "integer",
-                        "null"
-                    ],
-                    "units": "%",
-                    "versionAdded": "v1_8_0"
-                },
-                "MaxSustainedRequestCmpBias": {
-                    "description": "The estimated maximum sustained sum of requests and recent responses across the entire device, serving as the basis for the CXL Specification-defined 'QoS Limit Fraction'.",
-                    "longDescription": "This property shall contain the CXL Specification-defined 'ReqCmpBasis'.",
-                    "readonly": false,
-                    "type": [
-                        "integer",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
-                }
-            },
-            "type": "object"
-        },
-        "ConnectedDeviceMode": {
-            "enum": [
-                "Disconnected",
-                "RCD",
-                "CXL68BFlitAndVH",
-                "Standard256BFlit",
-                "CXLLatencyOptimized256BFlit",
-                "PBR"
-            ],
-            "enumDescriptions": {
-                "CXL68BFlitAndVH": "CXL 68B flit and VH.",
-                "CXLLatencyOptimized256BFlit": "CXL latency-optimized 256B flit.",
-                "Disconnected": "The connection is not CXL or is disconnected.",
-                "PBR": "Port-based routing (PBR).",
-                "RCD": "Restricted CXL device (RCD).",
-                "Standard256BFlit": "Standard 256B flit."
-            },
-            "enumLongDescriptions": {
-                "CXL68BFlitAndVH": "This value shall indicate the connected device mode is CXL 68B flit and VH.",
-                "CXLLatencyOptimized256BFlit": "This value shall indicate the connected device mode is CXL latency-optimized 256B flit.",
-                "Disconnected": "This value shall indicate the connection is not CXL or is disconnected.",
-                "PBR": "This value shall indicate the connected device mode is port-based routing (PBR).",
-                "RCD": "This value shall indicate the connected device mode is restricted CXL device (RCD).",
-                "Standard256BFlit": "This value shall indicate the connected device mode is standard 256B flit."
-            },
-            "type": "string"
-        },
-        "ConnectedDeviceType": {
-            "enum": [
-                "None",
-                "PCIeDevice",
-                "Type1",
-                "Type2",
-                "Type3SLD",
-                "Type3MLD"
-            ],
-            "enumDescriptions": {
-                "None": "No device detected.",
-                "PCIeDevice": "PCIe device.",
-                "Type1": "CXL Type 1 device.",
-                "Type2": "CXL Type 2 device.",
-                "Type3MLD": "CXL Type 3 multi-logical device (MLD).",
-                "Type3SLD": "CXL Type 3 single logical device (SLD)."
-            },
-            "enumLongDescriptions": {
-                "None": "This value shall indicate no device is detected.",
-                "PCIeDevice": "This value shall indicate the connected device is a PCIe device.",
-                "Type1": "This value shall indicate the connected device is a CXL Type 1 device.",
-                "Type2": "This value shall indicate the connected device is a CXL Type 2 device.",
-                "Type3MLD": "This value shall indicate the connected device is a CXL Type 3 multi-logical device (MLD).",
-                "Type3SLD": "This value shall indicate the connected device is a CXL Type 3 single logical device (SLD)."
-            },
-            "type": "string"
-        },
-        "CurrentPortConfigurationState": {
-            "enum": [
-                "Disabled",
-                "BindInProgress",
-                "UnbindInProgress",
-                "DSP",
-                "USP",
-                "Reserved",
-                "FabricLink"
-            ],
-            "enumDeprecated": {
-                "Reserved": "This value has been deprecated in favor of `FabricLink`."
-            },
-            "enumDescriptions": {
-                "BindInProgress": "Bind in progress.",
-                "DSP": "Downstream port (DSP).",
-                "Disabled": "Disabled.",
-                "FabricLink": "Fabric link.",
-                "Reserved": "Reserved.",
-                "USP": "Upstream port (USP).",
-                "UnbindInProgress": "Unbind in progress."
-            },
-            "enumLongDescriptions": {
-                "BindInProgress": "This value shall indicate a bind is in progress for the port.",
-                "DSP": "This value shall indicate the port is enabled as a downstream port (DSP).",
-                "Disabled": "This value shall indicate the port is disabled.",
-                "FabricLink": "This value shall indicate the port is enabled as a fabric link to another switch.",
-                "Reserved": "This value shall indicate the port is in a reserved state.",
-                "USP": "This value shall indicate the port is enabled as an upstream port (USP).",
-                "UnbindInProgress": "This value shall indicate an unbind is in progress for the port."
-            },
-            "enumVersionAdded": {
-                "FabricLink": "v1_11_0"
-            },
-            "enumVersionDeprecated": {
-                "Reserved": "v1_11_0"
-            },
-            "type": "string"
-        },
         "EthernetProperties": {
             "additionalProperties": false,
             "description": "Ethernet-specific properties for a port.",
@@ -408,14 +97,14 @@
             },
             "properties": {
                 "AssociatedMACAddresses": {
-                    "description": "An array of configured MAC addresses that are associated with this network port, including the programmed address of the lowest-numbered network device function, the configured but not active address, if applicable, the address for hardware port teaming, or other network addresses.",
+                    "description": "An array of configured MAC addresses that are associated with this network port, including the programmed address of the lowest numbered network device function, the configured but not active address, if applicable, the address for hardware port teaming, or other network addresses.",
                     "items": {
                         "type": [
                             "string",
                             "null"
                         ]
                     },
-                    "longDescription": "This property shall contain an array of configured MAC addresses that are associated with this network port, including the programmed address of the lowest-numbered network device function, the configured but not active address if applicable, the address for hardware port teaming, or other network addresses.",
+                    "longDescription": "This property shall contain an array of configured MAC addresses that are associated with this network port, including the programmed address of the lowest numbered network device function, the configured but not active address if applicable, the address for hardware port teaming, or other network addresses.",
                     "pattern": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$",
                     "readonly": true,
                     "type": "array",
@@ -555,14 +244,14 @@
             },
             "properties": {
                 "AssociatedWorldWideNames": {
-                    "description": "An array of configured World Wide Names (WWN) that are associated with this network port, including the programmed address of the lowest-numbered network device function, the configured but not active address, if applicable, the address for hardware port teaming, or other network addresses.",
+                    "description": "An array of configured World Wide Names (WWN) that are associated with this network port, including the programmed address of the lowest numbered network device function, the configured but not active address, if applicable, the address for hardware port teaming, or other network addresses.",
                     "items": {
                         "type": [
                             "string",
                             "null"
                         ]
                     },
-                    "longDescription": "This property shall contain an array of configured World Wide Names (WWN) that are associated with this network port, including the programmed address of the lowest-numbered network device function, the configured but not active address if applicable, the address for hardware port teaming, or other network addresses.",
+                    "longDescription": "This property shall contain an array of configured World Wide Names (WWN) that are associated with this network port, including the programmed address of the lowest numbered network device function, the configured but not active address if applicable, the address for hardware port teaming, or other network addresses.",
                     "pattern": "^([0-9A-Fa-f]{2}[:-]){7}([0-9A-Fa-f]{2})$",
                     "readonly": true,
                     "type": "array",
@@ -614,15 +303,15 @@
             ],
             "enumDescriptions": {
                 "None": "No IEEE 802.3x flow control is enabled on this port.",
-                "RX": "IEEE 802.3x flow control might be initiated by the link partner.",
-                "TX": "IEEE 802.3x flow control might be initiated by this station.",
-                "TX_RX": "IEEE 802.3x flow control might be initiated by this station or the link partner."
+                "RX": "IEEE 802.3x flow control may be initiated by the link partner.",
+                "TX": "IEEE 802.3x flow control may be initiated by this station.",
+                "TX_RX": "IEEE 802.3x flow control may be initiated by this station or the link partner."
             },
             "type": "string"
         },
         "FunctionMaxBandwidth": {
             "additionalProperties": false,
-            "description": "A maximum bandwidth allocation percentage for a network device functions associated with a port.",
+            "description": "A maximum bandwidth allocation percentage for a network device functions associated a port.",
             "longDescription": "This type shall describe a maximum bandwidth percentage allocation for a network device function associated with a port.",
             "patternProperties": {
                 "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
@@ -641,9 +330,7 @@
             "properties": {
                 "AllocationPercent": {
                     "description": "The maximum bandwidth allocation percentage allocated to the corresponding network device function instance.",
-                    "longDescription": "This property shall contain the maximum bandwidth percentage allocation, `0` to `100`, for the associated network device function.",
-                    "maximum": 100,
-                    "minimum": 0,
+                    "longDescription": "This property shall contain the maximum bandwidth percentage allocation for the associated network device function.",
                     "readonly": false,
                     "type": [
                         "integer",
@@ -664,7 +351,7 @@
         },
         "FunctionMinBandwidth": {
             "additionalProperties": false,
-            "description": "A minimum bandwidth allocation percentage for a network device functions associated with a port.",
+            "description": "A minimum bandwidth allocation percentage for a network device functions associated a port.",
             "longDescription": "This type shall describe a minimum bandwidth percentage allocation for a network device function associated with a port.",
             "patternProperties": {
                 "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
@@ -683,9 +370,7 @@
             "properties": {
                 "AllocationPercent": {
                     "description": "The minimum bandwidth allocation percentage allocated to the corresponding network device function instance.",
-                    "longDescription": "This property shall contain the minimum bandwidth percentage allocation, `0` to `100`, for the associated network device function.  The sum of all minimum percentages shall not exceed `100`.",
-                    "maximum": 100,
-                    "minimum": 0,
+                    "longDescription": "This property shall contain the minimum bandwidth percentage allocation for the associated network device function.  The sum total of all minimum percentages shall not exceed 100.",
                     "readonly": false,
                     "type": [
                         "integer",
@@ -732,14 +417,14 @@
                 },
                 "MPRT": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/RouteEntryCollection.json#/definitions/RouteEntryCollection",
-                    "description": "The Multi-subnet Packet Relay Table for the port.",
+                    "description": "the Multi-subnet Packet Relay Table for the port.",
                     "longDescription": "This property shall contain a link to a resource collection of type RouteEntryCollection, and shall represent the Gen-Z Core Specification-defined Multi-subnet Packet Relay Table for this port.",
                     "readonly": true,
                     "versionAdded": "v1_2_0"
                 },
                 "VCAT": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/VCATEntryCollection.json#/definitions/VCATEntryCollection",
-                    "description": "The Virtual Channel Action Table for the port.",
+                    "description": "the Virtual Channel Action Table for the port.",
                     "longDescription": "This property shall contain a link to a resource collection of type VCATEntryCollection.",
                     "readonly": true,
                     "versionAdded": "v1_2_0"
@@ -761,14 +446,14 @@
             ],
             "enumDescriptions": {
                 "AgentId": "Agent circuit ID, based on the agent-local identifier of the circuit as defined in RFC3046.",
-                "ChassisComp": "Chassis component, based on the value of entPhysicalAlias in RFC4133.",
+                "ChassisComp": "Chassis component, based in the value of entPhysicalAlias in RFC4133.",
                 "IfAlias": "Interface alias, based on the ifAlias MIB object.",
                 "IfName": "Interface name, based on the ifName MIB object.",
-                "LocalAssign": "Locally assigned, based on an alphanumeric value locally assigned.",
-                "MacAddr": "MAC address, based on an agent-detected unicast source address as defined in IEEE standard 802.",
-                "NetworkAddr": "Network address, based on an agent-detected network address.",
+                "LocalAssign": "Locally assigned, based on a alpha-numeric value locally assigned.",
+                "MacAddr": "MAC address, based on an agent detected unicast source address as defined in IEEE Std. 802.",
+                "NetworkAddr": "Network address, based on an agent detected network address.",
                 "NotTransmitted": "No data to be sent to/received from remote partner.",
-                "PortComp": "Port component, based on the value of entPhysicalAlias in RFC4133."
+                "PortComp": "Port component, based in the value of entPhysicalAlias in RFC4133."
             },
             "type": "string"
         },
@@ -792,42 +477,42 @@
             },
             "properties": {
                 "AssociatedNodeGUIDs": {
-                    "description": "An array of configured node GUIDs that are associated with this network port, including the programmed address of the lowest-numbered network device function, the configured but not active address, if applicable, the address for hardware port teaming, or other network addresses.",
+                    "description": "An array of configured node GUIDs that are associated with this network port, including the programmed address of the lowest numbered network device function, the configured but not active address, if applicable, the address for hardware port teaming, or other network addresses.",
                     "items": {
                         "type": [
                             "string",
                             "null"
                         ]
                     },
-                    "longDescription": "This property shall contain an array of configured node GUIDs that are associated with this network port, including the programmed address of the lowest-numbered network device function, the configured but not active address if applicable, the address for hardware port teaming, or other network addresses.",
+                    "longDescription": "This property shall contain an array of configured node GUIDs that are associated with this network port, including the programmed address of the lowest numbered network device function, the configured but not active address if applicable, the address for hardware port teaming, or other network addresses.",
                     "pattern": "^([0-9A-Fa-f]{4}[:-]){3}([0-9A-Fa-f]{4})$",
                     "readonly": true,
                     "type": "array",
                     "versionAdded": "v1_6_0"
                 },
                 "AssociatedPortGUIDs": {
-                    "description": "An array of configured port GUIDs that are associated with this network port, including the programmed address of the lowest-numbered network device function, the configured but not active address, if applicable, the address for hardware port teaming, or other network addresses.",
+                    "description": "An array of configured port GUIDs that are associated with this network port, including the programmed address of the lowest numbered network device function, the configured but not active address, if applicable, the address for hardware port teaming, or other network addresses.",
                     "items": {
                         "type": [
                             "string",
                             "null"
                         ]
                     },
-                    "longDescription": "This property shall contain an array of configured port GUIDs that are associated with this network port, including the programmed address of the lowest-numbered network device function, the configured but not active address if applicable, the address for hardware port teaming, or other network addresses.",
+                    "longDescription": "This property shall contain an array of configured port GUIDs that are associated with this network port, including the programmed address of the lowest numbered network device function, the configured but not active address if applicable, the address for hardware port teaming, or other network addresses.",
                     "pattern": "^([0-9A-Fa-f]{4}[:-]){3}([0-9A-Fa-f]{4})$",
                     "readonly": true,
                     "type": "array",
                     "versionAdded": "v1_6_0"
                 },
                 "AssociatedSystemGUIDs": {
-                    "description": "An array of configured system GUIDs that are associated with this network port, including the programmed address of the lowest-numbered network device function, the configured but not active address, if applicable, the address for hardware port teaming, or other network addresses.",
+                    "description": "An array of configured system GUIDs that are associated with this network port, including the programmed address of the lowest numbered network device function, the configured but not active address, if applicable, the address for hardware port teaming, or other network addresses.",
                     "items": {
                         "type": [
                             "string",
                             "null"
                         ]
                     },
-                    "longDescription": "This property shall contain an array of configured system GUIDs that are associated with this network port, including the programmed address of the lowest-numbered network device function, the configured but not active address if applicable, the address for hardware port teaming, or other network addresses.",
+                    "longDescription": "This property shall contain an array of configured system GUIDs that are associated with this network port, including the programmed address of the lowest numbered network device function, the configured but not active address if applicable, the address for hardware port teaming, or other network addresses.",
                     "pattern": "^([0-9A-Fa-f]{4}[:-]){3}([0-9A-Fa-f]{4})$",
                     "readonly": true,
                     "type": "array",
@@ -924,8 +609,8 @@
                     "versionAdded": "v1_4_0"
                 },
                 "PortId": {
-                    "description": "A colon-delimited string of hexadecimal octets identifying a port.",
-                    "longDescription": "This property shall contain a colon-delimited string of hexadecimal octets identifying the port received from the remote partner across this link.  If no such port ID has been received, this property should not be present.",
+                    "description": "A colon delimited string of hexadecimal octets identifying a port.",
+                    "longDescription": "This property shall contain a colon delimited string of hexadecimal octets identifying the port received from the remote partner across this link.  If no such port ID has been received, this property should not be present.",
                     "pattern": "^([0-9A-F]{2})([:]([0-9A-F]){2}){0,63}$",
                     "readonly": true,
                     "type": [
@@ -947,82 +632,9 @@
                     "longDescription": "This property shall contain the port ID subtype from IEEE 802.1AB-2009 Table 8-3 received from the remote partner across this link.  If no such port ID subtype has been received, this property should not be present.",
                     "readonly": true,
                     "versionAdded": "v1_4_0"
-                },
-                "SystemCapabilities": {
-                    "description": "The system capabilities received from the remote partner across this link.",
-                    "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/definitions/LLDPSystemCapabilities"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "longDescription": "This property shall contain the system capabilities received from the remote partner across this link.  If no such system capabilities have been received, this property shall not be present.  This property shall not contain the value `None`.",
-                    "readonly": true,
-                    "type": "array",
-                    "versionAdded": "v1_8_0"
-                },
-                "SystemDescription": {
-                    "description": "The system description received from the remote partner across this link.",
-                    "longDescription": "This property shall contain the system description received from the remote partner across this link.  If no such system description has been received, this property shall not be present.",
-                    "readonly": true,
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
-                },
-                "SystemName": {
-                    "description": "The system name received from the remote partner across this link.",
-                    "longDescription": "This property shall contain the system name received from the remote partner across this link.  If no such system name has been received, this property shall not be present.",
-                    "readonly": true,
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
                 }
             },
             "type": "object"
-        },
-        "LLDPSystemCapabilities": {
-            "enum": [
-                "None",
-                "Bridge",
-                "DOCSISCableDevice",
-                "Other",
-                "Repeater",
-                "Router",
-                "Station",
-                "Telephone",
-                "WLANAccessPoint"
-            ],
-            "enumDescriptions": {
-                "Bridge": "Bridge.",
-                "DOCSISCableDevice": "DOCSIS cable device.",
-                "None": "The system capabilities are transmitted, but no capabilities are set.",
-                "Other": "Other.",
-                "Repeater": "Repeater.",
-                "Router": "Router.",
-                "Station": "Station.",
-                "Telephone": "Telephone.",
-                "WLANAccessPoint": "WLAN access point."
-            },
-            "enumLongDescriptions": {
-                "Bridge": "This value shall indicate the IEEE802.1AB-defined 'bridge' capability.",
-                "DOCSISCableDevice": "This value shall indicate the IEEE802.1AB-defined 'DOCSIS cable device' capability.",
-                "None": "This value shall indicate the system capabilities are transmitted, but no capabilities are set.",
-                "Other": "This value shall indicate the IEEE802.1AB-defined 'other' capability.",
-                "Repeater": "This value shall indicate the IEEE802.1AB-defined 'repeater' capability.",
-                "Router": "This value shall indicate the IEEE802.1AB-defined 'router' capability.",
-                "Station": "This value shall indicate the IEEE802.1AB-defined 'station' capability.",
-                "Telephone": "This value shall indicate the IEEE802.1AB-defined 'telephone' capability.",
-                "WLANAccessPoint": "This value shall indicate the IEEE802.1AB-defined 'WLAN access point' capability."
-            },
-            "type": "string"
         },
         "LLDPTransmit": {
             "additionalProperties": false,
@@ -1112,8 +724,8 @@
                     "versionAdded": "v1_4_0"
                 },
                 "PortId": {
-                    "description": "A colon-delimited string of hexadecimal octets identifying a port to be transmitted from this endpoint.",
-                    "longDescription": "This property shall contain a colon-delimited string of hexadecimal octets identifying the port for an LLDP endpoint.  If no such port ID is to be transmitted, this value shall be an empty string.",
+                    "description": "A colon delimited string of hexadecimal octets identifying a port to be transmitted from this endpoint.",
+                    "longDescription": "This property shall contain a colon delimited string of hexadecimal octets identifying the port for an LLDP endpoint.  If no such port ID is to be transmitted, this value shall be an empty string.",
                     "pattern": "(^([0-9A-F]{2})([:]([0-9A-F]){2}){0,63}$)|(^$)",
                     "readonly": false,
                     "type": [
@@ -1135,43 +747,6 @@
                     "longDescription": "This property shall contain the port ID subtype from IEEE 802.1AB-2009 Table 8-3 to be transmitted from this endpoint.  If no such port ID subtype is to be transmitted, this value shall be `NotTransmitted`.",
                     "readonly": false,
                     "versionAdded": "v1_4_0"
-                },
-                "SystemCapabilities": {
-                    "description": "The system capabilities to be transmitted from this endpoint.",
-                    "items": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/definitions/LLDPSystemCapabilities"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "longDescription": "This property shall contain the system capabilities to be transmitted from this endpoint.  If no such system capabilities are to be transmitted, this value shall be an empty array.  If this property contains the value `None`, an empty set of system capabilities is transmitted from this endpoint.",
-                    "readonly": false,
-                    "type": "array",
-                    "versionAdded": "v1_8_0"
-                },
-                "SystemDescription": {
-                    "description": "The system description to be transmitted from this endpoint.",
-                    "longDescription": "This property shall contain the system description to be transmitted from this endpoint.  If no such system description is to be transmitted, this value shall be an empty string.",
-                    "readonly": false,
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
-                },
-                "SystemName": {
-                    "description": "The system name to be transmitted from this endpoint.",
-                    "longDescription": "This property shall contain the system name to be transmitted from this endpoint.  If no such system name is to be transmitted, this value shall be an empty string.",
-                    "readonly": false,
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
                 }
             },
             "type": "object"
@@ -1179,7 +754,7 @@
         "LinkConfiguration": {
             "additionalProperties": false,
             "description": "Properties of the link for which this port is configured.",
-            "longDescription": "This type shall contain properties of the link for which this port has been configured.",
+            "longDescription": "This type shall contain properties of the link for which port has been configured.",
             "patternProperties": {
                 "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
                     "description": "This property shall specify a valid odata or Redfish property.",
@@ -1253,18 +828,13 @@
                 "Ethernet",
                 "InfiniBand",
                 "FibreChannel",
-                "GenZ",
-                "PCIe"
+                "GenZ"
             ],
             "enumDescriptions": {
                 "Ethernet": "The port is capable of connecting to an Ethernet network.",
                 "FibreChannel": "The port is capable of connecting to a Fibre Channel network.",
                 "GenZ": "The port is capable of connecting to a Gen-Z fabric.",
-                "InfiniBand": "The port is capable of connecting to an InfiniBand network.",
-                "PCIe": "The port is capable of connecting to PCIe and CXL fabrics."
-            },
-            "enumVersionAdded": {
-                "PCIe": "v1_8_0"
+                "InfiniBand": "The port is capable of connecting to an InfiniBand network."
             },
             "type": "string"
         },
@@ -1274,12 +844,8 @@
                 "Disabled"
             ],
             "enumDescriptions": {
-                "Disabled": "The link is disabled and not operational.",
-                "Enabled": "The link is enabled and operational."
-            },
-            "enumLongDescriptions": {
-                "Disabled": "This value shall indicate the link is disabled and not operational.  The port is not allowed to establish a connection with the remote port.  However, other types of traffic, such as management traffic, may be sent or received by the port.",
-                "Enabled": "This value shall indicate the link is enabled and operational.  The port is allowed to establish a connection with the remote port."
+                "Disabled": "This link is disabled.",
+                "Enabled": "This link is enabled."
             },
             "type": "string"
         },
@@ -1477,19 +1043,6 @@
                     "type": "integer",
                     "versionAdded": "v1_2_0"
                 },
-                "CXL": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/definitions/CXL"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "CXL properties for this port.",
-                    "longDescription": "This property shall contain CXL-specific properties for this port.",
-                    "versionAdded": "v1_8_0"
-                },
                 "CapableProtocolVersions": {
                     "description": "The protocol versions capable of being sent over this port.",
                     "items": {
@@ -1515,7 +1068,7 @@
                 },
                 "CurrentSpeedGbps": {
                     "description": "The current speed of this port.",
-                    "longDescription": "This property shall contain the unidirectional speed of this port currently negotiated and running.  This value includes overhead associated with the protocol.",
+                    "longDescription": "This property shall contain the speed of this port currently negotiated and running.  This value includes overhead associated with the protocol.",
                     "readonly": true,
                     "type": [
                         "number",
@@ -1535,13 +1088,11 @@
                     "readonly": true
                 },
                 "Enabled": {
-                    "deprecated": "This property has been deprecated in favor of InterfaceEnabled.",
                     "description": "An indication of whether this port is enabled.",
                     "longDescription": "The value of this property shall indicate if this port is enabled.  Disabling a port will disconnect any devices only connected to the system through this port.",
                     "readonly": false,
                     "type": "boolean",
-                    "versionAdded": "v1_4_0",
-                    "versionDeprecated": "v1_10_0"
+                    "versionAdded": "v1_4_0"
                 },
                 "EnvironmentMetrics": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/EnvironmentMetrics.json#/definitions/EnvironmentMetrics",
@@ -1618,8 +1169,8 @@
                     "versionAdded": "v1_6_0"
                 },
                 "InterfaceEnabled": {
-                    "description": "An indication of whether the port is enabled.",
-                    "longDescription": "This property shall indicate whether the port is enabled.  When disabled, no traffic of any type, such as link protocol traffic and management traffic, is sent or received by the port.",
+                    "description": "An indication of whether the interface is enabled.",
+                    "longDescription": "This property shall indicate whether the interface is enabled.",
                     "readonly": false,
                     "type": [
                         "boolean",
@@ -1679,7 +1230,7 @@
                 "Location": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Location",
                     "description": "The location of the port.",
-                    "longDescription": "This property shall contain the location information of the associated port.",
+                    "longDescription": "This property shall contain location information of the associated port.",
                     "versionAdded": "v1_1_0"
                 },
                 "LocationIndicatorActive": {
@@ -1705,7 +1256,7 @@
                 },
                 "MaxSpeedGbps": {
                     "description": "The maximum speed of this port as currently configured.",
-                    "longDescription": "This property shall contain the maximum unidirectional speed of which this port is capable of being configured.  If capable of autonegotiation, the system shall attempt to negotiate at the maximum speed set.  This value includes overhead associated with the protocol.",
+                    "longDescription": "This property shall contain the maximum speed of which this port is capable of being configured.  If capable of autonegotiation, the system shall attempt to negotiate at the maximum speed set.  This value includes overhead associated with the protocol.",
                     "readonly": true,
                     "type": [
                         "number",
@@ -1785,16 +1336,6 @@
                     "longDescription": "This property shall contain the port type for this port.",
                     "readonly": true
                 },
-                "RemotePortId": {
-                    "description": "The identifier of the remote port to which this port is connected.",
-                    "longDescription": "This property shall contain the identifier of the remote port, such as a switch or device, to which this port is connected.",
-                    "readonly": true,
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
-                },
                 "SFP": {
                     "anyOf": [
                         {
@@ -1871,13 +1412,13 @@
                 "GPort": "This port connection type is a generic fabric port.",
                 "Generic": "This port connection type is a generic fabric port.",
                 "NLPort": "This port connects in a node loop configuration.",
-                "NPPort": "This port connection type is a proxy N-port for N-port virtualization.",
-                "NPort": "This port connects through an N-port to a switch.",
+                "NPPort": "This port connection type is a proxy N port for N-Port virtualization.",
+                "NPort": "This port connects through an N-Port to a switch.",
                 "NotConnected": "This port is not connected.",
-                "PointToPoint": "This port connects in a point-to-point configuration.",
+                "PointToPoint": "This port connects in a Point-to-point configuration.",
                 "PrivateLoop": "This port connects in a private loop configuration.",
                 "PublicLoop": "This port connects in a public configuration.",
-                "TEPort": "This port connection type is a trunking extender fabric port.",
+                "TEPort": "This port connection type is an trunking extender fabric port.",
                 "UPort": "This port connection type is unassigned."
             },
             "enumVersionAdded": {
@@ -1924,48 +1465,6 @@
             },
             "type": "string"
         },
-        "QoSTelemetryCapabilities": {
-            "additionalProperties": false,
-            "description": "The quality of service telemetry capabilities for a CXL port.",
-            "longDescription": "This type shall contain the quality of service telemetry capabilities for a CXL port.",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
-                    "description": "This property shall specify a valid odata or Redfish property.",
-                    "type": [
-                        "array",
-                        "boolean",
-                        "integer",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ]
-                }
-            },
-            "properties": {
-                "EgressPortBackpressureSupported": {
-                    "description": "Indicates whether the port supports the CXL Specification-defined 'Egress Port Backpressure' mechanism.",
-                    "longDescription": "This property shall indicate whether the port supports the CXL Specification-defined 'Egress Port Backpressure' mechanism.",
-                    "readonly": true,
-                    "type": [
-                        "boolean",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
-                },
-                "TemporaryThroughputReductionSupported": {
-                    "description": "Indicates whether the port supports the CXL Specification-defined 'Temporary Throughput Reduction' mechanism.",
-                    "longDescription": "This property shall indicate whether the port supports the CXL Specification-defined 'Temporary Throughput Reduction' mechanism.",
-                    "readonly": true,
-                    "type": [
-                        "boolean",
-                        "null"
-                    ],
-                    "versionAdded": "v1_8_0"
-                }
-            },
-            "type": "object"
-        },
         "Reset": {
             "additionalProperties": false,
             "description": "This action resets this port.",
@@ -1974,7 +1473,7 @@
                 "ResetType": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/ResetType",
                     "description": "The type of reset.",
-                    "longDescription": "This parameter shall contain the type of reset.  The service can accept a request without the parameter and perform an implementation-specific default reset."
+                    "longDescription": "This parameter shall contain the type of reset.  The service can accept a request without the parameter and perform an implementation specific default reset."
                 }
             },
             "patternProperties": {
@@ -2003,39 +1502,6 @@
                 }
             },
             "type": "object"
-        },
-        "ResetPPB": {
-            "additionalProperties": false,
-            "description": "This action resets the PCI-to-PCI bridge (PPB) for this port.",
-            "longDescription": "This action shall reset the PCI-to-PCI bridge (PPB) for this port.",
-            "parameters": {},
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
-                    "description": "This property shall specify a valid odata or Redfish property.",
-                    "type": [
-                        "array",
-                        "boolean",
-                        "integer",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ]
-                }
-            },
-            "properties": {
-                "target": {
-                    "description": "Link to invoke action",
-                    "format": "uri-reference",
-                    "type": "string"
-                },
-                "title": {
-                    "description": "Friendly action name",
-                    "type": "string"
-                }
-            },
-            "type": "object",
-            "versionAdded": "v1_8_0"
         },
         "SFP": {
             "additionalProperties": false,
@@ -2166,28 +1632,20 @@
                 "QSFP14",
                 "QSFP28",
                 "QSFP56",
-                "MiniSASHD",
-                "QSFPDD",
-                "OSFP"
+                "MiniSASHD"
             ],
             "enumDescriptions": {
                 "MiniSASHD": "The SFP conforms to the SFF Specification SFF-8644.",
-                "OSFP": "The SFP conforms to the OSFP Specification.",
                 "QSFP": "The SFP conforms to the SFF Specification for QSFP.",
                 "QSFP14": "The SFP conforms to the SFF Specification for QSFP14.",
                 "QSFP28": "The SFP conforms to the SFF Specification for QSFP28.",
                 "QSFP56": "The SFP conforms to the SFF Specification for QSFP56.",
-                "QSFPDD": "The SFP conforms to the QSFP Double Density Specification.",
                 "QSFPPlus": "The SFP conforms to the SFF Specification for QSFP+.",
                 "SFP": "The SFP conforms to the SFF Specification for SFP.",
                 "SFP28": "The SFP conforms to the SFF Specification for SFP+ and IEEE 802.3by Specification.",
                 "SFPDD": "The SFP conforms to the SFP-DD MSA Specification.",
                 "SFPPlus": "The SFP conforms to the SFF Specification for SFP+.",
                 "cSFP": "The SFP conforms to the CSFP MSA Specification."
-            },
-            "enumVersionAdded": {
-                "OSFP": "v1_9_0",
-                "QSFPDD": "v1_9_0"
             },
             "type": "string"
         },
@@ -2204,6 +1662,6 @@
         }
     },
     "owningEntity": "DMTF",
-    "release": "2023.3",
-    "title": "#Port.v1_11_0.Port"
+    "release": "2022.2",
+    "title": "#Port.v1_7_0.Port"
 }

@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Managers/BMC_0",
-    "@odata.type": "#Manager.v1_16_0.Manager",
+    "@odata.type": "#Manager.v1_14_0.Manager",
     "Actions": {
         "#Manager.Reset": {
             "@Redfish.ActionInfo": "/redfish/v1/Managers/BMC_0/ResetActionInfo",
@@ -32,13 +32,16 @@
             }
         }
     },
-    "DateTime": "2024-07-22T15:47:31+00:00",
+    "DateTime": "2024-07-23T19:12:31+00:00",
     "DateTimeLocalOffset": "+00:00",
+    "DedicatedNetworkPorts": {
+        "@odata.id": "/redfish/v1/Managers/BMC_0/DedicatedNetworkPorts"
+    },
     "Description": "Baseboard Management Controller",
     "EthernetInterfaces": {
         "@odata.id": "/redfish/v1/Managers/BMC_0/EthernetInterfaces"
     },
-    "FirmwareVersion": "BF-24.07-5",
+    "FirmwareVersion": "GH200-24.05-2",
     "GraphicalConsole": {
         "ConnectTypesSupported": [
             "KVMIP"
@@ -50,7 +53,7 @@
         "@odata.id": "/redfish/v1/Managers/BMC_0/HostInterfaces"
     },
     "Id": "BMC_0",
-    "LastResetTime": "2024-07-22T08:13:25+00:00",
+    "LastResetTime": "2024-07-17T00:43:23+00:00",
     "Links": {
         "ActiveSoftwareImage": {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/FW_BMC_0"
@@ -80,9 +83,6 @@
     "LogServices": {
         "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices"
     },
-    "ManagerDiagnosticData": {
-        "@odata.id": "/redfish/v1/Managers/BMC_0/ManagerDiagnosticData"
-    },
     "ManagerType": "BMC",
     "Model": "OpenBmc",
     "Name": "OpenBmc Manager",
@@ -97,11 +97,11 @@
             "FirmwareBuildType": null,
             "OTPProvisioned": false,
             "PersistentStorageSettings": {
+                "Enabled": false,
                 "Status": {
                     "State": "Enabled"
                 }
-            },
-            "UptimeSeconds": 27245.28
+            }
         },
         "OpenBmc": {
             "@odata.id": "/redfish/v1/Managers/BMC_0#/Oem/OpenBmc",
@@ -109,7 +109,8 @@
             "Certificates": {
                 "@odata.id": "/redfish/v1/Managers/BMC_0/Truststore/Certificates"
             }
-        }
+        },
+        "UptimeSeconds": 584947.81
     },
     "PowerState": "On",
     "SerialConsole": {
@@ -120,14 +121,14 @@
         "MaxConcurrentSessions": 15,
         "ServiceEnabled": true
     },
-    "ServiceEntryPointUUID": "eb3a1bda-4c82-405d-939c-b775b7d9660f",
+    "ServiceEntryPointUUID": "224bb129-5621-400c-8e44-47ab66e441fe",
     "Status": {
         "Conditions": [],
         "Health": "OK",
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "UUID": "d9d35ebc-be07-4067-8b45-067ee9c5eb1b",
+    "UUID": "978f1603-d7d4-479d-9f03-864e25bb8cb6",
     "VirtualMedia": {
         "@odata.id": "/redfish/v1/Managers/BMC_0/VirtualMedia"
     }

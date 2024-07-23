@@ -1,12 +1,12 @@
 {
     "@odata.id": "/redfish/v1/Systems/System_0/LogServices/PostCodes",
-    "@odata.type": "#LogService.v1_2_0.LogService",
+    "@odata.type": "#LogService.v1_1_0.LogService",
     "Actions": {
         "#LogService.ClearLog": {
             "target": "/redfish/v1/Systems/System_0/LogServices/PostCodes/Actions/LogService.ClearLog"
         }
     },
-    "DateTime": "2024-07-22T15:47:54+00:00",
+    "DateTime": "2024-07-23T19:12:55+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "POST Code Log Service",
     "Entries": {

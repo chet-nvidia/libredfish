@@ -3,7 +3,7 @@
     "@odata.type": "#Sensor.v1_2_0.Sensor",
     "Id": "TEMP_PDB",
     "Name": "TEMP PDB",
-    "Reading": 32.562,
+    "Reading": 29.062,
     "ReadingRangeMax": 127.0,
     "ReadingRangeMin": -128.0,
     "ReadingType": "Temperature",
@@ -22,6 +22,9 @@
     "Thresholds": {
         "UpperCaution": {
             "Reading": 100.0
+        },
+        "UpperFatal": {
+            "Reading": 105.0
         }
     }
 }

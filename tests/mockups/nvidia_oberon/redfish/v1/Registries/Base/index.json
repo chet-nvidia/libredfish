@@ -10,11 +10,11 @@
     "Location": [
         {
             "Language": "en",
-            "PublicationUri": "https://redfish.dmtf.org/registries/Base.1.16.0.json",
+            "PublicationUri": "https://redfish.dmtf.org/registries/Base.1.15.0.json",
             "Uri": "/redfish/v1/Registries/Base/Base"
         }
     ],
     "Location@odata.count": 1,
     "Name": "Base Message Registry File",
-    "Registry": "Base.1.16.0"
+    "Registry": "Base.1.15.0"
 }

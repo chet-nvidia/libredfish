@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---->
 <!--################################################################################       -->
-<!--# Redfish Schema:  LogService v1.6.0                                                   -->
+<!--# Redfish Schema:  LogService v1.3.0                                                   -->
 <!--#                                                                                      -->
 <!--# For a detailed change log, see the README file contained in the DSP8010 bundle,      -->
 <!--# available at http://www.dmtf.org/standards/redfish                                   -->
-<!--# Copyright 2014-2023 DMTF.                                                            -->
+<!--# Copyright 2014-2022 DMTF.                                                            -->
 <!--# For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright -->
 <!--################################################################################       -->
 <!---->
@@ -63,7 +63,6 @@
             <String>/redfish/v1/JobService/Log</String>
             <String>/redfish/v1/TelemetryService/LogService</String>
             <String>/redfish/v1/Systems/{ComputerSystemId}/Memory/{MemoryId}/DeviceLog</String>
-            <String>/redfish/v1/Chassis/{ChassisId}/PCIeDevices/{PCIeDeviceId}/CXLLogicalDevices/{CXLLogicalDeviceId}/DeviceLog</String>
           </Collection>
         </Annotation>
       </EntityType>
@@ -103,91 +102,6 @@
             <Record>
               <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
               <PropertyValue Property="Version" String="v1_2_0"/>
-            </Record>
-          </Collection>
-        </Annotation>
-        <Parameter Name="TargetURI" Type="Edm.String">
-          <Annotation Term="OData.Description" String="The URI to access when sending the diagnostic data."/>
-          <Annotation Term="OData.LongDescription" String="This parameter shall contain the URI to access when sending the diagnostic data.  If this parameter is not provided by the client, the service shall not send the diagnostic data."/>
-          <Annotation Term="OData.IsURL"/>
-          <Annotation Term="Redfish.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
-                <PropertyValue Property="Version" String="v1_6_0"/>
-              </Record>
-            </Collection>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="UserName" Type="Edm.String">
-          <Annotation Term="OData.Description" String="The user name to access the URI specified by the TargetURI parameter."/>
-          <Annotation Term="OData.LongDescription" String="This parameter shall contain the username to access the URI specified by the TargetURI parameter."/>
-          <Annotation Term="Redfish.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
-                <PropertyValue Property="Version" String="v1_6_0"/>
-              </Record>
-            </Collection>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="Password" Type="Edm.String">
-          <Annotation Term="OData.Description" String="The password to access the URI specified by the TargetURI parameter."/>
-          <Annotation Term="OData.LongDescription" String="This parameter shall contain the password to access the URI specified by the TargetURI parameter."/>
-          <Annotation Term="Redfish.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
-                <PropertyValue Property="Version" String="v1_6_0"/>
-              </Record>
-            </Collection>
-          </Annotation>
-        </Parameter>
-        <Parameter Name="TransferProtocol" Type="LogService.v1_6_0.TransferProtocolType">
-          <Annotation Term="OData.Description" String="The network protocol that the service uses to send the diagnostic data."/>
-          <Annotation Term="OData.LongDescription" String="This parameter shall contain the network protocol that the service uses to send the diagnostic data."/>
-          <Annotation Term="Redfish.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
-                <PropertyValue Property="Version" String="v1_6_0"/>
-              </Record>
-            </Collection>
-          </Annotation>
-        </Parameter>
-      </Action>
-
-      <Action Name="PushDiagnosticData" IsBound="true">
-        <Annotation Term="OData.Description" String="The action to push an existing diagnostic data to a target URI."/>
-        <Annotation Term="OData.LongDescription" String="This action shall send an existing diagnostic data to a target URI."/>
-        <Parameter Name="LogService" Type="LogService.v1_0_0.Actions"/>
-        <Parameter Name="AdditionalDataURI" Type="Edm.String" Nullable="false">
-          <Annotation Term="OData.Description" String="The URI of the diagnostic data to transfer to the URI specified by the TargetURI parameter."/>
-          <Annotation Term="OData.LongDescription" String="This parameter shall contain the URI of the diagnostic data to transfer to the URI specified by the TargetURI parameter."/>
-          <Annotation Term="OData.IsURL"/>
-        </Parameter>
-        <Parameter Name="TargetURI" Type="Edm.String" Nullable="false">
-          <Annotation Term="OData.Description" String="The URI to access when sending the diagnostic data."/>
-          <Annotation Term="OData.LongDescription" String="This parameter shall contain the URI to access when sending the diagnostic data."/>
-          <Annotation Term="OData.IsURL"/>
-        </Parameter>
-        <Parameter Name="UserName" Type="Edm.String">
-          <Annotation Term="OData.Description" String="The user name to access the URI specified by the TargetURI parameter."/>
-          <Annotation Term="OData.LongDescription" String="This parameter shall contain the username to access the URI specified by the TargetURI parameter."/>
-        </Parameter>
-        <Parameter Name="Password" Type="Edm.String">
-          <Annotation Term="OData.Description" String="The password to access the URI specified by the TargetURI parameter."/>
-          <Annotation Term="OData.LongDescription" String="This parameter shall contain the password to access the URI specified by the TargetURI parameter."/>
-        </Parameter>
-        <Parameter Name="TransferProtocol" Type="LogService.v1_6_0.TransferProtocolType">
-          <Annotation Term="OData.Description" String="The network protocol that the service uses to send the diagnostic data."/>
-          <Annotation Term="OData.LongDescription" String="This parameter shall contain the network protocol that the service uses to send the diagnostic data."/>
-        </Parameter>
-        <Annotation Term="Redfish.Revisions">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
-              <PropertyValue Property="Version" String="v1_6_0"/>
             </Record>
           </Collection>
         </Annotation>
@@ -345,17 +259,6 @@
         <Member Name="OEM">
           <Annotation Term="OData.Description" String="The log contains entries in an OEM-defined format."/>
         </Member>
-        <Member Name="CXL">
-          <Annotation Term="OData.Description" String="The log contains CXL log entries."/>
-          <Annotation Term="Redfish.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
-                <PropertyValue Property="Version" String="v1_5_0"/>
-              </Record>
-            </Collection>
-          </Annotation>
-        </Member>
       </EnumType>
     </Schema>
 
@@ -430,7 +333,7 @@
           <Annotation Term="OData.Description" String="A Warning."/>
         </Member>
         <Member Name="Notice">
-          <Annotation Term="OData.Description" String="Conditions that are not error conditions, but that might require special handling."/>
+          <Annotation Term="OData.Description" String="Conditions that are not error conditions, but that may require special handling."/>
         </Member>
         <Member Name="Informational">
           <Annotation Term="OData.Description" String="Informational only."/>
@@ -548,12 +451,6 @@
       <EntityType Name="LogService" BaseType="LogService.v1_2_1.LogService"/>
     </Schema>
 
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogService.v1_2_3">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to remove normative language from non-normative descriptions."/>
-      <EntityType Name="LogService" BaseType="LogService.v1_2_2.LogService"/>
-    </Schema>
-
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogService.v1_3_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2021.2"/>
@@ -572,119 +469,6 @@
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="OData.Description" String="This version was created to add behavioral descriptions to the CollectDiagnosticData action."/>
       <EntityType Name="LogService" BaseType="LogService.v1_3_0.LogService"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogService.v1_3_2">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to remove normative language from non-normative descriptions."/>
-      <EntityType Name="LogService" BaseType="LogService.v1_3_1.LogService"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogService.v1_4_0">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="Redfish.Release" String="2022.3"/>
-
-      <EntityType Name="LogService" BaseType="LogService.v1_3_1.LogService">
-        <Property Name="LogPurposes" Type="Collection(LogService.v1_4_0.LogPurpose)">
-          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The purposes of the log."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the purposes of the log."/>
-        </Property>
-        <Property Name="OEMLogPurpose" Type="Edm.String">
-          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The OEM-specified purpose of the log if LogPurposes contains `OEM`."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the OEM-specified purpose of the log if LogPurposes contains `OEM`."/>
-        </Property>
-        <Property Name="Persistency" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="Indicates whether the log service is persistent across a cold reset."/>
-          <Annotation Term="OData.LongDescription" String="This property shall indicate whether the log service is persistent across a cold reset of the device."/>
-        </Property>
-        <Property Name="Overflow" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="Indicates whether the log service has overflowed."/>
-          <Annotation Term="OData.LongDescription" String="This property shall indicate whether the log service has overflowed and is no longer able to store new logs."/>
-        </Property>
-      </EntityType>
-
-      <EnumType Name="LogPurpose">
-        <Member Name="Diagnostic">
-          <Annotation Term="OData.Description" String="The log provides information for diagnosing hardware or software issues, such as error conditions, sensor threshold trips, or exception cases."/>
-        </Member>
-        <Member Name="Operations">
-          <Annotation Term="OData.Description" String="The log provides information about management operations that have a significant impact on the system, such as firmware updates, system resets, and storage volume creation."/>
-        </Member>
-        <Member Name="Security">
-          <Annotation Term="OData.Description" String="The log provides security-related information such as authentication, authorization, and data access logging required for security audits."/>
-        </Member>
-        <Member Name="Telemetry">
-          <Annotation Term="OData.Description" String="The log provides telemetry history, typically collected on a regular basis."/>
-        </Member>
-        <Member Name="ExternalEntity">
-          <Annotation Term="OData.Description" String="The log exposes log entries provided by external entities, such as external users, system firmware, operating systems, or management applications."/>
-        </Member>
-        <Member Name="OEM">
-          <Annotation Term="OData.Description" String="The log is used for an OEM-defined purpose."/>
-        </Member>
-      </EnumType>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogService.v1_4_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to remove normative language from non-normative descriptions."/>
-      <EntityType Name="LogService" BaseType="LogService.v1_4_0.LogService"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogService.v1_5_0">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="Redfish.Release" String="2023.2"/>
-      <Annotation Term="OData.Description" String="This version was created to add `CXL` to LogEntryType."/>
-
-      <EntityType Name="LogService" BaseType="LogService.v1_4_0.LogService"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogService.v1_5_1">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to remove normative language from non-normative descriptions."/>
-      <EntityType Name="LogService" BaseType="LogService.v1_5_0.LogService"/>
-    </Schema>
-
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogService.v1_6_0">
-      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="Redfish.Release" String="2023.3"/>
-      <Annotation Term="OData.Description" String="This version was created to add optional properties to the CollectDiagnosticData action to push diagnostic data to a remote URI.  It was also created to add the PushDiagnosticData action."/>
-
-      <EntityType Name="LogService" BaseType="LogService.v1_5_1.LogService"/>
-
-      <EnumType Name="TransferProtocolType">
-        <Member Name="CIFS">
-          <Annotation Term="OData.Description" String="Common Internet File System (CIFS)."/>
-        </Member>
-        <Member Name="FTP">
-          <Annotation Term="OData.Description" String="File Transfer Protocol (FTP)."/>
-        </Member>
-        <Member Name="SFTP">
-          <Annotation Term="OData.Description" String="Secure File Transfer Protocol (SFTP)."/>
-        </Member>
-        <Member Name="HTTP">
-          <Annotation Term="OData.Description" String="Hypertext Transfer Protocol (HTTP)."/>
-        </Member>
-        <Member Name="HTTPS">
-          <Annotation Term="OData.Description" String="Hypertext Transfer Protocol Secure (HTTPS)."/>
-        </Member>
-        <Member Name="NFS">
-          <Annotation Term="OData.Description" String="Network File System (NFS)."/>
-        </Member>
-        <Member Name="SCP">
-          <Annotation Term="OData.Description" String="Secure Copy Protocol (SCP)."/>
-        </Member>
-        <Member Name="TFTP">
-          <Annotation Term="OData.Description" String="Trivial File Transfer Protocol (TFTP)."/>
-        </Member>
-        <Member Name="OEM">
-          <Annotation Term="OData.Description" String="A manufacturer-defined protocol."/>
-        </Member>
-      </EnumType>
     </Schema>
 
   </edmx:DataServices>

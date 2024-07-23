@@ -3,21 +3,15 @@
     "@odata.type": "#ProcessorCollection.ProcessorCollection",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/CPU_0"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/CPU_1"
-        },
-        {
             "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/FPGA_0"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_0"
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/HGX_CPU_0"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/GPU_1"
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/HGX_CPU_1"
         }
     ],
-    "Members@odata.count": 5,
+    "Members@odata.count": 3,
     "Name": "Processor Collection"
 }

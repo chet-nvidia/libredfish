@@ -1,8 +1,8 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/PortMetrics.v1_5_1.json",
+    "$id": "http://redfish.dmtf.org/schemas/v1/PortMetrics.v1_3_0.json",
     "$ref": "#/definitions/PortMetrics",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2023 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2022 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Actions": {
             "additionalProperties": false,
@@ -27,36 +27,6 @@
                     "$ref": "#/definitions/OemActions",
                     "description": "The available OEM-specific actions for this resource.",
                     "longDescription": "This property shall contain the available OEM-specific actions for this resource."
-                }
-            },
-            "type": "object"
-        },
-        "CXL": {
-            "additionalProperties": false,
-            "description": "The port metrics specific to CXL ports.",
-            "longDescription": "This type shall contain the port metrics specific to CXL ports.",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
-                    "description": "This property shall specify a valid odata or Redfish property.",
-                    "type": [
-                        "array",
-                        "boolean",
-                        "integer",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ]
-                }
-            },
-            "properties": {
-                "BackpressureAveragePercentage": {
-                    "description": "The average congestion of the port as a percentage.",
-                    "longDescription": "This property shall contain CXL Specification-defined 'Backpressure Average Percentage' as a percentage, typically `0` to `100`.",
-                    "readonly": true,
-                    "type": "integer",
-                    "units": "%",
-                    "versionAdded": "v1_4_0"
                 }
             },
             "type": "object"
@@ -317,8 +287,8 @@
                     ]
                 },
                 "PacketDeadlineDiscards": {
-                    "description": "The number of packets discarded due to the Congestion Deadline subfield reaching zero.",
-                    "longDescription": "This property shall contain the number of packets discarded by this interface due to the Congestion Deadline subfield reaching zero prior to packet transmission.",
+                    "description": "The number of packets discarded due to the Congestion Deadline sub-field reaching zero.",
+                    "longDescription": "This property shall contain the number of packets discarded by this interface due to the Congestion Deadline sub-field reaching zero prior to packet transmission.",
                     "readonly": true,
                     "type": [
                         "integer",
@@ -774,12 +744,6 @@
                     "description": "The available actions for this resource.",
                     "longDescription": "This property shall contain the available actions for this resource."
                 },
-                "CXL": {
-                    "$ref": "#/definitions/CXL",
-                    "description": "The port metrics specific to CXL ports.",
-                    "longDescription": "This property shall contain the port metrics specific to CXL ports.",
-                    "versionAdded": "v1_4_0"
-                },
                 "Description": {
                     "anyOf": [
                         {
@@ -853,7 +817,7 @@
                     "items": {
                         "$ref": "#/definitions/SAS"
                     },
-                    "longDescription": "This property shall contain an array of physical-related metrics for Serial Attached SCSI (SAS).  Each member in the array shall represent a single phy.",
+                    "longDescription": "This property shall contain an array of physical related metrics for Serial Attached SCSI (SAS).  Each member in the array shall represent a single phy.",
                     "type": "array",
                     "versionAdded": "v1_1_0"
                 },
@@ -883,7 +847,7 @@
                     "items": {
                         "$ref": "#/definitions/Transceiver"
                     },
-                    "longDescription": "This property shall contain an array of transceiver-related metrics for this port.  Each member in the array shall represent a single transceiver.",
+                    "longDescription": "This property shall contain an array of transceiver related metrics for this port.  Each member in the array shall represent a single transceiver.",
                     "type": "array",
                     "versionAdded": "v1_1_0"
                 }
@@ -935,16 +899,6 @@
                     ],
                     "versionAdded": "v1_1_0"
                 },
-                "PhyResetProblemCount": {
-                    "description": "The number of times a phy reset problem has occurred.",
-                    "longDescription": "This property shall contain the number of times a phy reset problem has occurred.",
-                    "readonly": true,
-                    "type": [
-                        "integer",
-                        "null"
-                    ],
-                    "versionAdded": "v1_5_0"
-                },
                 "RunningDisparityErrorCount": {
                     "description": "The number of dwords containing running disparity errors that have been received by the phy outside of phy reset sequences.",
                     "longDescription": "This property shall contain the number of dwords containing running disparity errors that have been received by the phy outside of phy reset sequences.",
@@ -961,7 +915,7 @@
         "Transceiver": {
             "additionalProperties": false,
             "description": "The transceiver metrics.",
-            "longDescription": "This type shall describe the transceiver-related metrics.",
+            "longDescription": "This type shall describe the transceiver related metrics.",
             "patternProperties": {
                 "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
                     "description": "This property shall specify a valid odata or Redfish property.",
@@ -1029,6 +983,6 @@
         }
     },
     "owningEntity": "DMTF",
-    "release": "2023.2",
-    "title": "#PortMetrics.v1_5_1.PortMetrics"
+    "release": "2022.1",
+    "title": "#PortMetrics.v1_3_0.PortMetrics"
 }

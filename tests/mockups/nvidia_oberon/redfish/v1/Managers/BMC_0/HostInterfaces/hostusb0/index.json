@@ -6,7 +6,7 @@
     ],
     "CredentialBootstrapping": {
         "EnableAfterReset": true,
-        "Enabled": true,
+        "Enabled": false,
         "RoleId": "Administrator"
     },
     "Description": "Management Host Interface",

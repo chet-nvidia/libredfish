@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Managers/BMC_0/EthernetInterfaces/eth1",
-    "@odata.type": "#EthernetInterface.v1_9_0.EthernetInterface",
+    "@odata.type": "#EthernetInterface.v1_6_0.EthernetInterface",
     "DHCPv4": {
         "DHCPEnabled": true,
         "UseDNSServers": true,
@@ -8,18 +8,17 @@
         "UseNTPServers": true
     },
     "DHCPv6": {
-        "OperatingMode": "Enabled",
+        "OperatingMode": "Stateful",
         "UseDNSServers": true,
         "UseDomainName": true,
         "UseNTPServers": true
     },
     "Description": "Management Network Interface",
-    "EthernetInterfaceType": "Physical",
     "FQDN": "oberon-bmc",
     "HostName": "oberon-bmc",
     "IPv4Addresses": [
         {
-            "Address": "169.254.229.247",
+            "Address": "169.254.139.136",
             "AddressOrigin": "IPv4LinkLocal",
             "Gateway": "0.0.0.0",
             "SubnetMask": "255.255.0.0"
@@ -29,28 +28,29 @@
     "IPv6AddressPolicyTable": [],
     "IPv6Addresses": [
         {
-            "Address": "fe80::4bd:baff:feba:2056",
+            "Address": "fe80::4c14:5bff:fecd:6f5c",
             "AddressOrigin": "LinkLocal",
-            "AddressState": "Preferred",
+            "AddressState": null,
             "PrefixLength": 64
         }
     ],
     "IPv6DefaultGateway": "0:0:0:0:0:0:0:0",
     "IPv6StaticAddresses": [],
-    "IPv6StaticDefaultGateways": [],
     "Id": "eth1",
     "InterfaceEnabled": true,
     "LinkStatus": "LinkUp",
-    "MACAddress": "06:bd:ba:ba:20:56",
+    "MACAddress": "4e:14:5b:cd:6f:5c",
     "MTUSize": 1500,
     "Name": "Manager Ethernet Interface",
     "NameServers": [],
     "SpeedMbps": 0,
-    "StatelessAddressAutoConfig": {
-        "IPv6AutoConfigEnabled": true
-    },
     "StaticNameServers": [],
     "Status": {
+        "Health": "OK",
+        "HealthRollup": "OK",
         "State": "Enabled"
+    },
+    "VLANs": {
+        "@odata.id": "/redfish/v1/Managers/BMC_0/EthernetInterfaces/eth1/VLANs"
     }
 }

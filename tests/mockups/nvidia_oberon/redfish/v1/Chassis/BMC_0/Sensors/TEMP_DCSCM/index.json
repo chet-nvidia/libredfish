@@ -3,7 +3,7 @@
     "@odata.type": "#Sensor.v1_2_0.Sensor",
     "Id": "TEMP_DCSCM",
     "Name": "TEMP DCSCM",
-    "Reading": 34.75,
+    "Reading": 33.375,
     "ReadingRangeMax": 127.0,
     "ReadingRangeMin": -128.0,
     "ReadingType": "Temperature",
@@ -25,6 +25,9 @@
         },
         "UpperCaution": {
             "Reading": 80.0
+        },
+        "UpperFatal": {
+            "Reading": 85.0
         }
     }
 }

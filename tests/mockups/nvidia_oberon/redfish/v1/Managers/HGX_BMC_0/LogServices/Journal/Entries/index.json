@@ -4,59 +4,59 @@
     "Description": "Collection of BMC Journal Entries",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/14decd05c1f948be955356681fbc1e76_7956079991",
+            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/fc654c299ed54d08b22ed6a3faa79cd1_374521067562",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "Created": "2024-07-22T11:48:30.049277+00:00",
+            "Created": "2024-07-22T05:36:32+00:00",
             "EntryType": "Oem",
-            "Id": "14decd05c1f948be955356681fbc1e76_7956079991",
-            "Message": "gpumgrd: Set failed, rc = 773.",
+            "Id": "fc654c299ed54d08b22ed6a3faa79cd1_374521067562",
+            "Message": "gpumgrd: SHMEMDEBUG: ShmSensorMapIntf updateValueAndTimeStamp unknown name space: gpumgrd_HGX__0",
             "Name": "BMC Journal Entry",
             "OemRecordFormat": "BMC Journal Entry",
-            "Severity": "OK"
+            "Severity": "Warning"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/14decd05c1f948be955356681fbc1e76_7956079991_1",
+            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/fc654c299ed54d08b22ed6a3faa79cd1_374521789645",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "Created": "2024-07-22T11:48:30.049277+00:00",
+            "Created": "2024-07-22T05:36:33+00:00",
             "EntryType": "Oem",
-            "Id": "14decd05c1f948be955356681fbc1e76_7956079991_1",
-            "Message": "gpumgrd: Request process for (gpu.events.setEventRegisterMask) has errors = 773.",
+            "Id": "fc654c299ed54d08b22ed6a3faa79cd1_374521789645",
+            "Message": "gpumgrd: SHMEMDEBUG: Error while updating value and timestamp for: xyz.openbmc_project.Inventory.Item.Port./xyz/openbmc_project/inventory/system/processors/GPU_1/Ports/NVLink_12.LinkState",
             "Name": "BMC Journal Entry",
             "OemRecordFormat": "BMC Journal Entry",
-            "Severity": "OK"
+            "Severity": "Warning"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/14decd05c1f948be955356681fbc1e76_7956079991_2",
+            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/fc654c299ed54d08b22ed6a3faa79cd1_374521807232",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "Created": "2024-07-22T11:48:30.049277+00:00",
+            "Created": "2024-07-22T05:36:33+00:00",
             "EntryType": "Oem",
-            "Id": "14decd05c1f948be955356681fbc1e76_7956079991_2",
-            "Message": "gpumgrd: Set failed, rc = 773.",
+            "Id": "fc654c299ed54d08b22ed6a3faa79cd1_374521807232",
+            "Message": "xid-event-util-wrapper: Error: check for [GPU_1 HGX_GPU_1 gpu.xid.event] failed, rc=1",
             "Name": "BMC Journal Entry",
             "OemRecordFormat": "BMC Journal Entry",
-            "Severity": "OK"
+            "Severity": "Warning"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/14decd05c1f948be955356681fbc1e76_7956079991_3",
+            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/fc654c299ed54d08b22ed6a3faa79cd1_374521812982",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "Created": "2024-07-22T11:48:30.049277+00:00",
+            "Created": "2024-07-22T05:36:33+00:00",
             "EntryType": "Oem",
-            "Id": "14decd05c1f948be955356681fbc1e76_7956079991_3",
-            "Message": "gpumgrd: Request process for (gpu.events.setEventRegisterMask) has errors = 773.",
+            "Id": "fc654c299ed54d08b22ed6a3faa79cd1_374521812982",
+            "Message": "gpumgrd: SHMEMDEBUG: ShmSensorMapIntf updateValueAndTimeStamp unknown name space: gpumgrd_HGX__0",
             "Name": "BMC Journal Entry",
             "OemRecordFormat": "BMC Journal Entry",
-            "Severity": "OK"
+            "Severity": "Warning"
         },
         {
-            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/14decd05c1f948be955356681fbc1e76_7956079991_4",
+            "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/LogServices/Journal/Entries/fc654c299ed54d08b22ed6a3faa79cd1_374521813989",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "Created": "2024-07-22T11:48:30.049277+00:00",
+            "Created": "2024-07-22T05:36:33+00:00",
             "EntryType": "Oem",
-            "Id": "14decd05c1f948be955356681fbc1e76_7956079991_4",
-            "Message": "gpumgrd: Set failed, rc = 773.",
+            "Id": "fc654c299ed54d08b22ed6a3faa79cd1_374521813989",
+            "Message": "gpumgrd: SHMEMDEBUG: Error while updating value and timestamp for: xyz.openbmc_project.Inventory.Item.Port./xyz/openbmc_project/inventory/system/processors/GPU_1/Ports/NVLink_11.LinkState",
             "Name": "BMC Journal Entry",
             "OemRecordFormat": "BMC Journal Entry",
-            "Severity": "OK"
+            "Severity": "Warning"
         }
     ],
     "Members@odata.count": 5,

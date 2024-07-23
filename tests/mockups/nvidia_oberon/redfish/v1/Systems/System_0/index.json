@@ -6,7 +6,7 @@
         }
     },
     "@odata.id": "/redfish/v1/Systems/System_0",
-    "@odata.type": "#ComputerSystem.v1_22_0.ComputerSystem",
+    "@odata.type": "#ComputerSystem.v1_17_0.ComputerSystem",
     "Actions": {
         "#ComputerSystem.Reset": {
             "@Redfish.ActionInfo": "/redfish/v1/Systems/System_0/ResetActionInfo",
@@ -26,15 +26,44 @@
         "BootOptions": {
             "@odata.id": "/redfish/v1/Systems/System_0/BootOptions"
         },
-        "BootOrder": [],
+        "BootOrder": [
+            "Boot0002",
+            "Boot0003",
+            "Boot0001",
+            "Boot000C",
+            "Boot000D",
+            "Boot000E",
+            "Boot0004",
+            "Boot0008",
+            "Boot0010",
+            "Boot0012",
+            "Boot0014",
+            "Boot000F",
+            "Boot001C",
+            "Boot001A",
+            "Boot0005",
+            "Boot0006",
+            "Boot0007",
+            "Boot0009",
+            "Boot000A",
+            "Boot000B",
+            "Boot0011",
+            "Boot0013",
+            "Boot0015",
+            "Boot0019",
+            "Boot0016",
+            "Boot0017",
+            "Boot001B",
+            "Boot001D"
+        ],
         "BootOrderPropertySelection": "BootOrder",
-        "BootSourceOverrideEnabled": "Disabled",
+        "BootSourceOverrideEnabled": "Continuous",
         "BootSourceOverrideEnabled@Redfish.AllowableValues": [
             "Once",
             "Continuous",
             "Disabled"
         ],
-        "BootSourceOverrideTarget": "None",
+        "BootSourceOverrideTarget": "Hdd",
         "BootSourceOverrideTarget@Redfish.AllowableValues": [
             "None",
             "Pxe",
@@ -45,12 +74,11 @@
             "Usb"
         ],
         "RemainingAutomaticRetryAttempts": 3,
-        "StopBootOnFault": "Never",
         "TrustedModuleRequiredToBoot": "Disabled"
     },
     "BootProgress": {
-        "LastState": "None",
-        "LastStateTime": "1970-01-01T00:00:00.000000+00:00"
+        "LastState": "OSRunning",
+        "LastStateTime": "2024-07-18T22:41:29.507132+00:00"
     },
     "Description": "Computer System",
     "GraphicalConsole": {
@@ -68,8 +96,8 @@
         "TimeoutAction": "ResetSystem"
     },
     "Id": "System_0",
-    "IndicatorLED": "Lit",
-    "LastResetTime": "2024-07-22T06:29:20+00:00",
+    "IndicatorLED": "Off",
+    "LastResetTime": "2024-07-18T22:39:30+00:00",
     "Links": {
         "Chassis": [
             {
@@ -82,7 +110,7 @@
             }
         ]
     },
-    "LocationIndicatorActive": true,
+    "LocationIndicatorActive": false,
     "LogServices": {
         "@odata.id": "/redfish/v1/Systems/System_0/LogServices"
     },
@@ -90,7 +118,12 @@
         "@odata.id": "/redfish/v1/Systems/System_0/Memory"
     },
     "MemorySummary": {
-        "TotalSystemMemoryGiB": 480
+        "Status": {
+            "Health": "OK",
+            "HealthRollup": "OK",
+            "State": "Enabled"
+        },
+        "TotalSystemMemoryGiB": 960
     },
     "Name": "System_0",
     "Oem": {
@@ -100,11 +133,16 @@
         }
     },
     "PowerRestorePolicy": "LastState",
-    "PowerState": "Off",
+    "PowerState": "On",
     "ProcessorSummary": {
         "CoreCount": 144,
         "Count": 2,
-        "Model": "ARMv9"
+        "Model": "ARMv9",
+        "Status": {
+            "Health": "OK",
+            "HealthRollup": "OK",
+            "State": "Disabled"
+        }
     },
     "Processors": {
         "@odata.id": "/redfish/v1/Systems/System_0/Processors"
@@ -124,13 +162,13 @@
         }
     },
     "Status": {
-        "Conditions": [],
         "Health": "OK",
-        "State": "Disabled"
+        "HealthRollup": "OK",
+        "State": "Enabled"
     },
     "Storage": {
         "@odata.id": "/redfish/v1/Systems/System_0/Storage"
     },
     "SystemType": "Physical",
-    "UUID": null
+    "UUID": "65ba23ab-0ee0-ad43-5255-4f3f2817868e"
 }

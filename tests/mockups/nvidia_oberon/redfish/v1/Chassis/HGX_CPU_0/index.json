@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Chassis/HGX_CPU_0",
-    "@odata.type": "#Chassis.v1_22_0.Chassis",
+    "@odata.type": "#Chassis.v1_21_0.Chassis",
     "Assembly": {
         "@odata.id": "/redfish/v1/Chassis/HGX_CPU_0/Assembly"
     },
@@ -29,24 +29,24 @@
         ],
         "Processors": [
             {
-                "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/CPU_0"
+                "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors/HGX_CPU_0"
             }
         ]
     },
     "Location": {
         "PartLocation": {
-            "ServiceLabel": ""
+            "ServiceLabel": "G1:0.0"
         }
     },
     "LogServices": {
         "@odata.id": "/redfish/v1/Chassis/HGX_CPU_0/LogServices"
     },
     "Manufacturer": "NVIDIA",
-    "Model": "",
-    "Name": "HGX_CPU_0",
+    "Model": "Grace A02",
+    "Name": "",
     "Oem": {
         "Nvidia": {
-            "@odata.type": "#NvidiaChassis.v1_1_0.NvidiaChassis"
+            "@odata.type": "#NvidiaChassis.v1_0_0.NvidiaChassis"
         }
     },
     "PCIeDevices": {
@@ -56,6 +56,7 @@
         "@odata.id": "/redfish/v1/Chassis/HGX_CPU_0/PCIeSlots"
     },
     "PartNumber": "",
+    "PowerState": "On",
     "PowerSubsystem": {
         "@odata.id": "/redfish/v1/Chassis/HGX_CPU_0/PowerSubsystem"
     },

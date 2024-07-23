@@ -55,6 +55,9 @@
             "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_DCSCM"
         },
         {
+            "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_IO_BOARD"
+        },
+        {
             "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_M_2_0_NVME"
         },
         {
@@ -76,6 +79,6 @@
             "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_SSD_03"
         }
     ],
-    "Members@odata.count": 24,
+    "Members@odata.count": 25,
     "Name": "Sensors"
 }

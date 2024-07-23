@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Chassis/HGX_ProcessorModule_1",
-    "@odata.type": "#Chassis.v1_22_0.Chassis",
+    "@odata.type": "#Chassis.v1_21_0.Chassis",
     "Assembly": {
         "@odata.id": "/redfish/v1/Chassis/HGX_ProcessorModule_1/Assembly"
     },
@@ -20,9 +20,6 @@
         ],
         "Contains": [
             {
-                "@odata.id": "/redfish/v1/Chassis/HGX_GPU_1"
-            },
-            {
                 "@odata.id": "/redfish/v1/Chassis/HGX_CPU_1"
             }
         ],
@@ -40,7 +37,7 @@
     "Name": "HGX_ProcessorModule_1",
     "Oem": {
         "Nvidia": {
-            "@odata.type": "#NvidiaChassis.v1_1_0.NvidiaChassis"
+            "@odata.type": "#NvidiaChassis.v1_0_0.NvidiaChassis"
         }
     },
     "PCIeDevices": {
@@ -49,7 +46,7 @@
     "PCIeSlots": {
         "@odata.id": "/redfish/v1/Chassis/HGX_ProcessorModule_1/PCIeSlots"
     },
-    "PartNumber": "699-2G530-0225-DV2",
+    "PartNumber": "699-2G530-0225-DV1",
     "PowerState": "On",
     "PowerSubsystem": {
         "@odata.id": "/redfish/v1/Chassis/HGX_ProcessorModule_1/PowerSubsystem"
@@ -57,7 +54,7 @@
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/HGX_ProcessorModule_1/Sensors"
     },
-    "SerialNumber": "1644923000134",
+    "SerialNumber": "1640124000403",
     "Status": {
         "Conditions": [],
         "Health": "OK",

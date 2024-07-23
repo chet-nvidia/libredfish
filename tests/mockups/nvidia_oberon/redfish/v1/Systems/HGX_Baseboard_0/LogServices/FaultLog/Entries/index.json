@@ -4,94 +4,125 @@
     "Description": "Collection of FaultLog Dump Entries",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/22",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/1",
             "@odata.type": "#LogEntry.v1_15_0.LogEntry",
-            "AdditionalDataSizeBytes": 260,
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/22/attachment",
+            "AdditionalDataSizeBytes": 444,
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/1/attachment",
             "CPER": {
                 "Oem": {
                     "Nvidia": {
-                        "@odata.type": "#NvidiaLogEntry.v1_0_0.CPER"
+                        "@odata.type": "#NvidiaLogEntry.v1_0_0.CPER",
+                        "FruID": "cc4f334a-c563-11eb-8f88-9f7ac76c6f0c",
+                        "NvIpSignature": "\b\b",
+                        "NvSocketNumber": "39",
+                        "SectionType": "NVIDIA CPER Error Section",
+                        "Severity": "Fatal"
                     }
                 }
             },
-            "Created": "1970-01-01T00:00:00.000228+00:00",
+            "Created": "2024-07-17T00:50:48+00:00",
             "DiagnosticDataType": "CPER",
             "EntryType": "Event",
-            "Id": "22",
-            "Message": "A platform error occurred.",
-            "MessageId": "Platform.1.0.PlatformError",
-            "Name": "FaultLog Dump Entry",
-            "Resolution": "Check additional diagnostic data if available.",
-            "Severity": "Warning"
+            "Id": "1",
+            "Name": "FaultLog Dump Entry"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/32",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/2",
             "@odata.type": "#LogEntry.v1_15_0.LogEntry",
-            "AdditionalDataSizeBytes": 264,
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/32/attachment",
+            "AdditionalDataSizeBytes": 284,
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/2/attachment",
             "CPER": {
                 "Oem": {
                     "Nvidia": {
-                        "@odata.type": "#NvidiaLogEntry.v1_0_0.CPER"
+                        "@odata.type": "#NvidiaLogEntry.v1_0_0.CPER",
+                        "FruID": "cc4f334a-c563-11eb-8f88-9f7ac76c6f0c",
+                        "NvIpSignature": "DRAM-CHANNELS",
+                        "NvSeverity": "None",
+                        "NvSocketNumber": "0",
+                        "SectionType": "NVIDIA CPER Error Section",
+                        "Severity": "Informational"
                     }
                 }
             },
-            "Created": "1970-01-01T00:00:00.000241+00:00",
+            "Created": "2024-07-17T00:50:48+00:00",
             "DiagnosticDataType": "CPER",
             "EntryType": "Event",
-            "Id": "32",
-            "Message": "A platform error occurred.",
-            "MessageId": "Platform.1.0.PlatformError",
-            "Name": "FaultLog Dump Entry",
-            "Resolution": "Check additional diagnostic data if available.",
-            "Severity": "Warning"
+            "Id": "2",
+            "Name": "FaultLog Dump Entry"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/36",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/3",
             "@odata.type": "#LogEntry.v1_15_0.LogEntry",
-            "AdditionalDataSizeBytes": 264,
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/36/attachment",
+            "AdditionalDataSizeBytes": 308,
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/3/attachment",
             "CPER": {
                 "Oem": {
                     "Nvidia": {
-                        "@odata.type": "#NvidiaLogEntry.v1_0_0.CPER"
+                        "@odata.type": "#NvidiaLogEntry.v1_0_0.CPER",
+                        "FruID": "cc4f334a-c563-11eb-8f88-9f7ac76c6f0c",
+                        "NvIpSignature": "PCIe",
+                        "NvSeverity": "Corrected",
+                        "NvSocketNumber": "1",
+                        "SectionType": "NVIDIA CPER Error Section",
+                        "Severity": "Corrected"
                     }
                 }
             },
-            "Created": "1970-01-01T00:00:00.000221+00:00",
+            "Created": "2024-07-17T00:51:00+00:00",
             "DiagnosticDataType": "CPER",
             "EntryType": "Event",
-            "Id": "36",
-            "Message": "A platform error occurred.",
-            "MessageId": "Platform.1.0.PlatformError",
-            "Name": "FaultLog Dump Entry",
-            "Resolution": "Check additional diagnostic data if available.",
-            "Severity": "Warning"
+            "Id": "3",
+            "Name": "FaultLog Dump Entry"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/57",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/4",
             "@odata.type": "#LogEntry.v1_15_0.LogEntry",
-            "AdditionalDataSizeBytes": 368,
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/57/attachment",
+            "AdditionalDataSizeBytes": 284,
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/4/attachment",
             "CPER": {
                 "Oem": {
                     "Nvidia": {
-                        "@odata.type": "#NvidiaLogEntry.v1_0_0.CPER"
+                        "@odata.type": "#NvidiaLogEntry.v1_0_0.CPER",
+                        "FruID": "cc4f334a-c563-11eb-8f88-9f7ac76c6f0c",
+                        "NvIpSignature": "DRAM-CHANNELS",
+                        "NvSeverity": "None",
+                        "NvSocketNumber": "0",
+                        "SectionType": "NVIDIA CPER Error Section",
+                        "Severity": "Informational"
                     }
                 }
             },
-            "Created": "1970-01-01T00:00:00.325315+00:00",
+            "Created": "2024-07-17T21:59:39+00:00",
             "DiagnosticDataType": "CPER",
             "EntryType": "Event",
-            "Id": "57",
-            "Message": "A platform error occurred.",
-            "MessageId": "Platform.1.0.PlatformError",
-            "Name": "FaultLog Dump Entry",
-            "Resolution": "Check additional diagnostic data if available.",
-            "Severity": "Warning"
+            "Id": "4",
+            "Name": "FaultLog Dump Entry"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/5",
+            "@odata.type": "#LogEntry.v1_15_0.LogEntry",
+            "AdditionalDataSizeBytes": 308,
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/FaultLog/Entries/5/attachment",
+            "CPER": {
+                "Oem": {
+                    "Nvidia": {
+                        "@odata.type": "#NvidiaLogEntry.v1_0_0.CPER",
+                        "FruID": "cc4f334a-c563-11eb-8f88-9f7ac76c6f0c",
+                        "NvIpSignature": "PCIe",
+                        "NvSeverity": "Corrected",
+                        "NvSocketNumber": "1",
+                        "SectionType": "NVIDIA CPER Error Section",
+                        "Severity": "Corrected"
+                    }
+                }
+            },
+            "Created": "2024-07-17T21:59:50+00:00",
+            "DiagnosticDataType": "CPER",
+            "EntryType": "Event",
+            "Id": "5",
+            "Name": "FaultLog Dump Entry"
         }
     ],
-    "Members@odata.count": 4,
+    "Members@odata.count": 5,
     "Name": "FaultLog Dump Entries"
 }

@@ -1,8 +1,8 @@
 {
-    "@Redfish.Copyright": "Copyright 2014-2023 DMTF. All rights reserved.",
+    "@Redfish.Copyright": "Copyright 2014-2022 DMTF. All rights reserved.",
     "@odata.type": "#MessageRegistry.v1_5_0.MessageRegistry",
     "Description": "This registry defines the base messages for Redfish",
-    "Id": "Base.1.16.0",
+    "Id": "Base.1.15.0",
     "Language": "en",
     "Messages": {
         "AccessDenied": {
@@ -179,30 +179,6 @@
                 "string"
             ],
             "Resolution": "Correct the value for the parameter in the request body and resubmit the request if the operation failed.",
-            "Severity": "Warning"
-        },
-        "ArraySizeTooLong": {
-            "Description": "Indicates that the size of the array exceeded the maximum number of elements.",
-            "Message": "The array provided for property %1 exceeds the size limit %2.",
-            "MessageSeverity": "Warning",
-            "NumberOfArgs": 2,
-            "ParamTypes": [
-                "string",
-                "number"
-            ],
-            "Resolution": "Resubmit the request with an appropriate array size.",
-            "Severity": "Warning"
-        },
-        "ArraySizeTooShort": {
-            "Description": "Indicates that the size of the array is under the minimum number of elements.",
-            "Message": "The array provided for property %1 is under the minimum size limit %2.",
-            "MessageSeverity": "Warning",
-            "NumberOfArgs": 2,
-            "ParamTypes": [
-                "string",
-                "number"
-            ],
-            "Resolution": "Resubmit the request with an appropriate array size.",
             "Severity": "Warning"
         },
         "AuthenticationTokenRequired": {
@@ -401,17 +377,6 @@
                 "string"
             ],
             "Resolution": "Provide a valid URI and resubmit the request.",
-            "Severity": "Critical"
-        },
-        "LicenseRequired": {
-            "Description": "Indicates that a license is required to perform the requested operation.",
-            "Message": "A license is required for this operation: %1.",
-            "MessageSeverity": "Critical",
-            "NumberOfArgs": 1,
-            "ParamTypes": [
-                "string"
-            ],
-            "Resolution": "Install the requested license and resubmit the request.",
             "Severity": "Critical"
         },
         "MalformedJSON": {
@@ -1081,18 +1046,6 @@
             "Resolution": "Resubmit the request with an appropriate string length.",
             "Severity": "Warning"
         },
-        "StringValueTooShort": {
-            "Description": "Indicates that a string value passed to the given resource was under its minimum required length.  An example is when a higher minimum length is imposed by an implementation than that allowed by the specification.",
-            "Message": "The string '%1' was under the minimum required length %2.",
-            "MessageSeverity": "Warning",
-            "NumberOfArgs": 2,
-            "ParamTypes": [
-                "string",
-                "number"
-            ],
-            "Resolution": "Resubmit the request with an appropriate string length.",
-            "Severity": "Warning"
-        },
         "SubscriptionTerminated": {
             "Description": "An event subscription has been terminated by the service.  No further events will be delivered.",
             "Message": "The event subscription has been terminated.",
@@ -1132,5 +1085,5 @@
     "Name": "Base Message Registry",
     "OwningEntity": "DMTF",
     "RegistryPrefix": "Base",
-    "RegistryVersion": "1.16.0"
+    "RegistryVersion": "1.15.0"
 }

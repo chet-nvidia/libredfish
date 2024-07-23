@@ -1,5 +1,5 @@
 {
-    "$id": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_10_0",
+    "$id": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_8_0",
     "type": "object",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "title": "Redfish Schema Extension",
@@ -99,13 +99,6 @@
             },
             "description": "The term specifies the URIs a service is allowed to use for the given resource."
         },
-        "urisDeprecated": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "The term specifies the deprecated URIs a service is allowed to use for the given resource.  Each URI listed shall be specified in the uris term."
-        },
         "autoExpand": {
             "type": "boolean",
             "description": "The term specifies if the resource referenced by the hyperlink shall be expanded in the response body as specified in the 'Expanded resources' clause of the Redfish Specification."
@@ -147,10 +140,6 @@
             ],
             "type": "string",
             "description": "The term specifies the public release status of a property or schema."
-        },
-        "uriSegment": {
-            "type": "string",
-            "description": "The term specifies the segment appended to the URI of the resource when constructing the URI of a subordinate resource if the segment differs from the reference property name.  Applies to reference properties."
         }
     },
     "properties": {
@@ -253,9 +242,6 @@
         },
         "releaseStatus": {
             "$ref": "#/definitions/releaseStatus"
-        },
-        "uriSegment": {
-            "$ref": "#/definitions/uriSegment"
         }
     }
 }

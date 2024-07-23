@@ -4,7 +4,7 @@
     "Description": "Manager Network Service",
     "FQDN": "oberon-bmc",
     "HTTP": {
-        "Port": null,
+        "Port": 0,
         "ProtocolEnabled": false
     },
     "HTTPS": {

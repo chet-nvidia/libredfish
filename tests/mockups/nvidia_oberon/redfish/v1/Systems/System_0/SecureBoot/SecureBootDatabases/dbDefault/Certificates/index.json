@@ -4,7 +4,14 @@
     ],
     "@odata.id": "/redfish/v1/Systems/System_0/SecureBoot/SecureBootDatabases/dbDefault/Certificates",
     "@odata.type": "#CertificateCollection.CertificateCollection",
-    "Members": [],
-    "Members@odata.count": 0,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/System_0/SecureBoot/SecureBootDatabases/dbDefault/Certificates/1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/System_0/SecureBoot/SecureBootDatabases/dbDefault/Certificates/2"
+        }
+    ],
+    "Members@odata.count": 2,
     "Name": "Certificate Collection"
 }

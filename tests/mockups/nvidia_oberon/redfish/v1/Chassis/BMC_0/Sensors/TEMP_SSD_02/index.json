@@ -15,9 +15,9 @@
     ],
     "Status": {
         "Conditions": [],
-        "Health": "OK",
+        "Health": "Warning",
         "HealthRollup": "OK",
-        "State": "UnavailableOffline"
+        "State": "Enabled"
     },
     "Thresholds": {
         "LowerCaution": {
@@ -25,6 +25,9 @@
         },
         "UpperCaution": {
             "Reading": 80.0
+        },
+        "UpperFatal": {
+            "Reading": 85.0
         }
     }
 }

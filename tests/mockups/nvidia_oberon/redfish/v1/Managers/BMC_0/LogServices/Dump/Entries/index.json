@@ -4,39 +4,17 @@
     "Description": "Collection of BMC Dump Entries",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/30",
+            "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/64",
             "@odata.type": "#LogEntry.v1_15_0.LogEntry",
-            "AdditionalDataSizeBytes": 140485,
-            "AdditionalDataURI": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/30/attachment",
-            "Created": "2024-07-22T08:01:35.000000+00:00",
+            "AdditionalDataSizeBytes": 131944,
+            "AdditionalDataURI": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/64/attachment",
+            "Created": "2024-07-17T00:44:14+00:00",
             "DiagnosticDataType": "Manager",
             "EntryType": "Event",
-            "Id": "30",
-            "Name": "BMC Dump Entry"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/31",
-            "@odata.type": "#LogEntry.v1_15_0.LogEntry",
-            "AdditionalDataSizeBytes": 77479,
-            "AdditionalDataURI": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/31/attachment",
-            "Created": "2024-07-22T08:04:09.000000+00:00",
-            "DiagnosticDataType": "Manager",
-            "EntryType": "Event",
-            "Id": "31",
-            "Name": "BMC Dump Entry"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/32",
-            "@odata.type": "#LogEntry.v1_15_0.LogEntry",
-            "AdditionalDataSizeBytes": 70391,
-            "AdditionalDataURI": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/32/attachment",
-            "Created": "2024-07-22T08:04:11.000000+00:00",
-            "DiagnosticDataType": "Manager",
-            "EntryType": "Event",
-            "Id": "32",
+            "Id": "64",
             "Name": "BMC Dump Entry"
         }
     ],
-    "Members@odata.count": 3,
+    "Members@odata.count": 1,
     "Name": "BMC Dump Entries"
 }
