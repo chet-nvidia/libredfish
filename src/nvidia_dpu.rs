@@ -348,6 +348,21 @@ impl Redfish for Bmc {
         self.s.get_chassis_network_adapter(chassis_id, id).await
     }
 
+    async fn get_base_network_adapters(
+        &self,
+        system_id: &str,
+    ) -> Result<Vec<String>, RedfishError> {
+        self.s.get_base_network_adapters(system_id).await
+    }
+
+    async fn get_base_network_adapter(
+        &self,
+        system_id: &str,
+        id: &str,
+    ) -> Result<NetworkAdapter, RedfishError> {
+        self.s.get_base_network_adapter(system_id, id).await
+    }
+
     async fn get_manager_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
         self.s.get_manager_ethernet_interfaces().await
     }

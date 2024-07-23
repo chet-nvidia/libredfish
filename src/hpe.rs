@@ -346,6 +346,24 @@ impl Redfish for Bmc {
         self.s.get_chassis_network_adapter(chassis_id, id).await
     }
 
+    async fn get_base_network_adapters(
+        &self,
+        system_id: &str,
+    ) -> Result<Vec<String>, RedfishError> {
+        let url = format!("Systems/{}/BaseNetworkAdapters", system_id);
+        self.s.get_members(&url).await
+    }
+
+    async fn get_base_network_adapter(
+        &self,
+        system_id: &str,
+        id: &str,
+    ) -> Result<NetworkAdapter, RedfishError> {
+        let url = format!("Systems/{}/BaseNetworkAdapters/{}", system_id, id);
+        let (_, body) = self.s.client.get(&url).await?;
+        Ok(body)
+    }
+
     async fn get_ports(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {
         self.s.get_ports(chassis_id).await
     }

@@ -221,6 +221,14 @@ async fn run_integration_test(
                 .get_chassis_network_adapter(chassis_id, net_adapter_id)
                 .await?;
         }
+
+        if vendor_dir == "hpe" {
+            let adapter_ids = redfish.get_base_network_adapters(chassis_id).await?;
+            assert!(!adapter_ids.is_empty());
+            for adapter_id in &adapter_ids {
+                redfish.get_base_network_adapter(chassis_id, adapter_id).await?;
+            }
+        }
     }
 
     assert_eq!(redfish.get_power_state().await?, libredfish::PowerState::On);

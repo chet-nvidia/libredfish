@@ -225,6 +225,21 @@ pub trait Redfish: Send + Sync + 'static {
         id: &str,
     ) -> Result<NetworkAdapter, RedfishError>;
 
+    // List all Base Network Adapters for the specific Chassis
+    // Only implemented in iLO5
+    async fn get_base_network_adapters(
+        &self,
+        system_id: &str,
+    ) -> Result<Vec<String>, RedfishError>;
+
+    // Get Base Network Adapter details for the specific Chassis and Network Adapter
+    // Only implemented in iLO5
+    async fn get_base_network_adapter(
+        &self,
+        system_id: &str,
+        id: &str,
+    ) -> Result<NetworkAdapter, RedfishError>;
+
     // List all High Speed Ports of a given Chassis
     async fn get_ports(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError>;
 

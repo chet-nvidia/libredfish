@@ -302,6 +302,27 @@ impl Redfish for RedfishStandard {
         self.get_members(&url).await
     }
 
+    async fn get_base_network_adapters(
+        &self,
+        _system_id: &str,
+    ) -> Result<Vec<String>, RedfishError> {
+        // this is only implemented in iLO5, and will be removed in iLO6.
+        Err(RedfishError::NotSupported(
+            "BaseNetworkAdapter is only supported in iLO5".to_string(),
+        ))
+    }
+
+    async fn get_base_network_adapter(
+        &self,
+        _system_id: &str,
+        _id: &str,
+    ) -> Result<NetworkAdapter, RedfishError> {
+        // this is only implemented in iLO5, and will be removed in iLO6.
+        Err(RedfishError::NotSupported(
+            "BaseNetworkAdapter is only supported in iLO5".to_string(),
+        ))
+    }
+
     async fn get_chassis_network_adapter(
         &self,
         chassis_id: &str,
