@@ -132,7 +132,7 @@ impl Redfish for Bmc {
         let mut diffs = vec![];
 
         let sb = self.get_secure_boot().await?;
-        if !sb.secure_boot_enable {
+        if !sb.secure_boot_enable.unwrap_or(false) {
             diffs.push(ForgeSetupDiff {
                 key: "SecureBoot".to_string(),
                 expected: "true".to_string(),

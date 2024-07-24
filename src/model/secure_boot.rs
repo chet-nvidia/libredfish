@@ -13,9 +13,9 @@ pub struct SecureBoot {
     pub odata: ODataLinks,
     pub id: String,
     pub name: String,
-    pub secure_boot_current_boot: EnabledDisabled,
-    pub secure_boot_enable: bool,
-    pub secure_boot_mode: SecureBootMode,
+    pub secure_boot_current_boot: Option<EnabledDisabled>,
+    pub secure_boot_enable: Option<bool>,
+    pub secure_boot_mode: Option<SecureBootMode>,
 }
 
 #[derive(Debug, Serialize, Default, Deserialize, Copy, Clone, Eq, PartialEq)]
