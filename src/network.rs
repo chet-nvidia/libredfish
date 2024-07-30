@@ -152,7 +152,18 @@ impl RedfishClientPool {
         &self,
         endpoint: Endpoint,
     ) -> Result<Box<RedfishStandard>, RedfishError> {
-        let client = RedfishHttpClient::new(self.http_client.clone(), endpoint, Vec::default());
+        self.create_standard_client_with_custom_headers(endpoint, Vec::default())
+    }
+
+    /// Creates a Redfish BMC client for a certain endpoint, with custom headers injected into each request
+    ///
+    /// Creating the standard client will not start any HTTP calls.
+    pub fn create_standard_client_with_custom_headers(
+        &self,
+        endpoint: Endpoint,
+        custom_headers: Vec<(HeaderName, String)>,
+    ) -> Result<Box<RedfishStandard>, RedfishError> {
+        let client = RedfishHttpClient::new(self.http_client.clone(), endpoint, custom_headers);
         let s = RedfishStandard::new(client);
         Ok(Box::new(s))
     }
