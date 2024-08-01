@@ -50,7 +50,7 @@ pub struct PowerControl {
     pub power_consumed_watts: Option<f64>,
     pub power_requested_watts: Option<f64>,
     pub power_limit: Option<PowerLimit>,
-    pub power_metrics: PowerMetrics,
+    pub power_metrics: Option<PowerMetrics>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -128,7 +128,7 @@ pub struct Redundancy {
 #[serde(rename_all = "PascalCase")]
 pub struct Voltages {
     pub name: String,
-    pub physical_context: String,
+    pub physical_context: Option<String>,
     pub reading_volts: Option<f64>,
     pub lower_threshold_critical: Option<f64>,
     pub upper_threshold_critical: Option<f64>,

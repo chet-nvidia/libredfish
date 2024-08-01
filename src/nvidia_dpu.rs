@@ -98,11 +98,12 @@ impl Redfish for Bmc {
     }
 
     async fn get_power_state(&self) -> Result<crate::PowerState, RedfishError> {
-        self.s.get_power_state().await
+        self.s.get_power_state().await    
     }
 
     async fn get_power_metrics(&self) -> Result<crate::Power, RedfishError> {
-        self.s.get_power_metrics().await
+        let (_status_code, body) = self.s.client.get("Chassis/Card1/Power/").await?;
+        Ok(body)
     }
 
     async fn power(&self, action: crate::SystemPowerControl) -> Result<(), RedfishError> {
@@ -114,7 +115,8 @@ impl Redfish for Bmc {
     }
 
     async fn get_thermal_metrics(&self) -> Result<crate::Thermal, RedfishError> {
-        self.s.get_thermal_metrics().await
+        let (_status_code, body) = self.s.client.get("Chassis/Card1/Thermal/").await?;
+        Ok(body)
     }
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {

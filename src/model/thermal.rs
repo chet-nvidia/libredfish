@@ -53,13 +53,13 @@ pub struct TemperaturesOem {
 pub struct Temperature {
     pub name: String,
     pub sensor_number: Option<i64>,
-    pub lower_threshold_critical: Option<i64>,
-    pub lower_threshold_fatal: Option<i64>,
-    pub physical_context: String,
-    pub reading_celsius: Option<i64>,
+    pub lower_threshold_critical: Option<f64>,
+    pub lower_threshold_fatal: Option<f64>,
+    pub physical_context: Option<String>,
+    pub reading_celsius: Option<f64>,
     pub status: ResourceStatus,
-    pub upper_threshold_critical: Option<i64>,
-    pub upper_threshold_fatal: Option<i64>,
+    pub upper_threshold_critical: Option<f64>,
+    pub upper_threshold_fatal: Option<f64>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
