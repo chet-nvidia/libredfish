@@ -1,14 +1,23 @@
 {
-    "ReadingRangeMax": 255,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/228L0",
-    "ReadingRangeMin": 0,
+    "MaxAllowableOperatingValue": 255,
     "ReadingUnits": "C",
+    "PhysicalContext": "CPU",
+    "Precision": 0,
+    "RelatedItem@odata.count": 1,
+    "Reading": 27,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Processors/1"
+        }
+    ],
+    "Id": "228L0",
+    "Name": "CPU 1 Temp",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/228L0",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
     "Thresholds": {
-        "LowerFatal": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperCaution": {
+        "UpperFatal": {
             "Activation": "Increasing",
             "Reading": null
         },
@@ -16,7 +25,11 @@
             "Activation": "Decreasing",
             "Reading": null
         },
-        "UpperFatal": {
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "UpperCritical": {
             "Activation": "Increasing",
             "Reading": null
         },
@@ -24,24 +37,18 @@
             "Activation": "Decreasing",
             "Reading": null
         },
-        "UpperCritical": {
-            "Activation": "Increasing",
+        "LowerFatal": {
+            "Activation": "Decreasing",
             "Reading": null
         }
     },
-    "PhysicalContext": "CPU",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "ReadingRangeMax": 255,
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": "OK",
+        "State": "Enabled"
     },
-    "Reading": 40,
-    "Precision": 0,
+    "@odata.etag": "\"6d4ddc1069c5266f967\"",
+    "ReadingRangeMin": 0,
     "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 255,
-    "Name": "CPU 1 Temp",
-    "@odata.etag": "\"617615d33d7c27f08fa\"",
-    "Id": "228L0",
     "ReadingType": "Temperature"
 }

@@ -1,19 +1,15 @@
 {
-    "BootOrderNext": [
-        "UEFI:   SLOT65 (67/0/0) SSDPF2KE016T9L                          -PHAB123401GY1P9SGN  -52E4D25C PORT 1"
-    ],
     "@odata.id": "/redfish/v1/Systems/1/Oem/Lenovo/BootSettings/BootOrder.HardDiskBootOrder",
-    "BootOrderSupported@odata.count": 1,
-    "BootOrderNext@odata.count": 1,
-    "Id": "BootOrder.HardDiskBootOrder",
-    "BootOrderCurrent": [
-        "UEFI:   SLOT65 (67/0/0) SSDPF2KE016T9L                          -PHAB123401GY1P9SGN  -52E4D25C PORT 1"
-    ],
-    "BootOrderSupported": [
-        "UEFI:   SLOT65 (67/0/0) SSDPF2KE016T9L                          -PHAB123401GY1P9SGN  -52E4D25C PORT 1"
-    ],
     "@odata.type": "#LenovoBootManager.v1_0_0.LenovoBootManager",
-    "@odata.etag": "\"5c783779df1627ea10b\"",
-    "BootOrderCurrent@odata.count": 1,
-    "Description": "This resource is used to represent settings for user to select the boot source when the manager is powered on."
+    "Description": "This resource is used to represent settings for user to select the boot source when the manager is powered on.",
+    "BootOrderSupported@odata.count": 0,
+    "BootOrderNext@odata.count": 0,
+    "BootOrderCurrent": [],
+    "BootOrderSupported": [],
+    "BootOrderNext": [],
+    "@odata.context": "/redfish/v1/$metadata#LenovoBootManager.LenovoBootManager",
+    "@odata.etag": "\"45d021cbbd5e24e88c5\"",
+    "Id": "BootOrder.HardDiskBootOrder",
+    "Name": "BootOrder.HardDiskBootOrder",
+    "BootOrderCurrent@odata.count": 0
 }

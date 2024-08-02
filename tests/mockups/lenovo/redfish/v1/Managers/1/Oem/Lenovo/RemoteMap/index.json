@@ -1,25 +1,27 @@
 {
-    "Description": "This resource is used to represent remote map service for a Redfish implementation.",
-    "Name": "RemoteMapService",
-    "@odata.type": "#LenovoRemoteMapService.v1_0_0.LenovoRemoteMapService",
     "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/RemoteMap",
+    "ServiceEnabled": true,
     "Actions": {
         "#LenovoRemoteMapService.Reset": {
             "title": "Reset",
             "target": "/redfish/v1/Managers/1/Oem/Lenovo/RemoteMap/Actions/LenovoRemoteMapService.Reset"
         },
-        "#LenovoRemoteMapService.UMount": {
-            "title": "UMount",
-            "target": "/redfish/v1/Managers/1/Oem/Lenovo/RemoteMap/Actions/LenovoRemoteMapService.UMount"
-        },
         "#LenovoRemoteMapService.Mount": {
             "title": "Mount",
             "target": "/redfish/v1/Managers/1/Oem/Lenovo/RemoteMap/Actions/LenovoRemoteMapService.Mount"
+        },
+        "#LenovoRemoteMapService.UMount": {
+            "title": "UMount",
+            "target": "/redfish/v1/Managers/1/Oem/Lenovo/RemoteMap/Actions/LenovoRemoteMapService.UMount"
         }
     },
-    "@odata.etag": "\"6232dacd4de72a2bc4a\"",
     "MountImages": {
         "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/RemoteMap/MountImages"
     },
-    "ServiceEnabled": true
+    "Description": "This resource is used to represent remote map service for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#LenovoRemoteMapService.LenovoRemoteMapService",
+    "@odata.etag": "\"689215d8e427242df6e\"",
+    "Id": "RemoteMap",
+    "Name": "RemoteMapService",
+    "@odata.type": "#LenovoRemoteMapService.v1_0_0.LenovoRemoteMapService"
 }

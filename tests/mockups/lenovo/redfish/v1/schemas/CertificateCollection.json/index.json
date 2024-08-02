@@ -2,7 +2,7 @@
     "$id": "http://redfish.dmtf.org/schemas/v1/CertificateCollection.json",
     "$ref": "#/definitions/CertificateCollection",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2020 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "CertificateCollection": {
             "anyOf": [
@@ -11,8 +11,8 @@
                 },
                 {
                     "additionalProperties": false,
-                    "description": "The CertificateCollection schema describes a collection of Certificate Resource instances.",
-                    "longDescription": "This Resource shall represent a Resource Collection of Certificate instances for a Redfish implementation.",
+                    "description": "The collection of Certificate resource instances.",
+                    "longDescription": "This resource shall represent a resource collection of Certificate instances for a Redfish implementation.",
                     "patternProperties": {
                         "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
                             "description": "This property shall specify a valid odata or Redfish property.",
@@ -56,7 +56,7 @@
                             "items": {
                                 "$ref": "http://redfish.dmtf.org/schemas/v1/Certificate.json#/definitions/Certificate"
                             },
-                            "longDescription": "This property shall contain an array of links to the members of this Resource Collection.",
+                            "longDescription": "This property shall contain an array of links to the members of this collection.",
                             "readonly": true,
                             "type": "array"
                         },
@@ -104,7 +104,58 @@
                 "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Boot/Certificates",
                 "/redfish/v1/Systems/{ComputerSystemId}/SecureBoot/SecureBootDatabases/{DatabaseId}/Certificates",
                 "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/SecureBoot/SecureBootDatabases/{DatabaseId}/Certificates",
-                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/SecureBoot/SecureBootDatabases/{DatabaseId}/Certificates"
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/SecureBoot/SecureBootDatabases/{DatabaseId}/Certificates",
+                "/redfish/v1/EventService/Subscriptions/{EventDestinationId}/Certificates",
+                "/redfish/v1/EventService/Subscriptions/{EventDestinationId}/ClientCertificates",
+                "/redfish/v1/Systems/{ComputerSystemId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Certificates",
+                "/redfish/v1/Systems/{ComputerSystemId}/Memory/{MemoryId}/Certificates",
+                "/redfish/v1/Chassis/{ChassisId}/Memory/{MemoryId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Memory/{MemoryId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Memory/{MemoryId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Memory/{MemoryId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Memory/{MemoryId}/Certificates",
+                "/redfish/v1/Systems/{ComputerSystemId}/Processors/{ProcessorId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Processors/{ProcessorId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Processors/{ProcessorId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Processors/{ProcessorId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Processors/{ProcessorId}/Certificates",
+                "/redfish/v1/Storage/{StorageId}/StorageControllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/Systems/{ComputerSystemId}/Storage/{StorageId}/StorageControllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Storage/{StorageId}/StorageControllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Storage/{StorageId}/StorageControllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Storage/{StorageId}/StorageControllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Storage/{StorageId}/StorageControllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/Storage/{StorageId}/Controllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/Systems/{ComputerSystemId}/Storage/{StorageId}/Controllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Storage/{StorageId}/Controllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Storage/{StorageId}/Controllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Storage/{StorageId}/Controllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Storage/{StorageId}/Controllers/{StorageControllerId}/Certificates",
+                "/redfish/v1/Fabrics/{FabricId}/Switches/{SwitchId}/Certificates",
+                "/redfish/v1/Chassis/{ChassisId}/Certificates",
+                "/redfish/v1/Systems/{ComputerSystemId}/Storage/{StorageId}/Drives/{DriveId}/Certificates",
+                "/redfish/v1/Chassis/{ChassisId}/Drives/{DriveId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Storage/{StorageId}/Drives/{DriveId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Drives/{DriveId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Storage/{StorageId}/Drives/{DriveId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Storage/{StorageId}/Drives/{DriveId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Drives/{DriveId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Storage/{StorageId}/Drives/{DriveId}/Certificates",
+                "/redfish/v1/Chassis/{ChassisId}/NetworkAdapters/{NetworkAdapterId}/Certificates",
+                "/redfish/v1/Systems/{ComputerSystemId}/VirtualMedia/{VirtualMediaId}/Certificates",
+                "/redfish/v1/Systems/{ComputerSystemId}/VirtualMedia/{VirtualMediaId}/ClientCertificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/VirtualMedia/{VirtualMediaId}/Certificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/VirtualMedia/{VirtualMediaId}/ClientCertificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/VirtualMedia/{VirtualMediaId}/Certificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/VirtualMedia/{VirtualMediaId}/ClientCertificates",
+                "/redfish/v1/UpdateService/RemoteServerCertificates",
+                "/redfish/v1/UpdateService/ClientCertificates",
+                "/redfish/v1/Managers/{ManagerId}/Certificates",
+                "/redfish/v1/Systems/{ComputerSystemId}/KeyManagement/KMIPCertificates",
+                "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/KeyManagement/KMIPCertificates",
+                "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/KeyManagement/KMIPCertificates"
             ]
         }
     },

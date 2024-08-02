@@ -1,4 +1,9 @@
 {
+    "@odata.id": "/redfish/v1/JobService/Jobs",
+    "Description": "A collection of Job resource instances.",
+    "Name": "Jobs",
+    "@odata.context": "/redfish/v1/$metadata#JobCollection.JobCollection",
+    "@odata.etag": "\"2bcdab719b482ae630c\"",
     "Members": [
         {
             "@odata.id": "/redfish/v1/JobService/Jobs/PowerOff"
@@ -10,10 +15,6 @@
             "@odata.id": "/redfish/v1/JobService/Jobs/Restart"
         }
     ],
-    "@odata.type": "#JobCollection.JobCollection",
-    "@odata.id": "/redfish/v1/JobService/Jobs",
-    "Name": "Jobs",
-    "@odata.etag": "\"27c1c375a48228a6f6d\"",
     "Members@odata.count": 3,
-    "Description": "A collection of Job resource instances."
+    "@odata.type": "#JobCollection.JobCollection"
 }

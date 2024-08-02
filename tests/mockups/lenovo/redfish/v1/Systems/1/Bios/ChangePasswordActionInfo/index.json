@@ -1,23 +1,29 @@
 {
-    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo",
-    "Id": "ChangePasswordActionInfo",
     "@odata.id": "/redfish/v1/Systems/1/Bios/ChangePasswordActionInfo",
+    "Description": "Information of the action 'ChangePassword' of Bios",
     "Parameters": [
         {
             "AllowableValues": [
                 "UefiAdminPassword",
                 "UefiPowerOnPassword"
             ],
-            "Required": true,
+            "DataType": "String",
             "Name": "PasswordName",
-            "DataType": "String"
+            "Required": true
         },
         {
-            "Required": true,
+            "DataType": "String",
+            "Name": "OldPassword",
+            "Required": true
+        },
+        {
+            "DataType": "String",
             "Name": "NewPassword",
-            "DataType": "String"
+            "Required": true
         }
     ],
+    "@odata.context": "/redfish/v1/$metadata#ActionInfo.ActionInfo",
+    "Id": "ChangePasswordActionInfo",
     "Name": "ChangePassword Action Info",
-    "Description": "Information of the action 'ChangePassword' of Bios"
+    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo"
 }

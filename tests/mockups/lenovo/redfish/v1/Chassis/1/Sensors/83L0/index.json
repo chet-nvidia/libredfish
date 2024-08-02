@@ -1,47 +1,54 @@
 {
-    "ReadingRangeMax": 13770,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/83L0",
-    "ReadingRangeMin": 0,
+    "MaxAllowableOperatingValue": 13770,
     "ReadingUnits": "RPM",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/ThermalSubsystem/Fans/Fan_2B_Tach"
+        }
+    ],
+    "PhysicalContext": null,
     "Thresholds": {
-        "LowerFatal": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperCaution": {
-            "Activation": "Increasing",
-            "Reading": null
-        },
-        "LowerCaution": {
-            "Activation": "Decreasing",
-            "Reading": null
+        "LowerCritical": {
+            "Reading": 432,
+            "Activation": "Decreasing"
         },
         "UpperFatal": {
-            "Activation": "Increasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Increasing"
         },
-        "LowerCritical": {
-            "Activation": "Decreasing",
-            "Reading": 432
+        "UpperCaution": {
+            "Reading": null,
+            "Activation": "Increasing"
+        },
+        "LowerFatal": {
+            "Reading": null,
+            "Activation": "Decreasing"
+        },
+        "LowerCaution": {
+            "Reading": null,
+            "Activation": "Decreasing"
         },
         "UpperCritical": {
-            "Activation": "Increasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Increasing"
         }
     },
-    "PhysicalContext": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Reading": 4104,
-    "Precision": 0,
-    "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 13770,
-    "Name": "Fan 2B Tach",
-    "@odata.etag": "\"60c77bd56caa2a308a6\"",
     "Id": "83L0",
-    "ReadingType": "AirFlow"
+    "Name": "Fan 2B Tach",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/83L0",
+    "Precision": 0,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "RelatedItem@odata.count": 1,
+    "ReadingRangeMin": 0,
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "Reading": 5832,
+    "ReadingRangeMax": 13770,
+    "@odata.etag": "\"6e1f614eba4129712a3\"",
+    "MinAllowableOperatingValue": 0,
+    "ReadingType": "AirFlow",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    }
 }

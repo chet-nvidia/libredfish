@@ -1,90 +1,10 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoLED.v1_0_0.LenovoLED",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LenovoLED.v1_0_0.json",
     "$ref": "#/definitions/LenovoLED",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
-        "LenovoLED": {
-            "type": "object",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "additionalProperties": false,
-            "properties": {
-                "@odata.context": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
-                },
-                "@odata.id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
-                },
-                "@odata.type": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
-                },
-                "Id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
-                    "description": "This indicates the LED ID."
-                },
-                "Description": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
-                },
-                "Name": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name"
-                },
-                "Color": {
-                    "$ref": "#/definitions/LEDColor",
-                    "readonly": true,
-                    "description": "The LED color."
-                },
-                "State": {
-                    "$ref": "#/definitions/LEDState",
-                    "readonly": false,
-                    "description": "The LED state. Only states of Check Log LED and Enclosure Identify LED are modifiable. Check Log LED can be turned off only, and Enclosure Identify LED can be turned on/off/blink"
-                },
-                "DutyCycle": {
-                    "type": "number",
-                    "readonly": true,
-                    "description": "The LED duty cycle blinking ratio."
-                },
-                "PeriodInMillSec": {
-                    "type": "number",
-                    "readonly": true,
-                    "description": "The blinking ratio period in millisecond units."
-                },
-                "Location": {
-                    "type": "string",
-                    "readonly": true,
-                    "description": "The LED location according to LED SDR."
-                },
-                "EntityID": {
-                    "type": "number",
-                    "readonly": true,
-                    "description": "The LED related device entity ID."
-                },
-                "EntityInstance": {
-                    "type": "number",
-                    "readonly": true,
-                    "description": "The LED related device entity instance."
-                },
-                "DeviceEntity": {
-                    "type": "string",
-                    "readonly": true,
-                    "description": "The LED related device entity."
-                }
-            },
-            "description": "This resource represents the sensor.",
-            "longDescription": "This resource shall be used to represent a sensor for an OEM implementation."
-        },
         "LEDColor": {
-            "type": "string",
             "enum": [
                 "Red",
                 "Orange",
@@ -92,16 +12,152 @@
                 "Green",
                 "Blue",
                 "White"
-            ]
+            ],
+            "type": "string"
         },
         "LEDState": {
-            "type": "string",
             "enum": [
                 "Off",
                 "On",
                 "Blink"
-            ]
+            ],
+            "type": "string"
+        },
+        "LenovoLED": {
+            "additionalProperties": false,
+            "description": "This resource represents the sensor.",
+            "longDescription": "This resource shall be used to represent a sensor for an OEM implementation.",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/context"
+                },
+                "@odata.etag": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/etag"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/type"
+                },
+                "Color": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/LEDColor"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The LED color.",
+                    "readonly": true
+                },
+                "Description": {
+                    "anyOf": [
+                        {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "readonly": true
+                },
+                "DeviceEntity": {
+                    "description": "The LED related device entity.",
+                    "readonly": true,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "DutyCycle": {
+                    "description": "The LED duty cycle blinking ratio.",
+                    "readonly": true,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "EntityID": {
+                    "description": "The LED related device entity ID.",
+                    "readonly": true,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "EntityInstance": {
+                    "description": "The LED related device entity instance.",
+                    "readonly": true,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
+                    "readonly": true
+                },
+                "Location": {
+                    "description": "The LED location according to LED SDR.",
+                    "readonly": true,
+                    "type": "string"
+                },
+                "Name": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
+                    "readonly": true
+                },
+                "Oem": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Oem",
+                    "description": "The OEM extension property.",
+                    "longDescription": "This property shall contain the OEM extensions.  All values for properties that this object contains shall conform to the Redfish Specification-described requirements."
+                },
+                "PeriodInMillSec": {
+                    "description": "The blinking ratio period in millisecond units.",
+                    "readonly": true,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "State": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/LEDState"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The LED state.",
+                    "longDescription": "The LED state. Only states of Check Log LED and Enclosure Identify LED are modifiable. Check Log LED can be turned off only, and Enclosure Identify LED can be turned on/off/blink.",
+                    "readonly": true
+                }
+            },
+            "required": [
+                "@odata.id",
+                "@odata.type",
+                "Id",
+                "Name"
+            ],
+            "type": "object"
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "owningEntity": "Lenovo",
+    "title": "#LenovoLED.v1_0_0.LenovoLED"
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---->
 <!--################################################################################       -->
-<!--# Redfish Schema:  NetworkAdapter v1.3.1                                               -->
+<!--# Redfish Schema:  NetworkAdapter v1.9.0                                               -->
 <!--#                                                                                      -->
 <!--# For a detailed change log, see the README file contained in the DSP8010 bundle,      -->
 <!--# available at http://www.dmtf.org/standards/redfish                                   -->
-<!--# Copyright 2014-2020 DMTF.                                                            -->
+<!--# Copyright 2014-2021 DMTF.                                                            -->
 <!--# For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright -->
 <!--################################################################################       -->
 <!---->
@@ -36,11 +36,32 @@
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/NetworkDeviceFunction_v1.xml">
     <edmx:Include Namespace="NetworkDeviceFunction"/>
   </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/NetworkAdapterMetrics_v1.xml">
+    <edmx:Include Namespace="NetworkAdapterMetrics"/>
+  </edmx:Reference>
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/PCIeDevice_v1.xml">
     <edmx:Include Namespace="PCIeDevice"/>
   </edmx:Reference>
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Assembly_v1.xml">
     <edmx:Include Namespace="Assembly"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/PortCollection_v1.xml">
+    <edmx:Include Namespace="PortCollection"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Port_v1.xml">
+    <edmx:Include Namespace="Port"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/CertificateCollection_v1.xml">
+    <edmx:Include Namespace="CertificateCollection"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/SoftwareInventory_v1.xml">
+    <edmx:Include Namespace="SoftwareInventory"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/EnvironmentMetrics_v1.xml">
+    <edmx:Include Namespace="EnvironmentMetrics"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/ProcessorCollection_v1.xml">
+    <edmx:Include Namespace="ProcessorCollection"/>
   </edmx:Reference>
 
   <edmx:DataServices>
@@ -49,8 +70,8 @@
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
 
       <EntityType Name="NetworkAdapter" BaseType="Resource.v1_0_0.Resource" Abstract="true">
-        <Annotation Term="OData.Description" String="A network adapter represents the physical network adapter capable of connecting to a computer network.  Examples include but are not limited to Ethernet, Fibre Channel, and converged network adapters."/>
-        <Annotation Term="OData.LongDescription" String="A network adapter represents the physical network adapter capable of connecting to a computer network.  Examples include but are not limited to Ethernet, Fibre Channel, and converged network adapters."/>
+        <Annotation Term="OData.Description" String="The NetworkAdapter schema represents a physical network adapter capable of connecting to a computer network.  Examples include but are not limited to Ethernet, Fibre Channel, and converged network adapters."/>
+        <Annotation Term="OData.LongDescription" String="This resource shall represent a physical network adapter capable of connecting to a computer network in a Redfish implementation."/>
         <Annotation Term="Capabilities.InsertRestrictions">
           <Record>
             <PropertyValue Property="Insertable" Bool="false"/>
@@ -58,7 +79,7 @@
         </Annotation>
         <Annotation Term="Capabilities.UpdateRestrictions">
           <Record>
-            <PropertyValue Property="Updatable" Bool="false"/>
+            <PropertyValue Property="Updatable" Bool="true"/>
           </Record>
         </Annotation>
         <Annotation Term="Capabilities.DeleteRestrictions">
@@ -74,11 +95,10 @@
       </EntityType>
 
       <Action Name="ResetSettingsToDefault" IsBound="true">
-        <Parameter Name="NetworkAdapter" Type="NetworkAdapter.v1_0_0.Actions"/>
         <Annotation Term="OData.Description" String="This action is to clear the settings back to factory defaults."/>
         <Annotation Term="OData.LongDescription" String="This action shall reset of all active and pending settings back to factory default settings upon reset of the network adapter."/>
+        <Parameter Name="NetworkAdapter" Type="NetworkAdapter.v1_0_0.Actions"/>
       </Action>
-
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_0_0">
@@ -95,6 +115,15 @@
           <Annotation Term="OData.Description" String="The link to the collection of network ports associated with this network adapter."/>
           <Annotation Term="OData.LongDescription" String="This property shall contain a link to a resource collection of type NetworkPortCollection."/>
           <Annotation Term="OData.AutoExpandReferences"/>
+          <Annotation Term="Redfish.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Version" String="v1_5_0"/>
+                <PropertyValue Property="Description" String="This property has been deprecated in favor of the Ports property."/>
+              </Record>
+            </Collection>
+          </Annotation>
         </NavigationProperty>
         <NavigationProperty Name="NetworkDeviceFunctions" Type="NetworkDeviceFunctionCollection.NetworkDeviceFunctionCollection" ContainsTarget="true" Nullable="false">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -163,7 +192,7 @@
         </Property>
         <Property Name="Links" Type="NetworkAdapter.v1_0_0.ControllerLinks" Nullable="false">
           <Annotation Term="OData.Description" String="The links to other resources that are related to this resource."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain links to resources that are related to but are not contained by or subordinate to this resource."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain links to resources that are related to but are not contained by, or subordinate to, this resource."/>
         </Property>
         <Property Name="ControllerCapabilities" Type="NetworkAdapter.v1_0_0.ControllerCapabilities" Nullable="false">
           <Annotation Term="OData.Description" String="The capabilities of this controller."/>
@@ -242,6 +271,15 @@
           <Annotation Term="OData.Description" String="An array of links to the network ports associated with this network controller."/>
           <Annotation Term="OData.LongDescription" String="This property shall contain an array of links to resources of type NetworkPort that represent the network ports associated with this network controller."/>
           <Annotation Term="OData.AutoExpandReferences"/>
+          <Annotation Term="Redfish.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Version" String="v1_5_0"/>
+                <PropertyValue Property="Description" String="This property has been deprecated in favor of the Ports property."/>
+              </Record>
+            </Collection>
+          </Annotation>
         </NavigationProperty>
         <NavigationProperty Name="NetworkDeviceFunctions" Type="Collection(NetworkDeviceFunction.NetworkDeviceFunction)">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -288,7 +326,6 @@
           <Annotation Term="OData.LongDescription" String="This property shall contain the maximum number of N_Port ID Virtualization (NPIV) logins allowed per physical port on this controller."/>
         </Property>
       </ComplexType>
-
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_0_1">
@@ -321,9 +358,22 @@
       <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_0_4.NetworkAdapter"/>
     </Schema>
 
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_0_6">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct inconsistencies with the descriptions of Identifiers and Location."/>
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_0_5.NetworkAdapter"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_0_7">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_0_6.NetworkAdapter"/>
+    </Schema>
+
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_1_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2017.3"/>
+
       <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_0_1.NetworkAdapter">
         <NavigationProperty Name="Assembly" Type="Assembly.Assembly" ContainsTarget="true" Nullable="false">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -336,7 +386,7 @@
       <ComplexType Name="Controllers" BaseType="NetworkAdapter.v1_0_0.Controllers">
         <Property Name="Location" Type="Resource.Location" Nullable="false">
           <Annotation Term="OData.Description" String="The location of the network adapter controller."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain location information of the associated network adapter controller."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain location information of the controller associated with the network adapter."/>
         </Property>
       </ComplexType>
     </Schema>
@@ -363,6 +413,18 @@
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
       <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_1_3.NetworkAdapter"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_1_5">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct inconsistencies with the descriptions of Identifiers and Location."/>
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_1_4.NetworkAdapter"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_1_6">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_1_5.NetworkAdapter"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_2_0">
@@ -418,6 +480,18 @@
       <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_2_2.NetworkAdapter"/>
     </Schema>
 
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_2_4">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct inconsistencies with the descriptions of Identifiers and Location."/>
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_2_3.NetworkAdapter"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_2_5">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_2_4.NetworkAdapter"/>
+    </Schema>
+
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_3_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2019.2"/>
@@ -425,8 +499,8 @@
 
       <ComplexType Name="Controllers" BaseType="NetworkAdapter.v1_2_0.Controllers">
         <Property Name="Identifiers" Type="Collection(Resource.Identifier)" Nullable="false">
-          <Annotation Term="OData.Description" String="The durable names for the network adapter."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain a list of all known durable names for the associated network adapter."/>
+          <Annotation Term="OData.Description" String="The durable names for the network adapter controller."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain a list of all known durable names for the controller associated with the network adapter."/>
         </Property>
       </ComplexType>
     </Schema>
@@ -435,6 +509,151 @@
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
       <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_3_0.NetworkAdapter"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_3_2">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_3_1.NetworkAdapter"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_3_3">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct inconsistencies with the descriptions of Identifiers and Location."/>
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_3_2.NetworkAdapter"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_3_4">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_3_3.NetworkAdapter"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_4_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2020.2"/>
+
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_3_3.NetworkAdapter">
+        <Property Name="Location" Type="Resource.Location" Nullable="false">
+          <Annotation Term="OData.Description" String="The location of the network adapter."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain location information of the network adapter."/>
+        </Property>
+        <Property Name="Identifiers" Type="Collection(Resource.Identifier)" Nullable="false">
+          <Annotation Term="OData.Description" String="The durable names for the network adapter."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain a list of all known durable names for the network adapter."/>
+        </Property>
+      </EntityType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_4_1">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_4_0.NetworkAdapter"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_5_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2020.3"/>
+
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_4_0.NetworkAdapter">
+        <NavigationProperty Name="Ports" Type="PortCollection.PortCollection" ContainsTarget="true" Nullable="false">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The link to the collection of ports associated with this network adapter."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain a link to a resource collection of type PortCollection."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+      </EntityType>
+
+      <ComplexType Name="ControllerLinks" BaseType="NetworkAdapter.v1_0_0.ControllerLinks">
+        <NavigationProperty Name="Ports" Type="Collection(Port.Port)">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="An array of links to the ports associated with this network controller."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain an array of links to resources of type Port that represent the ports associated with this network controller."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+      </ComplexType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_5_1">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_5_0.NetworkAdapter"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_6_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2020.4"/>
+      <Annotation Term="OData.Description" String="This version was created to add Certificates and Measurements to devices for attestation and identity management."/>
+
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_5_1.NetworkAdapter">
+        <NavigationProperty Name="Certificates" Type="CertificateCollection.CertificateCollection" ContainsTarget="true" Nullable="false">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The link to a collection of certificates for device identity and attestation."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain a link to a resource collection of type CertificateCollection that contains certificates for device identity and attestation."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <Property Name="Measurements" Type="Collection(SoftwareInventory.MeasurementBlock)" Nullable="false">
+          <Annotation Term="OData.Description" String="An array of DSP0274-defined measurement blocks."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain an array of DSP0274-defined measurement blocks."/>
+          <Annotation Term="Redfish.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Version" String="v1_9_0"/>
+                <PropertyValue Property="Description" String="This property has been deprecated in favor of the ComponentIntegrity resource."/>
+              </Record>
+            </Collection>
+          </Annotation>
+        </Property>
+      </EntityType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_7_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2021.1"/>
+      <Annotation Term="OData.Description" String="This version was created to add the Metrics, EnvironmentMetrics, and LLDPEnabled properties."/>
+
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_6_0.NetworkAdapter">
+        <NavigationProperty Name="Metrics" Type="NetworkAdapterMetrics.NetworkAdapterMetrics">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The link to the metrics associated with this adapter."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain a link to a resource of type NetworkAdapterMetrics that contains the metrics associated with this adapter."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <NavigationProperty Name="EnvironmentMetrics" Type="EnvironmentMetrics.EnvironmentMetrics" Nullable="false">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The link to the environment metrics for this network adapter."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain a link to a resource of type EnvironmentMetrics that specifies the environment metrics for this network adapter."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+        <Property Name="LLDPEnabled" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite" />
+          <Annotation Term="OData.Description" String="Enable or disable LLDP globally for an adapter." />
+          <Annotation Term="OData.LongDescription" String="This property shall contain the state indicating whether LLDP is globally enabled on a network adapter.  If set to `false`, the LLDPEnabled value for the ports associated with this adapter shall be disregarded."/>
+        </Property>
+      </EntityType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_8_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2021.2"/>
+
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_7_0.NetworkAdapter">
+        <NavigationProperty Name="Processors" Type="ProcessorCollection.ProcessorCollection" ContainsTarget="true" Nullable="false">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The link to the collection of offload processors contained in this network adapter."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain a link to a resource collection of type ProcessorCollection that represent the offload processors contained in this network adapter."/>
+          <Annotation Term="OData.AutoExpandReferences"/>
+        </NavigationProperty>
+      </EntityType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="NetworkAdapter.v1_9_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2021.4"/>
+      <Annotation Term="OData.Description" String="This version was created to deprecate Measurements in favor of measurement reporting in the ComponentIntegrity resource."/>
+
+      <EntityType Name="NetworkAdapter" BaseType="NetworkAdapter.v1_8_0.NetworkAdapter"/>
     </Schema>
 
   </edmx:DataServices>

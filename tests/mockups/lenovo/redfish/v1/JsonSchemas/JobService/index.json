@@ -1,18 +1,19 @@
 {
-    "Schema": "#JobService.JobService",
     "@odata.id": "/redfish/v1/JsonSchemas/JobService",
-    "Name": "JobService JSON Schema File",
+    "Description": "This represents the JobService Schema File locator resource for a Redfish implementation.",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Schema": "#JobService.JobService",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/JobService.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"fa389183\"",
+    "@odata.etag": "\"fc3c10ea\"",
     "Id": "JobService",
-    "Description": "This represents the JobService Schema File locator resource for a Redfish implementation."
+    "Name": "JobService JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

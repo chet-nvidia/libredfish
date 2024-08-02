@@ -1,29 +1,30 @@
 {
+    "FunctionId": 5,
+    "FunctionType": "Physical",
     "VendorId": "0x8086",
+    "SubsystemId": "0x7817",
+    "DeviceClass": "MassStorageController",
+    "RevisionId": "0x0a",
+    "Name": "Onboard SSATA Controller 00:11:05",
+    "@odata.type": "#PCIeFunction.v1_3_0.PCIeFunction",
     "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_3/PCIeFunctions/ob_3.05",
     "Links": {
         "Drives": [],
-        "StorageControllers": [],
         "PCIeDevice": {
             "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_3"
-        }
+        },
+        "StorageControllers": []
     },
-    "FunctionId": 5,
-    "SubsystemId": "0x7270",
     "Description": "This resource represents the properties of a PCIeFunction attached to a System.",
-    "FunctionType": "Physical",
+    "SubsystemVendorId": "0x17aa",
+    "Id": "ob_3.05",
+    "@odata.context": "/redfish/v1/$metadata#PCIeFunction.PCIeFunction",
+    "@odata.etag": "\"4dcf4430e2c42a2daf2\"",
     "Status": {
         "State": "Enabled",
-        "Health": "OK",
-        "HealthRollup": "OK"
+        "HealthRollup": "OK",
+        "Health": "OK"
     },
-    "DeviceClass": "MassStorageController",
-    "Name": "Onboard SSATA Controller 00:11:05",
-    "SubsystemVendorId": "0x8086",
-    "@odata.type": "#PCIeFunction.v1_2_3.PCIeFunction",
     "DeviceId": "0xa1d2",
-    "Id": "ob_3.05",
-    "@odata.etag": "\"49f6f03511bc2968e40\"",
-    "RevisionId": "0x0a",
     "ClassCode": "0x010601"
 }

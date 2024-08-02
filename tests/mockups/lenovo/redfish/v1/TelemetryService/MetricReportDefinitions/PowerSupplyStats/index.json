@@ -1,33 +1,34 @@
 {
-    "ReportUpdates": "AppendWrapsWhenFull",
     "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/PowerSupplyStats",
-    "Status": {
-        "State": "Enabled"
-    },
-    "Id": "PowerSupplyStats",
-    "Name": "PowerSupplyStats",
+    "MetricReportDefinitionType": "OnRequest",
     "Metrics": [
         {
-            "MetricId": "AveragePowerSupplyInput",
             "CollectionDuration": "PT30S",
+            "MetricId": "AveragePowerSupplyInput",
             "CollectionTimeScope": "Interval"
         },
         {
-            "MetricId": "AveragePowerSupplyOutput",
             "CollectionDuration": "PT30S",
+            "MetricId": "AveragePowerSupplyOutput",
             "CollectionTimeScope": "Interval"
         }
     ],
     "ReportActions": [
         "LogToMetricReportsCollection"
     ],
-    "MetricReportDefinitionType": "OnRequest",
-    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
+    "Description": "A set of metrics that are collected into a metric report.",
+    "AppendLimit": 23040,
+    "ReportUpdates": "AppendWrapsWhenFull",
     "MetricReport": {
         "@odata.id": "/redfish/v1/TelemetryService/MetricReports/PowerSupplyStats"
     },
-    "AppendLimit": 23040,
     "ReportTimespan": "PT24H",
-    "@odata.etag": "\"6c3ccf0608b925ae8b5\"",
-    "Description": "A set of metrics that are collected into a metric report."
+    "@odata.context": "/redfish/v1/$metadata#MetricReportDefinition.MetricReportDefinition",
+    "Status": {
+        "State": "Enabled"
+    },
+    "@odata.etag": "\"70ffa4a7394d266f5d9\"",
+    "Id": "PowerSupplyStats",
+    "Name": "PowerSupplyStats",
+    "@odata.type": "#MetricReportDefinition.v1_4_1.MetricReportDefinition"
 }

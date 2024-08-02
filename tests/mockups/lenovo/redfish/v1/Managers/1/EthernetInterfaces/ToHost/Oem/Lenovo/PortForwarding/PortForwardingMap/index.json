@@ -1,4 +1,6 @@
 {
+    "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost/Oem/Lenovo/PortForwarding/PortForwardingMap",
+    "Name": "LenovoPortForwardingMapCollection",
     "Members": [
         {
             "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost/Oem/Lenovo/PortForwarding/PortForwardingMap/1"
@@ -43,10 +45,9 @@
             "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost/Oem/Lenovo/PortForwarding/PortForwardingMap/14"
         }
     ],
-    "@odata.type": "#LenovoPortForwardingMapCollection.LenovoPortForwardingMapCollection",
-    "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost/Oem/Lenovo/PortForwarding/PortForwardingMap",
+    "@odata.context": "/redfish/v1/$metadata#LenovoPortForwardingMapCollection.LenovoPortForwardingMapCollection",
+    "@odata.etag": "\"e91b77ac8fdc2ffa4b5ae\"",
+    "Description": "A collection of LenovoPortForwardingMap resource instances",
     "Members@odata.count": 14,
-    "@odata.etag": "\"e332d82cade62d2a484b9\"",
-    "Name": "LenovoPortForwardingMapCollection",
-    "Description": "A collection of LenovoPortForwardingMap resource instances"
+    "@odata.type": "#LenovoPortForwardingMapCollection.LenovoPortForwardingMapCollection"
 }

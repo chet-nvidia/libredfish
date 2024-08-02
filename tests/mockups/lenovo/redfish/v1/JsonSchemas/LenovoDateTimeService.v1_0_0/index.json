@@ -1,18 +1,19 @@
 {
-    "Schema": "#LenovoDateTimeService.v1_0_0.LenovoDateTimeService",
-    "Id": "LenovoDateTimeService.v1_0_0",
-    "Name": "LenovoDateTimeService JSON Schema File",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoDateTimeService.v1_0_0",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Description": "This represents the LenovoDateTimeService Schema File locator resource for a Redfish implementation.",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoDateTimeService.v1_0_0.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"16c52dde\"",
-    "@odata.id": "/redfish/v1/JsonSchemas/LenovoDateTimeService.v1_0_0",
-    "Description": "This represents the LenovoDateTimeService Schema File locator resource for a Redfish implementation."
+    "Schema": "#LenovoDateTimeService.v1_0_0.LenovoDateTimeService",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "@odata.etag": "\"585bc93c\"",
+    "Id": "LenovoDateTimeService.v1_0_0",
+    "Name": "LenovoDateTimeService JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

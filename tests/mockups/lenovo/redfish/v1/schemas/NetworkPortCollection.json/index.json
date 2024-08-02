@@ -2,7 +2,7 @@
     "$id": "http://redfish.dmtf.org/schemas/v1/NetworkPortCollection.json",
     "$ref": "#/definitions/NetworkPortCollection",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2020 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "NetworkPortCollection": {
             "anyOf": [
@@ -87,6 +87,7 @@
                 }
             ],
             "deletable": false,
+            "deprecated": "This schema has been deprecated in favor of the PortCollection schema.",
             "insertable": false,
             "updatable": false,
             "uris": [
@@ -96,7 +97,8 @@
                 "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/NetworkInterfaces/{NetworkInterfaceId}/NetworkPorts",
                 "/redfish/v1/ResourceBlocks/{ResourceBlockId}/NetworkInterfaces/{NetworkInterfaceId}/NetworkPorts",
                 "/redfish/v1/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/NetworkInterfaces/{NetworkInterfaceId}/NetworkPorts"
-            ]
+            ],
+            "versionDeprecated": "2020.4"
         }
     },
     "owningEntity": "DMTF",

@@ -1,18 +1,19 @@
 {
-    "Schema": "#LenovoPower.v1_0_0.LenovoPower",
     "@odata.id": "/redfish/v1/JsonSchemas/LenovoPower.v1_0_0",
-    "Name": "LenovoPower JSON Schema File",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Description": "This represents the LenovoPower Schema File locator resource for a Redfish implementation.",
+    "Schema": "#LenovoPower.v1_0_0.LenovoPower",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoPower.v1_0_0.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"88a43ff3\"",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "@odata.etag": "\"47a1d329\"",
     "Id": "LenovoPower.v1_0_0",
-    "Description": "This represents the LenovoPower Schema File locator resource for a Redfish implementation."
+    "Name": "LenovoPower JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

@@ -1,18 +1,19 @@
 {
-    "Schema": "#LenovoLDAPClient.LenovoLDAPClient",
     "@odata.id": "/redfish/v1/JsonSchemas/LenovoLDAPClient",
-    "Name": "LenovoLDAPClient JSON Schema File",
-    "Languages": [
-        "en"
-    ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Description": "This represents the LenovoLDAPClient Schema File locator resource for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoLDAPClient.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"0b996c32\"",
+    "Schema": "#LenovoLDAPClient.LenovoLDAPClient",
+    "Languages": [
+        "en"
+    ],
+    "@odata.etag": "\"e2d68c75\"",
     "Id": "LenovoLDAPClient",
-    "Description": "This represents the LenovoLDAPClient Schema File locator resource for a Redfish implementation."
+    "Name": "LenovoLDAPClient JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

@@ -1,18 +1,19 @@
 {
-    "Schema": "#TelemetryService.TelemetryService",
-    "Id": "TelemetryService",
-    "Name": "TelemetryService JSON Schema File",
+    "@odata.id": "/redfish/v1/JsonSchemas/TelemetryService",
+    "Description": "This represents the TelemetryService Schema File locator resource for a Redfish implementation.",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Schema": "#TelemetryService.TelemetryService",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/TelemetryService.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"37e75605\"",
-    "@odata.id": "/redfish/v1/JsonSchemas/TelemetryService",
-    "Description": "This represents the TelemetryService Schema File locator resource for a Redfish implementation."
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "@odata.etag": "\"7d7eaca8\"",
+    "Id": "TelemetryService",
+    "Name": "TelemetryService JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

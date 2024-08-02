@@ -1,18 +1,19 @@
 {
-    "Schema": "#LenovoProcessor",
     "@odata.id": "/redfish/v1/JsonSchemas/LenovoProcessor.v1_0_0",
-    "Name": "LenovoProcessor JSON Schema File",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Description": "This represents the LenovoProcessor Schema File locator resource for a Redfish implementation.",
+    "Schema": "#LenovoProcessor.v1_0_0.LenovoProcessor",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoProcessor.v1_0_0.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"b549c6b5\"",
+    "@odata.etag": "\"56723783\"",
     "Id": "LenovoProcessor.v1_0_0",
-    "Description": "This represents the LenovoProcessor Schema File locator resource for a Redfish implementation."
+    "Name": "LenovoProcessor JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

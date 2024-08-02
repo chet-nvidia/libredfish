@@ -1,9 +1,10 @@
 {
-    "Members": [],
-    "@odata.type": "#LogEntryCollection.LogEntryCollection",
     "@odata.id": "/redfish/v1/Systems/1/LogServices/SaLog/Entries",
+    "Members": [],
     "Members@odata.count": 0,
-    "@odata.etag": "\"28b02c17a2442663f67\"",
+    "@odata.context": "/redfish/v1/$metadata#LogEntryCollection.LogEntryCollection",
+    "@odata.etag": "\"2d2af5edc7cd28a4038\"",
+    "Description": "A collection of LogEntryServiceAdvisorLogEntry resource instances.",
     "Name": "LogEntryServiceAdvisorLogEntryCollection",
-    "Description": "A collection of LogEntryServiceAdvisorLogEntry resource instances."
+    "@odata.type": "#LogEntryCollection.LogEntryCollection"
 }

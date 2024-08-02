@@ -1,18 +1,19 @@
 {
-    "Schema": "#LenovoEvent.v1_0_0.LenovoEvent",
-    "Id": "LenovoEvent.v1_0_0",
-    "Name": "LenovoEvent JSON Schema File",
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoEvent.v1_0_0",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Description": "This represents the LenovoEvent Schema File locator resource for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "Id": "LenovoEvent.v1_0_0",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoEvent.v1_0_0.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"9c068204\"",
-    "@odata.id": "/redfish/v1/JsonSchemas/LenovoEvent.v1_0_0",
-    "Description": "This represents the LenovoEvent Schema File locator resource for a Redfish implementation."
+    "@odata.etag": "\"699cf663\"",
+    "Schema": "#LenovoEvent.v1_0_0.LenovoEvent",
+    "Name": "LenovoEvent JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

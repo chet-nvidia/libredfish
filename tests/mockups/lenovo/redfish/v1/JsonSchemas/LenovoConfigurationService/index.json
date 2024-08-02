@@ -1,10 +1,6 @@
 {
-    "Schema": "#LenovoConfigurationService.LenovoConfigurationService",
     "@odata.id": "/redfish/v1/JsonSchemas/LenovoConfigurationService",
-    "Name": "LenovoConfigurationService JSON Schema File",
-    "Languages": [
-        "en"
-    ],
+    "Description": "This represents the LenovoConfigurationService Schema File locator resource for a Redfish implementation.",
     "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "Location": [
         {
@@ -12,7 +8,12 @@
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"99f35b43\"",
+    "Schema": "#LenovoConfigurationService.LenovoConfigurationService",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "@odata.etag": "\"654c4b4c\"",
     "Id": "LenovoConfigurationService",
-    "Description": "This represents the LenovoConfigurationService Schema File locator resource for a Redfish implementation."
+    "Name": "LenovoConfigurationService JSON Schema File",
+    "Languages": [
+        "en"
+    ]
 }

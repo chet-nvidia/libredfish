@@ -1,26 +1,27 @@
 {
-    "Version": "20E-1.40",
+    "Version": "42S-2.83",
     "Id": "BMC-Backup",
+    "Name": "Firmware:BMC",
+    "@odata.type": "#SoftwareInventory.v1_5_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC-Backup",
+    "WriteProtected": true,
+    "RelatedItem@odata.count": 1,
     "RelatedItem": [
         {
             "@odata.id": "/redfish/v1/Managers/1"
         }
     ],
-    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC-Backup",
-    "Status": {
-        "HealthRollup": "OK",
-        "Health": "OK",
-        "State": "StandbySpare"
-    },
-    "RelatedItem@odata.count": 1,
-    "Name": "Firmware:BMC",
-    "ReleaseDate": "2021-05-17T00:00:00Z",
-    "LowestSupportedVersion": null,
+    "Description": "The information of BMC (Backup) firmware.",
     "Manufacturer": "Lenovo",
-    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
-    "WriteProtected": true,
-    "Updateable": true,
-    "@odata.etag": "\"4253c205b1dd25a904d\"",
     "SoftwareId": "BMC-TGBT-10",
-    "Description": "The information of BMC (Backup) firmware."
+    "Status": {
+        "State": "StandbySpare",
+        "Health": "OK",
+        "HealthRollup": "OK"
+    },
+    "@odata.context": "/redfish/v1/$metadata#SoftwareInventory.SoftwareInventory",
+    "@odata.etag": "\"46cdd44a27ab26690ed\"",
+    "Updateable": true,
+    "ReleaseDate": "2023-07-05T00:00:00Z",
+    "LowestSupportedVersion": null
 }

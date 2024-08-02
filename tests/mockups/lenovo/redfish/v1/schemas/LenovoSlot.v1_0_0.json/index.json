@@ -1,88 +1,10 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoSlot.v1_0_0.LenovoSlot",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LenovoSlot.v1_0_0.json",
     "$ref": "#/definitions/LenovoSlot",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
-        "LenovoSlot": {
-            "type": "object",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "additionalProperties": false,
-            "properties": {
-                "@odata.context": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
-                },
-                "@odata.id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
-                },
-                "@odata.type": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
-                },
-                "Id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id"
-                },
-                "Description": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
-                },
-                "Name": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name"
-                },
-                "Number": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "readonly": true,
-                    "description": "the physical slot number",
-                    "longDescription": "The Number property indicates the physical slot number, which can be used as an index into a system slot table, whether or not that slot is physically occupied."
-                },
-                "ConnectorLayout": {
-                    "$ref": "#/definitions/ConnectorLayouts",
-                    "readonly": true
-                },
-                "Equipment": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "readonly": true,
-                    "description": "A user-friendly name for the object which occupies the slot.",
-                    "longDescription": "This name describes the object occupied on the slot."
-                },
-                "MaxDataWidth": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "readonly": true,
-                    "description": "The maximum bus width in Bit supported by the slot.",
-                    "longDescription": "The maximum bus width of adapter cars that can be inserted into this slot, in bits. MinValue = 1, MaxValue = 65535, Value = 0 means 'unknown'."
-                },
-                "SupportsHotPlug": {
-                    "type": [
-                        "boolean",
-                        "null"
-                    ],
-                    "readonly": true,
-                    "description": "A boolean value indicate whether support hot plug",
-                    "longDescription": "Boolean indicating whether the Slot supports hot-plug of adapter Cards."
-                }
-            },
-            "description": "This is the schema definition for the memory resource.  It represents the properties of a memory attached to a System."
-        },
         "ConnectorLayouts": {
-            "type": "string",
             "enum": [
                 "SlotDIMM",
                 "SlotFlashDIMM",
@@ -108,8 +30,113 @@
                 "FlexSystemMidMezzanineConnector",
                 "BladeCenterCFFhConnector",
                 "BladeCenterCIOvConnector"
-            ]
+            ],
+            "type": "string"
+        },
+        "LenovoSlot": {
+            "additionalProperties": false,
+            "description": "This is the schema definition for the slot resource.",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/context"
+                },
+                "@odata.etag": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/etag"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/type"
+                },
+                "ConnectorLayout": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/ConnectorLayouts"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The connector layout of this slot.",
+                    "longDescription": "The value of this property indicates the connector layout of this slot.",
+                    "readonly": true
+                },
+                "Description": {
+                    "anyOf": [
+                        {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "readonly": true
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
+                    "readonly": true
+                },
+                "MaxDataWidth": {
+                    "description": "The max data width in Bit supported by this slot.",
+                    "longDescription": "The maximum bus width of adapter cars that can be inserted into this slot, in bits. MinValue = 1, MaxValue = 65535, Value = 0 means 'unknown'.",
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Name": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
+                    "readonly": true
+                },
+                "Number": {
+                    "description": "The slot number of this slot.",
+                    "longDescription": "The value of this property indicates the slot number of this slot.",
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Oem": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Oem",
+                    "description": "The OEM extension property.",
+                    "longDescription": "This property shall contain the OEM extensions.  All values for properties that this object contains shall conform to the Redfish Specification-described requirements."
+                },
+                "SupportsHotPlug": {
+                    "description": "A boolean value indicate whether support hot plug.",
+                    "longDescription": "Boolean indicating whether the Slot supports hot-plug of adapter Cards.",
+                    "readonly": true,
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "@odata.id",
+                "@odata.type",
+                "Id",
+                "Name"
+            ],
+            "type": "object"
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "owningEntity": "Lenovo",
+    "title": "#LenovoSlot.v1_0_0.LenovoSlot"
 }

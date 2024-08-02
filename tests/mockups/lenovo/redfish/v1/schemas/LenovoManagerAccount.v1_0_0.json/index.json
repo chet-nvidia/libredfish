@@ -1,46 +1,42 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoManagerAccount.v1_0_0.LenovoManagerAccount",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LenovoManagerAccount.v1_0_0.json",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2019 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
-        "LenovoManagerAccount": {
-            "type": "object",
+        "LenovoManagerAccountProperties": {
+            "additionalProperties": true,
+            "description": "The schema defines a detailed account setting resource.",
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
-            "additionalProperties": false,
             "properties": {
-                "@odata.context": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
-                },
-                "@odata.id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
-                },
-                "@odata.type": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
-                },
-                "SNMPv3Settings": {
-                    "$ref": "/schemas/v1/Lenovo/LenovoAuthenticationAuthority.v1_0_0.json#/definitions/SNMPv3Settings",
-                    "readonly": false,
-                    "description": "Specify the SNMPv3 access setting for the user."
-                },
                 "SSHPublicKey": {
-                    "$ref": "/schemas/v1/Lenovo/LenovoAuthenticationAuthority.v1_0_0.json#/definitions/SSHPublicKey",
+                    "description": "This specifies the SSH public key of the user in OpenSSH format.",
+                    "items": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "longDescription": "This property is used to specify the SSH public key of the user in OpenSSH format",
                     "readonly": false,
-                    "description": "Specify the SSH public key of the user in OpenSSH format.",
-                    "longDescription": "This property is used to specify the SSH public key of the user in OpenSSH format."
+                    "type": "array"
                 }
-            }
+            },
+            "type": "object"
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "owningEntity": "Lenovo",
+    "title": "#LenovoManagerAccount.v1_0_0"
 }

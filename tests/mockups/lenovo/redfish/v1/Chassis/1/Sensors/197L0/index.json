@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/197L0",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
+    "ReadingType": null,
     "ReadingUnits": "",
-    "Reading": 0,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "Health": null,
+        "State": "Enabled"
+    },
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Processors/2"
+        }
+    ],
     "PhysicalContext": "CPU",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Reading": 0,
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"303a1c76788b2424fe7\"",
     "Id": "197L0",
     "Name": "CPU 2 PECI",
-    "@odata.etag": "\"24080b8adfd0242522a\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "RelatedItem@odata.count": 1
 }

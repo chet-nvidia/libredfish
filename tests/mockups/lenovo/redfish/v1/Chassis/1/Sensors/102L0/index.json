@@ -1,22 +1,18 @@
 {
-    "ReadingRangeMax": 255,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/102L0",
-    "ReadingRangeMin": 0,
+    "MinAllowableOperatingValue": 0,
+    "ReadingType": "Temperature",
+    "MaxAllowableOperatingValue": 255,
     "ReadingUnits": "C",
     "Thresholds": {
-        "LowerFatal": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
         "UpperCaution": {
             "Activation": "Increasing",
             "Reading": null
         },
-        "LowerCritical": {
+        "LowerCaution": {
             "Activation": "Decreasing",
             "Reading": null
         },
-        "LowerCaution": {
+        "LowerFatal": {
             "Activation": "Decreasing",
             "Reading": null
         },
@@ -27,21 +23,32 @@
         "UpperCritical": {
             "Activation": "Increasing",
             "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": null
         }
     },
-    "PhysicalContext": "ComputeBay",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Disabled",
-        "Health": null
-    },
-    "Reading": null,
-    "Precision": 0,
-    "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 255,
-    "Name": "PCIe 7 Temp",
-    "@odata.etag": "\"64e91e9d1e862a2d6a9\"",
+    "Reading": 25,
     "Id": "102L0",
-    "ReadingType": "Temperature"
+    "Name": "PCIe 7 Temp",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/102L0",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "PhysicalContext": "ComputeBay",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ],
+    "Precision": 0,
+    "RelatedItem@odata.count": 1,
+    "ReadingRangeMin": 0,
+    "@odata.etag": "\"6c19bae12f102a2eed7\"",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "ReadingRangeMax": 255,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
 }

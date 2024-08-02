@@ -1,9 +1,10 @@
 {
-    "Members": [],
-    "@odata.type": "#LenovoRemoteMountMediaCollection.LenovoRemoteMountMediaCollection",
     "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/RemoteControl/MountImages",
-    "Members@odata.count": 0,
-    "@odata.etag": "\"26bfa7ccb1102423dd6\"",
+    "Members": [],
     "Name": "MountImages",
-    "Description": "A collection of RemoteMountMedia resource instances."
+    "@odata.context": "/redfish/v1/$metadata#LenovoRemoteMountMediaCollection.LenovoRemoteMountMediaCollection",
+    "@odata.etag": "\"2c5930d3a1b224e64e3\"",
+    "Description": "A collection of RemoteMountMedia resource instances.",
+    "Members@odata.count": 0,
+    "@odata.type": "#LenovoRemoteMountMediaCollection.LenovoRemoteMountMediaCollection"
 }

@@ -1,7 +1,6 @@
 {
-    "Schema": "#VirtualMediaCollection.VirtualMediaCollection",
-    "Id": "VirtualMediaCollection",
-    "Name": "VirtualMediaCollection JSON Schema File",
+    "@odata.id": "/redfish/v1/JsonSchemas/VirtualMediaCollection",
+    "Description": "This represents the VirtualMediaCollection Schema File locator resource for a Redfish implementation.",
     "Languages": [
         "en"
     ],
@@ -12,7 +11,9 @@
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"f7a59c8a\"",
-    "@odata.id": "/redfish/v1/JsonSchemas/VirtualMediaCollection",
-    "Description": "This represents the VirtualMediaCollection Schema File locator resource for a Redfish implementation."
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "@odata.etag": "\"ade4b4cc\"",
+    "Id": "VirtualMediaCollection",
+    "Name": "VirtualMediaCollection JSON Schema File",
+    "Schema": "#VirtualMediaCollection.VirtualMediaCollection"
 }

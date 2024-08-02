@@ -1,14 +1,15 @@
 {
     "@odata.id": "/redfish/v1/Systems/1/LogServices/MaintenanceLog/Entries/3",
-    "EntryType": "Oem",
-    "Message": "SAS Backplane 1(SN: R1SH161007R) is added.",
-    "EventGroupId": 1,
-    "Severity": null,
-    "Name": "LogEntry",
-    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
-    "OemRecordFormat": "Lenovo",
-    "Id": "3",
-    "@odata.etag": "\"31d13675504928a692a\"",
+    "@odata.type": "#LogEntry.v1_11_0.LogEntry",
     "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
-    "Created": "2022-08-31T23:00:45Z"
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "Created": "2024-07-18T22:01:39Z",
+    "EventGroupId": 1,
+    "OemRecordFormat": "Lenovo",
+    "Severity": null,
+    "EntryType": "Oem",
+    "@odata.etag": "\"35a150a6d8a2242590b\"",
+    "Id": "3",
+    "Name": "LogEntry",
+    "Message": "SAS Backplane 1(SN: R4SH363002C) is added."
 }

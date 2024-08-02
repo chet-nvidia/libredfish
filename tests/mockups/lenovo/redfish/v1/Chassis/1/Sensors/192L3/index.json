@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/192L3",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "ReadingUnits": "",
+    "RelatedItem@odata.count": 1,
     "Reading": 0,
+    "ReadingType": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "ReadingUnits": "",
+    "Status": {
+        "Health": null,
+        "State": "Enabled"
+    },
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1"
+        }
+    ],
     "PhysicalContext": "ComputeBay",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"2fcb78a30af2272461c\"",
     "Id": "192L3",
     "Name": "Raid Ctrl1",
-    "@odata.etag": "\"25d41f30c6502965622\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "@odata.type": "#Sensor.v1_5_0.Sensor"
 }

@@ -1,31 +1,32 @@
 {
-    "MetricDataType": "Integer",
-    "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/AveragePowerSupplyOutput",
-    "MetricProperties": [
-        "/redfish/v1/Chassis/1/Power#/PowerSupplies/{PWild}/PowerOutputWatts"
-    ],
-    "PhysicalContext": "PowerSupply",
-    "MetricType": "Numeric",
-    "Description": "The metadata information about a metric.",
+    "IsLinear": true,
     "Wildcards": [
         {
-            "Name": "PWild",
             "Values": [
                 "0",
                 "1",
                 "2",
                 "3"
-            ]
+            ],
+            "Name": "PWild"
         }
     ],
-    "CalculationTimeInterval": "PT1S",
-    "IsLinear": true,
-    "Calculable": "NonSummable",
-    "Name": "AveragePowerSupplyOutput",
-    "@odata.type": "#MetricDefinition.v1_0_3.MetricDefinition",
+    "MetricType": "Numeric",
     "Units": "W",
-    "CalculationAlgorithm": "Average",
-    "@odata.etag": "\"5685059b32cf27e9b69\"",
+    "MetricProperties": [
+        "/redfish/v1/Chassis/1/Power#/PowerSupplies/{PWild}/PowerOutputWatts"
+    ],
     "Id": "AveragePowerSupplyOutput",
-    "Implementation": "Calculated"
+    "Name": "AveragePowerSupplyOutput",
+    "@odata.type": "#MetricDefinition.v1_2_1.MetricDefinition",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/AveragePowerSupplyOutput",
+    "Implementation": "Calculated",
+    "Description": "The metadata information about a metric.",
+    "CalculationAlgorithm": "Average",
+    "CalculationTimeInterval": "PT1S",
+    "PhysicalContext": "PowerSupply",
+    "@odata.etag": "\"5abd5416e0bf2729a94\"",
+    "@odata.context": "/redfish/v1/$metadata#MetricDefinition.MetricDefinition",
+    "MetricDataType": "Integer",
+    "Calculable": "NonSummable"
 }

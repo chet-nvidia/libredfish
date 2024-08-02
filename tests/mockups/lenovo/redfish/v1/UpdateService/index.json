@@ -1,49 +1,57 @@
 {
-    "MultipartHttpPushUri": "/mfwupdate",
-    "@odata.id": "/redfish/v1/UpdateService",
-    "ServiceEnabled": true,
-    "HttpPushUri": "/fwupdate",
-    "HttpPushUriTargets": [],
-    "Description": "Lenovo firmware update service.",
-    "FirmwareInventory": {
-        "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory"
+    "RemoteServerCertificates": {
+        "@odata.id": "/redfish/v1/UpdateService/RemoteServerCertificates"
     },
     "MaxImageSizeBytes": 250000000,
+    "HttpPushUriTargets": [],
+    "Id": "UpdateService",
     "Name": "Update Service",
-    "HttpPushUriTargetsBusy": false,
+    "@odata.type": "#UpdateService.v1_11_0.UpdateService",
+    "@odata.id": "/redfish/v1/UpdateService",
+    "ServiceEnabled": true,
+    "VerifyRemoteServerCertificate": false,
+    "Description": "Lenovo firmware update service.",
+    "Status": {
+        "HealthRollup": "OK",
+        "State": "Enabled",
+        "Health": "OK"
+    },
     "Oem": {
         "Lenovo": {
-            "@odata.type": "#LenovoUpdateService.v1_0_0.LenovoUpdateService",
             "FirmwareServices": {
                 "@odata.id": "/redfish/v1/UpdateService/Oem/Lenovo/FirmwareServices"
-            }
+            },
+            "@odata.type": "#LenovoUpdateService.v1_0_0.LenovoUpdateService",
+            "XCCBackupAutoPromote": false
         }
     },
-    "@odata.type": "#UpdateService.v1_8_0.UpdateService",
-    "Id": "UpdateService",
+    "MultipartHttpPushUri": "/mfwupdate",
     "Actions": {
         "#UpdateService.SimpleUpdate": {
+            "@Redfish.ActionInfo": "/redfish/v1/UpdateService/SimpleUpdateActionInfo",
             "target": "/redfish/v1/UpdateService/Actions/UpdateService.SimpleUpdate",
-            "title": "SimpleUpdate",
-            "TransferProtocol@Redfish.AllowableValues": [
-                "TFTP",
-                "SFTP"
-            ],
             "Targets@Redfish.AllowableValues": [
                 "/redfish/v1/UpdateService/FirmwareInventory/BMC-Backup"
             ],
-            "@Redfish.ActionInfo": "/redfish/v1/UpdateService/SimpleUpdateActionInfo"
+            "title": "SimpleUpdate",
+            "TransferProtocol@Redfish.AllowableValues": [
+                "TFTP",
+                "SFTP",
+                "HTTPS",
+                "HTTP"
+            ]
         }
     },
-    "@odata.etag": "\"8bbfa507c26c2732574\"",
+    "FirmwareInventory": {
+        "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory"
+    },
+    "@odata.context": "/redfish/v1/$metadata#UpdateService.UpdateService",
+    "@odata.etag": "\"a692bcc731c92e1736f11\"",
+    "HttpPushUriTargetsBusy": false,
+    "HttpPushUri": "/fwupdate",
     "HttpPushUriOptions": {
         "HttpPushUriApplyTime": {
             "ApplyTime": "Immediate"
         }
-    },
-    "Status": {
-        "HealthRollup": "OK",
-        "Health": "OK",
-        "State": "Enabled"
     }
 }

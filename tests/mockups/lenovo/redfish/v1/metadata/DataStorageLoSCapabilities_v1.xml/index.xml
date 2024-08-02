@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---->
-<!-- Copyright 2015-2019 Storage Networking Industry Association (SNIA), USA. All rights reserved.-->
+<!-- Copyright 2015-2021 Storage Networking Industry Association (SNIA), USA. All rights reserved.-->
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/csd01/complete/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
@@ -36,7 +36,7 @@
         </Annotation>
         <Annotation Term="Capabilities.UpdateRestrictions">
           <Record>
-            <PropertyValue Property="Updatable" Bool="false"/>
+            <PropertyValue Property="Updatable" Bool="true"/>
           </Record>
         </Annotation>
         <Annotation Term="Capabilities.DeleteRestrictions">
@@ -213,6 +213,12 @@
       <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="DataStorageLoSCapabilities.v1_2_1">
         <Annotation Term="Redfish.OwningEntity" String="SNIA"/>
         <Annotation Term="OData.Description" String="This version was added to fix CSDL errors and adds both Redfish Uris and Capability Annotations."/>
+        <EntityType Name="DataStorageLoSCapabilities" BaseType="DataStorageLoSCapabilities.v1_2_0.DataStorageLoSCapabilities"/>
+      </Schema>
+
+      <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="DataStorageLoSCapabilities.v1_2_2">
+        <Annotation Term="Redfish.OwningEntity" String="SNIA"/>
+        <Annotation Term="OData.Description" String="This version was added to fix CSDL Capability Annotations."/>
         <EntityType Name="DataStorageLoSCapabilities" BaseType="DataStorageLoSCapabilities.v1_2_0.DataStorageLoSCapabilities"/>
       </Schema>
 

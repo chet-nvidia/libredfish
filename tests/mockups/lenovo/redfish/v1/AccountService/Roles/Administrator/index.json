@@ -1,6 +1,7 @@
 {
-    "IsPredefined": true,
     "@odata.id": "/redfish/v1/AccountService/Roles/Administrator",
+    "Description": "This resource is used to represent a user role for the user account for a Redfish implementation.",
+    "IsPredefined": true,
     "AssignedPrivileges": [
         "Login",
         "ConfigureManager",
@@ -8,13 +9,13 @@
         "ConfigureSelf",
         "ConfigureComponents"
     ],
-    "Name": "Administrator",
-    "@odata.type": "#Role.v1_2_4.Role",
     "OemPrivileges": [
         "Supervisor"
     ],
-    "Id": "Administrator",
-    "@odata.etag": "\"3868f3a15b6f25a7ee0\"",
     "RoleId": "Administrator",
-    "Description": "This resource is used to represent a user role for the user account for a Redfish implementation."
+    "@odata.context": "/redfish/v1/$metadata#Role.Role",
+    "@odata.etag": "\"3b82a78633e02965953\"",
+    "Id": "Administrator",
+    "Name": "Administrator",
+    "@odata.type": "#Role.v1_3_1.Role"
 }

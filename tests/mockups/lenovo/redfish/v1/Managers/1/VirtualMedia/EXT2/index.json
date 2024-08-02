@@ -1,21 +1,25 @@
 {
-    "ConnectedVia": "NotConnected",
-    "@odata.id": "/redfish/v1/Managers/1/VirtualMedia/EXT2",
-    "Image": null,
+    "Password": null,
+    "TransferMethod": null,
+    "Id": "EXT2",
+    "Name": "VirtualMedia",
+    "VerifyCertificate": false,
     "MediaTypes": [
         "CD",
         "DVD",
         "Floppy",
         "USBStick"
     ],
-    "Name": "VirtualMedia",
-    "Id": "EXT2",
-    "Password": null,
-    "ImageName": null,
-    "@odata.type": "#VirtualMedia.v1_3_2.VirtualMedia",
-    "WriteProtected": true,
-    "UserName": null,
-    "@odata.etag": "\"3d7dc47360bf272941f\"",
+    "ConnectedVia": "NotConnected",
     "Inserted": false,
-    "Description": "This resource shall be used to represent a virtual media service for a Redfish implementation."
+    "@odata.type": "#VirtualMedia.v1_5_1.VirtualMedia",
+    "TransferProtocolType": null,
+    "ImageName": null,
+    "Image": null,
+    "WriteProtected": true,
+    "@odata.context": "/redfish/v1/$metadata#VirtualMedia.VirtualMedia",
+    "@odata.etag": "\"4ad99d10d5e92ae95a3\"",
+    "UserName": null,
+    "Description": "This resource shall be used to represent a virtual media service for a Redfish implementation.",
+    "@odata.id": "/redfish/v1/Managers/1/VirtualMedia/EXT2"
 }

@@ -1,47 +1,57 @@
 {
-    "ReadingRangeMax": 2550,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/251L0",
     "ReadingRangeMin": 2550,
+    "ReadingRangeMax": 2550,
+    "MinAllowableOperatingValue": 2550,
+    "ReadingType": null,
+    "MaxAllowableOperatingValue": 2550,
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
     "ReadingUnits": "CFM",
+    "Id": "251L0",
+    "Name": "System Air Flow",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Thermal"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/ThermalSubsystem"
+        }
+    ],
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/251L0",
+    "PhysicalContext": "Exhaust",
+    "Precision": 0,
+    "RelatedItem@odata.count": 2,
+    "Reading": 180,
     "Thresholds": {
         "LowerFatal": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperCaution": {
-            "Activation": "Increasing",
-            "Reading": null
-        },
-        "LowerCaution": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperFatal": {
-            "Activation": "Increasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Decreasing"
         },
         "LowerCritical": {
-            "Activation": "Decreasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Decreasing"
+        },
+        "UpperCaution": {
+            "Reading": null,
+            "Activation": "Increasing"
+        },
+        "UpperFatal": {
+            "Reading": null,
+            "Activation": "Increasing"
+        },
+        "LowerCaution": {
+            "Reading": null,
+            "Activation": "Decreasing"
         },
         "UpperCritical": {
-            "Activation": "Increasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Increasing"
         }
     },
-    "PhysicalContext": "Exhaust",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Name": "System Air Flow",
-    "Precision": 0,
-    "MinAllowableOperatingValue": 2550,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 2550,
-    "Id": "251L0",
-    "@odata.etag": "\"64b40c05f5d02a2c834\"",
-    "ReadingType": null,
-    "Reading": 100
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"75996eab01e62af4637\"",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
 }

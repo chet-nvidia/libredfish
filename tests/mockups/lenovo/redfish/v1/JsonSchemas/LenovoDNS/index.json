@@ -1,18 +1,19 @@
 {
+    "@odata.id": "/redfish/v1/JsonSchemas/LenovoDNS",
+    "Description": "This represents the LenovoDNS Schema File locator resource for a Redfish implementation.",
     "Schema": "#LenovoDNS.LenovoDNS",
-    "Id": "LenovoDNS",
-    "Name": "LenovoDNS JSON Schema File",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoDNS.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"fdb51202\"",
-    "@odata.id": "/redfish/v1/JsonSchemas/LenovoDNS",
-    "Description": "This represents the LenovoDNS Schema File locator resource for a Redfish implementation."
+    "@odata.etag": "\"52dda4db\"",
+    "Id": "LenovoDNS",
+    "Name": "LenovoDNS JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

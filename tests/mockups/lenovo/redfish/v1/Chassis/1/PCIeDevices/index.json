@@ -1,4 +1,5 @@
 {
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices",
     "Members": [
         {
             "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_1"
@@ -20,12 +21,39 @@
         },
         {
             "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_6"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_7"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_8"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_9"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_10"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_15"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_25"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_27"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_30"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_31"
         }
     ],
-    "@odata.type": "#PCIeDeviceCollection.PCIeDeviceCollection",
-    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices",
     "Name": "PCIeDeviceCollection",
-    "@odata.etag": "\"4619891a5f59266a3ed\"",
-    "Members@odata.count": 7,
-    "Description": "A collection of NetworkInterface resource instances."
+    "@odata.context": "/redfish/v1/$metadata#PCIeDeviceCollection.PCIeDeviceCollection",
+    "@odata.etag": "\"7c0524c9a4d130eaf333b\"",
+    "Description": "A collection of NetworkInterface resource instances.",
+    "Members@odata.count": 16,
+    "@odata.type": "#PCIeDeviceCollection.PCIeDeviceCollection"
 }

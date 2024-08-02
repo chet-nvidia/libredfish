@@ -1,24 +1,19 @@
 {
-    "ReportUpdates": "AppendWrapsWhenFull",
-    "Id": "CPUTemp",
     "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/CPUTemp",
+    "MetricReportDefinitionType": "OnRequest",
+    "AppendLimit": 2880,
     "Status": {
         "State": "Enabled"
     },
-    "Wildcards": [
-        {
-            "Name": "PWild",
-            "Values": [
-                "1",
-                "2"
-            ]
-        }
-    ],
-    "Name": "CPUTemp",
+    "MetricReport": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReports/CPUTemp"
+    },
+    "Description": "A set of metrics that are collected into a metric report.",
+    "ReportTimespan": "PT24H",
     "Metrics": [
         {
-            "CollectionTimeScope": "Interval",
             "CollectionDuration": "PT1M",
+            "CollectionTimeScope": "Interval",
             "MetricProperties": [
                 "/redfish/v1/Systems/1/Processors/{PWild}/ProcessorMetrics#/TemperatureCelsius"
             ]
@@ -27,13 +22,19 @@
     "ReportActions": [
         "LogToMetricReportsCollection"
     ],
-    "MetricReportDefinitionType": "OnRequest",
-    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
-    "MetricReport": {
-        "@odata.id": "/redfish/v1/TelemetryService/MetricReports/CPUTemp"
-    },
-    "AppendLimit": 2880,
-    "ReportTimespan": "PT24H",
-    "@odata.etag": "\"6917bb231cfe266be04\"",
-    "Description": "A set of metrics that are collected into a metric report."
+    "ReportUpdates": "AppendWrapsWhenFull",
+    "Id": "CPUTemp",
+    "@odata.context": "/redfish/v1/$metadata#MetricReportDefinition.MetricReportDefinition",
+    "@odata.etag": "\"6dda90c44d92272cb28\"",
+    "Wildcards": [
+        {
+            "Values": [
+                "1",
+                "2"
+            ],
+            "Name": "PWild"
+        }
+    ],
+    "Name": "CPUTemp",
+    "@odata.type": "#MetricReportDefinition.v1_4_1.MetricReportDefinition"
 }

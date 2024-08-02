@@ -1,25 +1,26 @@
 {
-    "RelatedItem@odata.count": 1,
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/PSU3",
+    "Version": "7.52",
+    "@odata.type": "#SoftwareInventory.v1_5_0.SoftwareInventory",
     "RelatedItem": [
         {
             "@odata.id": "/redfish/v1/Chassis/1/Power#/PowerSupplies/2"
         }
     ],
-    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/PSU3",
+    "@odata.context": "/redfish/v1/$metadata#SoftwareInventory.SoftwareInventory",
+    "Description": "The information of PSU firmware",
+    "Manufacturer": "DETA",
+    "Updateable": true,
+    "ReleaseDate": null,
     "Status": {
-        "HealthRollup": "OK",
+        "State": "Enabled",
         "Health": "OK",
-        "State": "Enabled"
+        "HealthRollup": "OK"
     },
+    "WriteProtected": true,
+    "RelatedItem@odata.count": 1,
+    "@odata.etag": "\"3f84295bcd94272ad0a\"",
     "Id": "PSU3",
     "Name": "POWER-PSU3",
-    "ReleaseDate": null,
-    "Version": "7.52",
-    "Manufacturer": "DETA",
-    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
-    "WriteProtected": true,
-    "Updateable": true,
-    "@odata.etag": "\"3b13c95a5f64266528b\"",
-    "SoftwareId": "POWER-DETA7200-10",
-    "Description": "The information of PSU firmware"
+    "SoftwareId": "POWER-DETA7200-10"
 }

@@ -1,20 +1,21 @@
 {
-    "Implementation": "Calculated",
+    "Calculable": "NonSummable",
     "IsLinear": true,
+    "Units": "%",
     "MetricDataType": "Integer",
-    "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/AverageCPUUtilization",
-    "Id": "AverageCPUUtilization",
-    "Name": "AverageCPUUtilization",
-    "CalculationTimeInterval": "PT1S",
     "MetricProperties": [
         "/redfish/v1/Systems/1/ProcessorSummary/ProcessorMetrics#/BandwidthPercent"
     ],
-    "PhysicalContext": "CPUSubsystem",
-    "Description": "The metadata information about a metric.",
-    "@odata.type": "#MetricDefinition.v1_0_3.MetricDefinition",
-    "Units": "%",
+    "Implementation": "Calculated",
     "CalculationAlgorithm": "Average",
-    "@odata.etag": "\"5117a64f2afd24272de\"",
-    "MetricType": "Numeric",
-    "Calculable": "NonSummable"
+    "CalculationTimeInterval": "PT1S",
+    "Id": "AverageCPUUtilization",
+    "Name": "AverageCPUUtilization",
+    "@odata.type": "#MetricDefinition.v1_2_1.MetricDefinition",
+    "@odata.id": "/redfish/v1/TelemetryService/MetricDefinitions/AverageCPUUtilization",
+    "Description": "The metadata information about a metric.",
+    "@odata.context": "/redfish/v1/$metadata#MetricDefinition.MetricDefinition",
+    "@odata.etag": "\"554ff54329e72aec303\"",
+    "PhysicalContext": "CPUSubsystem",
+    "MetricType": "Numeric"
 }

@@ -1,47 +1,54 @@
 {
-    "ReadingRangeMax": 15045,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/80L0",
-    "ReadingRangeMin": 0,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/ThermalSubsystem/Fans/Fan_1A_Tach"
+        }
+    ],
     "ReadingUnits": "RPM",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Id": "80L0",
+    "Name": "Fan 1A Tach",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/80L0",
+    "@odata.etag": "\"6e11e700a0be2971293\"",
+    "MaxAllowableOperatingValue": 15045,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
     "Thresholds": {
-        "LowerFatal": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperCaution": {
-            "Activation": "Increasing",
-            "Reading": null
-        },
-        "UpperFatal": {
-            "Activation": "Increasing",
-            "Reading": null
-        },
-        "LowerCritical": {
-            "Activation": "Decreasing",
-            "Reading": 472
-        },
         "LowerCaution": {
-            "Activation": "Decreasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Decreasing"
         },
         "UpperCritical": {
-            "Activation": "Increasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Increasing"
+        },
+        "UpperFatal": {
+            "Reading": null,
+            "Activation": "Increasing"
+        },
+        "LowerCritical": {
+            "Reading": 472,
+            "Activation": "Decreasing"
+        },
+        "UpperCaution": {
+            "Reading": null,
+            "Activation": "Increasing"
+        },
+        "LowerFatal": {
+            "Reading": null,
+            "Activation": "Decreasing"
         }
     },
+    "ReadingRangeMin": 0,
     "PhysicalContext": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Name": "Fan 1A Tach",
     "Precision": 0,
+    "ReadingRangeMax": 15045,
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
     "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 15045,
-    "Id": "80L0",
-    "@odata.etag": "\"60b90c8c84d72a3089f\"",
     "ReadingType": "AirFlow",
-    "Reading": 4602
+    "RelatedItem@odata.count": 1,
+    "Reading": 6431
 }

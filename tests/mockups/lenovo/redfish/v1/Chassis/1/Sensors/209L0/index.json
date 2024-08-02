@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/209L0",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
     "ReadingUnits": "",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
     "Reading": 0,
+    "@odata.etag": "\"30ea1caa519825a44b1\"",
     "PhysicalContext": null,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "ReadingType": null,
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "RelatedItem@odata.count": 1,
     "Id": "209L0",
     "Name": "Front USB Detect",
-    "@odata.etag": "\"274de26c46c02966235\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ]
 }

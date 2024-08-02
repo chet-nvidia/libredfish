@@ -1,22 +1,23 @@
 {
-    "ServerIP": "",
     "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/ServerProfile",
     "UserID": "",
-    "Name": "Server Profile",
-    "ServerPort": 636,
-    "Id": "ServerProfile",
-    "Password": null,
-    "@odata.type": "#LenovoServerProfileService.v1_0_0.LenovoServerProfileService",
-    "Certificates": {
-        "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/ServerProfile/Certificates"
-    },
-    "@odata.etag": "\"52a4745c64832aed9a6\"",
     "Enabled": false,
+    "Description": "This resource is used to represent a server profile service for a Redfish implementation.",
     "Actions": {
         "#LenovoServerProfileService.ApplySystemProfiles": {
             "title": "ApplySystemProfiles",
             "target": "/redfish/v1/Managers/1/Oem/Lenovo/ServerProfile/Actions/LenovoServerProfileService.ApplySystemProfiles"
         }
     },
-    "Description": "This resource is used to represent a server profile service for a Redfish implementation."
+    "@odata.context": "/redfish/v1/$metadata#LenovoServerProfileService.LenovoServerProfileService",
+    "ServerPort": 636,
+    "ServerIP": "",
+    "Password": null,
+    "Certificates": {
+        "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/ServerProfile/Certificates"
+    },
+    "@odata.etag": "\"57e317ad36e22a2f30f\"",
+    "Id": "ServerProfile",
+    "Name": "Server Profile",
+    "@odata.type": "#LenovoServerProfileService.v1_0_0.LenovoServerProfileService"
 }

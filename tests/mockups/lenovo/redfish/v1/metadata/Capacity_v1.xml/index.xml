@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---->
-<!-- Copyright 2015-2019 Storage Networking Industry Association (SNIA), USA. All rights reserved.-->
+<!-- Copyright 2015-2021 Storage Networking Industry Association (SNIA), USA. All rights reserved.-->
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
 
   <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/csd01/complete/vocabularies/Org.OData.Core.V1.xml">
@@ -27,7 +27,7 @@
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/swordfish/v1/StoragePoolCollection_v1.xml">
     <edmx:Include Namespace="StoragePoolCollection"/>
   </edmx:Reference>
-  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/swordfish/v1/DriveCollection_v1.xml">
+  <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/DriveCollection_v1.xml">
     <edmx:Include Namespace="DriveCollection"/>
   </edmx:Reference>
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/MemoryChunksCollection_v1.xml">
@@ -286,6 +286,13 @@
       <Annotation Term="Redfish.OwningEntity" String="SNIA"/>
       <Annotation Term="OData.Description" String="This version adds URIs for Systems/Storage use of CapacitySource."/>
       <EntityType Name="CapacitySource" BaseType="Capacity.v1_1_2.CapacitySource"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Capacity.v1_2_0">
+      <Annotation Term="Redfish.OwningEntity" String="SNIA"/>
+      <Annotation Term="Redfish.Release" String="TP v1.2.2"/>
+      <Annotation Term="OData.Description" String="This version was created to change the reference for DriveCollection_v1 to the Redfish version."/>
+      <EntityType Name="CapacitySource" BaseType="Capacity.v1_1_3.CapacitySource"/>
     </Schema>
 
   </edmx:DataServices>

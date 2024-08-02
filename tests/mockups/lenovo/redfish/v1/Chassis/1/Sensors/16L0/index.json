@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/16L0",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "ReadingUnits": "",
-    "Reading": 0,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1"
+        }
+    ],
     "PhysicalContext": "StorageDevice",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "ReadingUnits": "",
+    "RelatedItem@odata.count": 1,
+    "Reading": 0,
+    "ReadingType": null,
+    "Status": {
+        "Health": null,
+        "State": "Enabled"
+    },
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"3074c405135f2a2484a\"",
     "Id": "16L0",
     "Name": "Lane Failover",
-    "@odata.etag": "\"267d6a1ad7bd24e6150\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "@odata.type": "#Sensor.v1_5_0.Sensor"
 }

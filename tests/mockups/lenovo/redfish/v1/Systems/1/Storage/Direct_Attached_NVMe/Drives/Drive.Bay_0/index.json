@@ -1,57 +1,58 @@
 {
-    "SerialNumber": "PHAB1234034Z1P9SGN",
-    "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe/Drives/Drive.Bay_0",
-    "Revision": "2CV1L028",
+    "EncryptionStatus": null,
+    "@odata.type": "#Drive.v1_14_0.Drive",
+    "Manufacturer": "MICRON",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "@odata.context": "/redfish/v1/$metadata#Drive.Drive",
+    "Identifiers": [
+        {
+            "DurableName": null,
+            "DurableNameFormat": "UUID"
+        }
+    ],
     "Links": {
-        "Volumes": [],
         "Chassis": {
             "@odata.id": "/redfish/v1/Chassis/1"
         },
-        "PCIeFunctions": []
+        "PCIeFunctions": [],
+        "Volumes": []
     },
-    "Protocol": "NVMe",
-    "EncryptionAbility": null,
-    "Id": "Drive.Bay_0",
-    "CapableSpeedGbs": null,
-    "CapacityBytes": 1600000000000,
-    "AssetTag": "",
-    "PartNumber": "SSS7A43225",
-    "EncryptionStatus": null,
-    "MediaType": "SSD",
-    "Description": "This resource is used to represent a drive for a Redfish implementation.",
-    "Manufacturer": "LENOVO (Intel)",
-    "RotationSpeedRPM": 0,
-    "NegotiatedSpeedGbs": null,
-    "HotspareType": "None",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "BlockSizeBytes": null,
-    "Name": "1.60TB NVMe SSD",
-    "SKU": "02JG609",
-    "Identifiers": [
-        {
-            "DurableNameFormat": "UUID",
-            "DurableName": ""
+    "Revision": "E2MU200",
+    "PhysicalLocation": {
+        "PartLocation": {
+            "LocationOrdinalValue": 0,
+            "ServiceLabel": "Drive 0",
+            "LocationType": "Bay"
         }
-    ],
+    },
+    "NegotiatedSpeedGbs": null,
     "Oem": {
         "Lenovo": {
             "@odata.type": "#LenovoDrive.v1_0_0.LenovoDrive",
-            "Temperature": 33
-        }
-    },
-    "@odata.type": "#Drive.v1_9_1.Drive",
-    "PhysicalLocation": {
-        "PartLocation": {
-            "LocationType": "Bay",
-            "ServiceLabel": "Drive 0",
-            "LocationOrdinalValue": 0
+            "Temperature": 36
         }
     },
     "PredictedMediaLifeLeftPercent": 100,
-    "@odata.etag": "\"88b99efd6b332970829\"",
-    "Model": "SSDPF2KE016T9L",
-    "FailurePredicted": false
+    "Id": "Drive.Bay_0",
+    "Name": "7.68TB EDSFF NVMe SSD",
+    "Protocol": "NVMe",
+    "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe/Drives/Drive.Bay_0",
+    "BlockSizeBytes": null,
+    "PartNumber": "MTFDKBZ7T6TFR",
+    "FailurePredicted": false,
+    "Model": "Micron_7450_MTFDKBZ7T6TFR",
+    "Description": "This resource is used to represent a drive for a Redfish implementation.",
+    "MediaType": "SSD",
+    "CapacityBytes": 7680000000000,
+    "SKU": "233242BE0C46",
+    "CapableSpeedGbs": null,
+    "EncryptionAbility": null,
+    "SerialNumber": "233242BE0C46",
+    "@odata.etag": "\"8df17c4dbf742af60e8\"",
+    "HotspareType": "None",
+    "RotationSpeedRPM": 0,
+    "AssetTag": ""
 }

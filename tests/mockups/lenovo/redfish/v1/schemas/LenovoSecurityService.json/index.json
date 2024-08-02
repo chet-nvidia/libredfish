@@ -1,18 +1,19 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoSecurityService.LenovoSecurityService",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LenovoSecurityService.json",
     "$ref": "#/definitions/LenovoSecurityService",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "LenovoSecurityService": {
             "anyOf": [
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/idRef"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/idRef"
                 },
                 {
-                    "$ref": "/schemas/v1/Lenovo/LenovoSecurityService.v1_0_0.json#/definitions/LenovoSecurityService"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/LenovoSecurityService.v1_0_0.json#/definitions/LenovoSecurityService"
                 }
             ]
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "title": "#LenovoSecurityService.LenovoSecurityService"
 }

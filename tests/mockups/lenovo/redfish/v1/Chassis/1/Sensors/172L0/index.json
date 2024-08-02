@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/172L0",
+    "PhysicalContext": null,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ],
+    "RelatedItem@odata.count": 1,
+    "Reading": 0,
+    "ReadingType": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": "OK",
+        "State": "Enabled"
     },
     "ReadingUnits": "",
-    "Reading": 0,
-    "PhysicalContext": null,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"2ff8f8d126f42a29392\"",
     "Id": "172L0",
     "Name": "PCIe Conn 15",
-    "@odata.etag": "\"265cbe1acb22266601c\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "@odata.type": "#Sensor.v1_5_0.Sensor"
 }

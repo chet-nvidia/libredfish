@@ -1,9 +1,0 @@
-{
-    "Members": [],
-    "@odata.type": "#NetworkPortCollection.NetworkPortCollection",
-    "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/slot-5/NetworkPorts",
-    "Members@odata.count": 0,
-    "@odata.etag": "\"22f66321cb5224e251d\"",
-    "Name": "NetworkPortCollection",
-    "Description": "A collection of NetworkPort resource instances."
-}

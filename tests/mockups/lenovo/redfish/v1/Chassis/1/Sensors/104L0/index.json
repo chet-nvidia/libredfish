@@ -1,9 +1,34 @@
 {
-    "ReadingRangeMax": 255,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/104L0",
-    "ReadingRangeMin": 0,
+    "MaxAllowableOperatingValue": 255,
     "ReadingUnits": "C",
+    "PhysicalContext": "ComputeBay",
+    "Precision": 0,
+    "Id": "104L0",
+    "Name": "PCIe 9 Temp",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/104L0",
+    "Reading": 25,
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "RelatedItem@odata.count": 1,
+    "ReadingRangeMin": 0,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ],
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
     "Thresholds": {
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
         "LowerFatal": {
             "Activation": "Decreasing",
             "Reading": null
@@ -12,36 +37,18 @@
             "Activation": "Increasing",
             "Reading": null
         },
-        "LowerCritical": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperFatal": {
-            "Activation": "Increasing",
-            "Reading": null
-        },
         "LowerCaution": {
             "Activation": "Decreasing",
             "Reading": null
         },
-        "UpperCritical": {
-            "Activation": "Increasing",
+        "LowerCritical": {
+            "Activation": "Decreasing",
             "Reading": null
         }
     },
-    "PhysicalContext": "ComputeBay",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Disabled",
-        "Health": null
-    },
-    "Reading": null,
-    "Precision": 0,
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "ReadingRangeMax": 255,
+    "@odata.etag": "\"6c19be6c62602a2eedd\"",
     "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 255,
-    "Name": "PCIe 9 Temp",
-    "@odata.etag": "\"64e9222851d62a2d6af\"",
-    "Id": "104L0",
     "ReadingType": "Temperature"
 }

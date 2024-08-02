@@ -1,78 +1,79 @@
 {
+    "PersistentRegionSizeLimitMiB": null,
+    "Regions": [],
+    "SerialNumber": "802C0F2323410FF6ED",
+    "PartNumber": "36ASF8G72PZ-3G2F1",
+    "SubsystemVendorID": "0x0000",
+    "DataWidthBits": 64,
+    "OperatingSpeedMhz": 3200,
+    "Id": "14",
+    "Name": "DIMM 14",
+    "@odata.type": "#Memory.v1_14_0.Memory",
+    "@odata.id": "/redfish/v1/Systems/1/Memory/14",
+    "MemoryLocation": {
+        "Slot": 14,
+        "MemoryController": 0,
+        "Channel": 0,
+        "Socket": 1
+    },
+    "SecurityCapabilities": {},
+    "SubsystemDeviceID": "0x0000",
+    "MemoryDeviceType": "DDR4",
+    "CapacityMiB": 65536,
+    "VendorID": "Micron Technology",
+    "DeviceLocator": "DIMM 14",
+    "MemorySubsystemControllerProductID": "0x0000",
+    "ModuleManufacturerID": "0x2c80",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "ModuleProductID": "0x0000",
+    "BaseModuleType": "RDIMM",
+    "MemoryMedia": [
+        "DRAM"
+    ],
+    "OperatingMemoryModes": [
+        "Volatile"
+    ],
+    "VolatileRegionSizeLimitMiB": null,
     "AllowedSpeedsMHz": [
         3200
     ],
-    "VolatileRegionSizeLimitMiB": null,
-    "MemoryDeviceType": "DDR4",
-    "Id": "14",
-    "MemorySubsystemControllerProductID": "0x0000",
+    "SubsystemVendorID@Redfish.Deprecated": "The property is deprecated. Please use MemorySubsystemControllerManufacturerID instead.",
+    "@odata.context": "/redfish/v1/$metadata#Memory.Memory",
+    "DeviceLocator@Redfish.Deprecated": "The property is deprecated since v4_1_0. Please use Location/PartLocation/ServiceLabel instead.",
+    "MemorySubsystemControllerManufacturerID": "0x0000",
+    "FunctionClasses": [
+        "Volatile"
+    ],
+    "RankCount": 1,
+    "SubsystemDeviceID@Redfish.Deprecated": "The property is deprecated. Please use MemorySubsystemControllerProductID instead.",
+    "VendorID@Redfish.Deprecated": "The property is deprecated. Please use ModuleManufacturerID instead.",
+    "Description": "This resource is used to represent a memory for a Redfish implementation.",
+    "Manufacturer": "Micron Technology",
+    "DeviceID@Redfish.Deprecated": "The property is deprecated. Please use ModuleProductID instead.",
     "Links": {
         "Chassis": {
             "@odata.id": "/redfish/v1/Chassis/1"
         }
     },
-    "MemoryMedia": [
-        "DRAM"
-    ],
+    "@odata.etag": "\"e38b3587f62a32c506a11\"",
+    "MemoryType": "DRAM",
     "Location": {
         "PartLocation": {
-            "LocationType": "Slot",
             "ServiceLabel": "DIMM 14",
-            "LocationOrdinalValue": 13
+            "LocationOrdinalValue": 13,
+            "LocationType": "Slot"
         }
     },
-    "DeviceID@Redfish.Deprecated": "The property is deprecated. Please use ModuleProductID instead.",
-    "MemoryLocation": {
-        "Channel": 2,
-        "MemoryController": 1,
-        "Slot": 14,
-        "Socket": 2
-    },
-    "MemorySubsystemControllerManufacturerID": "0x0000",
-    "MemoryType": "DRAM",
-    "DeviceLocator": "DIMM 14",
-    "DataWidthBits": 64,
+    "BusWidthBits": 72,
+    "VolatileSizeMiB": 65536,
+    "DeviceID": "DIMM_14",
     "Oem": {
         "Lenovo": {
-            "@odata.type": "#LenovoMemory.v1_0_0.LenovoMemory",
-            "FruPartNumber": "02JK239"
+            "FruPartNumber": "02JK971",
+            "@odata.type": "#LenovoMemory.v1_0_0.LenovoMemory"
         }
-    },
-    "DeviceLocator@Redfish.Deprecated": "The property is deprecated since v4_1_0. Please use Location/PartLocation/ServiceLabel instead.",
-    "RankCount": 1,
-    "SubsystemVendorID@Redfish.Deprecated": "The property is deprecated. Please use MemorySubsystemControllerManufacturerID instead.",
-    "@odata.etag": "\"de7d3c94ef0731d6844c5\"",
-    "VendorID": "Samsung",
-    "Regions": [],
-    "ModuleProductID": "0x0000",
-    "@odata.id": "/redfish/v1/Systems/1/Memory/14",
-    "BusWidthBits": 72,
-    "PartNumber": "M393A4G43AB3-CWE",
-    "SerialNumber": "0428DB78",
-    "SubsystemDeviceID@Redfish.Deprecated": "The property is deprecated. Please use MemorySubsystemControllerProductID instead.",
-    "CapacityMiB": 32768,
-    "Description": "This resource is used to represent a memory for a Redfish implementation.",
-    "@odata.type": "#Memory.v1_9_1.Memory",
-    "DeviceID": "DIMM_14",
-    "SubsystemDeviceID": "0x0000",
-    "OperatingMemoryModes": [
-        "Volatile"
-    ],
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Manufacturer": "Samsung",
-    "VendorID@Redfish.Deprecated": "The property is deprecated. Please use ModuleManufacturerID instead.",
-    "ModuleManufacturerID": "0xce80",
-    "SecurityCapabilities": {},
-    "SubsystemVendorID": "0x0000",
-    "OperatingSpeedMhz": 3200,
-    "BaseModuleType": "RDIMM",
-    "Name": "DIMM 14",
-    "PersistentRegionSizeLimitMiB": null,
-    "VolatileSizeMiB": 32768,
-    "FunctionClasses": [
-        "Volatile"
-    ]
+    }
 }

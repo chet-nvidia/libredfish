@@ -1,24 +1,37 @@
 {
+    "Reading": 6102,
+    "ReadingRangeMin": 0,
     "ReadingRangeMax": 13770,
     "Id": "85L0",
-    "ReadingRangeMin": 0,
+    "MinAllowableOperatingValue": 0,
+    "ReadingType": "AirFlow",
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/85L0",
+    "MaxAllowableOperatingValue": 13770,
     "ReadingUnits": "RPM",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/ThermalSubsystem/Fans/Fan_3B_Tach"
+        }
+    ],
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "@odata.etag": "\"6e21db015dba29712a0\"",
+    "PhysicalContext": null,
+    "Precision": 0,
+    "RelatedItem@odata.count": 1,
     "Thresholds": {
-        "LowerFatal": {
+        "LowerCritical": {
             "Activation": "Decreasing",
-            "Reading": null
+            "Reading": 432
         },
         "UpperCaution": {
             "Activation": "Increasing",
             "Reading": null
-        },
-        "LowerCaution": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "LowerCritical": {
-            "Activation": "Decreasing",
-            "Reading": 432
         },
         "UpperFatal": {
             "Activation": "Increasing",
@@ -27,21 +40,15 @@
         "UpperCritical": {
             "Activation": "Increasing",
             "Reading": null
+        },
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
         }
     },
-    "PhysicalContext": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Name": "Fan 3B Tach",
-    "Precision": 0,
-    "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 13770,
-    "ReadingType": "AirFlow",
-    "@odata.etag": "\"60cbe670a5af2a308b4\"",
-    "Reading": 4266,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/85L0"
+    "Name": "Fan 3B Tach"
 }

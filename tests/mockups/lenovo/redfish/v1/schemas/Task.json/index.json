@@ -2,7 +2,7 @@
     "$id": "http://redfish.dmtf.org/schemas/v1/Task.json",
     "$ref": "#/definitions/Task",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2020 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "Task": {
             "anyOf": [
@@ -10,19 +10,22 @@
                     "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/idRef"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.v1_0_8.json#/definitions/Task"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.v1_0_9.json#/definitions/Task"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.v1_1_5.json#/definitions/Task"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.v1_1_6.json#/definitions/Task"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.v1_2_4.json#/definitions/Task"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.v1_2_5.json#/definitions/Task"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.v1_3_4.json#/definitions/Task"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.v1_3_5.json#/definitions/Task"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.v1_4_3.json#/definitions/Task"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.v1_4_4.json#/definitions/Task"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.v1_5_1.json#/definitions/Task"
                 }
             ],
             "deletable": true,
@@ -31,7 +34,8 @@
             "longDescription": "This Resource contains a Task for a Redfish implementation.",
             "updatable": false,
             "uris": [
-                "/redfish/v1/TaskService/Tasks/{TaskId}"
+                "/redfish/v1/TaskService/Tasks/{TaskId}",
+                "/redfish/v1/TaskService/Tasks/{TaskId}/SubTasks/{TaskId2}"
             ]
         }
     },

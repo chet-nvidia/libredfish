@@ -1,6 +1,4 @@
 {
-    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo",
-    "Id": "SubmitTestMetricReport",
     "@odata.id": "/redfish/v1/TelemetryService/SubmitTestMetricReportActionInfo",
     "Parameters": [
         {
@@ -15,6 +13,9 @@
             "DataType": "ObjectArray"
         }
     ],
+    "Description": "This action is used to generate a metric report.",
+    "@odata.context": "/redfish/v1/$metadata#ActionInfo.ActionInfo",
+    "Id": "SubmitTestMetricReport",
     "Name": "SubmitTestMetricReport",
-    "Description": "This action is used to generate a metric report."
+    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo"
 }

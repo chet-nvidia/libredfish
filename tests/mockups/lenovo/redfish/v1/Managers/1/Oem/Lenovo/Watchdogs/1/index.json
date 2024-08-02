@@ -1,13 +1,14 @@
 {
-    "TimerExpired": false,
     "@odata.id": "/redfish/v1/Managers/1/Oem/Lenovo/Watchdogs/1",
     "State": "Disabled",
-    "Name": "Watch dog",
-    "Id": "1",
-    "@odata.type": "#LenovoWatchdog.v1_0_0.LenovoWatchdog",
     "TimerValueInSec": null,
-    "Type": "OSBootProcess",
-    "@odata.etag": "\"3460597aa3da28a3ca8\"",
+    "Description": "This resource is used to represent a watchdog of a system for a Redfish implementation.",
+    "@odata.type": "#LenovoWatchdog.v1_0_0.LenovoWatchdog",
+    "@odata.context": "/redfish/v1/$metadata#LenovoWatchdog.LenovoWatchdog",
+    "Name": "Watch dog",
     "TimeoutIntervalInSec": null,
-    "Description": "This resource is used to represent a watchdog of a system for a Redfish implementation."
+    "@odata.etag": "\"3861db81e6d424e943b\"",
+    "Id": "1",
+    "TimerExpired": false,
+    "Type": "OSBootProcess"
 }

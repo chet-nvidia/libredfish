@@ -1,57 +1,69 @@
 {
-    "SerialNumber": "1322221026831",
-    "Id": "slot_4",
-    "Links": {
-        "Links/PCIeFunctions@Redfish.Deprecated": "The property is deprecated. Please use PCIeFunctions instead.",
-        "Chassis": [
-            {
-                "@odata.id": "/redfish/v1/Chassis/1"
-            }
-        ],
-        "PCIeFunctions": [
-            {
-                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_4/PCIeFunctions/slot_4.00"
-            }
-        ]
-    },
+    "SKU": "N/A",
     "PCIeFunctions": {
         "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_4/PCIeFunctions"
     },
     "PCIeInterface": {
-        "LanesInUse": 16,
-        "MaxPCIeType": "Gen4",
         "MaxLanes": 16,
-        "PCIeType": "Gen4"
+        "PCIeType": "Gen4",
+        "LanesInUse": 16,
+        "MaxPCIeType": "Gen4"
     },
-    "PartNumber": "",
-    "Description": "This resource represents the properties of a PCIeDevice attached to a System.",
-    "FirmwareVersion": "94.02.5C.00.02",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Name": "NVIDIA Quadro RTX A6000",
-    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_4",
-    "SKU": "N/A",
-    "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
     "Oem": {
         "Lenovo": {
             "@odata.type": "#LenovoDeviceInfo.v1_0_0.LenovoDeviceInfo",
             "Location": {
-                "PartLocation": {
-                    "LocationType": "Slot",
-                    "ServiceLabel": "PCIe 4",
-                    "LocationOrdinalValue": 4
-                },
                 "InfoFormat": "Slot X",
-                "Info": "Slot 4",
                 "Info@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead.",
-                "InfoFormat@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead."
+                "PartLocation": {
+                    "LocationOrdinalValue": 4,
+                    "ServiceLabel": "PCIe 4",
+                    "LocationType": "Slot"
+                },
+                "InfoFormat@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead.",
+                "Info": "Slot 4"
             }
         }
     },
-    "Manufacturer": "NVIDIA",
-    "@odata.etag": "\"905ae5efe5623597f308d\"",
+    "PartNumber": "26B5-895-A1",
+    "Name": "NVIDIA L40",
     "Model": "N/A",
-    "DeviceType": "SingleFunction"
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_4",
+    "SerialNumber": "1325322003616",
+    "DeviceType": "SingleFunction",
+    "Links": {
+        "Links/PCIeFunctions@Redfish.Deprecated": "The property is deprecated. Please use PCIeFunctions instead.",
+        "PCIeFunctions": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_4/PCIeFunctions/slot_4.00"
+            }
+        ],
+        "Chassis": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1"
+            }
+        ]
+    },
+    "Description": "This resource represents the properties of a PCIeDevice attached to a System.",
+    "Manufacturer": "NVIDIA",
+    "@odata.type": "#PCIeDevice.v1_9_0.PCIeDevice",
+    "@odata.context": "/redfish/v1/$metadata#PCIeDevice.PCIeDevice",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "@odata.etag": "\"a47d30ac17a03594f7d76\"",
+    "Slot": {
+        "Location": {
+            "InfoFormat": "Slot X",
+            "Info": "Slot 4",
+            "PartLocation": {
+                "LocationOrdinalValue": 4,
+                "ServiceLabel": "PCIe 4",
+                "LocationType": "Slot"
+            }
+        }
+    },
+    "Id": "slot_4",
+    "FirmwareVersion": "95.02.39.00.01"
 }

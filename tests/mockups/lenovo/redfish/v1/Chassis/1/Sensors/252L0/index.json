@@ -1,10 +1,11 @@
 {
-    "ReadingRangeMax": 255,
-    "Id": "252L0",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
     "ReadingRangeMin": 255,
-    "ReadingUnits": "C",
     "Thresholds": {
-        "LowerFatal": {
+        "LowerCritical": {
             "Activation": "Decreasing",
             "Reading": null
         },
@@ -12,11 +13,11 @@
             "Activation": "Increasing",
             "Reading": null
         },
-        "UpperFatal": {
+        "UpperCritical": {
             "Activation": "Increasing",
             "Reading": null
         },
-        "LowerCritical": {
+        "LowerFatal": {
             "Activation": "Decreasing",
             "Reading": null
         },
@@ -24,24 +25,33 @@
             "Activation": "Decreasing",
             "Reading": null
         },
-        "UpperCritical": {
+        "UpperFatal": {
             "Activation": "Increasing",
             "Reading": null
         }
     },
-    "PhysicalContext": "Back",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
+    "Id": "252L0",
     "Name": "Exhaust Temp",
-    "Precision": 0,
+    "ReadingRangeMax": 255,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/252L0",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Thermal"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/ThermalSubsystem"
+        }
+    ],
     "MinAllowableOperatingValue": 255,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 255,
     "ReadingType": "Temperature",
-    "@odata.etag": "\"62cbe351c68825abb10\"",
-    "Reading": 79,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/252L0"
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "MaxAllowableOperatingValue": 255,
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "ReadingUnits": "C",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "PhysicalContext": "Back",
+    "@odata.etag": "\"73b145efecb42673902\"",
+    "Precision": 0,
+    "RelatedItem@odata.count": 2,
+    "Reading": 25
 }

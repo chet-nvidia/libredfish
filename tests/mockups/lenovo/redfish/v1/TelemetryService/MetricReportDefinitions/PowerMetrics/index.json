@@ -1,6 +1,10 @@
 {
-    "ReportUpdates": "AppendWrapsWhenFull",
     "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/PowerMetrics",
+    "@odata.type": "#MetricReportDefinition.v1_4_1.MetricReportDefinition",
+    "MetricReport": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReports/PowerMetrics"
+    },
+    "AppendLimit": 25920,
     "Wildcards": [
         {
             "Name": "PWild",
@@ -11,32 +15,29 @@
             ]
         }
     ],
-    "Status": {
-        "State": "Enabled"
-    },
-    "Id": "PowerMetrics",
-    "Name": "PowerMetrics",
+    "Description": "A set of metrics that are collected into a metric report.",
+    "@odata.context": "/redfish/v1/$metadata#MetricReportDefinition.MetricReportDefinition",
     "Metrics": [
         {
-            "CollectionTimeScope": "Interval",
-            "CollectionDuration": "PT30S",
             "MetricProperties": [
                 "/redfish/v1/Chassis/1/Power#/PowerControl/{PWild}/PowerMetrics/MaxConsumedWatts",
                 "/redfish/v1/Chassis/1/Power#/PowerControl/{PWild}/PowerMetrics/AverageConsumedWatts",
                 "/redfish/v1/Chassis/1/Power#/PowerControl/{PWild}/PowerMetrics/MinConsumedWatts"
-            ]
+            ],
+            "CollectionDuration": "PT30S",
+            "CollectionTimeScope": "Interval"
         }
     ],
+    "ReportTimespan": "PT24H",
     "ReportActions": [
         "LogToMetricReportsCollection"
     ],
+    "ReportUpdates": "AppendWrapsWhenFull",
     "MetricReportDefinitionType": "OnRequest",
-    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
-    "MetricReport": {
-        "@odata.id": "/redfish/v1/TelemetryService/MetricReports/PowerMetrics"
-    },
-    "AppendLimit": 25920,
-    "@odata.etag": "\"80ccaed80ae4266fc9c\"",
-    "ReportTimespan": "PT24H",
-    "Description": "A set of metrics that are collected into a metric report."
+    "@odata.etag": "\"858f84793b7827309c0\"",
+    "Id": "PowerMetrics",
+    "Name": "PowerMetrics",
+    "Status": {
+        "State": "Enabled"
+    }
 }

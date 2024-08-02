@@ -1,14 +1,39 @@
 {
-    "ReadingRangeMax": 255,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/96L0",
-    "ReadingRangeMin": 0,
     "ReadingUnits": "C",
+    "PhysicalContext": "ComputeBay",
+    "Status": {
+        "Health": null,
+        "State": "Disabled"
+    },
+    "Id": "96L0",
+    "Name": "PCIe 1 Temp",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ],
+    "RelatedItem@odata.count": 1,
+    "Reading": null,
+    "ReadingRangeMin": 0,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "ReadingRangeMax": 255,
+    "Precision": 0,
+    "MinAllowableOperatingValue": 0,
+    "ReadingType": "Temperature",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"6e4f34201e8824f12d1\"",
+    "MaxAllowableOperatingValue": 255,
     "Thresholds": {
-        "LowerFatal": {
+        "LowerCaution": {
             "Activation": "Decreasing",
             "Reading": null
         },
         "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "UpperCritical": {
             "Activation": "Increasing",
             "Reading": null
         },
@@ -20,28 +45,10 @@
             "Activation": "Decreasing",
             "Reading": null
         },
-        "LowerCaution": {
+        "LowerFatal": {
             "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperCritical": {
-            "Activation": "Increasing",
             "Reading": null
         }
     },
-    "PhysicalContext": "ComputeBay",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Disabled",
-        "Health": null
-    },
-    "Name": "PCIe 1 Temp",
-    "Precision": 0,
-    "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 255,
-    "Id": "96L0",
-    "@odata.etag": "\"64b2f9e1b9b628ad65b\"",
-    "ReadingType": "Temperature",
-    "Reading": null
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/96L0"
 }

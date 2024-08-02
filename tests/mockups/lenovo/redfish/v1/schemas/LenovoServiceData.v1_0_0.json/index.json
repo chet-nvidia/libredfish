@@ -1,37 +1,229 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoServiceData.v1_0_0",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LenovoServiceData.v1_0_0.json",
     "$ref": "#/definitions/LenovoServiceData",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
-        "LenovoServiceData": {
-            "type": "object",
+        "Actions": {
+            "additionalProperties": false,
+            "description": "The Actions object contains the available custom actions on this resource.",
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
+            "properties": {
+                "#LenovoServiceData.ExportFFDCData": {
+                    "$ref": "#/definitions/ExportFFDCData"
+                },
+                "#LenovoServiceData.ExportHealthReport": {
+                    "$ref": "#/definitions/ExportHealthReport"
+                },
+                "#LenovoServiceData.ExportLatestOSFailureScreen": {
+                    "$ref": "#/definitions/ExportLatestOSFailureScreen"
+                }
+            },
+            "type": "object"
+        },
+        "CollectionType": {
+            "enum": [
+                "ProcessorDump",
+                "ServiceDataFile"
+            ],
+            "type": "string"
+        },
+        "ExportFFDCData": {
             "additionalProperties": false,
+            "description": "If 'ExportURI,Username,Password' are all NULL, the action will directly return the content of FFDC.",
+            "parameters": {
+                "DataCollectionType": {
+                    "$ref": "#/definitions/CollectionType",
+                    "description": "The FFDC data collection type.",
+                    "requiredParameter": true
+                },
+                "ExportURI": {
+                    "description": "Indicates the location to which FFDC shall be exported.",
+                    "type": "string"
+                },
+                "InitializationNeeded": {
+                    "description": "Indicate whether the FFDC shall do initialization before collection.",
+                    "requiredParameter": true,
+                    "type": "boolean"
+                },
+                "Password": {
+                    "description": "The password for security credential to the URI. It can be NULL if not required.",
+                    "type": "string"
+                },
+                "Username": {
+                    "description": "The username for security credential to the URI. It can be NULL if not required.",
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ExportHealthReport": {
+            "additionalProperties": false,
+            "description": "The action to export system health report.",
+            "parameters": {},
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ExportLatestOSFailureScreen": {
+            "additionalProperties": false,
+            "description": "The OS watchdog feature must be enabled to capture the OS failure screen.",
+            "parameters": {},
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "FFDCData": {
+            "additionalProperties": false,
+            "description": "This object is uesd to represent the action response data.",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "DownloadURI": {
+                    "description": "Indicates a URI for downloading file",
+                    "longDescription": "The value of this property shall indicate a URI for downloading file of FFDC data",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LenovoServiceData": {
+            "additionalProperties": false,
+            "description": "This schema defines a resource for user to collect service Data.",
+            "longDescription": "This resource shall be used to represent resources that is used to collect service Data,including FFDC and latest OS failure screen. ",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
             "properties": {
                 "@odata.context": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/context"
+                },
+                "@odata.etag": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/etag"
                 },
                 "@odata.id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/id"
                 },
                 "@odata.type": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/type"
                 },
-                "Id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
+                "Actions": {
+                    "$ref": "#/definitions/Actions",
+                    "description": "The manufacturer of the firmware.",
+                    "longDescription": "The value of this property shall be the manufacturer of the firmware.",
                     "readonly": true
+                },
+                "DataCollectionType": {
+                    "$ref": "#/definitions/CollectionType",
+                    "description": "The supported collection type.",
+                    "readonly": false
                 },
                 "Description": {
                     "anyOf": [
@@ -44,286 +236,50 @@
                     ],
                     "readonly": true
                 },
+                "ExportingSchemes": {
+                    "$ref": "#/definitions/SchemesType",
+                    "description": "The supported file transfer mode.",
+                    "readonly": false
+                },
+                "FileTransferTimeout": {
+                    "description": "The duration of maximum time for exporting the FFDC collected data.",
+                    "readonly": true,
+                    "type": "number"
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
+                    "readonly": true
+                },
+                "IsScreenAvailable": {
+                    "description": "Indicates whether an OS Failure Screen has been captured or not.",
+                    "readonly": true,
+                    "type": "boolean"
+                },
                 "Name": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
                     "readonly": true
                 },
-                "CaptureTimeout": {
-                    "type": "number",
-                    "readonly": true,
-                    "description": "The duration of maximum time for initializing and collecting the FFDC data."
-                },
-                "FileTransferTimeout": {
-                    "type": "number",
-                    "readonly": true,
-                    "description": "The duration of maximum time for exporting the FFDC collected data."
-                },
-                "DataCollectionType": {
-                    "$ref": "#/definitions/CollectionType",
-                    "readonly": false,
-                    "description": "The supported collection type."
-                },
-                "ExportingSchemes": {
-                    "$ref": "#/definitions/SchemesType",
-                    "readonly": false,
-                    "description": "The supported file transfer mode."
-                },
-                "ExportProgress": {
-                    "type": "string",
-                    "readonly": true,
-                    "description": "Indicates collection progress. Only when it's 100%, the FFDC gotten from 'ExportURI' is available."
-                },
-                "IsScreenAvailable": {
-                    "type": "boolean",
-                    "readonly": true,
-                    "description": "Indicates whether an OS Failure Screen has been captured or not."
-                },
-                "Actions": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                            "type": [
-                                "array",
-                                "boolean",
-                                "number",
-                                "null",
-                                "object",
-                                "string"
-                            ],
-                            "description": "This property shall specify a valid odata or Redfish property."
-                        }
-                    },
-                    "additionalProperties": false,
-                    "properties": {
-                        "#LenovoServiceData.ExportFFDCData": {
-                            "$ref": "#/definitions/ExportFFDCData"
-                        },
-                        "#LenovoServiceData.ExportLatestOSFailureScreen": {
-                            "$ref": "#/definitions/ExportLatestOSFailureScreen"
-                        },
-                        "#LenovoServiceData.ExportHealthReport": {
-                            "$ref": "#/definitions/ExportHealthReport"
-                        }
-                    },
-                    "readonly": true,
-                    "description": "The Actions object contains the available custom actions on this resource."
+                "Oem": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Oem",
+                    "description": "The OEM extension property.",
+                    "longDescription": "This property shall contain the OEM extensions.  All values for properties that this object contains shall conform to the Redfish Specification-described requirements."
                 }
             },
-            "description": "This schema defines a resource for user to collect service Data.",
-            "longDescription": "This resource shall be used to represent resources that is used to collect service Data,including FFDC and latest OS failure screen. "
-        },
-        "ExportFFDCData": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
-                "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
-                },
-                "DataCollectionType": {
-                    "$ref": "#/definitions/CollectionType",
-                    "description": "The FFDC data collection type."
-                },
-                "InitializationNeeded": {
-                    "type": "Boolean",
-                    "description": "Indicate whether the FFDC shall do initialization before collection."
-                },
-                "Username": {
-                    "type": "string",
-                    "description": "The username for security credential to the URI. It can be NULL if not required."
-                },
-                "Password": {
-                    "type": "string",
-                    "description": "The password for security credential to the URI. It can be NULL if not required."
-                },
-                "ExportURI": {
-                    "type": "string",
-                    "format": "URI",
-                    "description": "Indicates the location to which FFDC shall be exported."
-                },
-                "Response": {
-                    "$ref": "#/definitions/FFDCData",
-                    "description": "Indicates what data shall be responded."
-                }
-            },
-            "description": "If 'ExportURI,Username,Password' are all NULL, the action will directly return the content of FFDC."
-        },
-        "ExportLatestOSFailureScreen": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
-                "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
-                },
-                "Response": {
-                    "$ref": "#/definitions/FailureScreen",
-                    "description": "Indicates what data will be response."
-                }
-            },
-            "description": "The OS watchdog feature must be enabled to capture the OS failure screen."
-        },
-        "ExportHealthReport": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
-                "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
-                },
-                "Response": {
-                    "$ref": "#/definitions/HealthReport",
-                    "description": "Indicates what data will be response."
-                }
-            },
-            "description": "The action to export system health report."
-        },
-        "FFDCData": {
-            "type": "object",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "additionalProperties": false,
-            "properties": {
-                "DownloadURI": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Indicates a URI for downloading file",
-                    "longDescription": "The value of this property shall indicate a URI for downloading file of FFDC data"
-                }
-            },
-            "description": "This object is uesd to represent the action response data."
-        },
-        "FailureScreen": {
-            "type": "object",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "additionalProperties": false,
-            "properties": {
-                "DownloadURI": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Indicates a URI for downloading file",
-                    "longDescription": "The value of this property shall indicate a URI for downloading file of failure screen"
-                }
-            },
-            "description": "This object is uesd to represent the action response data."
-        },
-        "HealthReport": {
-            "type": "object",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "additionalProperties": false,
-            "properties": {
-                "Report": {
-                    "type": "string",
-                    "description": "Indicates the health report xml.",
-                    "longDescription": "The value of this property shall indicating the health report xml."
-                }
-            },
-            "description": "This is uesd to represent the action response data."
+            "required": [
+                "@odata.id",
+                "@odata.type",
+                "Id",
+                "Name"
+            ],
+            "type": "object"
         },
         "SchemesType": {
-            "type": "string",
             "enum": [
                 "TFTP",
                 "SFTP"
-            ]
-        },
-        "CollectionType": {
-            "type": "string",
-            "enum": [
-                "ProcessorDump",
-                "ServiceDataFile",
-                "BootPOSTDump"
-            ]
+            ],
+            "type": "string"
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "title": "#LenovoServiceData.v1_0_0.LenovoServiceData"
 }

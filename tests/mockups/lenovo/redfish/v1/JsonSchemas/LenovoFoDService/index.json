@@ -1,18 +1,19 @@
 {
-    "Schema": "#LenovoFoDService.LenovoFoDService",
     "@odata.id": "/redfish/v1/JsonSchemas/LenovoFoDService",
-    "Name": "LenovoFoDService JSON Schema File",
-    "Languages": [
-        "en"
-    ],
+    "Description": "This represents the LenovoFoDService Schema File locator resource for a Redfish implementation.",
     "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "Schema": "#LenovoFoDService.LenovoFoDService",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoFoDService.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"4fbf7d60\"",
+    "@odata.etag": "\"f65fda82\"",
     "Id": "LenovoFoDService",
-    "Description": "This represents the LenovoFoDService Schema File locator resource for a Redfish implementation."
+    "Name": "LenovoFoDService JSON Schema File",
+    "Languages": [
+        "en"
+    ]
 }

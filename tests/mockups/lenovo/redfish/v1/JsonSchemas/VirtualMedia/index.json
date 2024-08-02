@@ -1,18 +1,19 @@
 {
-    "Schema": "#VirtualMedia.VirtualMedia",
     "@odata.id": "/redfish/v1/JsonSchemas/VirtualMedia",
-    "Name": "VirtualMedia JSON Schema File",
+    "Schema": "#VirtualMedia.VirtualMedia",
+    "Description": "This represents the VirtualMedia Schema File locator resource for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/VirtualMedia.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"2002ced1\"",
+    "@odata.etag": "\"d6ae7428\"",
     "Id": "VirtualMedia",
-    "Description": "This represents the VirtualMedia Schema File locator resource for a Redfish implementation."
+    "Name": "VirtualMedia JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

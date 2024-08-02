@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/191L0",
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": null,
+        "State": "Enabled"
     },
     "ReadingUnits": "",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "RelatedItem@odata.count": 1,
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ],
     "Reading": 0,
     "PhysicalContext": "StorageDevice",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "@odata.etag": "\"3104b192178d2a248bc\"",
     "Id": "191L0",
     "Name": "Drive Overtemp",
-    "@odata.etag": "\"270e2c2bb70724e61ec\"",
-    "ReadingType": "Temperature",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "ReadingType": "Temperature"
 }

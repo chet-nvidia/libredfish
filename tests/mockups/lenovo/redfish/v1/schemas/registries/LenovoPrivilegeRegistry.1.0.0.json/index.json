@@ -1,13 +1,14 @@
 {
-    "PrivilegesUsed": [
-        "Login"
-    ],
     "Mappings": [
         {
-            "Entity": "Power",
             "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -15,6 +16,29 @@
                         ]
                     }
                 ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "EnvironmentMetrics"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -32,60 +56,173 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "Power"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "PowerSubsystem"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "PowerSupply"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "PowerSupplyCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "PowerSupplyMetrics"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationBasic"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationAdvanced"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "ConfigurationNetworkingAndSecurity"
+                        ]
+                    }
+                ],
+                "DELETE": []
+            },
+            "Entity": "Control"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "ControlCollection"
         },
         {
             "Entity": "NetworkDeviceFunction",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationBasic"
-                        ]
-                    },
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationAdvanced"
-                        ]
-                    },
-                    {
-                        "Privilege": [
-                            "ConfigurationNetworkingAndSecurity"
-                        ]
-                    }
-                ],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            },
             "SubordinateOverrides": [
                 {
                     "Targets": [
                         "NetworkDeviceFunctionCollection"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
-                        "POST": [],
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
                         "HEAD": [
                             {
                                 "Privilege": [
@@ -93,45 +230,20 @@
                                 ]
                             }
                         ],
+                        "POST": [],
                         "PATCH": [],
-                        "GET": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ]
+                        "DELETE": []
                     }
                 }
-            ]
-        },
-        {
-            "Entity": "LenovoServerProfileTaskData",
+            ],
             "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoHistoryMetricValueContainer",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -139,6 +251,66 @@
                         ]
                     }
                 ],
+                "POST": [],
+                "PATCH": [
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationBasic"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationAdvanced"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "ConfigurationNetworkingAndSecurity"
+                        ]
+                    }
+                ],
+                "DELETE": []
+            }
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoServerProfileTaskData"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -146,19 +318,26 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoHistoryMetricValueContainer"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoAlertRecipientCollection",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
@@ -171,28 +350,20 @@
                         ]
                     }
                 ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoAlertRecipientCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "SerialInterface",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -200,6 +371,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -212,20 +384,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "SerialInterface"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoDNS",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -233,6 +404,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -245,20 +417,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoDNS"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "Chassis",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -266,6 +437,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -273,36 +445,12 @@
                         ]
                     }
                 ],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
+                "DELETE": []
+            },
+            "Entity": "Chassis"
         },
         {
             "Entity": "EthernetInterface",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            },
             "ResourceURIOverrides": [
                 {
                     "Targets": [
@@ -310,8 +458,13 @@
                         "/redfish/v1/Managers/1/EthernetInterfaces/ToHost/"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
-                        "POST": [],
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
                         "HEAD": [
                             {
                                 "Privilege": [
@@ -319,6 +472,7 @@
                                 ]
                             }
                         ],
+                        "POST": [],
                         "PATCH": [
                             {
                                 "Privilege": [
@@ -331,22 +485,18 @@
                                 ]
                             }
                         ],
-                        "GET": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ]
+                        "DELETE": []
                     }
                 }
-            ]
-        },
-        {
-            "Entity": "NetworkPort",
+            ],
             "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -354,21 +504,20 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            }
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LogEntryCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -376,21 +525,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "NetworkPort"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "Endpoint",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -398,21 +547,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "Port"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "PrivilegeRegistry",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -420,44 +569,78 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LogEntryCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "Endpoint"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "PrivilegeRegistry"
         },
         {
             "Entity": "Bios",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            },
             "ResourceURIOverrides": [
                 {
                     "Targets": [
                         "/redfish/v1/Systems/1/Bios"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
+                        "HEAD": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
                         "POST": [
                             {
                                 "Privilege": [
@@ -465,21 +648,8 @@
                                 ]
                             }
                         ],
-                        "HEAD": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ],
                         "PATCH": [],
-                        "GET": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ]
+                        "DELETE": []
                     }
                 },
                 {
@@ -487,8 +657,13 @@
                         "/redfish/v1/Systems/1/Bios/Pending"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
-                        "POST": [],
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
                         "HEAD": [
                             {
                                 "Privilege": [
@@ -496,6 +671,7 @@
                                 ]
                             }
                         ],
+                        "POST": [],
                         "PATCH": [
                             {
                                 "Privilege": [
@@ -503,44 +679,18 @@
                                 ]
                             }
                         ],
-                        "GET": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ]
+                        "DELETE": []
                     }
                 }
-            ]
-        },
-        {
-            "Entity": "MessageRegistryCollection",
+            ],
             "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "NetworkInterfaceCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -548,21 +698,20 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            }
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoGeneralInfo",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -570,21 +719,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MessageRegistryCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoFirmwareServiceCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -592,21 +741,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "NetworkInterfaceCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "TaskService",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -614,21 +763,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoGeneralInfo"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoManagerGroup",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -636,6 +785,51 @@
                         ]
                     }
                 ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoFirmwareServiceCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "TaskService"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -643,20 +837,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoManagerGroup"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "SessionService",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -664,6 +857,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -671,31 +865,24 @@
                         ]
                     }
                 ],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
+                "DELETE": []
+            },
+            "Entity": "SessionService"
         },
         {
-            "Entity": "ManagerAccount",
             "PropertyOverrides": [
                 {
                     "Targets": [
                         "Password"
                     ],
                     "OperationMap": {
-                        "DELETE": [
+                        "GET": [
                             {
                                 "Privilege": [
-                                    "UserAccountManagement"
+                                    "Login"
                                 ]
                             }
                         ],
-                        "POST": [],
                         "HEAD": [
                             {
                                 "Privilege": [
@@ -703,6 +890,7 @@
                                 ]
                             }
                         ],
+                        "POST": [],
                         "PATCH": [
                             {
                                 "Privilege": [
@@ -710,10 +898,43 @@
                                 ]
                             }
                         ],
+                        "DELETE": [
+                            {
+                                "Privilege": [
+                                    "UserAccountManagement"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ],
+            "Entity": "ManagerAccount",
+            "ResourceURIOverrides": [
+                {
+                    "Targets": [
+                        "/redfish/v1/AccountService/Accounts/HostBootStrap"
+                    ],
+                    "OperationMap": {
                         "GET": [
                             {
                                 "Privilege": [
                                     "Login"
+                                ]
+                            }
+                        ],
+                        "HEAD": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
+                        "POST": [],
+                        "PATCH": [],
+                        "DELETE": [
+                            {
+                                "Privilege": [
+                                    "UserAccountManagement"
                                 ]
                             }
                         ]
@@ -721,42 +942,46 @@
                 }
             ],
             "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [
+                    {
+                        "Privilege": [
+                            "UserAccountManagement"
+                        ]
+                    }
+                ],
                 "DELETE": [
                     {
                         "Privilege": [
                             "UserAccountManagement"
                         ]
                     }
-                ],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [
-                    {
-                        "Privilege": [
-                            "UserAccountManagement"
-                        ]
-                    }
-                ],
+                ]
+            }
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "Thermal",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -764,20 +989,28 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "Thermal"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "VolumeCollection",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
@@ -785,6 +1018,20 @@
                         ]
                     }
                 ],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "VolumeCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -792,21 +1039,21 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "ChassisCollection",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "ChassisCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -814,20 +1061,6 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "RoleCollection",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [
                     {
                         "Privilege": [
@@ -835,6 +1068,20 @@
                         ]
                     }
                 ],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "RoleCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -842,21 +1089,21 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "AttributeRegistry",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "AttributeRegistry"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -864,21 +1111,21 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoHistoryMetricValue",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoHistoryMetricValue"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -886,21 +1133,21 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoFoDService",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoFoDService"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -908,21 +1155,21 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "NetworkInterface",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "NetworkInterface"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -930,21 +1177,21 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "MemoryCollection",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MemoryCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -952,21 +1199,21 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "Drive",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "Drive"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -974,21 +1221,21 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "DriveCollection",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "DriveCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -996,31 +1243,88 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LicenseService"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LicenseCollection"
         },
         {
-            "Entity": "LenovoFirmwareService",
             "OperationMap": {
-                "DELETE": [],
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ]
+            },
+            "Entity": "License"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
                             "AdapterConfigurationAdvanced"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
                         ]
                     }
                 ],
@@ -1031,20 +1335,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoFirmwareService"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoLDAPClient",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1052,6 +1355,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -1064,20 +1368,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoLDAPClient"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoScheduledPowerActionCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1085,21 +1388,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoScheduledPowerActionCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "PCIeDeviceCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1107,21 +1410,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "PCIeDeviceCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "PCIeFunctionCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1129,21 +1432,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "PCIeFunctionCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "PCIeDevice",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1151,20 +1454,28 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "PCIeDevice"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "ManagerAccountCollection",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
@@ -1172,6 +1483,20 @@
                         ]
                     }
                 ],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "ManagerAccountCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1179,20 +1504,6 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoRemoteMapService",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [
                     {
                         "Privilege": [
@@ -1200,28 +1511,20 @@
                         ]
                     }
                 ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoRemoteMapService"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoScheduledPowerAction",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1229,6 +1532,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -1236,20 +1540,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoScheduledPowerAction"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "JsonSchemaFileCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1257,31 +1560,32 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "JsonSchemaFileCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoRemoteControlService",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
                             "RemoteConsoleAndVirtualMediaAccess"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
                         ]
                     }
                 ],
@@ -1297,20 +1601,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoRemoteControlService"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "Memory",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1318,21 +1621,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "Memory"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "MemoryMetrics",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1340,21 +1643,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MemoryMetrics"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoRemoteControlSessionCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1362,21 +1665,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoRemoteControlSessionCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoBootManager",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1384,6 +1687,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -1391,20 +1695,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoBootManager"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "BootOption",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1412,20 +1715,28 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "BootOption"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoSecurityService",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
@@ -1438,13 +1749,6 @@
                         ]
                     }
                 ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -1457,20 +1761,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoSecurityService"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "ComputerSystemCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1478,31 +1781,32 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "ComputerSystemCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "Manager",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
                             "AdapterConfigurationAdvanced"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
                         ]
                     }
                 ],
@@ -1518,19 +1822,26 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "Manager"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "SecureBoot",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
@@ -1538,13 +1849,6 @@
                         ]
                     }
                 ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -1552,20 +1856,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "SecureBoot"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "ManagerNetworkProtocol",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1573,6 +1876,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -1585,48 +1889,47 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "ManagerNetworkProtocol"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoRemoteMapMedia",
-            "OperationMap": {
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
                 "DELETE": [
                     {
                         "Privilege": [
                             "RemoteConsoleAndVirtualMediaAccess"
                         ]
                     }
-                ],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
+                ]
+            },
+            "Entity": "LenovoRemoteMapMedia"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoSMTPClient",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1634,6 +1937,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -1646,20 +1950,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoSMTPClient"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoPortForwarding",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1667,6 +1970,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -1674,20 +1978,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoPortForwarding"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "MessageRegistryFile",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1695,21 +1998,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MessageRegistryFile"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "NetworkPortCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1717,21 +2020,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "NetworkPortCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "Processor",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1739,21 +2042,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "PortCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "StorageCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1761,21 +2064,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "Processor"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "StoragePoolCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1783,21 +2086,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "StorageCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "CapacitySource",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1805,21 +2108,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "StoragePoolCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoRemoteControlSession",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1827,49 +2130,71 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "CapacitySource"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoRemoteControlSession"
         },
         {
-            "Entity": "Task",
             "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
                 "DELETE": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
+                ]
+            },
+            "Entity": "Task"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LogEntry",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1877,21 +2202,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LogEntry"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "MessageRegistry",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1899,21 +2224,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MessageRegistry"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "NetworkDeviceFunctionCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1921,21 +2246,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "NetworkDeviceFunctionCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "AccountService",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -1943,6 +2268,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -1950,17 +2276,11 @@
                         ]
                     }
                 ],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
+                "DELETE": []
+            },
+            "Entity": "AccountService"
         },
         {
-            "Entity": "ComputerSystem",
             "PropertyOverrides": [
                 {
                     "Targets": [
@@ -1970,8 +2290,13 @@
                         "BootSourceOverrideEnabled"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
-                        "POST": [],
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
                         "HEAD": [
                             {
                                 "Privilege": [
@@ -1979,6 +2304,7 @@
                                 ]
                             }
                         ],
+                        "POST": [],
                         "PATCH": [
                             {
                                 "Privilege": [
@@ -1986,13 +2312,7 @@
                                 ]
                             }
                         ],
-                        "GET": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ]
+                        "DELETE": []
                     }
                 },
                 {
@@ -2003,8 +2323,13 @@
                         "PortSwitchingTo"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
-                        "POST": [],
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
                         "HEAD": [
                             {
                                 "Privilege": [
@@ -2012,6 +2337,7 @@
                                 ]
                             }
                         ],
+                        "POST": [],
                         "PATCH": [
                             {
                                 "Privilege": [
@@ -2019,13 +2345,7 @@
                                 ]
                             }
                         ],
-                        "GET": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ]
+                        "DELETE": []
                     }
                 },
                 {
@@ -2033,8 +2353,13 @@
                         "AssetTag"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
-                        "POST": [],
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
                         "HEAD": [
                             {
                                 "Privilege": [
@@ -2042,6 +2367,7 @@
                                 ]
                             }
                         ],
+                        "POST": [],
                         "PATCH": [
                             {
                                 "Privilege": [
@@ -2054,13 +2380,7 @@
                                 ]
                             }
                         ],
-                        "GET": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ]
+                        "DELETE": []
                     }
                 },
                 {
@@ -2068,8 +2388,13 @@
                         "FunctionEnabled"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
-                        "POST": [],
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
                         "HEAD": [
                             {
                                 "Privilege": [
@@ -2077,6 +2402,7 @@
                                 ]
                             }
                         ],
+                        "POST": [],
                         "PATCH": [
                             {
                                 "Privilege": [
@@ -2084,13 +2410,7 @@
                                 ]
                             }
                         ],
-                        "GET": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ]
+                        "DELETE": []
                     }
                 },
                 {
@@ -2098,8 +2418,13 @@
                         "IndicatorLED"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
-                        "POST": [],
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
                         "HEAD": [
                             {
                                 "Privilege": [
@@ -2107,6 +2432,7 @@
                                 ]
                             }
                         ],
+                        "POST": [],
                         "PATCH": [
                             {
                                 "Privilege": [
@@ -2149,55 +2475,24 @@
                                 ]
                             }
                         ],
-                        "GET": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ]
+                        "DELETE": []
                     }
                 }
             ],
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [
-                    {
-                        "Privilege": [
-                            "RemoteServerPowerRestartAccess"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            },
+            "Entity": "ComputerSystem",
             "ResourceURIOverrides": [
                 {
                     "Targets": [
                         "/redfish/v1/Systems/1/Pending"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
-                        "POST": [],
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
                         "HEAD": [
                             {
                                 "Privilege": [
@@ -2205,6 +2500,7 @@
                                 ]
                             }
                         ],
+                        "POST": [],
                         "PATCH": [
                             {
                                 "Privilege": [
@@ -2212,22 +2508,18 @@
                                 ]
                             }
                         ],
-                        "GET": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ]
+                        "DELETE": []
                     }
                 }
-            ]
-        },
-        {
-            "Entity": "JsonSchemaFile",
+            ],
             "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2235,25 +2527,10 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
+                "POST": [
                     {
                         "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoPortForwardingMap",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
+                            "RemoteServerPowerRestartAccess"
                         ]
                     }
                 ],
@@ -2264,19 +2541,75 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            }
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "JsonSchemaFile"
         },
         {
-            "Entity": "LenovoFoDKeyCollection",
             "OperationMap": {
-                "DELETE": [],
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "DELETE": []
+            },
+            "Entity": "LenovoPortForwardingMap"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
@@ -2284,28 +2617,20 @@
                         ]
                     }
                 ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoFoDKeyCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "MessageRegistryFileCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2313,21 +2638,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MessageRegistryFileCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "EthernetInterfaceCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2335,21 +2660,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "EthernetInterfaceCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoLED",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2357,27 +2682,72 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
-                            "Login"
+                            "ConfigurationNetworkingAndSecurity"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "UserAccountManagement"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "RemoteConsoleAccess"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "RemoteConsoleAndVirtualMediaAccess"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "RemoteServerPowerRestartAccess"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationBasic"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "AbilityToClearEventLogs"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationAdvanced"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "UEFISecurity"
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoLED"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
+                    },
+                    {
+                        "Privilege": [
+                            "NoAuth"
+                        ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "ServiceRoot",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2390,26 +2760,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "ServiceRoot"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
-                    },
-                    {
-                        "Privilege": [
-                            "NoAuth"
-                        ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "HostInterface",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2417,6 +2782,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -2429,23 +2795,16 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "HostInterface"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoConfigurationService",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationAdvanced"
                         ]
                     }
                 ],
@@ -2453,114 +2812,6 @@
                     {
                         "Privilege": [
                             "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "NetworkAdapterCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoSensorCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoPortForwardingMapCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoManagerGroupCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "Volume",
-            "OperationMap": {
-                "DELETE": [
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationAdvanced"
                         ]
                     }
                 ],
@@ -2571,10 +2822,119 @@
                         ]
                     }
                 ],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoConfigurationService"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
                             "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "NetworkAdapterCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoSensorCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoPortForwardingMapCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoManagerGroupCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationAdvanced"
                         ]
                     }
                 ],
@@ -2585,103 +2945,25 @@
                         ]
                     }
                 ],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoRemoteMountMediaCollection",
-            "OperationMap": {
                 "DELETE": [
-                    {
-                        "Privilege": [
-                            "RemoteConsoleAndVirtualMediaAccess"
-                        ]
-                    }
-                ],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "ProcessorCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "HostInterfaceCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoAlertRecipient",
-            "OperationMap": {
-                "DELETE": [
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationBasic"
-                        ]
-                    },
                     {
                         "Privilege": [
                             "AdapterConfigurationAdvanced"
                         ]
                     }
+                ]
+            },
+            "Entity": "Volume"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
                 ],
-                "POST": [],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2689,6 +2971,73 @@
                         ]
                     }
                 ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoRemoteMountMediaCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "ProcessorCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "HostInterfaceCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -2701,20 +3050,30 @@
                         ]
                     }
                 ],
+                "DELETE": [
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationBasic"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationAdvanced"
+                        ]
+                    }
+                ]
+            },
+            "Entity": "LenovoAlertRecipient"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoWatchdog",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2722,6 +3081,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -2729,20 +3089,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoWatchdog"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "TaskCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2750,20 +3109,28 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "TaskCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LogService",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
@@ -2771,13 +3138,6 @@
                         ]
                     }
                 ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -2785,54 +3145,53 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LogService"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoFoDKey",
-            "OperationMap": {
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "DELETE": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
+                ]
+            },
+            "Entity": "LenovoFoDKey"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "VirtualMedia",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2840,6 +3199,7 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -2848,20 +3208,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "VirtualMedia"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "ManagerCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2869,21 +3228,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "ManagerCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "SerialInterfaceCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2891,20 +3250,28 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "SerialInterfaceCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoServiceData",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
@@ -2912,6 +3279,26 @@
                         ]
                     }
                 ],
+                "PATCH": [
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationBasic"
+                        ]
+                    }
+                ],
+                "DELETE": []
+            },
+            "Entity": "LenovoServiceData"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2919,20 +3306,6 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "EventDestinationCollection",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [
                     {
                         "Privilege": [
@@ -2945,6 +3318,20 @@
                         ]
                     }
                 ],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "EventDestinationCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -2952,20 +3339,6 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "EventService",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [
                     {
                         "Privilege": [
@@ -2975,13 +3348,6 @@
                     {
                         "Privilege": [
                             "AdapterConfigurationAdvanced"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
                         ]
                     }
                 ],
@@ -2997,20 +3363,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "EventService"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoBootManagerCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3018,21 +3383,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoBootManagerCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "BootOptionCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3040,21 +3405,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "BootOptionCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "VirtualMediaCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3062,213 +3427,31 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "VirtualMediaCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "Session",
-            "OperationMap": {
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
                 "DELETE": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoRemoteMapMediaCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [
-                    {
-                        "Privilege": [
-                            "RemoteConsoleAndVirtualMediaAccess"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoHistoryMetricValueContainerCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoWatchdogCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "Storage",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationAdvanced"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "StoragePool",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "EventDestination",
-            "OperationMap": {
-                "DELETE": [
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationBasic"
-                        ]
-                    },
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationAdvanced"
-                        ]
-                    }
-                ],
-                "POST": [
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationBasic"
-                        ]
-                    },
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationAdvanced"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationBasic"
-                        ]
-                    },
-                    {
-                        "Privilege": [
-                            "AdapterConfigurationAdvanced"
-                        ]
-                    }
-                ],
-                "GET": [
                     {
                         "Privilege": [
                             "Login"
@@ -3276,6 +3459,132 @@
                     }
                 ]
             },
+            "Entity": "Session"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [
+                    {
+                        "Privilege": [
+                            "RemoteConsoleAndVirtualMediaAccess"
+                        ]
+                    }
+                ],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoRemoteMapMediaCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoHistoryMetricValueContainerCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoWatchdogCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationAdvanced"
+                        ]
+                    }
+                ],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "Storage"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "StoragePool"
+        },
+        {
+            "Entity": "EventDestination",
             "ResourceURIOverrides": [
                 {
                     "Targets": [
@@ -3305,6 +3614,33 @@
                         "/redfish/v1/EventService/Subscriptions/REST-SNMPv3-12"
                     ],
                     "OperationMap": {
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
+                        "HEAD": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
+                        "POST": [
+                            {
+                                "Privilege": [
+                                    "AdapterConfigurationBasic"
+                                ]
+                            },
+                            {
+                                "Privilege": [
+                                    "AdapterConfigurationAdvanced"
+                                ]
+                            }
+                        ],
+                        "PATCH": [],
                         "DELETE": [
                             {
                                 "Privilege": [
@@ -3316,43 +3652,18 @@
                                     "AdapterConfigurationAdvanced"
                                 ]
                             }
-                        ],
-                        "POST": [
-                            {
-                                "Privilege": [
-                                    "AdapterConfigurationBasic"
-                                ]
-                            },
-                            {
-                                "Privilege": [
-                                    "AdapterConfigurationAdvanced"
-                                ]
-                            }
-                        ],
-                        "HEAD": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
-                        ],
-                        "PATCH": [],
-                        "GET": [
-                            {
-                                "Privilege": [
-                                    "Login"
-                                ]
-                            }
                         ]
                     }
                 }
-            ]
-        },
-        {
-            "Entity": "LenovoSensor",
+            ],
             "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3360,19 +3671,84 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
+                "POST": [
                     {
                         "Privilege": [
-                            "Login"
+                            "AdapterConfigurationBasic"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationAdvanced"
+                        ]
+                    }
+                ],
+                "PATCH": [
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationBasic"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationAdvanced"
+                        ]
+                    }
+                ],
+                "DELETE": [
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationBasic"
+                        ]
+                    },
+                    {
+                        "Privilege": [
+                            "AdapterConfigurationAdvanced"
                         ]
                     }
                 ]
             }
         },
         {
-            "Entity": "LenovoRemoteMountMedia",
             "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoSensor"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
                 "DELETE": [
                     {
                         "Privilege": [
@@ -3384,8 +3760,19 @@
                             "RemoteConsoleAndVirtualMediaAccess"
                         ]
                     }
+                ]
+            },
+            "Entity": "LenovoRemoteMountMedia"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
                 ],
-                "POST": [],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3393,21 +3780,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "NetworkAdapter"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "NetworkAdapter",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3415,31 +3802,10 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "UpdateService",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [
                     {
                         "Privilege": [
                             "AdapterConfigurationAdvanced"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
                         ]
                     }
                 ],
@@ -3450,20 +3816,19 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "UpdateService"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoLEDCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3471,20 +3836,28 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoLEDCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoDateTimeService",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
@@ -3494,13 +3867,6 @@
                     {
                         "Privilege": [
                             "AdapterConfigurationAdvanced"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
                         ]
                     }
                 ],
@@ -3516,20 +3882,13 @@
                         ]
                     }
                 ],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
+                "DELETE": []
+            },
+            "Entity": "LenovoDateTimeService"
         },
         {
-            "Entity": "SessionCollection",
             "OperationMap": {
-                "DELETE": [],
-                "POST": [
+                "GET": [
                     {
                         "Privilege": [
                             "Login"
@@ -3543,59 +3902,34 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
+                "POST": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
+                ],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "SessionCollection"
         },
         {
             "Entity": "Role",
-            "OperationMap": {
-                "DELETE": [
-                    {
-                        "Privilege": [
-                            "UserAccountManagement"
-                        ]
-                    }
-                ],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [
-                    {
-                        "Privilege": [
-                            "UserAccountManagement"
-                        ]
-                    }
-                ],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            },
             "ResourceURIOverrides": [
                 {
                     "Targets": [
                         "/redfish/v1/AccountService/Roles/Administrator",
-                        "/redfish/v1/AccountService/Roles/Operator",
                         "/redfish/v1/AccountService/Roles/ReadOnly"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
-                        "POST": [],
+                        "GET": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
                         "HEAD": [
                             {
                                 "Privilege": [
@@ -3603,23 +3937,50 @@
                                 ]
                             }
                         ],
+                        "POST": [],
                         "PATCH": [],
+                        "DELETE": []
+                    }
+                },
+                {
+                    "Targets": [
+                        "/redfish/v1/AccountService/Roles/Operator"
+                    ],
+                    "OperationMap": {
                         "GET": [
                             {
                                 "Privilege": [
                                     "Login"
                                 ]
                             }
-                        ]
+                        ],
+                        "HEAD": [
+                            {
+                                "Privilege": [
+                                    "Login"
+                                ]
+                            }
+                        ],
+                        "POST": [],
+                        "PATCH": [
+                            {
+                                "Privilege": [
+                                    "UserAccountManagement"
+                                ]
+                            }
+                        ],
+                        "DELETE": []
                     }
                 }
-            ]
-        },
-        {
-            "Entity": "LenovoSlot",
+            ],
             "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3627,21 +3988,32 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
+                "POST": [],
+                "PATCH": [
                     {
                         "Privilege": [
-                            "Login"
+                            "UserAccountManagement"
+                        ]
+                    }
+                ],
+                "DELETE": [
+                    {
+                        "Privilege": [
+                            "UserAccountManagement"
                         ]
                     }
                 ]
             }
         },
         {
-            "Entity": "LogServiceCollection",
             "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3649,21 +4021,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoSlot"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "PCIeFunction",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3671,21 +4043,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LogServiceCollection"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "SoftwareInventory",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3693,21 +4065,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "PCIeFunction"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "ActionInfo",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3715,21 +4087,21 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "SoftwareInventory"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoSlotCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3737,20 +4109,50 @@
                         ]
                     }
                 ],
+                "POST": [],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "ActionInfo"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "LenovoSlotCollection"
         },
         {
-            "Entity": "LenovoServerProfileService",
             "OperationMap": {
-                "DELETE": [],
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [
                     {
                         "Privilege": [
@@ -3758,13 +4160,6 @@
                         ]
                     }
                 ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -3772,21 +4167,281 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoServerProfileService"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "DELETE": []
+            },
+            "Entity": "LenovoSNMPProtocol"
         },
         {
-            "Entity": "LenovoSNMPProtocol",
             "OperationMap": {
-                "DELETE": [],
-                "POST": [],
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "SoftwareInventoryCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "ProcessorMetrics"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "PCIeSlots"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "TelemetryService"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MetricDefinitionCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MetricDefinition"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MetricReportDefinitionCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MetricReportDefinition"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MetricReportCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "MetricReport"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [
                     {
                         "Privilege": [
                             "Login"
@@ -3800,20 +4455,41 @@
                         ]
                     }
                 ],
+                "DELETE": []
+            },
+            "Entity": "LenovoServiceAdvisor"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "SoftwareInventoryCollection",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "JobService"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3821,21 +4497,21 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "ProcessorMetrics",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "JobCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -3843,288 +4519,7 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "PCIeSlots",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "TelemetryService",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "MetricDefinitionCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "MetricDefinition",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "MetricReportDefinitionCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "MetricReportDefinition",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "MetricReportCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "MetricReport",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "LenovoServiceAdvisor",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "JobService",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "JobCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "Job",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
                 "PATCH": [
                     {
                         "Privilege": [
@@ -4132,20 +4527,13 @@
                         ]
                     }
                 ],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
+                "DELETE": []
+            },
+            "Entity": "Job"
         },
         {
-            "Entity": "CertificateService",
             "OperationMap": {
-                "DELETE": [],
-                "POST": [
+                "GET": [
                     {
                         "Privilege": [
                             "Login"
@@ -4159,21 +4547,49 @@
                         ]
                     }
                 ],
+                "POST": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "CertificateService"
+        },
+        {
+            "OperationMap": {
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "CertificateLocations",
-            "OperationMap": {
-                "DELETE": [],
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "CertificateLocations"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
                     {
                         "Privilege": [
@@ -4181,20 +4597,6 @@
                         ]
                     }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "CertificateCollection",
-            "OperationMap": {
-                "DELETE": [],
                 "POST": [
                     {
                         "Privilege": [
@@ -4202,64 +4604,20 @@
                         ]
                     }
                 ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
                 "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
+                "DELETE": []
+            },
+            "Entity": "CertificateCollection"
         },
         {
             "Entity": "Certificate",
-            "OperationMap": {
-                "DELETE": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "POST": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            },
             "ResourceURIOverrides": [
                 {
                     "Targets": [
                         "/redfish/v1/Managers/1/NetworkProtocol/HTTPS/Certificates/1"
                     ],
                     "OperationMap": {
-                        "DELETE": [],
-                        "POST": [
+                        "GET": [
                             {
                                 "Privilege": [
                                     "Login"
@@ -4273,94 +4631,27 @@
                                 ]
                             }
                         ],
-                        "PATCH": [],
-                        "GET": [
+                        "POST": [
                             {
                                 "Privilege": [
                                     "Login"
                                 ]
                             }
-                        ]
+                        ],
+                        "PATCH": [],
+                        "DELETE": []
                     }
                 }
-            ]
-        },
-        {
-            "Entity": "LenovoSecureKeyLifecycle",
+            ],
             "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
                 "GET": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
-                ]
-            }
-        },
-        {
-            "Entity": "SensorCollection",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
                 ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "Sensor",
-            "OperationMap": {
-                "DELETE": [],
-                "POST": [],
                 "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [],
-                "GET": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ]
-            }
-        },
-        {
-            "Entity": "HelloWorldCollection",
-            "OperationMap": {
-                "DELETE": [
                     {
                         "Privilege": [
                             "Login"
@@ -4374,21 +4665,8 @@
                         ]
                     }
                 ],
-                "HEAD": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "PATCH": [
-                    {
-                        "Privilege": [
-                            "Login"
-                        ]
-                    }
-                ],
-                "GET": [
+                "PATCH": [],
+                "DELETE": [
                     {
                         "Privilege": [
                             "Login"
@@ -4398,9 +4676,175 @@
             }
         },
         {
-            "Entity": "HelloWorld",
             "OperationMap": {
-                "DELETE": [
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "DELETE": []
+            },
+            "Entity": "LenovoSecureKeyLifecycle"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "SensorCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "Sensor"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "ThermalSubsystem"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "ThermalMetrics"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "FanCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [],
+                "PATCH": [],
+                "DELETE": []
+            },
+            "Entity": "Fan"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "HEAD": [
                     {
                         "Privilege": [
                             "Login"
@@ -4414,7 +4858,40 @@
                         ]
                     }
                 ],
+                "PATCH": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "DELETE": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ]
+            },
+            "Entity": "HelloWorldCollection"
+        },
+        {
+            "OperationMap": {
+                "GET": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
                 "HEAD": [
+                    {
+                        "Privilege": [
+                            "Login"
+                        ]
+                    }
+                ],
+                "POST": [
                     {
                         "Privilege": [
                             "Login"
@@ -4428,19 +4905,20 @@
                         ]
                     }
                 ],
-                "GET": [
+                "DELETE": [
                     {
                         "Privilege": [
                             "Login"
                         ]
                     }
                 ]
-            }
+            },
+            "Entity": "HelloWorld"
         }
     ],
-    "@odata.type": "#PrivilegeRegistry.v1_1_4.PrivilegeRegistry",
-    "Id": "LenovoPrivilegeRegistry.1.0.0",
-    "Name": "Lenovo Privilege Registry",
+    "PrivilegesUsed": [
+        "Login"
+    ],
     "OEMPrivilegesUsed": [
         "ConfigurationNetworkingAndSecurity",
         "UserAccountManagement",
@@ -4450,5 +4928,9 @@
         "AdapterConfigurationBasic",
         "AbilityToClearEventLogs",
         "AdapterConfigurationAdvanced"
-    ]
+    ],
+    "@odata.context": "/redfish/v1/$metadata#PrivilegeRegistry.PrivilegeRegistry",
+    "Id": "LenovoPrivilegeRegistry.1.0.0",
+    "Name": "Lenovo Privilege Registry",
+    "@odata.type": "#PrivilegeRegistry.v1_1_4.PrivilegeRegistry"
 }

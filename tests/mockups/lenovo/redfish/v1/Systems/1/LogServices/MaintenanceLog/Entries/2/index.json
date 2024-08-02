@@ -1,14 +1,15 @@
 {
     "@odata.id": "/redfish/v1/Systems/1/LogServices/MaintenanceLog/Entries/2",
-    "EntryType": "Oem",
-    "Message": "CPU 2(SKU NO: 10617540) is added.",
+    "@odata.type": "#LogEntry.v1_11_0.LogEntry",
+    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+    "Created": "2024-07-18T22:01:39Z",
     "EventGroupId": 1,
     "Severity": null,
-    "Name": "LogEntry",
-    "@odata.type": "#LogEntry.v1_6_0.LogEntry",
+    "EntryType": "Oem",
     "OemRecordFormat": "Lenovo",
+    "@odata.etag": "\"357851f1c7bc24e4c7e\"",
     "Id": "2",
-    "@odata.etag": "\"31a82e1926d12965c91\"",
-    "Description": "This resource is used to represent a log entry for log services for a Redfish implementation.",
-    "Created": "2022-08-31T23:00:45Z"
+    "Name": "LogEntry",
+    "Message": "CPU 2(SKU NO: 40422740) is added."
 }

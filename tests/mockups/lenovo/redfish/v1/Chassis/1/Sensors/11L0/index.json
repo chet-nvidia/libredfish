@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/11L0",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "ReadingUnits": "",
+    "RelatedItem@odata.count": 1,
     "Reading": 0,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Status": {
+        "Health": null,
+        "State": "Enabled"
+    },
+    "ReadingType": null,
+    "ReadingUnits": "",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1"
+        }
+    ],
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
     "PhysicalContext": "StorageDevice",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "@odata.etag": "\"2dccbbcc348e2424502\"",
     "Id": "11L0",
     "Name": "DIMMs",
-    "@odata.etag": "\"23d56259efec2665508\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "@odata.type": "#Sensor.v1_5_0.Sensor"
 }

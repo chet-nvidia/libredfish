@@ -1,164 +1,47 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoFirmwareService.v1_0_0.LenovoFirmwareService",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LenovoFirmwareService.v1_0_0.json",
     "$ref": "#/definitions/LenovoFirmwareService",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
-        "LenovoFirmwareService": {
-            "type": "object",
+        "Actions": {
+            "additionalProperties": false,
+            "description": "The available actions for this resource.",
+            "longDescription": "This type shall contain the available actions for this resource.",
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
-            "additionalProperties": false,
             "properties": {
-                "@odata.context": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                "#LenovoFirmwareService.CompleteBareMetal": {
+                    "$ref": "#/definitions/CompleteBareMetal"
                 },
-                "@odata.id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                "#LenovoFirmwareService.RestartToBareMetal": {
+                    "$ref": "#/definitions/RestartToBareMetal"
                 },
-                "@odata.type": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                "#LenovoFirmwareService.StartBareMetalConnection": {
+                    "$ref": "#/definitions/StartBareMetalConnection"
                 },
-                "Id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id"
+                "#LenovoFirmwareService.StartDeferredUpdateActivation": {
+                    "$ref": "#/definitions/StartDeferredUpdateActivation"
                 },
-                "Description": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
-                },
-                "Name": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name"
-                },
-                "ChangeHistory": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/LogService.json#/definitions/LogService",
-                    "readonly": true,
-                    "description": "Represents firmware change history.",
-                    "longDescription": "This property shall be a reference to LogService.json used to represent firmware change history."
-                },
-                "Task": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.json#/definitions/Task",
-                    "readonly": true,
-                    "description": "A reference to the task of the firmware installation.",
-                    "longDescription": "The value of this property shall be a reference to Task.json used to represent task of the firmware installation."
-                },
-                "BMAppStatus": {
-                    "$ref": "#/definitions/BMAppStatus",
-                    "readonly": true,
-                    "description": "Represents the bare metal application status.",
-                    "longDescription": "The value of this property shall represent the bare metal application status."
-                },
-                "FreeRdocSpaceInKB": {
-                    "type": "number",
-                    "readonly": true,
-                    "description": "Specify the available size of RDOC space(KBytes).",
-                    "longDescription": "The value of this property shall reresent the available size of RDOC space(KBytes)."
-                },
-                "Started": {
-                    "type": "boolean",
-                    "readonly": true,
-                    "description": "Indicate whether the bare metal update action started.",
-                    "longDescription": "The value of this property shall represent the bare metal update action started or not."
-                },
-                "AutoPromotion": {
-                    "type": "boolean",
-                    "readonly": false,
-                    "description": "Specify the setting for the automated promotion of backup firmware",
-                    "longDescription": "The value of this property shall represent the automated promotion feature is enabled or not."
-                },
-                "BMU_Credential": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                            "type": [
-                                "array",
-                                "boolean",
-                                "number",
-                                "null",
-                                "object",
-                                "string"
-                            ],
-                            "description": "This property shall specify a valid odata or Redfish property."
-                        }
-                    },
-                    "additionalProperties": false,
-                    "properties": {
-                        "RemoteID": {
-                            "type": "string",
-                            "readonly": false,
-                            "description": "This property contains the user name for credential.",
-                            "longDescription": "The value of this property shall be the user name for credential."
-                        },
-                        "Secret": {
-                            "type": "string",
-                            "readonly": false,
-                            "description": "This property is used with a PATCH to write the password for the credential. This property is null on a GET.",
-                            "longDescription": "The value of this property shall be the password for credential. The value shall be null for GET requests."
-                        }
-                    }
-                },
-                "Actions": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                            "type": [
-                                "array",
-                                "boolean",
-                                "number",
-                                "null",
-                                "object",
-                                "string"
-                            ],
-                            "description": "This property shall specify a valid odata or Redfish property."
-                        }
-                    },
-                    "additionalProperties": false,
-                    "properties": {
-                        "#LenovoFirmwareService.InstallFromURI": {
-                            "$ref": "#/definitions/InstallFromURI"
-                        },
-                        "#LenovoFirmwareService.StartBareMetalConnection": {
-                            "$ref": "#/definitions/StartBareMetalConnection"
-                        },
-                        "#LenovoFirmwareService.RestartToBareMetal": {
-                            "$ref": "#/definitions/RestartToBareMetal"
-                        },
-                        "#LenovoFirmwareService.CompleteBareMetal": {
-                            "$ref": "#/definitions/CompleteBareMetal"
-                        },
-                        "#LenovoFirmwareService.StartDeferredUpdateActivation": {
-                            "$ref": "#/definitions/StartDeferredUpdateActivation"
-                        },
-                        "#LenovoFirmwareService.UEFIRecoveryOperation": {
-                            "$ref": "#/definitions/UEFIRecoveryOperation"
-                        }
-                    },
-                    "readonly": true,
-                    "description": "The Actions object contains the available custom actions on this resource."
-                },
-                "Firmwares": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "http://redfish.dmtf.org/schemas/v1/SoftwareInventory.json#/definitions/SoftwareInventory"
-                    },
-                    "readonly": true,
-                    "description": "References to the Firmware info.",
-                    "longDescription": "The value of this property shall reference resources of type LenovoFirmware."
+                "#LenovoFirmwareService.UEFIRecoveryOperation": {
+                    "$ref": "#/definitions/UEFIRecoveryOperation"
                 }
             },
-            "description": "This resource represents the firmware service for the resource or service to which it is associated.",
-            "longDescription": "This resource shall be used to represent a firmware service for a Redfish implementation."
+            "type": "object"
         },
         "BMAppStatus": {
-            "type": "string",
             "enum": [
                 "NotReady",
                 "Booting",
@@ -168,320 +51,382 @@
                 "FileSystemInit",
                 "FailedToBootBMU",
                 "Unknown"
-            ]
-        },
-        "InstallFromURI": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
-                "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
-                },
-                "Response": {
-                    "$ref": "#/definitions/InstallTask",
-                    "description": "Indicates what data will be response."
-                },
-                "URI": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "The URI for the firmware."
-                },
-                "InstallOptions": {
-                    "$ref": "#/definitions/InstallOption",
-                    "description": "Options to control the install process."
-                },
-                "InstallOptionsValues": {
-                    "type": [
-                        "array",
-                        "null"
-                    ],
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Provide addtional information for the install process."
-                },
-                "UpdateTarget": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "The Update/installation target."
-                }
-            },
-            "description": "This action is used to start a task to install a firmware from an URI."
-        },
-        "InstallTask": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "RelatedTask": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Task.json#/definitions/Task",
-                    "description": "Indicates the task related to this installation.",
-                    "longDescription": "The value of this property shall indicate the task related to this installation."
-                }
-            },
-            "description": "This object is used to represent the response data of the action InstallFromURI."
-        },
-        "InstallOption": {
-            "type": "string",
-            "enum": [
-                "Install",
-                "PCI_OOB_Update"
             ],
-            "enumDescriptions": {
-                "Install": "The option for install IMM/UEFI",
-                "PCI_OOB_Update": "The option for OOB update PCI adapter"
-            }
+            "type": "string"
         },
-        "StartBareMetalConnection": {
+        "BMU_Credential": {
+            "additionalProperties": false,
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
-            "type": "object",
-            "additionalProperties": false,
             "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
-                "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
-                },
-                "BareMetalUpdateData": {
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    },
-                    "description": "Optional data from FSM, up  to 32KB"
-                },
-                "ImageName": {
-                    "type": "string",
-                    "description": "The filename of RDOC image uploaded to XCC sftp server."
-                },
-                "TargetServerIP": {
-                    "type": "string",
-                    "description": "The target server IP which will be used by SALIE OS to download the rootfs image. If this is not specified, only uni-direction (external->BMU OS) port forwarding is enabled; If specified, bi-direction(external<->BMU OS) port forwarding will be enabled."
-                },
-                "USBPort": {
-                    "type": "number",
-                    "description": "The port on the Ethernet over USB interface IMM will forward traffic to, default 6990"
-                },
-                "ExternalPort": {
-                    "type": "number",
-                    "description": "The port IMM listens to on the management network, default 6990"
-                },
-                "TimeoutInMin": {
-                    "type": "number",
-                    "description": "The communication watchdog timeout after bmu ready(by minutes)."
-                },
-                "BootTimeoutInMin": {
-                    "type": "number",
-                    "description": "The communication boot timeout when bmu is booting(by minutes)."
-                }
-            },
-            "description": "This action is used to establish Bare Metal Update connection."
-        },
-        "RestartToBareMetal": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "RemoteID": {
+                    "description": "This property contains the user name for credential.",
+                    "longDescription": "The value of this property shall be the user name for credential.",
+                    "readonly": false,
                     "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
+                        "string",
+                        "null"
+                    ]
                 },
-                "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
+                "Secret": {
+                    "description": "This property is used with a PATCH to write the password for the credential. This property is null on a GET.",
+                    "longDescription": "The value of this property shall be the password for credential. The value shall be null for GET requests.",
+                    "readonly": false,
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
-            "description": "This action is used to reboot the host server to Bare Metal environment again to activate some firmware."
+            "type": "object"
         },
         "CompleteBareMetal": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
             "additionalProperties": false,
-            "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
-                "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
-                },
+            "parameters": {
                 "NeedRestorePower": {
-                    "type": "boolean",
-                    "description": "Whether to restore power when complete bare metal."
+                    "description": "Whether to restore power when complete bare metal.",
+                    "type": "boolean"
                 }
             },
-            "description": "This action is used to finish Bare Metal update and restore the power state before Bare Metal update starts."
-        },
-        "StartDeferredUpdateActivation": {
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
-            "type": "object",
-            "additionalProperties": false,
             "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
                 "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
                 },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LenovoFirmwareService": {
+            "additionalProperties": true,
+            "description": "These properties shall be refered Lenovo Oem properties for Firmware Service schema.",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "@odata.context": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/context"
+                },
+                "@odata.etag": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/etag"
+                },
+                "@odata.id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/id"
+                },
+                "@odata.type": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/type"
+                },
+                "Actions": {
+                    "$ref": "#/definitions/Actions",
+                    "description": "The manufacturer of the firmware.",
+                    "longDescription": "The value of this property shall be the manufacturer of the firmware.",
+                    "readonly": true
+                },
+                "BMAppStatus": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/BMAppStatus"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Represents the bare metal application status.",
+                    "longDescription": "The value of this property shall represent the bare metal application status.",
+                    "readonly": true
+                },
+                "BMU_Credential": {
+                    "$ref": "#/definitions/BMU_Credential",
+                    "description": "The manufacturer of the firmware.",
+                    "longDescription": "The value of this property shall be the manufacturer of the firmware."
+                },
+                "ChangeHistory": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/LogService.json#/definitions/LogService",
+                    "description": "Represents firmware change history.",
+                    "longDescription": "This property shall be a reference to LogService.json used to represent firmware change history.",
+                    "readonly": true
+                },
+                "Description": {
+                    "anyOf": [
+                        {
+                            "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Description"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "readonly": true
+                },
+                "FreeRdocSpaceInKB": {
+                    "description": "Specify the available size of RDOC space(KBytes).",
+                    "longDescription": "The value of this property shall reresent the available size of RDOC space(KBytes).",
+                    "readonly": true,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
+                    "readonly": true
+                },
+                "Name": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
+                    "readonly": true
+                },
+                "Oem": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Oem",
+                    "description": "The OEM extension property.",
+                    "longDescription": "This property shall contain the OEM extensions.  All values for properties that this object contains shall conform to the Redfish Specification-described requirements."
+                },
+                "Started": {
+                    "description": "Indicate whether the bare metal update action started.",
+                    "longDescription": "The value of this property shall represent the bare metal update action started or not.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "@odata.id",
+                "@odata.type",
+                "Id",
+                "Name"
+            ],
+            "type": "object"
+        },
+        "RestartToBareMetal": {
+            "additionalProperties": false,
+            "parameters": {},
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StartBareMetalConnection": {
+            "additionalProperties": false,
+            "parameters": {
                 "BareMetalUpdateData": {
-                    "type": "array",
-                    "items": {
-                        "type": "number"
-                    },
-                    "description": "Optional data from FSM, up  to 32KB"
-                },
-                "ImageName": {
-                    "type": "string",
-                    "description": "The filename of RDOC image uploaded to XCC sftp server."
-                },
-                "USBPort": {
-                    "type": "number",
-                    "description": "The port on the Ethernet over USB interface IMM will forward traffic to, default 6990"
-                },
-                "ExternalPort": {
-                    "type": "number",
-                    "description": "The port IMM listens to on the management network, default 6990"
-                },
-                "CoreFirmwareOnly": {
-                    "type": "boolean",
-                    "description": "Only IMM core firmware is deferred activation or not."
-                },
-                "TimeoutInMin": {
-                    "type": "number",
-                    "description": "The communication watchdog timeout after bmu ready(by minutes)."
+                    "description": "Optional data from FSM, up to 32KB.",
+                    "type": "string"
                 },
                 "BootTimeoutInMin": {
-                    "type": "number",
-                    "description": "The communication boot timeout when bmu is booting(by minutes)."
+                    "description": "The communication boot timeout when bmu is booting(by minutes).",
+                    "type": "integer"
+                },
+                "ExternalPort": {
+                    "description": "The port IMM listens to on the management network, default 6990.",
+                    "type": "integer"
+                },
+                "ImageName": {
+                    "description": "The filename of RDOC image uploaded to XCC sftp server.",
+                    "requiredParameter": true,
+                    "type": "string"
                 },
                 "TargetServerIP": {
-                    "type": "string",
-                    "description": "The target server IP which will be used by SALIE OS to download the rootfs image. If this is not specified, only uni-direction (external->BMU OS) port forwarding is enabled; If specified, bi-direction(external<->BMU OS) port forwarding will be enabled."
+                    "description": "The target server IP which will be used by SALIE OS to download the rootfs image. If this is not specified, only uni-direction (external-BMU OS) port forwarding is enabled; If specified, bi-direction port forwarding will be enabled.",
+                    "type": "string"
+                },
+                "TimeoutInMin": {
+                    "description": "The communication watchdog timeout after bmu ready(by minutes).",
+                    "type": "integer"
+                },
+                "USBPort": {
+                    "description": "The port on the Ethernet over USB interface IMM will forward traffic to, default 6990.",
+                    "type": "integer"
                 }
             },
-            "description": "This action is used to request the deferred activation mode to be initiated on the next server boot."
-        },
-        "UEFIRecoveryOperation": {
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
-            "type": "object",
-            "additionalProperties": false,
             "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
                 "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
                 },
-                "ParamInput": {
-                    "type": "string",
-                    "description": "Input parameter for trust image operations."
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
                 }
             },
-            "description": "This action is used to finish Bare Metal update and restore the power state before Bare Metal update starts."
+            "type": "object"
+        },
+        "StartDeferredUpdateActivation": {
+            "additionalProperties": false,
+            "parameters": {
+                "BareMetalUpdateData": {
+                    "description": "Optional data from FSM, up to 32KB.",
+                    "type": "string"
+                },
+                "BootTimeoutInMin": {
+                    "description": "The communication boot timeout when bmu is booting(by minutes).",
+                    "type": "number"
+                },
+                "CoreFirmwareOnly": {
+                    "description": "Only IMM core firmware is deferred activation or not.",
+                    "type": "boolean"
+                },
+                "ExternalPort": {
+                    "description": "The port IMM listens to on the management network, default 6990.",
+                    "type": "number"
+                },
+                "ImageName": {
+                    "description": "The filename of RDOC image uploaded to XCC sftp server.",
+                    "requiredParameter": true,
+                    "type": "string"
+                },
+                "TargetServerIP": {
+                    "description": "The target server IP which will be used by SALIE OS to download the rootfs image. If this is not specified, only uni-direction (external-BMU OS) port forwarding is enabled; If specified, bi-direction port forwarding will be enabled.",
+                    "type": "string"
+                },
+                "TimeoutInMin": {
+                    "description": "The communication watchdog timeout after bmu ready(by minutes).",
+                    "type": "number"
+                },
+                "USBPort": {
+                    "description": "The port on the Ethernet over USB interface IMM will forward traffic to, default 6990.",
+                    "type": "number"
+                }
+            },
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UEFIRecoveryOperation": {
+            "additionalProperties": false,
+            "parameters": {
+                "ParamInput": {
+                    "description": "Input parameter for trust image operations.",
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "owningEntity": "Lenovo",
+    "title": "#LenovoFirmwareService.v1_0_0.LenovoFirmwareService"
 }

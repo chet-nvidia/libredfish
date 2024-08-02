@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---->
 <!--################################################################################       -->
-<!--# Redfish Schema:  LogEntry v1.6.0                                                     -->
+<!--# Redfish Schema:  LogEntry v1.11.0                                                    -->
 <!--#                                                                                      -->
 <!--# For a detailed change log, see the README file contained in the DSP8010 bundle,      -->
 <!--# available at http://www.dmtf.org/standards/redfish                                   -->
-<!--# Copyright 2014-2020 DMTF.                                                            -->
+<!--# Copyright 2014-2021 DMTF.                                                            -->
 <!--# For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright -->
 <!--################################################################################       -->
 <!---->
@@ -16,6 +16,9 @@
   </edmx:Reference>
   <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/csd01/complete/vocabularies/Org.OData.Capabilities.V1.xml">
     <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+  </edmx:Reference>
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/csd01/complete/vocabularies/Org.OData.Measures.V1.xml">
+    <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
   </edmx:Reference>
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
     <edmx:Include Namespace="Resource"/>
@@ -35,8 +38,8 @@
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
 
       <EntityType Name="LogEntry" BaseType="Resource.v1_0_0.Resource" Abstract="true">
-        <Annotation Term="OData.Description" String="The LogEntry schema defines the record format for a log.  It is designed for Redfish event logs, OEM-specific log formats, and the IPMI System Event Log (SEL).  The EntryType field indicates the type of log and the Resource includes several additional properties dependent on the EntryType."/>
-        <Annotation Term="OData.LongDescription" String="This Resource shall represent the log format for Log Services in a Redfish implementation."/>
+        <Annotation Term="OData.Description" String="The LogEntry schema defines the record format for a log.  It is designed for Redfish event logs, OEM-specific log formats, and the IPMI System Event Log (SEL).  The EntryType field indicates the type of log and the resource includes several additional properties dependent on the EntryType."/>
+        <Annotation Term="OData.LongDescription" String="This resource shall represent the log format for log services in a Redfish implementation."/>
         <Annotation Term="Capabilities.InsertRestrictions">
           <Record>
             <PropertyValue Property="Insertable" Bool="false"/>
@@ -44,13 +47,13 @@
         </Annotation>
         <Annotation Term="Capabilities.UpdateRestrictions">
           <Record>
-            <PropertyValue Property="Updatable" Bool="false"/>
+            <PropertyValue Property="Updatable" Bool="true"/>
           </Record>
         </Annotation>
         <Annotation Term="Capabilities.DeleteRestrictions">
           <Record>
             <PropertyValue Property="Deletable" Bool="true"/>
-            <Annotation Term="OData.Description" String="Some implementations may allow the deletion of individual log entries."/>
+            <Annotation Term="OData.Description" String="Some implementations might allow the deletion of individual log entries."/>
           </Record>
         </Annotation>
         <Annotation Term="Redfish.Uris">
@@ -62,10 +65,10 @@
             <String>/redfish/v1/Chassis/{ChassisId}/LogServices/{LogServiceId}/Entries/{LogEntryId}</String>
             <String>/redfish/v1/JobService/Log/Entries/{LogEntryId}</String>
             <String>/redfish/v1/TelemetryService/LogService/Entries/{LogEntryId}</String>
+            <String>/redfish/v1/Systems/{ComputerSystemId}/Memory/{MemoryId}/DeviceLog/Entries/{LogEntryId}</String>
           </Collection>
         </Annotation>
       </EntityType>
-
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_0_0">
@@ -87,7 +90,7 @@
           <Annotation Term="Redfish.RequiredOnCreate"/>
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The type of log entry."/>
-          <Annotation Term="OData.LongDescription" String="This property shall represent the type of log entry.  If the Resource represents an IPMI SEL entry, the value shall contain `SEL`.  If the Resource represents a Redfish event log entry, the value shall contain `Event`.  If the Resource represents an OEM log entry format, the value shall contain `Oem`."/>
+          <Annotation Term="OData.LongDescription" String="This property shall represent the type of log entry.  If the resource represents an IPMI SEL entry, the value shall contain `SEL`.  If the resource represents a Redfish event log entry, the value shall contain `Event`.  If the resource represents an OEM log entry format, the value shall contain `Oem`."/>
           <Annotation Term="Redfish.Required"/>
         </Property>
         <Property Name="OemRecordFormat" Type="Edm.String">
@@ -107,8 +110,8 @@
         </Property>
         <Property Name="SensorNumber" Type="Edm.Int64">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The sensor number, the count of events, or OEM-specific information.  This property value is decoded from the entry type.  If the entry type is `SEL`, this property contains the sensor number.  If the entry type is `Event`, this property contains the count of events.  Otherwise, this property contains OEM-specific information."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the sensor number, the count of events, or OEM-specific information.  This property value is decoded from the entry type.  If the entry type is `SEL`, this property contains the sensor number.  If the entry type is `Event`, this property contains the count of events.  Otherwise, this property contains OEM-specific information."/>
+          <Annotation Term="OData.Description" String="The IPMI-defined sensor number."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the IPMI sensor number if the value of the EntryType property is `SEL`.  This property should not appear in the resource for other values of EntryType."/>
         </Property>
         <Property Name="Message" Type="Edm.String">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -126,18 +129,18 @@
           <Annotation Term="OData.LongDescription" String="This property shall contain message arguments to substitute into the included or looked-up message."/>
         </Property>
         <Property Name="Links" Type="LogEntry.v1_0_0.Links" Nullable="false">
-          <Annotation Term="OData.Description" String="The links to other Resources that are related to this Resource."/>
-          <Annotation Term="OData.LongDescription" String="This Redfish Specification-described property shall contain links to Resources that are related to but are not contained by or subordinate to this Resource."/>
+          <Annotation Term="OData.Description" String="The links to other resources that are related to this resource."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain links to resources that are related to but are not contained by, or subordinate to, this resource."/>
         </Property>
       </EntityType>
 
       <ComplexType Name="Links" BaseType="Resource.Links">
-        <Annotation Term="OData.Description" String="The links to other Resources that are related to this Resource."/>
-        <Annotation Term="OData.LongDescription" String="This Redfish Specification-described type shall contain links to Resources that are related to but are not contained by or subordinate to this Resource."/>
+        <Annotation Term="OData.Description" String="The links to other resources that are related to this resource."/>
+        <Annotation Term="OData.LongDescription" String="This Redfish Specification-described type shall contain links to resources that are related to but are not contained by, or subordinate to, this resource."/>
         <NavigationProperty Name="OriginOfCondition" Type="Resource.Item" Nullable="false">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The URI of the Resource that caused the log entry."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain a link to the Resource that caused the log entry."/>
+          <Annotation Term="OData.Description" String="The link to the resource that caused the log entry."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain a link to the resource that caused the log entry."/>
           <Annotation Term="OData.AutoExpandReferences"/>
         </NavigationProperty>
       </ComplexType>
@@ -611,7 +614,6 @@
           </Collection>
         </Annotation>
       </TypeDefinition>
-
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_0_2">
@@ -674,9 +676,28 @@
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_0_10.LogEntry"/>
     </Schema>
 
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_0_12">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_0_11.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_0_13">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct the description of SensorNumber such that only applies to SEL log entry types."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_0_12.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_0_14">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_0_13.LogEntry"/>
+    </Schema>
+
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_1_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2016.2"/>
+
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_0_2.LogEntry">
         <Property Name="EventType" Type="Event.EventType" Nullable="false">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -719,7 +740,7 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_1_3">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to change EventType to use the unversioned definition.  It was also created to add descriptions to various enum values."/>
+      <Annotation Term="OData.Description" String="This version was created to change EventType to use the unversioned definition.  It was also created to add descriptions to various enumeration values."/>
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_1_2.LogEntry"/>
     </Schema>
 
@@ -759,36 +780,55 @@
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_1_8.LogEntry"/>
     </Schema>
 
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_1_10">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_1_9.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_1_11">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct the description of SensorNumber such that only applies to SEL log entry types."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_1_10.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_1_12">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_1_11.LogEntry"/>
+    </Schema>
+
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_2_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2017.1"/>
+
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_1_2.LogEntry">
         <Property Name="Actions" Type="LogEntry.v1_2_0.Actions" Nullable="false">
-          <Annotation Term="OData.Description" String="The available actions for this Resource."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the available actions for this Resource."/>
+          <Annotation Term="OData.Description" String="The available actions for this resource."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the available actions for this resource."/>
         </Property>
       </EntityType>
 
       <ComplexType Name="Actions">
         <Annotation Term="OData.AdditionalProperties" Bool="false"/>
-        <Annotation Term="OData.Description" String="The available actions for this Resource."/>
-        <Annotation Term="OData.LongDescription" String="This type shall contain the available actions for this Resource."/>
+        <Annotation Term="OData.Description" String="The available actions for this resource."/>
+        <Annotation Term="OData.LongDescription" String="This type shall contain the available actions for this resource."/>
         <Property Name="Oem" Type="LogEntry.v1_2_0.OemActions" Nullable="false">
-          <Annotation Term="OData.Description" String="The available OEM-specific actions for this Resource."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the available OEM-specific actions for this Resource."/>
+          <Annotation Term="OData.Description" String="The available OEM-specific actions for this resource."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the available OEM-specific actions for this resource."/>
         </Property>
       </ComplexType>
 
       <ComplexType Name="OemActions">
         <Annotation Term="OData.AdditionalProperties" Bool="true"/>
-        <Annotation Term="OData.Description" String="The available OEM-specific actions for this Resource."/>
-        <Annotation Term="OData.LongDescription" String="This type shall contain the available OEM-specific actions for this Resource."/>
+        <Annotation Term="OData.Description" String="The available OEM-specific actions for this resource."/>
+        <Annotation Term="OData.LongDescription" String="This type shall contain the available OEM-specific actions for this resource."/>
       </ComplexType>
     </Schema>
-    
+
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_2_1">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
-      <Annotation Term="OData.Description" String="This version was created to change EventType to use the unversioned definition.  It was also created to add descriptions to various enum values."/>
+      <Annotation Term="OData.Description" String="This version was created to change EventType to use the unversioned definition.  It was also created to add descriptions to various enumeration values."/>
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_2_0.LogEntry"/>
     </Schema>
 
@@ -828,10 +868,29 @@
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_2_6.LogEntry"/>
     </Schema>
 
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_2_8">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_2_7.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_2_9">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct the description of SensorNumber such that only applies to SEL log entry types."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_2_8.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_2_10">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_2_9.LogEntry"/>
+    </Schema>
+
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_3_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2017.3"/>
       <Annotation Term="OData.Description" String="This version was created to add OEM enumerations for legacy IPMI log implementations."/>
+
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_2_1.LogEntry">
         <Property Name="OemLogEntryCode" Type="Edm.String">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -882,10 +941,29 @@
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_3_5.LogEntry"/>
     </Schema>
 
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_3_7">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_3_6.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_3_8">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct the description of SensorNumber such that only applies to SEL log entry types."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_3_7.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_3_9">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_3_8.LogEntry"/>
+    </Schema>
+
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_4_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2018.2"/>
       <Annotation Term="OData.Description" String="This version was created to deprecate EventType and to add EventGroupId in the case the log is used for Events."/>
+
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_3_1.LogEntry">
         <Property Name="EventGroupId" Type="Edm.Int64">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -925,6 +1003,24 @@
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_4_4.LogEntry"/>
     </Schema>
 
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_4_6">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_4_5.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_4_7">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct the description of SensorNumber such that only applies to SEL log entry types."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_4_6.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_4_8">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_4_7.LogEntry"/>
+    </Schema>
+
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_5_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2019.3"/>
@@ -946,6 +1042,24 @@
       <EntityType Name="LogEntry" BaseType="LogEntry.v1_5_0.LogEntry"/>
     </Schema>
 
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_5_2">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_5_1.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_5_3">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct the description of SensorNumber such that only applies to SEL log entry types."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_5_2.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_5_4">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_5_3.LogEntry"/>
+    </Schema>
+
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_6_0">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
       <Annotation Term="Redfish.Release" String="2020.1"/>
@@ -958,6 +1072,183 @@
           <Annotation Term="OData.LongDescription" String="This property shall contain the date and time when the log entry was last modified.  This property shall not appear if the log entry has not been modified since it was created."/>
         </Property>
       </EntityType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_6_1">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_6_0.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_6_2">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct the description of SensorNumber such that only applies to SEL log entry types."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_6_1.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_6_3">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_6_2.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_7_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2020.3"/>
+      <Annotation Term="OData.Description" String="This version was created to add AdditionalDataSizeBytes, AdditionalDataURI, and DiagnosticDataType properties."/>
+
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_6_2.LogEntry">
+        <Property Name="AdditionalDataSizeBytes" Type="Edm.Int64">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The size of the additional data for the log entry."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the size of the additional data referenced by the AdditionalDataURI property for the log entry."/>
+          <Annotation Term="Measures.Unit" String="By"/>
+        </Property>
+        <Property Name="AdditionalDataURI" Type="Edm.String">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The URI at which to access the additional data for the log entry, such as diagnostic data, image captures, or other files."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the URI at which to access the additional data for the log entry, using the Redfish protocol and authentication methods."/>
+          <Annotation Term="OData.IsURL"/>
+        </Property>
+        <Property Name="DiagnosticDataType" Type="LogEntry.v1_7_0.LogDiagnosticDataTypes">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The type of diagnostic data."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the type of diagnostic data."/>
+        </Property>
+        <Property Name="OEMDiagnosticDataType" Type="Edm.String">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The OEM-defined type of diagnostic data."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the OEM-defined type of diagnostic data.  This property shall be present if DiagnosticDataType is `OEM`."/>
+        </Property>
+      </EntityType>
+
+      <EnumType Name="LogDiagnosticDataTypes">
+        <Member Name="Manager">
+          <Annotation Term="OData.Description" String="Manager diagnostic data."/>
+        </Member>
+        <Member Name="PreOS">
+          <Annotation Term="OData.Description" String="Pre-OS diagnostic data."/>
+        </Member>
+        <Member Name="OS">
+          <Annotation Term="OData.Description" String="Operating system (OS) diagnostic data."/>
+        </Member>
+        <Member Name="OEM">
+          <Annotation Term="OData.Description" String="OEM diagnostic data."/>
+        </Member>
+        <Member Name="CPER">
+          <Annotation Term="OData.Description" String="UEFI Common Platform Error Record."/>
+          <Annotation Term="OData.LongDescription" String="This value shall indicate the data provided at the URI specified by the AdditionalDataURI property is a complete UEFI Specification-defined Common Platform Error Record.  The CPER data shall contain a Record Header and at least one Section as defined by the UEFI Specification."/>
+          <Annotation Term="Redfish.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
+                <PropertyValue Property="Version" String="v1_10_0"/>
+              </Record>
+            </Collection>
+          </Annotation>
+        </Member>
+        <Member Name="CPERSection">
+          <Annotation Term="OData.Description" String="A Section of a UEFI Common Platform Error Record."/>
+          <Annotation Term="OData.LongDescription" String="This value shall indicate the data provided at the URI specified by the AdditionalDataURI property is a single Section of a UEFI Specification-defined Common Platform Error Record.  The CPER data shall contain one Section as defined by the UEFI Specification, with no Record Header."/>
+          <Annotation Term="Redfish.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
+                <PropertyValue Property="Version" String="v1_10_0"/>
+              </Record>
+            </Collection>
+          </Annotation>
+        </Member>
+      </EnumType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_7_1">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created specify 64-bit integers in OpenAPI."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_7_0.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_8_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2020.4"/>
+      <Annotation Term="OData.Description" String="This version was created to add the Resolved property."/>
+
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_7_1.LogEntry">
+        <Property Name="Resolved" Type="Edm.Boolean">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+          <Annotation Term="OData.Description" String="Indicates if the cause of the log entry has been resolved or repaired."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain an indication if the cause of the log entry has been resolved or repaired.  The value `true` shall indicate if the cause of the log entry has been resolved or repaired.  This property shall contain the value `false` if the log entry is still active.  The value `false` shall be the initial state."/>
+        </Property>
+      </EntityType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_9_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2021.1"/>
+      <Annotation Term="OData.Description" String="This version was created to add the ServiceProviderNotified and Resolution properties."/>
+
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_8_0.LogEntry">
+        <Property Name="ServiceProviderNotified" Type="Edm.Boolean">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="Indicates if the log entry has been sent to the service provider."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain an indication if the log entry has been sent to the service provider."/>
+        </Property>
+        <Property Name="Resolution" Type="Edm.String" Nullable="false">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="Used to provide suggestions on how to resolve the situation that caused the log entry."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the resolution of the log entry.  Services should replace the resolution defined in the message registry with a more specific resolution in a log entry."/>
+        </Property>
+      </EntityType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_9_1">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to update description for Resolution to recommend that an appropriate resolution is used."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_9_0.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_10_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2021.3"/>
+      <Annotation Term="OData.Description" String="This version was created add `CPER` and `CPERSection` to LogDiagnosticDataTypes."/>
+
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_9_0.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_10_1">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to update description for Resolution to recommend that an appropriate resolution is used."/>
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_10_0.LogEntry"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="LogEntry.v1_11_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2021.4"/>
+
+      <EntityType Name="LogEntry" BaseType="LogEntry.v1_10_1.LogEntry">
+        <Property Name="Originator" Type="Edm.String" Nullable="false">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The source of the log entry."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the source of the log entry."/>
+        </Property>
+        <Property Name="OriginatorType" Type="LogEntry.v1_11_0.OriginatorTypes" Nullable="false">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The type of originator data."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the type of originator data."/>
+        </Property>
+      </EntityType>
+
+      <EnumType Name="OriginatorTypes">
+        <Member Name="Client">
+          <Annotation Term="OData.Description" String="A client of the service created this log entry."/>
+        </Member>
+        <Member Name="Internal">
+          <Annotation Term="OData.Description" String="A process running on the service created this log entry."/>
+        </Member>
+        <Member Name="SupportingService">
+          <Annotation Term="OData.Description" String="A process not running on the service but running on a supporting service, such as RDE implementations, UEFI, or host processes, created this log entry."/>
+        </Member>
+      </EnumType>
     </Schema>
 
   </edmx:DataServices>

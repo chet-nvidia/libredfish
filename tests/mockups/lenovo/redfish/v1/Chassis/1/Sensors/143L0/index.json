@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/143L0",
+    "PhysicalContext": "ComputeBay",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": "OK",
+        "State": "Enabled"
     },
     "ReadingUnits": "",
+    "RelatedItem@odata.count": 1,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ],
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
     "Reading": 0,
-    "PhysicalContext": "ComputeBay",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "ReadingType": null,
+    "@odata.etag": "\"2e01bae00e3b2ae87e8\"",
     "Id": "143L0",
     "Name": "PCIe 21",
-    "@odata.etag": "\"24658029b2692725472\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "@odata.type": "#Sensor.v1_5_0.Sensor"
 }

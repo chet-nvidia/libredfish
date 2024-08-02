@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/6L0",
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": "OK",
+        "State": "Enabled"
     },
-    "ReadingUnits": "",
-    "Reading": 0,
     "PhysicalContext": "StorageDevice",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "Id": "6L0",
-    "Name": "All PCI Error",
-    "@odata.etag": "\"244aa6dd4dcb2ae5755\"",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "Reading": 0,
     "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "Id": "6L0",
+    "ReadingUnits": "",
+    "RelatedItem@odata.count": 1,
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"2f25c28292de2724656\"",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeSlots"
+        }
+    ],
+    "Name": "All PCI Error",
+    "@odata.type": "#Sensor.v1_5_0.Sensor"
 }

@@ -1,54 +1,49 @@
 {
-    "Id": "SNMP",
-    "Name": "SNMP Protocol",
+    "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/Oem/Lenovo/SNMP",
+    "Description": "This resource is used to represent SNMP protocol for the manager for a Redfish implementation.",
+    "@odata.type": "#LenovoSNMPProtocol.v1_0_0.LenovoSNMPProtocol",
     "SNMPv3Agent": {
-        "ContactPerson": "",
+        "Port": 161,
         "Location": "",
         "Links": {
             "UsersSNMPv3Settings": {
                 "@odata.id": "/redfish/v1/AccountService/Accounts"
             }
         },
-        "Port": 161,
-        "ProtocolEnabled": false
+        "ProtocolEnabled": false,
+        "ContactPerson": ""
     },
-    "@odata.type": "#LenovoSNMPProtocol.v1_0_0.LenovoSNMPProtocol",
-    "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol/Oem/Lenovo/SNMP",
+    "Name": "SNMP Protocol",
+    "@odata.context": "/redfish/v1/$metadata#LenovoSNMPProtocol.LenovoSNMPProtocol",
+    "@odata.etag": "\"644d125b08f82970901\"",
+    "Id": "SNMP",
     "CommunityNames": [
-        ""
+        null
     ],
     "SNMPTraps": {
-        "ProtocolEnabled": false,
-        "SNMPv1TrapEnabled": false,
+        "Port": 162,
         "AlertRecipient": {
             "WarningEvents": {
-                "Enabled": false,
-                "AcceptedEvents": [
-                    ""
-                ]
-            },
-            "SystemEvents": {
-                "Enabled": false,
-                "AcceptedEvents": [
-                    ""
-                ]
+                "AcceptedEvents": [],
+                "Enabled": false
             },
             "CriticalEvents": {
                 "Enabled": false,
-                "AcceptedEvents": [
-                    ""
-                ]
+                "AcceptedEvents": []
+            },
+            "SystemEvents": {
+                "AcceptedEvents": [],
+                "Enabled": false
             }
         },
+        "ProtocolEnabled": false,
         "Targets": [
             {
                 "Addresses": [
-                    ""
+                    null
                 ]
             }
         ],
-        "Port": 162
-    },
-    "@odata.etag": "\"58243141da302aee461\"",
-    "Description": "This resource is used to represent SNMP protocol for the manager for a Redfish implementation."
+        "SNMPv1TrapEnabled": false
+    }
 }

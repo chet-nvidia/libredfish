@@ -1,16 +1,17 @@
 {
-    "Name": "CPU 2",
     "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/LEDs/6",
     "State": "Off",
+    "Description": "This resource is used to represent a LED sensor for a Redfish implementation.",
     "PeriodInMillSec": 0,
-    "DeviceEntity": "processor",
-    "Id": "6",
-    "EntityInstance": 2,
-    "DutyCycle": 0,
-    "@odata.type": "#LenovoLED.v1_0_0.LenovoLED",
     "EntityID": 3,
-    "Location": "Planar",
-    "@odata.etag": "\"2d4a7b465a252426c82\"",
+    "DeviceEntity": "processor",
+    "@odata.context": "/redfish/v1/$metadata#LenovoLED.LenovoLED",
     "Color": "Yellow",
-    "Description": "This resource is used to represent a LED sensor for a Redfish implementation."
+    "DutyCycle": 0,
+    "EntityInstance": 2,
+    "Location": "Planar",
+    "@odata.etag": "\"30af29f83c5827e5363\"",
+    "Id": "6",
+    "Name": "CPU 2",
+    "@odata.type": "#LenovoLED.v1_0_0.LenovoLED"
 }

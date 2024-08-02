@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/29L0",
-    "Status": {
-        "State": "Disabled",
-        "Health": null
-    },
     "ReadingUnits": "",
-    "Reading": null,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Bios"
+        }
+    ],
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "ReadingType": null,
+    "Status": {
+        "Health": null,
+        "State": "Disabled"
+    },
     "PhysicalContext": null,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "RelatedItem@odata.count": 1,
+    "Reading": null,
+    "@odata.etag": "\"329d82281ca12665f7f\"",
     "Id": "29L0",
     "Name": "Progress",
-    "@odata.etag": "\"2826a3403c882662123\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "@odata.type": "#Sensor.v1_5_0.Sensor"
 }

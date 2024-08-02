@@ -3,24 +3,25 @@
     "Status": {
         "State": "Enabled"
     },
-    "Name": "CPUUtilizationStatsEvent",
-    "Id": "CPUUtilizationStatsEvent",
-    "ReportActions": [
-        "RedfishEvent"
-    ],
     "MetricReportDefinitionType": "Periodic",
-    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
+    "@odata.type": "#MetricReportDefinition.v1_4_1.MetricReportDefinition",
     "Metrics": [
         {
+            "CollectionTimeScope": "Interval",
             "MetricId": "AverageCPUUtilization",
-            "CollectionDuration": "PT30S",
-            "CollectionTimeScope": "Interval"
+            "CollectionDuration": "PT30S"
         }
     ],
     "ReportTimespan": "PT10M",
-    "@odata.etag": "\"4e5b139cc4bd296b527\"",
     "Schedule": {
         "RecurrenceInterval": "PT10M"
     },
-    "Description": "A set of metrics that are collected into a metric report."
+    "Description": "A set of metrics that are collected into a metric report.",
+    "@odata.context": "/redfish/v1/$metadata#MetricReportDefinition.MetricReportDefinition",
+    "@odata.etag": "\"531de93df5512a2c24b\"",
+    "Id": "CPUUtilizationStatsEvent",
+    "Name": "CPUUtilizationStatsEvent",
+    "ReportActions": [
+        "RedfishEvent"
+    ]
 }

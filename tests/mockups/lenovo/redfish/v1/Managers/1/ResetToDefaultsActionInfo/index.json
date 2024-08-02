@@ -1,17 +1,18 @@
 {
-    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo",
-    "Id": "ResetToDefaults",
     "@odata.id": "/redfish/v1/Managers/1/ResetToDefaultsActionInfo",
+    "Description": "Information of the action 'ResetToDefaults' of Manager",
     "Parameters": [
         {
             "AllowableValues": [
                 "ResetAll"
             ],
-            "Required": true,
+            "DataType": "String",
             "Name": "ResetType",
-            "DataType": "String"
+            "Required": true
         }
     ],
+    "@odata.context": "/redfish/v1/$metadata#ActionInfo.ActionInfo",
+    "Id": "ResetToDefaults",
     "Name": "ResetToDefaults",
-    "Description": "Information of the action 'ResetToDefaults' of Manager"
+    "@odata.type": "#ActionInfo.v1_1_2.ActionInfo"
 }

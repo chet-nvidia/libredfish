@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/44L0",
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": null,
+        "State": "Enabled"
     },
     "ReadingUnits": "",
-    "Reading": 0,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "@odata.etag": "\"2dfe57b94dd2296466d\"",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
     "PhysicalContext": null,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "ReadingType": null,
+    "RelatedItem@odata.count": 1,
+    "Reading": 0,
     "Id": "44L0",
     "Name": "SMI TIMEOUT",
-    "@odata.etag": "\"2406fdcf12302425f73\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1"
+        }
+    ]
 }

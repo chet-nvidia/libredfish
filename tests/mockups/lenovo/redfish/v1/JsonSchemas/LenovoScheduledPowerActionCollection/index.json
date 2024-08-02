@@ -1,18 +1,19 @@
 {
-    "Schema": "#LenovoScheduledPowerActionCollection.LenovoScheduledPowerActionCollection",
     "@odata.id": "/redfish/v1/JsonSchemas/LenovoScheduledPowerActionCollection",
-    "Name": "LenovoScheduledPowerActionCollection JSON Schema File",
+    "Schema": "#LenovoScheduledPowerActionCollection.LenovoScheduledPowerActionCollection",
+    "Description": "This represents the LenovoScheduledPowerActionCollection Schema File locator resource for a Redfish implementation.",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoScheduledPowerActionCollection.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"fd50bdbb\"",
+    "@odata.etag": "\"4aa3293c\"",
     "Id": "LenovoScheduledPowerActionCollection",
-    "Description": "This represents the LenovoScheduledPowerActionCollection Schema File locator resource for a Redfish implementation."
+    "Name": "LenovoScheduledPowerActionCollection JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

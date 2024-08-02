@@ -1,30 +1,31 @@
 {
-    "SerialNumber": "1322221026831",
-    "FirmwareVersion": "94.02.5C.00.02",
     "@odata.id": "/redfish/v1/Systems/1/Processors/GPU1",
-    "Links": {
-        "PCIeDevice": {
-            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_4"
-        },
-        "Chassis": {
-            "@odata.id": "/redfish/v1/Chassis/1"
-        },
-        "PCIeFunctions": [
-            {
-                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_4/PCIeFunctions/slot_4.00"
-            }
-        ],
-        "PCIeFunctions@odata.count": 1
-    },
-    "Name": "GPU 1",
     "ProcessorId": {
         "VendorId": "0x10de"
     },
-    "PartNumber": "",
-    "@odata.type": "#Processor.v1_8_0.Processor",
+    "Links": {
+        "PCIeFunctions@odata.count": 1,
+        "PCIeDevice": {
+            "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_3"
+        },
+        "PCIeFunctions": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_3/PCIeFunctions/slot_3.00"
+            }
+        ],
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    },
+    "Description": "This resource is used to represent a processor for a Redfish implementation.",
+    "FirmwareVersion": "95.02.39.00.01",
+    "@odata.type": "#Processor.v1_14_0.Processor",
+    "PartNumber": "26B5-895-A1",
     "ProcessorType": "GPU",
-    "Manufacturer": "NVIDIA Corporation",
-    "@odata.etag": "\"472b7ae0611127e8bfa\"",
+    "SerialNumber": "1325322005680",
+    "@odata.context": "/redfish/v1/$metadata#Processor.Processor",
+    "@odata.etag": "\"4bd2cf5cb3dc25a883e\"",
     "Id": "GPU1",
-    "Description": "This resource is used to represent a processor for a Redfish implementation."
+    "Name": "GPU 1",
+    "Manufacturer": "NVIDIA Corporation"
 }

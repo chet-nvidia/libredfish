@@ -1,16 +1,20 @@
 {
-    "Members": [
-        {
-            "@odata.id": "/redfish/v1/SessionService/Sessions/4"
-        },
-        {
-            "@odata.id": "/redfish/v1/SessionService/Sessions/37"
-        }
-    ],
-    "@odata.type": "#SessionCollection.SessionCollection",
     "@odata.id": "/redfish/v1/SessionService/Sessions",
     "Name": "SessionCollection",
-    "@odata.etag": "\"2955a8a53f902a2663e\"",
-    "Members@odata.count": 2,
-    "Description": "A collection of Session resource instances."
+    "Description": "A collection of Session resource instances.",
+    "@odata.context": "/redfish/v1/$metadata#SessionCollection.SessionCollection",
+    "@odata.etag": "\"333a2aeacb0e2a24b0a\"",
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/SessionService/Sessions/25"
+        },
+        {
+            "@odata.id": "/redfish/v1/SessionService/Sessions/26"
+        },
+        {
+            "@odata.id": "/redfish/v1/SessionService/Sessions/27"
+        }
+    ],
+    "Members@odata.count": 3,
+    "@odata.type": "#SessionCollection.SessionCollection"
 }

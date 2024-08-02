@@ -1,116 +1,111 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoChassis",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LenovoChassis.v1_0_0.json",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2019 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "LenovoChassisProperties": {
-            "type": "object",
+            "additionalProperties": true,
+            "description": "These properties shall be refered in Lenovo Oem properties for chassis schema",
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
-            "additionalProperties": false,
             "properties": {
-                "@odata.context": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
-                },
-                "@odata.id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
-                },
-                "@odata.type": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
-                },
-                "MainboardPartNubmer": {
-                    "type": "string",
+                "Device_ID": {
+                    "description": "This property describes the device id for this BP.",
+                    "longDescription": "This property describes the device id for this BP, only used for BP.",
                     "readonly": true,
-                    "description": "Represents part number of the system's mainboard.",
-                    "longDescription": "The value of this property shall represent part number of the system's mainboard."
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
-                "Sensors": {
-                    "$ref": "/schemas/v1/Lenovo/LenovoSensorCollection.json#/definitions/LenovoSensorCollection",
-                    "description": "This object describes the sensors of the system in general detail.",
-                    "longDescription": "This is a reference to sensor. This object shall contain properties which describes the sensors for the current resource."
+                "Entity_ID": {
+                    "description": "This property describes the entity id for this BP.",
+                    "longDescription": "This property describes the entity id for this BP, only used for BP.",
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
-                "Slots": {
-                    "$ref": "/schemas/v1/Lenovo/LenovoSlotCollection.json#/definitions/LenovoSlotCollection",
-                    "description": "This is a reference to a collection of slots in the chassis.",
-                    "longDescription": "The value of this property shall be a link to a collection of type LenovoSlotCollection."
+                "HasSwitchBoard": {
+                    "description": "Represents if the system has switch borad device in IOT systems.",
+                    "longDescription": "The value of this property shall represent if the system has switch borad device in IOT systems.",
+                    "readonly": true,
+                    "type": "boolean"
                 },
                 "LEDs": {
-                    "$ref": "/schemas/v1/Lenovo/LenovoLEDCollection.json#/definitions/LenovoLEDCollection",
+                    "$ref": "//redfish/v1/metadata/LenovoLEDCollection.json#/definitions/LenovoLEDCollection",
                     "description": "This object describes the LEDs of the system.",
-                    "longDescription": "This is a reference to LED. This object shall contain properties which describes the LEDs for the current resource."
+                    "longDescription": "This is a reference to LED. This object shall contain properties which describes the LEDs for the current resource.",
+                    "readonly": true
+                },
+                "MainboardPartNubmer": {
+                    "description": "Represents part number of the system's mainboard.",
+                    "longDescription": "The value of this property shall represent part number of the system's mainboard.",
+                    "readonly": true,
+                    "type": "string"
+                },
+                "POS_ID": {
+                    "description": "This property describe the pos id for this BP.",
+                    "longDescription": "This property describes the pos id for this BP, only used for BP.",
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "PRODUCT_ID": {
+                    "description": "This property describes the product id for this BP.",
+                    "longDescription": "This property describes the product id for this BP, only used for BP.",
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "ProductName": {
-                    "type": "string",
-                    "readonly": true,
                     "description": "This property describes the product name.",
-                    "longDescription": "This property describes the product name."
-                },
-                "FruPartNumber": {
-                    "type": "string",
+                    "longDescription": "This property describes the product name.",
                     "readonly": true,
-                    "description": "This property describes the fru part number.",
-                    "longDescription": "This property describes the fru part number."
+                    "type": "string"
                 },
-                "SystemBoardSerialNumber": {
-                    "type": "string",
-                    "readonly": true,
-                    "description": "This property describes the system board serial number.",
-                    "longDescription": "This property describes the system board serial number."
+                "Sensors": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/SensorCollection.json#/definitions/SensorCollection",
+                    "description": "This object describes the sensors of the system in general detail.",
+                    "longDescription": "This is a reference to sensor. This object shall contain properties which describes the sensors for the current resource.",
+                    "readonly": true
                 },
-                "LocatedIn": {
-                    "$ref": "/schemas/v1/Lenovo/LenovoGeneralInfo.json#/definitions/LenovoGeneralInfo",
+                "Slots": {
+                    "$ref": "/redfish/v1/metadata/LenovoSlotCollection.json#/definitions/LenovoSlotCollection",
+                    "description": "This is a reference to a collection of slots in the chassis.",
+                    "longDescription": "The value of this property shall be a link to a collection of type LenovoSlotCollection.",
+                    "readonly": true
+                },
+                "VPD_ID": {
+                    "description": "This property describes the vpd id for this BP.",
+                    "longDescription": "This property describes the vpd id for this BP, only used for BP.",
                     "readonly": true,
-                    "description": "This is location of the chassis in general detail.",
-                    "longDescription": "This values will give out a detailed description to the location where the chassis is placed ."
-                }
-            },
-            "description": "These properties shall be refered in /schemas/v1/Chassis.v1_0_0.json#/definitions/Chassis/properties/Oem."
-        },
-        "LenovoChassisLinks": {
-            "type": "object",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
                     "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                        "string",
+                        "null"
+                    ]
                 }
             },
-            "additionalProperties": true,
-            "properties": {
-                "FirmwareInfo@odata.count": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/count"
-                },
-                "FirmwareInfo@odata.navigationLink": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/idRef"
-                },
-                "FirmwareInfo": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "http://redfish.dmtf.org/schemas/v1/SoftwareInventory.json#/definitions/SoftwareInventory"
-                    },
-                    "readonly": true,
-                    "description": "This is an array of references to the firmware that this chassis has installed.",
-                    "longDescription": "This property shall contain an array of references to firmware resources of which this chassis has installed."
-                }
-            },
-            "description": "These properties shall be refered in /schemas/v1/Chassis.v1_0_0.json#/definitions/Chassis/properties/Links/Oem."
+            "type": "object"
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "owningEntity": "Lenovo",
+    "title": "#LenovoChassis.v1_0_0"
 }

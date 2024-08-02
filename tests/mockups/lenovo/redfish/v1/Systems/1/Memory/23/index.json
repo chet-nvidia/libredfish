@@ -1,78 +1,79 @@
 {
+    "PersistentRegionSizeLimitMiB": null,
+    "SerialNumber": "802C0F2323410FF763",
+    "SubsystemDeviceID": "0x0000",
+    "PartNumber": "36ASF8G72PZ-3G2F1",
+    "SubsystemVendorID": "0x0000",
+    "DataWidthBits": 64,
+    "OperatingSpeedMhz": 3200,
+    "MemoryMedia": [
+        "DRAM"
+    ],
+    "Oem": {
+        "Lenovo": {
+            "FruPartNumber": "02JK971",
+            "@odata.type": "#LenovoMemory.v1_0_0.LenovoMemory"
+        }
+    },
     "AllowedSpeedsMHz": [
         3200
     ],
-    "VolatileRegionSizeLimitMiB": null,
-    "MemoryDeviceType": "DDR4",
     "Id": "23",
-    "MemorySubsystemControllerProductID": "0x0000",
+    "Name": "DIMM 23",
+    "VendorID": "Micron Technology",
+    "@odata.id": "/redfish/v1/Systems/1/Memory/23",
+    "DeviceLocator": "DIMM 23",
+    "ModuleProductID": "0x0000",
+    "ModuleManufacturerID": "0x2c80",
     "Links": {
         "Chassis": {
             "@odata.id": "/redfish/v1/Chassis/1"
         }
     },
-    "MemoryMedia": [
-        "DRAM"
-    ],
-    "Location": {
-        "PartLocation": {
-            "LocationType": "Slot",
-            "ServiceLabel": "DIMM 23",
-            "LocationOrdinalValue": 22
-        }
-    },
-    "DeviceID@Redfish.Deprecated": "The property is deprecated. Please use ModuleProductID instead.",
-    "MemoryLocation": {
-        "Channel": 4,
-        "MemoryController": 1,
-        "Slot": 23,
-        "Socket": 1
-    },
-    "MemorySubsystemControllerManufacturerID": "0x0000",
-    "MemoryType": "DRAM",
-    "DeviceLocator": "DIMM 23",
-    "DataWidthBits": 64,
-    "Oem": {
-        "Lenovo": {
-            "@odata.type": "#LenovoMemory.v1_0_0.LenovoMemory",
-            "FruPartNumber": "02JK239"
-        }
-    },
-    "DeviceLocator@Redfish.Deprecated": "The property is deprecated since v4_1_0. Please use Location/PartLocation/ServiceLabel instead.",
-    "RankCount": 1,
+    "BaseModuleType": "RDIMM",
+    "VolatileRegionSizeLimitMiB": null,
     "SubsystemVendorID@Redfish.Deprecated": "The property is deprecated. Please use MemorySubsystemControllerManufacturerID instead.",
-    "@odata.etag": "\"de7d2d94fa5731d6844c2\"",
-    "VendorID": "Samsung",
-    "Regions": [],
-    "SecurityCapabilities": {},
-    "@odata.id": "/redfish/v1/Systems/1/Memory/23",
-    "BusWidthBits": 72,
-    "PartNumber": "M393A4G43AB3-CWE",
-    "SubsystemDeviceID@Redfish.Deprecated": "The property is deprecated. Please use MemorySubsystemControllerProductID instead.",
-    "@odata.type": "#Memory.v1_9_1.Memory",
-    "CapacityMiB": 32768,
-    "Description": "This resource is used to represent a memory for a Redfish implementation.",
-    "DeviceID": "DIMM_23",
-    "Manufacturer": "Samsung",
-    "SubsystemDeviceID": "0x0000",
+    "RankCount": 1,
     "OperatingMemoryModes": [
         "Volatile"
     ],
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
+    "SubsystemDeviceID@Redfish.Deprecated": "The property is deprecated. Please use MemorySubsystemControllerProductID instead.",
+    "DeviceID": "DIMM_23",
+    "DeviceID@Redfish.Deprecated": "The property is deprecated. Please use ModuleProductID instead.",
+    "Regions": [],
+    "MemoryType": "DRAM",
+    "VolatileSizeMiB": 65536,
+    "BusWidthBits": 72,
+    "SecurityCapabilities": {},
+    "@odata.context": "/redfish/v1/$metadata#Memory.Memory",
+    "DeviceLocator@Redfish.Deprecated": "The property is deprecated since v4_1_0. Please use Location/PartLocation/ServiceLabel instead.",
+    "MemorySubsystemControllerProductID": "0x0000",
+    "MemorySubsystemControllerManufacturerID": "0x0000",
+    "Description": "This resource is used to represent a memory for a Redfish implementation.",
     "VendorID@Redfish.Deprecated": "The property is deprecated. Please use ModuleManufacturerID instead.",
-    "SerialNumber": "0428DD18",
-    "ModuleManufacturerID": "0xce80",
-    "OperatingSpeedMhz": 3200,
-    "SubsystemVendorID": "0x0000",
-    "BaseModuleType": "RDIMM",
-    "ModuleProductID": "0x0000",
-    "Name": "DIMM 23",
-    "PersistentRegionSizeLimitMiB": null,
-    "VolatileSizeMiB": 32768,
+    "CapacityMiB": 65536,
+    "Manufacturer": "Micron Technology",
     "FunctionClasses": [
         "Volatile"
-    ]
+    ],
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Location": {
+        "PartLocation": {
+            "LocationOrdinalValue": 22,
+            "LocationType": "Slot",
+            "ServiceLabel": "DIMM 23"
+        }
+    },
+    "MemoryLocation": {
+        "Socket": 2,
+        "MemoryController": 3,
+        "Channel": 6,
+        "Slot": 23
+    },
+    "MemoryDeviceType": "DDR4",
+    "@odata.etag": "\"e38c4a4a4cc532c5069fc\"",
+    "@odata.type": "#Memory.v1_14_0.Memory"
 }

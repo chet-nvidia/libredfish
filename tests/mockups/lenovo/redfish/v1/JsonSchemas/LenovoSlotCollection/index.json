@@ -1,18 +1,19 @@
 {
-    "Schema": "#LenovoSlotCollection.LenovoSlotCollection",
     "@odata.id": "/redfish/v1/JsonSchemas/LenovoSlotCollection",
-    "Name": "LenovoSlotCollection JSON Schema File",
+    "Schema": "#LenovoSlotCollection.LenovoSlotCollection",
+    "Description": "This represents the LenovoSlotCollection Schema File locator resource for a Redfish implementation.",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoSlotCollection.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"343c675c\"",
+    "@odata.etag": "\"f78de4f4\"",
     "Id": "LenovoSlotCollection",
-    "Description": "This represents the LenovoSlotCollection Schema File locator resource for a Redfish implementation."
+    "Name": "LenovoSlotCollection JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

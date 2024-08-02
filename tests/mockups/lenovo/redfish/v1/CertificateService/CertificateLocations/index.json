@@ -1,6 +1,4 @@
 {
-    "@odata.etag": "\"362ae2eb99a12a2722d\"",
-    "@odata.type": "#CertificateLocations.v1_0_2.CertificateLocations",
     "@odata.id": "/redfish/v1/CertificateService/CertificateLocations",
     "Id": "CertificateLocations",
     "Links": {
@@ -10,6 +8,9 @@
             }
         ]
     },
+    "@odata.context": "/redfish/v1/$metadata#CertificateLocations.CertificateLocations",
+    "@odata.etag": "\"3a712b5c16b927e7d9c\"",
+    "Description": "This resource is used to represent the collection of certificate locations for a Redfish implementation.",
     "Name": "Certificate Locations",
-    "Description": "This resource is used to represent the collection of certificate locations for a Redfish implementation."
+    "@odata.type": "#CertificateLocations.v1_0_2.CertificateLocations"
 }

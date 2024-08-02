@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/186L0",
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": "OK",
+        "State": "Enabled"
     },
-    "ReadingUnits": "",
-    "Reading": 0,
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
     "PhysicalContext": null,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "ReadingUnits": "",
+    "RelatedItem@odata.count": 1,
+    "Reading": 0,
+    "ReadingType": null,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"302d9fb2495424e445f\"",
     "Id": "186L0",
     "Name": "M2Drv1 Mismatch",
-    "@odata.etag": "\"269165743e7c28a61e3\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ]
 }

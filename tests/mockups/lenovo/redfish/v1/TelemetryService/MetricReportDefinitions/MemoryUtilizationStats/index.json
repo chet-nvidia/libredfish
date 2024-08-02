@@ -1,28 +1,29 @@
 {
-    "ReportUpdates": "AppendWrapsWhenFull",
     "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/MemoryUtilizationStats",
-    "Status": {
-        "State": "Enabled"
-    },
-    "Metrics": [
-        {
-            "MetricId": "AverageMemoryUtilization",
-            "CollectionDuration": "PT30S",
-            "CollectionTimeScope": "Interval"
-        }
-    ],
-    "Name": "MemoryUtilizationStats",
-    "Id": "MemoryUtilizationStats",
-    "ReportActions": [
-        "LogToMetricReportsCollection"
-    ],
-    "MetricReportDefinitionType": "OnRequest",
-    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
     "MetricReport": {
         "@odata.id": "/redfish/v1/TelemetryService/MetricReports/MemoryUtilizationStats"
     },
-    "AppendLimit": 2880,
-    "@odata.etag": "\"60557833340c2669c36\"",
+    "MetricReportDefinitionType": "OnRequest",
+    "Description": "A set of metrics that are collected into a metric report.",
+    "Metrics": [
+        {
+            "CollectionDuration": "PT30S",
+            "MetricId": "AverageMemoryUtilization",
+            "CollectionTimeScope": "Interval"
+        }
+    ],
+    "Status": {
+        "State": "Enabled"
+    },
+    "@odata.context": "/redfish/v1/$metadata#MetricReportDefinition.MetricReportDefinition",
+    "ReportActions": [
+        "LogToMetricReportsCollection"
+    ],
     "ReportTimespan": "PT24H",
-    "Description": "A set of metrics that are collected into a metric report."
+    "ReportUpdates": "AppendWrapsWhenFull",
+    "AppendLimit": 2880,
+    "@odata.etag": "\"65184dd4be9a2730354\"",
+    "Id": "MemoryUtilizationStats",
+    "Name": "MemoryUtilizationStats",
+    "@odata.type": "#MetricReportDefinition.v1_4_1.MetricReportDefinition"
 }

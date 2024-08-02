@@ -1,18 +1,19 @@
 {
-    "Schema": "#Bios.Bios",
     "@odata.id": "/redfish/v1/JsonSchemas/Bios",
-    "Name": "Bios JSON Schema File",
+    "Description": "This represents the Bios Schema File locator resource for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "Schema": "#Bios.Bios",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/Bios.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"06d632b7\"",
+    "@odata.etag": "\"9042b731\"",
     "Id": "Bios",
-    "Description": "This represents the Bios Schema File locator resource for a Redfish implementation."
+    "Name": "Bios JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

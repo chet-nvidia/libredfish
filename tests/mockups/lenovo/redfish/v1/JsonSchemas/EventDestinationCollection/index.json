@@ -1,18 +1,19 @@
 {
-    "Schema": "#EventDestinationCollection.EventDestinationCollection",
     "@odata.id": "/redfish/v1/JsonSchemas/EventDestinationCollection",
-    "Name": "EventDestinationCollection JSON Schema File",
+    "Schema": "#EventDestinationCollection.EventDestinationCollection",
+    "Description": "This represents the EventDestinationCollection Schema File locator resource for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/EventDestinationCollection.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"94f2bb95\"",
+    "@odata.etag": "\"b66f1a3d\"",
     "Id": "EventDestinationCollection",
-    "Description": "This represents the EventDestinationCollection Schema File locator resource for a Redfish implementation."
+    "Name": "EventDestinationCollection JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

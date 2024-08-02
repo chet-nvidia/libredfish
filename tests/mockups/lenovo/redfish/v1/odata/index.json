@@ -1,79 +1,79 @@
 {
     "value": [
         {
-            "url": "/redfish/v1/",
+            "kind": "Singleton",
             "name": "Service",
-            "kind": "Singleton"
+            "url": "/redfish/v1/"
         },
         {
-            "url": "/redfish/v1/TaskService",
+            "kind": "Singleton",
             "name": "Tasks",
-            "kind": "Singleton"
+            "url": "/redfish/v1/TaskService"
         },
         {
-            "url": "/redfish/v1/Chassis",
+            "kind": "Singleton",
             "name": "Chassis",
-            "kind": "Singleton"
+            "url": "/redfish/v1/Chassis"
         },
         {
-            "url": "/redfish/v1/Managers",
+            "kind": "Singleton",
             "name": "Managers",
-            "kind": "Singleton"
+            "url": "/redfish/v1/Managers"
         },
         {
-            "url": "/redfish/v1/EventService",
+            "kind": "Singleton",
             "name": "EventService",
-            "kind": "Singleton"
+            "url": "/redfish/v1/EventService"
         },
         {
-            "url": "/redfish/v1/JsonSchemas",
+            "kind": "Singleton",
             "name": "JsonSchemas",
-            "kind": "Singleton"
+            "url": "/redfish/v1/JsonSchemas"
         },
         {
-            "url": "/redfish/v1/Systems",
+            "kind": "Singleton",
             "name": "Systems",
-            "kind": "Singleton"
+            "url": "/redfish/v1/Systems"
         },
         {
-            "url": "/redfish/v1/UpdateService",
+            "kind": "Singleton",
             "name": "UpdateService",
-            "kind": "Singleton"
+            "url": "/redfish/v1/UpdateService"
         },
         {
-            "url": "/redfish/v1/Registries",
+            "kind": "Singleton",
             "name": "Registries",
-            "kind": "Singleton"
+            "url": "/redfish/v1/Registries"
         },
         {
-            "url": "/redfish/v1/SessionService",
+            "kind": "Singleton",
             "name": "SessionService",
-            "kind": "Singleton"
+            "url": "/redfish/v1/SessionService"
         },
         {
-            "url": "/redfish/v1/SessionService/Sessions",
+            "kind": "Singleton",
             "name": "Sessions",
-            "kind": "Singleton"
+            "url": "/redfish/v1/SessionService/Sessions"
         },
         {
-            "url": "/redfish/v1/AccountService",
+            "kind": "Singleton",
             "name": "AccountService",
-            "kind": "Singleton"
+            "url": "/redfish/v1/AccountService"
         },
         {
-            "url": "/redfish/v1/CertificateService",
+            "kind": "Singleton",
             "name": "CertificateService",
-            "kind": "Singleton"
+            "url": "/redfish/v1/CertificateService"
         },
         {
-            "url": "/redfish/v1/TelemetryService",
+            "kind": "Singleton",
             "name": "TelemetryService",
-            "kind": "Singleton"
+            "url": "/redfish/v1/TelemetryService"
         },
         {
-            "url": "/redfish/v1/JobService",
+            "kind": "Singleton",
             "name": "JobService",
-            "kind": "Singleton"
+            "url": "/redfish/v1/JobService"
         }
     ],
     "@odata.context": "/redfish/v1/$metadata"

@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/154L0",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ],
     "ReadingUnits": "",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "Id": "154L0",
+    "Status": {
+        "Health": null,
+        "State": "Enabled"
+    },
     "Reading": 0,
     "PhysicalContext": null,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "Id": "154L0",
+    "@odata.etag": "\"2eb6bddcb4e927e45c5\"",
+    "RelatedItem@odata.count": 1,
     "Name": "Drive 4",
-    "@odata.etag": "\"24c038ee4b632a255f5\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "ReadingType": null
 }

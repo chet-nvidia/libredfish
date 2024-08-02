@@ -1,4 +1,5 @@
 {
+    "@odata.id": "/redfish/v1/Systems/1/Oem/Lenovo/Metrics",
     "Members": [
         {
             "@odata.id": "/redfish/v1/Systems/1/Oem/Lenovo/Metrics/SystemInputPower"
@@ -52,10 +53,10 @@
             "@odata.id": "/redfish/v1/Systems/1/Oem/Lenovo/Metrics/InletAirTemp"
         }
     ],
-    "@odata.type": "#LenovoHistoryMetricValueContainerCollection.LenovoHistoryMetricValueContainerCollection",
-    "@odata.id": "/redfish/v1/Systems/1/Oem/Lenovo/Metrics",
-    "Members@odata.count": 17,
-    "@odata.etag": "\"bea67f83881833bb00155\"",
     "Name": "Historical Metrics",
-    "Description": "A collection of HistoryMetricValueContainer resource instances."
+    "@odata.context": "/redfish/v1/$metadata#LenovoHistoryMetricValueContainerCollection.LenovoHistoryMetricValueContainerCollection",
+    "@odata.etag": "\"c576667c6a922d25c438a\"",
+    "Description": "A collection of HistoryMetricValueContainer resource instances.",
+    "Members@odata.count": 17,
+    "@odata.type": "#LenovoHistoryMetricValueContainerCollection.LenovoHistoryMetricValueContainerCollection"
 }

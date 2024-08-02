@@ -1,12 +1,13 @@
 {
+    "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/Slots/9",
+    "Description": "This resource is used to represent slot information for a Redfish implementation.",
     "SupportsHotPlug": true,
+    "Number": "Bay 2",
+    "ConnectorLayout": "Other",
+    "MaxDataWidth": "4x or x4",
+    "@odata.context": "/redfish/v1/$metadata#LenovoSlot.LenovoSlot",
+    "@odata.etag": "\"2e0e8e388f1d27e3d16\"",
     "Id": "9",
     "Name": "LenovoSlot",
-    "ConnectorLayout": "Other",
-    "Number": "Bay 1",
-    "@odata.type": "#LenovoSlot.v1_0_0.LenovoSlot",
-    "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/Slots/9",
-    "MaxDataWidth": "4x or x4",
-    "@odata.etag": "\"2a88a8a604f52a24b9a\"",
-    "Description": "This resource is used to represent slot information for a Redfish implementation."
+    "@odata.type": "#LenovoSlot.v1_0_0.LenovoSlot"
 }

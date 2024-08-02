@@ -1,14 +1,39 @@
 {
-    "ReadingRangeMax": 255,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/116L0",
+    "RelatedItem@odata.count": 1,
+    "Status": {
+        "Health": null,
+        "State": "Disabled"
+    },
     "ReadingRangeMin": 0,
+    "ReadingRangeMax": 255,
+    "Id": "116L0",
+    "MinAllowableOperatingValue": 0,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ],
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/116L0",
+    "ReadingType": "Temperature",
+    "MaxAllowableOperatingValue": 255,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "PhysicalContext": "ComputeBay",
     "ReadingUnits": "C",
+    "Precision": 0,
     "Thresholds": {
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
         "LowerFatal": {
             "Activation": "Decreasing",
             "Reading": null
         },
         "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "UpperCritical": {
             "Activation": "Increasing",
             "Reading": null
         },
@@ -19,29 +44,11 @@
         "LowerCritical": {
             "Activation": "Decreasing",
             "Reading": null
-        },
-        "LowerCaution": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperCritical": {
-            "Activation": "Increasing",
-            "Reading": null
         }
     },
-    "PhysicalContext": "ComputeBay",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Disabled",
-        "Health": null
-    },
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"6eecc1cc793c2731355\"",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
     "Reading": null,
-    "Precision": 0,
-    "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 255,
-    "Name": "PCIe 21 Temp",
-    "@odata.etag": "\"6550878e146a2aed6df\"",
-    "Id": "116L0",
-    "ReadingType": "Temperature"
+    "Name": "PCIe 21 Temp"
 }

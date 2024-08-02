@@ -1,18 +1,19 @@
 {
-    "Schema": "#ProcessorCollection.ProcessorCollection",
     "@odata.id": "/redfish/v1/JsonSchemas/ProcessorCollection",
-    "Name": "ProcessorCollection JSON Schema File",
+    "Schema": "#ProcessorCollection.ProcessorCollection",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Description": "This represents the ProcessorCollection Schema File locator resource for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/ProcessorCollection.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"6d505e9d\"",
+    "@odata.etag": "\"0f6773b5\"",
     "Id": "ProcessorCollection",
-    "Description": "This represents the ProcessorCollection Schema File locator resource for a Redfish implementation."
+    "Name": "ProcessorCollection JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

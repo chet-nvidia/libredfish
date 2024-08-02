@@ -1,4 +1,9 @@
 {
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors",
+    "Name": "SensorCollection",
+    "Description": "A collection of Sensor resource instances.",
+    "@odata.context": "/redfish/v1/$metadata#SensorCollection.SensorCollection",
+    "@odata.etag": "\"508192ee7178d33b5c5374\"",
     "Members": [
         {
             "@odata.id": "/redfish/v1/Chassis/1/Sensors/100L0"
@@ -178,13 +183,7 @@
             "@odata.id": "/redfish/v1/Chassis/1/Sensors/155L3"
         },
         {
-            "@odata.id": "/redfish/v1/Chassis/1/Sensors/156L0"
-        },
-        {
             "@odata.id": "/redfish/v1/Chassis/1/Sensors/156L3"
-        },
-        {
-            "@odata.id": "/redfish/v1/Chassis/1/Sensors/157L0"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/1/Sensors/157L3"
@@ -292,10 +291,22 @@
             "@odata.id": "/redfish/v1/Chassis/1/Sensors/173L3"
         },
         {
+            "@odata.id": "/redfish/v1/Chassis/1/Sensors/174L0"
+        },
+        {
             "@odata.id": "/redfish/v1/Chassis/1/Sensors/174L3"
         },
         {
+            "@odata.id": "/redfish/v1/Chassis/1/Sensors/175L0"
+        },
+        {
             "@odata.id": "/redfish/v1/Chassis/1/Sensors/175L3"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Sensors/176L0"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Sensors/177L0"
         },
         {
             "@odata.id": "/redfish/v1/Chassis/1/Sensors/178L0"
@@ -689,12 +700,20 @@
         },
         {
             "@odata.id": "/redfish/v1/Chassis/1/Sensors/9L0"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Sensors/PSU1_InputVol"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Sensors/PSU2_InputVol"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Sensors/PSU3_InputVol"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Sensors/PSU4_InputVol"
         }
     ],
-    "@odata.type": "#SensorCollection.SensorCollection",
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors",
-    "Name": "SensorCollection",
-    "@odata.etag": "\"4e250eed1223b359a3c412\"",
-    "Members@odata.count": 230,
-    "Description": "A collection of Sensor resource instances."
+    "Members@odata.count": 236,
+    "@odata.type": "#SensorCollection.SensorCollection"
 }

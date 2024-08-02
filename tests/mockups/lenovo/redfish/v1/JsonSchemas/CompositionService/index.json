@@ -1,18 +1,19 @@
 {
-    "Schema": "#CompositionService.CompositionService",
     "@odata.id": "/redfish/v1/JsonSchemas/CompositionService",
-    "Name": "CompositionService JSON Schema File",
+    "Schema": "#CompositionService.CompositionService",
+    "Description": "This represents the CompositionService Schema File locator resource for a Redfish implementation.",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/CompositionService.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"6be3fb4d\"",
+    "@odata.etag": "\"5d070909\"",
     "Id": "CompositionService",
-    "Description": "This represents the CompositionService Schema File locator resource for a Redfish implementation."
+    "Name": "CompositionService JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

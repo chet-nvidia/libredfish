@@ -1,26 +1,27 @@
 {
-    "Version": "08G-3.07",
+    "Manufacturer": "Lenovo",
+    "SoftwareId": "LXPM-XWL1-4",
+    "LowestSupportedVersion": null,
+    "Updateable": true,
+    "ReleaseDate": "2023-04-06T00:00:00Z",
+    "Version": "18E-3.21",
     "Id": "LXPM",
+    "Name": "Firmware:LXPM",
+    "@odata.type": "#SoftwareInventory.v1_5_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPM",
+    "Description": "The information of LXPM firmware.",
+    "WriteProtected": true,
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK",
+        "HealthRollup": "OK"
+    },
+    "@odata.context": "/redfish/v1/$metadata#SoftwareInventory.SoftwareInventory",
+    "@odata.etag": "\"445247125f1a2a26daa\"",
     "RelatedItem": [
         {
             "@odata.id": "/redfish/v1/Systems/1"
         }
     ],
-    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPM",
-    "Status": {
-        "HealthRollup": "OK",
-        "Health": "OK",
-        "State": "Enabled"
-    },
-    "RelatedItem@odata.count": 1,
-    "Name": "Firmware:LXPM",
-    "ReleaseDate": "2021-04-06T00:00:00Z",
-    "LowestSupportedVersion": null,
-    "Manufacturer": "Lenovo",
-    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
-    "WriteProtected": true,
-    "Updateable": true,
-    "@odata.etag": "\"3fe0dd8b4a6a2966d28\"",
-    "SoftwareId": "LXPM-XWL1-4",
-    "Description": "The information of LXPM firmware."
+    "RelatedItem@odata.count": 1
 }

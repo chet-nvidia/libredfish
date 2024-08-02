@@ -1,7 +1,7 @@
 {
-    "Schema": "#LenovoTask.v1_0_0.LenovoTask",
     "@odata.id": "/redfish/v1/JsonSchemas/LenovoTask.v1_0_0",
-    "Name": "LenovoTask JSON Schema File",
+    "Description": "This represents the LenovoTask Schema File locator resource for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Languages": [
         "en"
     ],
@@ -12,7 +12,8 @@
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"5a4c6398\"",
+    "@odata.etag": "\"d7c25ef5\"",
     "Id": "LenovoTask.v1_0_0",
-    "Description": "This represents the LenovoTask Schema File locator resource for a Redfish implementation."
+    "Name": "LenovoTask JSON Schema File",
+    "Schema": "#LenovoTask.v1_0_0.LenovoTask"
 }

@@ -1,48 +1,58 @@
 {
-    "ReadingRangeMax": 0,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/240L0",
-    "ReadingRangeMin": 0,
+    "PhysicalContext": null,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Power"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PowerSubsystem"
+        }
+    ],
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "ReadingType": "Voltage",
+    "MaxAllowableOperatingValue": 3.978,
     "ReadingUnits": "V",
+    "Precision": 0,
+    "Id": "240L0",
+    "Name": "SysBrd 3.3V",
+    "VoltageType": "DC",
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/240L0",
     "Thresholds": {
-        "LowerFatal": {
-            "Activation": "Decreasing",
-            "Reading": null
+        "LowerCritical": {
+            "Reading": 2.964,
+            "Activation": "Decreasing"
         },
         "UpperCaution": {
-            "Activation": "Increasing",
-            "Reading": null
-        },
-        "LowerCritical": {
-            "Activation": "Decreasing",
-            "Reading": 2.964
-        },
-        "UpperFatal": {
-            "Activation": "Increasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Increasing"
         },
         "LowerCaution": {
-            "Activation": "Decreasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Decreasing"
+        },
+        "UpperFatal": {
+            "Reading": null,
+            "Activation": "Increasing"
+        },
+        "LowerFatal": {
+            "Reading": null,
+            "Activation": "Decreasing"
         },
         "UpperCritical": {
-            "Activation": "Increasing",
-            "Reading": 3.6348
+            "Reading": 3.6348,
+            "Activation": "Increasing"
         }
     },
-    "PhysicalContext": null,
     "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Reading": 3.354,
-    "Name": "SysBrd 3.3V",
-    "Precision": 0,
-    "VoltageType": "DC",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 3.978,
-    "@odata.etag": "\"61d218b4737525ab8b5\"",
-    "MinAllowableOperatingValue": 0,
-    "ReadingType": "Voltage",
-    "Id": "240L0"
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "Reading": 3.3228,
+    "ReadingRangeMin": 0,
+    "@odata.etag": "\"723082aeeec92433563\"",
+    "RelatedItem@odata.count": 2,
+    "ReadingRangeMax": 0,
+    "MinAllowableOperatingValue": 0
 }

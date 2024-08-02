@@ -1,26 +1,27 @@
 {
-    "ReleaseDate": "2021-05-07T00:00:00Z",
-    "Id": "UEFI",
+    "RelatedItem@odata.count": 1,
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK",
+        "HealthRollup": "OK"
+    },
+    "Manufacturer": "Lenovo",
+    "SoftwareId": "UEFI-U8E1-6",
+    "LowestSupportedVersion": null,
     "RelatedItem": [
         {
             "@odata.id": "/redfish/v1/Systems/1/Bios"
         }
     ],
-    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/UEFI",
-    "Status": {
-        "HealthRollup": "OK",
-        "Health": "OK",
-        "State": "Enabled"
-    },
-    "RelatedItem@odata.count": 1,
-    "Name": "Firmware:UEFI",
-    "Version": "12A-1.02",
-    "LowestSupportedVersion": null,
-    "Manufacturer": "Lenovo",
-    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
-    "WriteProtected": true,
     "Updateable": true,
-    "@odata.etag": "\"40756f0af41425a7735\"",
-    "SoftwareId": "UEFI-U8E1-6",
-    "Description": "The information of UEFI firmware."
+    "ReleaseDate": "2023-03-30T00:00:00Z",
+    "@odata.type": "#SoftwareInventory.v1_5_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/UEFI",
+    "Version": "22J-1.51",
+    "Description": "The information of UEFI firmware.",
+    "@odata.context": "/redfish/v1/$metadata#SoftwareInventory.SoftwareInventory",
+    "@odata.etag": "\"44eba524efe726677c4\"",
+    "Id": "UEFI",
+    "Name": "Firmware:UEFI",
+    "WriteProtected": true
 }

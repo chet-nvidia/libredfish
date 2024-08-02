@@ -1,4 +1,9 @@
 {
+    "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/LEDs",
+    "Name": "LenovoLEDCollection",
+    "Description": "A collection of LED resource instances.",
+    "@odata.context": "/redfish/v1/$metadata#LenovoLEDCollection.LenovoLEDCollection",
+    "@odata.etag": "\"174be3e87f80630e8e0c96\"",
     "Members": [
         {
             "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/LEDs/1"
@@ -178,10 +183,6 @@
             "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/LEDs/59"
         }
     ],
-    "@odata.type": "#LenovoLEDCollection.LenovoLEDCollection",
-    "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/LEDs",
-    "Name": "LenovoLEDCollection",
-    "@odata.etag": "\"1707bfe77e113359a5e7a3\"",
     "Members@odata.count": 59,
-    "Description": "A collection of LED resource instances."
+    "@odata.type": "#LenovoLEDCollection.LenovoLEDCollection"
 }

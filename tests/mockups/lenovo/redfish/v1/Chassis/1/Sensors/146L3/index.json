@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/146L3",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Memory/3"
+        }
+    ],
+    "PhysicalContext": "Memory",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "RelatedItem@odata.count": 1,
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": null,
+        "State": "Enabled"
     },
     "ReadingUnits": "",
     "Reading": 0,
-    "PhysicalContext": "Memory",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "ReadingType": null,
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"2f889ff8fae427e45b8\"",
     "Id": "146L3",
     "Name": "DIMM 3",
-    "@odata.etag": "\"23f6b6d6fcd32ae49b4\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "@odata.type": "#Sensor.v1_5_0.Sensor"
 }

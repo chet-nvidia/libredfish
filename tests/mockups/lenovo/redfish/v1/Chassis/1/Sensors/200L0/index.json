@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/200L0",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
     "ReadingUnits": "",
-    "Reading": 0,
-    "PhysicalContext": "CPU",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
     "Id": "200L0",
-    "Name": "CPU 1 Overtemp",
-    "@odata.etag": "\"256da94cc84a24e53dc\"",
     "ReadingType": "Temperature",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "PhysicalContext": "CPU",
+    "@odata.etag": "\"31456ffe41512ae953e\"",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "RelatedItem@odata.count": 1,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Processors/1"
+        }
+    ],
+    "Name": "CPU 1 Overtemp",
+    "Reading": 0
 }

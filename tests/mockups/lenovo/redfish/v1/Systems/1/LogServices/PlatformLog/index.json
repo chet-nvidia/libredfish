@@ -1,36 +1,9 @@
 {
-    "DateTimeLocalOffset": "+00:00",
-    "ServiceEnabled": true,
     "@odata.id": "/redfish/v1/Systems/1/LogServices/PlatformLog",
-    "Id": "PlatformLog",
-    "Oem": {
-        "Lenovo": {
-            "HiddenFirstSeqNum": 1,
-            "VMMoveCategory": [
-                {
-                    "VMMoveCategoryName": "RAS event VM movement support",
-                    "VMMoveCategoryBit": 0,
-                    "VMMoveCategoryType": "VMEFlag"
-                }
-            ],
-            "@odata.type": "#LenovoLogService.v1_0_0.LenovoLogServiceProperties",
-            "FirstSeqNum": 1,
-            "SupportedCategories": 3087007930,
-            "HiddenLastSeqNum": 1,
-            "DesiredCategories": 2147483684,
-            "LastSeqNum": 30
-        }
-    },
-    "Name": "LogService",
-    "Entries": {
-        "@odata.id": "/redfish/v1/Systems/1/LogServices/PlatformLog/Entries"
-    },
-    "MaxNumberOfRecords": 1024,
-    "DateTime": "2023-02-13T17:34:10+00:00",
-    "@odata.type": "#LogService.v1_1_3.LogService",
+    "@odata.type": "#LogService.v1_3_0.LogService",
     "LogEntryType": "Multiple",
-    "OverWritePolicy": "WrapsWhenFull",
-    "@odata.etag": "\"93b01a23d5ef3595b2f04\"",
+    "ServiceEnabled": true,
+    "DateTime": "2024-08-02T17:14:25+00:00",
     "Actions": {
         "#LogService.ClearLog": {
             "title": "ClearLog",
@@ -43,5 +16,33 @@
             }
         }
     },
-    "Description": "This resource is used to represent a log service for a Redfish implementation."
+    "Entries": {
+        "@odata.id": "/redfish/v1/Systems/1/LogServices/PlatformLog/Entries"
+    },
+    "@odata.context": "/redfish/v1/$metadata#LogService.LogService",
+    "OverWritePolicy": "WrapsWhenFull",
+    "MaxNumberOfRecords": 1024,
+    "Description": "This resource is used to represent a log service for a Redfish implementation.",
+    "Oem": {
+        "Lenovo": {
+            "VMMoveCategory": [
+                {
+                    "VMMoveCategoryName": "RAS event VM movement support",
+                    "VMMoveCategoryBit": 0,
+                    "VMMoveCategoryType": "VMEFlag"
+                }
+            ],
+            "HiddenLastSeqNum": 0,
+            "LastSeqNum": 55,
+            "SupportedCategories": 3087007930,
+            "HiddenFirstSeqNum": 0,
+            "FirstSeqNum": 1,
+            "DesiredCategories": 2147483684,
+            "@odata.type": "#LenovoLogService.v1_0_0.LenovoLogServiceProperties"
+        }
+    },
+    "@odata.etag": "\"973edec04d0f32ca34442\"",
+    "Id": "PlatformLog",
+    "Name": "LogService",
+    "DateTimeLocalOffset": "+00:00"
 }

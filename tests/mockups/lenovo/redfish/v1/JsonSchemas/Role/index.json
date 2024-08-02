@@ -1,18 +1,19 @@
 {
-    "Schema": "#Role.Role",
     "@odata.id": "/redfish/v1/JsonSchemas/Role",
-    "Name": "Role JSON Schema File",
+    "Description": "This represents the Role Schema File locator resource for a Redfish implementation.",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/Role.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"46dcfb68\"",
+    "Schema": "#Role.Role",
+    "@odata.etag": "\"94d46218\"",
     "Id": "Role",
-    "Description": "This represents the Role Schema File locator resource for a Redfish implementation."
+    "Name": "Role JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

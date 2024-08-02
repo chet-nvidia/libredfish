@@ -1,26 +1,27 @@
 {
-    "Version": "08B-3.07",
-    "Id": "LXPMLinuxDriver",
+    "WriteProtected": true,
+    "RelatedItem@odata.count": 1,
+    "Status": {
+        "State": "Enabled",
+        "Health": "OK",
+        "HealthRollup": "OK"
+    },
+    "Manufacturer": "Lenovo",
+    "SoftwareId": "DRVLN-XWL2-2",
+    "LowestSupportedVersion": null,
+    "Name": "Firmware:LXPM-LinuxDrivers",
+    "@odata.type": "#SoftwareInventory.v1_5_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPMLinuxDriver",
     "RelatedItem": [
         {
             "@odata.id": "/redfish/v1/Systems/1"
         }
     ],
-    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPMLinuxDriver",
-    "Status": {
-        "HealthRollup": "OK",
-        "Health": "OK",
-        "State": "Enabled"
-    },
-    "RelatedItem@odata.count": 1,
-    "Name": "Firmware:LXPM-LinuxDrivers",
-    "ReleaseDate": "2021-05-08T00:00:00Z",
-    "LowestSupportedVersion": null,
-    "Manufacturer": "Lenovo",
-    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
-    "WriteProtected": true,
+    "Description": "The information of LXPM Linux Drivers.",
+    "Version": "18E-3.21",
+    "@odata.context": "/redfish/v1/$metadata#SoftwareInventory.SoftwareInventory",
+    "@odata.etag": "\"49d05a6b47bd2aea1af\"",
     "Updateable": true,
-    "@odata.etag": "\"455ef02e544b2a2a130\"",
-    "SoftwareId": "DRVLN-XWL2-2",
-    "Description": "The information of LXPM Linux Drivers."
+    "Id": "LXPMLinuxDriver",
+    "ReleaseDate": "2023-03-20T00:00:00Z"
 }

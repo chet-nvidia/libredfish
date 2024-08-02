@@ -1,7 +1,7 @@
 {
-    "HostInterfaceType": "NetworkHostInterface",
     "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1",
-    "InterfaceEnabled": false,
+    "HostInterfaceType": "NetworkHostInterface",
+    "Description": "This resource shall be used to represent Host Interface resources as part of the Redfish specification.",
     "Links": {
         "ComputerSystems": [
             {
@@ -9,19 +9,25 @@
             }
         ]
     },
-    "Name": "Host Interface",
-    "HostEthernetInterfaces": {
-        "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1/HostEthernetInterfaces"
-    },
-    "Id": "1",
-    "@odata.type": "#HostInterface.v1_2_2.HostInterface",
-    "ManagerEthernetInterface": {
-        "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost"
+    "CredentialBootstrapping": {
+        "Enabled": true,
+        "EnableAfterReset": true,
+        "RoleId": "Administrator"
     },
     "NetworkProtocol": {
         "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol"
     },
-    "@odata.etag": "\"53d0f0b41af52aee428\"",
+    "ManagerEthernetInterface": {
+        "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost"
+    },
+    "InterfaceEnabled": false,
+    "HostEthernetInterfaces": {
+        "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1/HostEthernetInterfaces"
+    },
     "ExternallyAccessible": false,
-    "Description": "This resource shall be used to represent Host Interface resources as part of the Redfish specification."
+    "@odata.context": "/redfish/v1/$metadata#HostInterface.HostInterface",
+    "@odata.etag": "\"62070880282227ee34a\"",
+    "Id": "1",
+    "Name": "Host Interface",
+    "@odata.type": "#HostInterface.v1_3_0.HostInterface"
 }

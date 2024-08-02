@@ -1,50 +1,50 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoRemoteMapMedia.v1_0_0.LenovoRemoteMapMedia",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LenovoRemoteMapMedia.v1_0_0.json",
     "$ref": "#/definitions/LenovoRemoteMapMedia",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "AvailabilityTypes": {
-            "type": "string",
             "enum": [
                 "Samba",
                 "NFS",
                 "Local",
                 "HTTP",
                 "HTTPS",
-                "HTTPFS",
                 "SFTP",
                 "FTP"
-            ]
+            ],
+            "type": "string"
         },
         "LenovoRemoteMapMedia": {
-            "type": "object",
+            "additionalProperties": false,
+            "description": "This is the schema definition for the LenovoRemoteMapMedia resource.",
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
-            "additionalProperties": false,
             "properties": {
                 "@odata.context": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/context"
+                },
+                "@odata.etag": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/etag"
                 },
                 "@odata.id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/id"
                 },
                 "@odata.type": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
-                },
-                "Id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
-                    "readonly": true
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/type"
                 },
                 "Description": {
                     "anyOf": [
@@ -57,58 +57,105 @@
                     ],
                     "readonly": true
                 },
+                "Domain": {
+                    "description": "Domain of the username to access the file path, available for Samba only",
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "FilePath": {
+                    "description": "File path of the map image",
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
+                    "readonly": true
+                },
+                "Mounted": {
+                    "description": "It indicates the map image is mounted or not",
+                    "readonly": true,
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
                 "Name": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
                     "readonly": true
                 },
-                "FilePath": {
-                    "type": "string",
-                    "readonly": true,
-                    "description": "File path of the map image"
-                },
-                "Type": {
-                    "$ref": "#/definitions/AvailabilityTypes",
-                    "readonly": true,
-                    "description": "The map type of the image"
-                },
-                "Username": {
-                    "type": "string",
-                    "readonly": true,
-                    "description": "Username to access the file path, available for Samba, HTTP/HTTPS, SFTP/FTP"
-                },
-                "Password": {
-                    "type": "string",
-                    "readonly": true,
-                    "description": "Password to access the file path, password should be encrypted after object creation, available for Samba, HTTP/HTTPS, SFTP/FTP"
-                },
-                "Domain": {
-                    "type": "string",
-                    "readonly": true,
-                    "description": "Domain of the username to access the file path, available for Samba only"
-                },
-                "Readonly": {
-                    "type": "boolean",
-                    "readonly": true,
-                    "description": "It indicates the map image status is readonly or read/write"
+                "Oem": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Oem",
+                    "description": "The OEM extension property.",
+                    "longDescription": "This property shall contain the OEM extensions.  All values for properties that this object contains shall conform to the Redfish Specification-described requirements."
                 },
                 "Options": {
-                    "type": "string",
+                    "description": "It indicates the mount options to map the image of the file path, available for Samba and NFS only",
                     "readonly": true,
-                    "description": "It indicates the mount options to map the image of the file path, available for Samba and NFS only"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "Owner": {
-                    "type": "string",
+                    "description": "Owner of the map image",
                     "readonly": true,
-                    "description": "Owner of the map image"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
-                "Mounted": {
-                    "type": "boolean",
+                "Password": {
+                    "description": "Password to access the file path, password should be encrypted after object creation, available for Samba, HTTP/HTTPS, SFTP/FTP",
                     "readonly": true,
-                    "description": "It indicates the map image is mounted or not"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "Readonly": {
+                    "description": "It indicates the map image status is readonly or read/write",
+                    "readonly": true,
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "Type": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/AvailabilityTypes"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The map type of the image.",
+                    "readonly": true
+                },
+                "Username": {
+                    "description": "Username to access the file path, available for Samba, HTTP/HTTPS, SFTP/FTP",
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 }
             },
-            "description": "This is the schema definition for the LenovoRemoteMapMedia resource."
+            "required": [
+                "@odata.id",
+                "@odata.type",
+                "Id",
+                "Name"
+            ],
+            "type": "object"
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "owningEntity": "Lenovo",
+    "title": "#LenovoRemoteMapMedia.v1_0_0.LenovoRemoteMapMedia"
 }

@@ -1,18 +1,19 @@
 {
-    "Schema": "#LenovoSMTPClient.LenovoSMTPClient",
     "@odata.id": "/redfish/v1/JsonSchemas/LenovoSMTPClient",
-    "Name": "LenovoSMTPClient JSON Schema File",
+    "Schema": "#LenovoSMTPClient.LenovoSMTPClient",
+    "Description": "This represents the LenovoSMTPClient Schema File locator resource for a Redfish implementation.",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoSMTPClient.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"6c2f2ab0\"",
+    "@odata.etag": "\"ac4b8a4e\"",
     "Id": "LenovoSMTPClient",
-    "Description": "This represents the LenovoSMTPClient Schema File locator resource for a Redfish implementation."
+    "Name": "LenovoSMTPClient JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

@@ -1,18 +1,19 @@
 {
-    "Schema": "#LenovoHistoryMetricValue.v1_0_0.LenovoHistoryMetricValue",
     "@odata.id": "/redfish/v1/JsonSchemas/LenovoHistoryMetricValue.v1_0_0",
-    "Name": "LenovoHistoryMetricValue JSON Schema File",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Description": "This represents the LenovoHistoryMetricValue Schema File locator resource for a Redfish implementation.",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoHistoryMetricValue.v1_0_0.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"e6416120\"",
+    "Schema": "#LenovoHistoryMetricValue.v1_0_0.LenovoHistoryMetricValue",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "@odata.etag": "\"9130f62b\"",
     "Id": "LenovoHistoryMetricValue.v1_0_0",
-    "Description": "This represents the LenovoHistoryMetricValue Schema File locator resource for a Redfish implementation."
+    "Name": "LenovoHistoryMetricValue JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

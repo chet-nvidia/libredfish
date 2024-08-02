@@ -1,57 +1,58 @@
 {
-    "SerialNumber": "PHAB123401GY1P9SGN",
-    "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe/Drives/Drive.Bay_1",
-    "CapacityBytes": 1600000000000,
-    "Revision": "2CV1L028",
-    "Oem": {
-        "Lenovo": {
-            "@odata.type": "#LenovoDrive.v1_0_0.LenovoDrive",
-            "Temperature": 32
-        }
-    },
-    "AssetTag": "",
-    "PhysicalLocation": {
-        "PartLocation": {
-            "LocationType": "Bay",
-            "ServiceLabel": "Drive 1",
-            "LocationOrdinalValue": 1
-        }
-    },
-    "CapableSpeedGbs": null,
-    "Id": "Drive.Bay_1",
+    "@odata.type": "#Drive.v1_14_0.Drive",
+    "EncryptionStatus": null,
     "Links": {
-        "Volumes": [],
         "Chassis": {
             "@odata.id": "/redfish/v1/Chassis/1"
         },
+        "Volumes": [],
         "PCIeFunctions": []
     },
-    "PartNumber": "SSS7A43225",
-    "EncryptionStatus": null,
-    "MediaType": "SSD",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "@odata.context": "/redfish/v1/$metadata#Drive.Drive",
     "Description": "This resource is used to represent a drive for a Redfish implementation.",
+    "Manufacturer": "MICRON",
+    "Revision": "E2MU200",
+    "NegotiatedSpeedGbs": null,
+    "PhysicalLocation": {
+        "PartLocation": {
+            "LocationType": "Bay",
+            "LocationOrdinalValue": 1,
+            "ServiceLabel": "Drive 1"
+        }
+    },
+    "Oem": {
+        "Lenovo": {
+            "Temperature": 34,
+            "@odata.type": "#LenovoDrive.v1_0_0.LenovoDrive"
+        }
+    },
+    "SKU": "233242BE0C5A",
+    "Id": "Drive.Bay_1",
+    "Name": "7.68TB EDSFF NVMe SSD",
+    "Protocol": "NVMe",
+    "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe/Drives/Drive.Bay_1",
     "BlockSizeBytes": null,
     "RotationSpeedRPM": 0,
-    "NegotiatedSpeedGbs": null,
-    "Manufacturer": "LENOVO (Intel)",
+    "PredictedMediaLifeLeftPercent": 100,
+    "EncryptionAbility": null,
+    "PartNumber": "MTFDKBZ7T6TFR",
+    "CapacityBytes": 7680000000000,
+    "Model": "Micron_7450_MTFDKBZ7T6TFR",
+    "MediaType": "SSD",
+    "CapableSpeedGbs": null,
     "FailurePredicted": false,
-    "Protocol": "NVMe",
-    "Name": "1.60TB NVMe SSD",
+    "SerialNumber": "233242BE0C5A",
+    "@odata.etag": "\"8e1576b1a9ee2af6102\"",
+    "HotspareType": "None",
     "Identifiers": [
         {
-            "DurableNameFormat": "UUID",
-            "DurableName": ""
+            "DurableName": null,
+            "DurableNameFormat": "UUID"
         }
     ],
-    "SKU": "02JG609",
-    "EncryptionAbility": null,
-    "@odata.type": "#Drive.v1_9_1.Drive",
-    "HotspareType": "None",
-    "PredictedMediaLifeLeftPercent": 100,
-    "@odata.etag": "\"88b80e2157ad297083c\"",
-    "Model": "SSDPF2KE016T9L",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    }
+    "AssetTag": ""
 }

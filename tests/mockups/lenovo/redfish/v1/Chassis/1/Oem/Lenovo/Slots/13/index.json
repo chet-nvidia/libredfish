@@ -1,12 +1,13 @@
 {
-    "SupportsHotPlug": true,
+    "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/Slots/13",
+    "Number": "Slot 3",
+    "MaxDataWidth": "16x or x16",
+    "Description": "This resource is used to represent slot information for a Redfish implementation.",
+    "SupportsHotPlug": false,
+    "ConnectorLayout": "PCI Express",
+    "@odata.context": "/redfish/v1/$metadata#LenovoSlot.LenovoSlot",
+    "@odata.etag": "\"2f010e3e552e2964988\"",
     "Id": "13",
     "Name": "LenovoSlot",
-    "ConnectorLayout": "Other",
-    "Number": "Bay 6",
-    "@odata.type": "#LenovoSlot.v1_0_0.LenovoSlot",
-    "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/Slots/13",
-    "MaxDataWidth": "4x or x4",
-    "@odata.etag": "\"2a888089ba3a24254f5\"",
-    "Description": "This resource is used to represent slot information for a Redfish implementation."
+    "@odata.type": "#LenovoSlot.v1_0_0.LenovoSlot"
 }

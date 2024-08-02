@@ -1,4 +1,16 @@
 {
+    "@odata.id": "/redfish/v1/Systems/1/Memory",
+    "Description": "A collection of memory resource instances.",
+    "Members@odata.count": 32,
+    "Oem": {
+        "Lenovo": {
+            "HistoryMemMetric": {
+                "@odata.id": "/redfish/v1/Systems/1/Memory/Oem/Lenovo/HistoryMemMetric"
+            }
+        }
+    },
+    "@odata.context": "/redfish/v1/$metadata#MemoryCollection.MemoryCollection",
+    "@odata.etag": "\"d018cf4b15b53598c3108\"",
     "Members": [
         {
             "@odata.id": "/redfish/v1/Systems/1/Memory/1"
@@ -97,17 +109,6 @@
             "@odata.id": "/redfish/v1/Systems/1/Memory/32"
         }
     ],
-    "Oem": {
-        "Lenovo": {
-            "HistoryMemMetric": {
-                "@odata.id": "/redfish/v1/Systems/1/Memory/Oem/Lenovo/HistoryMemMetric"
-            }
-        }
-    },
-    "@odata.type": "#MemoryCollection.MemoryCollection",
-    "@odata.id": "/redfish/v1/Systems/1/Memory",
     "Name": "Memory Collection",
-    "@odata.etag": "\"cbbe828103902d24416b3\"",
-    "Members@odata.count": 32,
-    "Description": "A collection of memory resource instances."
+    "@odata.type": "#MemoryCollection.MemoryCollection"
 }

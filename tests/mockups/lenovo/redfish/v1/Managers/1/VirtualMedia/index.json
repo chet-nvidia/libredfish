@@ -1,11 +1,6 @@
 {
+    "@odata.id": "/redfish/v1/Managers/1/VirtualMedia",
     "Members": [
-        {
-            "@odata.id": "/redfish/v1/Managers/1/VirtualMedia/RDOC1"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/1/VirtualMedia/RDOC2"
-        },
         {
             "@odata.id": "/redfish/v1/Managers/1/VirtualMedia/EXT1"
         },
@@ -29,12 +24,18 @@
         },
         {
             "@odata.id": "/redfish/v1/Managers/1/VirtualMedia/Remote4"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/1/VirtualMedia/RDOC1"
+        },
+        {
+            "@odata.id": "/redfish/v1/Managers/1/VirtualMedia/RDOC2"
         }
     ],
-    "@odata.type": "#VirtualMediaCollection.VirtualMediaCollection",
-    "@odata.id": "/redfish/v1/Managers/1/VirtualMedia",
     "Name": "VirtualMediaCollection",
-    "@odata.etag": "\"57af07952d392a2c93c\"",
+    "@odata.context": "/redfish/v1/$metadata#VirtualMediaCollection.VirtualMediaCollection",
+    "@odata.etag": "\"5c76dafb25db2aed633\"",
+    "Description": "A collection of VirtualMedia resource instances",
     "Members@odata.count": 10,
-    "Description": "A collection of VirtualMedia resource instances"
+    "@odata.type": "#VirtualMediaCollection.VirtualMediaCollection"
 }

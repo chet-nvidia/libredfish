@@ -1,17 +1,15 @@
 {
+    "@odata.id": "/redfish/v1/Systems/1/Pending",
     "Boot": {
         "BootOrder": [
-            "Boot0000",
-            "Boot0001",
-            "Boot0002",
-            "Boot0004",
-            "Boot0003"
+            "Boot0003",
+            "Boot0002"
         ]
     },
-    "@odata.type": "#ComputerSystem.v1_11_0.ComputerSystem",
+    "Description": "ComputerSystem 1 Pending Setting",
+    "@odata.context": "/redfish/v1/$metadata#ComputerSystem.ComputerSystem",
+    "@odata.etag": "\"23ec95705c6528a309d\"",
     "Id": "Pending",
-    "@odata.id": "/redfish/v1/Systems/1/Pending",
-    "@odata.etag": "\"21a9a9383ebb2a1fb41\"",
     "Name": "Pending",
-    "Description": "ComputerSystem 1 Pending Setting"
+    "@odata.type": "#ComputerSystem.v1_17_0.ComputerSystem"
 }

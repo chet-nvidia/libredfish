@@ -1,18 +1,21 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoRemoteMountMedia.LenovoRemoteMountMedia",
+    "$id": "/redfish/v1/Schemas/LenovoRemoteMountMedia.json",
     "$ref": "#/definitions/LenovoRemoteMountMedia",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved.",
     "definitions": {
         "LenovoRemoteMountMedia": {
             "anyOf": [
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/idRef"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/idRef"
                 },
                 {
-                    "$ref": "/schemas/v1/Lenovo/LenovoRemoteMountMedia.v1_0_0.json#/definitions/LenovoRemoteMountMedia"
+                    "$ref": "/redfish/v1/Schemas/LenovoRemoteMountMedia.v1_0_0.json#/definitions/LenovoRemoteMountMedia"
                 }
-            ]
+            ],
+            "description": "This is the schema definition for the LenovoRemoteMountMedia resource.",
+            "longDescription": "This resource shall be used to represent a remote mount media for an OEM implementation."
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "title": "#LenovoRemoteMountMedia.LenovoRemoteMountMedia"
 }

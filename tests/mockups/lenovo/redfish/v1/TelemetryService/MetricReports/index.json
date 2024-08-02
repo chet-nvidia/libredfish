@@ -1,4 +1,9 @@
 {
+    "@odata.id": "/redfish/v1/TelemetryService/MetricReports",
+    "Description": "A Collection of MetricReport resource instances.",
+    "Name": "MetricReports",
+    "@odata.context": "/redfish/v1/$metadata#MetricReportCollection.MetricReportCollection",
+    "@odata.etag": "\"5dca3c7221be28b0bdd\"",
     "Members": [
         {
             "@odata.id": "/redfish/v1/TelemetryService/MetricReports/CPUTemp"
@@ -17,12 +22,11 @@
         },
         {
             "@odata.id": "/redfish/v1/TelemetryService/MetricReports/MemoryUtilizationStats"
+        },
+        {
+            "@odata.id": "/redfish/v1/TelemetryService/MetricReports/CPUPowerMetrics"
         }
     ],
-    "@odata.type": "#MetricReportCollection.MetricReportCollection",
-    "@odata.id": "/redfish/v1/TelemetryService/MetricReports",
-    "Members@odata.count": 6,
-    "@odata.etag": "\"512e8d4d213c296a616\"",
-    "Name": "MetricReports",
-    "Description": "A Collection of MetricReport resource instances."
+    "Members@odata.count": 7,
+    "@odata.type": "#MetricReportCollection.MetricReportCollection"
 }

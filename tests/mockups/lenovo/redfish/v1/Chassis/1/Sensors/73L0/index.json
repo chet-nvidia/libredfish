@@ -1,16 +1,26 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/73L0",
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": null,
+        "State": "Enabled"
     },
-    "ReadingUnits": "",
-    "Reading": 0,
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
     "PhysicalContext": null,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "ReadingUnits": "",
+    "RelatedItem@odata.count": 2,
+    "Reading": 0,
+    "ReadingType": "Power",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Power"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PowerSubsystem"
+        }
+    ],
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"35cb2b50669b24e8489\"",
     "Id": "73L0",
     "Name": "PSU Mismatch",
-    "@odata.etag": "\"250f97c7568925a54b4\"",
-    "ReadingType": "Power",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "@odata.type": "#Sensor.v1_5_0.Sensor"
 }

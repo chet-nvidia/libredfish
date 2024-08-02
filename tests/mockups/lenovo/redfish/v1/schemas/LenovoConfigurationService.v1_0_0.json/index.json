@@ -1,36 +1,200 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoConfigurationService.v1_0_0.LenovoConfigurationService",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LenovoConfigurationService.v1_0_0.json",
+    "$ref": "#/definitions/LenovoConfigurationService",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
-        "LenovoConfigurationService": {
-            "type": "object",
+        "Actions": {
+            "additionalProperties": false,
+            "description": "The available actions for this resource.",
+            "longDescription": "This type shall contain the available actions for this resource.",
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
+            "properties": {
+                "#LenovoConfigurationService.BackupConfiguration": {
+                    "$ref": "#/definitions/BackupConfiguration"
+                },
+                "#LenovoConfigurationService.BackupConfigurationDescriptor": {
+                    "$ref": "#/definitions/BackupConfigurationDescriptor"
+                },
+                "#LenovoConfigurationService.GetRestoreConfigurationDetails": {
+                    "$ref": "#/definitions/GetRestoreConfigurationDetails"
+                },
+                "#LenovoConfigurationService.ResetToDefault": {
+                    "$ref": "#/definitions/ResetToDefault"
+                },
+                "#LenovoConfigurationService.RestoreConfiguration": {
+                    "$ref": "#/definitions/RestoreConfiguration"
+                }
+            },
+            "type": "object"
+        },
+        "BackupConfiguration": {
             "additionalProperties": false,
+            "parameters": {
+                "EncryptScope": {
+                    "$ref": "#/definitions/EncryptScopeItem",
+                    "description": "Indicates the scope of encrypt the configuration. Default value is whole file."
+                },
+                "Passphrase": {
+                    "description": "The passphrase is used to encrypt values in the file. When the user restores a configuration, the password will be asked.",
+                    "requiredParameter": true,
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "BackupConfigurationDescriptor": {
+            "additionalProperties": false,
+            "parameters": {},
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EncryptScopeItem": {
+            "enum": [
+                "WholeFile",
+                "SensitiveInfo"
+            ],
+            "enumDescriptions": {
+                "SensitiveInfo": "part sensitive configurarion data.",
+                "WholeFile": "full configurarion data."
+            },
+            "type": "string"
+        },
+        "GetRestoreConfigurationDetails": {
+            "additionalProperties": false,
+            "parameters": {},
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "LenovoConfigurationService": {
+            "additionalProperties": false,
+            "description": "This resource represents the configuration  service for the resource or service to which it is associated.",
+            "longDescription": "This resource shall be used to represent a configuration service for a Redfish implementation.",
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
             "properties": {
                 "@odata.context": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/context"
+                },
+                "@odata.etag": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/etag"
                 },
                 "@odata.id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/id"
                 },
                 "@odata.type": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/type"
                 },
-                "Id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
-                    "readonly": true
+                "Actions": {
+                    "$ref": "#/definitions/Actions",
+                    "description": "The available actions for this resource.",
+                    "longDescription": "The Actions property shall contain the available actions for this resource."
+                },
+                "BackupStatus": {
+                    "description": "The detailed status of backup operation.",
+                    "readonly": true,
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "Description": {
                     "anyOf": [
@@ -43,283 +207,108 @@
                     ],
                     "readonly": true
                 },
+                "Id": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Id",
+                    "readonly": true
+                },
                 "Name": {
                     "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Name",
                     "readonly": true
                 },
-                "BackupStatus": {
-                    "type": "string",
-                    "readonly": true,
-                    "description": "Indicate the detailed status of backup operation in redfish."
+                "Oem": {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.json#/definitions/Oem",
+                    "description": "The OEM extension property.",
+                    "longDescription": "This property shall contain the OEM extensions.  All values for properties that this object contains shall conform to the Redfish Specification-described requirements."
                 },
                 "RestoreStatus": {
-                    "type": "string",
+                    "description": "The detailed status of restore operation.",
                     "readonly": true,
-                    "description": "Indicate the detailed status of restore operation in redfish."
-                },
-                "Descriptor": {
-                    "$ref": "/schemas/v1/Lenovo/LenovoConfigurationDescriptor.json#/definitions/LenovoConfigurationDescriptor",
-                    "description": "A reference to the descriptor resource."
-                },
-                "Actions": {
-                    "type": "object",
-                    "patternProperties": {
-                        "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                            "type": [
-                                "array",
-                                "boolean",
-                                "number",
-                                "null",
-                                "object",
-                                "string"
-                            ],
-                            "description": "This property shall specify a valid odata or Redfish property."
-                        }
-                    },
-                    "additionalProperties": false,
-                    "properties": {
-                        "#LenovoConfigurationService.BackupConfiguration": {
-                            "$ref": "#/definitions/BackupConfiguration"
-                        },
-                        "#LenovoConfigurationService.RestoreConfiguration": {
-                            "$ref": "#/definitions/RestoreConfiguration"
-                        },
-                        "#LenovoConfigurationService.ResetToDefault": {
-                            "$ref": "#/definitions/ResetToDefault"
-                        },
-                        "#LenovoConfigurationService.GetRestoreConfigurationDetails": {
-                            "$ref": "#/definitions/GetRestoreConfigurationDetails"
-                        }
-                    }
-                }
-            }
-        },
-        "GetRestoreConfigurationDetails": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
-                "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
-                },
-                "Response": {
-                    "$ref": "#/definitions/GetRestoreConfigDetailsResp",
-                    "description": "Indicates what data will be response."
-                }
-            }
-        },
-        "BackupConfiguration": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
-                "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
-                },
-                "Response": {
-                    "$ref": "#/definitions/BackupConfigResp",
-                    "description": "Indicates what data will be response."
-                },
-                "EncryptScope": {
-                    "$ref": "#/definitions/EncryptScopeItem",
-                    "description": "Indicates the scope of encrypt the configuration file."
-                },
-                "Passphrase": {
                     "type": [
                         "string",
                         "null"
-                    ],
-                    "description": "The passphrase is used to encrypt values in the file. When the user restores a configuration, the password will be asked."
-                }
-            }
-        },
-        "EncryptScopeItem": {
-            "type": "string",
-            "enum": [
-                "WholeFile",
-                "SensitiveInfo"
-            ]
-        },
-        "GetRestoreConfigDetailsResp": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "content": {
-                    "type": "string",
-                    "description": "Indicates content of the last restore configuration settings list and the execution result."
-                }
-            },
-            "description": "This object is used to represent the response of the action GetRestoreConfigurationDetails."
-        },
-        "BackupConfigResp": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "data": {
-                    "type": "string",
-                    "description": "Indicates content of the backed up configuration data of the managed system element."
-                }
-            },
-            "description": "This object is used to represent the response of the action BackupConfiguration."
-        },
-        "RestoreConfiguration": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
-                "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
-                },
-                "Response": {
-                    "$ref": "#/definitions/RestoreConfigResp",
-                    "description": "Indicates what data will be response."
-                },
-                "ConfigContent": {
-                    "type": "string",
-                    "description": "Content of configuration file to be restored"
-                },
-                "Passphrase": {
-                    "type": [
-                        "string",
-                        "null"
-                    ],
-                    "description": "Passphrase to be provided when the backup file is created and restored"
-                }
-            }
-        },
-        "RestoreConfigResp": {
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "ErrorInfo": {
-                    "type": "string",
-                    "description": "Indicates details about any specific failures that occurred. Only retureed when the action fails."
-                }
-            },
-            "description": "This object is used to represent the response of the action RestoreConfiguration."
+            "required": [
+                "@odata.id",
+                "@odata.type",
+                "Id",
+                "Name"
+            ],
+            "type": "object"
         },
         "ResetToDefault": {
+            "additionalProperties": false,
+            "parameters": {},
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
-            "type": "object",
-            "additionalProperties": false,
             "properties": {
-                "title": {
-                    "type": "string",
-                    "description": "Friendly action name"
-                },
                 "target": {
-                    "type": "string",
-                    "format": "uri",
-                    "description": "Link to invoke action"
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
                 }
             },
-            "description": "Reset all IMM settings to factory defaults. All the IMM configuration will be cleared."
+            "type": "object"
+        },
+        "RestoreConfiguration": {
+            "additionalProperties": false,
+            "parameters": {
+                "ConfigContent": {
+                    "description": "Content of configuration file to be restored.",
+                    "requiredParameter": true,
+                    "type": "string"
+                },
+                "Passphrase": {
+                    "description": "The passphrase is used to encrypt values in the file. When the user restores a configuration, the password will be asked.",
+                    "requiredParameter": true,
+                    "type": "string"
+                }
+            },
+            "patternProperties": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
+                    "type": [
+                        "array",
+                        "boolean",
+                        "integer",
+                        "number",
+                        "null",
+                        "object",
+                        "string"
+                    ]
+                }
+            },
+            "properties": {
+                "target": {
+                    "description": "Link to invoke action",
+                    "format": "uri-reference",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "Friendly action name",
+                    "type": "string"
+                }
+            },
+            "type": "object"
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "owningEntity": "Lenovo",
+    "title": "#LenovoConfigurationService.v1_0_0.LenovoConfigurationService"
 }

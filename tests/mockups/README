@@ -3,7 +3,7 @@ These folders were created by this tool: https://github.com/DMTF/Redfish-Mockup-
 - If the Redfish host is accessible directory run it like this:
 
 ```
-docker run --rm --user="$(id -u):$(id -g)" -v /home/graham/src/libredfish/tests/mockups/lenovo:/mockup dmtf/redfish-mockup-creator:latest -u Egxadmin -p <pw-go-here> -r <BMC-IP-ADDRESS-GO-BRR> -S
+docker run --rm --user="$(id -u):$(id -g)" -v /home/graham/src/libredfish/tests/mockups/lenovo:/mockup dmtf/redfish-mockup-creator:latest -u Egxadmin -p <pw-go-here> -r <BMC-IP-ADDRESS-GO-BRR> -S --maxlogentries 5
 ```
 
 - If you need ssh port forwarding, docker won't use that so you have to run it directly:
@@ -13,7 +13,8 @@ git clone https://github.com/DMTF/Redfish-Mockup-Creator.git
 pip install --upgrade pip
 pip install --no-cache-dir -r requirements.txt
 ssh -fNL 8443:10.217.133.92:443 renojump
-python redfishMockupCreate.py -u ADMIN -p <pw-go-here> -r 127.0.0.1:8443 -S -D ~/src/libredfish/tests/mockups/supermicro/
+python redfishMockupCreate.py -u root -p '<PW-goes-here>' -r 127.0.0.1:8443 -S --maxlogentries 5 -D ~/src/libredfish/tests/mockups/new-vendor-name/
+
 ```
 
 The mockup server which the integration test runs is https://github.com/DMTF/Redfish-Mockup-Server

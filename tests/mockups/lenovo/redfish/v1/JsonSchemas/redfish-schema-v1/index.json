@@ -1,18 +1,19 @@
 {
-    "Schema": "#redfish-schema-v1.redfish-schema-v1",
     "@odata.id": "/redfish/v1/JsonSchemas/redfish-schema-v1",
-    "Name": "Settings JSON Schema File",
+    "Schema": "#redfish-schema-v1.redfish-schema-v1",
+    "Description": "This represents the redfish-schema-v1 Schema File locator resource for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/redfish-schema-v1.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"8d1ebb56\"",
+    "@odata.etag": "\"e3582516\"",
     "Id": "redfish-schema-v1",
-    "Description": "This represents the redfish-schema-v1 Schema File locator resource for a Redfish implementation."
+    "Name": "redfish-schema-v1 JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

@@ -1,26 +1,27 @@
 {
-    "Id": "Disk2",
+    "WriteProtected": true,
     "RelatedItem@odata.count": 1,
     "RelatedItem": [
         {
-            "@odata.id": "/redfish/v1/Systems/1/Storage/Direct_Attached_NVMe/Drives/Drive.Bay_1"
+            "@odata.id": "/redfish/v1/Systems/1/Storage/M.2/Drives/Drive.M.2_Bay_1"
         }
     ],
+    "Manufacturer": "Micron",
+    "SoftwareId": "DISK-MTFDKBA960TFR-3-10",
+    "Id": "Disk2",
+    "Name": "Firmware:DISK-Micron_7450_MTFDKBA960TFR",
+    "@odata.type": "#SoftwareInventory.v1_5_0.SoftwareInventory",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Disk2",
+    "ReleaseDate": null,
     "Status": {
         "HealthRollup": "OK",
-        "Health": "OK",
-        "State": "Enabled"
+        "State": "Enabled",
+        "Health": "OK"
     },
-    "SoftwareId": "DISK-SSS7A43225-3-10",
-    "Name": "Firmware:DISK-SSDPF2KE016T9L",
-    "Version": "2CV1L028",
-    "ReleaseDate": null,
-    "Manufacturer": "LENOVO (Intel)",
-    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
-    "WriteProtected": true,
-    "Updateable": false,
-    "@odata.etag": "\"5041bb563ba624eb2f4\"",
+    "Description": "The firmware information of a disk controlled by a RAID, M.2 or NVMe controller.",
+    "Version": "E2MU200",
+    "@odata.context": "/redfish/v1/$metadata#SoftwareInventory.SoftwareInventory",
+    "@odata.etag": "\"545e6caa7338272a771\"",
     "LowestSupportedVersion": null,
-    "Description": "The firmware information of a disk controlled by a RAID, M.2 or NVMe controller."
+    "Updateable": false
 }

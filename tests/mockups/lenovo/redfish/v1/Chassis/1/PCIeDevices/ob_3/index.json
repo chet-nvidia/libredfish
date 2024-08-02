@@ -1,51 +1,63 @@
 {
-    "SerialNumber": "N/A",
+    "Slot": {
+        "Location": {
+            "Info": "OnBoard",
+            "InfoFormat": "OnBoard",
+            "PartLocation": {
+                "ServiceLabel": "OnBoard",
+                "LocationType": "Slot",
+                "LocationOrdinalValue": 3
+            }
+        }
+    },
+    "Oem": {
+        "Lenovo": {
+            "@odata.type": "#LenovoDeviceInfo.v1_0_0.LenovoDeviceInfo",
+            "Location": {
+                "Info@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead.",
+                "InfoFormat@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead.",
+                "Info": "OnBoard",
+                "InfoFormat": "OnBoard",
+                "PartLocation": {
+                    "ServiceLabel": "OnBoard",
+                    "LocationType": "Slot",
+                    "LocationOrdinalValue": 3
+                }
+            }
+        }
+    },
     "Id": "ob_3",
+    "Name": "Onboard SSATA Controller (onboard)",
+    "@odata.type": "#PCIeDevice.v1_9_0.PCIeDevice",
+    "PCIeFunctions": {
+        "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_3/PCIeFunctions"
+    },
+    "@odata.context": "/redfish/v1/$metadata#PCIeDevice.PCIeDevice",
     "Links": {
-        "Links/PCIeFunctions@Redfish.Deprecated": "The property is deprecated. Please use PCIeFunctions instead.",
+        "PCIeFunctions": [
+            {
+                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_3/PCIeFunctions/ob_3.05"
+            }
+        ],
         "Chassis": [
             {
                 "@odata.id": "/redfish/v1/Chassis/1"
             }
         ],
-        "PCIeFunctions": [
-            {
-                "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_3/PCIeFunctions/ob_3.05"
-            }
-        ]
+        "Links/PCIeFunctions@Redfish.Deprecated": "The property is deprecated. Please use PCIeFunctions instead."
     },
-    "PCIeFunctions": {
-        "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_3/PCIeFunctions"
+    "SerialNumber": "N/A",
+    "DeviceType": "SingleFunction",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
     },
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_3",
     "PartNumber": "N/A",
+    "Manufacturer": "Intel",
+    "Model": "N/A",
+    "@odata.etag": "\"9fde09caddc734a7f66be\"",
     "Description": "This resource represents the properties of a PCIeDevice attached to a System.",
     "FirmwareVersion": null,
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Name": "Onboard SSATA Controller (onboard)",
-    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/ob_3",
-    "SKU": "N/A",
-    "@odata.type": "#PCIeDevice.v1_4_0.PCIeDevice",
-    "Oem": {
-        "Lenovo": {
-            "Location": {
-                "PartLocation": {
-                    "LocationType": "Slot",
-                    "ServiceLabel": "OnBoard",
-                    "LocationOrdinalValue": 3
-                },
-                "InfoFormat": "OnBoard",
-                "Info": "OnBoard",
-                "Info@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead.",
-                "InfoFormat@Redfish.Deprecated": "The property is deprecated. Please use PartLocation instead."
-            },
-            "@odata.type": "#LenovoDeviceInfo.v1_0_0.LenovoDeviceInfo"
-        }
-    },
-    "Manufacturer": "Intel",
-    "@odata.etag": "\"8a855a9632152677001\"",
-    "Model": "N/A",
-    "DeviceType": "SingleFunction"
+    "SKU": "N/A"
 }

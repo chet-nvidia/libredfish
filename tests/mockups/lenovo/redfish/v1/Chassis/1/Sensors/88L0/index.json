@@ -1,25 +1,30 @@
 {
-    "ReadingRangeMax": 15045,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/88L0",
-    "ReadingRangeMin": 0,
     "ReadingUnits": "RPM",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "PhysicalContext": null,
+    "Precision": 0,
+    "RelatedItem@odata.count": 1,
+    "Reading": 6313,
+    "ReadingRangeMin": 0,
+    "Id": "88L0",
+    "Name": "Fan 5A Tach",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/88L0",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "ReadingRangeMax": 15045,
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "MinAllowableOperatingValue": 0,
+    "ReadingType": "AirFlow",
+    "@odata.etag": "\"6e1dbf82ae1a29712aa\"",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/ThermalSubsystem/Fans/Fan_5A_Tach"
+        }
+    ],
     "Thresholds": {
-        "LowerFatal": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperCaution": {
-            "Activation": "Increasing",
-            "Reading": null
-        },
-        "LowerCritical": {
-            "Activation": "Decreasing",
-            "Reading": 472
-        },
-        "UpperFatal": {
-            "Activation": "Increasing",
-            "Reading": null
-        },
         "LowerCaution": {
             "Activation": "Decreasing",
             "Reading": null
@@ -27,21 +32,23 @@
         "UpperCritical": {
             "Activation": "Increasing",
             "Reading": null
+        },
+        "UpperFatal": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": 472
+        },
+        "UpperCaution": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerFatal": {
+            "Activation": "Decreasing",
+            "Reading": null
         }
     },
-    "PhysicalContext": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Reading": 4189,
-    "Precision": 0,
-    "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 15045,
-    "Name": "Fan 5A Tach",
-    "@odata.etag": "\"60c9b5b43deb2a308bd\"",
-    "Id": "88L0",
-    "ReadingType": "AirFlow"
+    "MaxAllowableOperatingValue": 15045
 }

@@ -1,26 +1,96 @@
 {
-    "FQDN": "",
-    "Oem": {
-        "Lenovo": {
-            "OSIPv4Address": "169.254.95.120",
-            "AddressMode": "IPv6LLA",
-            "@odata.type": "#LenovoEthernetInterface.v1_0_0.LenovoEthernetInterfaceProperties",
-            "PortForwarding": {
-                "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost/Oem/Lenovo/PortForwarding"
-            }
-        }
+    "@odata.context": "/redfish/v1/$metadata#EthernetInterface.EthernetInterface",
+    "Name": "Manager Ethernet Over USB Interface",
+    "LinkStatus": "LinkDown",
+    "AutoNeg": null,
+    "StatelessAddressAutoConfig": {
+        "IPv6AutoConfigEnabled": false,
+        "IPv4AutoConfigEnabled": null
+    },
+    "SpeedMbps": null,
+    "EthernetInterfaceType": "Physical",
+    "Status": {
+        "Health": "OK",
+        "State": "Disabled"
     },
     "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost",
+    "DHCPv4": {
+        "UseNTPServers": null,
+        "DHCPEnabled": false,
+        "FallbackAddress": "None",
+        "UseGateway": null,
+        "UseStaticRoutes": null,
+        "UseDNSServers": false,
+        "UseDomainName": false
+    },
+    "MACAddress": "08:8f:c3:a5:8a:70",
+    "Oem": {
+        "Lenovo": {
+            "AddressMode": "IPv6LLA",
+            "PortForwarding": {
+                "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/ToHost/Oem/Lenovo/PortForwarding"
+            },
+            "OSIPv4Address": "169.254.95.120",
+            "@odata.type": "#LenovoEthernetInterface.v1_0_0.LenovoEthernetInterfaceProperties"
+        }
+    },
+    "IPv4Addresses": [
+        {
+            "Gateway": "0.0.0.0",
+            "SubnetMask": "0.0.0.0",
+            "AddressOrigin": "Static",
+            "Address": "0.0.0.0"
+        }
+    ],
+    "Id": "ToHost",
+    "NameServers": [],
+    "@odata.type": "#EthernetInterface.v1_8_0.EthernetInterface",
+    "HostName": "",
+    "MTUSize": 1500,
+    "MaxIPv6StaticAddresses": 0,
+    "IPv6StaticDefaultGateways": [
+        {
+            "PrefixLength": 0,
+            "Address": "::"
+        }
+    ],
+    "Links": {
+        "Chassis": {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        },
+        "HostInterface": {
+            "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1"
+        }
+    },
+    "Description": "Management Network Interface",
+    "FullDuplex": null,
+    "PermanentMACAddress": "08:8f:c3:a5:8a:70",
     "IPv4StaticAddresses": [
         {
             "Gateway": "0.0.0.0",
-            "Address": "169.254.95.118",
             "SubnetMask": "255.255.0.0",
-            "AddressOrigin": "Static"
+            "AddressOrigin": "Static",
+            "Address": "169.254.95.118"
         }
     ],
-    "NameServers": [],
-    "AutoNeg": null,
+    "StaticNameServers": [
+        "0.0.0.0",
+        "0.0.0.0",
+        "0.0.0.0",
+        "::",
+        "::",
+        "::"
+    ],
+    "InterfaceEnabled": false,
+    "DHCPv6": {
+        "UseNTPServers": null,
+        "UseRapidCommit": null,
+        "OperatingMode": "Disabled",
+        "UseDNSServers": false,
+        "UseDomainName": false
+    },
+    "@odata.etag": "\"febbff820e5533b98c37d\"",
+    "FQDN": "",
     "IPv6AddressPolicyTable": [
         {
             "Precedence": 50,
@@ -73,81 +143,12 @@
             "Label": 1
         }
     ],
-    "SpeedMbps": null,
-    "HostName": "",
     "IPv6Addresses": [
         {
             "AddressState": "Preferred",
-            "Address": "fe80::7e8a:e1ff:fed5:a276",
             "PrefixLength": 64,
-            "AddressOrigin": "LinkLocal"
+            "AddressOrigin": "LinkLocal",
+            "Address": "fe80::a8f:c3ff:fea5:8a70"
         }
-    ],
-    "FullDuplex": null,
-    "StaticNameServers": [
-        "0.0.0.0",
-        "0.0.0.0",
-        "0.0.0.0",
-        "::",
-        "::",
-        "::"
-    ],
-    "DHCPv4": {
-        "UseDNSServers": false,
-        "FallbackAddress": "None",
-        "UseGateway": null,
-        "UseNTPServers": null,
-        "UseDomainName": false,
-        "DHCPEnabled": false,
-        "UseStaticRoutes": null
-    },
-    "IPv4Addresses": [
-        {
-            "Gateway": "0.0.0.0",
-            "Address": "0.0.0.0",
-            "SubnetMask": "",
-            "AddressOrigin": "Static"
-        }
-    ],
-    "StatelessAddressAutoConfig": {
-        "IPv4AutoConfigEnabled": null,
-        "IPv6AutoConfigEnabled": false
-    },
-    "Id": "ToHost",
-    "IPv6StaticDefaultGateways": [
-        {
-            "PrefixLength": 0,
-            "Address": "::"
-        }
-    ],
-    "InterfaceEnabled": false,
-    "MaxIPv6StaticAddresses": 0,
-    "Status": {
-        "State": "Disabled",
-        "Health": null
-    },
-    "MACAddress": "7c:8a:e1:d5:a2:76",
-    "Name": "Manager Ethernet Over USB Interface",
-    "Description": "Management Network Interface",
-    "EthernetInterfaceType": "Physical",
-    "DHCPv6": {
-        "OperatingMode": "Disabled",
-        "UseNTPServers": null,
-        "UseDomainName": false,
-        "UseRapidCommit": null,
-        "UseDNSServers": false
-    },
-    "@odata.type": "#EthernetInterface.v1_6_0.EthernetInterface",
-    "MTUSize": 1500,
-    "LinkStatus": "LinkDown",
-    "@odata.etag": "\"fb3207f81ce12f050ac33\"",
-    "PermanentMACAddress": "7c:8a:e1:d5:a2:76",
-    "Links": {
-        "Chassis": {
-            "@odata.id": "/redfish/v1/Chassis/1"
-        },
-        "HostInterface": {
-            "@odata.id": "/redfish/v1/Managers/1/HostInterfaces/1"
-        }
-    }
+    ]
 }

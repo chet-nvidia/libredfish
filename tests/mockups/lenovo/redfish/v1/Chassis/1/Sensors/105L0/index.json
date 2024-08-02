@@ -1,47 +1,54 @@
 {
-    "ReadingRangeMax": 255,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/105L0",
-    "ReadingRangeMin": 0,
-    "ReadingUnits": "C",
+    "RelatedItem@odata.count": 1,
     "Thresholds": {
-        "LowerFatal": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperCaution": {
-            "Activation": "Increasing",
-            "Reading": null
-        },
         "UpperFatal": {
-            "Activation": "Increasing",
-            "Reading": null
-        },
-        "LowerCritical": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "LowerCaution": {
-            "Activation": "Decreasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Increasing"
         },
         "UpperCritical": {
-            "Activation": "Increasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Increasing"
+        },
+        "LowerCritical": {
+            "Reading": null,
+            "Activation": "Decreasing"
+        },
+        "LowerFatal": {
+            "Reading": null,
+            "Activation": "Decreasing"
+        },
+        "UpperCaution": {
+            "Reading": null,
+            "Activation": "Increasing"
+        },
+        "LowerCaution": {
+            "Reading": null,
+            "Activation": "Decreasing"
         }
     },
-    "PhysicalContext": "ComputeBay",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Disabled",
-        "Health": null
-    },
-    "Name": "PCIe 10 Temp",
-    "Precision": 0,
-    "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 255,
+    "Reading": 25,
+    "ReadingRangeMin": 0,
     "Id": "105L0",
-    "@odata.etag": "\"654f456327c22aed6d9\"",
+    "Name": "PCIe 10 Temp",
+    "ReadingRangeMax": 255,
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "MinAllowableOperatingValue": 0,
     "ReadingType": "Temperature",
-    "Reading": null
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "MaxAllowableOperatingValue": 255,
+    "ReadingUnits": "C",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "PhysicalContext": "ComputeBay",
+    "@odata.etag": "\"6c7fe1a7384c2aeef07\"",
+    "Precision": 0,
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ],
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/105L0"
 }

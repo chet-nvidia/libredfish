@@ -1,19 +1,12 @@
 {
-    "MaxExecutionTime": null,
-    "JobStatus": "OK",
     "@odata.id": "/redfish/v1/JobService/Jobs/PowerOff",
-    "Id": "PowerOff",
-    "HidePayload": true,
     "StepOrder": [],
-    "PercentComplete": null,
-    "Name": "Power Off",
-    "@odata.type": "#Job.v1_0_3.Job",
     "JobState": "Suspended",
-    "@odata.etag": "\"4ceeb988911e25aa1b0\"",
-    "Messages": [],
+    "PercentComplete": null,
+    "Description": "The resource is used to represent the settings of scheduled Power Off actions for a Redfish implementation.",
+    "JobStatus": "OK",
+    "HidePayload": true,
     "Schedule": {
-        "RecurrenceInterval": null,
-        "InitialStartTime": null,
         "EnabledDaysOfWeek@Redfish.AllowableValues": [
             "Monday",
             "Tuesday",
@@ -25,7 +18,15 @@
             "Every"
         ],
         "EnabledDaysOfWeek": [],
+        "RecurrenceInterval": null,
+        "InitialStartTime": null,
         "Name": "Lenovo:Power Off"
     },
-    "Description": "The resource is used to represent the settings of scheduled Power Off actions for a Redfish implementation."
+    "Messages": [],
+    "MaxExecutionTime": null,
+    "@odata.context": "/redfish/v1/$metadata#Job.Job",
+    "@odata.etag": "\"50213bd2682f27ed535\"",
+    "Id": "PowerOff",
+    "Name": "Power Off",
+    "@odata.type": "#Job.v1_0_7.Job"
 }

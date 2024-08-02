@@ -1,13 +1,13 @@
 {
-    "IsPredefined": true,
     "@odata.id": "/redfish/v1/AccountService/Roles/Operator",
+    "IsPredefined": true,
+    "RoleId": "Operator",
+    "Description": "This resource is used to represent a user role for the user account for a Redfish implementation.",
     "AssignedPrivileges": [
         "Login",
         "ConfigureSelf",
         "ConfigureComponents"
     ],
-    "Name": "Operator",
-    "@odata.type": "#Role.v1_2_4.Role",
     "OemPrivileges": [
         "RemoteServerPowerRestartAccess",
         "AbilityClearEventLogs",
@@ -15,8 +15,9 @@
         "Configuration_NetworkingAndSecurity",
         "Configuration_Advanced"
     ],
+    "@odata.context": "/redfish/v1/$metadata#Role.Role",
+    "@odata.etag": "\"43fc90854f7728ab334\"",
     "Id": "Operator",
-    "@odata.etag": "\"40e2dca01d0c24e7ec7\"",
-    "RoleId": "Operator",
-    "Description": "This resource is used to represent a user role for the user account for a Redfish implementation."
+    "Name": "Operator",
+    "@odata.type": "#Role.v1_3_1.Role"
 }

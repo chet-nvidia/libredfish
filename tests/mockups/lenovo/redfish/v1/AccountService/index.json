@@ -1,95 +1,154 @@
 {
-    "Accounts": {
-        "@odata.id": "/redfish/v1/AccountService/Accounts"
-    },
-    "AccountLockoutThreshold": 5,
-    "Id": "AccountService",
-    "AccountLockoutDuration": 3600,
-    "ServiceEnabled": true,
-    "MinPasswordLength": 10,
-    "AccountLockoutCounterResetAfter": 3600,
+    "AccountLockoutThreshold": 0,
     "LocalAccountAuth@Redfish.AllowableValues": [
         "Enabled",
         "Disabled",
         "LocalFirst",
         "Fallback"
     ],
+    "Oem": {
+        "Lenovo": {
+            "PasswordExpirationPeriodDays": 0,
+            "MinimumPasswordReuseCycle": 0,
+            "WebInactivitySessionTimeout": 20,
+            "PasswordExpirationWarningPeriod": 0,
+            "CurrentLoggedUsers": [
+                {
+                    "IP_Hostname": "10.180.49.130",
+                    "LoginID": "root",
+                    "SessionType": "Redfish"
+                },
+                {
+                    "IP_Hostname": "10.180.49.130",
+                    "LoginID": "root",
+                    "SessionType": "webguis"
+                },
+                {
+                    "IP_Hostname": "10.217.4.197",
+                    "LoginID": "root",
+                    "SessionType": "SSH"
+                }
+            ],
+            "PasswordChangeOnFirstAccess": false,
+            "ComplexPassword": true,
+            "PasswordLength": 10,
+            "MinimumPasswordChangeIntervalHours": 0,
+            "@odata.type": "#LenovoAccountService.v1_0_0.LenovoAccountServiceProperties"
+        }
+    },
+    "OAuth2": {
+        "ServiceEnabled": true,
+        "OAuth2Service": {
+            "Audience": [
+                "6173ECEC6EF511EE834A0A8FC3A58A71"
+            ],
+            "Mode": "Offline",
+            "OAuthServiceSigningKeys": null,
+            "Issuer": ""
+        }
+    },
+    "Id": "AccountService",
+    "Name": "AccountService",
+    "@odata.type": "#AccountService.v1_10_0.AccountService",
+    "@odata.id": "/redfish/v1/AccountService",
+    "ServiceEnabled": true,
+    "AccountLockoutCounterResetAfter": 60,
+    "MinPasswordLength": 10,
+    "AccountLockoutCounterResetEnabled": true,
     "LocalAccountAuth": "Enabled",
+    "AccountLockoutDuration": 60,
+    "Roles": {
+        "@odata.id": "/redfish/v1/AccountService/Roles"
+    },
+    "Accounts": {
+        "@odata.id": "/redfish/v1/AccountService/Accounts"
+    },
+    "MaxPasswordLength": 32,
+    "@odata.etag": "\"14be1b31f2b7434a515bf5\"",
+    "@odata.context": "/redfish/v1/$metadata#AccountService.AccountService",
     "LDAP": {
+        "PasswordSet": false,
         "RemoteRoleMapping": [
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             },
             {
-                "LocalRole": null,
-                "RemoteGroup": null
+                "RemoteGroup": null,
+                "LocalRole": null
             }
         ],
+        "ServiceEnabled": true,
         "Authentication": {
-            "Username": "",
+            "AuthenticationType": "UsernameAndPassword",
             "Password": null,
-            "AuthenticationType": "UsernameAndPassword"
+            "Username": ""
         },
-        "PasswordSet": false,
-        "Certificates": {
-            "@odata.id": "/redfish/v1/AccountService/LDAP/Certificates"
+        "LDAPService": {
+            "SearchSettings": {
+                "GroupNameAttribute": "memberOf",
+                "BaseDistinguishedNames": [
+                    ""
+                ],
+                "UsernameAttribute": "sAMAccountName",
+                "GroupsAttribute": ""
+            }
         },
         "ServiceAddresses": [
             "0.0.0.0:389",
@@ -97,50 +156,9 @@
             ":389",
             ":389"
         ],
-        "LDAPService": {
-            "SearchSettings": {
-                "BaseDistinguishedNames": [
-                    ""
-                ],
-                "UsernameAttribute": "sAMAccountName",
-                "GroupsAttribute": "",
-                "GroupNameAttribute": "memberOf"
-            }
-        },
-        "ServiceEnabled": true
-    },
-    "Name": "AccountService",
-    "Roles": {
-        "@odata.id": "/redfish/v1/AccountService/Roles"
-    },
-    "Oem": {
-        "Lenovo": {
-            "CurrentLoggedUsers": [
-                {
-                    "SessionType": "vKVM",
-                    "IP_Hostname": "10.128.39.68",
-                    "LoginID": "Egxadmin"
-                },
-                {
-                    "SessionType": "Redfish",
-                    "IP_Hostname": "10.20.72.3",
-                    "LoginID": "Egxadmin"
-                }
-            ],
-            "PasswordLength": 10,
-            "PasswordExpirationPeriodDays": 0,
-            "PasswordChangeOnFirstAccess": true,
-            "@odata.type": "#LenovoAccountService.v1_0_0.LenovoAccountServiceProperties",
-            "MinimumPasswordChangeIntervalHours": 0,
-            "WebInactivitySessionTimeout": 20,
-            "MinimumPasswordReuseCycle": 1,
-            "PasswordExpirationWarningPeriod": 0
+        "Certificates": {
+            "@odata.id": "/redfish/v1/AccountService/LDAP/Certificates"
         }
     },
-    "@odata.type": "#AccountService.v1_7_0.AccountService",
-    "Description": "This resource is used to represent a management account service for a Redfish implementation.",
-    "AccountLockoutCounterResetEnabled": true,
-    "@odata.etag": "\"129dd38a6770b32c80e328\"",
-    "MaxPasswordLength": 32,
-    "@odata.id": "/redfish/v1/AccountService"
+    "Description": "This resource is used to represent a management account service for a Redfish implementation."
 }

@@ -1,18 +1,19 @@
 {
-    "Schema": "#ManagerAccountCollection.ManagerAccountCollection",
     "@odata.id": "/redfish/v1/JsonSchemas/ManagerAccountCollection",
-    "Name": "ManagerAccountCollection JSON Schema File",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Schema": "#ManagerAccountCollection.ManagerAccountCollection",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "Description": "This represents the ManagerAccountCollection Schema File locator resource for a Redfish implementation.",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/ManagerAccountCollection.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"326208fe\"",
+    "@odata.etag": "\"bc8f52b9\"",
     "Id": "ManagerAccountCollection",
-    "Description": "This represents the ManagerAccountCollection Schema File locator resource for a Redfish implementation."
+    "Name": "ManagerAccountCollection JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

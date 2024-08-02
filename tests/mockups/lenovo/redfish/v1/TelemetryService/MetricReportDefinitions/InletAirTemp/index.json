@@ -1,38 +1,39 @@
 {
-    "ReportUpdates": "AppendWrapsWhenFull",
     "@odata.id": "/redfish/v1/TelemetryService/MetricReportDefinitions/InletAirTemp",
+    "MetricReportDefinitionType": "OnRequest",
     "Wildcards": [
         {
+            "Name": "TWild",
             "Values": [
                 "0"
-            ],
-            "Name": "TWild"
-        }
-    ],
-    "Metrics": [
-        {
-            "CollectionTimeScope": "Interval",
-            "CollectionDuration": "PT1M",
-            "MetricProperties": [
-                "/redfish/v1/Chassis/1/Thermal#/Temperature/{TWild}/ReadingCelsius"
             ]
         }
     ],
-    "Id": "InletAirTemp",
-    "Name": "InletAirTemp",
-    "Status": {
-        "State": "Enabled"
+    "MetricReport": {
+        "@odata.id": "/redfish/v1/TelemetryService/MetricReports/InletAirTemp"
     },
     "ReportActions": [
         "LogToMetricReportsCollection"
     ],
-    "MetricReportDefinitionType": "OnRequest",
-    "@odata.type": "#MetricReportDefinition.v1_3_1.MetricReportDefinition",
-    "MetricReport": {
-        "@odata.id": "/redfish/v1/TelemetryService/MetricReports/InletAirTemp"
+    "Description": "A set of metrics that are collected into a metric report.",
+    "Metrics": [
+        {
+            "MetricProperties": [
+                "/redfish/v1/Chassis/1/Thermal#/Temperature/{TWild}/ReadingCelsius"
+            ],
+            "CollectionDuration": "PT1M",
+            "CollectionTimeScope": "Interval"
+        }
+    ],
+    "Status": {
+        "State": "Enabled"
     },
-    "AppendLimit": 1440,
-    "@odata.etag": "\"6b3259da948c2aec0f1\"",
     "ReportTimespan": "PT24H",
-    "Description": "A set of metrics that are collected into a metric report."
+    "ReportUpdates": "AppendWrapsWhenFull",
+    "AppendLimit": 1440,
+    "@odata.context": "/redfish/v1/$metadata#MetricReportDefinition.MetricReportDefinition",
+    "@odata.etag": "\"6ff52f03ce20242d715\"",
+    "Id": "InletAirTemp",
+    "Name": "InletAirTemp",
+    "@odata.type": "#MetricReportDefinition.v1_4_1.MetricReportDefinition"
 }

@@ -1,18 +1,19 @@
 {
-    "Schema": "#TaskService.TaskService",
     "@odata.id": "/redfish/v1/JsonSchemas/TaskService",
-    "Name": "TaskService JSON Schema File",
+    "Description": "This represents the TaskService Schema File locator resource for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Schema": "#TaskService.TaskService",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/TaskService.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"55eeab8e\"",
+    "@odata.etag": "\"de9a252d\"",
     "Id": "TaskService",
-    "Description": "This represents the TaskService Schema File locator resource for a Redfish implementation."
+    "Name": "TaskService JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

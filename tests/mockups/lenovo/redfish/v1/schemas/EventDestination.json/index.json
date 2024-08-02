@@ -2,7 +2,7 @@
     "$id": "http://redfish.dmtf.org/schemas/v1/EventDestination.json",
     "$ref": "#/definitions/EventDestination",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2020 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "EventDestination": {
             "anyOf": [
@@ -10,31 +10,40 @@
                     "$ref": "http://redfish.dmtf.org/schemas/v1/odata-v4.json#/definitions/idRef"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_0_8.json#/definitions/EventDestination"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_0_10.json#/definitions/EventDestination"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_1_7.json#/definitions/EventDestination"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_1_9.json#/definitions/EventDestination"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_2_5.json#/definitions/EventDestination"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_2_7.json#/definitions/EventDestination"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_3_3.json#/definitions/EventDestination"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_3_5.json#/definitions/EventDestination"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_4_2.json#/definitions/EventDestination"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_4_4.json#/definitions/EventDestination"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_5_1.json#/definitions/EventDestination"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_5_3.json#/definitions/EventDestination"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_6_0.json#/definitions/EventDestination"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_6_4.json#/definitions/EventDestination"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_7_0.json#/definitions/EventDestination"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_7_4.json#/definitions/EventDestination"
                 },
                 {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_8_0.json#/definitions/EventDestination"
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_8_4.json#/definitions/EventDestination"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_9_5.json#/definitions/EventDestination"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_10_4.json#/definitions/EventDestination"
+                },
+                {
+                    "$ref": "http://redfish.dmtf.org/schemas/v1/EventDestination.v1_11_2.json#/definitions/EventDestination"
                 }
             ],
             "deletable": true,
@@ -52,8 +61,12 @@
                 "MetricReport"
             ],
             "enumDescriptions": {
-                "Event": "The subscription destination receives JSON bodies of the Resource of type Event.",
-                "MetricReport": "The subscription destination receives JSON bodies of the Resource of type MetricReport."
+                "Event": "The subscription destination receives an event payload.",
+                "MetricReport": "The subscription destination receives a metric report."
+            },
+            "enumLongDescriptions": {
+                "Event": "The subscription destination shall receive an event payload as defined by the value of the Protocol property.",
+                "MetricReport": "The subscription destination shall receive a metric report payload as defined by the value of the Protocol property."
             },
             "type": "string",
             "versionAdded": "v1_4_0"

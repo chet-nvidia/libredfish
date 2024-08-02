@@ -1,18 +1,14 @@
 {
-    "ReadingRangeMax": 1275,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/67L0",
-    "ReadingRangeMin": 0,
-    "ReadingUnits": "Watts",
     "Thresholds": {
-        "LowerFatal": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperCaution": {
+        "UpperCritical": {
             "Activation": "Increasing",
             "Reading": null
         },
         "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "LowerFatal": {
             "Activation": "Decreasing",
             "Reading": null
         },
@@ -24,24 +20,38 @@
             "Activation": "Increasing",
             "Reading": null
         },
-        "UpperCritical": {
+        "UpperCaution": {
             "Activation": "Increasing",
             "Reading": null
         }
     },
-    "PhysicalContext": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Reading": 105,
-    "Precision": 0,
-    "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 1275,
+    "ReadingRangeMin": 0,
+    "ReadingRangeMax": 1275,
     "Name": "PSU2 AC In Pwr",
-    "@odata.etag": "\"642eac5ecd0c24ec674\"",
-    "Id": "67L0",
-    "ReadingType": "Current"
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Power"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PowerSubsystem"
+        }
+    ],
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/67L0",
+    "MinAllowableOperatingValue": 0,
+    "ReadingType": "Current",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "ReadingUnits": "Watts",
+    "MaxAllowableOperatingValue": 1275,
+    "@odata.etag": "\"748ff1dfd46a2a339f1\"",
+    "PhysicalContext": null,
+    "Precision": 0,
+    "RelatedItem@odata.count": 2,
+    "Reading": 170,
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "Id": "67L0"
 }

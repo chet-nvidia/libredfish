@@ -1,19 +1,26 @@
 {
-    "ReadingRangeMax": 2550,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/206L0",
-    "ReadingRangeMin": 2550,
-    "ReadingUnits": "Watts",
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "PhysicalContext": null,
+    "Precision": 0,
+    "RelatedItem@odata.count": 2,
     "Thresholds": {
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
         "LowerFatal": {
             "Activation": "Decreasing",
             "Reading": null
         },
-        "UpperCaution": {
+        "UpperCritical": {
             "Activation": "Increasing",
             "Reading": null
         },
-        "LowerCaution": {
-            "Activation": "Decreasing",
+        "UpperCaution": {
+            "Activation": "Increasing",
             "Reading": null
         },
         "UpperFatal": {
@@ -23,25 +30,28 @@
         "LowerCritical": {
             "Activation": "Decreasing",
             "Reading": null
-        },
-        "UpperCritical": {
-            "Activation": "Increasing",
-            "Reading": null
         }
     },
-    "PhysicalContext": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Name": "CPU Power",
-    "Precision": 0,
-    "MinAllowableOperatingValue": 2550,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 2550,
+    "Reading": 100,
     "Id": "206L0",
-    "@odata.etag": "\"651c0d41a776272c70f\"",
+    "Name": "CPU Power",
+    "ReadingRangeMin": 2550,
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/206L0",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Power"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PowerSubsystem"
+        }
+    ],
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "MinAllowableOperatingValue": 2550,
     "ReadingType": "Current",
-    "Reading": 110
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "MaxAllowableOperatingValue": 2550,
+    "@odata.etag": "\"757d561a1fd424f4389\"",
+    "ReadingUnits": "Watts",
+    "ReadingRangeMax": 2550
 }

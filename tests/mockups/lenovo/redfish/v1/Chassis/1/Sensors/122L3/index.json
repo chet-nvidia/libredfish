@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/122L3",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "ReadingUnits": "",
-    "Reading": 0,
     "PhysicalContext": "ComputeBay",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "RelatedItem@odata.count": 1,
+    "Reading": 0,
+    "ReadingType": "Temperature",
+    "ReadingUnits": "",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ],
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "Status": {
+        "Health": null,
+        "State": "Enabled"
+    },
+    "@odata.etag": "\"2fa1774d09a62664652\"",
     "Id": "122L3",
     "Name": "OCP OverTemp",
-    "@odata.etag": "\"25aaf25ea02028a5682\"",
-    "ReadingType": "Temperature",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "@odata.type": "#Sensor.v1_5_0.Sensor"
 }

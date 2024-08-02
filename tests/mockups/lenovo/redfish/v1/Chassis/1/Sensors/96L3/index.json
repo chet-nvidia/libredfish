@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/96L3",
+    "PhysicalContext": "ComputeBay",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "RelatedItem@odata.count": 1,
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": null,
+        "State": "Enabled"
     },
     "ReadingUnits": "",
     "Reading": 0,
-    "PhysicalContext": "ComputeBay",
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "ReadingType": "Temperature",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "@odata.etag": "\"2fcf31dde2dc27246b6\"",
     "Id": "96L3",
     "Name": "PCIe 1 OverTemp",
-    "@odata.etag": "\"25d8acef795629656e6\"",
-    "ReadingType": "Temperature",
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1"
+        }
+    ]
 }

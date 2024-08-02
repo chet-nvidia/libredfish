@@ -1,9 +1,17 @@
 {
-    "ReadingRangeMax": 0,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/231L0",
-    "ReadingRangeMin": -51,
-    "ReadingUnits": "",
     "Thresholds": {
+        "UpperCritical": {
+            "Activation": "Increasing",
+            "Reading": null
+        },
+        "LowerCritical": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
+        "LowerCaution": {
+            "Activation": "Decreasing",
+            "Reading": null
+        },
         "LowerFatal": {
             "Activation": "Decreasing",
             "Reading": null
@@ -12,36 +20,35 @@
             "Activation": "Increasing",
             "Reading": null
         },
-        "LowerCaution": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "LowerCritical": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
         "UpperFatal": {
-            "Activation": "Increasing",
-            "Reading": null
-        },
-        "UpperCritical": {
             "Activation": "Increasing",
             "Reading": null
         }
     },
-    "PhysicalContext": "CPU",
+    "ReadingRangeMin": -51,
+    "ReadingRangeMax": 0,
+    "Name": "CPU 1 DTS",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1/Processors/1"
+        }
+    ],
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/231L0",
+    "MinAllowableOperatingValue": -51,
+    "ReadingType": "Temperature",
+    "MaxAllowableOperatingValue": 0,
     "Description": "This resource is used to represent a sensor for a Redfish implementation.",
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": "OK",
+        "State": "Enabled"
     },
-    "Name": "CPU 1 DTS",
-    "Precision": 0,
-    "MinAllowableOperatingValue": -51,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 0,
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "ReadingUnits": "",
     "Id": "231L0",
-    "@odata.etag": "\"614160535480273081d\"",
-    "ReadingType": "Temperature",
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "PhysicalContext": "CPU",
+    "@odata.etag": "\"6d19268c7c8d25af885\"",
+    "Precision": 0,
+    "RelatedItem@odata.count": 1,
     "Reading": -51
 }

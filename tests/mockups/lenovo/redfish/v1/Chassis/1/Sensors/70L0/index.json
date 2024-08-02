@@ -1,47 +1,57 @@
 {
-    "ReadingRangeMax": 1275,
-    "@odata.id": "/redfish/v1/Chassis/1/Sensors/70L0",
-    "ReadingRangeMin": 0,
-    "ReadingUnits": "Watts",
+    "PhysicalContext": null,
+    "Precision": 0,
+    "RelatedItem@odata.count": 2,
+    "Reading": 150,
     "Thresholds": {
         "LowerFatal": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperCaution": {
-            "Activation": "Increasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Decreasing"
         },
         "LowerCaution": {
-            "Activation": "Decreasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Decreasing"
         },
-        "LowerCritical": {
-            "Activation": "Decreasing",
-            "Reading": null
-        },
-        "UpperFatal": {
-            "Activation": "Increasing",
-            "Reading": null
+        "UpperCaution": {
+            "Reading": null,
+            "Activation": "Increasing"
         },
         "UpperCritical": {
-            "Activation": "Increasing",
-            "Reading": null
+            "Reading": null,
+            "Activation": "Increasing"
+        },
+        "LowerCritical": {
+            "Reading": null,
+            "Activation": "Decreasing"
+        },
+        "UpperFatal": {
+            "Reading": null,
+            "Activation": "Increasing"
         }
     },
-    "PhysicalContext": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK"
-    },
-    "Reading": 110,
-    "Precision": 0,
-    "MinAllowableOperatingValue": 0,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
-    "MaxAllowableOperatingValue": 1275,
     "Id": "70L0",
-    "@odata.etag": "\"63b7bb948e8625ac6e9\"",
+    "Name": "PSU3 DC Out Pwr",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/Power"
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/1/PowerSubsystem"
+        }
+    ],
+    "@odata.id": "/redfish/v1/Chassis/1/Sensors/70L0",
+    "ReadingRangeMin": 0,
+    "ReadingRangeMax": 1275,
+    "MinAllowableOperatingValue": 0,
     "ReadingType": "Current",
-    "Name": "PSU3 DC Out Pwr"
+    "@odata.type": "#Sensor.v1_5_0.Sensor",
+    "MaxAllowableOperatingValue": 1275,
+    "Status": {
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "@odata.etag": "\"741904e7dce42af3a68\"",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "ReadingUnits": "Watts",
+    "Description": "This resource is used to represent a sensor for a Redfish implementation."
 }

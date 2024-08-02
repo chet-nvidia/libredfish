@@ -1,18 +1,19 @@
 {
-    "Schema": "#Certificate.Certificate",
     "@odata.id": "/redfish/v1/JsonSchemas/Certificate",
-    "Name": "Certificate JSON Schema File",
+    "Description": "This represents the Certificate Schema File locator resource for a Redfish implementation.",
     "Languages": [
         "en"
     ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Schema": "#Certificate.Certificate",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/Certificate.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"2b70779e\"",
+    "@odata.etag": "\"bc98e2b3\"",
     "Id": "Certificate",
-    "Description": "This represents the Certificate Schema File locator resource for a Redfish implementation."
+    "Name": "Certificate JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

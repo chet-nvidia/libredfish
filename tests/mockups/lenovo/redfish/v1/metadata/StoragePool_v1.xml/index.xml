@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---->
-<!-- Copyright 2015-2019 Storage Networking Industry Association (SNIA), USA. All rights reserved.-->
+<!-- Copyright 2015-2021 Storage Networking Industry Association (SNIA), USA. All rights reserved.-->
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/csd01/complete/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="OData"/>
@@ -103,6 +103,113 @@
           </Collection>
         </Annotation>
       </EntityType>
+
+      <Action Name="AddDrives">
+        <Parameter Name="StoragePool" Type="StoragePool.v1_3_0.Actions"/>
+        <Annotation Term="OData.Description" String="This action is used to add an additional drive, or set of drives, to a capacity source for the storage pool."/>
+        <Annotation Term="OData.LongDescription" String="This action shall be used to add a drive, or set of drives, to an underlying capacity source for the storage pool."/>
+        <Parameter Name="Drives" Type="Collection(Drive.Drive)" Nullable="false">
+          <Annotation Term="OData.Description" String="The drive(s) to be added."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="This parameter shall contain the Uri to the existing drive or drives to be added to a capacity source of the storage pool. The implementation may impose restrictions on the number of drives added simultaneously."/>
+        </Parameter>
+        <Parameter Name="CapacitySource" Type="Capacity.CapacitySource">
+          <Annotation Term="OData.Description" String="The capacity source to be extended."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="This parameter shall contain the target capacity source for the drive(s). This property does not need to be specified if the storage pool only contains one capacity source, or if the implementation is capable of automatically selecting the appropriate capacity source."/>
+        </Parameter>
+      </Action>
+
+      <Action Name="RemoveDrives">
+        <Parameter Name="StoragePool" Type="StoragePool.v1_3_0.Actions"/>
+        <Annotation Term="OData.Description" String="This action is used to remove drive(s) from the capacity source for the StoragePool."/>
+        <Annotation
+          Term="OData.LongDescription"
+          String="This action shall be used to remove a drive from the StoragePool. This action is targeted at a graceful drive removal process, such as initiating a drive cleanup and data reallocation before drive removal from the pool. The implementation may impose restrictions on the number of drives removed simultaneously."/>
+        <Parameter Name="Drives" Type="Collection(Drive.Drive)" Nullable="false">
+          <Annotation Term="OData.Description" String="The drive(s) to be removed."/>
+          <Annotation Term="OData.LongDescription" String="This parameter shall contain the Uri to the drive or drives to be removed from the underlying capacity source."/>
+        </Parameter>
+      </Action>
+
+      <Action Name="SetDeduplicationState">
+        <Parameter Name="StoragePool" Type="StoragePool.v1_3_0.Actions"/>
+        <Annotation Term="OData.Description" String="This action is used to set the dedupe state of the pool."/>
+        <Annotation Term="OData.LongDescription" String="This action shall be used to set the dedupe state of the storage pool. This may be both a highly impactful, as well as a long running operation."/>
+        <Parameter Name="Enable" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="OData.Description" String="This property indicates the desired deduplication state of the storage pool."/>
+          <Annotation Term="OData.LongDescription" String="This property shall indicate the desired deduplication state of the storage pool."/>
+        </Parameter>
+      </Action>
+
+      <Action Name="SetCompressionState">
+        <Parameter Name="StoragePool" Type="StoragePool.v1_3_0.Actions"/>
+        <Annotation Term="OData.Description" String="This action is used to set the compression state of the pool."/>
+        <Annotation Term="OData.LongDescription" String="This action shall be used to set the compression state of the storage pool. This may be both a highly impactful, as well as a long running operation."/>
+        <Parameter Name="Enable" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="OData.Description" String="This property indicates the desired compression state of the storage pool."/>
+          <Annotation Term="OData.LongDescription" String="This property shall indicate the desired compression state of the storage pool."/>
+        </Parameter>
+      </Action>
+
+      <Action Name="SetEncryptionState">
+        <Parameter Name="StoragePool" Type="StoragePool.v1_3_0.Actions"/>
+        <Annotation Term="OData.Description" String="This action is used to set the encryption state of the pool."/>
+        <Annotation Term="OData.LongDescription" String="This action shall be used to set the encryption state of the storage pool. This may be both a highly impactful, as well as a long running operation."/>
+        <Parameter Name="Enable" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="OData.Description" String="This property indicates the desired encryption state of the storage pool."/>
+          <Annotation Term="OData.LongDescription" String="This property shall indicate the desired encryption state of the storage pool."/>
+        </Parameter>
+      </Action>
+
+      <EnumType Name="PoolType">
+        <Annotation Term="Redfish.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
+              <PropertyValue Property="Version" String="v1_6_0"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Member Name="Block">
+          <Annotation Term="OData.Description" String="This pool is of type block."/>
+          <Annotation Term="OData.LongDescription" String="This type shall be used to specify a pool of type block. This is used when the pool serves block storage."/>
+        </Member>
+        <Member Name="File">
+          <Annotation Term="OData.Description" String="This pool is of type file."/>
+          <Annotation Term="OData.LongDescription" String="This type shall be used to specify a pool of type file. This setting is used when the pool serves file storage."/>
+        </Member>
+        <Member Name="Object">
+          <Annotation Term="OData.Description" String="This pool is of type object."/>
+          <Annotation Term="OData.LongDescription" String="This type shall be used to specify a pool of type object."/>
+        </Member>
+        <Member Name="Pool">
+          <Annotation Term="OData.Description" String="This pool is of type pool, indicating a hierarchy."/>
+          <Annotation Term="OData.LongDescription" String="This type shall be used to specify a pool of type pool. This setting is used to indicate a 'pool of pools' hierarchy."/>
+        </Member>
+      </EnumType>
+
+      <EnumType Name="NVMePoolType">
+        <Annotation Term="Redfish.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Added"/>
+              <PropertyValue Property="Version" String="v1_6_0"/>
+            </Record>
+          </Collection>
+        </Annotation>
+        <Member Name="EnduranceGroup">
+          <Annotation Term="OData.Description" String="This pool is of type EnduranceGroup, used by NVMe devices."/>
+          <Annotation Term="OData.LongDescription" String="This type shall be used to specify a pool of type EnduranceGroup, used by NVMe devices."/>
+        </Member>
+        <Member Name="NVMSet">
+          <Annotation Term="OData.Description" String="This pool is of type NVMSet, used by NVMe devices."/>
+          <Annotation Term="OData.LongDescription" String="This type shall be used to specify a pool of type NVMSet, used by NVMe devices."/>
+        </Member>
+      </EnumType>
+
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="StoragePool.v1_0_0">
@@ -312,17 +419,46 @@
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
           <Annotation Term="OData.Description" String="Indicator of whether or not the StoragePool has deduplication enabled."/>
           <Annotation Term="OData.LongDescription" String="This property shall contain a boolean indicator if the StoragePool is currently utilizing deduplication or not."/>
+          <Annotation Term="Redfish.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Version" String="v1_6_0"/>
+                <PropertyValue Property="Description" String="This property has been deprecated in favor of the IsDeduplicated and DefaultDedupeBehavior properties."/>
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="Compressed" Type="Edm.Boolean">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
           <Annotation Term="OData.Description" String="Indicator of whether or not the StoragePool has compression enabled."/>
           <Annotation Term="OData.LongDescription" String="This property shall contain a boolean indicator if the StoragePool is currently utilizing compression or not."/>
+          <Annotation Term="Redfish.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Version" String="v1_6_0"/>
+                <PropertyValue Property="Description" String="This property has been deprecated in favor of the IsCompressed and DefaultCompressionBehavior properties."/>
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
+
         <Property Name="Encrypted" Type="Edm.Boolean">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
           <Annotation Term="OData.Description" String="Indicator of whether or not the StoragePool has encryption enabled."/>
           <Annotation Term="OData.LongDescription" String="This property shall contain a boolean indicator if the StoragePool is currently utilizing encryption or not."/>
+          <Annotation Term="Redfish.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Version" String="v1_6_0"/>
+                <PropertyValue Property="Description" String="This property has been deprecated in favor of the IsEncrypted and DefaultEncryptionBehavior properties."/>
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
+
         <Property Name="Actions" Type="StoragePool.v1_3_0.Actions" Nullable="false">
           <Annotation Term="OData.Description" String="The available actions for this resource."/>
           <Annotation Term="OData.LongDescription" String="The Actions property shall contain the available actions for this resource."/>
@@ -393,7 +529,9 @@
         </Property>
         <Property Name="Random4kReadTypicalNanoSeconds" Type="Edm.Int64">
           <Annotation Term="OData.Description" String="Indicates the typical time to complete a 4k read in 100 nano-second units when the NVM Set is in a Predictable Latency Mode Deterministic Window and there is 1 outstanding command per NVM Set."/>
-            <Annotation Term="OData.LongDescription" String="This property shall contain the typical time to complete a 4k read in 100 nano-second units when the NVM Set is in a Predictable Latency Mode Deterministic Window and there is 1 outstanding command per NVM Set."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="This property shall contain the typical time to complete a 4k read in 100 nano-second units when the NVM Set is in a Predictable Latency Mode Deterministic Window and there is 1 outstanding command per NVM Set."/>
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="Validation.Minimum" Int="0"/>
         </Property>
@@ -428,49 +566,65 @@
         <Annotation Term="OData.LongDescription" String="This contains properties for the Endurance Group Lifetime attributes."/>
         <Property Name="PercentUsed" Type="Edm.Int64">
           <Annotation Term="OData.Description" String="A vendor-specific estimate of the percent life used for the endurance group based on the actual usage and the manufacturer prediction of NVM life."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain A vendor-specific estimate of the percent life used for the endurance group based on the actual usage and the manufacturer prediction of NVM life. A value of 100 indicates that the estimated endurance of the NVM in the Endurance Group has been consumed, but may not indicate an NVM failure. According to the NVMe and JEDEC specs, the value is allowed to exceed 100. Percentages greater than 254 shall be represented as 255."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="This property shall contain a vendor-specific estimate of the percent life used for the endurance group based on the actual usage and the manufacturer prediction of NVM life. A value of 100 indicates that the estimated endurance of the NVM in the Endurance Group has been consumed, but may not indicate an NVM failure. According to the NVMe and JEDEC specs, the value is allowed to exceed 100. Percentages greater than 254 shall be represented as 255."/>
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="Validation.Minimum" Int="0"/>
         </Property>
         <Property Name="EnduranceEstimate" Type="Edm.Int64">
           <Annotation Term="OData.Description" String="This property contains an estimate of the total number of data bytes that may be written to the Endurance Group over the lifetime of the Endurance Group assuming a write amplication of 1."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain an estimate of the total number of data bytes that may be written to the Endurance Group over the lifetime of the Endurance Group assuming a write amplication of 1.  The value is reported in billions, where a value of 1 corresponds to 1 billion bytes written, and is rounded up. A value of zero indicates endurance estimates are unsupported."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="This property shall contain an estimate of the total number of data bytes that may be written to the Endurance Group over the lifetime of the Endurance Group assuming a write amplication of 1.  The value is reported in billions, where a value of 1 corresponds to 1 billion bytes written, and is rounded up. A value of zero indicates endurance estimates are unsupported."/>
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="Validation.Minimum" Int="0"/>
         </Property>
         <Property Name="DataUnitsRead" Type="Edm.Int64">
           <Annotation Term="OData.Description" String="The property contains the total number of data units read from this endurance group."/>
-          <Annotation Term="OData.LongDescription" String="The property shall contain the total number of data units read from this endurance group. This value does not include controller reads due to internal operations such as garbage collection. The value is reported in billions, where a value of 1 corresponds to 1 billion bytes written, and is rounded up. A value of zero indicates the property is unsupported."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="The property shall contain the total number of data units read from this endurance group. This value does not include controller reads due to internal operations such as garbage collection. The value is reported in billions, where a value of 1 corresponds to 1 billion bytes written, and is rounded up. A value of zero indicates the property is unsupported."/>
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="Validation.Minimum" Int="0"/>
         </Property>
         <Property Name="DataUnitsWritten" Type="Edm.Int64">
           <Annotation Term="OData.Description" String="The property contains the total number of data units written from this endurance group."/>
-          <Annotation Term="OData.LongDescription" String="The property shall contain the total number of data units written from this endurance group. This value does not include controller writes due to internal operations such as garbage collection. The value is reported in billions, where a value of 1 corresponds to 1 billion bytes written, and is rounded up. A value of zero indicates the property is unsupported."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="The property shall contain the total number of data units written from this endurance group. This value does not include controller writes due to internal operations such as garbage collection. The value is reported in billions, where a value of 1 corresponds to 1 billion bytes written, and is rounded up. A value of zero indicates the property is unsupported."/>
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="Validation.Minimum" Int="0"/>
         </Property>
         <Property Name="MediaUnitsWritten" Type="Edm.Int64">
           <Annotation Term="OData.Description" String="The property contains the total number of data units written from this endurance group."/>
-          <Annotation Term="OData.LongDescription" String="The property shall contain the total number of data units written from this endurance group. This value includes host and controller writes due to internal operations such as garbage collection. The value is reported in billions, where a value of 1 corresponds to 1 billion bytes written, and is rounded up. A value of zero indicates the property is unsupported."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="The property shall contain the total number of data units written from this endurance group. This value includes host and controller writes due to internal operations such as garbage collection. The value is reported in billions, where a value of 1 corresponds to 1 billion bytes written, and is rounded up. A value of zero indicates the property is unsupported."/>
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="Validation.Minimum" Int="0"/>
         </Property>
         <Property Name="HostReadCommandCount" Type="Edm.Int64">
           <Annotation Term="OData.Description" String="This property contains the number of read commands completed by all controllers in the NVM subsystem for the Endurance Group."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the number of read commands completed by all controllers in the NVM subsystem for the Endurance Group. For the NVM command set, the is the number of compare commands and read commands."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="This property shall contain the number of read commands completed by all controllers in the NVM subsystem for the Endurance Group. For the NVM command set, the is the number of compare commands and read commands."/>
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="Validation.Minimum" Int="0"/>
         </Property>
         <Property Name="HostWriteCommandCount" Type="Edm.Int64">
           <Annotation Term="OData.Description" String="This property contains the number of write commands completed by all controllers in the NVM subsystem for the Endurance Group."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the number of write commands completed by all controllers in the NVM subsystem for the Endurance Group. For the NVM command set, the is the number of compare commands and write commands."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="This property shall contain the number of write commands completed by all controllers in the NVM subsystem for the Endurance Group. For the NVM command set, the is the number of compare commands and write commands."/>
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="Validation.Minimum" Int="0"/>
         </Property>
         <Property Name="MediaAndDataIntegrityErrorCount" Type="Edm.Int64">
           <Annotation Term="OData.Description" String="This property contains the number of occurences where the controller detected an unrecovered data integrity error for the Endurance Group."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the number of occurences where the controller detected an unrecovered data integrity error for the Endurance Group. Errors such as uncorrectable ECC, CRC checksum failure, or LBA tag mismatch are included in this field."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="This property shall contain the number of occurences where the controller detected an unrecovered data integrity error for the Endurance Group. Errors such as uncorrectable ECC, CRC checksum failure, or LBA tag mismatch are included in this field."/>
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="Validation.Minimum" Int="0"/>
         </Property>
@@ -498,6 +652,100 @@
       <Annotation Term="Redfish.Release" String="TP v1.2.1"/>
       <Annotation Term="OData.Description" String="This version was created to add missing URIs for Systems. It also corrects the long description for SetIdentifier in NVMeSetProperties."/>
       <EntityType Name="StoragePool" BaseType="StoragePool.v1_4_0.StoragePool"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="StoragePool.v1_6_0">
+      <Annotation Term="Redfish.OwningEntity" String="SNIA"/>
+      <Annotation Term="Redfish.Release" String="TP v1.2.2"/>
+      <Annotation
+        Term="OData.Description"
+        String="This version was created to add AddDrives and RemoveDrives Actions, deprecate Encrypted, Compressed, and Deduplicated properties and replace with combo usage of DefaultDeduplicationBehavior/DeduplicationEnabled, DefaultEncryptionBehavior/EncryptionEnabled, and DefaultCompressionBehavior/CompressionEnabled."/>
+      <EntityType Name="StoragePool" BaseType="StoragePool.v1_5_0.StoragePool">
+
+        <Property Name="DefaultCompressionBehavior" Type="Edm.Boolean">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+          <Annotation Term="OData.Description" String="Indicates the default dedupe behavior applied to the child resource (E.g., volume or storage pool) created out of the storage pool if the 'Compressed' property is not set on the create request."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="If implemented, this property shall indicate the default dedupe behavior applied to the child resource (E.g., volume or storage pool) created out of the storage pool if the 'Compressed' property is not set on the create request."/>
+        </Property>
+        <Property Name="DefaultEncryptionBehavior" Type="Edm.Boolean">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+          <Annotation Term="OData.Description" String="Indicates the default dedupe behavior applied to the child resource (E.g., volume or storage pool) created out of the storage pool if the 'Encrypted' property is not set on the create request."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="If implemented, this property shall indicate the default dedupe behavior applied to the child resource (E.g., volume or storage pool) created out of the storage pool if the 'Encrypted' property is not set on the create request."/>
+        </Property>
+
+        <Property Name="DefaultDeduplicationBehavior" Type="Edm.Boolean">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/ReadWrite"/>
+          <Annotation Term="OData.Description" String="Indicates the default deduplication behavior applied to the child resource (E.g., volume or storage pool) created out of the storage pool if the 'Deduplicated' property is not set on the create request."/>
+          <Annotation
+            Term="OData.LongDescription"
+            String="If implemented, this property shall indicate the default deduplication behavior applied to the child resource (E.g., volume or storage pool) created out of the storage pool if the 'Deduplicated' property is not set on the create request."/>
+        </Property>
+
+        <Property Name="DeduplicationEnabled" Type="Edm.Boolean">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="Indicates whether or not deduplication is enabled on the storage pool."/>
+          <Annotation Term="OData.LongDescription" String="The property shall indicate whether or not deduplication is enabled on the storage pool."/>
+        </Property>
+
+        <Property Name="CompressionEnabled" Type="Edm.Boolean">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="Indicates whether or not compression is enabled on the storage pool."/>
+          <Annotation Term="OData.LongDescription" String="The property shall indicate whether or not compression is enabled on the storage pool."/>
+        </Property>
+        <Property Name="EncryptionEnabled" Type="Edm.Boolean">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="Indicates whether or not encryption is enabled on the storage pool."/>
+          <Annotation Term="OData.LongDescription" String="The property shall indicate whether or not encryption is enabled on the storage pool."/>
+        </Property>
+        <Property Name="PoolType" Type="Collection(StoragePool.PoolType)">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="Pool usage type for this storage pool."/>
+          <Annotation Term="OData.LongDescription" String="The property shall indicate the type of storage pool."/>
+          <Annotation Term="Redfish.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Redfish.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Version" String="v1_7_0"/>
+                <PropertyValue Property="Description" String="This property has been deprecated in favor of the SupportedPoolTypes property."/>
+              </Record>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="NVMeProperties" Type="StoragePool.v1_6_0.NVMeProperties">
+          <Annotation Term="OData.Description" String="NVMe properties for this storage pool."/>
+          <Annotation Term="OData.LongDescription" String="The property shall indicate the type of storage pool."/>
+        </Property>
+      </EntityType>
+
+      <ComplexType Name="NVMeProperties">
+        <Annotation Term="OData.Description" String="This contains properties to use when StoragePool is used to describe an NVMe construct."/>
+        <Annotation Term="OData.LongDescription" String="This contains properties to use when StoragePool is used to describe an NVMe construct."/>
+        <Property Name="NVMePoolType" Type="StoragePool.NVMePoolType">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="Indicates whether the StoragePool is used as an EnduranceGroup or an NVMSet."/>
+          <Annotation Term="OData.LongDescription" String="This property shall indicate whether the StoragePool is used as an EnduranceGroup or an NVMSet."/>
+        </Property>
+      </ComplexType>
+
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="StoragePool.v1_7_0">
+      <Annotation Term="Redfish.OwningEntity" String="SNIA"/>
+      <Annotation Term="Redfish.Release" String="WIP v1.2.3"/>
+      <Annotation
+        Term="OData.Description"
+        String="This version was created to add SupportedPoolTypes."/>
+      <EntityType Name="StoragePool" BaseType="StoragePool.v1_5_0.StoragePool">
+        <Property Name="SupportedPoolTypes" Type="Collection(StoragePool.PoolType)">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="A collection of the Pool Types supported by the storage pool."/>
+          <Annotation Term="OData.LongDescription" String="This collection shall contain all the PoolType values supported by the storage pool."/>
+        </Property>
+      </EntityType>
     </Schema>
 
   </edmx:DataServices>

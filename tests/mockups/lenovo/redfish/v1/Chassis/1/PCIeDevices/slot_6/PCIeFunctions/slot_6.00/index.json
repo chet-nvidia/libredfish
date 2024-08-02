@@ -1,31 +1,32 @@
 {
     "VendorId": "0x10de",
-    "Id": "slot_6.00",
+    "SubsystemId": "0x169d",
+    "DeviceClass": "DisplayController",
+    "RevisionId": "0xa1",
+    "Name": "NVIDIA L40 1b:00:00",
+    "@odata.type": "#PCIeFunction.v1_3_0.PCIeFunction",
+    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_6/PCIeFunctions/slot_6.00",
     "Links": {
-        "Drives": [],
         "PCIeDevice": {
             "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_6"
         },
-        "StorageControllers": [],
         "NetworkDeviceFunctions": [],
+        "StorageControllers": [],
+        "Drives": [],
         "EthernetInterfaces": []
     },
-    "FunctionId": 0,
-    "SubsystemId": "0x1459",
     "Description": "This resource represents the properties of a PCIeFunction attached to a System.",
-    "FunctionType": "Physical",
-    "Status": {
-        "State": "Enabled",
-        "Health": "OK",
-        "HealthRollup": "OK"
-    },
-    "DeviceClass": "DisplayController",
-    "Name": "NVIDIA Quadro RTX A6000 b1:00:00",
+    "FunctionId": 0,
+    "ClassCode": "0x030200",
     "SubsystemVendorId": "0x10de",
-    "@odata.type": "#PCIeFunction.v1_2_3.PCIeFunction",
-    "DeviceId": "0x2230",
-    "@odata.id": "/redfish/v1/Chassis/1/PCIeDevices/slot_6/PCIeFunctions/slot_6.00",
-    "@odata.etag": "\"4e4ecc4e9681242cbff\"",
-    "RevisionId": "0xa1",
-    "ClassCode": "0x030200"
+    "DeviceId": "0x26b5",
+    "@odata.context": "/redfish/v1/$metadata#PCIeFunction.PCIeFunction",
+    "@odata.etag": "\"4fa0ef2605112a2a8c4\"",
+    "Id": "slot_6.00",
+    "Status": {
+        "HealthRollup": "OK",
+        "Health": "OK",
+        "State": "Enabled"
+    },
+    "FunctionType": "Physical"
 }

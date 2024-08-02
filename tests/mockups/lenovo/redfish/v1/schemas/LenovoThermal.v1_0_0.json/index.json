@@ -1,92 +1,35 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoThermal",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LenovoThermal.v1_0_0.json",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2019 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
-        "Thermal": {
-            "type": "object",
+        "LenovoThermal": {
+            "additionalProperties": true,
+            "description": "This is the schema definitions for OEM Lenovo extended fan resource.",
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
-            "additionalProperties": true,
             "properties": {
-                "@odata.context": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
-                },
-                "@odata.id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
-                },
-                "@odata.type": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
-                },
                 "HistoryTempMetric": {
-                    "$ref": "/schemas/v1/Lenovo/LenovoHistoryMetricValue.json#/definitions/LenovoHistoryMetricValue",
-                    "readonly": true,
-                    "description": "A reference indicating temperature history metric values.",
-                    "longDescription": "The value of this property shall be a reference indicating temperature history metric values. In this reference shall contain: InletAirTemp, OutletAirTemp, ExpansionInletAirTemp, ExpansionOutletAirTemp metric values."
+                    "$ref": "/redfish/v1/metadata/LenovoHistoryMetricValue.json#/definitions/LenovoHistoryMetricValue",
+                    "description": "A reference to the object of task result of server profile task.",
+                    "longDescription": "The value of this property shall be a reference indicating temperature history metric values. In this reference shall contain: InletAirTemp, OutletAirTemp, ExpansionInletAirTemp, ExpansionOutletAirTemp metric values.",
+                    "readonly": true
                 }
             },
-            "description": "This is the schema definitions for OEM Lenovo extended temperature resource."
-        },
-        "Fan": {
-            "type": "object",
-            "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
-                    "type": [
-                        "array",
-                        "boolean",
-                        "number",
-                        "null",
-                        "object",
-                        "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
-                }
-            },
-            "additionalProperties": true,
-            "properties": {
-                "Location": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/Resource.v1_4_0.json#/definitions/Location",
-                    "readonly": true,
-                    "description": "This indicates Fan slot information.",
-                    "longDescription": "The value of this property shall indicate Fan slot information. The InfoFormat shall be Slot X, like Slot 1."
-                },
-                "HistoryFanMetric": {
-                    "$ref": "/schemas/v1/Lenovo/LenovoHistoryMetricValue.json#/definitions/LenovoHistoryMetricValue",
-                    "readonly": true,
-                    "description": "A reference indicating fan history metric values.",
-                    "longDescription": "The value of this property shall be a reference indicating fan history metric values. In this reference shall contain: CoolingSubsystemPower metric values."
-                },
-                "VariableSpeedEnabled": {
-                    "type": "boolean",
-                    "readonly": true,
-                    "description": "This indicates whether variable speed of a fan is enabled.",
-                    "longDescription": "The value of this property shall be a boolean indicating whether variable speed of a fan is enabled."
-                },
-                "DesiredSpeed": {
-                    "type": "number",
-                    "readonly": false,
-                    "description": "DesiredSpeed is the currently requested fan speed, defined in Revolutions per Minute.",
-                    "longDescription": "The value of this property shall be a number indicating the currently requested fan speed, defined in Revolutions per Minute."
-                },
-                "ActiveCoolingEnabled": {
-                    "type": "boolean",
-                    "readonly": true,
-                    "description": "This indicates whether active cooling of a fan is enabled.",
-                    "longDescription": "The value of this property shall be a boolean indicating whether active cooling of a fan is enabled."
-                }
-            },
-            "description": "This is the schema definitions for OEM Lenovo extended fan resource."
+            "type": "object"
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "title": "#LenovoThermal.v1_0_0"
 }

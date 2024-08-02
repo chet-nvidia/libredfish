@@ -1,60 +1,54 @@
 {
-    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema.v1_1_0.json",
-    "title": "#LenovoEvent",
+    "$id": "http://redfish.dmtf.org/schemas/v1/LenovoEvent.v1_0_0.json",
+    "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
+    "copyright": "Copyright 2014-2019 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "LenovoEventRecord": {
-            "type": "object",
+            "additionalProperties": false,
+            "description": "This is Lenovo extended details of event service properties.",
+            "longDescription": "The value of this property shall be an object used to represent event details.",
             "patternProperties": {
-                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message|Privileges)\\.[a-zA-Z_][a-zA-Z0-9_.]+$": {
+                "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
+                    "description": "This property shall specify a valid odata or Redfish property.",
                     "type": [
                         "array",
                         "boolean",
+                        "integer",
                         "number",
                         "null",
                         "object",
                         "string"
-                    ],
-                    "description": "This property shall specify a valid odata or Redfish property."
+                    ]
                 }
             },
-            "additionalProperties": false,
             "properties": {
-                "@odata.context": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/context"
-                },
-                "@odata.id": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/id"
-                },
-                "@odata.type": {
-                    "$ref": "http://redfish.dmtf.org/schemas/v1/odata.4.0.0.json#/definitions/type"
-                },
-                "SystemUUID": {
-                    "type": "string",
-                    "readonly": true,
-                    "description": "Represents the UUID of the system",
-                    "longDescription": "The value of this property shall represent the UUID of the system."
-                },
-                "SystemSerialNumber": {
-                    "type": "string",
-                    "readonly": true,
-                    "description": "Represents the Serial Number of the system",
-                    "longDescription": "The value of this property shall represent the serial number of the system."
+                "EventInformation": {
+                    "$ref": "/redfish/v1/metadata/LenovoLogEntry.v1_0_0.json#/definitions/StandardLogEntry",
+                    "description": "This is Lenovo extended Event Log Information.",
+                    "longDescription": "The event log information has two kinds: standard event log and active event log.",
+                    "readonly": true
                 },
                 "SystemMachineTypeModel": {
-                    "type": "string",
+                    "description": "Represents the Machine Type Model of the system.",
+                    "longDescription": "The value of this property shall represent the machine type model of the system.",
                     "readonly": true,
-                    "description": "Represents the Machine Type Model of the system",
-                    "longDescription": "The value of this property shall represent the machine type model of the system."
+                    "type": "string"
                 },
-                "EventInformation": {
-                    "$ref": "/schemas/v1/Lenovo/LenovoLogEntry.v1_0_0.json#/definitions/StandardLogEntry",
-                    "description": "This is Lenovo extended Event Log Information.",
-                    "longDescription": "The event log information has two kinds: standard event log and active event log."
+                "SystemSerialNumber": {
+                    "description": "Represents the Serial Number of the system.",
+                    "longDescription": "The value of this property shall represent the serial number of the system.",
+                    "readonly": true,
+                    "type": "string"
+                },
+                "SystemUUID": {
+                    "description": "Represents the UUID of the system.",
+                    "longDescription": "The value of this property shall represent the UUID of the system.",
+                    "readonly": true,
+                    "type": "string"
                 }
             },
-            "description": "This is Lenovo extended details of event properties.",
-            "longDescription": "The value of this property shall be an object used to represent event details."
+            "type": "object"
         }
     },
-    "copyright": "Copyright (C) 2015 - present Lenovo.  All Rights reserved."
+    "title": "#LenovoEvent.v1_0_0"
 }

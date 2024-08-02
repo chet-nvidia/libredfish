@@ -1,16 +1,17 @@
 {
-    "Name": "FAN 7",
     "@odata.id": "/redfish/v1/Chassis/1/Oem/Lenovo/LEDs/13",
     "State": "Off",
-    "PeriodInMillSec": 0,
-    "DeviceEntity": "fan / cooling device",
-    "Id": "13",
-    "EntityInstance": 7,
-    "DutyCycle": 0,
-    "@odata.type": "#LenovoLED.v1_0_0.LenovoLED",
     "EntityID": 29,
-    "Location": "Planar",
-    "@odata.etag": "\"2d8d40b06ea42721f52\"",
+    "@odata.type": "#LenovoLED.v1_0_0.LenovoLED",
+    "Description": "This resource is used to represent a LED sensor for a Redfish implementation.",
+    "DutyCycle": 0,
     "Color": "Yellow",
-    "Description": "This resource is used to represent a LED sensor for a Redfish implementation."
+    "DeviceEntity": "fan / cooling device",
+    "EntityInstance": 7,
+    "@odata.context": "/redfish/v1/$metadata#LenovoLED.LenovoLED",
+    "Location": "Planar",
+    "@odata.etag": "\"30f1ef62aad12ae602d\"",
+    "Id": "13",
+    "Name": "FAN 7",
+    "PeriodInMillSec": 0
 }

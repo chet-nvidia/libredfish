@@ -1,10 +1,7 @@
 {
-    "Schema": "#DataStorageLoSCapabilities.DataStorageLoSCapabilities",
     "@odata.id": "/redfish/v1/JsonSchemas/DataStorageLoSCapabilities",
-    "Name": "DataStorageLoSCapabilities JSON Schema File",
-    "Languages": [
-        "en"
-    ],
+    "Description": "This represents the DataStorageLoSCapabilities Schema File locator resource for a Redfish implementation.",
+    "Schema": "#DataStorageLoSCapabilities.DataStorageLoSCapabilities",
     "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
     "Location": [
         {
@@ -12,7 +9,11 @@
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"6c00b6df\"",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "@odata.etag": "\"40553ce3\"",
     "Id": "DataStorageLoSCapabilities",
-    "Description": "This represents the DataStorageLoSCapabilities Schema File locator resource for a Redfish implementation."
+    "Name": "DataStorageLoSCapabilities JSON Schema File",
+    "Languages": [
+        "en"
+    ]
 }

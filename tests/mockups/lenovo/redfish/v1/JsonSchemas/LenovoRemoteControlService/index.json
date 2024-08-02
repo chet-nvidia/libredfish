@@ -1,18 +1,19 @@
 {
-    "Schema": "#LenovoRemoteControlService.LenovoRemoteControlService",
     "@odata.id": "/redfish/v1/JsonSchemas/LenovoRemoteControlService",
-    "Name": "LenovoRemoteControlService JSON Schema File",
-    "Languages": [
-        "en"
-    ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Description": "This represents the LenovoRemoteControlService Schema File locator resource for a Redfish implementation.",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/LenovoRemoteControlService.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"722a85e3\"",
+    "Schema": "#LenovoRemoteControlService.LenovoRemoteControlService",
+    "Languages": [
+        "en"
+    ],
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "@odata.etag": "\"97d860e0\"",
     "Id": "LenovoRemoteControlService",
-    "Description": "This represents the LenovoRemoteControlService Schema File locator resource for a Redfish implementation."
+    "Name": "LenovoRemoteControlService JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

@@ -1,16 +1,23 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/Sensors/38L0",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Systems/1"
+        }
+    ],
+    "Description": "This resource is used to represent a sensor for a Redfish implementation.",
+    "PhysicalContext": null,
     "Status": {
-        "State": "Enabled",
-        "Health": "OK"
+        "Health": null,
+        "State": "Enabled"
     },
     "ReadingUnits": "",
+    "@odata.context": "/redfish/v1/$metadata#Sensor.Sensor",
+    "RelatedItem@odata.count": 1,
     "Reading": 0,
-    "PhysicalContext": null,
-    "@odata.type": "#Sensor.v1_1_0.Sensor",
+    "ReadingType": null,
+    "@odata.etag": "\"30539431f6a025a5174\"",
     "Id": "38L0",
     "Name": "TPM_TCM Init Err",
-    "@odata.etag": "\"265c3abfb1fe27e617a\"",
-    "ReadingType": null,
-    "Description": "This resource is used to represent a sensor for a Redfish implementation."
+    "@odata.type": "#Sensor.v1_5_0.Sensor"
 }

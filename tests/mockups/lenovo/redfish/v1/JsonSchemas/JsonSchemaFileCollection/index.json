@@ -1,18 +1,19 @@
 {
-    "Schema": "#JsonSchemaFileCollection.JsonSchemaFileCollection",
     "@odata.id": "/redfish/v1/JsonSchemas/JsonSchemaFileCollection",
-    "Name": "JsonSchemaFileCollection JSON Schema File",
-    "Languages": [
-        "en"
-    ],
-    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile",
+    "Description": "This represents the JsonSchemaFileCollection Schema File locator resource for a Redfish implementation.",
+    "Schema": "#JsonSchemaFileCollection.JsonSchemaFileCollection",
     "Location": [
         {
             "Uri": "/redfish/v1/schemas/JsonSchemaFileCollection.json",
             "Language": "en"
         }
     ],
-    "@odata.etag": "\"0e241428\"",
+    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
+    "Languages": [
+        "en"
+    ],
+    "@odata.etag": "\"36fc7c3a\"",
     "Id": "JsonSchemaFileCollection",
-    "Description": "This represents the JsonSchemaFileCollection Schema File locator resource for a Redfish implementation."
+    "Name": "JsonSchemaFileCollection JSON Schema File",
+    "@odata.type": "#JsonSchemaFile.v1_1_4.JsonSchemaFile"
 }

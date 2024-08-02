@@ -1,26 +1,27 @@
 {
-    "ReleaseDate": "2021-05-10T00:00:00Z",
+    "WriteProtected": true,
+    "RelatedItem@odata.count": 1,
+    "Manufacturer": "Lenovo",
+    "SoftwareId": "DRVWN-XWL3-2",
     "Id": "LXPMWindowsDriver",
+    "Name": "Firmware:LXPM-WindowsDrivers",
+    "@odata.type": "#SoftwareInventory.v1_5_0.SoftwareInventory",
+    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPMWindowsDriver",
     "RelatedItem": [
         {
             "@odata.id": "/redfish/v1/Systems/1"
         }
     ],
-    "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/LXPMWindowsDriver",
+    "Updateable": true,
+    "ReleaseDate": "2023-03-10T00:00:00Z",
+    "Description": "The information of LXPM Windows Drivers.",
     "Status": {
-        "HealthRollup": "OK",
         "Health": "OK",
+        "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "RelatedItem@odata.count": 1,
-    "Name": "Firmware:LXPM-WindowsDrivers",
-    "Version": "08B-3.07",
-    "LowestSupportedVersion": null,
-    "Manufacturer": "Lenovo",
-    "@odata.type": "#SoftwareInventory.v1_3_0.SoftwareInventory",
-    "WriteProtected": true,
-    "Updateable": true,
-    "@odata.etag": "\"463889dd5bf128aada1\"",
-    "SoftwareId": "DRVWN-XWL3-2",
-    "Description": "The information of LXPM Windows Drivers."
+    "@odata.context": "/redfish/v1/$metadata#SoftwareInventory.SoftwareInventory",
+    "@odata.etag": "\"4aa9f23270a1296ae24\"",
+    "Version": "18C-3.21",
+    "LowestSupportedVersion": null
 }

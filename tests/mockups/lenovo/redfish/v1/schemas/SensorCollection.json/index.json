@@ -2,7 +2,7 @@
     "$id": "http://redfish.dmtf.org/schemas/v1/SensorCollection.json",
     "$ref": "#/definitions/SensorCollection",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2020 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2021 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "SensorCollection": {
             "anyOf": [
@@ -11,7 +11,7 @@
                 },
                 {
                     "additionalProperties": false,
-                    "description": "The SensorCollection schema describes a collection of Sensor resource instances.",
+                    "description": "The collection of Sensor resource instances.",
                     "longDescription": "This resource shall represent a resource collection of Sensor instances for a Redfish implementation.",
                     "patternProperties": {
                         "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
@@ -56,7 +56,7 @@
                             "items": {
                                 "$ref": "http://redfish.dmtf.org/schemas/v1/Sensor.json#/definitions/Sensor"
                             },
-                            "longDescription": "This property shall contain an array of links to the members of this resource collection.",
+                            "longDescription": "This property shall contain an array of links to the members of this collection.",
                             "readonly": true,
                             "type": "array"
                         },
@@ -95,7 +95,8 @@
                 "/redfish/v1/PowerEquipment/RackPDUs/{PowerDistributionId}/Sensors",
                 "/redfish/v1/PowerEquipment/FloorPDUs/{PowerDistributionId}/Sensors",
                 "/redfish/v1/PowerEquipment/Switchgear/{PowerDistributionId}/Sensors",
-                "/redfish/v1/PowerEquipment/TransferSwitches/{PowerDistributionId}/Sensors"
+                "/redfish/v1/PowerEquipment/TransferSwitches/{PowerDistributionId}/Sensors",
+                "/redfish/v1/PowerEquipment/PowerShelves/{PowerDistributionId}/Sensors"
             ]
         }
     },
