@@ -12,10 +12,10 @@
             "Description": "This resource shall represents a Graphical Processor sensor, which a hardware device capable of measuring the characteristics of a physical property. This resource represents a managed sensor device and its properties that returns GPU sensor readings such as Power, Thermal and Temperature",
             "DeviceID": "Video.Slot.2-1",
             "Id": "Video.Slot.2-1",
-            "MemoryTemperatureCelsius": 47,
+            "MemoryTemperatureCelsius": 52,
             "Name": "DellGPUSensor",
             "PowerConsumptionmW": null,
-            "PrimaryGPUTemperatureCelsius": 31,
+            "PrimaryGPUTemperatureCelsius": 34,
             "SecondaryGPUTemperatureCelsius": null
         }
     ],

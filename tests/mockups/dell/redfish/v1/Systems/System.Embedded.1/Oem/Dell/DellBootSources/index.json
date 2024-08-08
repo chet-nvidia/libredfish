@@ -25,9 +25,27 @@
             },
             {
                 "Enabled": true,
-                "Id": "BIOS.Setup.1-1#UefiBootSeq#AHCI.SL.6-2#1c006e5eed444ae98969e982ddcbb755",
+                "Id": "BIOS.Setup.1-1#UefiBootSeq#Unknown.Unknown.2-1#b69d845da446f070907f6cb57c8156ab",
                 "Index": 1,
-                "Name": "AHCI.SL.6-2"
+                "Name": "Unknown.Unknown.2-1"
+            },
+            {
+                "Enabled": true,
+                "Id": "BIOS.Setup.1-1#UefiBootSeq#Unknown.Unknown.3-1#3594ec2ddf76f4adfa8f3cdd5edea029",
+                "Index": 2,
+                "Name": "Unknown.Unknown.3-1"
+            },
+            {
+                "Enabled": true,
+                "Id": "BIOS.Setup.1-1#UefiBootSeq#Unknown.Unknown.4-1#63f8da093b1d40ef68783e219ed4d259",
+                "Index": 3,
+                "Name": "Unknown.Unknown.4-1"
+            },
+            {
+                "Enabled": true,
+                "Id": "BIOS.Setup.1-1#UefiBootSeq#Disk.Bay.2:Enclosure.Internal.0-1#072cebd80843c9202c9bed3c30e6999f",
+                "Index": 4,
+                "Name": "Disk.Bay.2:Enclosure.Internal.0-1"
             }
         ]
     },

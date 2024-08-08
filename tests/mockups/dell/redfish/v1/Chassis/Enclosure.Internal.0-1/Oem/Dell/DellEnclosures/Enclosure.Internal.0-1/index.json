@@ -6,8 +6,8 @@
     "Connector": 0,
     "Description": "An instance of DellEnclosure will have storage enclosure specific data.",
     "Id": "Enclosure.Internal.0-1",
-    "LastSystemInventoryTime": "2022-12-02T00:25:48+00:00",
-    "LastUpdateTime": "2022-11-15T23:07:12+00:00",
+    "LastSystemInventoryTime": "2024-03-12T05:22:11+00:00",
+    "LastUpdateTime": "2022-11-16T02:21:05+00:00",
     "Links": {
         "DellEnclosureEMMCollection": [],
         "DellEnclosureEMMCollection@odata.count": 0

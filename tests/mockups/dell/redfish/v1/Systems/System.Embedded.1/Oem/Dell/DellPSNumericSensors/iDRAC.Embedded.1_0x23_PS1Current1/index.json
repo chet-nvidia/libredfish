@@ -2,7 +2,7 @@
     "@odata.context": "/redfish/v1/$metadata#DellPSNumericSensor.DellPSNumericSensor",
     "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellPSNumericSensors/iDRAC.Embedded.1_0x23_PS1Current1",
     "@odata.type": "#DellPSNumericSensor.v1_1_0.DellPSNumericSensor",
-    "CurrentReading": 12,
+    "CurrentReading": 14,
     "CurrentState": "Normal",
     "Description": "An instance of DellPSNumericSensor will have data specific to a power sensor device that returns only numeric readings and optionally supports of thresholds settings.",
     "ElementName": "PS1 Current 1",

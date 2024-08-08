@@ -21,7 +21,7 @@
         "Port": 443,
         "ProtocolEnabled": true
     },
-    "HostName": "idrac-7LHP1G3",
+    "HostName": "idrac-F54P1G3",
     "IPMI": {
         "ProtocolEnabled": true
     },

@@ -10,9 +10,9 @@
     "AssignablePhysicalPorts@odata.count": 1,
     "Description": "NetworkDeviceFunction",
     "Ethernet": {
-        "MACAddress": "B8:3F:D2:90:95:D4",
+        "MACAddress": "B8:3F:D2:90:97:C4",
         "MTUSize": null,
-        "PermanentMACAddress": "B8:3F:D2:90:95:D4",
+        "PermanentMACAddress": "B8:3F:D2:90:97:C4",
         "VLAN": {
             "VLANEnable": false,
             "VLANId": 1

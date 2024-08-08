@@ -49,5 +49,5 @@
         "EncryptionProtocol": "CFB128_AES128"
     },
     "StrictAccountTypes": false,
-    "UserName": ""
+    "UserName": "fwupd"
 }

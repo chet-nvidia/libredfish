@@ -7,8 +7,8 @@
             "target": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Sel/Actions/LogService.ClearLog"
         }
     },
-    "DateTime": "2023-02-13T22:17:59-06:00",
-    "DateTimeLocalOffset": "-06:00",
+    "DateTime": "2024-08-08T18:48:19-05:00",
+    "DateTimeLocalOffset": "-05:00",
     "Description": "SEL Log Service",
     "Entries": {
         "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/LogServices/Sel/Entries"

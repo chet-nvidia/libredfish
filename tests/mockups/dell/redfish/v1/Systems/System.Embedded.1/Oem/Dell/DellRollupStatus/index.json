@@ -6,15 +6,15 @@
     "Members": [
         {
             "@odata.context": "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
-            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Intrusion",
+            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Temperature",
             "@odata.type": "#DellRollupStatus.v1_0_0.DellRollupStatus",
-            "CollectionName": "IntrusionRollupStatus",
+            "CollectionName": "TemperatureRollupStatus",
             "Description": "Represents the subcomponent roll-up statuses.",
-            "Id": "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Intrusion",
-            "InstanceID": "iDRAC.Embedded.1#SubSystem.1#Intrusion",
+            "Id": "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Temperature",
+            "InstanceID": "iDRAC.Embedded.1#SubSystem.1#Temperature",
             "Name": "DellRollupStatus",
-            "RollupStatus": "Ok",
-            "SubSystem": "Intrusion"
+            "RollupStatus": "Unknown",
+            "SubSystem": "Temperature"
         },
         {
             "@odata.context": "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
@@ -30,30 +30,6 @@
         },
         {
             "@odata.context": "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
-            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Processor",
-            "@odata.type": "#DellRollupStatus.v1_0_0.DellRollupStatus",
-            "CollectionName": "ProcessorRollupStatus",
-            "Description": "Represents the subcomponent roll-up statuses.",
-            "Id": "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Processor",
-            "InstanceID": "iDRAC.Embedded.1#SubSystem.1#Processor",
-            "Name": "DellRollupStatus",
-            "RollupStatus": "Ok",
-            "SubSystem": "Processor"
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
-            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Memory",
-            "@odata.type": "#DellRollupStatus.v1_0_0.DellRollupStatus",
-            "CollectionName": "MemoryRollupStatus",
-            "Description": "Represents the subcomponent roll-up statuses.",
-            "Id": "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Memory",
-            "InstanceID": "iDRAC.Embedded.1#SubSystem.1#Memory",
-            "Name": "DellRollupStatus",
-            "RollupStatus": "Ok",
-            "SubSystem": "Memory"
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
             "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Voltage",
             "@odata.type": "#DellRollupStatus.v1_0_0.DellRollupStatus",
             "CollectionName": "VoltageRollupStatus",
@@ -61,20 +37,20 @@
             "Id": "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Voltage",
             "InstanceID": "iDRAC.Embedded.1#SubSystem.1#Voltage",
             "Name": "DellRollupStatus",
-            "RollupStatus": "Ok",
+            "RollupStatus": "Unknown",
             "SubSystem": "Voltage"
         },
         {
             "@odata.context": "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
-            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Temperature",
+            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Intrusion",
             "@odata.type": "#DellRollupStatus.v1_0_0.DellRollupStatus",
-            "CollectionName": "TemperatureRollupStatus",
+            "CollectionName": "IntrusionRollupStatus",
             "Description": "Represents the subcomponent roll-up statuses.",
-            "Id": "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Temperature",
-            "InstanceID": "iDRAC.Embedded.1#SubSystem.1#Temperature",
+            "Id": "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Intrusion",
+            "InstanceID": "iDRAC.Embedded.1#SubSystem.1#Intrusion",
             "Name": "DellRollupStatus",
             "RollupStatus": "Ok",
-            "SubSystem": "Temperature"
+            "SubSystem": "Intrusion"
         },
         {
             "@odata.context": "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
@@ -90,6 +66,18 @@
         },
         {
             "@odata.context": "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
+            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Processor",
+            "@odata.type": "#DellRollupStatus.v1_0_0.DellRollupStatus",
+            "CollectionName": "ProcessorRollupStatus",
+            "Description": "Represents the subcomponent roll-up statuses.",
+            "Id": "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Processor",
+            "InstanceID": "iDRAC.Embedded.1#SubSystem.1#Processor",
+            "Name": "DellRollupStatus",
+            "RollupStatus": "Ok",
+            "SubSystem": "Processor"
+        },
+        {
+            "@odata.context": "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
             "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_PowerSupply",
             "@odata.type": "#DellRollupStatus.v1_0_0.DellRollupStatus",
             "CollectionName": "PowerSupplyRollupStatus",
@@ -99,6 +87,18 @@
             "Name": "DellRollupStatus",
             "RollupStatus": "Ok",
             "SubSystem": "PowerSupply"
+        },
+        {
+            "@odata.context": "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",
+            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellRollupStatus/iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Memory",
+            "@odata.type": "#DellRollupStatus.v1_0_0.DellRollupStatus",
+            "CollectionName": "MemoryRollupStatus",
+            "Description": "Represents the subcomponent roll-up statuses.",
+            "Id": "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Memory",
+            "InstanceID": "iDRAC.Embedded.1#SubSystem.1#Memory",
+            "Name": "DellRollupStatus",
+            "RollupStatus": "Ok",
+            "SubSystem": "Memory"
         },
         {
             "@odata.context": "/redfish/v1/$metadata#DellRollupStatus.DellRollupStatus",

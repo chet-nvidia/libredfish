@@ -1,12 +1,12 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeDevice.PCIeDevice",
-    "@odata.etag": "\"1676348308\"",
+    "@odata.etag": "\"1718082921\"",
     "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/PCIeDevices/177-0",
     "@odata.type": "#PCIeDevice.v1_7_0.PCIeDevice",
     "AssetTag": null,
     "Description": "MT42822 BlueField-2 integrated ConnectX-6 Dx network controller",
-    "DeviceType": "MultiFunction",
-    "FirmwareVersion": "24.34.10.02",
+    "DeviceType": "SingleFunction",
+    "FirmwareVersion": "24.40.10.00",
     "Id": "177-0",
     "Links": {
         "Chassis": [
@@ -28,13 +28,10 @@
         },
         "PCIeFunctions": [
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/177-0/PCIeFunctions/177-0-1"
-            },
-            {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/177-0/PCIeFunctions/177-0-0"
             }
         ],
-        "PCIeFunctions@odata.count": 2,
+        "PCIeFunctions@odata.count": 1,
         "PCIeFunctions@Redfish.Deprecated": "Please migrate to PCIeFunctions property in the root resource."
     },
     "Manufacturer": "Mellanox Technologies",
@@ -42,7 +39,7 @@
     "Name": "MT42822 BlueField-2 integrated ConnectX-6 Dx network controller",
     "PartNumber": "MBF2H5",
     "SKU": null,
-    "SerialNumber": "MT2242XZ00PC                 ",
+    "SerialNumber": "MT2242XZ00QA                 ",
     "Status": {
         "State": "Enabled",
         "Health": "OK",

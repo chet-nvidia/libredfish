@@ -32,7 +32,7 @@
         ]
     },
     "Manufacturer": "NVIDIA Corporation",
-    "SerialNumber": "1654422006687",
+    "SerialNumber": "1654422007043",
     "PartNumber": "699-21010-0200-600",
     "Metrics": {
         "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Processors/Video.Slot.2-1/ProcessorMetrics"

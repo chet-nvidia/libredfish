@@ -2,7 +2,7 @@
     "@odata.context": "/redfish/v1/$metadata#DellNumericSensor.DellNumericSensor",
     "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Oem/Dell/DellNumericSensors/0x17__Fan.Embedded.2A",
     "@odata.type": "#DellNumericSensor.v1_1_1.DellNumericSensor",
-    "CurrentReading": 18600.0,
+    "CurrentReading": 18480.0,
     "CurrentState": "Normal",
     "Description": "An instance of DellNumericSensor will have data specific to sensor devices that returns only numeric readings and optionally supports thresholds settings.",
     "DeviceID": "0x17__Fan.Embedded.2A",

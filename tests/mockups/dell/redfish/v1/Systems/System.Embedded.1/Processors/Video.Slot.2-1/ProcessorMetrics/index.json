@@ -5,6 +5,6 @@
     "Description": "GPU Metrics",
     "Name": "GPU Metrics",
     "Id": "Video.Slot.2-1",
-    "TemperatureCelsius": 31,
+    "TemperatureCelsius": 34,
     "ConsumedPowerWatt": null
 }

@@ -8,14 +8,17 @@
         "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/PS2Voltage",
         "Reading": 240.0
     },
-    "InputCurrentAmps": null,
+    "InputCurrentAmps": {
+        "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/PS2Current2",
+        "Reading": 1.4
+    },
     "InputPowerWatts": {
         "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/PSU.Slot.2_InputPower",
-        "Reading": 283.5
+        "Reading": 308.0
     },
     "OutputPowerWatts": {
         "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/PSU.Slot.2_OutputPower",
-        "Reading": 251.5
+        "Reading": 275.5
     },
     "FrequencyHz": {
         "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/PSU.Slot.2_MaximumFrequency",

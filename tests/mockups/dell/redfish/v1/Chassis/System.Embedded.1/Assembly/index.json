@@ -12,20 +12,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "0",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.B2#FRU",
+            "Name": "DIMM.Socket.B1#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.B2",
-                        "Id": "DIMM.Socket.B2_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.B1",
+                        "Id": "DIMM.Socket.B1_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E6794B9",
+                        "SerialNumber": "2E67A144",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B2_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B1_0x23_FRU"
                     }
                 }
             },
@@ -46,20 +46,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "1",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.A3#FRU",
+            "Name": "DIMM.Socket.A2#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.A3",
-                        "Id": "DIMM.Socket.A3_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.A2",
+                        "Id": "DIMM.Socket.A2_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E67899C",
+                        "SerialNumber": "2E679ED9",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A3_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A2_0x23_FRU"
                     }
                 }
             },
@@ -76,30 +76,30 @@
             "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/2",
             "@odata.type": "#Assembly.v1_3_0.AssemblyData",
             "BinaryDataURI": null,
-            "Description": "DDR4 DIMM",
-            "EngineeringChangeLevel": null,
+            "Description": "PWR SPLY,2400W,RDNT,ARTESYN",
+            "EngineeringChangeLevel": "A02",
             "MemberId": "2",
-            "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.B7#FRU",
+            "Model": "PWR SPLY,2400W,RDNT,ARTESYN",
+            "Name": "PSU.Slot.1#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.B7",
-                        "Id": "DIMM.Socket.B7_0x23_FRU",
+                        "DeviceFQDD": "PSU.Slot.1",
+                        "Id": "PSU.Slot.1_0x23_FRU",
                         "Name": "DellAssembly",
-                        "PackageType": "Memory",
-                        "SerialNumber": "2E6794A5",
+                        "PackageType": "PowerSupply",
+                        "SerialNumber": "PHARP0016L008V",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B7_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/PSU.Slot.1_0x23_FRU"
                     }
                 }
             },
-            "PartNumber": "18ASF4G72PDZ-3G2E1",
-            "Producer": "Micron Technology",
-            "ProductionDate": "2021-04-19T07:00:00Z",
+            "PartNumber": "07GN3C",
+            "Producer": "DELL",
+            "ProductionDate": "2021-06-23T03:59:00Z",
             "SKU": null,
             "SparePartNumber": null,
             "Vendor": "DELL",
@@ -110,30 +110,30 @@
             "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/3",
             "@odata.type": "#Assembly.v1_3_0.AssemblyData",
             "BinaryDataURI": null,
-            "Description": "DDR4 DIMM",
-            "EngineeringChangeLevel": null,
+            "Description": "PWR SPLY,2400W,RDNT,ARTESYN",
+            "EngineeringChangeLevel": "A02",
             "MemberId": "3",
-            "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.B4#FRU",
+            "Model": "PWR SPLY,2400W,RDNT,ARTESYN",
+            "Name": "PSU.Slot.2#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.B4",
-                        "Id": "DIMM.Socket.B4_0x23_FRU",
+                        "DeviceFQDD": "PSU.Slot.2",
+                        "Id": "PSU.Slot.2_0x23_FRU",
                         "Name": "DellAssembly",
-                        "PackageType": "Memory",
-                        "SerialNumber": "2E67953D",
+                        "PackageType": "PowerSupply",
+                        "SerialNumber": "PHARP0016L008W",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B4_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/PSU.Slot.2_0x23_FRU"
                     }
                 }
             },
-            "PartNumber": "18ASF4G72PDZ-3G2E1",
-            "Producer": "Micron Technology",
-            "ProductionDate": "2021-04-19T07:00:00Z",
+            "PartNumber": "07GN3C",
+            "Producer": "DELL",
+            "ProductionDate": "2021-06-23T04:00:00Z",
             "SKU": null,
             "SparePartNumber": null,
             "Vendor": "DELL",
@@ -148,20 +148,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "4",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.B8#FRU",
+            "Name": "DIMM.Socket.B5#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.B8",
-                        "Id": "DIMM.Socket.B8_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.B5",
+                        "Id": "DIMM.Socket.B5_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E6799F2",
+                        "SerialNumber": "2E67AC36",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B8_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B5_0x23_FRU"
                     }
                 }
             },
@@ -182,20 +182,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "5",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.A5#FRU",
+            "Name": "DIMM.Socket.A4#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.A5",
-                        "Id": "DIMM.Socket.A5_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.A4",
+                        "Id": "DIMM.Socket.A4_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E67895A",
+                        "SerialNumber": "2E67A65E",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A5_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A4_0x23_FRU"
                     }
                 }
             },
@@ -216,20 +216,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "6",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.A6#FRU",
+            "Name": "DIMM.Socket.A5#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.A6",
-                        "Id": "DIMM.Socket.A6_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.A5",
+                        "Id": "DIMM.Socket.A5_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E679B05",
+                        "SerialNumber": "2E67A6E3",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A6_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A5_0x23_FRU"
                     }
                 }
             },
@@ -260,7 +260,7 @@
                         "Id": "DIMM.Socket.A1_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E6788D3",
+                        "SerialNumber": "2E67A645",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
                         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A1_0x23_FRU"
@@ -294,7 +294,7 @@
                         "Id": "DIMM.Socket.A8_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E67918D",
+                        "SerialNumber": "2E67A5FF",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
                         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A8_0x23_FRU"
@@ -318,20 +318,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "9",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.B1#FRU",
+            "Name": "DIMM.Socket.B8#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.B1",
-                        "Id": "DIMM.Socket.B1_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.B8",
+                        "Id": "DIMM.Socket.B8_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E679A91",
+                        "SerialNumber": "2E67A130",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B1_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B8_0x23_FRU"
                     }
                 }
             },
@@ -352,20 +352,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "10",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.A7#FRU",
+            "Name": "DIMM.Socket.B7#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.A7",
-                        "Id": "DIMM.Socket.A7_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.B7",
+                        "Id": "DIMM.Socket.B7_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E6789DB",
+                        "SerialNumber": "2E67A17A",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A7_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B7_0x23_FRU"
                     }
                 }
             },
@@ -386,20 +386,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "11",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.B6#FRU",
+            "Name": "DIMM.Socket.A6#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.B6",
-                        "Id": "DIMM.Socket.B6_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.A6",
+                        "Id": "DIMM.Socket.A6_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E679AD2",
+                        "SerialNumber": "2E67A141",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B6_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A6_0x23_FRU"
                     }
                 }
             },
@@ -420,20 +420,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "12",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.B3#FRU",
+            "Name": "DIMM.Socket.B2#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.B3",
-                        "Id": "DIMM.Socket.B3_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.B2",
+                        "Id": "DIMM.Socket.B2_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E679AC5",
+                        "SerialNumber": "2E67A147",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B3_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B2_0x23_FRU"
                     }
                 }
             },
@@ -454,20 +454,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "13",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.A2#FRU",
+            "Name": "DIMM.Socket.A7#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.A2",
-                        "Id": "DIMM.Socket.A2_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.A7",
+                        "Id": "DIMM.Socket.A7_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E6788CA",
+                        "SerialNumber": "2E67AB00",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A2_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A7_0x23_FRU"
                     }
                 }
             },
@@ -488,20 +488,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "14",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.B5#FRU",
+            "Name": "DIMM.Socket.B4#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.B5",
-                        "Id": "DIMM.Socket.B5_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.B4",
+                        "Id": "DIMM.Socket.B4_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E679AB2",
+                        "SerialNumber": "2E679C42",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B5_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B4_0x23_FRU"
                     }
                 }
             },
@@ -522,20 +522,20 @@
             "EngineeringChangeLevel": null,
             "MemberId": "15",
             "Model": "DDR4 DIMM",
-            "Name": "DIMM.Socket.A4#FRU",
+            "Name": "DIMM.Socket.B3#FRU",
             "Oem": {
                 "Dell": {
                     "@odata.type": "#DellOem.v1_3_0.DellOemResources",
                     "DellAssembly": {
                         "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "DIMM.Socket.A4",
-                        "Id": "DIMM.Socket.A4_0x23_FRU",
+                        "DeviceFQDD": "DIMM.Socket.B3",
+                        "Id": "DIMM.Socket.B3_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E678999",
+                        "SerialNumber": "2E679EE1",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A4_0x23_FRU"
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B3_0x23_FRU"
                     }
                 }
             },
@@ -552,9 +552,77 @@
             "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/16",
             "@odata.type": "#Assembly.v1_3_0.AssemblyData",
             "BinaryDataURI": null,
+            "Description": "DDR4 DIMM",
+            "EngineeringChangeLevel": null,
+            "MemberId": "16",
+            "Model": "DDR4 DIMM",
+            "Name": "DIMM.Socket.B6#FRU",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellOem.v1_3_0.DellOemResources",
+                    "DellAssembly": {
+                        "Description": "This resource shall be used to represent an assembly information.",
+                        "DeviceFQDD": "DIMM.Socket.B6",
+                        "Id": "DIMM.Socket.B6_0x23_FRU",
+                        "Name": "DellAssembly",
+                        "PackageType": "Memory",
+                        "SerialNumber": "2E67A14B",
+                        "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
+                        "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.B6_0x23_FRU"
+                    }
+                }
+            },
+            "PartNumber": "18ASF4G72PDZ-3G2E1",
+            "Producer": "Micron Technology",
+            "ProductionDate": "2021-04-19T07:00:00Z",
+            "SKU": null,
+            "SparePartNumber": null,
+            "Vendor": "DELL",
+            "Version": null
+        },
+        {
+            "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
+            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/17",
+            "@odata.type": "#Assembly.v1_3_0.AssemblyData",
+            "BinaryDataURI": null,
+            "Description": "DDR4 DIMM",
+            "EngineeringChangeLevel": null,
+            "MemberId": "17",
+            "Model": "DDR4 DIMM",
+            "Name": "DIMM.Socket.A3#FRU",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellOem.v1_3_0.DellOemResources",
+                    "DellAssembly": {
+                        "Description": "This resource shall be used to represent an assembly information.",
+                        "DeviceFQDD": "DIMM.Socket.A3",
+                        "Id": "DIMM.Socket.A3_0x23_FRU",
+                        "Name": "DellAssembly",
+                        "PackageType": "Memory",
+                        "SerialNumber": "2E67A7CE",
+                        "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
+                        "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A3_0x23_FRU"
+                    }
+                }
+            },
+            "PartNumber": "18ASF4G72PDZ-3G2E1",
+            "Producer": "Micron Technology",
+            "ProductionDate": "2021-04-19T07:00:00Z",
+            "SKU": null,
+            "SparePartNumber": null,
+            "Vendor": "DELL",
+            "Version": null
+        },
+        {
+            "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
+            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/18",
+            "@odata.type": "#Assembly.v1_3_0.AssemblyData",
+            "BinaryDataURI": null,
             "Description": "SystemPlanar",
             "EngineeringChangeLevel": "A01",
-            "MemberId": "16",
+            "MemberId": "18",
             "Model": "SystemPlanar",
             "Name": "System.Embedded.1#FRU",
             "Oem": {
@@ -566,7 +634,7 @@
                         "Id": "System.Embedded.1_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Module/Card",
-                        "SerialNumber": "CNIVC0014R0076",
+                        "SerialNumber": "CNIVC0014M0388",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
                         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/System.Embedded.1_0x23_FRU"
@@ -575,7 +643,7 @@
             },
             "PartNumber": "0WMWCR",
             "Producer": "Dell Inc.",
-            "ProductionDate": "2021-04-29T10:13:00Z",
+            "ProductionDate": "2021-04-26T09:39:00Z",
             "SKU": null,
             "SparePartNumber": null,
             "Vendor": "DELL",
@@ -583,12 +651,12 @@
         },
         {
             "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
-            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/17",
+            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/19",
             "@odata.type": "#Assembly.v1_3_0.AssemblyData",
             "BinaryDataURI": null,
             "Description": "BRCM 2P 25G SFP 57414S OCP NIC",
             "EngineeringChangeLevel": "A02",
-            "MemberId": "17",
+            "MemberId": "19",
             "Model": "BRCM 2P 25G SFP 57414S OCP NIC",
             "Name": "NIC.Integrated.1#FRU",
             "Oem": {
@@ -600,7 +668,7 @@
                         "Id": "NIC.Integrated.1_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Module/Card",
-                        "SerialNumber": "VNFCVBA14O01K5",
+                        "SerialNumber": "VNFCVBA14I00AD",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
                         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/NIC.Integrated.1_0x23_FRU"
@@ -609,75 +677,7 @@
             },
             "PartNumber": "0KHCTP",
             "Producer": "Dell",
-            "ProductionDate": "2021-04-27T08:04:00Z",
-            "SKU": null,
-            "SparePartNumber": null,
-            "Vendor": "DELL",
-            "Version": null
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
-            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/18",
-            "@odata.type": "#Assembly.v1_3_0.AssemblyData",
-            "BinaryDataURI": null,
-            "Description": "BOSS-S2",
-            "EngineeringChangeLevel": "A00",
-            "MemberId": "18",
-            "Model": "BOSS-S2",
-            "Name": "AHCI.SL.6-1#FRU",
-            "Oem": {
-                "Dell": {
-                    "@odata.type": "#DellOem.v1_3_0.DellOemResources",
-                    "DellAssembly": {
-                        "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "AHCI.SL.6-1",
-                        "Id": "AHCI.SL.6-1_0x23_FRU",
-                        "Name": "DellAssembly",
-                        "PackageType": "Module/Card",
-                        "SerialNumber": "CNIVC0017B1530",
-                        "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
-                        "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/AHCI.SL.6-1_0x23_FRU"
-                    }
-                }
-            },
-            "PartNumber": "0FGNRW",
-            "Producer": "Dell",
-            "ProductionDate": "2021-07-15T21:05:00Z",
-            "SKU": null,
-            "SparePartNumber": null,
-            "Vendor": "DELL",
-            "Version": null
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
-            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/19",
-            "@odata.type": "#Assembly.v1_3_0.AssemblyData",
-            "BinaryDataURI": null,
-            "Description": "BlueField-2 SmartNIC Main Card",
-            "EngineeringChangeLevel": "36C",
-            "MemberId": "19",
-            "Model": "BlueField-2 SmartNIC Main Card",
-            "Name": "NIC.Slot.5#FRU",
-            "Oem": {
-                "Dell": {
-                    "@odata.type": "#DellOem.v1_3_0.DellOemResources",
-                    "DellAssembly": {
-                        "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "NIC.Slot.5",
-                        "Id": "NIC.Slot.5_0x23_FRU",
-                        "Name": "DellAssembly",
-                        "PackageType": "Module/Card",
-                        "SerialNumber": "MT2242XZ00PC                 ",
-                        "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
-                        "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/NIC.Slot.5_0x23_FRU"
-                    }
-                }
-            },
-            "PartNumber": "MBF2H5",
-            "Producer": "N/A",
-            "ProductionDate": "2022-10-24T17:29:00Z",
+            "ProductionDate": "2021-04-28T05:31:00Z",
             "SKU": null,
             "SparePartNumber": null,
             "Vendor": "DELL",
@@ -688,77 +688,9 @@
             "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/20",
             "@odata.type": "#Assembly.v1_3_0.AssemblyData",
             "BinaryDataURI": null,
-            "Description": "PWR SPLY,2400W,RDNT,ARTESYN",
-            "EngineeringChangeLevel": "A02",
-            "MemberId": "20",
-            "Model": "PWR SPLY,2400W,RDNT,ARTESYN",
-            "Name": "PSU.Slot.1#FRU",
-            "Oem": {
-                "Dell": {
-                    "@odata.type": "#DellOem.v1_3_0.DellOemResources",
-                    "DellAssembly": {
-                        "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "PSU.Slot.1",
-                        "Id": "PSU.Slot.1_0x23_FRU",
-                        "Name": "DellAssembly",
-                        "PackageType": "PowerSupply",
-                        "SerialNumber": "PHARP0016G006J",
-                        "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
-                        "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/PSU.Slot.1_0x23_FRU"
-                    }
-                }
-            },
-            "PartNumber": "07GN3C",
-            "Producer": "DELL",
-            "ProductionDate": "2021-06-19T03:14:00Z",
-            "SKU": null,
-            "SparePartNumber": null,
-            "Vendor": "DELL",
-            "Version": null
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
-            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/21",
-            "@odata.type": "#Assembly.v1_3_0.AssemblyData",
-            "BinaryDataURI": null,
-            "Description": "PWR SPLY,2400W,RDNT,ARTESYN",
-            "EngineeringChangeLevel": "A02",
-            "MemberId": "21",
-            "Model": "PWR SPLY,2400W,RDNT,ARTESYN",
-            "Name": "PSU.Slot.2#FRU",
-            "Oem": {
-                "Dell": {
-                    "@odata.type": "#DellOem.v1_3_0.DellOemResources",
-                    "DellAssembly": {
-                        "Description": "This resource shall be used to represent an assembly information.",
-                        "DeviceFQDD": "PSU.Slot.2",
-                        "Id": "PSU.Slot.2_0x23_FRU",
-                        "Name": "DellAssembly",
-                        "PackageType": "PowerSupply",
-                        "SerialNumber": "PHARP0016G006K",
-                        "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
-                        "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/PSU.Slot.2_0x23_FRU"
-                    }
-                }
-            },
-            "PartNumber": "07GN3C",
-            "Producer": "DELL",
-            "ProductionDate": "2021-06-19T03:13:00Z",
-            "SKU": null,
-            "SparePartNumber": null,
-            "Vendor": "DELL",
-            "Version": null
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
-            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/22",
-            "@odata.type": "#Assembly.v1_3_0.AssemblyData",
-            "BinaryDataURI": null,
             "Description": "DRIVE BACKPLANE",
             "EngineeringChangeLevel": "A03",
-            "MemberId": "22",
+            "MemberId": "20",
             "Model": "DRIVE BACKPLANE",
             "Name": "Enclosure.Internal.0-1#FRU",
             "Oem": {
@@ -770,7 +702,7 @@
                         "Id": "Enclosure.Internal.0-1_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "CrossConnect/Backplane",
-                        "SerialNumber": "CNIVC001122787",
+                        "SerialNumber": "CNIVC001120632",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
                         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/Enclosure.Internal.0-1_0x23_FRU"
@@ -779,14 +711,184 @@
             },
             "PartNumber": "0YD2C2",
             "Producer": "Dell",
-            "ProductionDate": "2021-01-06T10:19:00Z",
+            "ProductionDate": "2021-01-07T11:20:00Z",
+            "SKU": null,
+            "SparePartNumber": null,
+            "Vendor": "DELL",
+            "Version": null
+        },
+        {
+            "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
+            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/21",
+            "@odata.type": "#Assembly.v1_3_0.AssemblyData",
+            "BinaryDataURI": null,
+            "Description": "BlueField-2 SmartNIC Main Card",
+            "EngineeringChangeLevel": "36C",
+            "MemberId": "21",
+            "Model": "BlueField-2 SmartNIC Main Card",
+            "Name": "NIC.Slot.5#FRU",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellOem.v1_3_0.DellOemResources",
+                    "DellAssembly": {
+                        "Description": "This resource shall be used to represent an assembly information.",
+                        "DeviceFQDD": "NIC.Slot.5",
+                        "Id": "NIC.Slot.5_0x23_FRU",
+                        "Name": "DellAssembly",
+                        "PackageType": "Module/Card",
+                        "SerialNumber": "MT2242XZ00QA                 ",
+                        "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
+                        "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/NIC.Slot.5_0x23_FRU"
+                    }
+                }
+            },
+            "PartNumber": "MBF2H5",
+            "Producer": "N/A",
+            "ProductionDate": "2022-10-24T20:43:00Z",
+            "SKU": null,
+            "SparePartNumber": null,
+            "Vendor": "DELL",
+            "Version": null
+        },
+        {
+            "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
+            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/22",
+            "@odata.type": "#Assembly.v1_3_0.AssemblyData",
+            "BinaryDataURI": null,
+            "Description": "ConnectX-6 200GE 2P NIC",
+            "EngineeringChangeLevel": "106",
+            "MemberId": "22",
+            "Model": "ConnectX-6 200GE 2P NIC",
+            "Name": "NIC.Slot.7#FRU",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellOem.v1_3_0.DellOemResources",
+                    "DellAssembly": {
+                        "Description": "This resource shall be used to represent an assembly information.",
+                        "DeviceFQDD": "NIC.Slot.7",
+                        "Id": "NIC.Slot.7_0x23_FRU",
+                        "Name": "DellAssembly",
+                        "PackageType": "Module/Card",
+                        "SerialNumber": "MT2244T005JP                 ",
+                        "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
+                        "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/NIC.Slot.7_0x23_FRU"
+                    }
+                }
+            },
+            "PartNumber": "MCX653",
+            "Producer": "N/A",
+            "ProductionDate": "2022-10-27T13:02:00Z",
+            "SKU": null,
+            "SparePartNumber": null,
+            "Vendor": "DELL",
+            "Version": null
+        },
+        {
+            "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
+            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/23",
+            "@odata.type": "#Assembly.v1_3_0.AssemblyData",
+            "BinaryDataURI": null,
+            "Description": "Dell Ent NVMe CM6 RI 1.92TB",
+            "EngineeringChangeLevel": "A01",
+            "MemberId": "23",
+            "Model": "Dell Ent NVMe CM6 RI 1.92TB",
+            "Name": "Disk.Bay.0:Enclosure.Internal.0-1#FRU",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellOem.v1_3_0.DellOemResources",
+                    "DellAssembly": {
+                        "Description": "This resource shall be used to represent an assembly information.",
+                        "DeviceFQDD": "Disk.Bay.0:Enclosure.Internal.0-1",
+                        "Id": "Disk.Bay.0:Enclosure.Internal.0-1_0x23_FRU",
+                        "Name": "DellAssembly",
+                        "PackageType": "StorageMediaPackage(E.GDiskOrTapeDrive)",
+                        "SerialNumber": "PHTBPKK16O02F3",
+                        "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
+                        "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/Disk.Bay.0:Enclosure.Internal.0-1_0x23_FRU"
+                    }
+                }
+            },
+            "PartNumber": "0N0VK0",
+            "Producer": "Dell",
+            "ProductionDate": "2021-06-24T00:00:00Z",
+            "SKU": null,
+            "SparePartNumber": null,
+            "Vendor": "DELL",
+            "Version": null
+        },
+        {
+            "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
+            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/24",
+            "@odata.type": "#Assembly.v1_3_0.AssemblyData",
+            "BinaryDataURI": null,
+            "Description": "Dell Ent NVMe CM6 RI 1.92TB",
+            "EngineeringChangeLevel": "A01",
+            "MemberId": "24",
+            "Model": "Dell Ent NVMe CM6 RI 1.92TB",
+            "Name": "Disk.Bay.1:Enclosure.Internal.0-1#FRU",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellOem.v1_3_0.DellOemResources",
+                    "DellAssembly": {
+                        "Description": "This resource shall be used to represent an assembly information.",
+                        "DeviceFQDD": "Disk.Bay.1:Enclosure.Internal.0-1",
+                        "Id": "Disk.Bay.1:Enclosure.Internal.0-1_0x23_FRU",
+                        "Name": "DellAssembly",
+                        "PackageType": "StorageMediaPackage(E.GDiskOrTapeDrive)",
+                        "SerialNumber": "PHTBPKK16M027U",
+                        "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
+                        "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/Disk.Bay.1:Enclosure.Internal.0-1_0x23_FRU"
+                    }
+                }
+            },
+            "PartNumber": "0N0VK0",
+            "Producer": "Dell",
+            "ProductionDate": "2021-06-22T00:00:00Z",
+            "SKU": null,
+            "SparePartNumber": null,
+            "Vendor": "DELL",
+            "Version": null
+        },
+        {
+            "@odata.context": "/redfish/v1/$metadata#Assembly.Assembly",
+            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Assembly#/Assemblies/25",
+            "@odata.type": "#Assembly.v1_3_0.AssemblyData",
+            "BinaryDataURI": null,
+            "Description": "Dell Ent NVMe CM6 RI 1.92TB",
+            "EngineeringChangeLevel": "A01",
+            "MemberId": "25",
+            "Model": "Dell Ent NVMe CM6 RI 1.92TB",
+            "Name": "Disk.Bay.2:Enclosure.Internal.0-1#FRU",
+            "Oem": {
+                "Dell": {
+                    "@odata.type": "#DellOem.v1_3_0.DellOemResources",
+                    "DellAssembly": {
+                        "Description": "This resource shall be used to represent an assembly information.",
+                        "DeviceFQDD": "Disk.Bay.2:Enclosure.Internal.0-1",
+                        "Id": "Disk.Bay.2:Enclosure.Internal.0-1_0x23_FRU",
+                        "Name": "DellAssembly",
+                        "PackageType": "StorageMediaPackage(E.GDiskOrTapeDrive)",
+                        "SerialNumber": "PHTBPKK16P02L6",
+                        "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
+                        "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
+                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/Disk.Bay.2:Enclosure.Internal.0-1_0x23_FRU"
+                    }
+                }
+            },
+            "PartNumber": "0N0VK0",
+            "Producer": "Dell",
+            "ProductionDate": "2021-06-25T00:00:00Z",
             "SKU": null,
             "SparePartNumber": null,
             "Vendor": "DELL",
             "Version": null
         }
     ],
-    "Assemblies@odata.count": 23,
+    "Assemblies@odata.count": 26,
     "Description": "Represents the properties of Assembly for the device",
     "Id": "Assembly",
     "Name": "Assembly"

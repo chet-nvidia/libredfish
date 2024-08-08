@@ -2,7 +2,7 @@
     "@odata.context": "/redfish/v1/$metadata#TaskService.TaskService",
     "@odata.id": "/redfish/v1/TaskService",
     "@odata.type": "#TaskService.v1_2_0.TaskService",
-    "DateTime": "2023-02-13T22:27:08-06:00",
+    "DateTime": "2024-08-08T18:55:21-05:00",
     "Description": "Represents the properties for the service itself and has links to the actual list of Tasks",
     "Id": "TaskService",
     "Name": "Task Service",

@@ -54,15 +54,8 @@
             }
         ],
         "CooledBy@odata.count": 6,
-        "Drives": [
-            {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/AHCI.SL.6-1/Drives/Disk.Direct.0-0:AHCI.SL.6-1"
-            },
-            {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/AHCI.SL.6-1/Drives/Disk.Direct.1-1:AHCI.SL.6-1"
-            }
-        ],
-        "Drives@odata.count": 2,
+        "Drives": [],
+        "Drives@odata.count": 0,
         "ManagedBy": [
             {
                 "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1"
@@ -77,28 +70,28 @@
         "ManagersInChassis@odata.count": 1,
         "PCIeDevices": [
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/4-0"
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/228-0"
             },
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/0-28"
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/202-0"
             },
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/0-17"
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/177-0"
             },
             {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/0-31"
             },
             {
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/0-17"
+            },
+            {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/3-0"
             },
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/49-0"
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/0-28"
             },
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/230-0"
-            },
-            {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/228-0"
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/4-0"
             },
             {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/23-0"
@@ -107,13 +100,13 @@
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/229-0"
             },
             {
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/49-0"
+            },
+            {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/0-23"
             },
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/177-0"
-            },
-            {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/5-0"
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/230-0"
             }
         ],
         "PCIeDevices@Redfish.Deprecated": "Please migrate to use /redfish/v1/Chassis/System.Embedded.1/PCIeDevices",
@@ -129,13 +122,16 @@
         "PoweredBy@odata.count": 2,
         "Processors": [
             {
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Processors/Video.Slot.2-1"
+            },
+            {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Processors/CPU.Socket.2"
             },
             {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Processors/CPU.Socket.1"
             }
         ],
-        "Processors@odata.count": 2,
+        "Processors@odata.count": 3,
         "Storage": [
             {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/CPU.1"
@@ -145,12 +141,9 @@
             },
             {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/AHCI.Embedded.2-1"
-            },
-            {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/AHCI.SL.6-1"
             }
         ],
-        "Storage@odata.count": 4
+        "Storage@odata.count": 3
     },
     "Location": {
         "Info": ";;;;1",
@@ -213,11 +206,11 @@
     "PowerSubsystem": {
         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/PowerSubsystem"
     },
-    "SKU": "7LHP1G3",
+    "SKU": "F54P1G3",
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Sensors"
     },
-    "SerialNumber": "CNIVC0014R0076",
+    "SerialNumber": "CNIVC0014M0388",
     "Status": {
         "Health": "OK",
         "HealthRollup": "OK",
@@ -230,5 +223,5 @@
     "ThermalSubsystem": {
         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/ThermalSubsystem"
     },
-    "UUID": "4c4c4544-004c-4810-8050-b7c04f314733"
+    "UUID": "4c4c4544-0035-3410-8050-c6c04f314733"
 }

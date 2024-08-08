@@ -8,17 +8,6 @@
             "CapacityBytes": 1920383410176,
             "Manufacturer": "KIOXIA Corporation ",
             "Model": "Dell Ent NVMe CM6 RI 1.92TB            ",
-            "Name": "PCIe SSD in Slot 0 in Bay 1",
-            "Status": {
-                "Health": "OK",
-                "HealthRollup": "OK",
-                "State": "Enabled"
-            }
-        },
-        {
-            "CapacityBytes": 1920383410176,
-            "Manufacturer": "KIOXIA Corporation ",
-            "Model": "Dell Ent NVMe CM6 RI 1.92TB            ",
             "Name": "PCIe SSD in Slot 2 in Bay 1",
             "Status": {
                 "Health": "OK",
@@ -31,6 +20,17 @@
             "Manufacturer": "KIOXIA Corporation ",
             "Model": "Dell Ent NVMe CM6 RI 1.92TB            ",
             "Name": "PCIe SSD in Slot 1 in Bay 1",
+            "Status": {
+                "Health": "OK",
+                "HealthRollup": "OK",
+                "State": "Enabled"
+            }
+        },
+        {
+            "CapacityBytes": 1920383410176,
+            "Manufacturer": "KIOXIA Corporation ",
+            "Model": "Dell Ent NVMe CM6 RI 1.92TB            ",
+            "Name": "PCIe SSD in Slot 0 in Bay 1",
             "Status": {
                 "Health": "OK",
                 "HealthRollup": "OK",
@@ -65,5 +65,5 @@
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "UefiDevicePath": "PciRoot(0xB)/Pci(0x4,0x0)/Pci(0x0,0x0)"
+    "UefiDevicePath": "PciRoot(0xB)/Pci(0x5,0x0)/Pci(0x0,0x0)"
 }

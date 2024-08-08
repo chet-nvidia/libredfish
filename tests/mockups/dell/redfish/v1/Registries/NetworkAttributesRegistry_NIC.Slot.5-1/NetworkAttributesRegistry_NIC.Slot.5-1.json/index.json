@@ -13,7 +13,7 @@
                 "AttributeName": "DeviceName",
                 "CurrentValue": null,
                 "DisplayName": "Device Name",
-                "DisplayOrder": 106,
+                "DisplayOrder": 108,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -37,7 +37,7 @@
                 "AttributeName": "ChipMdl",
                 "CurrentValue": null,
                 "DisplayName": "Chip Type",
-                "DisplayOrder": 107,
+                "DisplayOrder": 109,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -61,7 +61,7 @@
                 "AttributeName": "PCIDeviceID",
                 "CurrentValue": null,
                 "DisplayName": "PCI Device ID",
-                "DisplayOrder": 108,
+                "DisplayOrder": 110,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -85,7 +85,7 @@
                 "AttributeName": "BusDeviceFunction",
                 "CurrentValue": null,
                 "DisplayName": "PCI Address",
-                "DisplayOrder": 109,
+                "DisplayOrder": 111,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -109,7 +109,7 @@
                 "AttributeName": "MacAddr",
                 "CurrentValue": null,
                 "DisplayName": "MAC Address",
-                "DisplayOrder": 112,
+                "DisplayOrder": 114,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -133,7 +133,7 @@
                 "AttributeName": "VirtMacAddr",
                 "CurrentValue": null,
                 "DisplayName": "Virtual MAC Address",
-                "DisplayOrder": 113,
+                "DisplayOrder": 115,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -157,7 +157,7 @@
                 "AttributeName": "DCBXSupport",
                 "CurrentValue": null,
                 "DisplayName": "DCBX Support",
-                "DisplayOrder": 114,
+                "DisplayOrder": 116,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -181,7 +181,7 @@
                 "AttributeName": "iSCSIOffloadSupport",
                 "CurrentValue": null,
                 "DisplayName": "iSCSI Offload Support",
-                "DisplayOrder": 116,
+                "DisplayOrder": 118,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -205,7 +205,7 @@
                 "AttributeName": "FCoEOffloadSupport",
                 "CurrentValue": null,
                 "DisplayName": "FCoE Offload Support",
-                "DisplayOrder": 117,
+                "DisplayOrder": 119,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -229,7 +229,7 @@
                 "AttributeName": "OnChipThermalSensor",
                 "CurrentValue": null,
                 "DisplayName": "On-Chip Thermal Sensor",
-                "DisplayOrder": 118,
+                "DisplayOrder": 120,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -253,7 +253,7 @@
                 "AttributeName": "FlexAddressing",
                 "CurrentValue": null,
                 "DisplayName": "FlexAddressing",
-                "DisplayOrder": 119,
+                "DisplayOrder": 121,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -277,7 +277,7 @@
                 "AttributeName": "iSCSIBootSupport",
                 "CurrentValue": null,
                 "DisplayName": "iSCSI Boot Support",
-                "DisplayOrder": 120,
+                "DisplayOrder": 122,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -301,7 +301,7 @@
                 "AttributeName": "TOESupport",
                 "CurrentValue": null,
                 "DisplayName": "TOE Support",
-                "DisplayOrder": 121,
+                "DisplayOrder": 123,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -325,7 +325,7 @@
                 "AttributeName": "FCoEBootSupport",
                 "CurrentValue": null,
                 "DisplayName": "FCoE Boot Support",
-                "DisplayOrder": 122,
+                "DisplayOrder": 124,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -349,7 +349,7 @@
                 "AttributeName": "PXEBootSupport",
                 "CurrentValue": null,
                 "DisplayName": "PXE Boot Support",
-                "DisplayOrder": 123,
+                "DisplayOrder": 125,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -373,7 +373,7 @@
                 "AttributeName": "NWManagementPassThrough",
                 "CurrentValue": null,
                 "DisplayName": "Network Management Pass Through",
-                "DisplayOrder": 124,
+                "DisplayOrder": 126,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -397,7 +397,7 @@
                 "AttributeName": "EnergyEfficientEthernet",
                 "CurrentValue": null,
                 "DisplayName": "Energy Efficient Ethernet (EEE)",
-                "DisplayOrder": 125,
+                "DisplayOrder": 127,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -421,7 +421,7 @@
                 "AttributeName": "NicPartitioningSupport",
                 "CurrentValue": null,
                 "DisplayName": "NIC Partitioning Support",
-                "DisplayOrder": 126,
+                "DisplayOrder": 128,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -445,7 +445,7 @@
                 "AttributeName": "RemotePHY",
                 "CurrentValue": null,
                 "DisplayName": "RemotePHY",
-                "DisplayOrder": 127,
+                "DisplayOrder": 129,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -469,7 +469,7 @@
                 "AttributeName": "FeatureLicensingSupport",
                 "CurrentValue": null,
                 "DisplayName": "Feature Licensing Support",
-                "DisplayOrder": 128,
+                "DisplayOrder": 130,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -493,7 +493,7 @@
                 "AttributeName": "OSBMCManagementPassThrough",
                 "CurrentValue": null,
                 "DisplayName": "OS BMC Management Pass Through",
-                "DisplayOrder": 129,
+                "DisplayOrder": 131,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -517,7 +517,7 @@
                 "AttributeName": "iSCSIDualIPVersionSupport",
                 "CurrentValue": null,
                 "DisplayName": "iSCSI Dual IP Version Support",
-                "DisplayOrder": 130,
+                "DisplayOrder": 132,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -709,7 +709,7 @@
                 "AttributeName": "IscsiInitiatorIpAddr",
                 "CurrentValue": null,
                 "DisplayName": "IP Address",
-                "DisplayOrder": 900,
+                "DisplayOrder": 1200,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -733,7 +733,7 @@
                 "AttributeName": "IscsiInitiatorSubnet",
                 "CurrentValue": null,
                 "DisplayName": "Subnet Mask",
-                "DisplayOrder": 901,
+                "DisplayOrder": 1201,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -757,7 +757,7 @@
                 "AttributeName": "IscsiInitiatorGateway",
                 "CurrentValue": null,
                 "DisplayName": "Default Gateway",
-                "DisplayOrder": 902,
+                "DisplayOrder": 1202,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -781,7 +781,7 @@
                 "AttributeName": "IscsiInitiatorPrimDns",
                 "CurrentValue": null,
                 "DisplayName": "Primary DNS",
-                "DisplayOrder": 903,
+                "DisplayOrder": 1203,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -805,7 +805,7 @@
                 "AttributeName": "IscsiInitiatorName",
                 "CurrentValue": null,
                 "DisplayName": "iSCSI Name",
-                "DisplayOrder": 904,
+                "DisplayOrder": 1204,
                 "HelpText": "This field specifies the name of the iSCSI Initiator in IQN format.",
                 "Hidden": false,
                 "Immutable": false,
@@ -829,7 +829,7 @@
                 "AttributeName": "IscsiInitiatorChapId",
                 "CurrentValue": null,
                 "DisplayName": "CHAP ID",
-                "DisplayOrder": 905,
+                "DisplayOrder": 1205,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -853,7 +853,7 @@
                 "AttributeName": "IscsiInitiatorChapPwd",
                 "CurrentValue": null,
                 "DisplayName": "CHAP Secret",
-                "DisplayOrder": 906,
+                "DisplayOrder": 1206,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -877,7 +877,7 @@
                 "AttributeName": "IscsiInitiatorIpv6Addr",
                 "CurrentValue": null,
                 "DisplayName": "IPv6 Address",
-                "DisplayOrder": 907,
+                "DisplayOrder": 1207,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -901,7 +901,7 @@
                 "AttributeName": "IscsiInitiatorIpv6Gateway",
                 "CurrentValue": null,
                 "DisplayName": "IPv6 Default Gateway",
-                "DisplayOrder": 908,
+                "DisplayOrder": 1208,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -925,7 +925,7 @@
                 "AttributeName": "IscsiInitiatorIpv6PrimDns",
                 "CurrentValue": null,
                 "DisplayName": "IPv6 Primary DNS",
-                "DisplayOrder": 909,
+                "DisplayOrder": 1209,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -949,7 +949,7 @@
                 "AttributeName": "IscsiInitiatorSubnetPrefix",
                 "CurrentValue": null,
                 "DisplayName": "IPv6 Prefix Length",
-                "DisplayOrder": 910,
+                "DisplayOrder": 1210,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -973,7 +973,7 @@
                 "AttributeName": "FirstTgtIpAddress",
                 "CurrentValue": null,
                 "DisplayName": "IP Address",
-                "DisplayOrder": 1001,
+                "DisplayOrder": 1301,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -997,7 +997,7 @@
                 "AttributeName": "FirstTgtIpv6Address",
                 "CurrentValue": null,
                 "DisplayName": "IPv6 Address",
-                "DisplayOrder": 1002,
+                "DisplayOrder": 1302,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1021,7 +1021,7 @@
                 "AttributeName": "FirstTgtIscsiName",
                 "CurrentValue": null,
                 "DisplayName": "iSCSI Name",
-                "DisplayOrder": 1005,
+                "DisplayOrder": 1305,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1045,7 +1045,7 @@
                 "AttributeName": "FirstTgtChapId",
                 "CurrentValue": null,
                 "DisplayName": "CHAP ID",
-                "DisplayOrder": 1006,
+                "DisplayOrder": 1306,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1069,7 +1069,7 @@
                 "AttributeName": "FirstTgtChapPwd",
                 "CurrentValue": null,
                 "DisplayName": "CHAP Secret",
-                "DisplayOrder": 1007,
+                "DisplayOrder": 1307,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1093,7 +1093,7 @@
                 "AttributeName": "BlnkLeds",
                 "CurrentValue": null,
                 "DisplayName": "Blink LEDs",
-                "DisplayOrder": 105,
+                "DisplayOrder": 107,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1240,10 +1240,60 @@
                 "WriteOnly": false
             },
             {
+                "AttributeName": "VMwareNumOfVfs",
+                "CurrentValue": null,
+                "DisplayName": "Number of maximum VFs",
+                "DisplayOrder": 902,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "LowerBound": 1,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "VMware Configuration",
+                        "GroupName": "VMwareConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "ScalarIncrement": 0,
+                "Type": "Integer",
+                "UpperBound": 64,
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "PfTotalSf",
+                "CurrentValue": null,
+                "DisplayName": "Number of UPT interfaces",
+                "DisplayOrder": 903,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "LowerBound": 1,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "VMware Configuration",
+                        "GroupName": "VMwareConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "ScalarIncrement": 0,
+                "Type": "Integer",
+                "UpperBound": 64,
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
                 "AttributeName": "FirstTgtTcpPort",
                 "CurrentValue": null,
                 "DisplayName": "TCP Port",
-                "DisplayOrder": 1003,
+                "DisplayOrder": 1303,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1268,7 +1318,7 @@
                 "AttributeName": "FirstTgtBootLun",
                 "CurrentValue": null,
                 "DisplayName": "Boot LUN",
-                "DisplayOrder": 1004,
+                "DisplayOrder": 1304,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1290,10 +1340,42 @@
                 "WriteOnly": false
             },
             {
+                "AttributeName": "VMwareDPUEn",
+                "CurrentValue": null,
+                "DisplayName": "VMware Distributed Services Engine (DPU)",
+                "DisplayOrder": 106,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "Main Configuration Page",
+                        "GroupName": "VndrConfigPage"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
                 "AttributeName": "LinkStatus",
                 "CurrentValue": null,
                 "DisplayName": "Link Status",
-                "DisplayOrder": 110,
+                "DisplayOrder": 112,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -1325,7 +1407,7 @@
                 "AttributeName": "LnkSpeed",
                 "CurrentValue": null,
                 "DisplayName": "Link Speed",
-                "DisplayOrder": 111,
+                "DisplayOrder": 113,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -1445,7 +1527,7 @@
                 "AttributeName": "SocketDirectState",
                 "CurrentValue": null,
                 "DisplayName": "Socket Direct Operation",
-                "DisplayOrder": 115,
+                "DisplayOrder": 117,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": true,
@@ -1702,10 +1784,690 @@
                 "WriteOnly": false
             },
             {
+                "AttributeName": "BootLegacyIntDisable",
+                "CurrentValue": null,
+                "DisplayName": "Boot Legacy Interrupt Disable",
+                "DisplayOrder": 607,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "NIC Configuration",
+                        "GroupName": "NICConfig"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "InternalCpuModel",
+                "CurrentValue": null,
+                "DisplayName": "Internal Cpu Model",
+                "DisplayOrder": 700,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField Internal Cpu Configuration",
+                        "GroupName": "BlueFieldInternalCpuConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "SEPARATED HOST",
+                        "ValueName": "SeparatedHost"
+                    },
+                    {
+                        "ValueDisplayName": "EMBEDDED CPU",
+                        "ValueName": "EmbeddedCpu"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "InternalCpuPageSupplier",
+                "CurrentValue": null,
+                "DisplayName": "Internal Cpu Page Supplier",
+                "DisplayOrder": 701,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField Internal Cpu Configuration",
+                        "GroupName": "BlueFieldInternalCpuConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "ECPF",
+                        "ValueName": "ECPF"
+                    },
+                    {
+                        "ValueDisplayName": "EXT HOST PF",
+                        "ValueName": "ExtHostPF"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "InternalCpuEswitchManager",
+                "CurrentValue": null,
+                "DisplayName": "Internal Cpu Eswitch Manager",
+                "DisplayOrder": 702,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField Internal Cpu Configuration",
+                        "GroupName": "BlueFieldInternalCpuConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "ECPF",
+                        "ValueName": "ECPF"
+                    },
+                    {
+                        "ValueDisplayName": "EXT HOST PF",
+                        "ValueName": "ExtHostPF"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "InternalCpuIBVport0",
+                "CurrentValue": null,
+                "DisplayName": "Internal Cpu IB Vport0",
+                "DisplayOrder": 703,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField Internal Cpu Configuration",
+                        "GroupName": "BlueFieldInternalCpuConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "ECPF",
+                        "ValueName": "ECPF"
+                    },
+                    {
+                        "ValueDisplayName": "EXT HOST PF",
+                        "ValueName": "ExtHostPF"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "InternalCpuOffloadEngine",
+                "CurrentValue": null,
+                "DisplayName": "Internal Cpu Offload Engine",
+                "DisplayOrder": 704,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField Internal Cpu Configuration",
+                        "GroupName": "BlueFieldInternalCpuConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "HostPrivFlashAccess",
+                "CurrentValue": null,
+                "DisplayName": "Host Priv Flash Access",
+                "DisplayOrder": 800,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField External Host Priv Configuration",
+                        "GroupName": "BlueFieldExternalHostPrivConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Default",
+                        "ValueName": "Default"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "HostPrivPccUpdate",
+                "CurrentValue": null,
+                "DisplayName": "Host Priv PCC Update",
+                "DisplayOrder": 801,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField External Host Priv Configuration",
+                        "GroupName": "BlueFieldExternalHostPrivConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Default",
+                        "ValueName": "Default"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "HostPrivFwUpdate",
+                "CurrentValue": null,
+                "DisplayName": "Host Priv Fw Update",
+                "DisplayOrder": 802,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField External Host Priv Configuration",
+                        "GroupName": "BlueFieldExternalHostPrivConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Default",
+                        "ValueName": "Default"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "HostPrivNicReset",
+                "CurrentValue": null,
+                "DisplayName": "Host Priv Nic Reset",
+                "DisplayOrder": 803,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField External Host Priv Configuration",
+                        "GroupName": "BlueFieldExternalHostPrivConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Default",
+                        "ValueName": "Default"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "HostPrivRshim",
+                "CurrentValue": null,
+                "DisplayName": "Host Priv Rshim",
+                "DisplayOrder": 804,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": true,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField External Host Priv Configuration",
+                        "GroupName": "BlueFieldExternalHostPrivConfiguration"
+                    }
+                },
+                "ReadOnly": true,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Default",
+                        "ValueName": "Default"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "HostPrivNVGlobal",
+                "CurrentValue": null,
+                "DisplayName": "Host Priv NV Global",
+                "DisplayOrder": 805,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField External Host Priv Configuration",
+                        "GroupName": "BlueFieldExternalHostPrivConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Default",
+                        "ValueName": "Default"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "HostPrivNVHost",
+                "CurrentValue": null,
+                "DisplayName": "Host Priv NV Host",
+                "DisplayOrder": 806,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField External Host Priv Configuration",
+                        "GroupName": "BlueFieldExternalHostPrivConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Default",
+                        "ValueName": "Default"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "HostPrivNVPort",
+                "CurrentValue": null,
+                "DisplayName": "Host Priv NV Port",
+                "DisplayOrder": 807,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField External Host Priv Configuration",
+                        "GroupName": "BlueFieldExternalHostPrivConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Default",
+                        "ValueName": "Default"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "HostPrivNVIntCpu",
+                "CurrentValue": null,
+                "DisplayName": "Host Priv NV Int Cpu",
+                "DisplayOrder": 808,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "BlueField External Host Priv Configuration",
+                        "GroupName": "BlueFieldExternalHostPrivConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Default",
+                        "ValueName": "Default"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "ManagementPfMode",
+                "CurrentValue": null,
+                "DisplayName": "Management PF",
+                "DisplayOrder": 900,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "VMware Configuration",
+                        "GroupName": "VMwareConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Default",
+                        "ValueName": "Default"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "PfNumOfVfValid",
+                "CurrentValue": null,
+                "DisplayName": "Per PF Num VF Valid",
+                "DisplayOrder": 901,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "VMware Configuration",
+                        "GroupName": "VMwareConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "LldpPort1",
+                "CurrentValue": null,
+                "DisplayName": "LLDP Port 1",
+                "DisplayOrder": 904,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "VMware Configuration",
+                        "GroupName": "VMwareConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "LldpPort2",
+                "CurrentValue": null,
+                "DisplayName": "LLDP Port 2",
+                "DisplayOrder": 905,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "VMware Configuration",
+                        "GroupName": "VMwareConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "LagAllocation",
+                "CurrentValue": null,
+                "DisplayName": "LAG",
+                "DisplayOrder": 906,
+                "HelpText": null,
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./",
+                "Oem": {
+                    "Dell": {
+                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
+                        "GroupDisplayName": "VMware Configuration",
+                        "GroupName": "VMwareConfiguration"
+                    }
+                },
+                "ReadOnly": false,
+                "ResetRequired": true,
+                "Type": "Enumeration",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "Disabled"
+                    },
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "Enabled"
+                    }
+                ],
+                "WarningText": null,
+                "WriteOnly": false
+            },
+            {
                 "AttributeName": "IscsiTgtBoot",
                 "CurrentValue": null,
                 "DisplayName": "Boot to Target",
-                "DisplayOrder": 800,
+                "DisplayOrder": 1100,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1741,7 +2503,7 @@
                 "AttributeName": "TcpIpViaDHCP",
                 "CurrentValue": null,
                 "DisplayName": "TCP/IP Parameters via DHCP",
-                "DisplayOrder": 801,
+                "DisplayOrder": 1101,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1773,7 +2535,7 @@
                 "AttributeName": "IscsiViaDHCP",
                 "CurrentValue": null,
                 "DisplayName": "iSCSI Parameters via DHCP",
-                "DisplayOrder": 802,
+                "DisplayOrder": 1102,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1805,7 +2567,7 @@
                 "AttributeName": "ChapAuthEnable",
                 "CurrentValue": null,
                 "DisplayName": "CHAP Authentication",
-                "DisplayOrder": 803,
+                "DisplayOrder": 1103,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1837,7 +2599,7 @@
                 "AttributeName": "ChapMutualAuth",
                 "CurrentValue": null,
                 "DisplayName": "CHAP Mutual Authentication",
-                "DisplayOrder": 804,
+                "DisplayOrder": 1104,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1869,7 +2631,7 @@
                 "AttributeName": "ConnectFirstTgt",
                 "CurrentValue": null,
                 "DisplayName": "Connect",
-                "DisplayOrder": 1000,
+                "DisplayOrder": 1300,
                 "HelpText": null,
                 "Hidden": false,
                 "Immutable": false,
@@ -1898,77 +2660,13 @@
                 "WriteOnly": false
             },
             {
-                "AttributeName": "AdvancedPowerSettings",
-                "CurrentValue": null,
-                "DisplayName": "Advanced power settings",
-                "DisplayOrder": 1100,
-                "HelpText": null,
-                "Hidden": false,
-                "Immutable": false,
-                "MenuPath": "./",
-                "Oem": {
-                    "Dell": {
-                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
-                        "GroupDisplayName": "Power Configuration",
-                        "GroupName": "PowerConfig"
-                    }
-                },
-                "ReadOnly": false,
-                "ResetRequired": true,
-                "Type": "Enumeration",
-                "Value": [
-                    {
-                        "ValueDisplayName": "Disabled",
-                        "ValueName": "Disabled"
-                    },
-                    {
-                        "ValueDisplayName": "Enabled",
-                        "ValueName": "Enabled"
-                    }
-                ],
-                "WarningText": null,
-                "WriteOnly": false
-            },
-            {
-                "AttributeName": "SlotPowerLimiter",
-                "CurrentValue": null,
-                "DisplayName": "Slot power limiter",
-                "DisplayOrder": 1101,
-                "HelpText": null,
-                "Hidden": false,
-                "Immutable": false,
-                "MenuPath": "./",
-                "Oem": {
-                    "Dell": {
-                        "@odata.type": "#DellOemAttributeRegistry.v1_0_0.Attributes",
-                        "GroupDisplayName": "Power Configuration",
-                        "GroupName": "PowerConfig"
-                    }
-                },
-                "ReadOnly": false,
-                "ResetRequired": true,
-                "Type": "Enumeration",
-                "Value": [
-                    {
-                        "ValueDisplayName": "Disabled",
-                        "ValueName": "Disabled"
-                    },
-                    {
-                        "ValueDisplayName": "Enabled",
-                        "ValueName": "Enabled"
-                    }
-                ],
-                "WarningText": null,
-                "WriteOnly": false
-            },
-            {
                 "AttributeName": "RtPpsEnabledOnPowerUp",
                 "CurrentValue": null,
                 "DisplayName": "RT PPS ENABLED ONPOWERUP",
-                "DisplayOrder": 1102,
+                "DisplayOrder": 1400,
                 "HelpText": null,
                 "Hidden": false,
-                "Immutable": true,
+                "Immutable": false,
                 "MenuPath": "./",
                 "Oem": {
                     "Dell": {
@@ -1977,7 +2675,7 @@
                         "GroupName": "PowerConfig"
                     }
                 },
-                "ReadOnly": true,
+                "ReadOnly": false,
                 "ResetRequired": true,
                 "Type": "Enumeration",
                 "Value": [
@@ -2002,7 +2700,7 @@
         {
             "FirmwareVersion": "1.8.2",
             "ProductName": "PowerEdge R750",
-            "SystemId": "7LHP1G3"
+            "SystemId": "F54P1G3"
         }
     ]
 }

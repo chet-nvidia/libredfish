@@ -11,8 +11,8 @@
         "Health": "OK",
         "State": "Enabled"
     },
-    "Reading": 18480.0,
-    "SpeedRPM": 18480,
+    "Reading": 18600.0,
+    "SpeedRPM": 18600,
     "PhysicalContext": "SystemBoard",
     "Oem": {
         "Dell": {

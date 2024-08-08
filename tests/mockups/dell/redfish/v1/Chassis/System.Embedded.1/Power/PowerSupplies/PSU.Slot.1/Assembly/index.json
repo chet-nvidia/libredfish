@@ -21,7 +21,7 @@
                         "Id": "PSU.Slot.1_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "PowerSupply",
-                        "SerialNumber": "PHARP0016G006J",
+                        "SerialNumber": "PHARP0016L008V",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
                         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/PSU.Slot.1_0x23_FRU"
@@ -30,7 +30,7 @@
             },
             "PartNumber": "07GN3C",
             "Producer": "DELL",
-            "ProductionDate": "2021-06-19T03:14:00Z",
+            "ProductionDate": "2021-06-23T03:59:00Z",
             "SKU": null,
             "SparePartNumber": null,
             "Vendor": "DELL",

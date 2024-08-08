@@ -5,8 +5,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0004",
     "Description": "Current settings of the UEFI Boot option",
-    "DisplayName": "AHCI Controller in SL 6: ubuntu",
+    "DisplayName": "Unavailable: ubuntu",
     "Id": "Boot0004",
     "Name": "Uefi Boot Option",
-    "UefiDevicePath": "HD(1,GPT,E5355526-8795-4D3B-9825-48543F56B112,0x800,0x100000)/\\EFI\\ubuntu\\shimx64.efi"
+    "UefiDevicePath": "HD(15,GPT,18FC296A-FFC0-4256-AB8D-3614238FC4F0,0x2800,0x35000)/\\EFI\\ubuntu\\shimx64.efi"
 }

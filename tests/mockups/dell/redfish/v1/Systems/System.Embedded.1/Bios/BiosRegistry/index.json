@@ -6711,8 +6711,20 @@
                         "ValueName": "NIC.HttpDevice.1-1"
                     },
                     {
-                        "ValueDisplayName": "AHCI Controller in SL 6: ubuntu",
-                        "ValueName": "AHCI.SL.6-2"
+                        "ValueDisplayName": "Unavailable: ubuntu",
+                        "ValueName": "Unknown.Unknown.2-1"
+                    },
+                    {
+                        "ValueDisplayName": "Unavailable: Linux Default",
+                        "ValueName": "Unknown.Unknown.3-1"
+                    },
+                    {
+                        "ValueDisplayName": "Unavailable: ubuntu",
+                        "ValueName": "Unknown.Unknown.4-1"
+                    },
+                    {
+                        "ValueDisplayName": "PCIe SSD in Slot 2 in Bay 1: EFI Fixed Disk Boot Device 1",
+                        "ValueName": "Disk.Bay.2:Enclosure.Internal.0-1"
                     }
                 ],
                 "WarningText": null,
@@ -7298,6 +7310,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -7308,10 +7328,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -7389,6 +7405,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -7399,10 +7423,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -7480,6 +7500,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -7490,10 +7518,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -7571,6 +7595,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -7581,10 +7613,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -7662,6 +7690,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -7672,10 +7708,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -7753,6 +7785,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -7763,10 +7803,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -7844,6 +7880,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -7854,10 +7898,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -7935,6 +7975,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -7945,10 +7993,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -8026,6 +8070,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -8036,10 +8088,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -8117,6 +8165,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -8127,10 +8183,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -8208,6 +8260,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -8218,10 +8278,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -8299,6 +8355,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -8309,10 +8373,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -8390,6 +8450,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -8400,10 +8468,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -8481,6 +8545,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -8491,10 +8563,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -8572,6 +8640,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -8582,10 +8658,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -8663,6 +8735,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -8673,10 +8753,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -8754,6 +8830,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -8764,10 +8848,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -8970,6 +9050,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -8980,10 +9068,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -9186,6 +9270,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -9196,10 +9288,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -9402,6 +9490,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -9412,10 +9508,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -9693,6 +9785,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -9703,10 +9803,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -9884,6 +9980,14 @@
                         "ValueName": "NIC.Embedded.2-1-1"
                     },
                     {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-1"
+                    },
+                    {
+                        "ValueDisplayName": "InfiniBand Controller in Slot 7",
+                        "ValueName": "InfiniBand.Slot.7-2"
+                    },
+                    {
                         "ValueDisplayName": "Integrated NIC 1 Port 1 Partition 1",
                         "ValueName": "NIC.Integrated.1-1-1"
                     },
@@ -9894,10 +9998,6 @@
                     {
                         "ValueDisplayName": "NIC in Slot 5 Port 1",
                         "ValueName": "NIC.Slot.5-1"
-                    },
-                    {
-                        "ValueDisplayName": "NIC in Slot 5 Port 2",
-                        "ValueName": "NIC.Slot.5-2"
                     }
                 ],
                 "WarningText": null,
@@ -13325,9 +13425,9 @@
                 "DisplayOrder": 4304,
                 "HelpText": "Bootmanager password option is available only when Setup Password is enabled.  If set to Always (Default value), setup password must be entered for accessing Boot Manager.  If set to Never, setup password need not be entered for accessing Boot Manager, One-shot UEFI Boot Menu.  ",
                 "Hidden": true,
-                "Immutable": true,
+                "Immutable": false,
                 "MenuPath": "./SysSecurityRef",
-                "ReadOnly": true,
+                "ReadOnly": false,
                 "ResetRequired": true,
                 "Type": "Enumeration",
                 "Value": [
@@ -13439,7 +13539,7 @@
                 "Hidden": false,
                 "Immutable": false,
                 "MenuPath": "./SysSecurityRef",
-                "ReadOnly": true,
+                "ReadOnly": false,
                 "ResetRequired": true,
                 "Type": "Enumeration",
                 "Value": [
@@ -14149,10 +14249,6 @@
                     {
                         "ValueDisplayName": "None",
                         "ValueName": "None"
-                    },
-                    {
-                        "ValueDisplayName": "Internal M.2 Drive",
-                        "ValueName": "IntegratedM2BOSS"
                     }
                 ],
                 "WarningText": null,
@@ -27231,7 +27327,7 @@
         {
             "FirmwareVersion": "1.8.2",
             "ProductName": "PowerEdge R750",
-            "SystemId": "7LHP1G3"
+            "SystemId": "F54P1G3"
         }
     ]
 }

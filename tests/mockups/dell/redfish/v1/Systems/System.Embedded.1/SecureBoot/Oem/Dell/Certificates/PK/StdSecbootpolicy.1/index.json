@@ -1,5 +1,5 @@
 {
-    "@odata.etag": "1670895817",
+    "@odata.etag": "1710223613",
     "@odata.context": "/redfish/v1/$metadata#DellCertificate.DellCertificate",
     "@odata.id": "/redfish/v1/Systems/System.Embedded.1/SecureBoot/Oem/Dell/Certificates/PK/StdSecbootpolicy.1",
     "@odata.type": "#DellCertificate.v1_0_1.DellCertificate",

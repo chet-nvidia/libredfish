@@ -9,7 +9,7 @@
         "Certificates@odata.count": 7,
         "Certificates": [
             {
-                "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/NetworkProtocol/HTTPS/Certificates/SecurityCertificate.1"
+                "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/NetworkProtocol/HTTPS/Certificates/SecurityCertificate.2"
             },
             {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/SecureBoot/SecureBootDatabases/PK/Certificates/StdSecbootpolicy.1"
@@ -34,7 +34,7 @@
             "Dell": {
                 "@odata.type": "#DellOem.v1_3_0.DellOemLinks",
                 "HWCertificates": {
-                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/HWCertificates/SecurityCertificate.2"
+                    "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/HWCertificates/SecurityCertificate.1"
                 },
                 "Certificates": [],
                 "Certificates@odata.count": 0

@@ -2,7 +2,7 @@
     "@odata.context": "/redfish/v1/$metadata#JobService.JobService",
     "@odata.id": "/redfish/v1/JobService",
     "@odata.type": "#JobService.v1_0_4.JobService",
-    "DateTime": "2023-02-13T22:24:57-06:00",
+    "DateTime": "2024-08-08T18:51:52-05:00",
     "Description": "Represent a job service for a Redfish",
     "Id": "JobService",
     "Jobs": {

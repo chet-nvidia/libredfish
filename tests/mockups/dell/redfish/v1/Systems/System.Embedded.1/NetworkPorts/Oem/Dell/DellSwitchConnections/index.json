@@ -14,8 +14,8 @@
             "InstanceID": "iDRAC.Embedded.1",
             "Name": "DellSwitchConnection",
             "StaleData": "NotStale",
-            "SwitchConnectionID": "b0:4f:13:31:fa:40",
-            "SwitchPortConnectionID": "swp11"
+            "SwitchConnectionID": "b0:4f:13:31:dc:40",
+            "SwitchPortConnectionID": "swp20"
         },
         {
             "@odata.context": "/redfish/v1/$metadata#DellSwitchConnection.DellSwitchConnection",

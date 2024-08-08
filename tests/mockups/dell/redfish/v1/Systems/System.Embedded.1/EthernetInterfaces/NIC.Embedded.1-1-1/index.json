@@ -25,13 +25,13 @@
             "@odata.id": "/redfish/v1/Chassis/System.Embedded.1"
         }
     },
-    "MACAddress": "B0:7B:25:D4:2A:36",
+    "MACAddress": "70:B5:E8:F0:52:DC",
     "MTUSize": null,
     "MaxIPv6StaticAddresses": null,
     "Name": "System Ethernet Interface",
     "NameServers": [],
     "NameServers@odata.count": 0,
-    "PermanentMACAddress": "B0:7B:25:D4:2A:36",
+    "PermanentMACAddress": "70:B5:E8:F0:52:DC",
     "SpeedMbps": 0,
     "Status": {
         "Health": "OK",

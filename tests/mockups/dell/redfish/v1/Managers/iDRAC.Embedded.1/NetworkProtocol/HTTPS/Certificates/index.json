@@ -6,7 +6,7 @@
     "Description": "A Collection of Webserver SSL  Certificate resource instances.",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/NetworkProtocol/HTTPS/Certificates/SecurityCertificate.1"
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/NetworkProtocol/HTTPS/Certificates/SecurityCertificate.2"
         }
     ],
     "Members@odata.count": 1

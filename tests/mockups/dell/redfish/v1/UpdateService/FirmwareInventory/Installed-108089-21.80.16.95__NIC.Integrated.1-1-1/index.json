@@ -4,7 +4,7 @@
     "@odata.type": "#SoftwareInventory.v1_4_0.SoftwareInventory",
     "Description": "Represents Firmware Inventory",
     "Id": "Installed-108089-21.80.16.95__NIC.Integrated.1-1-1",
-    "Name": "Broadcom Adv. Dual 25Gb Ethernet - E4:3D:1A:6E:21:60",
+    "Name": "Broadcom Adv. Dual 25Gb Ethernet - E4:3D:1A:13:27:F0",
     "Oem": {
         "Dell": {
             "@odata.type": "#DellOem.v1_3_0.DellOemResources",
@@ -21,7 +21,7 @@
                 "ComponentType": "FRMW",
                 "Description": "The DellSoftwareInventory resource is a representation of an available device firmware in the managed system.",
                 "DeviceID": "16D7",
-                "ElementName": "Broadcom Adv. Dual 25Gb Ethernet - E4:3D:1A:6E:21:60",
+                "ElementName": "Broadcom Adv. Dual 25Gb Ethernet - E4:3D:1A:13:27:F0",
                 "HashValue": "05d767e17a169804e8dad837319da5e1edaae1eb99f7df471eeb9340ed09b810",
                 "Id": "DCIM:INSTALLED_0x23_701__NIC.Integrated.1-1-1",
                 "IdentityInfoType": [
@@ -32,7 +32,7 @@
                     "DCIM:firmware:14E4:16D7:14E4:4145"
                 ],
                 "IdentityInfoValue@odata.count": 1,
-                "InstallationDate": "2022-11-15T23:04:46Z",
+                "InstallationDate": "2022-11-16T02:10:23Z",
                 "IsEntity": true,
                 "MajorVersion": 21,
                 "MinorVersion": 80,

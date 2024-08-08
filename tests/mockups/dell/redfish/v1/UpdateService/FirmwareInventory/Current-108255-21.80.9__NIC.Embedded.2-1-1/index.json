@@ -4,7 +4,7 @@
     "@odata.type": "#SoftwareInventory.v1_4_0.SoftwareInventory",
     "Description": "Represents Firmware Inventory",
     "Id": "Current-108255-21.80.9__NIC.Embedded.2-1-1",
-    "Name": "Broadcom Gigabit Ethernet BCM5720 - B0:7B:25:D4:2A:37",
+    "Name": "Broadcom Gigabit Ethernet BCM5720 - 70:B5:E8:F0:52:DD",
     "Oem": {
         "Dell": {
             "@odata.type": "#DellOem.v1_3_0.DellOemResources",
@@ -21,7 +21,7 @@
                 "ComponentType": "FRMW",
                 "Description": "The DellSoftwareInventory resource is a representation of an available device firmware in the managed system.",
                 "DeviceID": "165F",
-                "ElementName": "Broadcom Gigabit Ethernet BCM5720 - B0:7B:25:D4:2A:37",
+                "ElementName": "Broadcom Gigabit Ethernet BCM5720 - 70:B5:E8:F0:52:DD",
                 "HashValue": "358e18e61df6244359d44614cb6b5cc9b52416a1a525dd4ee5c10636c88d7144",
                 "Id": "DCIM:CURRENT_0x23_701__NIC.Embedded.2-1-1",
                 "IdentityInfoType": [

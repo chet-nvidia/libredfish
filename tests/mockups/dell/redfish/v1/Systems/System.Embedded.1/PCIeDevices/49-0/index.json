@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeDevice.PCIeDevice",
-    "@odata.etag": "1676348305",
+    "@odata.etag": "1718082925",
     "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/49-0",
     "@odata.type": "#PCIeDevice.v1_7_0.PCIeDevice",
     "Assembly": {
@@ -20,10 +20,10 @@
         "Chassis@odata.count": 1,
         "PCIeFunctions": [
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/49-0/PCIeFunctions/49-0-0"
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/49-0/PCIeFunctions/49-0-1"
             },
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/49-0/PCIeFunctions/49-0-1"
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/49-0/PCIeFunctions/49-0-0"
             }
         ],
         "PCIeFunctions@odata.count": 2
@@ -33,7 +33,7 @@
     "Name": "BCM57414 NetXtreme-E 10Gb/25Gb RDMA Ethernet Controller",
     "PartNumber": "0KHCTP",
     "SKU": null,
-    "SerialNumber": "VNFCVBA14O01K5",
+    "SerialNumber": "VNFCVBA14I00AD",
     "Status": {
         "Health": "OK",
         "HealthRollup": "OK",

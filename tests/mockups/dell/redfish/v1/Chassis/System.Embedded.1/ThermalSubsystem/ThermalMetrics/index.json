@@ -8,35 +8,35 @@
     "TemperatureSummaryCelsius": {
         "Internal": {
             "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/CPU1Temp",
-            "Reading": 35.0
+            "Reading": 37.0
         },
         "Intake": {
             "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/SystemBoardInletTemp",
-            "Reading": 22.0
+            "Reading": 25.0
         },
         "Exhaust": {
             "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/SystemBoardExhaustTemp",
-            "Reading": 28.0
+            "Reading": 31.0
         }
     },
     "TemperatureReadingsCelsius": [
         {
-            "Reading": 35.0,
+            "Reading": 37.0,
             "DeviceName": "Internal",
             "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/CPU1Temp"
         },
         {
-            "Reading": 36.0,
+            "Reading": 39.0,
             "DeviceName": "Internal",
             "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/CPU2Temp"
         },
         {
-            "Reading": 22.0,
+            "Reading": 25.0,
             "DeviceName": "Intake",
             "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/SystemBoardInletTemp"
         },
         {
-            "Reading": 28.0,
+            "Reading": 31.0,
             "DeviceName": "Exhaust",
             "DataSourceUri": "/redfish/v1/Chassis/System.Embedded.1/Sensors/SystemBoardExhaustTemp"
         }

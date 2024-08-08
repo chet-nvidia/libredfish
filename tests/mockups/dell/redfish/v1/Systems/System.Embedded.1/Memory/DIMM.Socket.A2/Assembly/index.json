@@ -21,7 +21,7 @@
                         "Id": "DIMM.Socket.A2_0x23_FRU",
                         "Name": "DellAssembly",
                         "PackageType": "Memory",
-                        "SerialNumber": "2E6788CA",
+                        "SerialNumber": "2E679ED9",
                         "@odata.context": "/redfish/v1/$metadata#DellAssembly.DellAssembly",
                         "@odata.type": "#DellAssembly.v1_0_0.DellAssembly",
                         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/Oem/Dell/DellAssembly/DIMM.Socket.A2_0x23_FRU"

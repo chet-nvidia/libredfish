@@ -5,18 +5,15 @@
     "Description": "Session Collection",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/SessionService/Sessions/47"
+            "@odata.id": "/redfish/v1/SessionService/Sessions/274"
         },
         {
-            "@odata.id": "/redfish/v1/SessionService/Sessions/46"
+            "@odata.id": "/redfish/v1/SessionService/Sessions/273"
         },
         {
-            "@odata.id": "/redfish/v1/SessionService/Sessions/45"
-        },
-        {
-            "@odata.id": "/redfish/v1/SessionService/Sessions/44"
+            "@odata.id": "/redfish/v1/SessionService/Sessions/272"
         }
     ],
-    "Members@odata.count": 4,
+    "Members@odata.count": 3,
     "Name": "Session Collection"
 }

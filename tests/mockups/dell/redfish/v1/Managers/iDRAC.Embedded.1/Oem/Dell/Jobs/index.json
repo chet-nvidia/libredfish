@@ -5,21 +5,9 @@
     "Description": "Collection of Job Instances",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/Jobs/JID_758397079548"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/Jobs/RID_758397079877"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/Jobs/RID_763363841807"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/Jobs/JID_763444502680"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/Jobs/JID_763469706692"
+            "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/Jobs/JID_102241909559"
         }
     ],
-    "Members@odata.count": 5,
+    "Members@odata.count": 1,
     "Name": "JobQueue"
 }

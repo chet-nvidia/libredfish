@@ -14,7 +14,7 @@
     },
     "CapacityWatts": 6720.0,
     "Allocation": {
-        "RequestedWatts": 2458.55249023437,
+        "RequestedWatts": 2517.80249023437,
         "AllocatedWatts": 5250
     },
     "Id": "PowerSubsystem"

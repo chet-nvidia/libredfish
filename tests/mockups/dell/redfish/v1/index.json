@@ -39,8 +39,8 @@
             "@odata.context": "/redfish/v1/$metadata#DellServiceRoot.DellServiceRoot",
             "@odata.type": "#DellServiceRoot.v1_0_0.DellServiceRoot",
             "IsBranded": 0,
-            "ManagerMACAddress": "b0:7b:25:d6:ea:fa",
-            "ServiceTag": "7LHP1G3"
+            "ManagerMACAddress": "b0:7b:25:d6:51:82",
+            "ServiceTag": "F54P1G3"
         }
     },
     "Product": "Integrated Dell Remote Access Controller",

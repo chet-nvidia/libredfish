@@ -7,12 +7,12 @@
     "EthernetInterfaceType": "Physical",
     "FQDN": "",
     "FullDuplex": true,
-    "HostName": "idrac-7LHP1G3",
+    "HostName": "idrac-F54P1G3",
     "IPv4Addresses": [
         {
-            "Address": "10.180.198.11",
+            "Address": "10.180.247.199",
             "AddressOrigin": "DHCP",
-            "Gateway": "10.180.198.1",
+            "Gateway": "10.180.247.193",
             "SubnetMask": "255.255.255.192"
         }
     ],
@@ -111,7 +111,7 @@
             "PrefixLength": 64
         },
         {
-            "Address": "fe80::c231:c028:acc5:7d6b",
+            "Address": "fe80::97cc:7ce4:f705:b352",
             "AddressOrigin": "LinkLocal",
             "AddressState": "Preferred",
             "PrefixLength": 64
@@ -133,18 +133,18 @@
             "@odata.id": "/redfish/v1/Chassis/System.Embedded.1"
         }
     },
-    "MACAddress": "b0:7b:25:d6:ea:fa",
+    "MACAddress": "b0:7b:25:d6:51:82",
     "MTUSize": 1500,
     "MaxIPv6StaticAddresses": 1,
     "Name": "Manager Ethernet Interface",
     "NameServers": [
-        "10.149.10.130",
-        "10.149.10.132",
+        "10.180.126.21",
+        "0.0.0.0",
         "::",
         "::"
     ],
     "NameServers@odata.count": 4,
-    "PermanentMACAddress": "b0:7b:25:d6:ea:fa",
+    "PermanentMACAddress": "b0:7b:25:d6:51:82",
     "SpeedMbps": 1000,
     "Status": {
         "Health": "OK",

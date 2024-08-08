@@ -15,13 +15,13 @@
         "Contains@odata.count": 0,
         "Drives": [
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/CPU.1/Drives/Disk.Bay.0:Enclosure.Internal.0-1"
-            },
-            {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/CPU.1/Drives/Disk.Bay.2:Enclosure.Internal.0-1"
             },
             {
                 "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/CPU.1/Drives/Disk.Bay.1:Enclosure.Internal.0-1"
+            },
+            {
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Storage/CPU.1/Drives/Disk.Bay.0:Enclosure.Internal.0-1"
             }
         ],
         "Drives@odata.count": 3,

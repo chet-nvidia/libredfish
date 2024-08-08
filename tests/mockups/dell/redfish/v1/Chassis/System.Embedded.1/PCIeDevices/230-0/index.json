@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeDevice.PCIeDevice",
-    "@odata.etag": "\"1676348305\"",
+    "@odata.etag": "\"1718082926\"",
     "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/PCIeDevices/230-0",
     "@odata.type": "#PCIeDevice.v1_7_0.PCIeDevice",
     "AssetTag": null,
@@ -39,7 +39,7 @@
     "Name": "Dell Ent NVMe CM6 RI 1.92TB",
     "PartNumber": "0N0VK0",
     "SKU": null,
-    "SerialNumber": "PHTBPKK14R00R5",
+    "SerialNumber": "PHTBPKK16O02F3",
     "Status": {
         "State": "Enabled",
         "Health": "OK",

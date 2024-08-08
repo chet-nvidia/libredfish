@@ -21,7 +21,7 @@
             "target": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/DellJobService/Actions/DellJobService.SetupJobQueue"
         }
     },
-    "CurrentNumberOfJobs": 5,
+    "CurrentNumberOfJobs": 1,
     "DeleteOnCompletionTimeoutMinutes": 2880,
     "Description": "The DellJobService resource provides some actions to support Job management functionality.",
     "Id": "Job Service",

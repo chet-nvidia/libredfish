@@ -7,6 +7,6 @@
     "Id": "iDRAC.Embedded.1_0x23_SubSystem.1_0x23_Temperature",
     "InstanceID": "iDRAC.Embedded.1#SubSystem.1#Temperature",
     "Name": "DellRollupStatus",
-    "RollupStatus": "Ok",
+    "RollupStatus": "Unknown",
     "SubSystem": "Temperature"
 }

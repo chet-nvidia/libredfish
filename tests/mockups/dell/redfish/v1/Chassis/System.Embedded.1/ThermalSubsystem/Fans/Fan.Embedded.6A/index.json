@@ -10,7 +10,7 @@
     "PhysicalContext": "SystemBoard",
     "HotPluggable": true,
     "SpeedPercent": {
-        "SpeedRPM": 18480
+        "SpeedRPM": 18600
     },
     "Location": {
         "PartLocation": {

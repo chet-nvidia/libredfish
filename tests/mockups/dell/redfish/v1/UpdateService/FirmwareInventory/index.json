@@ -32,13 +32,13 @@
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-0-2.1.3__Disk.Bay.2:Enclosure.Internal.0-1"
         },
         {
-            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-0-2.5.13.4008__AHCI.SL.6-1"
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-0-20.31.10.14__InfiniBand.Slot.7-1"
         },
         {
-            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-0-24.34.10.02__NIC.Slot.5-1"
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-0-20.31.10.14__InfiniBand.Slot.7-2"
         },
         {
-            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-0-24.34.10.02__NIC.Slot.5-2"
+            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-0-24.40.10.00__NIC.Slot.5-1"
         },
         {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-104684-4.0.1__ServiceModule.Embedded.1"
@@ -63,12 +63,6 @@
         },
         {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-108255-21.80.9__NIC.Embedded.2-1-1"
-        },
-        {
-            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-108314-DL6R__Disk.Direct.0-0:AHCI.SL.6-1"
-        },
-        {
-            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-108314-DL6R__Disk.Direct.1-1:AHCI.SL.6-1"
         },
         {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Installed-109673-7.2.2.0__TPM.Integrated.1-1"
@@ -98,6 +92,6 @@
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/Previous-25227-4.40.29.00__iDRAC.Embedded.1-1"
         }
     ],
-    "Members@odata.count": 31,
+    "Members@odata.count": 29,
     "Name": "Firmware Inventory Collection"
 }

@@ -10,7 +10,7 @@
             "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Processors/Video.Slot.2-1/Oem/Dell/ThermalMetrics#/Temperatures/0",
             "Name": "Gpu Temperature",
             "MemberId": "0",
-            "ReadingCelsius": 31,
+            "ReadingCelsius": 34,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Processors/Video.Slot.2-1"
@@ -32,7 +32,7 @@
             "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Processors/Video.Slot.2-1/Oem/Dell/ThermalMetrics#/Temperatures/2",
             "Name": "Gpu Memory Temperature",
             "MemberId": "2",
-            "ReadingCelsius": 46,
+            "ReadingCelsius": 50,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Processors/Video.Slot.2-1"

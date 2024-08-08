@@ -1,11 +1,11 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeDevice.PCIeDevice",
-    "@odata.etag": "\"1676348304\"",
+    "@odata.etag": "\"1718082922\"",
     "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/PCIeDevices/0-31",
     "@odata.type": "#PCIeDevice.v1_7_0.PCIeDevice",
     "AssetTag": null,
-    "Description": "Intel Corporation",
-    "DeviceType": "MultiFunction",
+    "Description": "C620 Series Chipset Family SMBus",
+    "DeviceType": "SingleFunction",
     "FirmwareVersion": "",
     "Id": "0-31",
     "Links": {
@@ -24,10 +24,10 @@
         },
         "PCIeFunctions": [
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/0-31/PCIeFunctions/0-31-0"
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/0-31/PCIeFunctions/0-31-4"
             },
             {
-                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/0-31/PCIeFunctions/0-31-4"
+                "@odata.id": "/redfish/v1/Systems/System.Embedded.1/PCIeDevices/0-31/PCIeFunctions/0-31-0"
             }
         ],
         "PCIeFunctions@odata.count": 2,
@@ -35,7 +35,7 @@
     },
     "Manufacturer": "Intel Corporation",
     "Model": null,
-    "Name": "Intel Corporation",
+    "Name": "C620 Series Chipset Family SMBus",
     "PartNumber": null,
     "SKU": null,
     "SerialNumber": null,

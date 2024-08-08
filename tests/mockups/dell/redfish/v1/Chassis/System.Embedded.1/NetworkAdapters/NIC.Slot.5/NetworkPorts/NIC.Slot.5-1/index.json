@@ -4,8 +4,7 @@
     "@odata.type": "#NetworkPort.v1_4_1.NetworkPort",
     "ActiveLinkTechnology": "Ethernet",
     "AssociatedNetworkAddresses": [
-        "B8:3F:D2:90:95:D4",
-        "B8:3F:D2:90:95:D5"
+        "B8:3F:D2:90:97:C4"
     ],
     "CurrentLinkSpeedMbps": 0,
     "Description": "Network Port View",
@@ -21,30 +20,18 @@
             "NetworkDeviceFunction": {
                 "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/NetworkAdapters/NIC.Slot.5/NetworkDeviceFunctions/NIC.Slot.5-1"
             }
-        },
-        {
-            "MaxBWAllocPercent": null,
-            "NetworkDeviceFunction": {
-                "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/NetworkAdapters/NIC.Slot.5/NetworkDeviceFunctions/NIC.Slot.5-2"
-            }
         }
     ],
-    "NetDevFuncMaxBWAlloc@odata.count": 2,
+    "NetDevFuncMaxBWAlloc@odata.count": 1,
     "NetDevFuncMinBWAlloc": [
         {
             "MinBWAllocPercent": null,
             "NetworkDeviceFunction": {
                 "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/NetworkAdapters/NIC.Slot.5/NetworkDeviceFunctions/NIC.Slot.5-1"
             }
-        },
-        {
-            "MinBWAllocPercent": null,
-            "NetworkDeviceFunction": {
-                "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/NetworkAdapters/NIC.Slot.5/NetworkDeviceFunctions/NIC.Slot.5-2"
-            }
         }
     ],
-    "NetDevFuncMinBWAlloc@odata.count": 2,
+    "NetDevFuncMinBWAlloc@odata.count": 1,
     "Oem": {},
     "PhysicalPortNumber": "5",
     "Status": {
@@ -59,14 +46,9 @@
             "AutoSpeedNegotiation": null,
             "LinkNetworkTechnology": "Ethernet",
             "LinkSpeedMbps": 0
-        },
-        {
-            "AutoSpeedNegotiation": null,
-            "LinkNetworkTechnology": "Ethernet",
-            "LinkSpeedMbps": 0
         }
     ],
-    "SupportedLinkCapabilities@odata.count": 2,
+    "SupportedLinkCapabilities@odata.count": 1,
     "VendorId": "15b3",
     "WakeOnLANEnabled": null
 }

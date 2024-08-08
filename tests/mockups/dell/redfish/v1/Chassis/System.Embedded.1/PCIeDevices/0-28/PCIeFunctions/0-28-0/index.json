@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#PCIeFunction.PCIeFunction",
-    "@odata.etag": "\"1676348303\"",
+    "@odata.etag": "\"1718082924\"",
     "@odata.type": "#PCIeFunction.v1_3_0.PCIeFunction",
     "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/PCIeDevices/0-28/PCIeFunctions/0-28-0",
     "ClassCode": "0x000006",
@@ -27,8 +27,8 @@
             "@odata.type": "#DellChassisPCIeFunction.v1_0_0.DellPCIeFunction",
             "DellPCIeFunction": {
                 "DataBusWidth": "Unknown",
-                "LastSystemInventoryTime": "2023-02-14T04:17:52+00:00",
-                "LastUpdateTime": "2022-11-15T23:07:12+00:00",
+                "LastSystemInventoryTime": "2024-06-11T05:14:46+00:00",
+                "LastUpdateTime": "2022-11-16T02:21:05+00:00",
                 "SlotLength": "Unknown",
                 "SlotType": "Unknown"
             }

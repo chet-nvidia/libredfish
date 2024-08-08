@@ -5,8 +5,8 @@
     "DataBusWidth": "Unknown",
     "Description": "An instance of DellPCIeFunction will have PCI device specific data.",
     "Id": "P2PBridge.Embedded.1-1",
-    "LastSystemInventoryTime": "2023-02-14T04:17:52+00:00",
-    "LastUpdateTime": "2022-11-15T23:07:12+00:00",
+    "LastSystemInventoryTime": "2024-06-11T05:14:46+00:00",
+    "LastUpdateTime": "2022-11-16T02:21:05+00:00",
     "Name": "DellPCIeFunction",
     "SlotLength": "Unknown",
     "SlotType": "Unknown"

@@ -3,7 +3,11 @@
     "@odata.id": "/redfish/v1/EventService/Subscriptions",
     "@odata.type": "#EventDestinationCollection.EventDestinationCollection",
     "Description": "List of Event subscriptions",
-    "Members": [],
-    "Members@odata.count": 0,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/EventService/Subscriptions/e84dfe60abd90983e367defa2e0716de"
+        }
+    ],
+    "Members@odata.count": 1,
     "Name": "Event Subscriptions Collection"
 }

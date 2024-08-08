@@ -12,11 +12,8 @@
         },
         {
             "@odata.id": "/redfish/v1/Systems/System.Embedded.1/SimpleStorage/AHCI.Embedded.2-1"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/SimpleStorage/AHCI.SL.6-1"
         }
     ],
-    "Members@odata.count": 4,
+    "Members@odata.count": 3,
     "Name": "Simple Storage Collection"
 }

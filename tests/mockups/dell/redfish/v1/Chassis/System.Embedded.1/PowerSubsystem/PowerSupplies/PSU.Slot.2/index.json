@@ -31,8 +31,8 @@
             "DellPowerSupplyView": {
                 "DetailedState": "Presence Detected",
                 "DeviceDescription": "Power Supply 2",
-                "LastSystemInventoryTime": "2023-02-14T04:17:52+00:00",
-                "LastUpdateTime": "2023-02-14T04:24:30+00:00",
+                "LastSystemInventoryTime": "2024-06-11T05:14:46+00:00",
+                "LastUpdateTime": "2024-08-08T23:51:38+00:00",
                 "PMBusMonitoring": "Capable",
                 "Range1MaxInputPowerWatts": 2656,
                 "RedMinNumberNeeded": 1,
@@ -48,7 +48,7 @@
     "PartNumber": "07GN3CA02",
     "PowerCapacityWatts": 2400,
     "PowerSupplyType": "AC",
-    "SerialNumber": "PHARP0016G006K",
+    "SerialNumber": "PHARP0016L008W",
     "SparePartNumber": "07GN3CA02",
     "Status": {
         "Health": "OK",

@@ -6,11 +6,8 @@
     "Members": [
         {
             "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/NetworkAdapters/NIC.Slot.5/NetworkPorts/NIC.Slot.5-1"
-        },
-        {
-            "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/NetworkAdapters/NIC.Slot.5/NetworkPorts/NIC.Slot.5-2"
         }
     ],
-    "Members@odata.count": 2,
+    "Members@odata.count": 1,
     "Name": "Network Port Collection"
 }

@@ -12,8 +12,11 @@
         },
         {
             "@odata.id": "/redfish/v1/Systems/System.Embedded.1/NetworkInterfaces/NIC.Slot.5"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/System.Embedded.1/NetworkInterfaces/InfiniBand.Slot.7"
         }
     ],
-    "Members@odata.count": 3,
+    "Members@odata.count": 4,
     "Name": "Network Interface Collection"
 }

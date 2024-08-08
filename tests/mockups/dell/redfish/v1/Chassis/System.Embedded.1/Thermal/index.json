@@ -20,7 +20,7 @@
             "MinReadingRange": null,
             "Name": "System Board Fan1A",
             "PhysicalContext": "SystemBoard",
-            "Reading": 18480,
+            "Reading": 18600,
             "ReadingUnits": "RPM",
             "Redundancy": [],
             "Redundancy@odata.count": 0,
@@ -55,7 +55,7 @@
             "MinReadingRange": null,
             "Name": "System Board Fan2A",
             "PhysicalContext": "SystemBoard",
-            "Reading": 18480,
+            "Reading": 18600,
             "ReadingUnits": "RPM",
             "Redundancy": [],
             "Redundancy@odata.count": 0,
@@ -90,7 +90,7 @@
             "MinReadingRange": null,
             "Name": "System Board Fan3A",
             "PhysicalContext": "SystemBoard",
-            "Reading": 18480,
+            "Reading": 18600,
             "ReadingUnits": "RPM",
             "Redundancy": [],
             "Redundancy@odata.count": 0,
@@ -160,7 +160,7 @@
             "MinReadingRange": null,
             "Name": "System Board Fan5A",
             "PhysicalContext": "SystemBoard",
-            "Reading": 18600,
+            "Reading": 18720,
             "ReadingUnits": "RPM",
             "Redundancy": [],
             "Redundancy@odata.count": 0,
@@ -195,7 +195,7 @@
             "MinReadingRange": null,
             "Name": "System Board Fan6A",
             "PhysicalContext": "SystemBoard",
-            "Reading": 18480,
+            "Reading": 18600,
             "ReadingUnits": "RPM",
             "Redundancy": [],
             "Redundancy@odata.count": 0,
@@ -250,7 +250,7 @@
             "MinReadingRangeTemp": null,
             "Name": "CPU1 Temp",
             "PhysicalContext": "CPU",
-            "ReadingCelsius": 35,
+            "ReadingCelsius": 37,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Processors/CPU.Socket.1"
@@ -278,7 +278,7 @@
             "MinReadingRangeTemp": null,
             "Name": "CPU2 Temp",
             "PhysicalContext": "CPU",
-            "ReadingCelsius": 36,
+            "ReadingCelsius": 39,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Systems/System.Embedded.1/Processors/CPU.Socket.2"
@@ -306,7 +306,7 @@
             "MinReadingRangeTemp": null,
             "Name": "System Board Inlet Temp",
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 22,
+            "ReadingCelsius": 25,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Chassis/System.Embedded.1"
@@ -334,7 +334,7 @@
             "MinReadingRangeTemp": null,
             "Name": "System Board GPU2 Temp",
             "PhysicalContext": "GPU",
-            "ReadingCelsius": 31,
+            "ReadingCelsius": 34,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Chassis/System.Embedded.1"
@@ -362,7 +362,7 @@
             "MinReadingRangeTemp": null,
             "Name": "System Board Exhaust Temp",
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 28,
+            "ReadingCelsius": 31,
             "RelatedItem": [
                 {
                     "@odata.id": "/redfish/v1/Chassis/System.Embedded.1"

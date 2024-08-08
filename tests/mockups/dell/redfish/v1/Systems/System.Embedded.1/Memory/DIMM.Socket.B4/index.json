@@ -62,8 +62,8 @@
             "DellMemory": {
                 "BankLabel": "B",
                 "Id": "DIMM.Socket.B4",
-                "LastSystemInventoryTime": "2023-02-14T04:17:52+00:00",
-                "LastUpdateTime": "2021-08-05T06:17:35+00:00",
+                "LastSystemInventoryTime": "2024-06-11T05:14:46+00:00",
+                "LastUpdateTime": "2021-08-06T03:26:55+00:00",
                 "ManufactureDate": "Mon Apr 19 07:00:00 2021 UTC",
                 "MemoryTechnology": "DRAM",
                 "Model": "DDR4 DIMM",
@@ -83,7 +83,7 @@
     "OperatingSpeedMhz": 3200,
     "PartNumber": "18ASF4G72PDZ-3G2E1",
     "RankCount": 2,
-    "SerialNumber": "2E67953D",
+    "SerialNumber": "2E679C42",
     "Status": {
         "Health": "OK",
         "State": "Enabled"

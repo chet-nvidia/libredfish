@@ -19,39 +19,33 @@
                     "MaxDeviceLogins": 0,
                     "MaxPortLogins": 0
                 },
-                "NetworkDeviceFunctionCount": 2,
+                "NetworkDeviceFunctionCount": 1,
                 "NetworkPortCount": 1,
                 "VirtualizationOffload": {
                     "SRIOV": {
                         "SRIOVVEPACapable": false
                     },
                     "VirtualFunction": {
-                        "DeviceMaxCount": 254,
-                        "MinAssignmentGroupSize": 8,
+                        "DeviceMaxCount": 127,
+                        "MinAssignmentGroupSize": 16,
                         "NetworkPortMaxCount": 127
                     }
                 }
             },
-            "FirmwarePackageVersion": "24.34.10.02",
+            "FirmwarePackageVersion": "24.40.10.00",
             "Links": {
                 "NetworkDeviceFunctions": [
                     {
                         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/NetworkAdapters/NIC.Slot.5/NetworkDeviceFunctions/NIC.Slot.5-1"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/NetworkAdapters/NIC.Slot.5/NetworkDeviceFunctions/NIC.Slot.5-2"
                     }
                 ],
-                "NetworkDeviceFunctions@odata.count": 2,
+                "NetworkDeviceFunctions@odata.count": 1,
                 "NetworkPorts": [
                     {
                         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/NetworkAdapters/NIC.Slot.5/NetworkPorts/NIC.Slot.5-1"
-                    },
-                    {
-                        "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/NetworkAdapters/NIC.Slot.5/NetworkPorts/NIC.Slot.5-2"
                     }
                 ],
-                "NetworkPorts@odata.count": 2,
+                "NetworkPorts@odata.count": 1,
                 "Oem": {
                     "Dell": {
                         "@odata.type": "#DellOem.v1_3_0.DellOemLinks",
@@ -79,7 +73,7 @@
         "@odata.id": "/redfish/v1/Chassis/System.Embedded.1/NetworkAdapters/NIC.Slot.5/NetworkPorts"
     },
     "PartNumber": "MBF2H5",
-    "SerialNumber": "MT2242XZ00PC                 ",
+    "SerialNumber": "MT2242XZ00QA                 ",
     "Status": {
         "Health": null,
         "HealthRollup": null,
