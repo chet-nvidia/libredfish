@@ -5,13 +5,13 @@ stages:          # List of stages for jobs, and their order of execution
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
-  image: rust:1.72.0
+  image: rust:1.80.0
   script:
     - cargo build
 
 unit-test-job:   # This job runs in the test stage in parallel with lint-test_job
   stage: test    # It only starts when the job in the build stage completes successfully.
-  image: rust:1.72.0
+  image: rust:1.80.0
   script:
     - apt-get update
     - apt-get install -y python3-full python3-pip
@@ -19,7 +19,7 @@ unit-test-job:   # This job runs in the test stage in parallel with lint-test_jo
 
 lint-test-job:   # This job also runs in the test stage in parallel with unit-test-job
   stage: test    # It can run at the same time as unit-test-job (in parallel).
-  image: rust:1.72.0
+  image: rust:1.80.0
   script:
     - rustup component add clippy
     - cargo clippy

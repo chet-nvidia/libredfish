@@ -742,56 +742,48 @@ impl Redfish for Bmc {
 impl Bmc {
     /// Lock a Lenovo server to make it ready for tenants
     async fn enable_lockdown(&self) -> Result<(), RedfishError> {
-        self.set_kcs_lenovo(false).await.map_err(|e| {
-            debug!("Failed disabling 'IPMI over KCS Access'");
-            e
+        self.set_kcs_lenovo(false).await.inspect_err(|err| {
+            debug!(%err, "Failed disabling 'IPMI over KCS Access'");
         })?;
         self.set_firmware_rollback_lenovo(EnabledDisabled::Disabled)
             .await
-            .map_err(|e| {
-                debug!("Failed changing 'Prevent System Firmware Down-Level'");
-                e
+            .inspect_err(|err| {
+                debug!(%err, "Failed changing 'Prevent System Firmware Down-Level'");
             })?;
-        self.set_ethernet_over_usb(false).await.map_err(|e| {
-            debug!("Failed disabling Ethernet over USB");
-            e
+        self.set_ethernet_over_usb(false).await.inspect_err(|err| {
+            debug!(%err, "Failed disabling Ethernet over USB");
         })?;
         self.set_front_panel_usb_lenovo(
             lenovo::FrontPanelUSBMode::Server,
             lenovo::PortSwitchingMode::Server,
         )
         .await
-        .map_err(|e| {
-            debug!("Failed locking front panel USB to host-only.");
-            e
+        .inspect_err(|err| {
+            debug!(%err, "Failed locking front panel USB to host-only.");
         })?;
         Ok(())
     }
 
     /// Unlock a Lenovo server, restoring defaults
     pub async fn disable_lockdown(&self) -> Result<(), RedfishError> {
-        self.set_kcs_lenovo(true).await.map_err(|e| {
-            debug!("Failed enabling 'IPMI over KCS Access'");
-            e
+        self.set_kcs_lenovo(true).await.inspect_err(|err| {
+            debug!(%err, "Failed enabling 'IPMI over KCS Access'");
         })?;
         self.set_firmware_rollback_lenovo(EnabledDisabled::Enabled)
             .await
-            .map_err(|e| {
-                debug!("Failed changing 'Prevent System Firmware Down-Level'");
-                e
+            .inspect_err(|err| {
+                debug!(%err, "Failed changing 'Prevent System Firmware Down-Level'");
             })?;
-        self.set_ethernet_over_usb(true).await.map_err(|e| {
-            debug!("Failed disabling Ethernet over USB");
-            e
+        self.set_ethernet_over_usb(true).await.inspect_err(|err| {
+            debug!(%err, "Failed disabling Ethernet over USB");
         })?;
         self.set_front_panel_usb_lenovo(
             lenovo::FrontPanelUSBMode::Shared,
             lenovo::PortSwitchingMode::Server,
         )
         .await
-        .map_err(|e| {
-            debug!("Failed unlocking front panel USB to shared mode.");
-            e
+        .inspect_err(|err| {
+            debug!(%err, "Failed unlocking front panel USB to shared mode.");
         })?;
         Ok(())
     }
