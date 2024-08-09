@@ -101,7 +101,7 @@ pub struct SystemProcessors {
 #[serde(rename_all = "PascalCase")]
 pub struct TrustedModule {
     pub firmware_version: String,
-    pub interface_type: String,
+    pub interface_type: Option<String>,
     pub status: StatusState,
 }
 
