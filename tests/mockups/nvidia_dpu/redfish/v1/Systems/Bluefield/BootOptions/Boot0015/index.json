@@ -4,8 +4,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0015",
     "Description": "",
-    "DisplayName": "UEFI HTTPv4 (MAC:A088C2088082)",
+    "DisplayName": "UEFI HTTPv4 (MAC:A088C2088054)",
     "Id": "Boot0015",
     "Name": "Boot0015",
-    "UefiDevicePath": "PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/MAC(A088C2088082,0x1)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)/Uri()"
+    "UefiDevicePath": "PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/MAC(A088C2088054,0x1)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)/Uri()"
 }

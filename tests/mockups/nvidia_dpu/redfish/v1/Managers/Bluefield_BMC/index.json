@@ -20,13 +20,16 @@
         "MaxConcurrentSessions": 1,
         "ServiceEnabled": true
     },
-    "DateTime": "2023-11-21T10:33:25+00:00",
+    "DateTime": "2024-08-05T15:45:12+00:00",
     "DateTimeLocalOffset": "+00:00",
+    "DedicatedNetworkPorts": {
+        "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/DedicatedNetworkPorts"
+    },
     "Description": "Baseboard Management Controller",
     "EthernetInterfaces": {
         "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/EthernetInterfaces"
     },
-    "FirmwareVersion": "BF-23.10-4",
+    "FirmwareVersion": "BF-24.04-5",
     "GraphicalConsole": {
         "ConnectTypesSupported": [
             "KVMIP"
@@ -35,7 +38,7 @@
         "ServiceEnabled": true
     },
     "Id": "Bluefield_BMC",
-    "LastResetTime": "2023-11-21T10:27:39+00:00",
+    "LastResetTime": "2024-08-05T11:30:04+00:00",
     "Links": {
         "ActiveSoftwareImage": {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/BMC_Firmware"
@@ -78,13 +81,13 @@
         "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/NetworkProtocol"
     },
     "Oem": {
-        "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/Oem",
+        "@odata.id": "/redfish/v1/Managers/Bluefield_BMC#/Oem",
         "@odata.type": "#OemManager.Oem",
         "Nvidia": {
             "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/Oem/Nvidia"
         },
         "OpenBmc": {
-            "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/Oem/OpenBmc",
+            "@odata.id": "/redfish/v1/Managers/Bluefield_BMC#/Oem/OpenBmc",
             "@odata.type": "#OemManager.OpenBmc",
             "Certificates": {
                 "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/Truststore/Certificates"
@@ -100,12 +103,13 @@
         "MaxConcurrentSessions": 15,
         "ServiceEnabled": true
     },
-    "ServiceEntryPointUUID": "ace79559-b47c-419e-a99c-53f635051aa2",
+    "ServiceEntryPointUUID": "b4aa3ca4-d715-4e6c-84b7-20d6bfe7da49",
+    "ServiceIdentification": "",
     "Status": {
         "Conditions": [],
         "Health": "OK",
         "HealthRollup": "OK",
-        "State": "Starting"
+        "State": "Enabled"
     },
-    "UUID": "4b485b7c-cd6b-4217-bff8-1132f83d2cea"
+    "UUID": "b37700b6-622b-4108-bcac-7ee9a9a6cc76"
 }

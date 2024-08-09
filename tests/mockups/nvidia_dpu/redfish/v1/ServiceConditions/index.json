@@ -1,8 +1,35 @@
 {
     "@odata.id": "/redfish/v1/ServiceConditions",
     "@odata.type": "#ServiceConditions.v1_0_0.ServiceConditions",
-    "Conditions": [],
-    "HealthRollup": "OK",
+    "Conditions": [
+        {
+            "LogEntry": {
+                "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/113"
+            },
+            "Message": "Transfer of image 'cec1736Ecfw-00.02.0152.0000' to 'Bluefield_FW_ERoT' failed.",
+            "MessageArgs": [
+                "cec1736Ecfw-00.02.0152.0000",
+                "Bluefield_FW_ERoT"
+            ],
+            "MessageId": "Update.1.0.TransferFailed",
+            "Severity": "Critical",
+            "Timestamp": "2024-02-23T12:15:49+00:00"
+        },
+        {
+            "LogEntry": {
+                "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/114"
+            },
+            "Message": "The resource property Bluefield_FW_ERoT has detected errors of type 'ERoT is busy'.",
+            "MessageArgs": [
+                "Bluefield_FW_ERoT",
+                "ERoT is busy"
+            ],
+            "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
+            "Severity": "Critical",
+            "Timestamp": "2024-02-23T12:15:49+00:00"
+        }
+    ],
+    "HealthRollup": "Critical",
     "Id": "ServiceConditions",
     "Name": "Redfish Service Conditions",
     "Oem": {}

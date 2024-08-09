@@ -4,7 +4,11 @@
     ],
     "@odata.id": "/redfish/v1/Systems/Bluefield/SecureBoot/SecureBootDatabases/PK/Certificates",
     "@odata.type": "#CertificateCollection.CertificateCollection",
-    "Members": [],
-    "Members@odata.count": 0,
+    "Members": [
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/SecureBoot/SecureBootDatabases/PK/Certificates/1"
+        }
+    ],
+    "Members@odata.count": 1,
     "Name": "Certificate Collection"
 }

@@ -11,6 +11,15 @@
             "@odata.id": "/redfish/v1/JsonSchemas/ActionInfo"
         },
         {
+            "@odata.id": "/redfish/v1/JsonSchemas/AggregationService"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/AggregationSource"
+        },
+        {
+            "@odata.id": "/redfish/v1/JsonSchemas/AggregationSourceCollection"
+        },
+        {
             "@odata.id": "/redfish/v1/JsonSchemas/Assembly"
         },
         {
@@ -371,6 +380,6 @@
             "@odata.id": "/redfish/v1/JsonSchemas/redfish-schema-v1"
         }
     ],
-    "Members@odata.count": 122,
+    "Members@odata.count": 125,
     "Name": "JsonSchemaFile Collection"
 }

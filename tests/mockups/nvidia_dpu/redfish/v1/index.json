@@ -13,9 +13,6 @@
     "Chassis": {
         "@odata.id": "/redfish/v1/Chassis"
     },
-    "ComponentIntegrity": {
-        "@odata.id": "/redfish/v1/ComponentIntegrity"
-    },
     "EventService": {
         "@odata.id": "/redfish/v1/EventService"
     },
@@ -63,6 +60,7 @@
     "ServiceConditions": {
         "@odata.id": "/redfish/v1/ServiceConditions"
     },
+    "ServiceIdentification": "",
     "SessionService": {
         "@odata.id": "/redfish/v1/SessionService"
     },
@@ -75,7 +73,7 @@
     "TelemetryService": {
         "@odata.id": "/redfish/v1/TelemetryService"
     },
-    "UUID": "ace79559-b47c-419e-a99c-53f635051aa2",
+    "UUID": "b4aa3ca4-d715-4e6c-84b7-20d6bfe7da49",
     "UpdateService": {
         "@odata.id": "/redfish/v1/UpdateService"
     },

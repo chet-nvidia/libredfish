@@ -1,9 +1,9 @@
 Redfish service captured by the Redfish Mockup Creator, Version 1.2.0
-Created: 2023-11-21 10:42:51
-Service: https://172.30.32.5/
+Created: 2024-08-05 15:52:40
+Service: https://172.30.32.2
 User: root
 Description: 
-Total response time: 23.076088428497314
-Average response time: 0.01980780122617795
-Minimum response time: 0.00932765007019043, /redfish/v1/JsonSchemas/EventService
-Maximum response time: 0.6998550891876221, /redfish/v1/Chassis/Bluefield_BMC/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions/eth1f0
+Total response time: 41.84756350517273
+Average response time: 0.05828351463115979
+Minimum response time: 0.010029315948486328, /redfish/v1/JsonSchemas/Chassis
+Maximum response time: 7.791430234909058, /redfish/v1/Systems/Bluefield/Oem/Nvidia/Connectx/StrapOptions

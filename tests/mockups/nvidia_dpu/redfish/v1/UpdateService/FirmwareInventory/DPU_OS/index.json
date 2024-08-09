@@ -1,16 +1,16 @@
 {
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_OS",
     "@odata.type": "#SoftwareInventory.v1_4_0.SoftwareInventory",
-    "Description": "Host image",
+    "Description": "FW inventory software of DPU",
     "Id": "DPU_OS",
     "Members@odata.count": 1,
-    "Name": "Software Inventory",
+    "Name": "OS image",
     "RelatedItem": [
         {
             "@odata.id": "/redfish/v1/Systems/Bluefield/Bios"
         }
     ],
-    "SoftwareId": "",
+    "SoftwareId": "0",
     "Status": {
         "Conditions": [],
         "Health": "OK",
@@ -18,5 +18,5 @@
         "State": "Enabled"
     },
     "Updateable": true,
-    "Version": "DOCA_2.5.0_BSP_4.5.0_Ubuntu_22.04-1.20231120.prod"
+    "Version": "bf-bundle-2.7.0-44_24.04_ubuntu-22.04_prod"
 }

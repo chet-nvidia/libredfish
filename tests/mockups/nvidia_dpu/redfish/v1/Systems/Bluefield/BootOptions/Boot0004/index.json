@@ -7,5 +7,5 @@
     "DisplayName": "NET-OOB-IPV4",
     "Id": "Boot0004",
     "Name": "Boot0004",
-    "UefiDevicePath": "MAC(A088C2088096,0x1)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)"
+    "UefiDevicePath": "MAC(A088C2088070,0x1)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)"
 }

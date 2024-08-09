@@ -1,7 +1,12 @@
 {
     "@odata.id": "/redfish/v1/Chassis/Card1/EnvironmentMetrics",
-    "@odata.type": "#EnvironmentMetrics.v1_2_0.EnvironmentMetrics",
+    "@odata.type": "#EnvironmentMetrics.v1_3_0.EnvironmentMetrics",
     "FanSpeedsPercent": [],
     "Id": "EnvironmentMetrics",
-    "Name": "Chassis Environment Metrics"
+    "Name": "Chassis Environment Metrics",
+    "PowerLimitWatts": {
+        "AllowableMax": 1000,
+        "AllowableMin": 0,
+        "DataSourceUri": "/redfish/v1/Chassis/Card1/Controls/PowerLimit_0"
+    }
 }

@@ -4,8 +4,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0011",
     "Description": "",
-    "DisplayName": "UEFI HTTPv4 (MAC:A088C2088096 VLAN4040)",
+    "DisplayName": "UEFI HTTPv4 (MAC:A088C2088070 VLAN4040)",
     "Id": "Boot0011",
     "Name": "Boot0011",
-    "UefiDevicePath": "MAC(A088C2088096,0x1)/Vlan(4040)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)/Uri()"
+    "UefiDevicePath": "MAC(A088C2088070,0x1)/Vlan(4040)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)/Uri()"
 }

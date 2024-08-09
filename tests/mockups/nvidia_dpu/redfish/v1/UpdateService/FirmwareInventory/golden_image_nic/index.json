@@ -1,9 +1,9 @@
 {
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/golden_image_nic",
     "@odata.type": "#SoftwareInventory.v1_4_0.SoftwareInventory",
-    "Description": "BMC image",
+    "Description": "Other image",
     "Id": "golden_image_nic",
-    "Name": "Software Inventory",
+    "Name": "NIC golden image",
     "RelatedItem": [],
     "RelatedItem@odata.count": 0,
     "SoftwareId": "",

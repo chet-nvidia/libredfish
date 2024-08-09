@@ -217,7 +217,7 @@
             },
             {
                 "AttributeName": "DateTime",
-                "CurrentValue": "2023-11-21T10:30:46Z",
+                "CurrentValue": "2024-02-29T11:47:11Z",
                 "DisplayName": "Date and Time",
                 "DisplayOrder": 10,
                 "HelpText": "Set the BIOS time and date.",

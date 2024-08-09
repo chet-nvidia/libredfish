@@ -3,5 +3,6 @@
     "@odata.type": "#PowerSupplyCollection.PowerSupplyCollection",
     "Description": "The collection of PowerSupply resource instances Card1",
     "Members": [],
+    "Members@odata.count": 0,
     "Name": "Power Supply Collection"
 }

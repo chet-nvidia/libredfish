@@ -1,16 +1,16 @@
 {
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/DPU_BSP",
     "@odata.type": "#SoftwareInventory.v1_4_0.SoftwareInventory",
-    "Description": "Host image",
+    "Description": "FW inventory software of DPU",
     "Id": "DPU_BSP",
     "Members@odata.count": 1,
-    "Name": "Software Inventory",
+    "Name": "BSP image",
     "RelatedItem": [
         {
             "@odata.id": "/redfish/v1/Systems/Bluefield/Bios"
         }
     ],
-    "SoftwareId": "",
+    "SoftwareId": "0",
     "Status": {
         "Conditions": [],
         "Health": "OK",
@@ -18,5 +18,5 @@
         "State": "Enabled"
     },
     "Updateable": false,
-    "Version": "4.5.0.12984"
+    "Version": "4.7.1.13167"
 }

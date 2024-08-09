@@ -27,7 +27,7 @@
             "MemberId": "1_2V_BMC",
             "MinReadingRange": 0.0,
             "Name": "1 2V BMC",
-            "ReadingVolts": 1.201,
+            "ReadingVolts": 1.206,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -42,7 +42,7 @@
             "MemberId": "1_8V",
             "MinReadingRange": 0.0,
             "Name": "1 8V",
-            "ReadingVolts": 1.806,
+            "ReadingVolts": 1.8108,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -57,7 +57,7 @@
             "MemberId": "1_8V_BMC",
             "MinReadingRange": 0.0,
             "Name": "1 8V BMC",
-            "ReadingVolts": 1.8108,
+            "ReadingVolts": 1.8205,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -72,7 +72,7 @@
             "MemberId": "12V_ATX",
             "MinReadingRange": 0.0,
             "Name": "12V ATX",
-            "ReadingVolts": 12.2,
+            "ReadingVolts": 12.104,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -87,7 +87,7 @@
             "MemberId": "12V_PCIe",
             "MinReadingRange": 0.0,
             "Name": "12V PCIe",
-            "ReadingVolts": 12.224,
+            "ReadingVolts": 12.16,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -102,7 +102,7 @@
             "MemberId": "1V_BMC",
             "MinReadingRange": 0.0,
             "Name": "1V BMC",
-            "ReadingVolts": 0.996,
+            "ReadingVolts": 1.0,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -132,7 +132,7 @@
             "MemberId": "3_3V",
             "MinReadingRange": 0.0,
             "Name": "3 3V",
-            "ReadingVolts": 3.3429,
+            "ReadingVolts": 3.2987,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -147,7 +147,7 @@
             "MemberId": "3_3V_RGM",
             "MinReadingRange": 0.0,
             "Name": "3 3V RGM",
-            "ReadingVolts": 3.3584,
+            "ReadingVolts": 3.3097,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -162,7 +162,7 @@
             "MemberId": "5V",
             "MinReadingRange": 0.0,
             "Name": "5V",
-            "ReadingVolts": 5.0033,
+            "ReadingVolts": 5.0432,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -177,7 +177,7 @@
             "MemberId": "DVDD",
             "MinReadingRange": 0.0,
             "Name": "DVDD",
-            "ReadingVolts": 0.839,
+            "ReadingVolts": 0.874,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -192,7 +192,7 @@
             "MemberId": "HVDD",
             "MinReadingRange": 0.0,
             "Name": "HVDD",
-            "ReadingVolts": 1.21,
+            "ReadingVolts": 1.213,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -207,7 +207,7 @@
             "MemberId": "VDD",
             "MinReadingRange": 0.0,
             "Name": "VDD",
-            "ReadingVolts": 0.856,
+            "ReadingVolts": 0.849,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -222,7 +222,7 @@
             "MemberId": "VDD_CPU_L",
             "MinReadingRange": 0.0,
             "Name": "VDD CPU L",
-            "ReadingVolts": 0.891,
+            "ReadingVolts": 0.913,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -237,7 +237,7 @@
             "MemberId": "VDD_CPU_R",
             "MinReadingRange": 0.0,
             "Name": "VDD CPU R",
-            "ReadingVolts": 0.891,
+            "ReadingVolts": 0.91,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -252,7 +252,7 @@
             "MemberId": "VDDQ",
             "MinReadingRange": 0.0,
             "Name": "VDDQ",
-            "ReadingVolts": 1.12,
+            "ReadingVolts": 1.11,
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"

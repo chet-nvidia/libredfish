@@ -7,7 +7,7 @@
         "BootOrder": [],
         "BootSourceOverrideEnabled": "Disabled",
         "BootSourceOverrideMode": "UEFI",
-        "BootSourceOverrideTarget": "None",
+        "BootSourceOverrideTarget": "UefiHttp",
         "HttpBootUri": "",
         "UefiTargetBootSourceOverride": "None"
     },

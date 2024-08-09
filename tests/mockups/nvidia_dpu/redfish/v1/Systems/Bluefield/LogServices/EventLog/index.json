@@ -6,7 +6,7 @@
             "target": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Actions/LogService.ClearLog"
         }
     },
-    "DateTime": "2023-11-21T10:33:33+00:00",
+    "DateTime": "2024-08-05T15:45:13+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "System Event Log Service",
     "Entries": {
@@ -17,8 +17,8 @@
     "Oem": {
         "Nvidia": {
             "@odata.type": "#NvidiaLogService.v1_0_0.NvidiaLogService",
-            "LatestEntryID": "56",
-            "LatestEntryTimeStamp": "2023-11-21T10:30:51+00:00"
+            "LatestEntryID": "390",
+            "LatestEntryTimeStamp": "2024-08-05T15:14:04+00:00"
         }
     },
     "OverWritePolicy": "WrapsWhenFull"

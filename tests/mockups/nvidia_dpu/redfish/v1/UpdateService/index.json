@@ -1,12 +1,10 @@
 {
     "@odata.id": "/redfish/v1/UpdateService",
-    "@odata.type": "#UpdateService.v1_8_0.UpdateService",
+    "@odata.type": "#UpdateService.v1_11_0.UpdateService",
     "Actions": {
         "#UpdateService.SimpleUpdate": {
             "TransferProtocol@Redfish.AllowableValues": [
-                [
-                    "SCP"
-                ]
+                "SCP"
             ],
             "target": "/redfish/v1/UpdateService/Actions/UpdateService.SimpleUpdate"
         },
@@ -31,6 +29,7 @@
     },
     "HttpPushUri": "/redfish/v1/UpdateService/update",
     "HttpPushUriOptions": {
+        "ForceUpdate": false,
         "HttpPushUriApplyTime": {
             "ApplyTime": "OnReset"
         }

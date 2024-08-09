@@ -275,6 +275,19 @@
             "Resolution": "None.",
             "Severity": "OK"
         },
+        "BMCServicePeakResourceInfo": {
+            "Description": "Indicates that sensor value has crossed peak threshold limit.",
+            "Message": "%1 sensor value (Reading = %2) has crossed peak Threshold = %3",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 3,
+            "ParamTypes": [
+                "string",
+                "number",
+                "number"
+            ],
+            "Resolution": "None.",
+            "Severity": "OK"
+        },
         "BMCServiceResourceInfo": {
             "Description": "Indicates BMC resource consumtion by process interms of storage, CPU and memory or any other resource",
             "Message": "The process consuming HIGH %1 Resource is %2",
@@ -391,6 +404,18 @@
             ],
             "Resolution": "None.",
             "Severity": "Critical"
+        },
+        "ComponentUpdateSkipped": {
+            "Description": "Indicates that component fimware update is skipped.",
+            "Message": "The update operation for the component '%1' is skipped because '%2'.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 2,
+            "ParamTypes": [
+                "string",
+                "string"
+            ],
+            "Resolution": "None.",
+            "Severity": "OK"
         },
         "DCPowerOff": {
             "Description": "Indicates that the system DC power is off.",

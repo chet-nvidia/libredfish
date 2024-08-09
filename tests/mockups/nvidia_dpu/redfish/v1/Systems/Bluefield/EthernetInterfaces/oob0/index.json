@@ -1,0 +1,63 @@
+{
+    "@odata.id": "/redfish/v1/Systems/Bluefield/EthernetInterfaces/oob0",
+    "@odata.type": "#EthernetInterface.v1_6_0.EthernetInterface",
+    "DHCPv4": {
+        "DHCPEnabled": true,
+        "UseDNSServers": false,
+        "UseDomainName": false,
+        "UseNTPServers": false
+    },
+    "DHCPv6": {
+        "OperatingMode": "Stateful",
+        "UseDNSServers": false,
+        "UseDomainName": false,
+        "UseNTPServers": false
+    },
+    "Description": "Host Network Interface for port oob0",
+    "IPv4Addresses": [
+        {
+            "Address": "172.30.32.3",
+            "AddressOrigin": "Static",
+            "Gateway": "0.0.0.0",
+            "SubnetMask": "255.255.255.0"
+        }
+    ],
+    "IPv4StaticAddresses": [
+        {
+            "Address": "172.30.32.3",
+            "AddressOrigin": "Static",
+            "Gateway": "0.0.0.0",
+            "SubnetMask": "255.255.255.0"
+        }
+    ],
+    "IPv6AddressPolicyTable": [],
+    "IPv6Addresses": [
+        {
+            "Address": "fe80::a288:c2ff:fe08:8070",
+            "AddressOrigin": "Static",
+            "AddressState": null,
+            "PrefixLength": 64
+        }
+    ],
+    "IPv6DefaultGateway": "0:0:0:0:0:0:0:0",
+    "IPv6StaticAddresses": [
+        {
+            "Address": "fe80::a288:c2ff:fe08:8070",
+            "PrefixLength": 64
+        }
+    ],
+    "Id": "oob0",
+    "InterfaceEnabled": true,
+    "LinkStatus": "LinkUp",
+    "MACAddress": "a0:88:c2:08:80:70",
+    "MTUSize": 1500,
+    "Name": "Host Ethernet Interface",
+    "NameServers": [],
+    "SpeedMbps": 1000,
+    "StaticNameServers": [],
+    "Status": {
+        "Health": "OK",
+        "HealthRollup": "OK",
+        "State": "Enabled"
+    }
+}

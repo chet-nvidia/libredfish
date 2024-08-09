@@ -4,10 +4,10 @@
     "Description": "BMC User Accounts",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/AccountService/Accounts/NvBluefieldUefi1"
+            "@odata.id": "/redfish/v1/AccountService/Accounts/NvBluefieldUefi0"
         },
         {
-            "@odata.id": "/redfish/v1/AccountService/Accounts/NvBluefieldUefi0"
+            "@odata.id": "/redfish/v1/AccountService/Accounts/NvBluefieldUefi1"
         },
         {
             "@odata.id": "/redfish/v1/AccountService/Accounts/forge_admin"

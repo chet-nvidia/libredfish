@@ -55,11 +55,7 @@
             "Boot0017",
             "Boot0018",
             "Boot0019",
-            "Boot001A",
-            "Boot001B",
-            "Boot001C",
-            "Boot001D",
-            "Boot001E"
+            "Boot001A"
         ],
         "BootOrderPropertySelection": "BootOrder",
         "BootSourceOverrideEnabled": "Disabled",
@@ -73,7 +69,7 @@
             "Legacy",
             "UEFI"
         ],
-        "BootSourceOverrideTarget": "None",
+        "BootSourceOverrideTarget": "UefiHttp",
         "BootSourceOverrideTarget@Redfish.AllowableValues": [
             "None",
             "Pxe",
@@ -87,23 +83,20 @@
         "UefiTargetBootSourceOverride": "None"
     },
     "BootProgress": {
-        "LastState": "None",
-        "LastStateTime": "1970-01-20T16:22:42.592374+00:00"
+        "LastState": "OEM",
+        "LastStateTime": "1970-01-20T22:34:24.166407+00:00",
+        "OemLastState": "Invalid"
     },
-    "Description": "Computer System",
+    "Description": "This ComputerSystem resource represents the SoC that is part of the DPU found in Card1",
+    "EthernetInterfaces": {
+        "@odata.id": "/redfish/v1/Systems/Bluefield/EthernetInterfaces"
+    },
     "GraphicalConsole": {
         "ConnectTypesSupported": [
             "KVMIP"
         ],
         "MaxConcurrentSessions": 4,
         "ServiceEnabled": true
-    },
-    "HostWatchdogTimer": {
-        "FunctionEnabled": false,
-        "Status": {
-            "State": "Enabled"
-        },
-        "TimeoutAction": "ResetSystem"
     },
     "Id": "Bluefield",
     "LastResetTime": "1970-01-01T00:00:00+00:00",
@@ -152,7 +145,7 @@
     "Processors": {
         "@odata.id": "/redfish/v1/Systems/Bluefield/Processors"
     },
-    "SKU": "900-9D3B6-00CV-AA0",
+    "SKU": "",
     "SecureBoot": {
         "@odata.id": "/redfish/v1/Systems/Bluefield/SecureBoot"
     },
@@ -167,7 +160,7 @@
             "ServiceEnabled": true
         }
     },
-    "SerialNumber": "MT2328XZ185R            ",
+    "SerialNumber": "MT2328XZ185Q",
     "Status": {
         "Health": "OK",
         "HealthRollup": "OK",
@@ -177,5 +170,5 @@
         "@odata.id": "/redfish/v1/Systems/Bluefield/Storage"
     },
     "SystemType": "Physical",
-    "UUID": "90633594-1a24-ee11-8000-a088c2088072"
+    "UUID": null
 }

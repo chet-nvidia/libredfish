@@ -8,19 +8,19 @@
             "@odata.id": "/redfish/v1/Chassis/Card1/Sensors/bluefield_temp",
             "DataSourceUri": "/redfish/v1/Chassis/Card1/Sensors/bluefield_temp",
             "DeviceName": "bluefield_temp",
-            "Reading": "57.000000"
+            "Reading": 60.0
         },
         {
             "@odata.id": "/redfish/v1/Chassis/Card1/Sensors/p0_temp",
             "DataSourceUri": "/redfish/v1/Chassis/Card1/Sensors/p0_temp",
             "DeviceName": "p0_temp",
-            "Reading": "nan"
+            "Reading": null
         },
         {
             "@odata.id": "/redfish/v1/Chassis/Card1/Sensors/p1_temp",
             "DataSourceUri": "/redfish/v1/Chassis/Card1/Sensors/p1_temp",
             "DeviceName": "p1_temp",
-            "Reading": "nan"
+            "Reading": null
         }
     ]
 }

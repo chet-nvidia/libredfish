@@ -1,5 +1,5 @@
 {
     "BmcRShim": {
-        "BmcRShimEnabled": false
+        "BmcRShimEnabled": true
     }
 }

@@ -1,5 +1,19 @@
 {
     "Actions": {
+        "#HostRshim.Set": {
+            "Parameters": [
+                {
+                    "AllowableValues": [
+                        "Disabled",
+                        "Enabled"
+                    ],
+                    "DataType": "String",
+                    "Name": "HostRshim",
+                    "Required": true
+                }
+            ],
+            "target": "/redfish/v1/Systems/Bluefield/Oem/Nvidia/Actions/HostRshim.Set"
+        },
         "#Mode.Set": {
             "Parameters": [
                 {
@@ -13,7 +27,30 @@
                 }
             ],
             "target": "/redfish/v1/Systems/Bluefield/Oem/Nvidia/Actions/Mode.Set"
+        },
+        "#TruststoreCertificates.ResetKeys": {
+            "ResetKeysType@Redfish.AllowableValues": [
+                "DeleteAllKeys"
+            ],
+            "target": "/redfish/v1/Systems/Bluefield/Oem/Nvidia/Actions/TruststoreCertificates.ResetKeys"
         }
     },
-    "Mode": ""
+    "BaseGUID": "a088c2030008804c",
+    "BaseMAC": "a088c208804c",
+    "Connectx": {
+        "ExternalHostPrivilege": {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/Oem/Nvidia/Connectx/ExternalHostPrivileges"
+        },
+        "StrapOptions": {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/Oem/Nvidia/Connectx/StrapOptions"
+        }
+    },
+    "Description": "NVIDIA BlueField-3 B3220 P-Series FHHL DPU; 200GbE (default mode) / NDR200 IB; Dual-port QSFP112; PCIe Gen5.0 x16 with x16 PCIe extension option; 16 Arm cores; 32GB on-board DDR; integrated BMC; Crypto Enabled",
+    "HostRshim": "",
+    "Mode": "",
+    "Truststore": {
+        "Certificates": {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/Oem/Nvidia/Truststore/Certificates"
+        }
+    }
 }

@@ -50,7 +50,7 @@
     "PCIeSlots": {
         "@odata.id": "/redfish/v1/Chassis/Card1/PCIeSlots"
     },
-    "PartNumber": "900-9D3B6-00CV-AA0   ",
+    "PartNumber": "900-9D3B6-00CV-AA0",
     "Power": {
         "@odata.id": "/redfish/v1/Chassis/Card1/Power"
     },
@@ -58,11 +58,11 @@
     "PowerSubsystem": {
         "@odata.id": "/redfish/v1/Chassis/Card1/PowerSubsystem"
     },
-    "SKU": "900-9D3B6-00CV-AA0",
+    "SKU": "",
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/Card1/Sensors"
     },
-    "SerialNumber": "MT2328XZ185R            ",
+    "SerialNumber": "MT2328XZ185Q",
     "Status": {
         "Conditions": [],
         "Health": "OK",
@@ -77,6 +77,5 @@
     },
     "TrustedComponents": {
         "@odata.id": "/redfish/v1/Chassis/Card1/TrustedComponents"
-    },
-    "UUID": "90633594-1a24-ee11-8000-a088c2088072"
+    }
 }

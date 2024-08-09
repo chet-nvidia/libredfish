@@ -22,7 +22,17 @@
         "ResourceEvent"
     ],
     "ResourceTypes": [
-        "Task"
+        "Task",
+        "AccountService",
+        "ManagerAccount",
+        "SessionService",
+        "EventService",
+        "UpdateService",
+        "Chassis",
+        "Systems",
+        "Managers",
+        "CertificateService",
+        "VirtualMedia"
     ],
     "SSEFilterPropertiesSupported": {
         "EventFormatType": true,

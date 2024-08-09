@@ -5,11 +5,8 @@
     "Members": [
         {
             "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/EthernetInterfaces/eth0"
-        },
-        {
-            "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/EthernetInterfaces/vlan4040"
         }
     ],
-    "Members@odata.count": 2,
+    "Members@odata.count": 1,
     "Name": "Ethernet Network Interface Collection"
 }

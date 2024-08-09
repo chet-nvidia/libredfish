@@ -1,0 +1,28 @@
+{
+    "Mask": {
+        "2PcoreActive": "",
+        "CoreBypassN": "",
+        "DisableInbandRecover": "",
+        "Fnp": "",
+        "OscFreq0": "",
+        "OscFreq1": "",
+        "PciPartition0": "",
+        "PciPartition1": "",
+        "PciReversal": "",
+        "PrimaryIsPcore1": "",
+        "SocketDirect": ""
+    },
+    "StrapOptions": {
+        "2PcoreActive": "",
+        "CoreBypassN": "",
+        "DisableInbandRecover": "",
+        "Fnp": "",
+        "OscFreq0": "",
+        "OscFreq1": "",
+        "PciPartition0": "",
+        "PciPartition1": "",
+        "PciReversal": "",
+        "PrimaryIsPcore1": "",
+        "SocketDirect": ""
+    }
+}

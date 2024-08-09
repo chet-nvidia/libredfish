@@ -1,15 +1,28 @@
 {
     "@odata.id": "/redfish/v1/Chassis/Bluefield_ERoT",
     "@odata.type": "#Chassis.v1_17_0.Chassis",
-    "Certificates": {
-        "@odata.id": "/redfish/v1/Chassis/Bluefield_ERoT/Certificates"
+    "Actions": {
+        "#Chassis.Reset": {
+            "@Redfish.ActionInfo": "/redfish/v1/Chassis/Bluefield_ERoT/ResetActionInfo",
+            "target": "/redfish/v1/Chassis/Bluefield_ERoT/Actions/Chassis.Reset"
+        }
     },
     "ChassisType": "Component",
     "Id": "Bluefield_ERoT",
     "Links": {
+        "ComputerSystems": [
+            {
+                "@odata.id": "/redfish/v1/Systems/Bluefield"
+            }
+        ],
         "ContainedBy": {
             "@odata.id": "/redfish/v1/Chassis/Card1"
         },
+        "ManagedBy": [
+            {
+                "@odata.id": "/redfish/v1/Managers/Bluefield_BMC"
+            }
+        ],
         "Oem": {
             "Nvidia": {
                 "@odata.type": "#NvidiaChassis.v1_0_0.NvidiaChassis",
@@ -32,7 +45,7 @@
         "Nvidia": {
             "@odata.type": "#NvidiaChassis.v1_0_0.NvidiaChassis",
             "AutomaticBackgroundCopyEnabled": true,
-            "BackgroundCopyStatus": "InProgress",
+            "BackgroundCopyStatus": "Completed",
             "InbandUpdatePolicyEnabled": true
         }
     },

@@ -4,6 +4,6 @@
     "CurrentSpeedGbps": 100,
     "Id": "eth0",
     "LinkNetworkTechnology": "Ethernet",
-    "LinkStatus": "LinkDown",
+    "LinkStatus": "LinkUp",
     "Name": "Port"
 }

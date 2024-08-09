@@ -3,7 +3,7 @@
     "@odata.type": "#Sensor.v1_2_0.Sensor",
     "Id": "5V",
     "Name": "5V",
-    "Reading": 5.0033,
+    "Reading": 5.0432,
     "ReadingRangeMax": 5.9800664641296875,
     "ReadingRangeMin": 0.0,
     "ReadingType": "Voltage",

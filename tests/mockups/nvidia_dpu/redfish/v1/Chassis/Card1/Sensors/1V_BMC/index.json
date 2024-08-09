@@ -3,7 +3,7 @@
     "@odata.type": "#Sensor.v1_2_0.Sensor",
     "Id": "1V_BMC",
     "Name": "1V BMC",
-    "Reading": 0.996,
+    "Reading": 1.0,
     "ReadingRangeMax": 1.8,
     "ReadingRangeMin": 0.0,
     "ReadingType": "Voltage",

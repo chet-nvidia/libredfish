@@ -1,9 +1,9 @@
 {
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/golden_image_arm",
     "@odata.type": "#SoftwareInventory.v1_4_0.SoftwareInventory",
-    "Description": "BMC image",
+    "Description": "Other image",
     "Id": "golden_image_arm",
-    "Name": "Software Inventory",
+    "Name": "ARM golden image",
     "RelatedItem": [],
     "RelatedItem@odata.count": 0,
     "SoftwareId": "",
