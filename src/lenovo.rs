@@ -749,6 +749,10 @@ impl Redfish for Bmc {
     async fn get_base_mac_address(&self) -> Result<Option<String>, RedfishError> {
         self.s.get_base_mac_address().await
     }
+
+    async fn lockdown_bmc(&self, target: crate::EnabledDisabled) -> Result<(), RedfishError> {
+        self.s.lockdown_bmc(target).await
+    }
 }
 
 impl Bmc {

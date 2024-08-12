@@ -579,6 +579,12 @@ impl Redfish for RedfishStandard {
             "get_base_mac_address".to_string(),
         ))
     }
+
+    async fn lockdown_bmc(&self, _target: EnabledDisabled) -> Result<(), RedfishError> {
+        Err(RedfishError::NotSupported(
+            "lockdown_bmc".to_string(),
+        ))
+    }
 }
 
 impl RedfishStandard {

@@ -764,6 +764,14 @@ impl Redfish for Bmc {
         let job_id = self.clear_uefi_password(current_uefi_password).await?;
         Ok(Some(job_id))
     }
+
+    async fn lockdown_bmc(&self, target: crate::EnabledDisabled) -> Result<(), RedfishError> {
+        use EnabledDisabled::*;
+        match target {
+            Enabled => self.enable_bmc_lockdown(dell::BootDevices::PXE).await,
+            Disabled => self.disable_bmc_lockdown(dell::BootDevices::PXE).await,
+        }
+    }
 }
 
 impl Bmc {

@@ -557,6 +557,10 @@ impl Redfish for Bmc {
             self.s.client.get(url.as_str()).await?;
         Ok(body.get("BaseMAC").map(|v| v.to_string()))
     }
+
+    async fn lockdown_bmc(&self, target: crate::EnabledDisabled) -> Result<(), RedfishError> {
+        self.s.lockdown_bmc(target).await
+    }
 }
 
 impl Bmc {

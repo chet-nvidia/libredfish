@@ -758,6 +758,10 @@ impl Redfish for Bmc {
     ) -> Result<Option<String>, RedfishError> {
         self.change_uefi_password(current_uefi_password, "").await
     }
+
+    async fn lockdown_bmc(&self, target: crate::EnabledDisabled) -> Result<(), RedfishError> {
+        self.s.lockdown_bmc(target).await
+    }
 }
 
 impl Bmc {
