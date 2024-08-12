@@ -542,6 +542,13 @@ impl Redfish for Bmc {
     ) -> Result<Option<String>, RedfishError> {
         self.change_uefi_password(current_uefi_password, "").await
     }
+
+    async fn get_base_mac_address(&self) -> Result<Option<String>, RedfishError> {
+        let url = format!("Systems/{}/Oem/Nvidia", self.s.system_id());
+        let (_sc, body): (reqwest::StatusCode, HashMap<String, serde_json::Value>) =
+            self.s.client.get(url.as_str()).await?;
+        Ok(body.get("BaseMAC").map(|v| v.to_string()))
+    }
 }
 
 impl Bmc {

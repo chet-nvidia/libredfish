@@ -335,6 +335,8 @@ pub trait Redfish: Send + Sync + 'static {
     ) -> Result<Option<String>, RedfishError>;
 
     async fn get_update_service(&self) -> Result<UpdateService, RedfishError>;
+
+    async fn get_base_mac_address(&self) -> Result<Option<String>, RedfishError>;
 }
 
 // When Carbide drops it's `IpmiCommand.launch_command` background job system, we can

@@ -565,6 +565,10 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
+    async fn get_base_mac_address(&self) -> Result<Option<String>, RedfishError> {
+        self.s.get_base_mac_address().await
+    }
+
     //
     // Details of changing boot order in DGX H100 can be found at
     // https://docs.nvidia.com/dgx/dgxh100-user-guide/redfish-api-supp.html#modifying-the-boot-order-on-dgx-h100-using-redfish.

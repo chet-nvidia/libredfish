@@ -561,6 +561,12 @@ impl Redfish for RedfishStandard {
         let (_, update_service) = self.client.get(self.update_service().as_str()).await?;
         Ok(update_service)
     }
+
+    async fn get_base_mac_address(&self) -> Result<Option<String>, RedfishError> {
+        Err(RedfishError::NotSupported(
+            "get_base_mac_address".to_string(),
+        ))
+    }
 }
 
 impl RedfishStandard {

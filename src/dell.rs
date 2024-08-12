@@ -122,6 +122,10 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
+    async fn get_base_mac_address(&self) -> Result<Option<String>, RedfishError> {
+        self.s.get_base_mac_address().await
+    }
+
     async fn forge_setup(&self) -> Result<(), RedfishError> {
         self.delete_job_queue().await?;
 

@@ -462,6 +462,10 @@ impl Redfish for Bmc {
     ) -> Result<Option<String>, RedfishError> {
         self.change_uefi_password(current_uefi_password, "").await
     }
+
+    async fn get_base_mac_address(&self) -> Result<Option<String>, RedfishError> {
+        self.s.get_base_mac_address().await
+    }
 }
 
 impl Bmc {
