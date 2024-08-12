@@ -88,6 +88,14 @@ impl Redfish for Bmc {
         self.s.bmc_reset().await
     }
 
+    async fn chassis_reset(
+        &self,
+        chassis_id: &str,
+        reset_type: SystemPowerControl,
+    ) -> Result<(), RedfishError> {
+        self.s.chassis_reset(chassis_id, reset_type).await
+    }
+
     async fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
         self.s.get_thermal_metrics().await
     }

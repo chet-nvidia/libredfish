@@ -137,6 +137,18 @@ impl Redfish for RedfishStandard {
         self.client.post(&url, arg).await.map(|_resp| Ok(()))?
     }
 
+    async fn chassis_reset(
+        &self,
+        chassis_id: &str,
+        reset_type: model::SystemPowerControl,
+    ) -> Result<(), RedfishError> {
+        let url = format!("Chassis/{}/Actions/Chassis.Reset", chassis_id);
+        let mut arg = HashMap::new();
+
+        arg.insert("ResetType", reset_type.to_string());
+        self.client.post(&url, arg).await.map(|_resp| Ok(()))?
+    }
+
     async fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
         let thermal = self.get_thermal_metrics().await?;
         Ok(thermal)

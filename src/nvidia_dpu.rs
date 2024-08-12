@@ -116,6 +116,14 @@ impl Redfish for Bmc {
         self.s.bmc_reset().await
     }
 
+    async fn chassis_reset(
+        &self,
+        chassis_id: &str,
+        reset_type: crate::SystemPowerControl,
+    ) -> Result<(), RedfishError> {
+        self.s.chassis_reset(chassis_id, reset_type).await
+    }
+
     async fn get_thermal_metrics(&self) -> Result<crate::Thermal, RedfishError> {
         let (_status_code, body) = self.s.client.get("Chassis/Card1/Thermal/").await?;
         Ok(body)
