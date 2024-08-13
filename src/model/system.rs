@@ -100,8 +100,9 @@ pub struct SystemProcessors {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct TrustedModule {
-    pub firmware_version: String,
+    pub firmware_version: Option<String>,
     pub interface_type: Option<String>,
+    // we have seen the above two fields returned as null (on dells), but not status.
     pub status: StatusState,
 }
 
