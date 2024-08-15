@@ -8,7 +8,6 @@ use std::{
 use reqwest::{Method, StatusCode};
 use tracing::debug;
 
-use crate::model::secure_boot::SecureBoot;
 use crate::model::sel::LogEntry;
 use crate::model::serial_interface::SerialInterface;
 use crate::model::service_root::ServiceRoot;
@@ -18,6 +17,7 @@ use crate::model::thermal::Thermal;
 use crate::model::{account_service::ManagerAccount, service_root::RedfishVendor};
 use crate::model::{power, thermal, BootOption, InvalidValueError, Manager, Managers, ODataId};
 use crate::model::{power::Power, update_service::UpdateService};
+use crate::model::{secure_boot::SecureBoot, sensor::GPUSensors};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{
     model, Boot, EnabledDisabled, JobState, NetworkDeviceFunction, NetworkPort, PowerState,
@@ -152,6 +152,12 @@ impl Redfish for RedfishStandard {
     async fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
         let thermal = self.get_thermal_metrics().await?;
         Ok(thermal)
+    }
+
+    async fn get_gpu_sensors(&self) -> Result<Vec<GPUSensors>, RedfishError> {
+        Err(RedfishError::NotSupported(
+            "No GPUs on this machine".to_string(),
+        ))
     }
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {

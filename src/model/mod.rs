@@ -25,6 +25,7 @@ pub mod network_device_function;
 pub mod port;
 pub mod power;
 pub mod sel;
+pub mod sensor;
 pub mod service_root;
 pub mod software_inventory;
 pub mod storage;

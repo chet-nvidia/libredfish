@@ -351,5 +351,6 @@ impl_is_resource!(crate::model::PCIeDevice);
 impl_is_resource!(crate::model::PCIeFunction);
 impl_is_resource!(crate::model::ComputerSystem);
 impl_is_resource!(crate::NetworkAdapter);
+impl_is_resource!(crate::model::sensor::Sensor);
 impl_is_resource!(crate::model::Manager);
 impl_is_resource!(crate::model::BootOption);

@@ -8,6 +8,7 @@ pub use model::network_device_function::NetworkDeviceFunction;
 use model::oem::nvidia_dpu::{HostPrivilegeLevel, InternalCPUModel};
 pub use model::port::NetworkPort;
 pub use model::resource::{Collection, OData, Resource};
+use model::sensor::GPUSensors;
 use model::service_root::ServiceRoot;
 use model::software_inventory::SoftwareInventory;
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
@@ -127,6 +128,9 @@ pub trait Redfish: Send + Sync + 'static {
 
     /// Fans and temperature sensors
     async fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError>;
+
+    /// Voltage, temperature, etc sensors for gpus if they exist.
+    async fn get_gpu_sensors(&self) -> Result<Vec<GPUSensors>, RedfishError>;
 
     /// get system event log similar to ipmitool sel
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError>;

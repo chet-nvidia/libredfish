@@ -9,6 +9,7 @@ use crate::{
         power::Power,
         secure_boot::SecureBoot,
         sel::{LogEntry, LogEntryCollection},
+        sensor::GPUSensors,
         service_root::ServiceRoot,
         software_inventory::SoftwareInventory,
         storage,
@@ -96,6 +97,10 @@ impl Redfish for Bmc {
 
     async fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
         self.s.get_thermal_metrics().await
+    }
+
+    async fn get_gpu_sensors(&self) -> Result<Vec<GPUSensors>, RedfishError> {
+        self.s.get_gpu_sensors().await
     }
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {

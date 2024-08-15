@@ -8,6 +8,7 @@ use version_compare::Version;
 
 use crate::model::account_service::ManagerAccount;
 use crate::model::resource::{IsResource, ResourceCollection};
+use crate::model::sensor::{GPUSensors, Sensor};
 use crate::model::update_service::UpdateService;
 use crate::EnabledDisabled::Enabled;
 use crate::{
@@ -105,6 +106,30 @@ impl Redfish for Bmc {
 
     async fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
         self.s.get_thermal_metrics().await
+    }
+
+    async fn get_gpu_sensors(&self) -> Result<Vec<GPUSensors>, RedfishError> {
+        let mut output = vec![];
+        for chassis_id in self
+            .get_chassis_all()
+            .await?
+            .iter()
+            // TODO: proper filtering for which chassis contains a gpu
+            .filter(|c| c.starts_with("HGX_GPU"))
+        {
+            if let Some(sensor_ids) = self.get_chassis(chassis_id.as_str()).await?.sensors {
+                output.push(GPUSensors {
+                    gpu_id: chassis_id.to_string(),
+                    sensors: self
+                        .get_collection(sensor_ids)
+                        .await
+                        .and_then(|c| c.try_get::<Sensor>())?
+                        .members,
+                });
+            }
+        }
+
+        Ok(output)
     }
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {

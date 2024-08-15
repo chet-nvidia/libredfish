@@ -21,6 +21,7 @@ use crate::{
         oem::lenovo,
         power::Power,
         sel::{LogEntry, LogEntryCollection},
+        sensor::GPUSensors,
         software_inventory::SoftwareInventory,
         thermal::Thermal,
         BootOption,
@@ -102,6 +103,10 @@ impl Redfish for Bmc {
 
     async fn get_thermal_metrics(&self) -> Result<Thermal, RedfishError> {
         self.s.get_thermal_metrics().await
+    }
+
+    async fn get_gpu_sensors(&self) -> Result<Vec<GPUSensors>, RedfishError> {
+        self.s.get_gpu_sensors().await
     }
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {

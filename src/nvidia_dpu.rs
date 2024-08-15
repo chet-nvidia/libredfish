@@ -4,6 +4,7 @@ use serde::Deserialize;
 use tokio::fs::File;
 
 use crate::model::account_service::ManagerAccount;
+use crate::model::sensor::GPUSensors;
 use crate::model::task::Task;
 use crate::model::update_service::UpdateService;
 use crate::Boot::UefiHttp;
@@ -127,6 +128,10 @@ impl Redfish for Bmc {
     async fn get_thermal_metrics(&self) -> Result<crate::Thermal, RedfishError> {
         let (_status_code, body) = self.s.client.get("Chassis/Card1/Thermal/").await?;
         Ok(body)
+    }
+
+    async fn get_gpu_sensors(&self) -> Result<Vec<GPUSensors>, RedfishError> {
+        self.s.get_gpu_sensors().await
     }
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
