@@ -247,23 +247,23 @@ pub struct PCIeDevice {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Slot {
-    pub location: Location,
+    pub location: Option<Location>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Location {
-    pub info: String,
-    pub info_format: String,
-    pub part_location: PartLocation,
+    pub info: Option<String>,
+    pub info_format: Option<String>,
+    pub part_location: Option<PartLocation>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct PartLocation {
-    pub location_type: String,
-    pub location_ordinal_value: usize,
-    pub service_label: String,
+    pub location_type: Option<String>,
+    pub location_ordinal_value: Option<usize>,
+    pub service_label: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
