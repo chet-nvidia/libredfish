@@ -310,6 +310,7 @@ where
 }
 
 // Macro to implement IsResource
+#[macro_export]
 macro_rules! impl_is_resource {
     ($t:ty) => {
         impl IsResource for $t {
@@ -322,6 +323,7 @@ macro_rules! impl_is_resource {
         }
     };
 }
+pub use impl_is_resource;
 
 // Macro to implement IsResource
 macro_rules! impl_is_resource_for_option_odatalinks {

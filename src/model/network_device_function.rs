@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use serde::{Deserialize, Serialize};
 
 use super::{ODataId, ODataLinks};
@@ -17,6 +19,7 @@ pub struct NetworkDeviceFunction {
     pub net_dev_func_capabilities: Option<Vec<String>>,
     pub net_dev_func_type: Option<String>,
     pub links: Option<NetworkDeviceFunctionLinks>,
+    pub oem: Option<HashMap<String, serde_json::Value>>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
