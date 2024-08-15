@@ -106,6 +106,36 @@ pub struct TrustedModule {
     pub status: StatusState,
 }
 
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub enum BootProgressTypes {
+    None,
+    PrimaryProcessorInitializationStarted,
+    BusInitializationStarted,
+    MemoryInitializationStarted,
+    SecondaryProcessorInitializationStarted,
+    PCIResourceConfigStarted,
+    SystemHardwareInitializationComplete,
+    SetupEntered,
+    OSBootStarted,
+    OSRunning,
+    OEM,
+}
+
+impl fmt::Display for BootProgressTypes {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct BootProgress {
+    pub last_state: Option<BootProgressTypes>,
+    pub last_state_time: Option<String>,
+    pub oem_last_state: Option<String>,
+}
+
 #[derive(Debug, Serialize, Default, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct ComputerSystem {
@@ -137,6 +167,7 @@ pub struct ComputerSystem {
     pub pcie_devices: Vec<ODataId>, // not in Supermicro
     pub serial_console: Option<SerialConsole>, // Newer Redfish impls, inc Supermicro
     pub links: Option<ComputerSystemLinks>,
+    pub boot_progress: Option<BootProgress>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Default, Clone)]
