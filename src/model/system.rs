@@ -4,14 +4,16 @@ use serde::{Deserialize, Serialize};
 
 use super::{boot::Boot, oem::SystemExtensions, OData, ODataId, ODataLinks, RedfishSettings};
 
-const MELLANOX_VENDOR_ID: &str = "0X15B3";
-const MELLANOX_DPU_DEVICE_IDS: [&str; 5] = [
+const MELLANOX_VENDOR_ID_HEX: &str = "0X15B3";
+const MELLANOX_VENDOR_ID_DEC: &str = "5555";
+const MELLANOX_DPU_DEVICE_IDS_HEX: [&str; 5] = [
     "0XA2DF", // BF4 Family integrated network controller [BlueField-4 integrated network controller]
     "0XA2D9", // MT43162 BlueField-3 Lx integrated ConnectX-7 network controller
     "0XA2DC", // MT43244 BlueField-3 integrated ConnectX-7 network controller
     "0XA2D2", // MT416842 BlueField integrated ConnectX-5 network controller
     "0XA2D6", // MT42822 BlueField-2 integrated ConnectX-6 Dx network controller
 ];
+const MELLANOX_DPU_DEVICE_IDS_DEC: [&str; 5] = ["41695", "41689", "41692", "41682", "41686"];
 
 #[derive(Debug, Deserialize, Serialize, PartialEq, Clone, Copy)]
 pub enum SystemPowerControl {
@@ -76,7 +78,7 @@ pub struct Systems {
 pub struct SystemStatus {
     pub health: Option<String>,
     pub health_rollup: Option<String>,
-    pub state: String,
+    pub state: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -215,7 +217,7 @@ pub struct BootOption {
     #[serde(flatten)]
     pub odata: ODataLinks,
     pub alias: Option<String>,
-    pub description: String,
+    pub description: Option<String>,
     pub boot_option_enabled: Option<bool>,
     pub boot_option_reference: String,
     pub display_name: String,
@@ -287,15 +289,18 @@ pub struct PCIeFunction {
 impl PCIeFunction {
     // Is this a Mellanox Bluefield DPU?
     pub fn is_dpu(&self) -> bool {
-        let is_mellanox = self
-            .vendor_id
-            .as_ref()
-            .map_or(false, |v_id| v_id.to_uppercase() == MELLANOX_VENDOR_ID);
+        let is_mellanox = self.vendor_id.as_ref().map_or(false, |v_id| {
+            v_id.to_uppercase() == MELLANOX_VENDOR_ID_HEX || v_id == MELLANOX_VENDOR_ID_DEC
+        });
         let is_bluefield = self.device_id.as_ref().map_or(false, |candidate_id| {
             let u_candidate_id = candidate_id.to_uppercase();
-            MELLANOX_DPU_DEVICE_IDS
+            let as_hex = MELLANOX_DPU_DEVICE_IDS_HEX
                 .iter()
-                .any(|good_id| u_candidate_id == *good_id)
+                .any(|good_id| u_candidate_id == *good_id);
+            let as_dec = MELLANOX_DPU_DEVICE_IDS_DEC
+                .iter()
+                .any(|good_id| u_candidate_id == *good_id);
+            as_hex || as_dec
         });
         is_mellanox && is_bluefield
     }

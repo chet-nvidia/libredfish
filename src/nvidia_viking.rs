@@ -391,9 +391,11 @@ impl Redfish for Bmc {
                         || p.status.is_none()
                         || !p
                             .status
-                            .clone()
+                            .as_ref()
                             .unwrap()
                             .state
+                            .as_ref()
+                            .unwrap()
                             .to_lowercase()
                             .contains("enabled")
                     {
