@@ -1,7 +1,7 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE084000/Settings",
     "@odata.type": "#NetworkAdapter.v1_9_0.NetworkAdapter",
-    "@odata.etag": "W/\"1AD0C203\"",
+    "@odata.etag": "W/\"F0953BF2\"",
     "@Redfish.SettingsApplyTime": {
         "ApplyTime": "OnReset"
     },
@@ -28,7 +28,7 @@
                     "NparEnabled": false
                 }
             },
-            "FirmwarePackageVersion": "24.38.1402"
+            "FirmwarePackageVersion": "24.40.1000"
         }
     ],
     "Id": "DE084000",
@@ -40,7 +40,7 @@
     },
     "PartNumber": "MBF2H536C-CECOT",
     "SKU": "MBF2H536C-CECOT",
-    "SerialNumber": "MT2244XZ022B",
+    "SerialNumber": "MT2246XZ0908",
     "Status": {
         "Health": "OK",
         "HealthRollup": "OK",

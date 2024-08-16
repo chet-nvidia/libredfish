@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#EthernetInterface.EthernetInterface",
-    "@odata.etag": "W/\"F1CD2F96\"",
+    "@odata.etag": "W/\"B1842409\"",
     "@odata.id": "/redfish/v1/Systems/1/EthernetInterfaces/5",
     "@odata.type": "#EthernetInterface.v1_4_1.EthernetInterface",
     "Id": "5",
@@ -13,7 +13,7 @@
     "IPv6StaticDefaultGateways": [],
     "InterfaceEnabled": null,
     "LinkStatus": null,
-    "MACAddress": "88:e9:a4:83:ed:d0",
+    "MACAddress": "88:e9:a4:87:42:c8",
     "Name": "",
     "NameServers": [],
     "SpeedMbps": null,

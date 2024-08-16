@@ -5,8 +5,8 @@
     "@odata.type": "#BootOption.v1_0_1.BootOption",
     "Id": "14",
     "Alias": "None",
-    "BootOptionReference": "Boot0011",
-    "DisplayName": "NVMe Drive Port 8A Box 2 Bay 8 : NVM Express Controller - S6C1NA0TA01433-MZXLR6T4HALA-000H3-9A382500",
+    "BootOptionReference": "Boot0014",
+    "DisplayName": "NVMe Drive Port 2A Box 2 Bay 3 : NVM Express Controller - S6C1NA0TA01436-MZXLR6T4HALA-000H3-9A382500",
     "Name": "Boot Option",
-    "UefiDevicePath": "PciRoot(0x1)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,8C-08-01-21-9A-38-25-00)"
+    "UefiDevicePath": "PciRoot(0x2)/Pci(0x1,0x1)/Pci(0x0,0x0)/NVMe(0x1,8F-08-01-21-9A-38-25-00)"
 }

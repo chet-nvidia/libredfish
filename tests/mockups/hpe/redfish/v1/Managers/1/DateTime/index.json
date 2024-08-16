@@ -5,7 +5,7 @@
     "@odata.type": "#HpeiLODateTime.v2_0_0.HpeiLODateTime",
     "Id": "DateTime",
     "ConfigurationSettings": "Current",
-    "DateTime": "2024-01-11T20:46:11Z",
+    "DateTime": "2024-08-15T21:45:14Z",
     "Links": {
         "EthernetNICs": {
             "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces"

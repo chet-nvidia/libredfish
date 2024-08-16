@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#HpeSmartStorageArrayController.HpeSmartStorageArrayController",
-    "@odata.etag": "W/\"CCF1429F\"",
+    "@odata.etag": "W/\"BECBD2EB\"",
     "@odata.id": "/redfish/v1/Systems/1/SmartStorage/ArrayControllers/2",
     "@odata.type": "#HpeSmartStorageArrayController.v2_2_0.HpeSmartStorageArrayController",
     "Id": "2",
@@ -51,7 +51,7 @@
     "Model": "HPE Smart Array P408i-p SR Gen10",
     "Name": "Hpe Smart Storage Array Controller",
     "ReadCachePercent": 0,
-    "SerialNumber": "PFJHD0D52H60MB ",
+    "SerialNumber": "PFJHD0D52H60DG ",
     "Status": {
         "Health": "OK",
         "State": "Enabled"

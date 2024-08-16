@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#SessionCollection.SessionCollection",
-    "@odata.etag": "W/\"5D9E7564\"",
+    "@odata.etag": "W/\"C96D790F\"",
     "@odata.id": "/redfish/v1/SessionService/Sessions",
     "@odata.type": "#SessionCollection.SessionCollection",
     "Description": "Manager User Sessions",
@@ -11,17 +11,17 @@
             "@odata.type": "#HpeiLOSessionsSummary.v2_0_0.HpeiLOSessionsSummary",
             "Links": {
                 "MySession": {
-                    "@odata.id": "/redfish/v1/SessionService/Sessions/root0000000065a0565c422d8c91"
+                    "@odata.id": "/redfish/v1/SessionService/Sessions/root0000000066be767add7686c8"
                 }
             }
         }
     },
     "Members": [
         {
-            "@odata.id": "/redfish/v1/SessionService/Sessions/root0000000065a053c389d4d0d8"
+            "@odata.id": "/redfish/v1/SessionService/Sessions/root0000000066ab958288190bb4"
         },
         {
-            "@odata.id": "/redfish/v1/SessionService/Sessions/root0000000065a0565c422d8c91"
+            "@odata.id": "/redfish/v1/SessionService/Sessions/root0000000066be767add7686c8"
         }
     ],
     "Members@odata.count": 2

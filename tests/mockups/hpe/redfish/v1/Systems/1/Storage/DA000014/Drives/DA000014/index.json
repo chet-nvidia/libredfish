@@ -19,7 +19,7 @@
     "FailurePredicted": false,
     "Identifiers": [
         {
-            "DurableName": "0025389A210105CF",
+            "DurableName": "0025389A2101336C",
             "DurableNameFormat": "EUI"
         }
     ],
@@ -37,14 +37,14 @@
         "Hpe": {
             "@odata.context": "/redfish/v1/$metadata#HpeiLODriveExt.HpeiLODriveExt",
             "@odata.type": "#HpeiLODriveExt.v2_0_1.HpeiLODriveExt",
-            "CurrentTemperatureCelsius": 17,
+            "CurrentTemperatureCelsius": 19,
             "DriveStatus": {
                 "Health": "OK",
                 "State": "Enabled"
             },
             "HealthUpdated": "Dynamic",
-            "NVMeId": "144d_MZXLR6T4HALA-000H3_S6C1NA0TA00942",
-            "PowerOnHours": 2449,
+            "NVMeId": "144d_MZXLR6T4HALA-000H3_S6C1NA0TA04221",
+            "PowerOnHours": 6977,
             "TemperatureStatus": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -62,7 +62,7 @@
     "PredictedMediaLifeLeftPercent": 100,
     "Protocol": "NVMe",
     "Revision": "MPK7625Q",
-    "SerialNumber": "S6C1NA0TA00942",
+    "SerialNumber": "S6C1NA0TA04221",
     "Status": {
         "Health": "OK",
         "State": "Enabled"

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#HpeServerDevice.HpeServerDevice",
-    "@odata.etag": "W/\"B81ADB2F\"",
+    "@odata.etag": "W/\"5B2BE172\"",
     "@odata.id": "/redfish/v1/Chassis/1/Devices/6",
     "@odata.type": "#HpeServerDevice.v2_1_0.HpeServerDevice",
     "Id": "6",
@@ -27,7 +27,7 @@
     "PartNumber": "P24251-001",
     "ProductPartNumber": "P24251-001               ",
     "ProductVersion": "A8",
-    "SerialNumber": "ILC228044Z     ",
+    "SerialNumber": "ILC22602SD     ",
     "Status": {
         "Health": null,
         "State": null

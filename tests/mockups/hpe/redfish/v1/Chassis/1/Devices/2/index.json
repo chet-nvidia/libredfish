@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#HpeServerDevice.HpeServerDevice",
-    "@odata.etag": "W/\"53EDAFDF\"",
+    "@odata.etag": "W/\"B9E2824D\"",
     "@odata.id": "/redfish/v1/Chassis/1/Devices/2",
     "@odata.type": "#HpeServerDevice.v2_1_0.HpeServerDevice",
     "Id": "2",
@@ -16,7 +16,7 @@
     "PartNumber": "P07473-001",
     "ProductPartNumber": "P02377-B21",
     "ProductVersion": "01",
-    "SerialNumber": "6WSPU0EB2HH19E",
+    "SerialNumber": "6WSPU0EB2HH1HB",
     "Status": {
         "Health": "OK",
         "State": "Enabled"

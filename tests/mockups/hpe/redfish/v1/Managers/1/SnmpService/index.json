@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#HpeiLOSnmpService.HpeiLOSnmpService",
-    "@odata.etag": "W/\"ABB546E1\"",
+    "@odata.etag": "W/\"C90E0A4F\"",
     "@odata.id": "/redfish/v1/Managers/1/SnmpService",
     "@odata.type": "#HpeiLOSnmpService.v2_3_0.HpeiLOSnmpService",
     "Id": "SnmpService",
@@ -80,7 +80,7 @@
         "@odata.id": "/redfish/v1/Managers/1/SnmpService/SNMPUsers"
     },
     "SNMPv1Enabled": true,
-    "SNMPv3EngineID": "0x800000E8044D58513330323039395A",
+    "SNMPv3EngineID": "0x800000E8044D585133303230393953",
     "SNMPv3InformRetryAttempt": 2,
     "SNMPv3InformRetryIntervalSeconds": 15,
     "Status": {

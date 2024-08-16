@@ -1,7 +1,7 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE084000/Ports/0/Settings",
     "@odata.type": "#Port.v1_6_0.Port",
-    "@odata.etag": "W/\"91197A10\"",
+    "@odata.etag": "W/\"FA3FE241\"",
     "@Redfish.SettingsApplyTime": {
         "ApplyTime": "OnReset"
     },
@@ -21,11 +21,11 @@
     "SignalDetected": true,
     "Ethernet": {
         "FlowControlConfiguration": "TX_RX",
-        "FlowControlStatus": "TX_RX",
+        "FlowControlStatus": "None",
         "SupportedEthernetCapabilities": [],
         "AssociatedMACAddresses": [
-            "b8:3f:d2:b7:6f:84",
-            "b8:3f:d2:b7:6f:86"
+            "b8:3f:d2:d7:f7:4a",
+            "b8:3f:d2:d7:f7:4c"
         ],
         "LLDPEnabled": false,
         "LLDPReceive": {
@@ -39,13 +39,13 @@
             "PortIdSubtype": "NotTransmitted"
         },
         "LLDPTransmit": {
-            "ChassisId": "B8:3F:D2:B7:6F:86",
+            "ChassisId": "B8:3F:D2:D7:F7:4C",
             "ChassisIdSubtype": "MacAddr",
             "ManagementAddressIPv4": "",
             "ManagementAddressIPv6": "",
             "ManagementAddressMAC": "",
             "ManagementVlanId": 4095,
-            "PortId": "B8:3F:D2:B7:6F:84",
+            "PortId": "B8:3F:D2:D7:F7:4A",
             "PortIdSubtype": "MacAddr"
         },
         "WakeOnLANEnabled": false

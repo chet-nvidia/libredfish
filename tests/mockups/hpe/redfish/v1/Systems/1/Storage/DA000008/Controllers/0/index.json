@@ -8,7 +8,7 @@
     "FirmwareVersion": "MPK7625Q",
     "Identifiers": [
         {
-            "DurableName": "0025389A21012E09",
+            "DurableName": "0025389A210105ED",
             "DurableNameFormat": "EUI"
         }
     ],
@@ -25,7 +25,7 @@
         "LanesInUse": 4,
         "MaxLanes": 4
     },
-    "SerialNumber": "S6C1NA0TA03457",
+    "SerialNumber": "S6C1NA0TA00962",
     "Status": {
         "Health": "OK",
         "State": "Enabled"

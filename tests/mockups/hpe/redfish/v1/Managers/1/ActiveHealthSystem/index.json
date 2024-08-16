@@ -1,12 +1,12 @@
 {
     "@odata.context": "/redfish/v1/$metadata#HpeiLOActiveHealthSystem.HpeiLOActiveHealthSystem",
-    "@odata.etag": "W/\"57A91332\"",
+    "@odata.etag": "W/\"D2C16E65\"",
     "@odata.id": "/redfish/v1/Managers/1/ActiveHealthSystem",
     "@odata.type": "#HpeiLOActiveHealthSystem.v2_5_0.HpeiLOActiveHealthSystem",
     "Id": "ActiveHealthSystem",
     "AHSEnabled": true,
-    "AHSFileEnd": "2024-01-11T00:00:00Z",
-    "AHSFileStart": "2023-01-18T00:00:00Z",
+    "AHSFileEnd": "2024-08-15T00:00:00Z",
+    "AHSFileStart": "2024-01-24T00:00:00Z",
     "AHSStatus": {
         "HardwareEnabled": true,
         "SoftwareEnabled": true,
@@ -28,13 +28,13 @@
     },
     "Links": {
         "AHSLocation": {
-            "extref": "/ahsdata/HPE_MXQ302099Z_20240111.ahs?downloadAll=1"
+            "extref": "/ahsdata/HPE_MXQ302099S_20240815.ahs?downloadAll=1"
         },
         "RecentWeek": {
-            "extref": "/ahsdata/HPE_MXQ302099Z_20240111.ahs?days=7"
+            "extref": "/ahsdata/HPE_MXQ302099S_20240815.ahs?days=7"
         },
         "InfoSight": {
-            "extref": "/ahsdata/HPE_MXQ302099Z_20240111.ahs?minimalDL=1&&days=1"
+            "extref": "/ahsdata/HPE_MXQ302099S_20240815.ahs?minimalDL=1&&days=1"
         }
     },
     "LocationParameters": {

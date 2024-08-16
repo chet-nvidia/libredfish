@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntryCollection.LogEntryCollection",
-    "@odata.etag": "W/\"D83260C2\"",
+    "@odata.etag": "W/\"0EE644D2\"",
     "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries",
     "@odata.type": "#LogEntryCollection.LogEntryCollection",
     "Description": "Integrated Management Logs view",
@@ -11,7 +11,7 @@
             "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/1",
             "@odata.type": "#LogEntry.v1_11_0.LogEntry",
             "Id": "1",
-            "Created": "2023-01-18T22:07:57Z",
+            "Created": "2023-01-18T23:13:27Z",
             "EntryType": "Oem",
             "Message": "IML Cleared ( user: System Administrator)",
             "Name": "Integrated Management Log",
@@ -27,9 +27,9 @@
                     "ClassDescription": "Maintenance",
                     "Code": 1,
                     "Count": 1,
-                    "EventNumber": 111,
+                    "EventNumber": 123,
                     "Severity": "Informational",
-                    "Updated": "2023-01-18T22:07:57Z"
+                    "Updated": "2023-01-18T23:13:27Z"
                 }
             },
             "OemRecordFormat": "Hpe-IML",
@@ -40,7 +40,38 @@
             "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/2",
             "@odata.type": "#LogEntry.v1_11_0.LogEntry",
             "Id": "2",
-            "Created": "2023-01-18T22:37:02Z",
+            "Created": "2023-01-18T23:33:15Z",
+            "EntryType": "Oem",
+            "Message": "Intel Eth Adptr I350T4 OCPv3 Connectivity status changed to OK for adapter in slot 10, port 1",
+            "Name": "Integrated Management Log",
+            "Oem": {
+                "Hpe": {
+                    "@odata.context": "/redfish/v1/$metadata#HpeLogEntry.HpeLogEntry",
+                    "@odata.type": "#HpeLogEntry.v2_4_0.HpeLogEntry",
+                    "Categories": [
+                        "Hardware"
+                    ],
+                    "Class": 17,
+                    "ClassDescription": "Network",
+                    "Code": 10,
+                    "Count": 1,
+                    "EventNumber": 124,
+                    "LearnMoreLink": "http://www.hpe.com/support/class0x0011code0x000a-gen10",
+                    "RecommendedAction": "If the connection is lost, then check the physical connection from the server to its destination device such as interconnect ,blade, switch etc, including any cables. Refer to the NIC issues flowchart in the Troubleshooting Guide for more information.",
+                    "Repaired": true,
+                    "Severity": "Repaired",
+                    "Updated": "2023-01-18T23:33:15Z"
+                }
+            },
+            "OemRecordFormat": "Hpe-IML",
+            "Severity": "OK"
+        },
+        {
+            "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/3",
+            "@odata.type": "#LogEntry.v1_11_0.LogEntry",
+            "Id": "3",
+            "Created": "2023-01-19T01:12:36Z",
             "EntryType": "Oem",
             "Message": "System Power Supply: Input Power Loss or Unplugged Power Cord, Verify Power Supply Input (Power Supply 2)",
             "Name": "Integrated Management Log",
@@ -55,12 +86,12 @@
                     "ClassDescription": "Power",
                     "Code": 82,
                     "Count": 2,
-                    "EventNumber": 112,
+                    "EventNumber": 125,
                     "LearnMoreLink": "http://www.hpe.com/support/class0x000bcode0x0052-gen10",
                     "RecommendedAction": "Check the power source, then test and replace any failed power supplies.",
                     "Repaired": false,
                     "Severity": "Caution",
-                    "Updated": "2023-01-18T22:40:53Z"
+                    "Updated": "2023-01-19T01:16:30Z"
                 }
             },
             "OemRecordFormat": "Hpe-IML",
@@ -68,10 +99,10 @@
         },
         {
             "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/3",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/4",
             "@odata.type": "#LogEntry.v1_11_0.LogEntry",
-            "Id": "3",
-            "Created": "2023-01-18T22:37:02Z",
+            "Id": "4",
+            "Created": "2023-01-19T01:12:36Z",
             "EntryType": "Oem",
             "Message": "System Power Supplies Not Redundant",
             "Name": "Integrated Management Log",
@@ -86,12 +117,12 @@
                     "ClassDescription": "Power",
                     "Code": 54,
                     "Count": 2,
-                    "EventNumber": 113,
+                    "EventNumber": 126,
                     "LearnMoreLink": "http://www.hpe.com/support/class0x000bcode0x0036-gen10",
                     "RecommendedAction": "Add a power supply or replace the failed power supply.",
                     "Repaired": false,
                     "Severity": "Caution",
-                    "Updated": "2023-01-18T22:40:53Z"
+                    "Updated": "2023-01-19T01:16:30Z"
                 }
             },
             "OemRecordFormat": "Hpe-IML",
@@ -99,10 +130,10 @@
         },
         {
             "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/4",
+            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/5",
             "@odata.type": "#LogEntry.v1_11_0.LogEntry",
-            "Id": "4",
-            "Created": "2023-01-18T22:50:32Z",
+            "Id": "5",
+            "Created": "2023-01-19T01:22:18Z",
             "EntryType": "Oem",
             "Message": "Slot=2 Storage - Volume 1 status changed to ok",
             "Name": "Integrated Management Log",
@@ -117,239 +148,17 @@
                     "ClassDescription": "Drive Array",
                     "Code": 33,
                     "Count": 1,
-                    "EventNumber": 114,
+                    "EventNumber": 127,
                     "LearnMoreLink": "http://www.hpe.com/support/class0x0013code0x0021-gen10",
                     "RecommendedAction": "1. Allow rebuild to complete\n2. Verify cables are seated\n3. Replace failed drive\n4. Install missing drive\n5. Replace incorrect drive",
                     "Repaired": true,
                     "Severity": "Repaired",
-                    "Updated": "2023-01-18T22:50:32Z"
+                    "Updated": "2023-01-19T01:22:18Z"
                 }
             },
             "OemRecordFormat": "Hpe-IML",
             "Severity": "OK"
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/5",
-            "@odata.type": "#LogEntry.v1_11_0.LogEntry",
-            "Id": "5",
-            "Created": "2023-01-19T00:22:53Z",
-            "EntryType": "Oem",
-            "Message": "System Power Supply: Input Power Loss or Unplugged Power Cord, Verify Power Supply Input (Power Supply 2)",
-            "Name": "Integrated Management Log",
-            "Oem": {
-                "Hpe": {
-                    "@odata.context": "/redfish/v1/$metadata#HpeLogEntry.HpeLogEntry",
-                    "@odata.type": "#HpeLogEntry.v2_4_0.HpeLogEntry",
-                    "Categories": [
-                        "Power"
-                    ],
-                    "Class": 11,
-                    "ClassDescription": "Power",
-                    "Code": 82,
-                    "Count": 1,
-                    "EventNumber": 115,
-                    "LearnMoreLink": "http://www.hpe.com/support/class0x000bcode0x0052-gen10",
-                    "RecommendedAction": "Check the power source, then test and replace any failed power supplies.",
-                    "Repaired": false,
-                    "Severity": "Caution",
-                    "Updated": "2023-01-19T00:22:53Z"
-                }
-            },
-            "OemRecordFormat": "Hpe-IML",
-            "Severity": "Warning"
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/6",
-            "@odata.type": "#LogEntry.v1_11_0.LogEntry",
-            "Id": "6",
-            "Created": "2023-01-19T00:22:53Z",
-            "EntryType": "Oem",
-            "Message": "System Power Supplies Not Redundant",
-            "Name": "Integrated Management Log",
-            "Oem": {
-                "Hpe": {
-                    "@odata.context": "/redfish/v1/$metadata#HpeLogEntry.HpeLogEntry",
-                    "@odata.type": "#HpeLogEntry.v2_4_0.HpeLogEntry",
-                    "Categories": [
-                        "Power"
-                    ],
-                    "Class": 11,
-                    "ClassDescription": "Power",
-                    "Code": 54,
-                    "Count": 1,
-                    "EventNumber": 116,
-                    "LearnMoreLink": "http://www.hpe.com/support/class0x000bcode0x0036-gen10",
-                    "RecommendedAction": "Add a power supply or replace the failed power supply.",
-                    "Repaired": false,
-                    "Severity": "Caution",
-                    "Updated": "2023-01-19T00:22:53Z"
-                }
-            },
-            "OemRecordFormat": "Hpe-IML",
-            "Severity": "Warning"
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/7",
-            "@odata.type": "#LogEntry.v1_11_0.LogEntry",
-            "Id": "7",
-            "Created": "2023-10-08T10:02:22Z",
-            "EntryType": "Oem",
-            "Message": "Innovation Engine not responding to MCTP Requests, please AC Cycle the server to recover IE.",
-            "Name": "Integrated Management Log",
-            "Oem": {
-                "Hpe": {
-                    "@odata.context": "/redfish/v1/$metadata#HpeLogEntry.HpeLogEntry",
-                    "@odata.type": "#HpeLogEntry.v2_4_0.HpeLogEntry",
-                    "Categories": [
-                        "Hardware",
-                        "Configuration"
-                    ],
-                    "Class": 3,
-                    "ClassDescription": "Main Memory",
-                    "Code": 6,
-                    "Count": 1,
-                    "EventNumber": 117,
-                    "LearnMoreLink": "http://www.hpe.com/support/class0x0003code0x0006-gen10",
-                    "RecommendedAction": "1. AC Cycle the server to recover IE.\n2. Flash recovery IE/ME image if the issue persists.",
-                    "Repaired": false,
-                    "Severity": "Critical",
-                    "Updated": "2023-10-08T10:02:22Z"
-                }
-            },
-            "OemRecordFormat": "Hpe-IML",
-            "Severity": "Critical"
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/8",
-            "@odata.type": "#LogEntry.v1_11_0.LogEntry",
-            "Id": "8",
-            "Created": "2023-10-12T00:35:06Z",
-            "EntryType": "Oem",
-            "Message": "Innovation Engine not responding to MCTP Requests, please AC Cycle the server to recover IE.",
-            "Name": "Integrated Management Log",
-            "Oem": {
-                "Hpe": {
-                    "@odata.context": "/redfish/v1/$metadata#HpeLogEntry.HpeLogEntry",
-                    "@odata.type": "#HpeLogEntry.v2_4_0.HpeLogEntry",
-                    "Categories": [
-                        "Hardware",
-                        "Configuration"
-                    ],
-                    "Class": 3,
-                    "ClassDescription": "Main Memory",
-                    "Code": 6,
-                    "Count": 1,
-                    "EventNumber": 118,
-                    "LearnMoreLink": "http://www.hpe.com/support/class0x0003code0x0006-gen10",
-                    "RecommendedAction": "1. AC Cycle the server to recover IE.\n2. Flash recovery IE/ME image if the issue persists.",
-                    "Repaired": false,
-                    "Severity": "Critical",
-                    "Updated": "2023-10-12T00:35:06Z"
-                }
-            },
-            "OemRecordFormat": "Hpe-IML",
-            "Severity": "Critical"
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/9",
-            "@odata.type": "#LogEntry.v1_11_0.LogEntry",
-            "Id": "9",
-            "Created": "2023-10-14T13:45:59Z",
-            "EntryType": "Oem",
-            "Message": "Innovation Engine not responding to MCTP Requests, please AC Cycle the server to recover IE.",
-            "Name": "Integrated Management Log",
-            "Oem": {
-                "Hpe": {
-                    "@odata.context": "/redfish/v1/$metadata#HpeLogEntry.HpeLogEntry",
-                    "@odata.type": "#HpeLogEntry.v2_4_0.HpeLogEntry",
-                    "Categories": [
-                        "Hardware",
-                        "Configuration"
-                    ],
-                    "Class": 3,
-                    "ClassDescription": "Main Memory",
-                    "Code": 6,
-                    "Count": 1,
-                    "EventNumber": 119,
-                    "LearnMoreLink": "http://www.hpe.com/support/class0x0003code0x0006-gen10",
-                    "RecommendedAction": "1. AC Cycle the server to recover IE.\n2. Flash recovery IE/ME image if the issue persists.",
-                    "Repaired": false,
-                    "Severity": "Critical",
-                    "Updated": "2023-10-14T13:45:59Z"
-                }
-            },
-            "OemRecordFormat": "Hpe-IML",
-            "Severity": "Critical"
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/10",
-            "@odata.type": "#LogEntry.v1_11_0.LogEntry",
-            "Id": "10",
-            "Created": "2023-10-14T17:23:14Z",
-            "EntryType": "Oem",
-            "Message": "Innovation Engine not responding to MCTP Requests, please AC Cycle the server to recover IE.",
-            "Name": "Integrated Management Log",
-            "Oem": {
-                "Hpe": {
-                    "@odata.context": "/redfish/v1/$metadata#HpeLogEntry.HpeLogEntry",
-                    "@odata.type": "#HpeLogEntry.v2_4_0.HpeLogEntry",
-                    "Categories": [
-                        "Hardware",
-                        "Configuration"
-                    ],
-                    "Class": 3,
-                    "ClassDescription": "Main Memory",
-                    "Code": 6,
-                    "Count": 1,
-                    "EventNumber": 120,
-                    "LearnMoreLink": "http://www.hpe.com/support/class0x0003code0x0006-gen10",
-                    "RecommendedAction": "1. AC Cycle the server to recover IE.\n2. Flash recovery IE/ME image if the issue persists.",
-                    "Repaired": false,
-                    "Severity": "Critical",
-                    "Updated": "2023-10-14T17:23:14Z"
-                }
-            },
-            "OemRecordFormat": "Hpe-IML",
-            "Severity": "Critical"
-        },
-        {
-            "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-            "@odata.id": "/redfish/v1/Systems/1/LogServices/IML/Entries/11",
-            "@odata.type": "#LogEntry.v1_11_0.LogEntry",
-            "Id": "11",
-            "Created": "2023-12-04T14:59:00Z",
-            "EntryType": "Oem",
-            "Message": "Innovation Engine not responding to MCTP Requests, please AC Cycle the server to recover IE.",
-            "Name": "Integrated Management Log",
-            "Oem": {
-                "Hpe": {
-                    "@odata.context": "/redfish/v1/$metadata#HpeLogEntry.HpeLogEntry",
-                    "@odata.type": "#HpeLogEntry.v2_4_0.HpeLogEntry",
-                    "Categories": [
-                        "Hardware",
-                        "Configuration"
-                    ],
-                    "Class": 3,
-                    "ClassDescription": "Main Memory",
-                    "Code": 6,
-                    "Count": 1,
-                    "EventNumber": 121,
-                    "LearnMoreLink": "http://www.hpe.com/support/class0x0003code0x0006-gen10",
-                    "RecommendedAction": "1. AC Cycle the server to recover IE.\n2. Flash recovery IE/ME image if the issue persists.",
-                    "Repaired": false,
-                    "Severity": "Critical",
-                    "Updated": "2023-12-04T14:59:00Z"
-                }
-            },
-            "OemRecordFormat": "Hpe-IML",
-            "Severity": "Critical"
         }
     ],
-    "Members@odata.count": 11
+    "Members@odata.count": 5
 }

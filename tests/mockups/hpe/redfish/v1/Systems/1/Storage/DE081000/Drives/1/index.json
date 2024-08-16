@@ -14,13 +14,13 @@
     "MediaType": "SSD",
     "CapacityBytes": 480103981056,
     "BlockSizeBytes": 512,
-    "SerialNumber": "S6MPNE0T802861",
+    "SerialNumber": "S6MPNE0T802706",
     "FailurePredicted": false,
     "PredictedMediaLifeLeftPercent": 100.0,
     "StatusIndicator": "OK",
     "Identifiers": [
         {
-            "DurableName": "31402EC018317545",
+            "DurableName": "31402EC018316335",
             "DurableNameFormat": "NAA"
         }
     ],
@@ -46,5 +46,5 @@
             }
         ]
     },
-    "@odata.etag": "\"1A7D5878\""
+    "@odata.etag": "\"36BD39B7\""
 }

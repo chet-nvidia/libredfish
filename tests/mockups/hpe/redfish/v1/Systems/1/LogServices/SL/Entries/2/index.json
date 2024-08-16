@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-    "@odata.etag": "W/\"DBE1B5B6\"",
+    "@odata.etag": "W/\"C52B29B2\"",
     "@odata.id": "/redfish/v1/Systems/1/LogServices/SL/Entries/2",
     "@odata.type": "#LogEntry.v1_11_0.LogEntry",
     "Id": "2",
@@ -21,7 +21,7 @@
             "ClassDescription": "Security Configuration",
             "Code": 5,
             "Count": 1,
-            "EventNumber": 27,
+            "EventNumber": 33,
             "RecommendedAction": "Refer to iLO user manual or Security Dashboard help page.",
             "Severity": "Caution",
             "Updated": "0000-00-00T00:00:00Z",

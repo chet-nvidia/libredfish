@@ -9,7 +9,7 @@
     },
     "Identifiers": [
         {
-            "DurableName": "600508B1-001C-5870-40A8-A690F3D0F04A",
+            "DurableName": "600508B1-001C-2F66-07D3-27AE65E786C6",
             "DurableNameFormat": "UUID"
         }
     ],
@@ -40,5 +40,5 @@
         "DedicatedSpareDrives@odata.count": 0,
         "DedicatedSpareDrives": []
     },
-    "@odata.etag": "\"38C04717\""
+    "@odata.etag": "\"84279553\""
 }

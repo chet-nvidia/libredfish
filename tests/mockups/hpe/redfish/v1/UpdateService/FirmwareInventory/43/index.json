@@ -11,7 +11,7 @@
             "@odata.context": "/redfish/v1/$metadata#HpeiLOSoftwareInventory.HpeiLOSoftwareInventory",
             "@odata.type": "#HpeiLOSoftwareInventory.v2_0_0.HpeiLOSoftwareInventory",
             "DeviceClass": "4149ebb7-d64b-4654-b679-4280f349ea50",
-            "DeviceContext": "Box=2",
+            "DeviceContext": "Box=1",
             "Targets": [
                 "9675b54e-1c96-44c3-a7a1-901506000000"
             ]

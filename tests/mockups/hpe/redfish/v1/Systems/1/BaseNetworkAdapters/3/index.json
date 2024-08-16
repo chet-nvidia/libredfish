@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#HpeBaseNetworkAdapter.HpeBaseNetworkAdapter",
-    "@odata.etag": "W/\"249FC576\"",
+    "@odata.etag": "W/\"BB68EE7B\"",
     "@odata.id": "/redfish/v1/Systems/1/BaseNetworkAdapters/3",
     "@odata.type": "#HpeBaseNetworkAdapter.v2_0_0.HpeBaseNetworkAdapter",
     "Id": "3",
@@ -19,7 +19,7 @@
             "IPv4Addresses": [],
             "IPv6Addresses": [],
             "LinkStatus": null,
-            "MacAddress": "88:e9:a4:87:62:38",
+            "MacAddress": "88:e9:a4:80:9d:a2",
             "Name": "",
             "Oem": {
                 "Hpe": {
@@ -34,7 +34,7 @@
             "SpeedMbps": 0
         }
     ],
-    "SerialNumber": "ILC228044Z     ",
+    "SerialNumber": "ILC22602SD     ",
     "Status": {
         "Health": null,
         "State": null

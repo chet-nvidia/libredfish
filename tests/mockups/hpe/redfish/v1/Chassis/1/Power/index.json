@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Power.Power",
-    "@odata.etag": "W/\"915A00F9\"",
+    "@odata.etag": "W/\"6EE0FAC2\"",
     "@odata.id": "/redfish/v1/Chassis/1/Power",
     "@odata.type": "#Power.v1_3_0.Power",
     "Id": "Power",
@@ -43,15 +43,15 @@
             "@odata.id": "/redfish/v1/Chassis/1/Power#PowerControl/0",
             "MemberId": "0",
             "PowerCapacityWatts": 3200,
-            "PowerConsumedWatts": 481,
+            "PowerConsumedWatts": 531,
             "PowerLimit": {
                 "LimitInWatts": null
             },
             "PowerMetrics": {
-                "AverageConsumedWatts": 469,
+                "AverageConsumedWatts": 515,
                 "IntervalInMin": 20,
-                "MaxConsumedWatts": 495,
-                "MinConsumedWatts": 454
+                "MaxConsumedWatts": 620,
+                "MinConsumedWatts": 484
             }
         }
     ],
@@ -59,7 +59,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/1/Power#PowerSupplies/0",
             "FirmwareVersion": "2.00",
-            "LastPowerOutputWatts": 247,
+            "LastPowerOutputWatts": 277,
             "LineInputVoltage": 239,
             "LineInputVoltageType": "ACHighLine",
             "Manufacturer": "LTEON",
@@ -70,10 +70,10 @@
                 "Hpe": {
                     "@odata.context": "/redfish/v1/$metadata#HpeServerPowerSupply.HpeServerPowerSupply",
                     "@odata.type": "#HpeServerPowerSupply.v2_0_0.HpeServerPowerSupply",
-                    "AveragePowerOutputWatts": 247,
+                    "AveragePowerOutputWatts": 277,
                     "BayNumber": 1,
                     "HotplugCapable": true,
-                    "MaxPowerOutputWatts": 249,
+                    "MaxPowerOutputWatts": 314,
                     "Mismatched": false,
                     "PowerSupplyStatus": {
                         "State": "Ok"
@@ -83,7 +83,7 @@
             },
             "PowerCapacityWatts": 1600,
             "PowerSupplyType": "AC",
-            "SerialNumber": "5XLNR0LLLH77MM",
+            "SerialNumber": "5XLNR0LLLH764F",
             "SparePartNumber": "P39384-001",
             "Status": {
                 "Health": "OK",
@@ -93,7 +93,7 @@
         {
             "@odata.id": "/redfish/v1/Chassis/1/Power#PowerSupplies/1",
             "FirmwareVersion": "2.00",
-            "LastPowerOutputWatts": 234,
+            "LastPowerOutputWatts": 254,
             "LineInputVoltage": 238,
             "LineInputVoltageType": "ACHighLine",
             "Manufacturer": "LTEON",
@@ -104,10 +104,10 @@
                 "Hpe": {
                     "@odata.context": "/redfish/v1/$metadata#HpeServerPowerSupply.HpeServerPowerSupply",
                     "@odata.type": "#HpeServerPowerSupply.v2_0_0.HpeServerPowerSupply",
-                    "AveragePowerOutputWatts": 234,
+                    "AveragePowerOutputWatts": 254,
                     "BayNumber": 2,
                     "HotplugCapable": true,
-                    "MaxPowerOutputWatts": 236,
+                    "MaxPowerOutputWatts": 293,
                     "Mismatched": false,
                     "PowerSupplyStatus": {
                         "State": "Ok"
@@ -117,7 +117,7 @@
             },
             "PowerCapacityWatts": 1600,
             "PowerSupplyType": "AC",
-            "SerialNumber": "5XLNR0LLLH77J4",
+            "SerialNumber": "5XLNR0LLLH7645",
             "SparePartNumber": "P39384-001",
             "Status": {
                 "Health": "OK",

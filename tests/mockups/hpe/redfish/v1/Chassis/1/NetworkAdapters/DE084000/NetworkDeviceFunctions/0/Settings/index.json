@@ -1,16 +1,16 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE084000/NetworkDeviceFunctions/0/Settings",
     "@odata.type": "#NetworkDeviceFunction.v1_8_0.NetworkDeviceFunction",
-    "@odata.etag": "W/\"814BE307\"",
+    "@odata.etag": "W/\"B3B6522F\"",
     "@Redfish.SettingsApplyTime": {
         "ApplyTime": "OnReset"
     },
     "BootMode": "PXE",
     "DeviceEnabled": true,
     "Ethernet": {
-        "MACAddress": "b8:3f:d2:b7:6f:84",
+        "MACAddress": "b8:3f:d2:d7:f7:4a",
         "MTUSize": 9238,
-        "PermanentMACAddress": "b8:3f:d2:b7:6f:84",
+        "PermanentMACAddress": "b8:3f:d2:d7:f7:4a",
         "MTUSizeMaximum": 10000
     },
     "Id": "0",

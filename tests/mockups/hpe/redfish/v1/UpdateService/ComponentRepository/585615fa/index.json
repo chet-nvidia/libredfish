@@ -7,7 +7,7 @@
     "Activates": "AfterReboot",
     "ComponentUri": "/fwrepo/A42_2.60_08_11_2022.signed.flash",
     "Configuration": "",
-    "Created": "2023-01-18T15:27:52Z",
+    "Created": "2023-01-18T16:21:41Z",
     "Criticality": "Optional",
     "DeviceClass": "aa148d2e-6e09-453e-bc6f-63baa5f5ccc4",
     "ExecutionParameters": "",

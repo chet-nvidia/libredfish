@@ -21,7 +21,7 @@
     },
     "Name": "NVMe Storage System",
     "Status": {
-        "Health": "OK",
+        "Health": "Critical",
         "State": "Enabled"
     },
     "StorageControllers": [
@@ -30,7 +30,7 @@
             "FirmwareVersion": "MPK7625Q",
             "Identifiers": [
                 {
-                    "DurableName": "0025389A21012ED5",
+                    "DurableName": "0025389A21013360",
                     "DurableNameFormat": "EUI"
                 }
             ],
@@ -50,9 +50,9 @@
                 "MaxPCIeType": "Gen4",
                 "PCIeType": "Gen4"
             },
-            "SerialNumber": "S6C1NA0TA03566",
+            "SerialNumber": "S6C1NA0TA04209",
             "Status": {
-                "Health": "OK",
+                "Health": "Critical",
                 "State": "Enabled"
             },
             "SupportedControllerProtocols": [

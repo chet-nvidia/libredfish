@@ -30,7 +30,7 @@
             "FirmwareVersion": "MPK7625Q",
             "Identifiers": [
                 {
-                    "DurableName": "0025389A210105C7",
+                    "DurableName": "0025389A210108B1",
                     "DurableNameFormat": "EUI"
                 }
             ],
@@ -50,7 +50,7 @@
                 "MaxPCIeType": "Gen4",
                 "PCIeType": "Gen4"
             },
-            "SerialNumber": "S6C1NA0TA00939",
+            "SerialNumber": "S6C1NA0TA01470",
             "Status": {
                 "Health": "OK",
                 "State": "Enabled"

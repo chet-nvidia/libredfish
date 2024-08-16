@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Manager.Manager",
-    "@odata.etag": "W/\"9F036AED\"",
+    "@odata.etag": "W/\"116138F1\"",
     "@odata.id": "/redfish/v1/Managers/1",
     "@odata.type": "#Manager.v1_5_1.Manager",
     "Id": "1",
@@ -21,7 +21,7 @@
         "MaxConcurrentSessions": 9,
         "ServiceEnabled": true
     },
-    "DateTime": "2024-01-11T20:29:04Z",
+    "DateTime": "2024-08-15T21:43:28Z",
     "DateTimeLocalOffset": "+00:00",
     "EthernetInterfaces": {
         "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces"
@@ -194,7 +194,7 @@
                 "TrustedCertificateRequired": false
             },
             "License": {
-                "LicenseKey": "XXXXX-XXXXX-XXXXX-XXXXX-97M36",
+                "LicenseKey": "XXXXX-XXXXX-XXXXX-XXXXX-CK9YW",
                 "LicenseString": "iLO Advanced",
                 "LicenseType": "Perpetual"
             },
@@ -327,7 +327,7 @@
         "Health": "OK",
         "State": "Enabled"
     },
-    "UUID": "80de529a-f619-5bc0-949c-59e0601c6e3c",
+    "UUID": "96df3e5c-31a7-5c18-afd7-8b27aaecb6f1",
     "VirtualMedia": {
         "@odata.id": "/redfish/v1/Managers/1/VirtualMedia"
     }

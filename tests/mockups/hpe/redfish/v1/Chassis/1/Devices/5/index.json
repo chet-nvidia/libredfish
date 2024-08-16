@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#HpeServerDevice.HpeServerDevice",
-    "@odata.etag": "W/\"CC1F92FA\"",
+    "@odata.etag": "W/\"D7F0CB31\"",
     "@odata.id": "/redfish/v1/Chassis/1/Devices/5",
     "@odata.type": "#HpeServerDevice.v2_1_0.HpeServerDevice",
     "Id": "5",
@@ -27,7 +27,7 @@
     "PartNumber": "836269-001",
     "ProductPartNumber": "830824-B21",
     "ProductVersion": "B",
-    "SerialNumber": "PFJHD0D52H60MB ",
+    "SerialNumber": "PFJHD0D52H60DG ",
     "Status": {
         "Health": "OK",
         "State": "Enabled"

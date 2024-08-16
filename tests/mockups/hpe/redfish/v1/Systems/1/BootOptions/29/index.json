@@ -5,8 +5,8 @@
     "@odata.type": "#BootOption.v1_0_1.BootOption",
     "Id": "29",
     "Alias": "None",
-    "BootOptionReference": "Boot0020",
-    "DisplayName": "Slot 5 Port 1 : Mellanox Network Adapter - B8:3F:D2:B7:6F:84 (PXE IPv4)",
+    "BootOptionReference": "Boot0018",
+    "DisplayName": "NVMe Drive Port 2C Box 1 Bay 8 : NVM Express Controller - S6C1NA0TA04203-MZXLR6T4HALA-000H3-9A382500",
     "Name": "Boot Option",
-    "UefiDevicePath": "PciRoot(0x7)/Pci(0x1,0x1)/Pci(0x0,0x0)/MAC(B83FD2B76F84,0x1)/IPv4(0.0.0.0)"
+    "UefiDevicePath": "PciRoot(0x4)/Pci(0x3,0x1)/Pci(0x0,0x0)/NVMe(0x1,5A-33-01-21-9A-38-25-00)"
 }

@@ -1,12 +1,12 @@
 {
     "@odata.context": "/redfish/v1/$metadata#Chassis.Chassis",
-    "@odata.etag": "W/\"1CC7B0F6\"",
+    "@odata.etag": "W/\"1BC9FA55\"",
     "@odata.id": "/redfish/v1/Chassis/1",
     "@odata.type": "#Chassis.v1_11_2.Chassis",
     "Id": "1",
     "AssetTag": "",
     "ChassisType": "RackMount",
-    "IndicatorLED": "Lit",
+    "IndicatorLED": "Off",
     "Links": {
         "ManagedBy": [
             {
@@ -119,14 +119,14 @@
             "MCTPEnabledOnServer": true,
             "SmartStorageBattery": [
                 {
-                    "ChargeLevelPercent": 96,
+                    "ChargeLevelPercent": 99,
                     "FirmwareVersion": "0.70",
                     "Index": 1,
                     "MaximumCapWatts": 12,
                     "Model": "P02377-B21",
                     "ProductName": "HPE Smart Stor Hybridcap",
-                    "RemainingChargeTimeSeconds": 8,
-                    "SerialNumber": "6WSPU0EB2HH19E",
+                    "RemainingChargeTimeSeconds": 4,
+                    "SerialNumber": "6WSPU0EB2HH1HB",
                     "SparePartNumber": "P07473-001",
                     "Status": {
                         "Health": "OK",
@@ -161,9 +161,9 @@
     },
     "PowerState": "On",
     "SKU": "P38411-B21",
-    "SerialNumber": "MXQ302099Z",
+    "SerialNumber": "MXQ302099S",
     "Status": {
-        "Health": "OK",
+        "Health": "Critical",
         "State": "Enabled"
     },
     "Thermal": {

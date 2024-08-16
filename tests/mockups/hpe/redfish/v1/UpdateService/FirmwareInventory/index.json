@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#SoftwareInventoryCollection.SoftwareInventoryCollection",
-    "@odata.etag": "W/\"CE8E5696\"",
+    "@odata.etag": "W/\"67BE067E\"",
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory",
     "@odata.type": "#SoftwareInventoryCollection.SoftwareInventoryCollection",
     "Description": "Firmware Inventory Collection",
@@ -149,13 +149,7 @@
         },
         {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/48"
-        },
-        {
-            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/49"
-        },
-        {
-            "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/50"
         }
     ],
-    "Members@odata.count": 50
+    "Members@odata.count": 48
 }

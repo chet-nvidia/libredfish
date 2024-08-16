@@ -16,10 +16,10 @@
     },
     "CapacityBytes": 6401252745216,
     "EncryptionStatus": "Unencrypted",
-    "FailurePredicted": false,
+    "FailurePredicted": true,
     "Identifiers": [
         {
-            "DurableName": "0025389A21012ED5",
+            "DurableName": "0025389A21013360",
             "DurableNameFormat": "EUI"
         }
     ],
@@ -37,14 +37,14 @@
         "Hpe": {
             "@odata.context": "/redfish/v1/$metadata#HpeiLODriveExt.HpeiLODriveExt",
             "@odata.type": "#HpeiLODriveExt.v2_0_1.HpeiLODriveExt",
-            "CurrentTemperatureCelsius": 18,
+            "CurrentTemperatureCelsius": 20,
             "DriveStatus": {
-                "Health": "OK",
+                "Health": "Critical",
                 "State": "Enabled"
             },
             "HealthUpdated": "Dynamic",
-            "NVMeId": "144d_MZXLR6T4HALA-000H3_S6C1NA0TA03566",
-            "PowerOnHours": 2449,
+            "NVMeId": "144d_MZXLR6T4HALA-000H3_S6C1NA0TA04209",
+            "PowerOnHours": 6977,
             "TemperatureStatus": {
                 "Health": "OK",
                 "State": "Enabled"
@@ -62,9 +62,9 @@
     "PredictedMediaLifeLeftPercent": 100,
     "Protocol": "NVMe",
     "Revision": "MPK7625Q",
-    "SerialNumber": "S6C1NA0TA03566",
+    "SerialNumber": "S6C1NA0TA04209",
     "Status": {
-        "Health": "OK",
+        "Health": "Critical",
         "State": "Enabled"
     }
 }

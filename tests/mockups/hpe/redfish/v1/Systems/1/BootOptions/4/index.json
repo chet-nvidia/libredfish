@@ -5,8 +5,8 @@
     "@odata.type": "#BootOption.v1_0_1.BootOption",
     "Id": "4",
     "Alias": "None",
-    "BootOptionReference": "Boot0025",
-    "DisplayName": "Slot 1 Port 1 : Mellanox Network Adapter - 88:E9:A4:83:ED:D0 (PXE IPv4)",
+    "BootOptionReference": "Boot0021",
+    "DisplayName": "Slot 5 Port 1 : Mellanox Network Adapter - B8:3F:D2:D7:F7:4A (PXE IPv4)",
     "Name": "Boot Option",
-    "UefiDevicePath": "PciRoot(0x2)/Pci(0x3,0x1)/Pci(0x0,0x0)/MAC(88E9A483EDD0,0x1)/IPv4(0.0.0.0)"
+    "UefiDevicePath": "PciRoot(0x7)/Pci(0x1,0x1)/Pci(0x0,0x0)/MAC(B83FD2D7F74A,0x1)/IPv4(0.0.0.0)"
 }

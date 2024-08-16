@@ -5,8 +5,8 @@
     "@odata.type": "#BootOption.v1_0_1.BootOption",
     "Id": "24",
     "Alias": "None",
-    "BootOptionReference": "Boot001B",
-    "DisplayName": "NVMe Drive Port 2B Box 1 Bay 3 : NVM Express Controller - S6C1NA0TA01534-MZXLR6T4HALA-000H3-9A382500",
+    "BootOptionReference": "Boot0022",
+    "DisplayName": "OCP Slot 10 Port 1 : Intel(R) Ethernet Network Adapter I350-T4 for OCP NIC 3.0 (PXE IPv4)",
     "Name": "Boot Option",
-    "UefiDevicePath": "PciRoot(0x5)/Pci(0x3,0x1)/Pci(0x0,0x0)/NVMe(0x1,0F-09-01-21-9A-38-25-00)"
+    "UefiDevicePath": "PciRoot(0x1)/Pci(0x1,0x3)/Pci(0x0,0x0)/MAC(507C6F11F2A6,0x1)/IPv4(0.0.0.0)"
 }

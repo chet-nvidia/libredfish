@@ -6,7 +6,7 @@
     "FirmwareVersion": "5.32",
     "Identifiers": [
         {
-            "DurableName": "51402EC018317540",
+            "DurableName": "51402EC018316330",
             "DurableNameFormat": "NAA"
         }
     ],
@@ -20,7 +20,7 @@
     "Manufacturer": "HPE",
     "Model": "HPE Smart Array P408i-p SR Gen10",
     "PartNumber": "830826-001",
-    "SerialNumber": "PFJHD0D52H60MB ",
+    "SerialNumber": "PFJHD0D52H60DG ",
     "SpeedGbps": 12.0,
     "SKU": "836269-001",
     "Status": {
@@ -67,5 +67,5 @@
     "Ports": {
         "@odata.id": "/redfish/v1/Systems/1/Storage/DE081000/Controllers/0/Ports"
     },
-    "@odata.etag": "\"3B79743B\""
+    "@odata.etag": "\"77BF8A60\""
 }

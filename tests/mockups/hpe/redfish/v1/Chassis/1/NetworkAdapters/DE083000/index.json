@@ -1,7 +1,7 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE083000",
     "@odata.type": "#NetworkAdapter.v1_5_0.NetworkAdapter",
-    "@odata.etag": "W/\"00B7238A\"",
+    "@odata.etag": "W/\"860FFF5C\"",
     "Actions": {
         "#NetworkAdapter.ResetSettingsToDefault": {
             "target": "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/Actions/NetworkAdapter.ResetSettingsToDefault",
@@ -64,5 +64,5 @@
     },
     "PartNumber": "P24251-001",
     "SKU": "P24251-001",
-    "SerialNumber": "ILC228044Z"
+    "SerialNumber": "ILC22602SD"
 }

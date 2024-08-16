@@ -7,7 +7,7 @@
     "Activates": "AfterDeviceReset",
     "ComponentUri": "/fwrepo/ilo5_272.bin",
     "Configuration": "",
-    "Created": "2023-01-18T15:25:13Z",
+    "Created": "2023-01-18T16:15:26Z",
     "Criticality": "Optional",
     "DeviceClass": "2f317b9d-c9e3-4d76-bff6-b9d0d085a952",
     "ExecutionParameters": "",

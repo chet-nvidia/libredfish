@@ -62,12 +62,12 @@
             "ComponentRepository": {
                 "@odata.id": "/redfish/v1/UpdateService/ComponentRepository"
             },
-            "CurrentTime": "2024-01-11T20:58:13Z",
+            "CurrentTime": "2024-08-15T21:48:10Z",
             "DowngradePolicy": "AllowDowngrade",
             "FirmwareIntegrity": {
                 "EnableBackgroundScan": false,
                 "LastScanResult": "OK",
-                "LastScanTime": "2023-10-04T19:00:56Z",
+                "LastScanTime": "2024-07-03T14:36:02Z",
                 "OnIntegrityFailure": "LogOnly",
                 "ScanEveryDays": 7
             },

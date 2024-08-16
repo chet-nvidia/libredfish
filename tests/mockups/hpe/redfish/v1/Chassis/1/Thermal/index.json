@@ -18,7 +18,7 @@
                     "Redundant": true
                 }
             },
-            "Reading": 25,
+            "Reading": 51,
             "ReadingUnits": "Percent",
             "Status": {
                 "Health": "OK",
@@ -38,7 +38,7 @@
                     "Redundant": true
                 }
             },
-            "Reading": 25,
+            "Reading": 51,
             "ReadingUnits": "Percent",
             "Status": {
                 "Health": "OK",
@@ -58,7 +58,7 @@
                     "Redundant": true
                 }
             },
-            "Reading": 25,
+            "Reading": 51,
             "ReadingUnits": "Percent",
             "Status": {
                 "Health": "OK",
@@ -78,7 +78,7 @@
                     "Redundant": true
                 }
             },
-            "Reading": 25,
+            "Reading": 51,
             "ReadingUnits": "Percent",
             "Status": {
                 "Health": "OK",
@@ -98,7 +98,7 @@
                     "Redundant": true
                 }
             },
-            "Reading": 25,
+            "Reading": 51,
             "ReadingUnits": "Percent",
             "Status": {
                 "Health": "OK",
@@ -118,7 +118,7 @@
                     "Redundant": true
                 }
             },
-            "Reading": 25,
+            "Reading": 51,
             "ReadingUnits": "Percent",
             "Status": {
                 "Health": "OK",
@@ -152,7 +152,7 @@
                 }
             },
             "PhysicalContext": "Intake",
-            "ReadingCelsius": 16,
+            "ReadingCelsius": 20,
             "SensorNumber": 1,
             "Status": {
                 "Health": "OK",
@@ -218,7 +218,7 @@
                 }
             },
             "PhysicalContext": "Memory",
-            "ReadingCelsius": 31,
+            "ReadingCelsius": 34,
             "SensorNumber": 4,
             "Status": {
                 "Health": "OK",
@@ -240,7 +240,7 @@
                 }
             },
             "PhysicalContext": "Memory",
-            "ReadingCelsius": 35,
+            "ReadingCelsius": 37,
             "SensorNumber": 5,
             "Status": {
                 "Health": "OK",
@@ -262,7 +262,7 @@
                 }
             },
             "PhysicalContext": "Memory",
-            "ReadingCelsius": 36,
+            "ReadingCelsius": 37,
             "SensorNumber": 6,
             "Status": {
                 "Health": "OK",
@@ -284,7 +284,7 @@
                 }
             },
             "PhysicalContext": "Memory",
-            "ReadingCelsius": 34,
+            "ReadingCelsius": 36,
             "SensorNumber": 7,
             "Status": {
                 "Health": "OK",
@@ -350,7 +350,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 27,
+            "ReadingCelsius": 30,
             "SensorNumber": 10,
             "Status": {
                 "Health": "OK",
@@ -372,7 +372,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 28,
+            "ReadingCelsius": 30,
             "SensorNumber": 11,
             "Status": {
                 "Health": "OK",
@@ -394,7 +394,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 33,
+            "ReadingCelsius": 34,
             "SensorNumber": 12,
             "Status": {
                 "Health": "OK",
@@ -416,7 +416,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 37,
+            "ReadingCelsius": 38,
             "SensorNumber": 13,
             "Status": {
                 "Health": "OK",
@@ -438,7 +438,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 37,
+            "ReadingCelsius": 42,
             "SensorNumber": 14,
             "Status": {
                 "Health": "OK",
@@ -460,7 +460,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 40,
+            "ReadingCelsius": 43,
             "SensorNumber": 15,
             "Status": {
                 "Health": "OK",
@@ -482,7 +482,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 42,
+            "ReadingCelsius": 44,
             "SensorNumber": 16,
             "Status": {
                 "Health": "OK",
@@ -504,7 +504,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 42,
+            "ReadingCelsius": 47,
             "SensorNumber": 17,
             "Status": {
                 "Health": "OK",
@@ -526,7 +526,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 60,
+            "ReadingCelsius": 63,
             "SensorNumber": 18,
             "Status": {
                 "Health": "OK",
@@ -548,7 +548,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 34,
+            "ReadingCelsius": 35,
             "SensorNumber": 19,
             "Status": {
                 "Health": "OK",
@@ -656,7 +656,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 53,
+            "ReadingCelsius": 49,
             "SensorNumber": 24,
             "Status": {
                 "Health": "OK",
@@ -678,7 +678,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 31,
+            "ReadingCelsius": 32,
             "SensorNumber": 25,
             "Status": {
                 "Health": "OK",
@@ -722,7 +722,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 32,
+            "ReadingCelsius": 33,
             "SensorNumber": 27,
             "Status": {
                 "Health": "OK",
@@ -744,7 +744,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 55,
+            "ReadingCelsius": 53,
             "SensorNumber": 28,
             "Status": {
                 "Health": "OK",
@@ -788,7 +788,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 86,
+            "ReadingCelsius": 85,
             "SensorNumber": 30,
             "Status": {
                 "Health": "OK",
@@ -810,7 +810,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 38,
+            "ReadingCelsius": 37,
             "SensorNumber": 31,
             "Status": {
                 "Health": "OK",
@@ -874,7 +874,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 33,
+            "ReadingCelsius": 34,
             "SensorNumber": 34,
             "Status": {
                 "Health": "OK",
@@ -896,7 +896,7 @@
                 }
             },
             "PhysicalContext": "PowerSupply",
-            "ReadingCelsius": 27,
+            "ReadingCelsius": 28,
             "SensorNumber": 35,
             "Status": {
                 "Health": "OK",
@@ -918,7 +918,7 @@
                 }
             },
             "PhysicalContext": "PowerSupply",
-            "ReadingCelsius": 30,
+            "ReadingCelsius": 31,
             "SensorNumber": 36,
             "Status": {
                 "Health": "OK",
@@ -1027,7 +1027,7 @@
                 }
             },
             "PhysicalContext": "CPU",
-            "ReadingCelsius": 41,
+            "ReadingCelsius": 42,
             "SensorNumber": 41,
             "Status": {
                 "Health": "OK",
@@ -1049,7 +1049,7 @@
                 }
             },
             "PhysicalContext": "CPU",
-            "ReadingCelsius": 49,
+            "ReadingCelsius": 46,
             "SensorNumber": 42,
             "Status": {
                 "Health": "OK",
@@ -1115,7 +1115,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 63,
+            "ReadingCelsius": 59,
             "SensorNumber": 45,
             "Status": {
                 "Health": "OK",
@@ -1161,7 +1161,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 47,
+            "ReadingCelsius": 44,
             "SensorNumber": 46,
             "Status": {
                 "Health": "OK",
@@ -1230,7 +1230,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 65,
+            "ReadingCelsius": 63,
             "SensorNumber": 47,
             "Status": {
                 "Health": "OK",
@@ -1253,7 +1253,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 96,
+            "ReadingCelsius": 88,
             "SensorNumber": 48,
             "Status": {
                 "Health": "OK",
@@ -1276,7 +1276,7 @@
                 }
             },
             "PhysicalContext": "SystemBoard",
-            "ReadingCelsius": 64,
+            "ReadingCelsius": 65,
             "SensorNumber": 48,
             "Status": {
                 "Health": "OK",

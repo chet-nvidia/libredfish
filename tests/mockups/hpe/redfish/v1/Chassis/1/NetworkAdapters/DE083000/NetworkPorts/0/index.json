@@ -1,10 +1,10 @@
 {
     "@odata.id": "/redfish/v1/Chassis/1/NetworkAdapters/DE083000/NetworkPorts/0",
     "@odata.type": "#NetworkPort.v1_3_0.NetworkPort",
-    "@odata.etag": "W/\"28E1FE9C\"",
+    "@odata.etag": "W/\"A9A1E4E3\"",
     "ActiveLinkTechnology": "InfiniBand",
     "AssociatedNetworkAddresses": [
-        "88e9:a4ff:ff87:6238",
+        "88e9:a4ff:ff80:9da2",
         "0000:0000:0000:0000"
     ],
     "FlowControlConfiguration": "TX_RX",

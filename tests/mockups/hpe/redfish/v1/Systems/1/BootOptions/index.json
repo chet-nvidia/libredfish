@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#BootOptionCollection.BootOptionCollection",
-    "@odata.etag": "W/\"65E72B5D\"",
+    "@odata.etag": "W/\"1225AB00\"",
     "@odata.id": "/redfish/v1/Systems/1/BootOptions",
     "@odata.type": "#BootOptionCollection.BootOptionCollection",
     "Description": "Configuration of Boot Options",
@@ -95,10 +95,7 @@
         },
         {
             "@odata.id": "/redfish/v1/Systems/1/BootOptions/30"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/1/BootOptions/31"
         }
     ],
-    "Members@odata.count": 31
+    "Members@odata.count": 30
 }

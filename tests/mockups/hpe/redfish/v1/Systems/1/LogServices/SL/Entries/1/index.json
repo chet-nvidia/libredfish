@@ -1,10 +1,10 @@
 {
     "@odata.context": "/redfish/v1/$metadata#LogEntry.LogEntry",
-    "@odata.etag": "W/\"60FF6CFA\"",
+    "@odata.etag": "W/\"A2854EE1\"",
     "@odata.id": "/redfish/v1/Systems/1/LogServices/SL/Entries/1",
     "@odata.type": "#LogEntry.v1_11_0.LogEntry",
     "Id": "1",
-    "Created": "2023-01-18T22:08:08Z",
+    "Created": "2023-01-18T23:13:41Z",
     "EntryType": "Oem",
     "Message": "Security log cleared by: System Administrator",
     "Name": "Security Log",
@@ -20,9 +20,9 @@
             "ClassDescription": "Maintenance",
             "Code": 4,
             "Count": 1,
-            "EventNumber": 26,
+            "EventNumber": 32,
             "Severity": "Informational",
-            "Updated": "2023-01-18T22:08:08Z",
+            "Updated": "2023-01-18T23:13:41Z",
             "UserAction": "Not Applicable"
         }
     },

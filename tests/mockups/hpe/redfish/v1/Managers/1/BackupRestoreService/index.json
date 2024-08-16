@@ -4,7 +4,7 @@
     "@odata.id": "/redfish/v1/Managers/1/BackupRestoreService",
     "@odata.type": "#HpeiLOBackupRestoreService.v2_2_0.HpeiLOBackupRestoreService",
     "Id": "BackupRestoreService",
-    "BackupFileLocation": "/bkupdata/HPE_MXQ302099Z_20240111_2047.bak",
+    "BackupFileLocation": "/bkupdata/HPE_MXQ302099S_20240815_2145.bak",
     "BackupFiles": {
         "@odata.id": "/redfish/v1/Managers/1/BackupRestoreService/BackupFiles"
     },

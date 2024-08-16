@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#EthernetInterface.EthernetInterface",
-    "@odata.etag": "W/\"50C79ECB\"",
+    "@odata.etag": "W/\"1D840DC7\"",
     "@odata.id": "/redfish/v1/Managers/1/EthernetInterfaces/1",
     "@odata.type": "#EthernetInterface.v1_4_1.EthernetInterface",
     "Id": "1",
@@ -23,12 +23,12 @@
     "Description": "Configuration of this Manager Network Interface",
     "FQDN": null,
     "FullDuplex": true,
-    "HostName": "ILOMXQ302099Z",
+    "HostName": "ILOMXQ302099S",
     "IPv4Addresses": [
         {
-            "Address": "10.217.132.217",
+            "Address": "10.180.198.84",
             "AddressOrigin": "DHCP",
-            "Gateway": "10.217.132.193",
+            "Gateway": "10.180.198.65",
             "SubnetMask": "255.255.255.192"
         }
     ],
@@ -42,7 +42,7 @@
     ],
     "IPv6Addresses": [
         {
-            "Address": "FE80::5EED:8CFF:FE34:B2A2",
+            "Address": "FE80::5EED:8CFF:FE34:C294",
             "AddressOrigin": "SLAAC",
             "AddressState": "Preferred",
             "PrefixLength": 64
@@ -74,11 +74,11 @@
     ],
     "InterfaceEnabled": true,
     "LinkStatus": "LinkUp",
-    "MACAddress": "5C:ED:8C:34:B2:A2",
+    "MACAddress": "5C:ED:8C:34:C2:94",
     "MaxIPv6StaticAddresses": 4,
     "Name": "Manager Dedicated Network Interface",
     "NameServers": [
-        "10.217.126.14"
+        "10.180.126.21"
     ],
     "Oem": {
         "Hpe": {
@@ -104,11 +104,11 @@
                 "UseRapidCommit": false
             },
             "DomainName": "",
-            "HostName": "ILOMXQ302099Z",
+            "HostName": "ILOMXQ302099S",
             "IPv4": {
                 "DDNSRegistration": true,
                 "DNSServers": [
-                    "10.217.126.14",
+                    "10.180.126.21",
                     "0.0.0.0",
                     "0.0.0.0"
                 ],
@@ -171,7 +171,7 @@
             "PingGatewayOnStartup": true
         }
     },
-    "PermanentMACAddress": "5C:ED:8C:34:B2:A2",
+    "PermanentMACAddress": "5C:ED:8C:34:C2:94",
     "SpeedMbps": 1000,
     "StatelessAddressAutoConfig": {
         "IPv6AutoConfigEnabled": true

@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#ManagerNetworkProtocol.ManagerNetworkProtocol",
-    "@odata.etag": "W/\"B248DD15\"",
+    "@odata.etag": "W/\"952DF769\"",
     "@odata.id": "/redfish/v1/Managers/1/NetworkProtocol",
     "@odata.type": "#ManagerNetworkProtocol.v1_0_0.ManagerNetworkProtocol",
     "Id": "NetworkProtocol",
@@ -13,10 +13,10 @@
         "Port": 443,
         "ProtocolEnabled": true
     },
-    "HostName": "ILOMXQ302099Z",
+    "HostName": "ILOMXQ302099S",
     "IPMI": {
         "Port": 623,
-        "ProtocolEnabled": true
+        "ProtocolEnabled": false
     },
     "KVMIP": {
         "Port": 17990,

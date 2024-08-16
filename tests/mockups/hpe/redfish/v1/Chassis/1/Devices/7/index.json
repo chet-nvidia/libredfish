@@ -1,6 +1,6 @@
 {
     "@odata.context": "/redfish/v1/$metadata#HpeServerDevice.HpeServerDevice",
-    "@odata.etag": "W/\"324FC443\"",
+    "@odata.etag": "W/\"765FC402\"",
     "@odata.id": "/redfish/v1/Chassis/1/Devices/7",
     "@odata.type": "#HpeServerDevice.v2_1_0.HpeServerDevice",
     "Id": "7",
@@ -12,7 +12,7 @@
     "DeviceType": "LOM/NIC",
     "FirmwareVersion": {
         "Current": {
-            "VersionString": "24.38.1402"
+            "VersionString": "24.40.1000"
         }
     },
     "Links": {
@@ -27,7 +27,7 @@
     "PartNumber": "MBF2H536C-CECOT",
     "ProductPartNumber": "MBF2H536C-CECOT          ",
     "ProductVersion": "B4",
-    "SerialNumber": "MT2244XZ022B   ",
+    "SerialNumber": "MT2246XZ0908   ",
     "Status": {
         "Health": null,
         "State": null

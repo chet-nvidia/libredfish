@@ -7,7 +7,7 @@
     "Activates": "AfterHardPowerCycle",
     "ComponentUri": "/fwrepo/DL365_DL385_G10Plus_v3030_signed.vme",
     "Configuration": "",
-    "Created": "2023-01-18T15:27:58Z",
+    "Created": "2023-01-18T16:21:53Z",
     "Criticality": "Optional",
     "DeviceClass": "b1ad439a-9dd1-41c1-a496-2da9313f1f07",
     "ExecutionParameters": "",
