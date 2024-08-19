@@ -781,9 +781,7 @@ impl Bmc {
             }
         }
         let Some(dpu_serial) = dpu_serial else {
-            return Err(RedfishError::MissingBootOption(
-                "Mellanox DPU for HPe in PCIeFunctions".to_string(),
-            ));
+            return Err(RedfishError::NoDpu);
         };
         Ok(dpu_serial)
     }

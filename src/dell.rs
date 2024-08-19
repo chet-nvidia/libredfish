@@ -157,7 +157,17 @@ impl Redfish for Bmc {
         };
 
         // Find the DPU
-        let nic_slot = self.dpu_nic_slot(None).await?;
+        let mut has_dpu = true;
+        let nic_slot = match self.dpu_nic_slot(None).await {
+            Ok(slot) => slot,
+            Err(RedfishError::NoDpu) => {
+                has_dpu = false;
+                "".to_string()
+            }
+            Err(err) => {
+                return Err(err);
+            }
+        };
 
         // dell idrac requires applying all bios settings at once.
         let forge_settings = self.forge_setup_attrs(&nic_slot);
@@ -176,7 +186,14 @@ impl Redfish for Bmc {
         self.forge_setup_oem().await?;
 
         self.setup_bmc_remote_access().await?;
-        Ok(())
+
+        if has_dpu {
+            Ok(())
+        } else {
+            // Usually a missing DPU is an error, but for zero-dpu it isn't
+            // Tell the caller and let them decide
+            Err(RedfishError::NoDpu)
+        }
     }
 
     async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
@@ -1483,9 +1500,7 @@ impl Bmc {
             }
         }
 
-        Err(RedfishError::MissingBootOption(
-            "Missing Mellanox DPU network adapter".to_string(),
-        ))
+        Err(RedfishError::NoDpu)
     }
 }
 

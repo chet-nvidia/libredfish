@@ -1189,7 +1189,7 @@ impl Bmc {
                 }
             }
         }
-        Err(RedfishError::MissingBootOption("DPU in slot".to_string()))
+        Err(RedfishError::NoDpu)
     }
 
     // The MAC address for a specific PCIeDevice slot. The slot name must look like "Slot15",

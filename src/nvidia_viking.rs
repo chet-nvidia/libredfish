@@ -645,9 +645,7 @@ impl Redfish for Bmc {
 
                 debug!("dpu mac_address: {}", dpu_mac_addresses.join(","));
                 if dpu_mac_addresses.is_empty() {
-                    return Err(RedfishError::GenericError {
-                        error: "no dpu with a mac_address found".to_string(),
-                    });
+                    return Err(RedfishError::NoDpu);
                 }
                 dpu_mac_addresses.first().unwrap().to_owned()
             }
