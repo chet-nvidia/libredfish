@@ -181,7 +181,7 @@ impl Redfish for RedfishStandard {
         self.clear_pending_with_url(&url).await
     }
 
-    async fn forge_setup(&self, _boot_interface_mac: Option<String>) -> Result<(), RedfishError> {
+    async fn forge_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         Err(RedfishError::NotSupported("forge_setup".to_string()))
     }
 
@@ -563,7 +563,7 @@ impl Redfish for RedfishStandard {
         })
     }
 
-    async fn set_boot_order_dpu_first(&self, _address: Option<String>) -> Result<(), RedfishError> {
+    async fn set_boot_order_dpu_first(&self, _address: Option<&str>) -> Result<(), RedfishError> {
         Err(RedfishError::NotSupported(
             "set_boot_order_dpu_first".to_string(),
         ))

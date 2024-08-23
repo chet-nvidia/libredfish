@@ -116,7 +116,7 @@ impl Redfish for Bmc {
     /// Note that you can't use this for initial setup unless you reboot and run it twice.
     /// `boot_first` won't find the Mellanox HTTP device. `uefi_nic_boot_attrs` enables it,
     /// but it won't show until after reboot so that step will fail on first time through.
-    async fn forge_setup(&self, _boot_interface_mac: Option<String>) -> Result<(), RedfishError> {
+    async fn forge_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
 
         let bios_attrs = self.forge_setup_attrs().await?;
@@ -567,7 +567,7 @@ impl Redfish for Bmc {
 
     async fn set_boot_order_dpu_first(
         &self,
-        mac_address: Option<String>,
+        mac_address: Option<&str>,
     ) -> Result<(), RedfishError> {
         self.s.set_boot_order_dpu_first(mac_address).await
     }

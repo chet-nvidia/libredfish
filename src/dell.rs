@@ -149,7 +149,7 @@ impl Redfish for Bmc {
         self.s.get_base_mac_address().await
     }
 
-    async fn forge_setup(&self, boot_interface_mac: Option<String>) -> Result<(), RedfishError> {
+    async fn forge_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.delete_job_queue().await?;
 
         let apply_time = dell::SetSettingsApplyTime {
@@ -806,7 +806,7 @@ impl Redfish for Bmc {
     // we do not support doing just this part, on a Dell.
     async fn set_boot_order_dpu_first(
         &self,
-        _mac_address: Option<String>,
+        _mac_address: Option<&str>,
     ) -> Result<(), RedfishError> {
         Err(RedfishError::UnnecessaryOperation)
     }
@@ -1418,7 +1418,7 @@ impl Bmc {
     }
 
     // Returns a string like "NIC.Slot.5-1"
-    async fn dpu_nic_slot(&self, mac_address: Option<String>) -> Result<String, RedfishError> {
+    async fn dpu_nic_slot(&self, mac_address: Option<&str>) -> Result<String, RedfishError> {
         let chassis = self.get_chassis(self.s.system_id()).await?;
         let na_id = match chassis.network_adapters {
             Some(id) => id,
@@ -1482,8 +1482,8 @@ impl Bmc {
                 };
                 match mac_address {
                     // Caller wants to match a specific MAC address
-                    Some(ref want_mac) => {
-                        if nw_dev_func.ethernet.unwrap().mac_address.as_ref() == Some(want_mac) {
+                    Some(want_mac) => {
+                        if nw_dev_func.ethernet.unwrap().mac_address.as_deref() == Some(want_mac) {
                             // we found a match by MAC address
                             return Ok(nic_slot);
                         }
