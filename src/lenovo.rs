@@ -117,14 +117,14 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
-    async fn forge_setup(&self) -> Result<(), RedfishError> {
+    async fn forge_setup(&self, boot_interface_mac: Option<String>) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
         self.clear_tpm().await?;
         self.boot_first(Boot::Pxe).await?;
         self.set_virt_enable().await?;
         self.set_uefi_boot_only().await?;
         // non-fatal error because possibly we need a reboot between set_uefi_boot_only and this
-        if let Err(err) = self.set_boot_order_dpu_first(None).await {
+        if let Err(err) = self.set_boot_order_dpu_first(boot_interface_mac).await {
             tracing::warn!(%err, "libredfish Lenovo set_boot_order_dpu_first");
         };
         Ok(())

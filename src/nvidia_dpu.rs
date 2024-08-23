@@ -138,7 +138,7 @@ impl Redfish for Bmc {
         self.get_system_event_log().await
     }
 
-    async fn forge_setup(&self) -> Result<(), RedfishError> {
+    async fn forge_setup(&self, _boot_interface_mac: Option<String>) -> Result<(), RedfishError> {
         self.disable_secure_boot().await?;
         self.set_host_privilege_level(Restricted).await?;
         self.set_internal_cpu_model(Embedded).await?;

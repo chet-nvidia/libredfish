@@ -137,7 +137,10 @@ pub trait Redfish: Send + Sync + 'static {
 
     /// call this to setup bios and bmc for Nvidia Forge use
     /// remember to call lockdown() afterwards to secure the server
-    async fn forge_setup(&self) -> Result<(), RedfishError>;
+    /// - boot_interface_mac: MAC Address of the NIC you wish to boot from
+    ///   If not given we look for a Mellanox Bluefield DPU and use that.
+    ///   Not applicable to Supermicro and the DPU itself.
+    async fn forge_setup(&self, boot_interface_mac: Option<String>) -> Result<(), RedfishError>;
 
     /// Is everything that forge_setup does already done?
     async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError>;

@@ -149,7 +149,7 @@ impl Redfish for Bmc {
         self.s.get_base_mac_address().await
     }
 
-    async fn forge_setup(&self) -> Result<(), RedfishError> {
+    async fn forge_setup(&self, boot_interface_mac: Option<String>) -> Result<(), RedfishError> {
         self.delete_job_queue().await?;
 
         let apply_time = dell::SetSettingsApplyTime {
@@ -158,7 +158,7 @@ impl Redfish for Bmc {
 
         // Find the DPU
         let mut has_dpu = true;
-        let nic_slot = match self.dpu_nic_slot(None).await {
+        let nic_slot = match self.dpu_nic_slot(boot_interface_mac).await {
             Ok(slot) => slot,
             Err(RedfishError::NoDpu) => {
                 has_dpu = false;

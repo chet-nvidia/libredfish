@@ -112,13 +112,13 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
-    async fn forge_setup(&self) -> Result<(), RedfishError> {
+    async fn forge_setup(&self, boot_interface_mac: Option<String>) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
         self.clear_tpm().await?;
         self.set_virt_enable().await?;
         self.set_uefi_nic_boot().await?;
         self.set_boot_order(BootDevices::Pxe).await?;
-        self.set_boot_order_dpu_first(None).await?;
+        self.set_boot_order_dpu_first(boot_interface_mac).await?;
         Ok(())
     }
 

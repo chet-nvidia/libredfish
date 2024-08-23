@@ -181,7 +181,7 @@ impl Redfish for RedfishStandard {
         self.clear_pending_with_url(&url).await
     }
 
-    async fn forge_setup(&self) -> Result<(), RedfishError> {
+    async fn forge_setup(&self, _boot_interface_mac: Option<String>) -> Result<(), RedfishError> {
         Err(RedfishError::NotSupported("forge_setup".to_string()))
     }
 
