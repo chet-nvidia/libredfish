@@ -4,12 +4,12 @@
     "Description": "Collection of System Event Log Entries",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40236",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/22078",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40236/attachment",
-            "Created": "1970-03-15T15:35:41+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/22078/attachment",
+            "Created": "1970-03-18T12:06:05+00:00",
             "EntryType": "Event",
-            "Id": "40236",
+            "Id": "22078",
             "Message": "Device 'MAX10 CPLD' successfully updated with image '0.17'.",
             "MessageArgs": [
                 "MAX10 CPLD",
@@ -29,12 +29,12 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40237",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/22079",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40237/attachment",
-            "Created": "1970-03-15T15:35:53+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/22079/attachment",
+            "Created": "1970-03-18T12:06:19+00:00",
             "EntryType": "Event",
-            "Id": "40237",
+            "Id": "22079",
             "Message": "Device 'FW_FPGA_0' successfully updated with image '0.3C'.",
             "MessageArgs": [
                 "FW_FPGA_0",
@@ -54,12 +54,12 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40238",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/22080",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40238/attachment",
-            "Created": "1970-03-15T15:35:53+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/22080/attachment",
+            "Created": "1970-03-18T12:06:19+00:00",
             "EntryType": "Event",
-            "Id": "40238",
+            "Id": "22080",
             "Message": "Awaiting for an action to proceed with activating image '0.3C' on 'FW_FPGA_0'.",
             "MessageArgs": [
                 "0.3C",
@@ -79,12 +79,12 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40239",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/22081",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40239/attachment",
-            "Created": "1970-03-15T15:37:51+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/22081/attachment",
+            "Created": "1970-03-18T12:08:16+00:00",
             "EntryType": "Event",
-            "Id": "40239",
+            "Id": "22081",
             "Message": "Device 'CPU_0' successfully updated with image '01.02.04'.",
             "MessageArgs": [
                 "CPU_0",
@@ -104,12 +104,12 @@
             "Severity": "OK"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40240",
+            "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/22082",
             "@odata.type": "#LogEntry.v1_13_0.LogEntry",
-            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/40240/attachment",
-            "Created": "1970-03-15T15:37:51+00:00",
+            "AdditionalDataURI": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Entries/22082/attachment",
+            "Created": "1970-03-18T12:08:16+00:00",
             "EntryType": "Event",
-            "Id": "40240",
+            "Id": "22082",
             "Message": "Awaiting for an action to proceed with activating image '01.02.04' on 'CPU_0'.",
             "MessageArgs": [
                 "01.02.04",

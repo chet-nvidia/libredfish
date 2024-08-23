@@ -3,18 +3,23 @@
     "@odata.type": "#ProcessorMetrics.v1_6_1.ProcessorMetrics",
     "Id": "ProcessorMetrics",
     "Name": "HGX_CPU_0 Processor Metrics",
-    "error": {
-        "@Message.ExtendedInfo": [
-            {
-                "@odata.type": "#Message.v1_1_1.Message",
-                "Message": "The request failed due to an internal service error.  The service is still operational.",
-                "MessageArgs": [],
-                "MessageId": "Base.1.15.0.InternalError",
-                "MessageSeverity": "Critical",
-                "Resolution": "Resubmit the request.  If the problem persists, consider resetting the service."
-            }
-        ],
-        "code": "Base.1.15.0.InternalError",
-        "message": "The request failed due to an internal service error.  The service is still operational."
-    }
+    "Oem": {
+        "Nvidia": {
+            "@odata.type": "#NvidiaProcessorMetrics.v1_1_0.NvidiaProcessorMetrics",
+            "AccumulatedGPUContextUtilizationDuration": "PT0S",
+            "AccumulatedSMUtilizationDuration": "PT0S",
+            "EDPViolationState": "Normal",
+            "GlobalSoftwareViolationThrottleDuration": "PT0S",
+            "HardwareViolationThrottleDuration": "PT0S",
+            "MemoryPageRetirementCount": 0,
+            "MemorySpareChannelPresence": true,
+            "PCIeRXBytes": 0,
+            "PCIeTXBytes": 0,
+            "PerformanceState": "Normal",
+            "PowerBreakPerformanceState": "Normal",
+            "ThrottleReasons": []
+        }
+    },
+    "PowerLimitThrottleDuration": "PT0S",
+    "ThermalLimitThrottleDuration": "PT0S"
 }

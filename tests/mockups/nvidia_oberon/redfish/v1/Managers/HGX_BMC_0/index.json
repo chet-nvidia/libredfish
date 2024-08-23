@@ -32,7 +32,7 @@
             }
         }
     },
-    "DateTime": "2024-07-23T19:13:30+00:00",
+    "DateTime": "2024-08-23T20:04:02+00:00",
     "DateTimeLocalOffset": "+00:00",
     "DedicatedNetworkPorts": {
         "@odata.id": "/redfish/v1/Managers/HGX_BMC_0/DedicatedNetworkPorts"
@@ -43,7 +43,7 @@
     },
     "FirmwareVersion": "GH200-24.05-2",
     "Id": "HGX_BMC_0",
-    "LastResetTime": "2024-07-17T21:34:33+00:00",
+    "LastResetTime": "2024-08-22T23:00:07+00:00",
     "Links": {
         "ActiveSoftwareImage": {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0"
@@ -61,8 +61,9 @@
         ],
         "ManagerForServers@odata.count": 1,
         "ManagerInChassis": {
-            "@odata.id": "/redfish/v1/Chassis/HGX_BMC_0"
+            "@odata.id": "/redfish/v1/Chassis/HGX_Chassis_0"
         },
+        "ManagerInChassis@odata.count": 1,
         "SoftwareImages": [
             {
                 "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0"
@@ -92,7 +93,7 @@
                 }
             }
         },
-        "UptimeSeconds": 509936.06
+        "UptimeSeconds": 75834.76
     },
     "PowerState": "On",
     "SerialConsole": {
@@ -103,12 +104,12 @@
         "MaxConcurrentSessions": 15,
         "ServiceEnabled": true
     },
-    "ServiceEntryPointUUID": "79194bf2-ed96-46ea-a575-cd83f65bc14c",
+    "ServiceEntryPointUUID": "6c7418fd-f37e-400a-b006-5f56a33cdec4",
     "Status": {
         "Conditions": [],
         "Health": "OK",
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "UUID": "444f239f-e70a-4d1a-a7e2-b197fc3dffe5"
+    "UUID": "fb075ee7-6ddd-44e9-9057-a60d3dab4bad"
 }

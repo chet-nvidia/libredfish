@@ -1,14 +1,9 @@
-Command:
-docker run --rm --user="$(id -u):$(id -g)" -v /home/graham/Temp/oberon:/mockup dmtf/redfish-mockup-creator:latest -u root -p 0penBmc -r 10.114.223.28 --maxlogentries 5 -S
-
-This was a GH200, but should apply to GB200 also.
-
-Redfish service captured by the Redfish Mockup Creator, Version 1.1.9
-Created: 2024-07-23 19:11:29
-Service: https://10.114.231.134
+Redfish service captured by the Redfish Mockup Creator, Version 1.2.0
+Created: 2024-08-23 16:02:32
+Service: https://localhost:8444
 User: root
 Description: 
-Total response time: 195.5685875415802
-Average response time: 0.20287197877757282
-Minimum response time: 0.08908200263977051, /redfish/v1/JsonSchemas/Fabric
-Maximum response time: 10.160962104797363, /redfish/v1/Systems/System_0/LogServices/EventLog/Entries
+Total response time: 223.70291352272034
+Average response time: 0.1550262740975193
+Minimum response time: 0.09075284004211426, /redfish/v1/JsonSchemas/SecureBootDatabase
+Maximum response time: 5.309990882873535, /redfish/v1/Systems/System_0/LogServices/EventLog/Entries

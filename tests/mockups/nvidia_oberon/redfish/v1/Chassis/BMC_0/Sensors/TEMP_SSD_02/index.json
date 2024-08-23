@@ -15,7 +15,7 @@
     ],
     "Status": {
         "Conditions": [],
-        "Health": "Warning",
+        "Health": "OK",
         "HealthRollup": "OK",
         "State": "Enabled"
     },

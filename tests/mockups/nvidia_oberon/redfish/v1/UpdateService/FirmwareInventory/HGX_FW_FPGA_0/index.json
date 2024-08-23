@@ -1,19 +1,23 @@
 {
     "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_FPGA_0",
-    "error": {
-        "@Message.ExtendedInfo": [
-            {
-                "@odata.type": "#Message.v1_1_1.Message",
-                "Message": "The resource at the URI '/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_FPGA_0' was not found.",
-                "MessageArgs": [
-                    "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_FPGA_0"
-                ],
-                "MessageId": "Base.1.15.0.ResourceMissingAtURI",
-                "MessageSeverity": "Critical",
-                "Resolution": "Place a valid resource at the URI or correct the URI and resubmit the request."
-            }
-        ],
-        "code": "Base.1.15.0.ResourceMissingAtURI",
-        "message": "The resource at the URI '/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_FPGA_0' was not found."
-    }
+    "@odata.type": "#SoftwareInventory.v1_4_0.SoftwareInventory",
+    "Description": "Other image",
+    "Id": "HGX_FW_FPGA_0",
+    "Manufacturer": "NVIDIA",
+    "Name": "Software Inventory",
+    "RelatedItem": [
+        {
+            "@odata.id": "/redfish/v1/Chassis/HGX_FPGA_0"
+        }
+    ],
+    "RelatedItem@odata.count": 1,
+    "SoftwareId": "0x005C",
+    "Status": {
+        "Conditions": [],
+        "Health": "OK",
+        "HealthRollup": "OK",
+        "State": "Enabled"
+    },
+    "Updateable": true,
+    "Version": "0.3C"
 }

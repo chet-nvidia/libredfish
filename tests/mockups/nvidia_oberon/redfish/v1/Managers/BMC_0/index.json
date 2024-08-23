@@ -32,7 +32,7 @@
             }
         }
     },
-    "DateTime": "2024-07-23T19:12:31+00:00",
+    "DateTime": "2024-08-23T20:03:11+00:00",
     "DateTimeLocalOffset": "+00:00",
     "DedicatedNetworkPorts": {
         "@odata.id": "/redfish/v1/Managers/BMC_0/DedicatedNetworkPorts"
@@ -53,7 +53,7 @@
         "@odata.id": "/redfish/v1/Managers/BMC_0/HostInterfaces"
     },
     "Id": "BMC_0",
-    "LastResetTime": "2024-07-17T00:43:23+00:00",
+    "LastResetTime": "2024-08-22T22:58:46+00:00",
     "Links": {
         "ActiveSoftwareImage": {
             "@odata.id": "/redfish/v1/UpdateService/FirmwareInventory/FW_BMC_0"
@@ -110,7 +110,7 @@
                 "@odata.id": "/redfish/v1/Managers/BMC_0/Truststore/Certificates"
             }
         },
-        "UptimeSeconds": 584947.81
+        "UptimeSeconds": 75864.4
     },
     "PowerState": "On",
     "SerialConsole": {
@@ -121,14 +121,14 @@
         "MaxConcurrentSessions": 15,
         "ServiceEnabled": true
     },
-    "ServiceEntryPointUUID": "224bb129-5621-400c-8e44-47ab66e441fe",
+    "ServiceEntryPointUUID": "21ec4218-bd70-4a73-a476-990523953642",
     "Status": {
         "Conditions": [],
         "Health": "OK",
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "UUID": "978f1603-d7d4-479d-9f03-864e25bb8cb6",
+    "UUID": "b9a028fd-0e5d-4925-bed0-8f2962371a72",
     "VirtualMedia": {
         "@odata.id": "/redfish/v1/Managers/BMC_0/VirtualMedia"
     }

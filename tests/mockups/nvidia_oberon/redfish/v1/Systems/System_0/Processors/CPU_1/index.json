@@ -32,7 +32,7 @@
         "IdentificationRegisters": "0x00000002036B0241"
     },
     "ProcessorType": "CPU",
-    "SerialNumber": "0x00000001780A01851400000005000180",
+    "SerialNumber": "0x00000001780A01851000000008FF0100",
     "Socket": "G1:1.0",
     "Status": {
         "Conditions": [],

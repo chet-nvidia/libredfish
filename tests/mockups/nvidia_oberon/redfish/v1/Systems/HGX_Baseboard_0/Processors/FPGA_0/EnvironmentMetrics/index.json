@@ -14,5 +14,9 @@
         }
     },
     "Id": "Environment Metrics",
-    "Name": "FPGA_0 Environment Metrics"
+    "Name": "FPGA_0 Environment Metrics",
+    "TemperatureCelsius": {
+        "DataSourceUri": "/redfish/v1/Chassis/HGX_FPGA_0/Sensors/HGX_FPGA_0_Temp_0",
+        "Reading": 33.99609375
+    }
 }

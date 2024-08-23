@@ -4,14 +4,14 @@
     "Description": "Collection of BMC Dump Entries",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/64",
+            "@odata.id": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/74",
             "@odata.type": "#LogEntry.v1_15_0.LogEntry",
-            "AdditionalDataSizeBytes": 131944,
-            "AdditionalDataURI": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/64/attachment",
-            "Created": "2024-07-17T00:44:14+00:00",
+            "AdditionalDataSizeBytes": 131828,
+            "AdditionalDataURI": "/redfish/v1/Managers/BMC_0/LogServices/Dump/Entries/74/attachment",
+            "Created": "2024-08-22T22:59:59+00:00",
             "DiagnosticDataType": "Manager",
             "EntryType": "Event",
-            "Id": "64",
+            "Id": "74",
             "Name": "BMC Dump Entry"
         }
     ],

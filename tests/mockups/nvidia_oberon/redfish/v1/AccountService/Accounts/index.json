@@ -4,10 +4,10 @@
     "Description": "BMC User Accounts",
     "Members": [
         {
-            "@odata.id": "/redfish/v1/AccountService/Accounts/WeWnx21YBk3cCvuW"
+            "@odata.id": "/redfish/v1/AccountService/Accounts/coJhloVjcKVlTeiz"
         },
         {
-            "@odata.id": "/redfish/v1/AccountService/Accounts/yQYgLlN7N84zQnUm"
+            "@odata.id": "/redfish/v1/AccountService/Accounts/G1ZgR8ufrlnPjwJg"
         },
         {
             "@odata.id": "/redfish/v1/AccountService/Accounts/fwupd"

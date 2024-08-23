@@ -5,24 +5,6 @@
     "Name": "Chassis Thermal Metrics",
     "TemperatureReadingsCelsius": [
         {
-            "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_PDB",
-            "DataSourceUri": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_PDB",
-            "DeviceName": "TEMP_PDB",
-            "Reading": 29.062
-        },
-        {
-            "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_DCSCM",
-            "DataSourceUri": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_DCSCM",
-            "DeviceName": "TEMP_DCSCM",
-            "Reading": 33.375
-        },
-        {
-            "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_IO_BOARD",
-            "DataSourceUri": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_IO_BOARD",
-            "DeviceName": "TEMP_IO_BOARD",
-            "Reading": 24.125
-        },
-        {
             "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_M_2_0_NVME",
             "DataSourceUri": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_M_2_0_NVME",
             "DeviceName": "TEMP_M_2_0_NVME",
@@ -44,7 +26,7 @@
             "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_SSD_01",
             "DataSourceUri": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_SSD_01",
             "DeviceName": "TEMP_SSD_01",
-            "Reading": 30.0
+            "Reading": 29.0
         },
         {
             "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_SSD_02",
@@ -57,6 +39,24 @@
             "DataSourceUri": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_SSD_03",
             "DeviceName": "TEMP_SSD_03",
             "Reading": 29.0
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_PDB",
+            "DataSourceUri": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_PDB",
+            "DeviceName": "TEMP_PDB",
+            "Reading": 30.312
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_DCSCM",
+            "DataSourceUri": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_DCSCM",
+            "DeviceName": "TEMP_DCSCM",
+            "Reading": 32.375
+        },
+        {
+            "@odata.id": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_IO_BOARD",
+            "DataSourceUri": "/redfish/v1/Chassis/BMC_0/Sensors/TEMP_IO_BOARD",
+            "DeviceName": "TEMP_IO_BOARD",
+            "Reading": 24.312
         }
     ]
 }

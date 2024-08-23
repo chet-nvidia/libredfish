@@ -13,20 +13,21 @@
             }
         }
     },
+    "EnergyJoules": {
+        "DataSourceUri": "/redfish/v1/Chassis/HGX_CPU_1/Sensors/ProcessorModule_1_CPU_0_Energy_0",
+        "Reading": 465226.988
+    },
+    "EnergykWh": {
+        "Reading": 0.12922971899227265
+    },
     "Id": "Environment Metrics",
     "Name": "HGX_CPU_1 Environment Metrics",
-    "error": {
-        "@Message.ExtendedInfo": [
-            {
-                "@odata.type": "#Message.v1_1_1.Message",
-                "Message": "The request failed due to an internal service error.  The service is still operational.",
-                "MessageArgs": [],
-                "MessageId": "Base.1.15.0.InternalError",
-                "MessageSeverity": "Critical",
-                "Resolution": "Resubmit the request.  If the problem persists, consider resetting the service."
-            }
-        ],
-        "code": "Base.1.15.0.InternalError",
-        "message": "The request failed due to an internal service error.  The service is still operational."
+    "PowerWatts": {
+        "DataSourceUri": "/redfish/v1/Chassis/HGX_CPU_1/Sensors/ProcessorModule_1_Vreg_0_SocPower_0",
+        "Reading": 1.171
+    },
+    "TemperatureCelsius": {
+        "DataSourceUri": "/redfish/v1/Chassis/HGX_CPU_1/Sensors/ProcessorModule_1_CPU_0_TempLimit_0",
+        "Reading": 49.938
     }
 }

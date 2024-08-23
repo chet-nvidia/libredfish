@@ -27,6 +27,7 @@
             "@odata.id": "/redfish/v1/Systems/System_0/BootOptions"
         },
         "BootOrder": [
+            "Boot001A",
             "Boot0002",
             "Boot0003",
             "Boot0001",
@@ -38,9 +39,6 @@
             "Boot0010",
             "Boot0012",
             "Boot0014",
-            "Boot000F",
-            "Boot001C",
-            "Boot001A",
             "Boot0005",
             "Boot0006",
             "Boot0007",
@@ -51,10 +49,16 @@
             "Boot0013",
             "Boot0015",
             "Boot0019",
+            "Boot001C",
+            "Boot001D",
+            "Boot001E",
+            "Boot001F",
+            "Boot0020",
+            "Boot0021",
+            "Boot000F",
             "Boot0016",
             "Boot0017",
-            "Boot001B",
-            "Boot001D"
+            "Boot001B"
         ],
         "BootOrderPropertySelection": "BootOrder",
         "BootSourceOverrideEnabled": "Continuous",
@@ -78,7 +82,7 @@
     },
     "BootProgress": {
         "LastState": "OSRunning",
-        "LastStateTime": "2024-07-18T22:41:29.507132+00:00"
+        "LastStateTime": "2024-08-23T17:27:19.763200+00:00"
     },
     "Description": "Computer System",
     "GraphicalConsole": {
@@ -97,7 +101,7 @@
     },
     "Id": "System_0",
     "IndicatorLED": "Off",
-    "LastResetTime": "2024-07-18T22:39:30+00:00",
+    "LastResetTime": "2024-08-23T17:25:40+00:00",
     "Links": {
         "Chassis": [
             {
@@ -170,5 +174,5 @@
         "@odata.id": "/redfish/v1/Systems/System_0/Storage"
     },
     "SystemType": "Physical",
-    "UUID": "65ba23ab-0ee0-ad43-5255-4f3f2817868e"
+    "UUID": "1e90aa6e-6d05-9589-2253-ce7672d02d26"
 }

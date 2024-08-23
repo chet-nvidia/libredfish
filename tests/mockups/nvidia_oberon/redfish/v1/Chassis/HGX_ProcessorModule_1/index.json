@@ -20,6 +20,9 @@
         ],
         "Contains": [
             {
+                "@odata.id": "/redfish/v1/Chassis/HGX_GPU_1"
+            },
+            {
                 "@odata.id": "/redfish/v1/Chassis/HGX_CPU_1"
             }
         ],
@@ -54,7 +57,7 @@
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/HGX_ProcessorModule_1/Sensors"
     },
-    "SerialNumber": "1640124000403",
+    "SerialNumber": "1640124000373",
     "Status": {
         "Conditions": [],
         "Health": "OK",

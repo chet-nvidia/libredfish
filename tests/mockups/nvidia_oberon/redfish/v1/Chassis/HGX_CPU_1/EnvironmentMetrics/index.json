@@ -10,6 +10,13 @@
             }
         }
     },
+    "EnergyJoules": {
+        "DataSourceUri": "/redfish/v1/Chassis/HGX_CPU_1/Sensors/ProcessorModule_1_CPU_0_Energy_0",
+        "Reading": 465189.813
+    },
+    "EnergykWh": {
+        "Reading": 0.1292193926033755
+    },
     "FanSpeedsPercent": [],
     "Id": "EnvironmentMetrics",
     "Name": "Chassis Environment Metrics",

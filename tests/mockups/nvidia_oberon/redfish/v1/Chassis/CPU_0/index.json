@@ -59,7 +59,7 @@
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/CPU_0/Sensors"
     },
-    "SerialNumber": "0x00000001780A01851400000001010200",
+    "SerialNumber": "0x00000001780A0185100000000CFF80C0",
     "Status": {
         "Conditions": [],
         "Health": "OK",

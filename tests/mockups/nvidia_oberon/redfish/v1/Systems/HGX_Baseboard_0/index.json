@@ -1,6 +1,8 @@
 {
     "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0",
     "@odata.type": "#ComputerSystem.v1_17_0.ComputerSystem",
+    "AssetTag": "",
+    "BiosVersion": "",
     "Boot": {
         "BootOrderPropertySelection": "BootOrder",
         "BootSourceOverrideEnabled@Redfish.AllowableValues": [
@@ -36,6 +38,7 @@
     "LogServices": {
         "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices"
     },
+    "Manufacturer": "NVIDIA",
     "Memory": {
         "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Memory"
     },
@@ -43,10 +46,11 @@
         "Status": {
             "Health": "OK",
             "HealthRollup": "OK",
-            "State": "Disabled"
+            "State": "Enabled"
         },
-        "TotalSystemMemoryGiB": 0
+        "TotalSystemMemoryGiB": 190
     },
+    "Model": "",
     "Name": "HGX_Baseboard_0",
     "Oem": {
         "Nvidia": {
@@ -54,6 +58,7 @@
             "ISTModeEnabled": false
         }
     },
+    "PartNumber": "694-24486-0000-EV2",
     "PowerState": "On",
     "ProcessorSummary": {
         "CoreCount": 144,
@@ -68,10 +73,12 @@
     "Processors": {
         "@odata.id": "/redfish/v1/Systems/HGX_Baseboard_0/Processors"
     },
+    "SerialNumber": "1580924760074",
     "Status": {
         "Health": "OK",
         "HealthRollup": "OK",
         "State": "Enabled"
     },
-    "SystemType": "Physical"
+    "SystemType": "Physical",
+    "UUID": "4f7febe5-c196-8dd9-9b67-39769f99c9d2"
 }

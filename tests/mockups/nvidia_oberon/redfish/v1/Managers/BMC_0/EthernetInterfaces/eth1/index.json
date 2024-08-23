@@ -18,7 +18,7 @@
     "HostName": "oberon-bmc",
     "IPv4Addresses": [
         {
-            "Address": "169.254.139.136",
+            "Address": "169.254.44.128",
             "AddressOrigin": "IPv4LinkLocal",
             "Gateway": "0.0.0.0",
             "SubnetMask": "255.255.0.0"
@@ -28,7 +28,7 @@
     "IPv6AddressPolicyTable": [],
     "IPv6Addresses": [
         {
-            "Address": "fe80::4c14:5bff:fecd:6f5c",
+            "Address": "fe80::e01f:9cff:fe23:840e",
             "AddressOrigin": "LinkLocal",
             "AddressState": null,
             "PrefixLength": 64
@@ -39,7 +39,7 @@
     "Id": "eth1",
     "InterfaceEnabled": true,
     "LinkStatus": "LinkUp",
-    "MACAddress": "4e:14:5b:cd:6f:5c",
+    "MACAddress": "e2:1f:9c:23:84:0e",
     "MTUSize": 1500,
     "Name": "Manager Ethernet Interface",
     "NameServers": [],

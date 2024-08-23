@@ -3,7 +3,7 @@
     "@odata.type": "#Sensor.v1_2_0.Sensor",
     "Id": "FAN_8_F",
     "Name": "FAN 8 F",
-    "Reading": 12136.0,
+    "Reading": 9733.0,
     "ReadingRangeMax": 25000.0,
     "ReadingRangeMin": 0.0,
     "ReadingType": "Rotational",

@@ -6,7 +6,7 @@
             "target": "/redfish/v1/Systems/HGX_Baseboard_0/LogServices/EventLog/Actions/LogService.ClearLog"
         }
     },
-    "DateTime": "2024-07-23T19:13:37+00:00",
+    "DateTime": "2024-08-23T20:05:34+00:00",
     "DateTimeLocalOffset": "+00:00",
     "Description": "System Event Log Service",
     "Entries": {
@@ -18,8 +18,8 @@
         "Nvidia": {
             "@odata.type": "#NvidiaLogService.v1_1_0.NvidiaLogService",
             "AutoClearResolvedLogEnabled": false,
-            "LatestEntryID": "42337",
-            "LatestEntryTimeStamp": "2024-07-23T19:11:20+00:00"
+            "LatestEntryID": "37355",
+            "LatestEntryTimeStamp": "2024-08-23T20:05:01+00:00"
         }
     },
     "OverWritePolicy": "WrapsWhenFull"

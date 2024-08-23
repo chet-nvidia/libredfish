@@ -3,7 +3,7 @@
     "@odata.type": "#Sensor.v1_2_0.Sensor",
     "Id": "TEMP_IO_BOARD",
     "Name": "TEMP IO BOARD",
-    "Reading": 24.125,
+    "Reading": 24.312,
     "ReadingRangeMax": 127.0,
     "ReadingRangeMin": -128.0,
     "ReadingType": "Temperature",

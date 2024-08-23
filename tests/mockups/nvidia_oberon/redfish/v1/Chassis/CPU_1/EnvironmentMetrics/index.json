@@ -33,31 +33,31 @@
             "@odata.id": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_2_R",
             "DataSourceUri": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_2_R",
             "DeviceName": "Chassis Fan #FAN_2_R",
-            "SpeedRPM": 23976.0
+            "SpeedRPM": 24576.0
         },
         {
             "@odata.id": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_3_F",
             "DataSourceUri": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_3_F",
             "DeviceName": "Chassis Fan #FAN_3_F",
-            "SpeedRPM": 27306.0
+            "SpeedRPM": 26568.0
         },
         {
             "@odata.id": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_3_R",
             "DataSourceUri": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_3_R",
             "DeviceName": "Chassis Fan #FAN_3_R",
-            "SpeedRPM": 23976.0
+            "SpeedRPM": 24576.0
         },
         {
             "@odata.id": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_4_F",
             "DataSourceUri": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_4_F",
             "DeviceName": "Chassis Fan #FAN_4_F",
-            "SpeedRPM": 9637.0
+            "SpeedRPM": 10802.0
         },
         {
             "@odata.id": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_4_R",
             "DataSourceUri": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_4_R",
             "DeviceName": "Chassis Fan #FAN_4_R",
-            "SpeedRPM": 9637.0
+            "SpeedRPM": 10802.0
         },
         {
             "@odata.id": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_5_F",
@@ -69,7 +69,7 @@
             "@odata.id": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_5_R",
             "DataSourceUri": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_5_R",
             "DeviceName": "Chassis Fan #FAN_5_R",
-            "SpeedRPM": 24576.0
+            "SpeedRPM": 23976.0
         },
         {
             "@odata.id": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_6_F",
@@ -99,13 +99,13 @@
             "@odata.id": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_8_F",
             "DataSourceUri": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_8_F",
             "DeviceName": "Chassis Fan #FAN_8_F",
-            "SpeedRPM": 12136.0
+            "SpeedRPM": 9733.0
         },
         {
             "@odata.id": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_8_R",
             "DataSourceUri": "/redfish/v1/Chassis/CPU_1/Sensors/FAN_8_R",
             "DeviceName": "Chassis Fan #FAN_8_R",
-            "SpeedRPM": 12136.0
+            "SpeedRPM": 9733.0
         }
     ],
     "Id": "EnvironmentMetrics",

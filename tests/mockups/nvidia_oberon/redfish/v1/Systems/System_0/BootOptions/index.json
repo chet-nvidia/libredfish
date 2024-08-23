@@ -36,6 +36,12 @@
             "@odata.id": "/redfish/v1/Systems/System_0/BootOptions/Boot001D"
         },
         {
+            "@odata.id": "/redfish/v1/Systems/System_0/BootOptions/Boot001E"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/System_0/BootOptions/Boot001F"
+        },
+        {
             "@odata.id": "/redfish/v1/Systems/System_0/BootOptions/Boot0002"
         },
         {
@@ -85,8 +91,14 @@
         },
         {
             "@odata.id": "/redfish/v1/Systems/System_0/BootOptions/Boot0019"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/System_0/BootOptions/Boot0020"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/System_0/BootOptions/Boot0021"
         }
     ],
-    "Members@odata.count": 28,
+    "Members@odata.count": 32,
     "Name": "Boot Option Collection"
 }

@@ -4,6 +4,7 @@
     "Boot": {
         "AutomaticRetryConfig": "RetryAttempts",
         "BootOrder": [
+            "Boot001A",
             "Boot0002",
             "Boot0003",
             "Boot0001",
@@ -15,9 +16,6 @@
             "Boot0010",
             "Boot0012",
             "Boot0014",
-            "Boot000F",
-            "Boot001C",
-            "Boot001A",
             "Boot0005",
             "Boot0006",
             "Boot0007",
@@ -28,10 +26,16 @@
             "Boot0013",
             "Boot0015",
             "Boot0019",
+            "Boot001C",
+            "Boot001D",
+            "Boot001E",
+            "Boot001F",
+            "Boot0020",
+            "Boot0021",
+            "Boot000F",
             "Boot0016",
             "Boot0017",
-            "Boot001B",
-            "Boot001D"
+            "Boot001B"
         ],
         "BootSourceOverrideEnabled": "Continuous",
         "BootSourceOverrideTarget": "Hdd"
