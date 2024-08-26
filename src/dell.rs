@@ -1217,6 +1217,7 @@ impl Bmc {
         attributes.insert("WebServer.1.HostHeaderCheck", "Disabled".to_string());
         // racadm set iDRAC.IPMILan.Enable 1
         attributes.insert("IPMILan.1.Enable", "Enabled".to_string());
+        attributes.insert("OS-BMC.1.AdminState", "Disabled".to_string());
 
         let body = HashMap::from([("Attributes", attributes)]);
         self.s.client.patch(&url, body).await.map(|_resp| ())
