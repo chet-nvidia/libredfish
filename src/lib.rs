@@ -24,6 +24,7 @@ mod hpe;
 mod lenovo;
 mod network;
 mod nvidia_dpu;
+mod nvidia_gh200;
 mod nvidia_viking;
 mod supermicro;
 pub use network::{Endpoint, RedfishClientPool, RedfishClientPoolBuilder, REDFISH_ENDPOINT};

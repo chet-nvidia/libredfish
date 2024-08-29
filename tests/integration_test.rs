@@ -37,6 +37,7 @@ const NVIDIA_DPU_PORT: &str = "8736";
 const NVIDIA_VIKING_PORT: &str = "8737";
 const SUPERMICRO_PORT: &str = "8738";
 const DELL_MULTI_DPU_PORT: &str = "8739";
+const NVIDIA_GH200_PORT: &str = "8740";
 
 static SETUP: Once = Once::new();
 
@@ -73,6 +74,11 @@ async fn test_nvidia_viking() -> Result<(), anyhow::Error> {
 #[tokio::test]
 async fn test_supermicro() -> Result<(), anyhow::Error> {
     run_integration_test("supermicro", SUPERMICRO_PORT).await
+}
+
+#[tokio::test]
+async fn test_nvidia_gh200() -> Result<(), anyhow::Error> {
+    run_integration_test("nvidia_gh200", NVIDIA_GH200_PORT).await
 }
 
 async fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
@@ -203,16 +209,18 @@ async fn run_integration_test(
         manager_eth_interface_states.push(state);
     }
 
-    let system_eth_interfaces = redfish.get_system_ethernet_interfaces().await?;
-    assert!(!system_eth_interfaces.is_empty());
-    let mut system_eth_interface_states: Vec<libredfish::EthernetInterface> = Vec::new();
-    for iface in &system_eth_interfaces {
-        let state = redfish.get_system_ethernet_interface(iface).await?;
-        let mac = state.mac_address.clone().unwrap();
-        if !all_macs.insert(mac.clone()) {
-            panic!("Duplicate MAC address {} on interface {}", mac, iface);
+    if vendor_dir != "nvidia_gh200" {
+        let system_eth_interfaces = redfish.get_system_ethernet_interfaces().await?;
+        assert!(!system_eth_interfaces.is_empty());
+        let mut system_eth_interface_states: Vec<libredfish::EthernetInterface> = Vec::new();
+        for iface in &system_eth_interfaces {
+            let state = redfish.get_system_ethernet_interface(iface).await?;
+            let mac = state.mac_address.clone().unwrap();
+            if !all_macs.insert(mac.clone()) {
+                panic!("Duplicate MAC address {} on interface {}", mac, iface);
+            }
+            system_eth_interface_states.push(state);
         }
-        system_eth_interface_states.push(state);
     }
 
     let chassis = redfish.get_chassis_all().await?;
@@ -263,13 +271,15 @@ async fn run_integration_test(
         assert!(redfish.lockdown_status().await?.is_fully_disabled());
     }
 
-    redfish.setup_serial_console().await?;
-    redfish
-        .power(libredfish::SystemPowerControl::ForceRestart)
-        .await?;
-    assert!(redfish.serial_console_status().await?.is_fully_enabled());
+    if vendor_dir != "nvidia_gh200" {
+        redfish.setup_serial_console().await?;
+        redfish
+            .power(libredfish::SystemPowerControl::ForceRestart)
+            .await?;
+        assert!(redfish.serial_console_status().await?.is_fully_enabled());
+    }
 
-    if vendor_dir != "supermicro" {
+    if vendor_dir != "supermicro" && vendor_dir != "nvidia_gh200" {
         redfish.clear_tpm().await?;
         // The mockup includes TPM clear pending operation
         assert!(!redfish.pending().await?.is_empty());
@@ -293,8 +303,10 @@ async fn run_integration_test(
     if vendor_dir == "lenovo" {
         assert!(redfish.lockdown_status().await?.is_fully_enabled());
     }
-    _ = redfish.get_thermal_metrics().await?;
-    _ = redfish.get_power_metrics().await?;
+    if vendor_dir != "nvidia_gh200" {
+        _ = redfish.get_thermal_metrics().await?;
+        _ = redfish.get_power_metrics().await?;
+    }
     if vendor_dir != "lenovo" && vendor_dir != "supermicro" {
         // the lenovo mockup doesn't have this content, but their docs have it
         _ = redfish.get_system_event_log().await?;
@@ -310,12 +322,12 @@ async fn run_integration_test(
             }
         }
     }
-    resource_tests(&redfish).await?;
+    resource_tests(redfish.as_ref()).await?;
 
     Ok(())
 }
 
-async fn resource_tests(redfish: &Box<dyn Redfish>) -> Result<(), anyhow::Error> {
+async fn resource_tests(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
     pub enum UriType {
         ODataId(ODataId),
         OptionODataId(Option<ODataId>),
@@ -344,14 +356,14 @@ async fn resource_tests(redfish: &Box<dyn Redfish>) -> Result<(), anyhow::Error>
                 .unwrap_or("unknown-type");
             // viking's mockup data contains some chassis w.o @odata.type, until we clean up mockup data we
             // need to bypass that case
-            if member_odata_type == "" && vendor == RedfishVendor::AMI {
+            if member_odata_type.is_empty() && vendor == RedfishVendor::AMI {
                 continue;
             }
             assert_eq!(collection_type, member_odata_type);
         }
     }
     async fn test_type<T>(
-        redfish: &Box<dyn Redfish>,
+        redfish: &dyn Redfish,
         uri: UriType,
         vendor: RedfishVendor,
     ) -> Result<ResourceCollection<T>, anyhow::Error>
@@ -371,7 +383,7 @@ async fn resource_tests(redfish: &Box<dyn Redfish>) -> Result<(), anyhow::Error>
                 verify_collection(&x, vendor);
                 Ok(x)
             }
-            Err(e) => return Err(anyhow!(e.to_string())),
+            Err(e) => Err(anyhow!(e.to_string())),
         }
     }
 
@@ -397,18 +409,17 @@ async fn resource_tests(redfish: &Box<dyn Redfish>) -> Result<(), anyhow::Error>
     )
     .await?;
 
-    let chassis_id: &str;
-    match vendor {
-        RedfishVendor::Lenovo | RedfishVendor::Supermicro | RedfishVendor::Hpe => chassis_id = "1",
-        RedfishVendor::AMI => chassis_id = "DGX",
-        RedfishVendor::Nvidia => chassis_id = "Card1",
-        RedfishVendor::Dell => chassis_id = "System.Embedded.1",
-        _ => return Err(anyhow!("Unknown vendor")),
+    let chassis_id = match vendor {
+        RedfishVendor::Lenovo | RedfishVendor::Supermicro | RedfishVendor::Hpe => "1",
+        RedfishVendor::AMI => "DGX",
+        RedfishVendor::NvidiaDpu => "Card1",
+        RedfishVendor::Dell => "System.Embedded.1",
+        RedfishVendor::NvidiaGH200 => "BMC_0",
+        _ => return Err(anyhow!("Unknown vendor could not identify chassis")),
     };
-    if vendor != RedfishVendor::Nvidia {
+    if vendor != RedfishVendor::NvidiaDpu {
         let ch = match chassis_rc
             .members
-            .iter()
             .into_iter()
             .find(|c| c.id.clone().unwrap_or_default() == chassis_id)
         {

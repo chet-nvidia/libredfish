@@ -671,19 +671,22 @@ impl RedfishStandard {
             RedfishVendor::Dell => Ok(Box::new(crate::dell::Bmc::new(self.clone())?)),
             RedfishVendor::Hpe => Ok(Box::new(crate::hpe::Bmc::new(self.clone())?)),
             RedfishVendor::Lenovo => Ok(Box::new(crate::lenovo::Bmc::new(self.clone())?)),
-            RedfishVendor::Nvidia => Ok(Box::new(crate::nvidia_dpu::Bmc::new(self.clone())?)),
+            RedfishVendor::NvidiaDpu => Ok(Box::new(crate::nvidia_dpu::Bmc::new(self.clone())?)),
+            RedfishVendor::NvidiaGH200 => {
+                Ok(Box::new(crate::nvidia_gh200::Bmc::new(self.clone())?))
+            }
             RedfishVendor::Supermicro => Ok(Box::new(crate::supermicro::Bmc::new(self.clone())?)),
             _ => Ok(Box::new(self.clone())),
         }
     }
 
-    /// Fetch and set System number. Needed for all `Systems/{system_id}/...` calls
+    /// Needed for all `Systems/{system_id}/...` calls
     pub fn set_system_id(&mut self, system_id: &str) -> Result<(), RedfishError> {
         self.system_id = system_id.to_string();
         Ok(())
     }
 
-    /// Fetch and set Manager number. Needed for all `Managers/{system_id}/...` calls
+    /// Needed for all `Managers/{system_id}/...` calls
     pub fn set_manager_id(&mut self, manager_id: &str) -> Result<(), RedfishError> {
         self.manager_id = manager_id.to_string();
         Ok(())

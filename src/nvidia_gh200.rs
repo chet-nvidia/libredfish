@@ -1,6 +1,5 @@
 use std::{collections::HashMap, path::Path, time::Duration};
 
-use serde::Deserialize;
 use tokio::fs::File;
 
 use crate::model::account_service::ManagerAccount;
@@ -8,13 +7,10 @@ use crate::model::sensor::GPUSensors;
 use crate::model::task::Task;
 use crate::model::update_service::UpdateService;
 use crate::Boot::UefiHttp;
-use crate::HostPrivilegeLevel::Restricted;
-use crate::InternalCPUModel::Embedded;
 use crate::{
     model::{
         boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
         chassis::NetworkAdapter,
-        oem::nvidia_dpu::{HostPrivilegeLevel, InternalCPUModel},
         sel::{LogEntry, LogEntryCollection},
         service_root::ServiceRoot,
         BootOption, ComputerSystem, Manager,
@@ -28,25 +24,32 @@ pub struct Bmc {
     s: RedfishStandard,
 }
 
-pub enum BootOptionName {
-    Http,
-    Pxe,
-    Disk,
-}
-impl BootOptionName {
-    fn to_string(&self) -> &str {
-        match self {
-            BootOptionName::Http => "UEFI HTTPv4",
-            BootOptionName::Pxe => "UEFI PXEv4",
-            BootOptionName::Disk => "UEFI Non-Block Boot Device",
-        }
-    }
-}
-
 impl Bmc {
     pub fn new(s: RedfishStandard) -> Result<Bmc, RedfishError> {
         Ok(Bmc { s })
     }
+}
+
+#[derive(Copy, Clone)]
+pub enum BootOptionName {
+    Http,
+    Pxe,
+    UefiHd,
+}
+
+impl BootOptionName {
+    fn to_string(self) -> &'static str {
+        match self {
+            BootOptionName::Http => "UEFI HTTPv4",
+            BootOptionName::Pxe => "UEFI PXEv4",
+            BootOptionName::UefiHd => "HD(",
+        }
+    }
+}
+
+enum BootOptionMatchField {
+    DisplayName,
+    UefiDevicePath,
 }
 
 #[async_trait::async_trait]
@@ -68,7 +71,7 @@ impl Redfish for Bmc {
         self.s.change_password(user, new).await
     }
 
-    /// Note that DPU account_ids are not numbers but usernames: "root", "forge_admin", etc
+    /// Note that GH200 account_ids are not numbers but usernames: "root", "forge_admin", etc
     async fn change_password_by_id(
         &self,
         account_id: &str,
@@ -105,8 +108,9 @@ impl Redfish for Bmc {
     }
 
     async fn get_power_metrics(&self) -> Result<crate::Power, RedfishError> {
-        let (_status_code, body) = self.s.client.get("Chassis/Card1/Power/").await?;
-        Ok(body)
+        Err(RedfishError::NotSupported(
+            "GH200 PowerSubsystem not populated".to_string(),
+        ))
     }
 
     async fn power(&self, action: crate::SystemPowerControl) -> Result<(), RedfishError> {
@@ -126,12 +130,15 @@ impl Redfish for Bmc {
     }
 
     async fn get_thermal_metrics(&self) -> Result<crate::Thermal, RedfishError> {
-        let (_status_code, body) = self.s.client.get("Chassis/Card1/Thermal/").await?;
-        Ok(body)
+        Err(RedfishError::NotSupported(
+            "GH200 Thermal not populated".to_string(),
+        ))
     }
 
     async fn get_gpu_sensors(&self) -> Result<Vec<GPUSensors>, RedfishError> {
-        self.s.get_gpu_sensors().await
+        Err(RedfishError::NotSupported(
+            "get_gpu_sensors not implemented".to_string(),
+        ))
     }
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
@@ -140,8 +147,6 @@ impl Redfish for Bmc {
 
     async fn forge_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.disable_secure_boot().await?;
-        self.set_host_privilege_level(Restricted).await?;
-        self.set_internal_cpu_model(Embedded).await?;
         self.boot_once(UefiHttp).await
     }
 
@@ -157,52 +162,6 @@ impl Redfish for Bmc {
             });
         }
 
-        let bios = self.s.bios_attributes().await?;
-        let key = "Host Privilege Level";
-        let Some(hpl) = bios.get(key) else {
-            return Err(RedfishError::MissingKey {
-                key: key.to_string(),
-                url: "Systems/{}/Bios".to_string(),
-            });
-        };
-        let actual = HostPrivilegeLevel::deserialize(hpl).map_err(|e| {
-            RedfishError::JsonDeserializeError {
-                url: "Systems/{}/Bios".to_string(),
-                body: hpl.to_string(),
-                source: e,
-            }
-        })?;
-        let expected = HostPrivilegeLevel::Restricted;
-        if actual != expected {
-            diffs.push(ForgeSetupDiff {
-                key: key.to_string(),
-                actual: actual.to_string(),
-                expected: expected.to_string(),
-            });
-        }
-
-        let key = "Internal CPU Model";
-        let Some(icm) = bios.get(key) else {
-            return Err(RedfishError::MissingKey {
-                key: key.to_string(),
-                url: "Systems/{}/Bios".to_string(),
-            });
-        };
-        let actual =
-            InternalCPUModel::deserialize(icm).map_err(|e| RedfishError::JsonDeserializeError {
-                url: "Systems/{}/Bios".to_string(),
-                body: hpl.to_string(),
-                source: e,
-            })?;
-        let expected = InternalCPUModel::Embedded;
-        if actual != expected {
-            diffs.push(ForgeSetupDiff {
-                key: key.to_string(),
-                actual: actual.to_string(),
-                expected: expected.to_string(),
-            });
-        }
-
         Ok(ForgeSetupStatus {
             is_done: diffs.is_empty(),
             diffs,
@@ -211,9 +170,12 @@ impl Redfish for Bmc {
 
     async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
         use serde_json::Value::Number;
+        // These are also the defaults
         let body = HashMap::from([
+            // Never lock
             ("AccountLockoutThreshold", Number(0.into())),
-            ("AccountLockoutDuration", Number(0.into())),
+            // 600 is the smallest value it will accept. 10 minutes, in seconds.
+            ("AccountLockoutDuration", Number(600.into())),
         ]);
         self.s
             .client
@@ -222,8 +184,10 @@ impl Redfish for Bmc {
             .map(|_status_code| ())
     }
 
-    async fn lockdown(&self, target: crate::EnabledDisabled) -> Result<(), RedfishError> {
-        self.s.lockdown(target).await
+    async fn lockdown(&self, _target: crate::EnabledDisabled) -> Result<(), RedfishError> {
+        // OpenBMC does not provide a lockdown
+        // carbide calls this so don't return an error, otherwise GH200 would need special handling
+        Ok(())
     }
 
     async fn lockdown_status(&self) -> Result<crate::Status, RedfishError> {
@@ -263,6 +227,7 @@ impl Redfish for Bmc {
                 .await
             }
             crate::Boot::UefiHttp => {
+                // : UefiHttp isn't in the GH200's list of AllowableValues, but it seems to work
                 self.set_boot_override(
                     BootSourceOverrideTarget::UefiHttp,
                     BootSourceOverrideEnabled::Once,
@@ -274,9 +239,20 @@ impl Redfish for Bmc {
 
     async fn boot_first(&self, target: crate::Boot) -> Result<(), RedfishError> {
         match target {
-            crate::Boot::Pxe => self.set_boot_order(&BootOptionName::Pxe).await,
-            crate::Boot::HardDisk => self.set_boot_order(&BootOptionName::Disk).await,
-            crate::Boot::UefiHttp => self.set_boot_order(&BootOptionName::Http).await,
+            crate::Boot::Pxe => self.set_boot_order(BootOptionName::Pxe).await,
+            crate::Boot::HardDisk => {
+                // We're looking for a UefiDevicePath like this:
+                // HD(1,GPT,A04D0F1E-E02F-4725-9434-0699B52D8FF2,0x800,0x100000)/\\EFI\\ubuntu\\shimaa64.efi
+                // The DisplayName will be something like "ubuntu".
+                let boot_array = self
+                    .get_boot_options_ids_with_first(
+                        BootOptionName::UefiHd,
+                        BootOptionMatchField::UefiDevicePath,
+                    )
+                    .await?;
+                self.change_boot_order(boot_array).await
+            }
+            crate::Boot::UefiHttp => self.set_boot_order(BootOptionName::Http).await,
         }
     }
 
@@ -285,7 +261,9 @@ impl Redfish for Bmc {
     }
 
     async fn pcie_devices(&self) -> Result<Vec<crate::PCIeDevice>, RedfishError> {
-        self.s.pcie_devices().await
+        Err(RedfishError::NotSupported(
+            "GH200 doesn't have PCIeDevices tree".to_string(),
+        ))
     }
 
     async fn update_firmware(
@@ -348,12 +326,14 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
+    /// gh200 has no bios attributes
     async fn pending(
         &self,
     ) -> Result<std::collections::HashMap<String, serde_json::Value>, RedfishError> {
         self.s.pending().await
     }
 
+    /// gh200 has no bios attributes
     async fn clear_pending(&self) -> Result<(), RedfishError> {
         self.s.clear_pending().await
     }
@@ -388,17 +368,21 @@ impl Redfish for Bmc {
 
     async fn get_chassis_network_adapters(
         &self,
-        chassis_id: &str,
+        _chassis_id: &str,
     ) -> Result<Vec<String>, RedfishError> {
-        self.s.get_chassis_network_adapters(chassis_id).await
+        Err(RedfishError::NotSupported(
+            "GH200 doesn't have NetworkAdapters tree".to_string(),
+        ))
     }
 
     async fn get_chassis_network_adapter(
         &self,
-        chassis_id: &str,
-        id: &str,
+        _chassis_id: &str,
+        _id: &str,
     ) -> Result<NetworkAdapter, RedfishError> {
-        self.s.get_chassis_network_adapter(chassis_id, id).await
+        Err(RedfishError::NotSupported(
+            "GH200 doesn't have NetworkAdapters tree".to_string(),
+        ))
     }
 
     async fn get_base_network_adapters(
@@ -428,77 +412,65 @@ impl Redfish for Bmc {
     }
 
     async fn get_system_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_system_ethernet_interfaces().await
+        Err(RedfishError::NotSupported(
+            "GH200 doesn't have Systems EthernetInterface".to_string(),
+        ))
     }
 
     async fn get_system_ethernet_interface(
         &self,
-        id: &str,
+        _id: &str,
     ) -> Result<crate::EthernetInterface, RedfishError> {
-        self.s.get_system_ethernet_interface(id).await
+        Err(RedfishError::NotSupported(
+            "GH200 doesn't have Systems EthernetInterface".to_string(),
+        ))
     }
 
-    async fn get_ports(&self, chassis_id: &str) -> Result<Vec<String>, RedfishError> {
-        // http://redfish.dmtf.org/schemas/v1/NetworkPortCollection.json
-        let url = format!(
-            "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/Ports",
-            chassis_id
-        );
-        self.s.get_members(&url).await
+    async fn get_ports(&self, _chassis_id: &str) -> Result<Vec<String>, RedfishError> {
+        Err(RedfishError::NotSupported(
+            "GH200 doesn't have NetworkAdapters tree".to_string(),
+        ))
     }
 
     async fn get_port(
         &self,
-        chassis_id: &str,
-        id: &str,
+        _chassis_id: &str,
+        _id: &str,
     ) -> Result<crate::NetworkPort, RedfishError> {
-        let url = format!(
-            "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/Ports/{}",
-            chassis_id, id
-        );
-        let (_status_code, body) = self.s.client.get(&url).await?;
-        Ok(body)
+        Err(RedfishError::NotSupported(
+            "GH200 doesn't have NetworkAdapters tree".to_string(),
+        ))
     }
 
     async fn get_network_device_function(
         &self,
-        chassis_id: &str,
-        id: &str,
+        _chassis_id: &str,
+        _id: &str,
         _port: Option<&str>,
     ) -> Result<NetworkDeviceFunction, RedfishError> {
-        let url = format!(
-            "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions/{}",
-            chassis_id, id
-        );
-        let (_status_code, body) = self.s.client.get(&url).await?;
-        Ok(body)
+        Err(RedfishError::NotSupported(
+            "GH200 doesn't have NetworkAdapters tree".to_string(),
+        ))
     }
 
     /// http://redfish.dmtf.org/schemas/v1/NetworkDeviceFunctionCollection.json
     async fn get_network_device_functions(
         &self,
-        chassis_id: &str,
+        _chassis_id: &str,
     ) -> Result<Vec<String>, RedfishError> {
-        let url = format!(
-            "Chassis/{}/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions",
-            chassis_id
-        );
-        self.s.get_members(&url).await
+        Err(RedfishError::NotSupported(
+            "GH200 doesn't have NetworkAdapters tree".to_string(),
+        ))
     }
 
     async fn change_uefi_password(
         &self,
-        current_uefi_password: &str,
-        new_uefi_password: &str,
+        _current_uefi_password: &str,
+        _new_uefi_password: &str,
     ) -> Result<Option<String>, RedfishError> {
-        let mut attributes = HashMap::new();
-        let mut data = HashMap::new();
-        data.insert("CurrentUefiPassword", current_uefi_password.to_string());
-        data.insert("UefiPassword", new_uefi_password.to_string());
-        attributes.insert("Attributes", data);
-        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
-        let _status_code = self.s.client.patch(&url, attributes).await?;
-        Ok(None)
+        Err(RedfishError::NotSupported(
+            "GH200 doesn't have a UEFI password".to_string(),
+        ))
     }
 
     async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
@@ -544,6 +516,15 @@ impl Redfish for Bmc {
         &self,
         _mac_address: Option<&str>,
     ) -> Result<(), RedfishError> {
+        // TODO: If a mac_address is given
+        // read all the boot options
+        // look for "DisplayName" of "UEFI HTTPv4 (MAC:58A2E1BBB10F)"
+        // get it's Id (e.g. "Boot0020")
+        // Set that first
+        //
+        // If no MAC is given there no way for us to locate the Bluefield on GH200
+        // because it doens't have NetworkAdapters or PCIeDevices trees
+
         Err(RedfishError::NotSupported(
             "set_dpu_first_boot_order".to_string(),
         ))
@@ -557,10 +538,7 @@ impl Redfish for Bmc {
     }
 
     async fn get_base_mac_address(&self) -> Result<Option<String>, RedfishError> {
-        let url = format!("Systems/{}/Oem/Nvidia", self.s.system_id());
-        let (_sc, body): (reqwest::StatusCode, HashMap<String, serde_json::Value>) =
-            self.s.client.get(url.as_str()).await?;
-        Ok(body.get("BaseMAC").map(|v| v.to_string()))
+        self.s.get_base_mac_address().await
     }
 
     async fn lockdown_bmc(&self, target: crate::EnabledDisabled) -> Result<(), RedfishError> {
@@ -580,42 +558,12 @@ impl Redfish for Bmc {
 }
 
 impl Bmc {
-    async fn set_host_privilege_level(
-        &self,
-        level: HostPrivilegeLevel,
-    ) -> Result<(), RedfishError> {
-        let data = HashMap::from([(
-            "Attributes",
-            HashMap::from([("Host Privilege Level", level.to_string())]),
-        )]);
-        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
-        self.s
-            .client
-            .patch(&url, data)
-            .await
-            .map(|_status_code| Ok(()))?
-    }
-
-    async fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError> {
-        let data = HashMap::from([(
-            "Attributes",
-            HashMap::from([("Internal CPU Model", model.to_string())]),
-        )]);
-        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
-        self.s
-            .client
-            .patch(&url, data)
-            .await
-            .map(|_status_code| Ok(()))?
-    }
-
     async fn set_boot_override(
         &self,
         override_target: BootSourceOverrideTarget,
         override_enabled: BootSourceOverrideEnabled,
     ) -> Result<(), RedfishError> {
         let mut data: HashMap<String, String> = HashMap::new();
-        data.insert("BootSourceOverrideMode".to_string(), "UEFI".to_string());
         data.insert(
             "BootSourceOverrideEnabled".to_string(),
             format!("{}", override_enabled),
@@ -633,13 +581,10 @@ impl Bmc {
     }
 
     // name: The name of the device you want to make the first boot choice.
-    async fn set_boot_order(&self, name: &BootOptionName) -> Result<(), RedfishError> {
-        let boot_array = match self.get_boot_options_ids_with_first(name).await? {
-            None => {
-                return Err(RedfishError::MissingBootOption(name.to_string().to_owned()));
-            }
-            Some(b) => b,
-        };
+    async fn set_boot_order(&self, name: BootOptionName) -> Result<(), RedfishError> {
+        let boot_array = self
+            .get_boot_options_ids_with_first(name, BootOptionMatchField::DisplayName)
+            .await?;
         self.change_boot_order(boot_array).await
     }
 
@@ -653,23 +598,29 @@ impl Bmc {
     // If the boot option you want is not found returns Ok(None)
     async fn get_boot_options_ids_with_first(
         &self,
-        with_name: &BootOptionName,
-    ) -> Result<Option<Vec<String>>, RedfishError> {
+        with_name: BootOptionName,
+        match_field: BootOptionMatchField,
+    ) -> Result<Vec<String>, RedfishError> {
         let with_name_str = with_name.to_string();
         let mut ordered = Vec::new(); // the final boot options
         let boot_options = self.s.get_system().await?.boot.boot_order;
         for member in boot_options {
             let b: BootOption = self.s.get_boot_option(member.as_str()).await?;
-            if b.display_name.starts_with(with_name_str) {
+            let is_match = match match_field {
+                BootOptionMatchField::DisplayName => b.display_name.starts_with(with_name_str),
+                BootOptionMatchField::UefiDevicePath => {
+                    matches!(b.uefi_device_path, Some(x) if x.starts_with(with_name_str))
+                }
+            };
+            if is_match {
                 ordered.insert(0, b.id);
             } else {
                 ordered.push(b.id);
             }
         }
-        Ok(Some(ordered))
+        Ok(ordered)
     }
 
-    // dpu stores the sel as part of the system? there's a LogServices for the bmc too, but no sel
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
         let url = format!("Systems/{}/LogServices/SEL/Entries", self.s.system_id());
         let (_status_code, log_entry_collection): (_, LogEntryCollection) =
