@@ -2,7 +2,7 @@
 default = "forge"
 
 [registries.forge]
-index = "https://urm.nvidia.com/artifactory/git/sw-ngc-forge-cargo-local.git"
+index = "sparse+https://urm.nvidia.com/artifactory/api/cargo/sw-ngc-forge-cargo-local/index/"
 
 [registries.cratesio]
 index = "https://github.com/rust-lang/crates.io-index"

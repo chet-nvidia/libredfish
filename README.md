@@ -3,11 +3,12 @@ Native Rust redfish library for https://redfish.dmtf.org/
 
 ## Publish a new version
 
-- (one time only) Get an Artifactory token from https://urm.nvidia.com/ui/ far right "Welcome, <username>" / Edit Profile / Generate an Identity Token
+- (one time only) Get an Artifactory token from https://urm.nvidia.com/ui/ far right "Welcome, <username>" / Set Me Up / cargo / Generate Token & Create Instructions
 	+ YOU MUST SAVE THIS TOKEN as you will not be able to retrieve it later.
 - Bump the version number in Cargo.toml
-- `cargo publish --token "Bearer [token]"`. You can add `--dry-run` to sanity check before publishing.
-	+ If this doesn't work and you know you used the correct token, you may not be assigned the correct permissions.  You need to be in the `sw-ngc-forge-cargo` group and you will need to ask in the slack dev channel
+- cargo build, cargo test, make an MR, you know the drill.
+- `cargo publish`. You can add `--dry-run` to sanity check before publishing.
+	+ If this doesn't work and you know you used the correct token, you may not be assigned the correct permissions.  You need to be in the `sw-ngc-forge-cargo` group and you will need to ask in the slack dev channel #swngc-forge-dev
 
 ## Development
 
