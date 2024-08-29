@@ -20,6 +20,8 @@ use crate::{
 };
 use crate::{ForgeSetupDiff, ForgeSetupStatus, JobState, RoleId};
 
+const UEFI_PASSWORD_NAME: &str = "AdminPassword";
+
 pub struct Bmc {
     s: RedfishStandard,
 }
@@ -463,14 +465,16 @@ impl Redfish for Bmc {
         ))
     }
 
+    // Set current_uefi_password to "" if there isn't one yet. By default there isn't a password.
+    /// Set new_uefi_password to "" to disable it.
     async fn change_uefi_password(
         &self,
-        _current_uefi_password: &str,
-        _new_uefi_password: &str,
+        current_uefi_password: &str,
+        new_uefi_password: &str,
     ) -> Result<Option<String>, RedfishError> {
-        Err(RedfishError::NotSupported(
-            "GH200 doesn't have a UEFI password".to_string(),
-        ))
+        self.s
+            .change_bios_password(UEFI_PASSWORD_NAME, current_uefi_password, new_uefi_password)
+            .await
     }
 
     async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
