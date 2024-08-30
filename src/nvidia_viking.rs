@@ -1,7 +1,7 @@
 use std::vec;
 use std::{collections::HashMap, path::Path, time::Duration};
 
-use reqwest::header::{HeaderMap, HeaderName, IF_MATCH};
+use reqwest::header::{HeaderMap, HeaderName, IF_MATCH, IF_NONE_MATCH};
 use reqwest::Method;
 use tracing::debug;
 use version_compare::Version;
@@ -1197,7 +1197,7 @@ impl Bmc {
             }
         };
 
-        let headers: Vec<(HeaderName, String)> = vec![(IF_MATCH, etag.to_string())];
+        let headers: Vec<(HeaderName, String)> = vec![(IF_NONE_MATCH, etag.to_string())];
         let timeout = Duration::from_secs(10);
         let (_status_code, _resp_body, _resp_headers): (
             _,
