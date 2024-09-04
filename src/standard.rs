@@ -6,9 +6,9 @@ use std::{
 };
 
 use reqwest::{Method, StatusCode};
+use serde_json::json;
 use tracing::debug;
 
-use crate::model::manager_network_protocol::ManagerNetworkProtocol;
 use crate::model::sel::LogEntry;
 use crate::model::serial_interface::SerialInterface;
 use crate::model::service_root::ServiceRoot;
@@ -16,6 +16,9 @@ use crate::model::software_inventory::SoftwareInventory;
 use crate::model::task::Task;
 use crate::model::thermal::Thermal;
 use crate::model::{account_service::ManagerAccount, service_root::RedfishVendor};
+use crate::model::{
+    manager_network_protocol::ManagerNetworkProtocol, update_service::TransferProtocolType,
+};
 use crate::model::{power, thermal, BootOption, InvalidValueError, Manager, Managers, ODataId};
 use crate::model::{power::Power, update_service::UpdateService};
 use crate::model::{secure_boot::SecureBoot, sensor::GPUSensors};
@@ -619,6 +622,42 @@ impl Redfish for RedfishStandard {
         data.insert("IPMI", ipmi_data);
 
         self.client.patch(&url, data).await.map(|_status_code| ())
+    }
+
+    async fn update_firmware_simple_update(
+        &self,
+        image_uri: &str,
+        targets: Vec<String>,
+        transfer_protocol: TransferProtocolType,
+    ) -> Result<Task, RedfishError> {
+        let data: HashMap<String, serde_json::Value> = HashMap::from([
+            (
+                "ImageURI".to_string(),
+                serde_json::from_str(image_uri).map_err(|e| RedfishError::JsonSerializeError {
+                    url: "UpdateService/Actions/UpdateService.SimpleUpdate".to_string(),
+                    object_debug: "ImageURI".to_string(),
+                    source: e,
+                })?,
+            ),
+            ("TransferProtocol".to_string(), json!(transfer_protocol)),
+            ("Targets".to_string(), json!(targets)),
+        ]);
+
+        let (_status_code, resp_opt, _) = self
+            .client
+            .req::<Task, _>(
+                Method::POST,
+                "UpdateService/Actions/UpdateService.SimpleUpdate",
+                Some(data),
+                None,
+                None,
+                Vec::new(),
+            )
+            .await?;
+        match resp_opt {
+            Some(response_body) => Ok(response_body),
+            None => Err(RedfishError::NoContent),
+        }
     }
 }
 

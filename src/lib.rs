@@ -13,7 +13,7 @@ use model::service_root::ServiceRoot;
 use model::software_inventory::SoftwareInventory;
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
 use model::task::Task;
-use model::update_service::UpdateService;
+use model::update_service::{TransferProtocolType, UpdateService};
 pub use model::EnabledDisabled;
 use model::Manager;
 use model::{secure_boot::SecureBoot, BootOption, ComputerSystem, ODataId, PCIeFunction};
@@ -194,6 +194,18 @@ pub trait Redfish: Send + Sync + 'static {
         reboot: bool,
         timeout: Duration,
     ) -> Result<String, RedfishError>;
+
+    /// This action shall update installed software components in a software image file located at an ImageURI parameter-specified URI.
+    /// image_uri - The URI of the software image to install.
+    /// transfer_protocol - The network protocol that the update service uses to retrieve the software image file located at the URI provided in ImageURI.  
+    /// This parameter is ignored if the URI provided in ImageURI contains a scheme.
+    /// targets - An array of URIs that indicate where to apply the update image.
+    async fn update_firmware_simple_update(
+        &self,
+        image_uri: &str,
+        targets: Vec<String>,
+        transfer_protocol: TransferProtocolType,
+    ) -> Result<Task, RedfishError>;
 
     /*
      * Diagnostic calls

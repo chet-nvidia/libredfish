@@ -6,7 +6,7 @@ use tokio::fs::File;
 use crate::model::account_service::ManagerAccount;
 use crate::model::sensor::GPUSensors;
 use crate::model::task::Task;
-use crate::model::update_service::UpdateService;
+use crate::model::update_service::{TransferProtocolType, UpdateService};
 use crate::Boot::UefiHttp;
 use crate::HostPrivilegeLevel::Restricted;
 use crate::InternalCPUModel::Embedded;
@@ -576,6 +576,17 @@ impl Redfish for Bmc {
         target: crate::EnabledDisabled,
     ) -> Result<(), RedfishError> {
         self.s.enable_ipmi_over_lan(target).await
+    }
+
+    async fn update_firmware_simple_update(
+        &self,
+        image_uri: &str,
+        targets: Vec<String>,
+        transfer_protocol: TransferProtocolType,
+    ) -> Result<Task, RedfishError> {
+        self.s
+            .update_firmware_simple_update(image_uri, targets, transfer_protocol)
+            .await
     }
 }
 

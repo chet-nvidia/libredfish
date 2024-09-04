@@ -15,7 +15,7 @@ use crate::{
         software_inventory::SoftwareInventory,
         task::Task,
         thermal::Thermal,
-        update_service::UpdateService,
+        update_service::{TransferProtocolType, UpdateService},
         BootOption, ComputerSystem, EnableDisable, InvalidValueError, Manager,
     },
     standard::RedfishStandard,
@@ -596,6 +596,17 @@ impl Redfish for Bmc {
         target: crate::EnabledDisabled,
     ) -> Result<(), RedfishError> {
         self.s.enable_ipmi_over_lan(target).await
+    }
+
+    async fn update_firmware_simple_update(
+        &self,
+        image_uri: &str,
+        targets: Vec<String>,
+        transfer_protocol: TransferProtocolType,
+    ) -> Result<Task, RedfishError> {
+        self.s
+            .update_firmware_simple_update(image_uri, targets, transfer_protocol)
+            .await
     }
 }
 

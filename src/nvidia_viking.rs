@@ -9,7 +9,7 @@ use version_compare::Version;
 use crate::model::account_service::ManagerAccount;
 use crate::model::resource::{IsResource, ResourceCollection};
 use crate::model::sensor::{GPUSensors, Sensor};
-use crate::model::update_service::UpdateService;
+use crate::model::update_service::{TransferProtocolType, UpdateService};
 use crate::EnabledDisabled::Enabled;
 use crate::{
     model::{
@@ -797,6 +797,17 @@ impl Redfish for Bmc {
         target: crate::EnabledDisabled,
     ) -> Result<(), RedfishError> {
         self.s.enable_ipmi_over_lan(target).await
+    }
+
+    async fn update_firmware_simple_update(
+        &self,
+        image_uri: &str,
+        targets: Vec<String>,
+        transfer_protocol: TransferProtocolType,
+    ) -> Result<Task, RedfishError> {
+        self.s
+            .update_firmware_simple_update(image_uri, targets, transfer_protocol)
+            .await
     }
 }
 
