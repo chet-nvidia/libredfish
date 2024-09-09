@@ -372,7 +372,16 @@ impl Redfish for Bmc {
         // the structure of pcie devices reported is also different from other vendors
         let chassis_all = self.s.get_chassis_all().await?;
         for chassis_id in chassis_all {
+            // TODO(spyda):
+            // we frequently see errors querying chassis subsystems other than DGX on Vikings
+            // use this check as a short term hack around this. Keeping the loop here as a reminder
+            // that we find a better solution for the long term.
+            if chassis_id != "DGX" {
+                continue;
+            }
+
             let chassis = self.get_chassis(&chassis_id).await?;
+
             if let Some(member) = chassis.pcie_devices {
                 let mut url = member
                     .odata_id
