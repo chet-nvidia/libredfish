@@ -365,6 +365,42 @@ pub struct LogicalDrives {
     pub drive_type: String,
 }
 
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct Storage {
+    #[serde(flatten)]
+    pub odata: ODataLinks,
+    pub id: String,
+    pub name: String,
+    pub description: Option<String>,
+    pub drives: Option<Vec<ODataId>>,
+    pub volumes: Option<ODataId>,
+    pub status: Option<ResourceStatus>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SimpleStorage {
+    #[serde(flatten)]
+    pub odata: ODataLinks,
+    pub id: String,
+    pub name: String,
+    pub devices: Option<Vec<StorageDevice>>,
+    pub description: Option<String>,
+    pub status: Option<ResourceStatus>,
+    pub uefi_device_path: Option<String>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct StorageDevice {
+    capacity_bytes: Option<i64>,
+    manufacturer: Option<String>,
+    model: Option<String>,
+    name: String,
+    status: Option<ResourceStatus>,
+}
+
 #[cfg(test)]
 mod test {
     #[test]

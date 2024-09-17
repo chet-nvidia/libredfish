@@ -9,6 +9,7 @@ use tracing::debug;
 use crate::model::account_service::ManagerAccount;
 use crate::model::oem::lenovo::LenovoBootOrder;
 use crate::model::resource::ResourceCollection;
+use crate::model::sel::LogService;
 use crate::model::service_root::ServiceRoot;
 use crate::model::task::Task;
 use crate::model::update_service::{TransferProtocolType, UpdateService};
@@ -1167,6 +1168,12 @@ impl Bmc {
 
     // lenovo stores the sel as part of the system
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
+        let url = format!("Systems/{}/LogServices/SEL", self.s.system_id());
+        let (_status_code, log_service): (_, LogService) = self.s.client.get(&url).await?;
+        // If there are no log entries, this field and the `SEL/Entries` endpoint do not exist.
+        if log_service.entries.is_none() {
+            return Ok(vec![]);
+        }
         let url = format!("Systems/{}/LogServices/SEL/Entries", self.s.system_id());
         let (_status_code, log_entry_collection): (_, LogEntryCollection) =
             self.s.client.get(&url).await?;

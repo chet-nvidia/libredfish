@@ -307,8 +307,7 @@ async fn run_integration_test(
         _ = redfish.get_thermal_metrics().await?;
         _ = redfish.get_power_metrics().await?;
     }
-    if vendor_dir != "lenovo" && vendor_dir != "supermicro" {
-        // the lenovo mockup doesn't have this content, but their docs have it
+    if vendor_dir != "supermicro" {
         _ = redfish.get_system_event_log().await?;
     }
 

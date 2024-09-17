@@ -1,6 +1,16 @@
 use serde::{Deserialize, Serialize};
 
-use super::ODataLinks;
+use super::{ODataId, ODataLinks};
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct LogService {
+    #[serde(flatten)]
+    pub odata: ODataLinks,
+    pub entries: Option<ODataId>,
+    pub id: String,
+    pub name: String,
+}
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
