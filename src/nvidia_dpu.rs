@@ -588,6 +588,16 @@ impl Redfish for Bmc {
             .update_firmware_simple_update(image_uri, targets, transfer_protocol)
             .await
     }
+
+    async fn enable_rshim_bmc(&self) -> Result<(), RedfishError> {
+        let data = HashMap::from([("BmcRShim", HashMap::from([("BmcRShimEnabled", true)]))]);
+
+        self.s
+            .client
+            .patch("Managers/Bluefield_BMC/Oem/Nvidia", data)
+            .await
+            .map(|_status_code| Ok(()))?
+    }
 }
 
 impl Bmc {

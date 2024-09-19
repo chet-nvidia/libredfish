@@ -652,6 +652,10 @@ impl Redfish for RedfishStandard {
             None => Err(RedfishError::NoContent),
         }
     }
+
+    async fn enable_rshim_bmc(&self) -> Result<(), RedfishError> {
+        Err(RedfishError::NotSupported("enable_rshim_bmc".to_string()))
+    }
 }
 
 impl RedfishStandard {

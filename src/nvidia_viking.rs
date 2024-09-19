@@ -818,6 +818,10 @@ impl Redfish for Bmc {
             .update_firmware_simple_update(image_uri, targets, transfer_protocol)
             .await
     }
+
+    async fn enable_rshim_bmc(&self) -> Result<(), RedfishError> {
+        self.s.enable_rshim_bmc().await
+    }
 }
 
 impl Bmc {

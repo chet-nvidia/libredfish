@@ -368,6 +368,8 @@ pub trait Redfish: Send + Sync + 'static {
     async fn is_ipmi_over_lan_enabled(&self) -> Result<bool, RedfishError>;
 
     async fn enable_ipmi_over_lan(&self, target: EnabledDisabled) -> Result<(), RedfishError>;
+
+    async fn enable_rshim_bmc(&self) -> Result<(), RedfishError>;
 }
 
 // When Carbide drops it's `IpmiCommand.launch_command` background job system, we can
