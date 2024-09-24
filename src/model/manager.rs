@@ -1,3 +1,5 @@
+use std::fmt;
+
 use serde::{Deserialize, Serialize};
 
 use super::oem::ManagerExtensions;
@@ -67,6 +69,18 @@ pub struct Status {
 #[serde(rename_all = "PascalCase")]
 pub struct Availableaction {
     pub action: String,
+}
+
+#[derive(Debug, Deserialize, Serialize, PartialEq, Clone, Copy)]
+pub enum ManagerResetType {
+    GracefulRestart,
+    ForceRestart,
+}
+
+impl fmt::Display for ManagerResetType {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
 }
 
 #[cfg(test)]

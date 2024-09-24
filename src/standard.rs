@@ -5,11 +5,10 @@ use std::{
     time::Duration,
 };
 
-use reqwest::{Method, StatusCode};
+use reqwest::{header::HeaderName, Method, StatusCode};
 use serde_json::json;
 use tracing::debug;
 
-use crate::model::sel::LogEntry;
 use crate::model::serial_interface::SerialInterface;
 use crate::model::service_root::ServiceRoot;
 use crate::model::software_inventory::SoftwareInventory;
@@ -22,6 +21,7 @@ use crate::model::{
 use crate::model::{power, thermal, BootOption, InvalidValueError, Manager, Managers, ODataId};
 use crate::model::{power::Power, update_service::UpdateService};
 use crate::model::{secure_boot::SecureBoot, sensor::GPUSensors};
+use crate::model::{sel::LogEntry, ManagerResetType};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{
     model, Boot, EnabledDisabled, JobState, NetworkDeviceFunction, NetworkPort, PowerState,
@@ -133,12 +133,8 @@ impl Redfish for RedfishStandard {
     }
 
     async fn bmc_reset(&self) -> Result<(), RedfishError> {
-        let url = format!("Managers/{}/Actions/Manager.Reset", self.manager_id);
-        let mut arg = HashMap::new();
-        // Dell only has GracefulRestart. The spec, and Lenovo, also have ForceRestart.
-        // Response code 204 No Content is fine.
-        arg.insert("ResetType", "GracefulRestart".to_string());
-        self.client.post(&url, arg).await.map(|_resp| Ok(()))?
+        self.reset_manager(ManagerResetType::GracefulRestart, None)
+            .await
     }
 
     async fn chassis_reset(
@@ -989,6 +985,22 @@ impl RedfishStandard {
         let url = format!("Managers/{}/NetworkProtocol", self.manager_id(),);
         let (_status_code, body) = self.client.get(&url).await?;
         Ok(body)
+    }
+
+    pub async fn reset_manager(
+        &self,
+        reset_type: ManagerResetType,
+        headers: Option<Vec<(HeaderName, String)>>,
+    ) -> Result<(), RedfishError> {
+        let url = format!("Managers/{}/Actions/Manager.Reset", self.manager_id);
+        let mut arg = HashMap::new();
+        // Dell only has GracefulRestart. The spec, and Lenovo, also have ForceRestart.
+        // Response code 204 No Content is fine.
+        arg.insert("ResetType", reset_type.to_string());
+        self.client
+            .post_with_headers(&url, arg, headers)
+            .await
+            .map(|_resp| Ok(()))?
     }
 }
 

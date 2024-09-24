@@ -208,12 +208,28 @@ impl RedfishHttpClient {
         api: &str,
         data: HashMap<&str, String>,
     ) -> Result<(StatusCode, Option<HeaderMap>), RedfishError> {
+        self.post_with_headers(api, data, None).await
+    }
+
+    pub async fn post_with_headers(
+        &self,
+        api: &str,
+        data: HashMap<&str, String>,
+        headers: Option<Vec<(HeaderName, String)>>,
+    ) -> Result<(StatusCode, Option<HeaderMap>), RedfishError> {
         let (status_code, _resp_body, resp_headers): (
             _,
             Option<HashMap<String, serde_json::Value>>,
             Option<HeaderMap>,
         ) = self
-            .req(Method::POST, api, Some(data), None, None, Vec::new())
+            .req(
+                Method::POST,
+                api,
+                Some(data),
+                None,
+                None,
+                headers.unwrap_or_default(),
+            )
             .await?;
         Ok((status_code, resp_headers))
     }

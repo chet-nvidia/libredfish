@@ -10,6 +10,7 @@ use crate::model::account_service::ManagerAccount;
 use crate::model::resource::{IsResource, ResourceCollection};
 use crate::model::sensor::{GPUSensors, Sensor};
 use crate::model::update_service::{TransferProtocolType, UpdateService};
+use crate::model::ManagerResetType;
 use crate::EnabledDisabled::Enabled;
 use crate::{
     model::{
@@ -93,7 +94,12 @@ impl Redfish for Bmc {
     }
 
     async fn bmc_reset(&self) -> Result<(), RedfishError> {
-        self.s.bmc_reset().await
+        self.s
+            .reset_manager(
+                ManagerResetType::ForceRestart,
+                Some(vec![(IF_MATCH, "*".to_string())]),
+            )
+            .await
     }
 
     async fn chassis_reset(
