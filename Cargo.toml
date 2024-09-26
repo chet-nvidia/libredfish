@@ -2,23 +2,23 @@
 name = "libredfish"
 description = "Forge Redfish library"
 authors = [
-    "NVIDIA Forge Engineering <swngc-forge-dev@exchange.nvidia.com>",
-    "Chris Holcombe <xfactor973@gmail.com>",
+  "NVIDIA Forge Engineering <swngc-forge-dev@exchange.nvidia.com>",
+  "Chris Holcombe <xfactor973@gmail.com>",
 ]
 repository = "https://gitlab-master.nvidia.com/nvmetal/libredfish"
 license = "MIT"
-version = "0.25.5"
+version = "0.25.6"
 edition = "2021"
 
 [dependencies]
 async-trait = { version = "*", registry = "cratesio" }
 log = { version = "0.4", registry = "cratesio" }
 reqwest = { version = "0.12", default-features = false, features = [
-    "json",
-    "rustls-tls",
-    "stream",
-    "socks",
-    "multipart",
+  "json",
+  "rustls-tls",
+  "stream",
+  "socks",
+  "multipart",
 ], registry = "cratesio" }
 serde = { version = "1", features = ["derive"], registry = "cratesio" }
 serde_with = { version = "3.4", registry = "cratesio" }
@@ -32,6 +32,6 @@ regex = "1.10"
 [dev-dependencies]
 anyhow = { version = "1", registry = "cratesio" }
 tracing-subscriber = { version = "*", features = [
-    "env-filter",
-    "local-time",
+  "env-filter",
+  "local-time",
 ], registry = "cratesio" }
