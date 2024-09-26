@@ -21,3 +21,27 @@ pub enum TransferProtocolType {
     OEM,
     NFS,
 }
+
+#[derive(Debug, clap::ValueEnum, Clone, Serialize, Deserialize, Eq, PartialEq)]
+pub enum ComponentType {
+    BMC,
+    UEFI,
+    EROTBMC,
+    EROTBIOS,
+    CPLMID,
+    CPLDMB,
+    #[clap(skip)]
+    PSU {
+        num: u32,
+    },
+    #[clap(skip)]
+    PCIeSwitch {
+        num: u32,
+    },
+    #[clap(skip)]
+    PCIeRetimer {
+        num: u32,
+    },
+    #[clap(skip)]
+    Unknown,
+}

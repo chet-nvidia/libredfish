@@ -1,42 +1,43 @@
-use std::vec;
-use std::{collections::HashMap, path::Path, time::Duration};
-
-use reqwest::header::{HeaderMap, HeaderName, IF_MATCH, IF_NONE_MATCH};
-use reqwest::Method;
+use reqwest::{
+    header::{HeaderMap, HeaderName, IF_MATCH, IF_NONE_MATCH},
+    Method,
+};
+use serde::Serialize;
+use std::{collections::HashMap, path::Path, time::Duration, vec};
+use tokio::fs::File;
 use tracing::debug;
 use version_compare::Version;
 
-use crate::model::account_service::ManagerAccount;
-use crate::model::resource::{IsResource, ResourceCollection};
-use crate::model::sensor::{GPUSensors, Sensor};
-use crate::model::update_service::{TransferProtocolType, UpdateService};
-use crate::model::ManagerResetType;
-use crate::EnabledDisabled::Enabled;
 use crate::{
     model::{
+        account_service::ManagerAccount,
         boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
         chassis::{Chassis, ForgeNetworkAdapter, NetworkAdapter},
         network_device_function::NetworkDeviceFunction,
         oem::nvidia_viking,
         oem::nvidia_viking::{BootDevices, BootDevices::Pxe},
         power::Power,
+        resource::{IsResource, ResourceCollection},
         secure_boot::SecureBoot,
         sel::{LogEntry, LogEntryCollection},
+        sensor::{GPUSensors, Sensor},
         service_root::ServiceRoot,
         software_inventory::SoftwareInventory,
         system::PCIeDevices,
         task::Task,
         thermal::Thermal,
+        update_service::{ComponentType, TransferProtocolType, UpdateService},
         BootOption, ComputerSystem,
         EnableDisable::Enable,
-        Manager,
+        Manager, ManagerResetType,
     },
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
-    Boot, BootOptions, Collection, EnabledDisabled, ODataId, PCIeDevice, PCIeFunction, PowerState,
-    Redfish, RedfishError, Resource, Status, StatusInternal, SystemPowerControl,
+    Boot, BootOptions, Collection, EnabledDisabled,
+    EnabledDisabled::Enabled,
+    ForgeSetupDiff, ForgeSetupStatus, JobState, ODataId, PCIeDevice, PCIeFunction, PowerState,
+    Redfish, RedfishError, Resource, RoleId, Status, StatusInternal, SystemPowerControl,
 };
-use crate::{ForgeSetupDiff, ForgeSetupStatus, JobState, RoleId};
 
 const UEFI_PASSWORD_NAME: &str = "AdminPassword";
 
@@ -428,15 +429,47 @@ impl Redfish for Bmc {
         self.s.update_firmware(firmware).await
     }
 
+    /// update_firmware_multipart returns a string with the task ID
     async fn update_firmware_multipart(
         &self,
         filename: &Path,
-        reboot: bool,
+        _reboot: bool,
         timeout: Duration,
+        component_type: ComponentType,
     ) -> Result<String, RedfishError> {
-        self.s
-            .update_firmware_multipart(filename, reboot, timeout)
+        let firmware = File::open(&filename)
             .await
+            .map_err(|e| RedfishError::FileError(format!("Could not open file: {e}")))?;
+
+        let parameters =
+            serde_json::to_string(&UpdateParameters::new(component_type)).map_err(|e| {
+                RedfishError::JsonSerializeError {
+                    url: "".to_string(),
+                    object_debug: "".to_string(),
+                    source: e,
+                }
+            })?;
+
+        let (_status_code, loc, _body) = self
+            .s
+            .client
+            .req_update_firmware_multipart(
+                filename,
+                firmware,
+                parameters,
+                "UpdateService/upload", // Viking does "upload" instead of "MultiPartUpload"
+                false,
+                timeout,
+            )
+            .await?;
+
+        let loc = match loc {
+            None => "Unknown".to_string(),
+            Some(x) => x,
+        };
+
+        // It returns the full endpoint, we just want the task ID
+        Ok(loc.replace("/redfish/v1/TaskService/Tasks/", ""))
     }
 
     async fn get_tasks(&self) -> Result<Vec<String>, RedfishError> {
@@ -1246,5 +1279,51 @@ impl Bmc {
             )
             .await?;
         Ok(())
+    }
+}
+
+// UpdateParameters is what is sent for a multipart firmware upload's metadata.
+#[derive(Serialize)]
+#[serde(rename_all = "PascalCase")]
+struct UpdateParameters {
+    targets: Vec<String>,
+}
+
+impl UpdateParameters {
+    pub fn new(component: ComponentType) -> UpdateParameters {
+        let target = match component {
+            ComponentType::BMC => {
+                "/redfish/v1/UpdateService/FirmwareInventory/HostBMC_0".to_string()
+            }
+            ComponentType::UEFI => {
+                "/redfish/v1/UpdateService/FirmwareInventory/HostBIOS_0".to_string()
+            }
+            ComponentType::EROTBMC => {
+                "/redfish/v1/UpdateService/FirmwareInventory/EROT_BMC_0".to_string()
+            }
+            ComponentType::EROTBIOS => {
+                "/redfish/v1/UpdateService/FirmwareInventory/EROT_BIOS_0".to_string()
+            }
+            ComponentType::CPLMID => {
+                "/redfish/v1/UpdateService/FirmwareInventory/CPLDMID_0".to_string()
+            }
+            ComponentType::CPLDMB => {
+                "/redfish/v1/UpdateService/FirmwareInventory/CPLDMB_0".to_string()
+            }
+            ComponentType::PSU { num } => {
+                format!("/redfish/v1/UpdateService/FirmwareInventory/PSU_{num}")
+            }
+            ComponentType::PCIeSwitch { num } => {
+                format!("/redfish/v1/UpdateService/FirmwareInventory/PCIeSwitch_{num}")
+            }
+            ComponentType::PCIeRetimer { num } => {
+                format!("/redfish/v1/UpdateService/FirmwareInventory/PCIeRetimer_{num}")
+            }
+            // We expect to fail in the default case
+            _ => "/redfish/v1/UpdateService/FirmwareInventory/unknown_component".to_string(),
+        };
+        UpdateParameters {
+            targets: vec![target],
+        }
     }
 }

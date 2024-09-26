@@ -19,7 +19,7 @@ use crate::{
         software_inventory::SoftwareInventory,
         task::Task,
         thermal::Thermal,
-        update_service::{TransferProtocolType, UpdateService},
+        update_service::{ComponentType, TransferProtocolType, UpdateService},
         BootOption, ComputerSystem, InvalidValueError, Manager, OnOff,
     },
     standard::RedfishStandard,
@@ -563,6 +563,7 @@ impl Redfish for Bmc {
         filename: &Path,
         reboot: bool,
         timeout: Duration,
+        _component_type: ComponentType,
     ) -> Result<String, RedfishError> {
         let firmware = File::open(&filename)
             .await
