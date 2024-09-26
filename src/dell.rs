@@ -1499,7 +1499,14 @@ impl Bmc {
                 match mac_address {
                     // Caller wants to match a specific MAC address
                     Some(want_mac) => {
-                        if nw_dev_func.ethernet.unwrap().mac_address.as_deref() == Some(want_mac) {
+                        if nw_dev_func
+                            .ethernet
+                            .unwrap()
+                            .mac_address
+                            .map(|x| x.to_lowercase())
+                            .as_deref()
+                            == Some(&want_mac.to_lowercase())
+                        {
                             // we found a match by MAC address
                             return Ok(nic_slot);
                         }

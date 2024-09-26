@@ -46,6 +46,9 @@ pub struct EthernetInterface {
     pub status: Option<ResourceStatus>,
     #[serde(rename = "VLANs")]
     pub vlans: Option<ODataId>,
+    // uefi_device_path is present for systems interfaces except lenovo.
+    #[serde(default, rename = "UefiDevicePath")]
+    pub uefi_device_path: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
