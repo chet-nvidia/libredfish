@@ -42,6 +42,7 @@ pub enum ComponentType {
     PCIeRetimer {
         num: u32,
     },
+    HGXBMC,
     #[clap(skip)]
     Unknown,
 }

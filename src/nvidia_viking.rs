@@ -1319,6 +1319,10 @@ impl UpdateParameters {
             ComponentType::PCIeRetimer { num } => {
                 format!("/redfish/v1/UpdateService/FirmwareInventory/PCIeRetimer_{num}")
             }
+            ComponentType::HGXBMC => {
+                "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0".to_string()
+            }
+
             // We expect to fail in the default case
             _ => "/redfish/v1/UpdateService/FirmwareInventory/unknown_component".to_string(),
         };
