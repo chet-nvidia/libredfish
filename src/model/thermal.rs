@@ -20,7 +20,7 @@ pub struct FansOem {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct Fan {
-    pub reading: i64,
+    pub reading: Option<i64>,
     pub reading_units: String,
     pub fan_name: Option<String>, // Dell, Lenovo, NVIDIA DPU
     pub name: Option<String>,     // Supermicro
