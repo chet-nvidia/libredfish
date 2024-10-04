@@ -1286,48 +1286,49 @@ impl Bmc {
 #[derive(Serialize)]
 #[serde(rename_all = "PascalCase")]
 struct UpdateParameters {
-    targets: Vec<String>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    targets: Option<Vec<String>>,
 }
 
 impl UpdateParameters {
     pub fn new(component: ComponentType) -> UpdateParameters {
-        let target = match component {
-            ComponentType::BMC => {
-                "/redfish/v1/UpdateService/FirmwareInventory/HostBMC_0".to_string()
-            }
-            ComponentType::UEFI => {
-                "/redfish/v1/UpdateService/FirmwareInventory/HostBIOS_0".to_string()
-            }
-            ComponentType::EROTBMC => {
-                "/redfish/v1/UpdateService/FirmwareInventory/EROT_BMC_0".to_string()
-            }
-            ComponentType::EROTBIOS => {
-                "/redfish/v1/UpdateService/FirmwareInventory/EROT_BIOS_0".to_string()
-            }
-            ComponentType::CPLMID => {
-                "/redfish/v1/UpdateService/FirmwareInventory/CPLDMID_0".to_string()
-            }
-            ComponentType::CPLDMB => {
-                "/redfish/v1/UpdateService/FirmwareInventory/CPLDMB_0".to_string()
-            }
-            ComponentType::PSU { num } => {
-                format!("/redfish/v1/UpdateService/FirmwareInventory/PSU_{num}")
-            }
-            ComponentType::PCIeSwitch { num } => {
-                format!("/redfish/v1/UpdateService/FirmwareInventory/PCIeSwitch_{num}")
-            }
-            ComponentType::PCIeRetimer { num } => {
-                format!("/redfish/v1/UpdateService/FirmwareInventory/PCIeRetimer_{num}")
-            }
-            ComponentType::HGXBMC => {
-                "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0".to_string()
-            }
+        let targets = match component {
+            ComponentType::Unknown => None,
+            _ => Some(vec![match component {
+                ComponentType::BMC => {
+                    "/redfish/v1/UpdateService/FirmwareInventory/HostBMC_0".to_string()
+                }
+                ComponentType::UEFI => {
+                    "/redfish/v1/UpdateService/FirmwareInventory/HostBIOS_0".to_string()
+                }
+                ComponentType::EROTBMC => {
+                    "/redfish/v1/UpdateService/FirmwareInventory/EROT_BMC_0".to_string()
+                }
+                ComponentType::EROTBIOS => {
+                    "/redfish/v1/UpdateService/FirmwareInventory/EROT_BIOS_0".to_string()
+                }
+                ComponentType::CPLMID => {
+                    "/redfish/v1/UpdateService/FirmwareInventory/CPLDMID_0".to_string()
+                }
+                ComponentType::CPLDMB => {
+                    "/redfish/v1/UpdateService/FirmwareInventory/CPLDMB_0".to_string()
+                }
+                ComponentType::PSU { num } => {
+                    format!("/redfish/v1/UpdateService/FirmwareInventory/PSU_{num}")
+                }
+                ComponentType::PCIeSwitch { num } => {
+                    format!("/redfish/v1/UpdateService/FirmwareInventory/PCIeSwitch_{num}")
+                }
+                ComponentType::PCIeRetimer { num } => {
+                    format!("/redfish/v1/UpdateService/FirmwareInventory/PCIeRetimer_{num}")
+                }
+                ComponentType::HGXBMC => {
+                    "/redfish/v1/UpdateService/FirmwareInventory/HGX_FW_BMC_0".to_string()
+                }
 
-            // We expect to fail in the default case
-            _ => "/redfish/v1/UpdateService/FirmwareInventory/unknown_component".to_string(),
+                ComponentType::Unknown => "unreachable".to_string(),
+            }]),
         };
-        UpdateParameters {
-            targets: vec![target],
-        }
+        UpdateParameters { targets }
     }
 }
