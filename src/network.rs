@@ -13,7 +13,7 @@ use crate::{
 };
 
 pub const REDFISH_ENDPOINT: &str = "redfish/v1";
-const DEFAULT_TIMEOUT: Duration = Duration::from_secs(20);
+const DEFAULT_TIMEOUT: Duration = Duration::from_secs(60);
 const MIN_UPLOAD_BANDWIDTH: u64 = 10_000;
 
 #[derive(Debug)]
