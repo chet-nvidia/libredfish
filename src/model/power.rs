@@ -45,6 +45,7 @@ pub struct PowerMetrics {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct PowerControl {
+    pub member_id: String,
     pub power_allocated_watts: Option<f64>,
     pub power_capacity_watts: Option<f64>,
     pub power_consumed_watts: Option<f64>,
