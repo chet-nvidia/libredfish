@@ -203,20 +203,26 @@ impl RedfishHttpClient {
         }
     }
 
-    pub async fn post(
+    pub async fn post<B>(
         &self,
         api: &str,
-        data: HashMap<&str, String>,
-    ) -> Result<(StatusCode, Option<HeaderMap>), RedfishError> {
+        data: B,
+    ) -> Result<(StatusCode, Option<HeaderMap>), RedfishError>
+    where
+        B: Serialize + ::std::fmt::Debug,
+    {
         self.post_with_headers(api, data, None).await
     }
 
-    pub async fn post_with_headers(
+    pub async fn post_with_headers<B>(
         &self,
         api: &str,
-        data: HashMap<&str, String>,
+        data: B,
         headers: Option<Vec<(HeaderName, String)>>,
-    ) -> Result<(StatusCode, Option<HeaderMap>), RedfishError> {
+    ) -> Result<(StatusCode, Option<HeaderMap>), RedfishError>
+    where
+        B: Serialize + ::std::fmt::Debug,
+    {
         let (status_code, _resp_body, resp_headers): (
             _,
             Option<HashMap<String, serde_json::Value>>,
@@ -361,6 +367,7 @@ impl RedfishHttpClient {
                         object_debug: format!("{b:?}"),
                         source: e,
                     })?;
+
                 Some(body_enc)
             }
             None => None,

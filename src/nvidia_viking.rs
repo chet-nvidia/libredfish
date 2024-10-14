@@ -1,12 +1,11 @@
 use reqwest::{
     header::{HeaderMap, HeaderName, IF_MATCH, IF_NONE_MATCH},
-    Method,
-    StatusCode
+    Method, StatusCode,
 };
 use serde::Serialize;
 use std::{collections::HashMap, path::Path, time::Duration, vec};
 use tokio::fs::File;
-use tracing::{debug, warn, info, error};
+use tracing::{debug, error, info, warn};
 use version_compare::Version;
 
 use crate::{
@@ -28,14 +27,12 @@ use crate::{
         task::Task,
         thermal::Thermal,
         update_service::{ComponentType, TransferProtocolType, UpdateService},
-        BootOption, ComputerSystem,
-        EnableDisable,
-        Manager, ManagerResetType,
+        BootOption, ComputerSystem, EnableDisable, Manager, ManagerResetType,
     },
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
     Boot, BootOptions, Collection, EnabledDisabled,
-    EnabledDisabled::{Enabled, Disabled},
+    EnabledDisabled::{Disabled, Enabled},
     ForgeSetupDiff, ForgeSetupStatus, JobState, ODataId, PCIeDevice, PCIeFunction, PowerState,
     Redfish, RedfishError, Resource, RoleId, Status, StatusInternal, SystemPowerControl,
 };
@@ -866,6 +863,31 @@ impl Redfish for Bmc {
     async fn enable_rshim_bmc(&self) -> Result<(), RedfishError> {
         self.s.enable_rshim_bmc().await
     }
+
+    /***
+         curl -k -u admin:admin
+         --request POST
+         --location 'https://<bmcip>/redfish/v1/UpdateService/Actions/Oem/NvidiaUpdateService.ClearNVRAM' \
+         --header 'Content-Type: application/json' \
+         --data '{
+         "Targets": ["/redfish/v1/UpdateService/FirmwareInventory/HostBIOS_0"]
+         }'
+    ***/
+    async fn clear_nvram(&self) -> Result<(), RedfishError> {
+        let data = HashMap::from([(
+            "Targets",
+            vec!["/redfish/v1/UpdateService/FirmwareInventory/HostBIOS_0".to_string()],
+        )]);
+
+        self.s
+            .client
+            .post(
+                "UpdateService/Actions/Oem/NvidiaUpdateService.ClearNVRAM",
+                data,
+            )
+            .await
+            .map(|_status_code| Ok(()))?
+    }
 }
 
 impl Bmc {
@@ -888,7 +910,9 @@ impl Bmc {
                 )));
             }
             if current < recommended {
-                warn!("{firmware_id} is below recommended version. {version} < {recommended_version}");
+                warn!(
+                    "{firmware_id} is below recommended version. {version} < {recommended_version}"
+                );
             }
             return Ok(());
         }
@@ -899,10 +923,18 @@ impl Bmc {
 
     async fn enable_lockdown(&self) -> Result<(), RedfishError> {
         // assuming that the viking bmc does not modify the suffixes
-        self.check_firmware_version("HostBIOS_0".to_string(), MINIMUM_BIOS_VERSION.to_string(), RECOMMENDED_BIOS_VERSION.to_string())
-            .await?;
-        self.check_firmware_version("HostBMC_0".to_string(), MINIMUM_BMC_FW_VERSION.to_string(), RECOMMENDED_BMC_FW_VERSION.to_string())
-            .await?;
+        self.check_firmware_version(
+            "HostBIOS_0".to_string(),
+            MINIMUM_BIOS_VERSION.to_string(),
+            RECOMMENDED_BIOS_VERSION.to_string(),
+        )
+        .await?;
+        self.check_firmware_version(
+            "HostBMC_0".to_string(),
+            MINIMUM_BMC_FW_VERSION.to_string(),
+            RECOMMENDED_BMC_FW_VERSION.to_string(),
+        )
+        .await?;
 
         let lockdown_attrs = BiosAttributes {
             kcs_interface_disable: FORGE_KCS_INTERFACE_DISABLE.to_string().into(),
@@ -1331,7 +1363,7 @@ impl Bmc {
         let url = format!("Systems/{}/Bios/SD", self.s.system_id());
         return self.patch_with_if_match(url, data).await;
     }
-    
+
     async fn patch_with_if_match<B>(&self, url: String, data: B) -> Result<(), RedfishError>
     where
         B: Serialize + ::std::fmt::Debug,

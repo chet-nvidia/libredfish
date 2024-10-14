@@ -853,6 +853,10 @@ impl Redfish for Bmc {
     async fn enable_rshim_bmc(&self) -> Result<(), RedfishError> {
         self.s.enable_rshim_bmc().await
     }
+
+    async fn clear_nvram(&self) -> Result<(), RedfishError> {
+        self.s.clear_nvram().await
+    }
 }
 
 impl Bmc {

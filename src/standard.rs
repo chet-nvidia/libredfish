@@ -654,6 +654,10 @@ impl Redfish for RedfishStandard {
     async fn enable_rshim_bmc(&self) -> Result<(), RedfishError> {
         Err(RedfishError::NotSupported("enable_rshim_bmc".to_string()))
     }
+
+    async fn clear_nvram(&self) -> Result<(), RedfishError> {
+        Err(RedfishError::NotSupported("clear_nvram".to_string()))
+    }
 }
 
 impl RedfishStandard {

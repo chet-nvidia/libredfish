@@ -599,6 +599,10 @@ impl Redfish for Bmc {
             .await
             .map(|_status_code| Ok(()))?
     }
+
+    async fn clear_nvram(&self) -> Result<(), RedfishError> {
+        self.s.clear_nvram().await
+    }
 }
 
 impl Bmc {
