@@ -373,7 +373,10 @@ impl Redfish for Bmc {
         let url = format!("Systems/{}/Bios", self.s.system_id());
         let (_status_code, bios): (_, dell::Bios) = self.s.client.get(&url).await?;
 
-        let in_band = bios.attributes.in_band_manageability_interface.unwrap_or_default();
+        let in_band = bios
+            .attributes
+            .in_band_manageability_interface
+            .unwrap_or_default();
         let uefi_var = bios.attributes.uefi_variable_access.unwrap_or_default();
         message.push_str(&format!(
             "BIOS: in_band_manageability_interface={in_band}, uefi_variable_access={uefi_var}. "
@@ -1119,8 +1122,11 @@ impl Bmc {
         let bios = bios.attributes;
 
         let val = bios.serial_comm;
-        message.push_str(&format!("serial_comm={} ", val.clone().unwrap_or("unknown".to_string())));
-        if let Some(x) = val.clone() {
+        message.push_str(&format!(
+            "serial_comm={} ",
+            val.as_ref().unwrap_or(&"unknown".to_string())
+        ));
+        if let Some(x) = &val {
             match x.parse().map_err(|err| RedfishError::InvalidValue {
                 err,
                 url: url.to_string(),
@@ -1143,8 +1149,11 @@ impl Bmc {
         }
 
         let val = bios.redir_after_boot;
-        message.push_str(&format!("redir_after_boot={} ", val.clone().unwrap_or("unknown".to_string())));
-        if let Some(x) = val.clone() {
+        message.push_str(&format!(
+            "redir_after_boot={} ",
+            val.as_ref().unwrap_or(&"unknown".to_string())
+        ));
+        if let Some(x) = &val {
             match x.parse().map_err(|err| RedfishError::InvalidValue {
                 err,
                 url: url.to_string(),
@@ -1163,7 +1172,10 @@ impl Bmc {
         // Any other value counts as correctly disabled.
 
         let val = bios.serial_port_address;
-        message.push_str(&format!("serial_port_address={} ", val.as_ref().unwrap_or(&"unknown".to_string())));
+        message.push_str(&format!(
+            "serial_port_address={} ",
+            val.as_ref().unwrap_or(&"unknown".to_string())
+        ));
         if let Some(x) = &val {
             if *x != dell::SerialPortSettings::Com1.to_string() {
                 enabled = false;
@@ -1171,7 +1183,10 @@ impl Bmc {
         }
 
         let val = bios.ext_serial_connector;
-        message.push_str(&format!("ext_serial_connector={} ", val.as_ref().unwrap_or(&"unknown".to_string())));
+        message.push_str(&format!(
+            "ext_serial_connector={} ",
+            val.as_ref().unwrap_or(&"unknown".to_string())
+        ));
         if let Some(x) = &val {
             if *x != dell::SerialPortExtSettings::Serial1.to_string() {
                 enabled = false;
@@ -1179,7 +1194,10 @@ impl Bmc {
         }
 
         let val = bios.fail_safe_baud;
-        message.push_str(&format!("fail_safe_baud={} ", val.as_ref().unwrap_or(&"unknown".to_string())));
+        message.push_str(&format!(
+            "fail_safe_baud={} ",
+            val.as_ref().unwrap_or(&"unknown".to_string())
+        ));
         if let Some(x) = &val {
             if x != "115200" {
                 enabled = false;
@@ -1187,7 +1205,10 @@ impl Bmc {
         }
 
         let val = bios.con_term_type;
-        message.push_str(&format!("con_term_type={} ", val.as_ref().unwrap_or(&"unknown".to_string())));
+        message.push_str(&format!(
+            "con_term_type={} ",
+            val.as_ref().unwrap_or(&"unknown".to_string())
+        ));
         if let Some(x) = &val {
             if *x != dell::SerialPortTermSettings::Vt100Vt220.to_string() {
                 enabled = false;
