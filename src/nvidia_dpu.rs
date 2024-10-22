@@ -526,7 +526,13 @@ impl Redfish for Bmc {
     }
 
     async fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
-        self.s.bmc_reset_to_defaults().await
+        let url = format!(
+            "Managers/{}/Actions/Manager.ResetToDefaults",
+            self.s.manager_id()
+        );
+        let mut arg = HashMap::new();
+        arg.insert("ResetToDefaultsType", "ResetAll".to_string());
+        self.s.client.post(&url, arg).await.map(|_resp| Ok(()))?
     }
 
     async fn get_job_state(&self, job_id: &str) -> Result<JobState, RedfishError> {

@@ -534,7 +534,7 @@ impl Redfish for RedfishStandard {
             self.manager_id
         );
         let mut arg = HashMap::new();
-        arg.insert("ResetToDefaultsType", "ResetAll".to_string());
+        arg.insert("ResetType", "ResetAll".to_string());
         self.client.post(&url, arg).await.map(|_resp| Ok(()))?
     }
 
