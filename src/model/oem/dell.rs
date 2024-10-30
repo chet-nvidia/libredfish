@@ -257,6 +257,8 @@ pub struct BiosForgeAttrs {
     #[serde(rename = "HttpDev1Interface")]
     pub http_device_1_interface: String,
     pub set_boot_order_en: String,
+    #[serde(rename = "HttpDev1TlsMode")]
+    pub http_device_1_tls_mode: TlsMode,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -411,6 +413,18 @@ pub enum Tpm2HierarchySettings {
 }
 
 impl fmt::Display for Tpm2HierarchySettings {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone, Eq, PartialEq)]
+pub enum TlsMode {
+    None,
+    OneWay,
+}
+
+impl fmt::Display for TlsMode {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         fmt::Debug::fmt(self, f)
     }

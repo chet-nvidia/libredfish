@@ -1395,6 +1395,7 @@ impl Bmc {
             // On a two-DPU machine, this is also correct
             // And there is no clean way to derive it
             one_time_uefi_boot_seq_dev: "NIC.HttpDevice.1-1".to_string(),
+            http_device_1_tls_mode: dell::TlsMode::None,
         }
     }
 
