@@ -130,8 +130,7 @@ impl Redfish for Bmc {
             .await
             .map(|_status_code| ())?;
 
-        self.boot_first(Boot::Pxe).await?;
-        Ok(())
+        self.boot_first(Boot::Pxe).await
     }
 
     async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
