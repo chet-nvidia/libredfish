@@ -1,5 +1,6 @@
 use std::{collections::HashMap, path::Path, time::Duration};
 
+use reqwest::StatusCode;
 use serde::Deserialize;
 use tokio::fs::File;
 
@@ -331,7 +332,17 @@ impl Redfish for Bmc {
                 true,
                 timeout,
             )
-            .await?;
+            .await
+            .map_err(|e| match e {
+                RedfishError::HTTPErrorCode { status_code, .. }
+                    if status_code == StatusCode::NOT_FOUND =>
+                {
+                    RedfishError::NotSupported(
+                        "Host BMC does not support HTTP multipart push".to_string(),
+                    )
+                }
+                e => e,
+            })?;
 
         let task: Task =
             serde_json::from_str(&body).map_err(|e| RedfishError::JsonDeserializeError {
