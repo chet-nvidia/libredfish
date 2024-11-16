@@ -13,11 +13,13 @@ use crate::{
 };
 
 pub const REDFISH_ENDPOINT: &str = "redfish/v1";
+const DEFAULT_CONNECT_TIMEOUT: Duration = Duration::from_secs(10);
 const DEFAULT_TIMEOUT: Duration = Duration::from_secs(60);
 const MIN_UPLOAD_BANDWIDTH: u64 = 10_000;
 
 #[derive(Debug)]
 pub struct RedfishClientPoolBuilder {
+    connect_timeout: Duration,
     timeout: Duration,
     accept_invalid_certs: bool,
     proxy: Option<String>,
@@ -31,6 +33,12 @@ impl RedfishClientPoolBuilder {
     /// use those.
     pub fn reject_invalid_certs(mut self) -> Self {
         self.accept_invalid_certs = false;
+        self
+    }
+
+    /// Overwrites the timeout for establishing a connection
+    pub fn connect_timeout(mut self, timeout: Duration) -> Self {
+        self.connect_timeout = timeout;
         self
     }
 
@@ -55,6 +63,7 @@ impl RedfishClientPoolBuilder {
 
         let http_client = builder
             .danger_accept_invalid_certs(self.accept_invalid_certs)
+            .connect_timeout(self.connect_timeout)
             .timeout(self.timeout)
             .build()
             .unwrap();
@@ -97,6 +106,7 @@ impl RedfishClientPool {
     /// Returns Builder for configuring a Redfish HTTP connection pool
     pub fn builder() -> RedfishClientPoolBuilder {
         RedfishClientPoolBuilder {
+            connect_timeout: DEFAULT_CONNECT_TIMEOUT,
             timeout: DEFAULT_TIMEOUT,
             // BMCs often have a self-signed cert, so usually this has to be true
             accept_invalid_certs: true,
