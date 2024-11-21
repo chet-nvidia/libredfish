@@ -367,6 +367,18 @@ pub struct LogicalDrives {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
+pub struct StorageSubsystem {
+    #[serde(flatten)]
+    pub odata: ODataLinks,
+    pub description: String,
+    pub members: Option<Vec<ODataId>>,
+    #[serde(rename = "Members@odata.count")]
+    pub members_odata_count: i64,
+    pub name: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct Storage {
     #[serde(flatten)]
     pub odata: ODataLinks,
@@ -375,6 +387,38 @@ pub struct Storage {
     pub description: Option<String>,
     pub drives: Option<Vec<ODataId>>,
     pub volumes: Option<ODataId>,
+    pub status: Option<ResourceStatus>,
+}
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct OemSmc {
+    #[serde(flatten)]
+    pub temperature: Option<f64>,
+    pub percentage_drive_life_used: Option<f64>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct Oem {
+    #[serde(flatten)]
+    pub supermicro: Option<OemSmc>,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct Drives {
+    #[serde(flatten)]
+    pub odata: ODataLinks,
+    pub capacity_bytes: i64,
+    pub failure_predicted: bool,
+    pub predicted_media_life_left_percent: Option<f64>,
+    pub oem: Option<Oem>,
+    pub id: String,
+    pub manufacturer: Option<String>,
+    pub model: String,
+    pub name: String,
+    pub revision: Option<String>,
+    pub serial_number: String,
     pub status: Option<ResourceStatus>,
 }
 

@@ -25,6 +25,7 @@ use crate::{
         sensor::GPUSensors,
         software_inventory::SoftwareInventory,
         thermal::Thermal,
+        storage::Drives,
         BootOption,
     },
     network::REDFISH_ENDPOINT,
@@ -112,6 +113,10 @@ impl Redfish for Bmc {
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
         self.get_system_event_log().await
+    }
+
+    async fn get_drives_metrics(&self) -> Result<Vec<Drives>, RedfishError> {
+        self.s.get_drives_metrics().await
     }
 
     async fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {

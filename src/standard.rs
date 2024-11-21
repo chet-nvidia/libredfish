@@ -14,6 +14,7 @@ use crate::model::service_root::ServiceRoot;
 use crate::model::software_inventory::SoftwareInventory;
 use crate::model::task::Task;
 use crate::model::thermal::Thermal;
+use crate::model::{storage::StorageSubsystem, storage::Storage, storage::Drives};
 use crate::model::update_service::ComponentType;
 use crate::model::{account_service::ManagerAccount, service_root::RedfishVendor};
 use crate::model::{
@@ -163,6 +164,11 @@ impl Redfish for RedfishStandard {
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
         Err(RedfishError::NotSupported("SEL".to_string()))
+    }
+
+    async fn get_drives_metrics(&self) -> Result<Vec<Drives>, RedfishError> {
+        let drives = self.get_drives_metrics().await?;
+        Ok(drives)
     }
 
     async fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
@@ -958,6 +964,34 @@ impl RedfishStandard {
         let url = format!("Chassis/{}/Thermal/", self.system_id());
         let (_status_code, body) = self.client.get(&url).await?;
         Ok(body)
+    }
+
+    /// Query the drives status from the server
+    pub async fn get_drives_metrics(&self) -> Result<Vec<Drives>, RedfishError> {
+        let mut drives: Vec<Drives> = Vec::new();
+        let url = format!("Systems/{}/Storage/", self.system_id());
+        let storagesubsystem: StorageSubsystem = self.client.get(&url).await?.1;
+        if !storagesubsystem.members.is_none() {
+            for member in storagesubsystem.members.unwrap() {
+                let url = member
+                    .odata_id
+                    .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+                let storage: Storage = self.client.get(&url).await?.1;
+                if !storage.drives.is_none() {
+                    for drive in storage.drives.unwrap() {
+                        let url = drive
+                            .odata_id
+                            .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+                        let drive: Drives = self.client.get(&url).await?.1;
+                        if drive.id.contains("USB") {   // Viking server puts USB things to storage, need to be ignored
+                            continue;
+                        }
+                        drives.push(drive);
+                    }
+                }
+            }
+        }
+        Ok(drives)
     }
 
     pub async fn change_bios_password(

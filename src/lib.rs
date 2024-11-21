@@ -34,6 +34,7 @@ pub use error::RedfishError;
 use crate::model::power::Power;
 use crate::model::sel::LogEntry;
 use crate::model::thermal::Thermal;
+use crate::model::storage::Drives;
 
 /// Interface to a BMC Redfish server. All calls will include one or more HTTP network calls.
 #[async_trait::async_trait]
@@ -135,6 +136,9 @@ pub trait Redfish: Send + Sync + 'static {
 
     /// get system event log similar to ipmitool sel
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError>;
+
+    /// get drives metrics
+    async fn get_drives_metrics(&self) -> Result<Vec<Drives>, RedfishError>;
 
     /// call this to setup bios and bmc for Nvidia Forge use
     /// remember to call lockdown() afterwards to secure the server

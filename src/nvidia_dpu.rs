@@ -19,6 +19,7 @@ use crate::{
         sel::{LogEntry, LogEntryCollection},
         service_root::ServiceRoot,
         BootOption, ComputerSystem, Manager,
+        storage::Drives,
     },
     standard::RedfishStandard,
     Collection, NetworkDeviceFunction, ODataId, Redfish, RedfishError, Resource,
@@ -137,6 +138,10 @@ impl Redfish for Bmc {
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
         self.get_system_event_log().await
+    }
+
+    async fn get_drives_metrics(&self) -> Result<Vec<Drives>, RedfishError> {
+        self.s.get_drives_metrics().await
     }
 
     async fn forge_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
