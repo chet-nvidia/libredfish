@@ -1,5 +1,4 @@
 {
-    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/AggregationService",
     "@odata.type": "#JsonSchemaFile.v1_0_2.JsonSchemaFile",
     "Description": "AggregationService Schema File Location",
@@ -11,8 +10,8 @@
     "Location": [
         {
             "Language": "en",
-            "PublicationUri": "http://redfish.dmtf.org/schemas/v1/AggregationService.json",
-            "Uri": "/redfish/v1/JsonSchemas/AggregationService/AggregationService.json"
+            "PublicationUri": "http://redfish.dmtf.org/schemas/v1/AggregationService.v1_0_3.json",
+            "Uri": "/redfish/v1/JsonSchemas/AggregationService/AggregationService.v1_0_3.json"
         }
     ],
     "Location@odata.count": 1,

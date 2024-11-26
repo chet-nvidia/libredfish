@@ -11,11 +11,8 @@
         },
         {
             "@odata.id": "/redfish/v1/AccountService/Roles/ReadOnly"
-        },
-        {
-            "@odata.id": "/redfish/v1/AccountService/Roles/NoAccess"
         }
     ],
-    "Members@odata.count": 4,
+    "Members@odata.count": 3,
     "Name": "Roles Collection"
 }

@@ -1,9 +1,9 @@
 {
     "@odata.id": "/redfish/v1/Chassis/Card1/Sensors/12V_PCIe",
-    "@odata.type": "#Sensor.v1_2_0.Sensor",
+    "@odata.type": "#Sensor.v1_7_0.Sensor",
     "Id": "12V_PCIe",
     "Name": "12V PCIe",
-    "Reading": 12.16,
+    "Reading": 12.184,
     "ReadingRangeMax": 14.4,
     "ReadingRangeMin": 0.0,
     "ReadingType": "Voltage",

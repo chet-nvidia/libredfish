@@ -12,8 +12,7 @@
             "PowerCapacityWatts": null,
             "PowerConsumedWatts": null,
             "PowerLimit": {
-                "LimitException": "NoAction",
-                "LimitInWatts": null
+                "LimitException": "NoAction"
             }
         }
     ],

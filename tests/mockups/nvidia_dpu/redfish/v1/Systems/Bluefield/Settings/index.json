@@ -4,10 +4,22 @@
     "Boot": {
         "AutomaticRetryConfig": "Disabled",
         "BootNext": "",
+        "BootOptions": {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/Settings/BootOptions"
+        },
         "BootOrder": [],
         "BootSourceOverrideEnabled": "Disabled",
         "BootSourceOverrideMode": "UEFI",
         "BootSourceOverrideTarget": "UefiHttp",
+        "BootSourceOverrideTarget@Redfish.AllowableValues": [
+            "None",
+            "Pxe",
+            "Hdd",
+            "Cd",
+            "Diags",
+            "BiosSetup",
+            "Usb"
+        ],
         "HttpBootUri": "",
         "UefiTargetBootSourceOverride": "None"
     },

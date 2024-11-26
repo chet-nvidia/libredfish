@@ -6,7 +6,7 @@
         }
     },
     "@odata.id": "/redfish/v1/Systems/Bluefield",
-    "@odata.type": "#ComputerSystem.v1_17_0.ComputerSystem",
+    "@odata.type": "#ComputerSystem.v1_22_0.ComputerSystem",
     "Actions": {
         "#ComputerSystem.Reset": {
             "@Redfish.ActionInfo": "/redfish/v1/Systems/Bluefield/ResetActionInfo",
@@ -28,7 +28,7 @@
             "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions"
         },
         "BootOrder": [
-            "Boot0040",
+            "Boot0009",
             "Boot0000",
             "Boot0001",
             "Boot0002",
@@ -38,7 +38,6 @@
             "Boot0006",
             "Boot0007",
             "Boot0008",
-            "Boot0009",
             "Boot000A",
             "Boot000B",
             "Boot000C",
@@ -55,7 +54,11 @@
             "Boot0017",
             "Boot0018",
             "Boot0019",
-            "Boot001A"
+            "Boot001A",
+            "Boot001B",
+            "Boot001C",
+            "Boot001D",
+            "Boot001E"
         ],
         "BootOrderPropertySelection": "BootOrder",
         "BootSourceOverrideEnabled": "Disabled",
@@ -79,13 +82,15 @@
             "UefiBootNext"
         ],
         "HttpBootUri": "",
+        "RemainingAutomaticRetryAttempts": 0,
+        "StopBootOnFault": "Never",
         "TrustedModuleRequiredToBoot": "Disabled",
         "UefiTargetBootSourceOverride": "None"
     },
     "BootProgress": {
         "LastState": "OEM",
-        "LastStateTime": "1970-01-20T22:34:24.166407+00:00",
-        "OemLastState": "Invalid"
+        "LastStateTime": "1970-01-21T01:08:26.189979+00:00",
+        "OemLastState": "OsIsRunning"
     },
     "Description": "This ComputerSystem resource represents the SoC that is part of the DPU found in Card1",
     "EthernetInterfaces": {
@@ -97,6 +102,13 @@
         ],
         "MaxConcurrentSessions": 4,
         "ServiceEnabled": true
+    },
+    "HostWatchdogTimer": {
+        "FunctionEnabled": false,
+        "Status": {
+            "State": "Enabled"
+        },
+        "TimeoutAction": "ResetSystem"
     },
     "Id": "Bluefield",
     "LastResetTime": "1970-01-01T00:00:00+00:00",
@@ -115,37 +127,34 @@
     "LogServices": {
         "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices"
     },
+    "Manufacturer": "https://www.mellanox.com",
     "Memory": {
         "@odata.id": "/redfish/v1/Systems/Bluefield/Memory"
     },
     "MemorySummary": {
-        "Status": {
-            "Health": "OK",
-            "HealthRollup": "OK",
-            "State": "Disabled"
-        },
         "TotalSystemMemoryGiB": 0
     },
+    "Model": "BlueField-3 SmartNIC Main Card",
     "Name": "Bluefield",
     "Oem": {
         "Nvidia": {
             "@odata.id": "/redfish/v1/Systems/Bluefield/Oem/Nvidia"
         }
     },
+    "PowerMode": "Static",
+    "PowerMode@Redfish.AllowableValues": [
+        "Static",
+        "MaximumPerformance",
+        "PowerSaving"
+    ],
     "PowerRestorePolicy": "AlwaysOn",
     "PowerState": "On",
     "ProcessorSummary": {
-        "Count": 0,
-        "Status": {
-            "Health": "OK",
-            "HealthRollup": "OK",
-            "State": "Disabled"
-        }
+        "Count": 0
     },
     "Processors": {
         "@odata.id": "/redfish/v1/Systems/Bluefield/Processors"
     },
-    "SKU": "",
     "SecureBoot": {
         "@odata.id": "/redfish/v1/Systems/Bluefield/SecureBoot"
     },
@@ -160,15 +169,14 @@
             "ServiceEnabled": true
         }
     },
-    "SerialNumber": "MT2328XZ185Q",
+    "SerialNumber": "MT2423600ANG",
     "Status": {
+        "Conditions": [],
         "Health": "OK",
-        "HealthRollup": "OK",
         "State": "Enabled"
     },
     "Storage": {
         "@odata.id": "/redfish/v1/Systems/Bluefield/Storage"
     },
-    "SystemType": "Physical",
-    "UUID": null
+    "SystemType": "Physical"
 }

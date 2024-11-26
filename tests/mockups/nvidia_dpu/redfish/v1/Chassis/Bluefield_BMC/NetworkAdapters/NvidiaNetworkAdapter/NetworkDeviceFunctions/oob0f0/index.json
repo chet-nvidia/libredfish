@@ -2,7 +2,7 @@
     "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC/NetworkAdapters/NvidiaNetworkAdapter/NetworkDeviceFunctions/oob0f0",
     "@odata.type": "#NetworkDeviceFunction.v1_9_0.NetworkDeviceFunction",
     "Ethernet": {
-        "MACAddress": "a0:88:c2:08:80:70",
+        "MACAddress": "5c:25:73:08:f3:76",
         "MTUSize": 1500
     },
     "Id": "oob0f0",

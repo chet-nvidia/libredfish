@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/DedicatedNetworkPorts/1",
-    "@odata.type": "#Port.v1_7_0.Port",
+    "@odata.type": "#Port.v1_9_0.Port",
     "Ethernet": {
         "LLDPEnabled": false,
         "LLDPReceive": null,

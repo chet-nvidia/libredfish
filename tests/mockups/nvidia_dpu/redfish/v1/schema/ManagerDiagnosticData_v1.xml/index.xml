@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!---->
 <!--################################################################################       -->
-<!--# Redfish Schema:  ManagerDiagnosticData v1.1.0                                        -->
+<!--# Redfish Schema:  ManagerDiagnosticData v1.2.3                                        -->
 <!--#                                                                                      -->
 <!--# For a detailed change log, see the README file contained in the DSP8010 bundle,      -->
 <!--# available at http://www.dmtf.org/standards/redfish                                   -->
-<!--# Copyright 2014-2022 DMTF.                                                            -->
+<!--# Copyright 2014-2024 DMTF.                                                            -->
 <!--# For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright -->
 <!--################################################################################       -->
 <!---->
@@ -22,6 +22,7 @@
   </edmx:Reference>
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/RedfishExtensions_v1.xml">
     <edmx:Include Namespace="RedfishExtensions.v1_0_0" Alias="Redfish"/>
+    <edmx:Include Namespace="Validation.v1_0_0" Alias="Validation"/>
   </edmx:Reference>
   <edmx:Reference Uri="http://redfish.dmtf.org/schemas/v1/Resource_v1.xml">
     <edmx:Include Namespace="Resource.v1_0_0"/>
@@ -31,9 +32,10 @@
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData">
       <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Language" String="en"/>
 
       <EntityType Name="ManagerDiagnosticData" BaseType="Resource.v1_0_0.Resource" Abstract="true">
-        <Annotation Term="OData.Description" String="The ManagerDiagnosticData schema defines internal diagnostic data for a manager.  It contains information that might be used by vendors to collect debug information about the manager.  Clients should not make decisions for raising alerts, creating service events, or other actions based on information in this resource."/>
+        <Annotation Term="OData.Description" String="The `ManagerDiagnosticData` schema defines internal diagnostic data for a manager.  It contains information that might be used by vendors to collect debug information about the manager.  Clients should not make decisions for raising alerts, creating service events, or other actions based on information in this resource."/>
         <Annotation Term="OData.LongDescription" String="This resource shall represent internal diagnostic data for a manager for a Redfish implementation.  Clients should not make decisions for raising alerts, creating service events, or other actions based on information in this resource."/>
         <Annotation Term="Capabilities.InsertRestrictions">
           <Record>
@@ -82,8 +84,8 @@
           <Annotation Term="OData.LongDescription" String="This property shall contain the processor statistics of the manager."/>
         </Property>
         <Property Name="BootTimeStatistics" Type="ManagerDiagnosticData.v1_0_0.BootTimeStatistics" Nullable="false">
-          <Annotation Term="OData.Description" String="The boot time statistics of the manager."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the boot time statistics of the manager."/>
+          <Annotation Term="OData.Description" String="The boot-time statistics of the manager."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the boot-time statistics of the manager."/>
         </Property>
         <Property Name="FreeStorageSpaceKiB" Type="Edm.Int64">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
@@ -101,7 +103,7 @@
         </Property>
         <Property Name="Actions" Type="ManagerDiagnosticData.v1_0_0.Actions" Nullable="false">
           <Annotation Term="OData.Description" String="The available actions for this resource."/>
-          <Annotation Term="OData.LongDescription" String="The actions property shall contain the available actions for this resource."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the available actions for this resource."/>
         </Property>
       </EntityType>
 
@@ -144,7 +146,7 @@
         <Property Name="UsedBytes" Type="Edm.Int64">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The amount of used memory in bytes."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the amount of used memory in bytes.  This value is calculated as TotalBytes minus FreeBytes minus BuffersAndCacheBytes."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the amount of used memory in bytes.  This value is calculated as `TotalBytes` minus `FreeBytes` minus `BuffersAndCacheBytes`."/>
           <Annotation Term="Measures.Unit" String="By"/>
         </Property>
         <Property Name="FreeBytes" Type="Edm.Int64">
@@ -156,7 +158,7 @@
         <Property Name="SharedBytes" Type="Edm.Int64">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The amount of shared memory in bytes."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the amount of shared memory in bytes.  This includes things such as memory consumed by temporary filesystems."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the amount of shared memory in bytes.  This includes things such as memory consumed by temporary file systems."/>
           <Annotation Term="Measures.Unit" String="By"/>
         </Property>
         <Property Name="BuffersAndCacheBytes" Type="Edm.Int64">
@@ -207,21 +209,25 @@
         <Property Name="KernelPercent" Type="Edm.Decimal">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The percentage of CPU time spent in kernel mode."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the percentage of CPU time spent in kernel mode."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the percentage of CPU time, `0` to `100`, spent in kernel mode."/>
           <Annotation Term="Measures.Unit" String="%"/>
+          <Annotation Term="Validation.Minimum" Int="0"/>
+          <Annotation Term="Validation.Maximum" Int="100"/>
         </Property>
         <Property Name="UserPercent" Type="Edm.Decimal">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The percentage of CPU time spent in user mode."/>
-          <Annotation Term="OData.LongDescription" String="This property shall contain the percentage of CPU time spent in user mode."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the percentage of CPU time, `0` to `100`, spent in user mode."/>
           <Annotation Term="Measures.Unit" String="%"/>
+          <Annotation Term="Validation.Minimum" Int="0"/>
+          <Annotation Term="Validation.Maximum" Int="100"/>
         </Property>
       </ComplexType>
 
       <ComplexType Name="BootTimeStatistics">
         <Annotation Term="OData.AdditionalProperties" Bool="false"/>
-        <Annotation Term="OData.Description" String="The boot time statistics of a manager."/>
-        <Annotation Term="OData.LongDescription" String="This object shall contain the boot time statistics of a manager."/>
+        <Annotation Term="OData.Description" String="The boot-time statistics of a manager."/>
+        <Annotation Term="OData.LongDescription" String="This object shall contain the boot-time statistics of a manager."/>
         <Property Name="FirmwareTimeSeconds" Type="Edm.Decimal">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
           <Annotation Term="OData.Description" String="The number of seconds the manager spent in the firmware stage."/>
@@ -255,12 +261,12 @@
         <Annotation Term="OData.LongDescription" String="This object shall contain the memory ECC statistics of a manager."/>
         <Property Name="CorrectableECCErrorCount" Type="Edm.Int64">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The number of the correctable errors since reset."/>
+          <Annotation Term="OData.Description" String="The number of correctable errors since reset."/>
           <Annotation Term="OData.LongDescription" String="This property shall contain the number of correctable errors since reset."/>
         </Property>
         <Property Name="UncorrectableECCErrorCount" Type="Edm.Int64">
           <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
-          <Annotation Term="OData.Description" String="The number of the uncorrectable errors since reset."/>
+          <Annotation Term="OData.Description" String="The number of uncorrectable errors since reset."/>
           <Annotation Term="OData.LongDescription" String="This property shall contain the number of uncorrectable errors since reset."/>
         </Property>
       </ComplexType>
@@ -280,6 +286,24 @@
         <Annotation Term="OData.Description" String="The available OEM-specific actions for this resource."/>
         <Annotation Term="OData.LongDescription" String="This type shall contain the available OEM-specific actions for this resource."/>
       </ComplexType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData.v1_0_1">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to clarify the range of possible values for properties with percent units."/>
+      <EntityType Name="ManagerDiagnosticData" BaseType="ManagerDiagnosticData.v1_0_0.ManagerDiagnosticData"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData.v1_0_2">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="ManagerDiagnosticData" BaseType="ManagerDiagnosticData.v1_0_1.ManagerDiagnosticData"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData.v1_0_3">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to force the regeneration of OpenAPI schemas to properly express nullable properties with external references.  It was also created to correct various typographical errors."/>
+      <EntityType Name="ManagerDiagnosticData" BaseType="ManagerDiagnosticData.v1_0_2.ManagerDiagnosticData"/>
     </Schema>
 
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData.v1_1_0">
@@ -305,6 +329,55 @@
           <Annotation Term="OData.LongDescription" String="This property shall contain the number of times this process has restarted unexpectedly, such as due to unintentional failures, restarts, or shutdowns, with the same command line including arguments."/>
         </Property>
       </ComplexType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData.v1_1_1">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to clarify the range of possible values for properties with percent units."/>
+      <EntityType Name="ManagerDiagnosticData" BaseType="ManagerDiagnosticData.v1_1_0.ManagerDiagnosticData"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData.v1_1_2">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="ManagerDiagnosticData" BaseType="ManagerDiagnosticData.v1_1_1.ManagerDiagnosticData"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData.v1_1_3">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to force the regeneration of OpenAPI schemas to properly express nullable properties with external references.  It was also created to correct various typographical errors."/>
+      <EntityType Name="ManagerDiagnosticData" BaseType="ManagerDiagnosticData.v1_1_2.ManagerDiagnosticData"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData.v1_2_0">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="Redfish.Release" String="2022.3"/>
+
+      <EntityType Name="ManagerDiagnosticData" BaseType="ManagerDiagnosticData.v1_1_0.ManagerDiagnosticData">
+        <Property Name="ServiceRootUptimeSeconds" Type="Edm.Decimal">
+          <Annotation Term="OData.Permissions" EnumMember="OData.Permission/Read"/>
+          <Annotation Term="OData.Description" String="The wall-clock time the service root hosted by this manager has been running in seconds."/>
+          <Annotation Term="OData.LongDescription" String="This property shall contain the wall-clock time the service root hosted by this manager has been running in seconds."/>
+        </Property>
+      </EntityType>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData.v1_2_1">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to clarify the range of possible values for properties with percent units."/>
+      <EntityType Name="ManagerDiagnosticData" BaseType="ManagerDiagnosticData.v1_2_0.ManagerDiagnosticData"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData.v1_2_2">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to correct various typographical errors."/>
+      <EntityType Name="ManagerDiagnosticData" BaseType="ManagerDiagnosticData.v1_2_1.ManagerDiagnosticData"/>
+    </Schema>
+
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ManagerDiagnosticData.v1_2_3">
+      <Annotation Term="Redfish.OwningEntity" String="DMTF"/>
+      <Annotation Term="OData.Description" String="This version was created to force the regeneration of OpenAPI schemas to properly express nullable properties with external references.  It was also created to correct various typographical errors."/>
+      <EntityType Name="ManagerDiagnosticData" BaseType="ManagerDiagnosticData.v1_2_2.ManagerDiagnosticData"/>
     </Schema>
 
   </edmx:DataServices>

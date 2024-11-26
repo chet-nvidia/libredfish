@@ -2,7 +2,7 @@
     "$id": "http://redfish.dmtf.org/schemas/v1/CertificateCollection.json",
     "$ref": "#/definitions/CertificateCollection",
     "$schema": "http://redfish.dmtf.org/schemas/v1/redfish-schema-v1.json",
-    "copyright": "Copyright 2014-2022 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
+    "copyright": "Copyright 2014-2024 DMTF. For the full DMTF copyright policy, see http://www.dmtf.org/about/policies/copyright",
     "definitions": {
         "CertificateCollection": {
             "anyOf": [
@@ -11,8 +11,8 @@
                 },
                 {
                     "additionalProperties": false,
-                    "description": "The collection of Certificate resource instances.",
-                    "longDescription": "This resource shall represent a resource collection of Certificate instances for a Redfish implementation.",
+                    "description": "The collection of `Certificate` resource instances.",
+                    "longDescription": "This resource shall represent a resource collection of `Certificate` instances for a Redfish implementation.",
                     "patternProperties": {
                         "^([a-zA-Z_][a-zA-Z0-9_]*)?@(odata|Redfish|Message)\\.[a-zA-Z_][a-zA-Z0-9_]*$": {
                             "description": "This property shall specify a valid odata or Redfish property.",
@@ -94,10 +94,14 @@
                 "/redfish/v1/AccountService/ActiveDirectory/Certificates",
                 "/redfish/v1/AccountService/LDAP/Certificates",
                 "/redfish/v1/AccountService/ExternalAccountProviders/{ExternalAccountProviderId}/Certificates",
+                "/redfish/v1/AccountService/MultiFactorAuth/ClientCertificate/Certificates",
+                "/redfish/v1/AccountService/MultiFactorAuth/SecurID/Certificates",
                 "/redfish/v1/Managers/{ManagerId}/RemoteAccountService/Accounts/{ManagerAccountId}/Certificates",
                 "/redfish/v1/Managers/{ManagerId}/RemoteAccountService/ActiveDirectory/Certificates",
                 "/redfish/v1/Managers/{ManagerId}/RemoteAccountService/LDAP/Certificates",
                 "/redfish/v1/Managers/{ManagerId}/RemoteAccountService/ExternalAccountProviders/{ExternalAccountProviderId}/Certificates",
+                "/redfish/v1/Managers/{ManagerId}/RemoteAccountService/MultiFactorAuth/ClientCertificate/Certificates",
+                "/redfish/v1/Managers/{ManagerId}/RemoteAccountService/MultiFactorAuth/SecurID/Certificates",
                 "/redfish/v1/Managers/{ManagerId}/NetworkProtocol/HTTPS/Certificates",
                 "/redfish/v1/Systems/{ComputerSystemId}/Boot/Certificates",
                 "/redfish/v1/CompositionService/ResourceBlocks/{ResourceBlockId}/Systems/{ComputerSystemId}/Boot/Certificates",
@@ -161,10 +165,15 @@
                 "/redfish/v1/Managers/{ManagerId}/SecurityPolicy/TLS/Client/TrustedCertificates",
                 "/redfish/v1/Managers/{ManagerId}/SecurityPolicy/TLS/Client/RevokedCertificates",
                 "/redfish/v1/Managers/{ManagerId}/SecurityPolicy/TLS/Server/TrustedCertificates",
-                "/redfish/v1/Managers/{ManagerId}/SecurityPolicy/TLS/Server/RevokedCertificates"
+                "/redfish/v1/Managers/{ManagerId}/SecurityPolicy/TLS/Server/RevokedCertificates",
+                "/redfish/v1/Chassis/{ChassisId}/TrustedComponents/{TrustedComponentId}/Certificates",
+                "/redfish/v1/AccountService/OutboundConnections/{OutboundConnectionId}/Certificates",
+                "/redfish/v1/AccountService/OutboundConnections/{OutboundConnectionId}/ClientCertificates",
+                "/redfish/v1/Chassis/{ChassisId}/PowerSubsystem/PowerSupplies/{PowerSupplyId}/Certificates"
             ]
         }
     },
+    "language": "en",
     "owningEntity": "DMTF",
     "title": "#CertificateCollection.CertificateCollection"
 }

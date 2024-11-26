@@ -87,13 +87,13 @@
         }
     },
     "ExternalHostPrivilege": {
-        "HostPrivFlashAccess": "",
-        "HostPrivFwUpdate": "",
-        "HostPrivNicReset": "",
-        "HostPrivNvGlobal": "",
-        "HostPrivNvHost": "",
-        "HostPrivNvInternalCpu": "",
-        "HostPrivNvPort": "",
-        "HostPrivPccUpdate": ""
+        "HostPrivFlashAccess": "Default",
+        "HostPrivFwUpdate": "Default",
+        "HostPrivNicReset": "Default",
+        "HostPrivNvGlobal": "Default",
+        "HostPrivNvHost": "Default",
+        "HostPrivNvInternalCpu": "Default",
+        "HostPrivNvPort": "Default",
+        "HostPrivPccUpdate": "Default"
     }
 }

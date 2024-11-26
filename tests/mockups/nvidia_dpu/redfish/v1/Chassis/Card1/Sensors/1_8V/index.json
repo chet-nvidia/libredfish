@@ -1,9 +1,9 @@
 {
     "@odata.id": "/redfish/v1/Chassis/Card1/Sensors/1_8V",
-    "@odata.type": "#Sensor.v1_2_0.Sensor",
+    "@odata.type": "#Sensor.v1_7_0.Sensor",
     "Id": "1_8V",
     "Name": "1 8V",
-    "Reading": 1.8108,
+    "Reading": 1.806,
     "ReadingRangeMax": 2.1686747424020054,
     "ReadingRangeMin": 0.0,
     "ReadingType": "Voltage",

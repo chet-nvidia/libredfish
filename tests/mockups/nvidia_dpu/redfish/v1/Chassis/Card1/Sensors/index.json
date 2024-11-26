@@ -7,6 +7,9 @@
             "@odata.id": "/redfish/v1/Chassis/Card1/Sensors/bluefield_temp"
         },
         {
+            "@odata.id": "/redfish/v1/Chassis/Card1/Sensors/ddr_temp"
+        },
+        {
             "@odata.id": "/redfish/v1/Chassis/Card1/Sensors/p0_temp"
         },
         {
@@ -61,6 +64,6 @@
             "@odata.id": "/redfish/v1/Chassis/Card1/Sensors/VDD_CPU_R"
         }
     ],
-    "Members@odata.count": 19,
+    "Members@odata.count": 20,
     "Name": "Sensors"
 }

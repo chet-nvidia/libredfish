@@ -9,5 +9,5 @@
         "@odata.id": "/redfish/v1/Systems/Bluefield/SecureBoot/SecureBootDatabases"
     },
     "SecureBootEnable": false,
-    "SecureBootMode": "UserMode"
+    "SecureBootMode": "SetupMode"
 }

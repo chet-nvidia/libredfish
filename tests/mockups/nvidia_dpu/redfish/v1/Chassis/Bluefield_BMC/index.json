@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC",
-    "@odata.type": "#Chassis.v1_21_0.Chassis",
+    "@odata.type": "#Chassis.v1_22_0.Chassis",
     "Actions": {
         "#Chassis.Reset": {
             "@Redfish.ActionInfo": "/redfish/v1/Chassis/Bluefield_BMC/ResetActionInfo",
@@ -44,6 +44,11 @@
     "NetworkAdapters": {
         "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC/NetworkAdapters"
     },
+    "Oem": {
+        "Nvidia": {
+            "@odata.type": "#NvidiaChassis.v1_4_0.NvidiaChassis"
+        }
+    },
     "PCIeDevices": {
         "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC/PCIeDevices"
     },
@@ -61,7 +66,7 @@
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC/Sensors"
     },
-    "SerialNumber": "MT2328XZ185Q",
+    "SerialNumber": "MT2423600ANG",
     "Status": {
         "Conditions": [],
         "Health": "OK",

@@ -16,9 +16,18 @@
             "@odata.id": "/redfish/v1/Registries/OpenBMC"
         },
         {
+            "@odata.id": "/redfish/v1/Registries/Telemetry"
+        },
+        {
+            "@odata.id": "/redfish/v1/Registries/Platform"
+        },
+        {
+            "@odata.id": "/redfish/v1/Registries/Update"
+        },
+        {
             "@odata.id": "/redfish/v1/Registries/BiosAttributeRegistry"
         }
     ],
-    "Members@odata.count": 5,
+    "Members@odata.count": 8,
     "Name": "MessageRegistryFile Collection"
 }

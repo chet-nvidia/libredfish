@@ -1,9 +1,9 @@
 {
     "@odata.id": "/redfish/v1/Chassis/Card1/Sensors/bluefield_temp",
-    "@odata.type": "#Sensor.v1_2_0.Sensor",
+    "@odata.type": "#Sensor.v1_7_0.Sensor",
     "Id": "bluefield_temp",
     "Name": "bluefield temp",
-    "Reading": 60.0,
+    "Reading": 59.0,
     "ReadingRangeMax": 255.0,
     "ReadingRangeMin": 0.0,
     "ReadingType": "Temperature",

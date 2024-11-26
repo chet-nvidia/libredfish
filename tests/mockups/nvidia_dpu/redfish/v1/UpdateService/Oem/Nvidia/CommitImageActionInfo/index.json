@@ -8,7 +8,7 @@
             "AllowableValues": [],
             "DataType": "StringArray",
             "Name": "Targets",
-            "Required": "false"
+            "Required": false
         }
     ]
 }

@@ -6,13 +6,14 @@
     "Parameters": [
         {
             "AllowableValues": [
-                "On",
                 "ForceOff",
-                "ForceOn",
-                "ForceRestart",
-                "GracefulRestart",
+                "PowerCycle",
+                "Nmi",
                 "GracefulShutdown",
-                "PowerCycle"
+                "On",
+                "ForceOn",
+                "GracefulRestart",
+                "ForceRestart"
             ],
             "DataType": "String",
             "Name": "ResetType",

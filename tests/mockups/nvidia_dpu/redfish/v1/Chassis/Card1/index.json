@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Chassis/Card1",
-    "@odata.type": "#Chassis.v1_21_0.Chassis",
+    "@odata.type": "#Chassis.v1_22_0.Chassis",
     "Actions": {
         "#Chassis.Reset": {
             "@Redfish.ActionInfo": "/redfish/v1/Chassis/Card1/ResetActionInfo",
@@ -10,6 +10,7 @@
     "Assembly": {
         "@odata.id": "/redfish/v1/Chassis/Card1/Assembly"
     },
+    "AssetTag": "N/A",
     "ChassisType": "Card",
     "Controls": {
         "@odata.id": "/redfish/v1/Chassis/Card1/Controls"
@@ -26,10 +27,10 @@
         ],
         "Contains": [
             {
-                "@odata.id": "/redfish/v1/Chassis/Bluefield_ERoT"
+                "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC"
             },
             {
-                "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC"
+                "@odata.id": "/redfish/v1/Chassis/Bluefield_ERoT"
             }
         ],
         "ManagedBy": [
@@ -38,11 +39,16 @@
             }
         ]
     },
-    "Manufacturer": "Nvidia",
-    "Model": "Bluefield 3 SmartNIC Main Card",
+    "Manufacturer": "https://www.mellanox.com",
+    "Model": "BlueField-3 SmartNIC Main Card",
     "Name": "Card1",
     "NetworkAdapters": {
         "@odata.id": "/redfish/v1/Chassis/Card1/NetworkAdapters"
+    },
+    "Oem": {
+        "Nvidia": {
+            "@odata.type": "#NvidiaChassis.v1_4_0.NvidiaChassis"
+        }
     },
     "PCIeDevices": {
         "@odata.id": "/redfish/v1/Chassis/Card1/PCIeDevices"
@@ -58,11 +64,10 @@
     "PowerSubsystem": {
         "@odata.id": "/redfish/v1/Chassis/Card1/PowerSubsystem"
     },
-    "SKU": "",
     "Sensors": {
         "@odata.id": "/redfish/v1/Chassis/Card1/Sensors"
     },
-    "SerialNumber": "MT2328XZ185Q",
+    "SerialNumber": "MT2423600ANG",
     "Status": {
         "Conditions": [],
         "Health": "OK",

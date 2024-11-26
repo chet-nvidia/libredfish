@@ -1,7 +1,7 @@
 {
     "@odata.id": "/redfish/v1/Chassis/Bluefield_BMC/NetworkAdapters/NvidiaNetworkAdapter",
     "@odata.type": "#NetworkAdapter.v1_9_0.NetworkAdapter",
-    "Id": "NetworkAdapter",
+    "Id": "NvidiaNetworkAdapter",
     "Manufacturer": "Nvidia",
     "Name": "NvidiaNetworkAdapter",
     "NetworkDeviceFunctions": {

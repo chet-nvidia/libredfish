@@ -1,11 +1,7 @@
 {
     "@odata.id": "/redfish/v1/Systems/Bluefield/Storage",
     "@odata.type": "#StorageCollection.StorageCollection",
-    "Members": [
-        {
-            "@odata.id": "/redfish/v1/Systems/Bluefield/Storage/1"
-        }
-    ],
-    "Members@odata.count": 1,
+    "Members": null,
+    "Members@odata.count": 0,
     "Name": "Storage Collection"
 }

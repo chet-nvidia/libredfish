@@ -4,8 +4,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0008",
     "Description": "",
-    "DisplayName": "UEFI Misc Device",
+    "DisplayName": "NET-OOB-IPV4-HTTP",
     "Id": "Boot0008",
     "Name": "Boot0008",
-    "UefiDevicePath": "VenHw(8C91E049-9BF9-440E-BBAD-7DC5FC082C02)"
+    "UefiDevicePath": "MAC(5C257308F376,0x1)/IPv4(0.0.0.0,0x0,DHCP,0.0.0.0,0.0.0.0,0.0.0.0)/Uri()"
 }

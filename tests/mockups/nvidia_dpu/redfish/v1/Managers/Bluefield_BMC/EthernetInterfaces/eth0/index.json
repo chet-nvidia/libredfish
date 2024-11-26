@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/EthernetInterfaces/eth0",
-    "@odata.type": "#EthernetInterface.v1_6_0.EthernetInterface",
+    "@odata.type": "#EthernetInterface.v1_9_0.EthernetInterface",
     "DHCPv4": {
         "DHCPEnabled": true,
         "UseDNSServers": true,
@@ -8,17 +8,18 @@
         "UseNTPServers": true
     },
     "DHCPv6": {
-        "OperatingMode": "Stateful",
+        "OperatingMode": "Enabled",
         "UseDNSServers": true,
         "UseDomainName": true,
         "UseNTPServers": true
     },
     "Description": "Management Network Interface",
+    "EthernetInterfaceType": "Physical",
     "FQDN": "dpu-bmc",
     "HostName": "dpu-bmc",
     "IPv4Addresses": [
         {
-            "Address": "172.30.32.2",
+            "Address": "172.30.32.4",
             "AddressOrigin": "DHCP",
             "Gateway": "172.30.32.252",
             "SubnetMask": "255.255.255.0"
@@ -28,31 +29,30 @@
     "IPv6AddressPolicyTable": [],
     "IPv6Addresses": [
         {
-            "Address": "fe80::a288:c2ff:fe08:8071",
+            "Address": "fe80::5e25:73ff:fe08:f377",
             "AddressOrigin": "LinkLocal",
-            "AddressState": null,
+            "AddressState": "Preferred",
             "PrefixLength": 64
         }
     ],
     "IPv6DefaultGateway": "0:0:0:0:0:0:0:0",
     "IPv6StaticAddresses": [],
+    "IPv6StaticDefaultGateways": [],
     "Id": "eth0",
     "InterfaceEnabled": true,
     "LinkStatus": "LinkUp",
-    "MACAddress": "a0:88:c2:08:80:71",
+    "MACAddress": "5c:25:73:08:f3:77",
     "MTUSize": 1500,
     "Name": "Manager Ethernet Interface",
     "NameServers": [
         "172.30.34.15"
     ],
-    "SpeedMbps": 0,
+    "SpeedMbps": 1000,
+    "StatelessAddressAutoConfig": {
+        "IPv6AutoConfigEnabled": true
+    },
     "StaticNameServers": [],
     "Status": {
-        "Health": "OK",
-        "HealthRollup": "OK",
         "State": "Enabled"
-    },
-    "VLANs": {
-        "@odata.id": "/redfish/v1/Managers/Bluefield_BMC/EthernetInterfaces/eth0/VLANs"
     }
 }

@@ -4,8 +4,8 @@
     "BootOptionEnabled": true,
     "BootOptionReference": "Boot0014",
     "Description": "",
-    "DisplayName": "UEFI PXEv6 (MAC:A088C2088054)",
+    "DisplayName": "UEFI PXEv6 (MAC:5C257308F376 VLAN4040)",
     "Id": "Boot0014",
     "Name": "Boot0014",
-    "UefiDevicePath": "PciRoot(0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/MAC(A088C2088054,0x1)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000,0x0,Static,0000:0000:0000:0000:0000:0000:0000:0000,0x40,0000:0000:0000:0000:0000:0000:0000:0000)"
+    "UefiDevicePath": "MAC(5C257308F376,0x1)/Vlan(4040)/IPv6(0000:0000:0000:0000:0000:0000:0000:0000,0x0,Static,0000:0000:0000:0000:0000:0000:0000:0000,0x40,0000:0000:0000:0000:0000:0000:0000:0000)"
 }

@@ -1,60 +1,19 @@
 {
-    "@odata.context": "/redfish/v1/$metadata",
-    "value": [
-        {
-            "kind": "Singleton",
-            "name": "$metadata",
-            "url": "/redfish/v1/$metadata"
-        },
-        {
-            "kind": "Singleton",
-            "name": "odata",
-            "url": "/redfish/v1/odata"
-        },
-        {
-            "kind": "Singleton",
-            "name": "JsonSchemas",
-            "url": "/redfish/v1/JsonSchemas"
-        },
-        {
-            "kind": "Singleton",
-            "name": "Service",
-            "url": "/redfish/v1/"
-        },
-        {
-            "kind": "Singleton",
-            "name": "ServiceRoot",
-            "url": "/redfish/v1/ServiceRoot"
-        },
-        {
-            "kind": "Singleton",
-            "name": "Systems",
-            "url": "/redfish/v1/Systems"
-        },
-        {
-            "kind": "Singleton",
-            "name": "Chassis",
-            "url": "/redfish/v1/Chassis"
-        },
-        {
-            "kind": "Singleton",
-            "name": "Managers",
-            "url": "/redfish/v1/Managers"
-        },
-        {
-            "kind": "Singleton",
-            "name": "SessionService",
-            "url": "/redfish/v1/SessionService"
-        },
-        {
-            "kind": "Singleton",
-            "name": "AccountService",
-            "url": "/redfish/v1/AccountService"
-        },
-        {
-            "kind": "Singleton",
-            "name": "UpdateService",
-            "url": "/redfish/v1/UpdateService"
-        }
-    ]
+    "error": {
+        "@Message.ExtendedInfo": [
+            {
+                "@odata.type": "#Message.v1_1_1.Message",
+                "Message": "The requested resource of type  named 'odata' was not found.",
+                "MessageArgs": [
+                    "",
+                    "odata"
+                ],
+                "MessageId": "Base.1.18.1.ResourceNotFound",
+                "MessageSeverity": "Critical",
+                "Resolution": "Provide a valid resource identifier and resubmit the request."
+            }
+        ],
+        "code": "Base.1.18.1.ResourceNotFound",
+        "message": "The requested resource of type  named 'odata' was not found."
+    }
 }

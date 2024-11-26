@@ -1,9 +1,9 @@
 {
     "@odata.id": "/redfish/v1/Chassis/Card1/Sensors/5V",
-    "@odata.type": "#Sensor.v1_2_0.Sensor",
+    "@odata.type": "#Sensor.v1_7_0.Sensor",
     "Id": "5V",
     "Name": "5V",
-    "Reading": 5.0432,
+    "Reading": 4.9535,
     "ReadingRangeMax": 5.9800664641296875,
     "ReadingRangeMin": 0.0,
     "ReadingType": "Voltage",

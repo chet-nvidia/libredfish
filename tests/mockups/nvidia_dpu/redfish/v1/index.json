@@ -49,11 +49,11 @@
             "MaxLevels": 6,
             "NoLinks": true
         },
-        "FilterQuery": false,
+        "FilterQuery": true,
         "OnlyMemberQuery": true,
         "SelectQuery": true
     },
-    "RedfishVersion": "1.9.0",
+    "RedfishVersion": "1.17.0",
     "Registries": {
         "@odata.id": "/redfish/v1/Registries"
     },
@@ -73,7 +73,7 @@
     "TelemetryService": {
         "@odata.id": "/redfish/v1/TelemetryService"
     },
-    "UUID": "b4aa3ca4-d715-4e6c-84b7-20d6bfe7da49",
+    "UUID": "592593dd-256d-4076-969f-028474792073",
     "UpdateService": {
         "@odata.id": "/redfish/v1/UpdateService"
     },

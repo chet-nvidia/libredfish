@@ -3,30 +3,46 @@
     "@odata.type": "#ServiceConditions.v1_0_0.ServiceConditions",
     "Conditions": [
         {
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
             "LogEntry": {
-                "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/113"
+                "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/313"
             },
-            "Message": "Transfer of image 'cec1736Ecfw-00.02.0152.0000' to 'Bluefield_FW_ERoT' failed.",
+            "Message": "Transfer of image '/public/blobs/internal/aarch64/forge.bfb' to '/dev/rshim0/boot' failed.",
             "MessageArgs": [
-                "cec1736Ecfw-00.02.0152.0000",
-                "Bluefield_FW_ERoT"
+                "/public/blobs/internal/aarch64/forge.bfb",
+                "/dev/rshim0/boot"
             ],
             "MessageId": "Update.1.0.TransferFailed",
             "Severity": "Critical",
-            "Timestamp": "2024-02-23T12:15:49+00:00"
+            "Timestamp": "2024-11-04T11:38:37+00:00"
         },
         {
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
             "LogEntry": {
-                "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/114"
+                "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/541"
             },
-            "Message": "The resource property Bluefield_FW_ERoT has detected errors of type 'ERoT is busy'.",
+            "Message": "Transfer of image '/carbide-pxe.forge//public/blobs/internal/aarch64/forge.bfb' to '/dev/rshim0/boot' failed.",
             "MessageArgs": [
-                "Bluefield_FW_ERoT",
-                "ERoT is busy"
+                "/carbide-pxe.forge//public/blobs/internal/aarch64/forge.bfb",
+                "/dev/rshim0/boot"
+            ],
+            "MessageId": "Update.1.0.TransferFailed",
+            "Severity": "Critical",
+            "Timestamp": "2024-11-04T12:48:50+00:00"
+        },
+        {
+            "@odata.type": "#LogEntry.v1_13_0.LogEntry",
+            "LogEntry": {
+                "@odata.id": "/redfish/v1/Systems/Bluefield/LogServices/EventLog/Entries/542"
+            },
+            "Message": "The resource property Firmware Update Service has detected errors of type 'Invalid FW Package'.",
+            "MessageArgs": [
+                "Firmware Update Service",
+                "Invalid FW Package"
             ],
             "MessageId": "ResourceEvent.1.0.ResourceErrorsDetected",
             "Severity": "Critical",
-            "Timestamp": "2024-02-23T12:15:49+00:00"
+            "Timestamp": "2024-11-04T12:48:50+00:00"
         }
     ],
     "HealthRollup": "Critical",

@@ -6,28 +6,7 @@
             "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot0000"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000A"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000B"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000C"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000D"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000E"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000F"
-        },
-        {
             "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot0001"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot001A"
         },
         {
             "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot0002"
@@ -52,6 +31,24 @@
         },
         {
             "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot0009"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000A"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000B"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000C"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000D"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000E"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot000F"
         },
         {
             "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot0010"
@@ -84,9 +81,21 @@
             "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot0019"
         },
         {
-            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot0040"
+            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot001A"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot001B"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot001C"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot001D"
+        },
+        {
+            "@odata.id": "/redfish/v1/Systems/Bluefield/BootOptions/Boot001E"
         }
     ],
-    "Members@odata.count": 28,
+    "Members@odata.count": 31,
     "Name": "Boot Option Collection"
 }

@@ -3,12 +3,12 @@
     "Description": "This registry defines a representation of BIOS attribute instances",
     "Id": "BiosAttributeRegistry",
     "Language": "en",
-    "Name": "BF2 BIOS Attribute Registry",
+    "Name": "BF BIOS Attribute Registry",
     "OwningEntity": "NVIDIA BlueField",
     "RegistryEntries": {
         "Attributes": [
             {
-                "AttributeName": "SPCR UART",
+                "AttributeName": "SPCR_UART",
                 "CurrentValue": "Disabled",
                 "DisplayName": "Select SPCR UART",
                 "DisplayOrder": 1,
@@ -24,7 +24,7 @@
                 "WriteOnly": false
             },
             {
-                "AttributeName": "Enable SMMU",
+                "AttributeName": "EnableSMMU",
                 "CurrentValue": true,
                 "DisplayName": "Enable SMMU",
                 "DisplayOrder": 2,
@@ -35,7 +35,7 @@
                 "ReadOnly": false,
                 "ResetRequired": false,
                 "Type": "Boolean",
-                "Values": [
+                "Value": [
                     {
                         "ValueDisplayName": "Enabled",
                         "ValueName": "1"
@@ -48,7 +48,7 @@
                 "WriteOnly": false
             },
             {
-                "AttributeName": "Disable SPMI",
+                "AttributeName": "DisableSPMI",
                 "CurrentValue": false,
                 "DisplayName": "Disable SPMI",
                 "DisplayOrder": 3,
@@ -59,7 +59,7 @@
                 "ReadOnly": false,
                 "ResetRequired": false,
                 "Type": "Boolean",
-                "Values": [
+                "Value": [
                     {
                         "ValueDisplayName": "Enabled",
                         "ValueName": "1"
@@ -72,7 +72,7 @@
                 "WriteOnly": false
             },
             {
-                "AttributeName": "Enable 2nd eMMC",
+                "AttributeName": "Enable2ndeMMC",
                 "CurrentValue": false,
                 "DisplayName": "Enable 2nd eMMC",
                 "DisplayOrder": 4,
@@ -83,7 +83,7 @@
                 "ReadOnly": false,
                 "ResetRequired": false,
                 "Type": "Boolean",
-                "Values": [
+                "Value": [
                     {
                         "ValueDisplayName": "Enabled",
                         "ValueName": "1"
@@ -96,7 +96,7 @@
                 "WriteOnly": false
             },
             {
-                "AttributeName": "Boot Partition Protection",
+                "AttributeName": "BootPartitionProtection",
                 "CurrentValue": false,
                 "DisplayName": "Boot Partition Protection",
                 "DisplayOrder": 5,
@@ -107,7 +107,7 @@
                 "ReadOnly": false,
                 "ResetRequired": true,
                 "Type": "Boolean",
-                "Values": [
+                "Value": [
                     {
                         "ValueDisplayName": "Enabled",
                         "ValueName": "1"
@@ -120,7 +120,7 @@
                 "WriteOnly": false
             },
             {
-                "AttributeName": "Disable PCIe",
+                "AttributeName": "DisablePCIe",
                 "CurrentValue": false,
                 "DisplayName": "Disable PCIe",
                 "DisplayOrder": 6,
@@ -131,7 +131,7 @@
                 "ReadOnly": false,
                 "ResetRequired": false,
                 "Type": "Boolean",
-                "Values": [
+                "Value": [
                     {
                         "ValueDisplayName": "Enabled",
                         "ValueName": "1"
@@ -144,7 +144,7 @@
                 "WriteOnly": false
             },
             {
-                "AttributeName": "Enable OP-TEE",
+                "AttributeName": "EnableOPTEE",
                 "CurrentValue": false,
                 "DisplayName": "Enable OP-TEE",
                 "DisplayOrder": 7,
@@ -155,7 +155,7 @@
                 "ReadOnly": false,
                 "ResetRequired": false,
                 "Type": "Boolean",
-                "Values": [
+                "Value": [
                     {
                         "ValueDisplayName": "Enabled",
                         "ValueName": "1"
@@ -168,7 +168,7 @@
                 "WriteOnly": false
             },
             {
-                "AttributeName": "Disable TMFF",
+                "AttributeName": "DisableTMFF",
                 "CurrentValue": false,
                 "DisplayName": "Disable TMFF",
                 "DisplayOrder": 8,
@@ -179,7 +179,7 @@
                 "ReadOnly": false,
                 "ResetRequired": false,
                 "Type": "Boolean",
-                "Values": [
+                "Value": [
                     {
                         "ValueDisplayName": "Enabled",
                         "ValueName": "1"
@@ -192,10 +192,34 @@
                 "WriteOnly": false
             },
             {
-                "AttributeName": "Field Mode",
+                "AttributeName": "DisableHEST",
+                "CurrentValue": false,
+                "DisplayName": "DisableHEST",
+                "DisplayOrder": 9,
+                "HelpText": "Disable OS error handling via HEST",
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./SystemConfiguration/DisableHEST",
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "Type": "Boolean",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "1"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "0"
+                    }
+                ],
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "FieldMode",
                 "CurrentValue": false,
                 "DisplayName": "Field Mode",
-                "DisplayOrder": 9,
+                "DisplayOrder": 10,
                 "HelpText": "Disable/Enable NIC BMC Field Mode",
                 "Hidden": false,
                 "Immutable": false,
@@ -203,7 +227,7 @@
                 "ReadOnly": false,
                 "ResetRequired": false,
                 "Type": "Boolean",
-                "Values": [
+                "Value": [
                     {
                         "ValueDisplayName": "Enabled",
                         "ValueName": "1"
@@ -217,9 +241,9 @@
             },
             {
                 "AttributeName": "DateTime",
-                "CurrentValue": "2024-02-29T11:47:11Z",
+                "CurrentValue": "2024-11-20T12:36:52Z",
                 "DisplayName": "Date and Time",
-                "DisplayOrder": 10,
+                "DisplayOrder": 11,
                 "HelpText": "Set the BIOS time and date.",
                 "Hidden": false,
                 "Immutable": false,
@@ -232,10 +256,10 @@
                 "WriteOnly": false
             },
             {
-                "AttributeName": "Host Privilege Level",
-                "CurrentValue": "Unavailable",
+                "AttributeName": "HostPrivilegeLevel",
+                "CurrentValue": "Restricted",
                 "DisplayName": "Select Host Privilege Level",
-                "DisplayOrder": 11,
+                "DisplayOrder": 12,
                 "HelpText": "Select Host Privilege Level",
                 "Hidden": false,
                 "Immutable": true,
@@ -248,10 +272,10 @@
                 "WriteOnly": false
             },
             {
-                "AttributeName": "Internal CPU Model",
-                "CurrentValue": "Unavailable",
+                "AttributeName": "InternalCPUModel",
+                "CurrentValue": "Embedded",
                 "DisplayName": "Select Internal CPU Model",
-                "DisplayOrder": 12,
+                "DisplayOrder": 13,
                 "HelpText": "Select Internal CPU Model",
                 "Hidden": false,
                 "Immutable": true,
@@ -267,7 +291,7 @@
                 "AttributeName": "ResetEfiVars",
                 "CurrentValue": false,
                 "DisplayName": "Factory Reset",
-                "DisplayOrder": 13,
+                "DisplayOrder": 14,
                 "HelpText": "Reset DPU EFI variables, returning it to factory state.",
                 "Hidden": false,
                 "Immutable": false,
@@ -275,7 +299,7 @@
                 "ReadOnly": false,
                 "ResetRequired": false,
                 "Type": "Boolean",
-                "Values": [
+                "Value": [
                     {
                         "ValueDisplayName": "Reset",
                         "ValueName": "1"
@@ -291,7 +315,7 @@
                 "AttributeName": "EmmcWipe",
                 "CurrentValue": false,
                 "DisplayName": "eMMC_Wipe",
-                "DisplayOrder": 14,
+                "DisplayOrder": 15,
                 "HelpText": "Clears the Efi system and OS partition.",
                 "Hidden": false,
                 "Immutable": false,
@@ -299,7 +323,31 @@
                 "ReadOnly": false,
                 "ResetRequired": false,
                 "Type": "Boolean",
-                "Values": [
+                "Value": [
+                    {
+                        "ValueDisplayName": "Reset",
+                        "ValueName": "1"
+                    },
+                    {
+                        "ValueDisplayName": "No Reset",
+                        "ValueName": "0"
+                    }
+                ],
+                "WriteOnly": true
+            },
+            {
+                "AttributeName": "NvmeWipe",
+                "CurrentValue": false,
+                "DisplayName": "NVME_Wipe",
+                "DisplayOrder": 16,
+                "HelpText": "Clears the NVME SSD.",
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./SystemConfiguration/NvmeWipe",
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "Type": "Boolean",
+                "Value": [
                     {
                         "ValueDisplayName": "Reset",
                         "ValueName": "1"
@@ -315,11 +363,11 @@
                 "AttributeName": "CurrentUefiPassword",
                 "CurrentValue": "",
                 "DisplayName": "Current UEFI Password",
-                "DisplayOrder": 15,
+                "DisplayOrder": 17,
                 "HelpText": "The current UEFI password. This must only be provided if a new password is being set.",
                 "Hidden": false,
                 "Immutable": false,
-                "MaxLength": 50,
+                "MaxLength": 64,
                 "MenuPath": "./SystemConfiguration/CurrentUefiPassword",
                 "MinLength": 0,
                 "ReadOnly": false,
@@ -331,11 +379,11 @@
                 "AttributeName": "UefiPassword",
                 "CurrentValue": "",
                 "DisplayName": "New UEFI Password",
-                "DisplayOrder": 16,
+                "DisplayOrder": 18,
                 "HelpText": "Set the UEFI password.",
                 "Hidden": false,
                 "Immutable": false,
-                "MaxLength": 50,
+                "MaxLength": 64,
                 "MenuPath": "./SystemConfiguration/UefiPassword",
                 "MinLength": 0,
                 "ReadOnly": false,
@@ -347,7 +395,7 @@
                 "AttributeName": "NicMode",
                 "CurrentValue": "DpuMode",
                 "DisplayName": "Enable NIC Mode",
-                "DisplayOrder": 17,
+                "DisplayOrder": 19,
                 "HelpText": "Enable/Disable NIC Mode",
                 "Hidden": false,
                 "Immutable": true,
@@ -357,6 +405,192 @@
                 "ReadOnly": false,
                 "ResetRequired": false,
                 "Type": "String",
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "LegacyPasswordEnable",
+                "CurrentValue": false,
+                "DisplayName": "Set Legacy Password",
+                "DisplayOrder": 20,
+                "HelpText": "Set the Legacy Password (for downgrade)",
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./SystemConfiguration/LegacyPasswordEnable",
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "Type": "Boolean",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Reset",
+                        "ValueName": "1"
+                    },
+                    {
+                        "ValueDisplayName": "No Reset",
+                        "ValueName": "0"
+                    }
+                ],
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "DefaultPasswordPolicy",
+                "CurrentValue": true,
+                "DisplayName": "Default Password Policy",
+                "DisplayOrder": 21,
+                "HelpText": "Enable/Disable Default Password Policy Support",
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./SystemConfiguration/DefaultPasswordPolicy",
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "Type": "Boolean",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Reset",
+                        "ValueName": "1"
+                    },
+                    {
+                        "ValueDisplayName": "No Reset",
+                        "ValueName": "0"
+                    }
+                ],
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "OsArgs",
+                "CurrentValue": "",
+                "DisplayName": "OS_Args",
+                "DisplayOrder": 22,
+                "HelpText": "Arguments to be passed to OS/Kernel",
+                "Hidden": false,
+                "Immutable": false,
+                "MaxLength": 8192,
+                "MenuPath": "./SystemConfiguration/OsArgs",
+                "MinLength": 0,
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "Type": "String",
+                "WriteOnly": true
+            },
+            {
+                "AttributeName": "UefiArgs",
+                "CurrentValue": "",
+                "DisplayName": "UEFI_Args",
+                "DisplayOrder": 23,
+                "HelpText": "Arguments to be passed to UEFI",
+                "Hidden": false,
+                "Immutable": false,
+                "MaxLength": 8192,
+                "MenuPath": "./SystemConfiguration/UefiArgs",
+                "MinLength": 0,
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "Type": "String",
+                "WriteOnly": true
+            },
+            {
+                "AttributeName": "CeThreshold",
+                "CurrentValue": 0,
+                "DisplayName": "CeThreshold",
+                "DisplayOrder": 24,
+                "HelpText": "Set Correctable Error Threshold",
+                "Hidden": false,
+                "Immutable": false,
+                "LowerBound": 0,
+                "MenuPath": "./SystemConfiguration/CeThreshold",
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "ScalarIncrement": 1,
+                "Type": "Integer",
+                "UpperBound": 4294967295,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "ForcePxeRetryDisable",
+                "CurrentValue": false,
+                "DisplayName": "ForcePxeRetryDisable",
+                "DisplayOrder": 25,
+                "HelpText": "Disable Force-Pxe Retry Loop",
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./SystemConfiguration/ForcePxeRetryDisable",
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "Type": "Boolean",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "1"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "0"
+                    }
+                ],
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "L3CachePartitionLevel",
+                "CurrentValue": 0,
+                "DisplayName": "L3CachePartitionLevel",
+                "DisplayOrder": 26,
+                "HelpText": "Set L3 Cache Partition Level",
+                "Hidden": false,
+                "Immutable": false,
+                "LowerBound": 0,
+                "MenuPath": "./SystemConfiguration/L3CachePartitionLevel",
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "ScalarIncrement": 1,
+                "Type": "Integer",
+                "UpperBound": 7,
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "DisableI2c1",
+                "CurrentValue": false,
+                "DisplayName": "DisableI2c1",
+                "DisplayOrder": 27,
+                "HelpText": "Disable/Enable I2c1",
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./SystemConfiguration/DisableI2c1",
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "Type": "Boolean",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "1"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "0"
+                    }
+                ],
+                "WriteOnly": false
+            },
+            {
+                "AttributeName": "EnableDdr5600",
+                "CurrentValue": false,
+                "DisplayName": "Enable DDR 5600",
+                "DisplayOrder": 28,
+                "HelpText": "Enable/Disable DDR frequency of 5600",
+                "Hidden": false,
+                "Immutable": false,
+                "MenuPath": "./SystemConfiguration/EnableDdr5600",
+                "ReadOnly": false,
+                "ResetRequired": false,
+                "Type": "Boolean",
+                "Value": [
+                    {
+                        "ValueDisplayName": "Enabled",
+                        "ValueName": "1"
+                    },
+                    {
+                        "ValueDisplayName": "Disabled",
+                        "ValueName": "0"
+                    }
+                ],
                 "WriteOnly": false
             }
         ],
@@ -443,8 +677,16 @@
                 "ReadOnly": false
             },
             {
-                "DisplayName": "Field Mode",
+                "DisplayName": "DisableHEST",
                 "DisplayOrder": 11,
+                "Hidden": false,
+                "MenuName": "DisableHEST",
+                "MenuPath": "./SystemConfiguration/DisableHEST",
+                "ReadOnly": false
+            },
+            {
+                "DisplayName": "Field Mode",
+                "DisplayOrder": 12,
                 "Hidden": false,
                 "MenuName": "FieldMode",
                 "MenuPath": "./SystemConfiguration/FieldMode",
@@ -452,7 +694,7 @@
             },
             {
                 "DisplayName": "Set Date and Time",
-                "DisplayOrder": 12,
+                "DisplayOrder": 13,
                 "Hidden": false,
                 "MenuName": "DateTime",
                 "MenuPath": "./SystemConfiguration/DateTime",
@@ -460,7 +702,7 @@
             },
             {
                 "DisplayName": "Host Privilege Level",
-                "DisplayOrder": 13,
+                "DisplayOrder": 14,
                 "Hidden": false,
                 "MenuName": "HostPrivLevel",
                 "MenuPath": "./SystemConfiguration/HostPrivLevel",
@@ -468,7 +710,7 @@
             },
             {
                 "DisplayName": "Internal CPU Model",
-                "DisplayOrder": 14,
+                "DisplayOrder": 15,
                 "Hidden": false,
                 "MenuName": "InternalCpuModel",
                 "MenuPath": "./SystemConfiguration/InternalCpuModel",
@@ -476,7 +718,7 @@
             },
             {
                 "DisplayName": "Factory Reset",
-                "DisplayOrder": 15,
+                "DisplayOrder": 16,
                 "Hidden": false,
                 "MenuName": "ResetEfiVars",
                 "MenuPath": "./SystemConfiguration/ResetEfiVars",
@@ -484,15 +726,23 @@
             },
             {
                 "DisplayName": "eMMC_Wipe",
-                "DisplayOrder": 16,
+                "DisplayOrder": 17,
                 "Hidden": false,
                 "MenuName": "EmmcWipe",
                 "MenuPath": "./SystemConfiguration/EmmcWipe",
                 "ReadOnly": false
             },
             {
+                "DisplayName": "NVME_Wipe",
+                "DisplayOrder": 18,
+                "Hidden": false,
+                "MenuName": "NvmeWipe",
+                "MenuPath": "./SystemConfiguration/NvmeWipe",
+                "ReadOnly": false
+            },
+            {
                 "DisplayName": "Current UEFI Password",
-                "DisplayOrder": 17,
+                "DisplayOrder": 19,
                 "Hidden": false,
                 "MenuName": "CurrentUefiPassword",
                 "MenuPath": "./SystemConfiguration/CurrentUefiPassword",
@@ -500,7 +750,7 @@
             },
             {
                 "DisplayName": "Set the UEFI Password.",
-                "DisplayOrder": 18,
+                "DisplayOrder": 20,
                 "Hidden": false,
                 "MenuName": "UefiPassword",
                 "MenuPath": "./SystemConfiguration/UefiPassword",
@@ -508,10 +758,82 @@
             },
             {
                 "DisplayName": "NicMode",
-                "DisplayOrder": 19,
+                "DisplayOrder": 21,
                 "Hidden": false,
                 "MenuName": "NicMode",
                 "MenuPath": "./SystemConfiguration/NicMode",
+                "ReadOnly": false
+            },
+            {
+                "DisplayName": "Set Legacy Password",
+                "DisplayOrder": 22,
+                "Hidden": false,
+                "MenuName": "LegacyPasswordEnable",
+                "MenuPath": "./SystemConfiguration/LegacyPasswordEnable",
+                "ReadOnly": false
+            },
+            {
+                "DisplayName": "Default Password Policy",
+                "DisplayOrder": 23,
+                "Hidden": false,
+                "MenuName": "DefaultPasswordPolicy",
+                "MenuPath": "./SystemConfiguration/DefaultPasswordPolicy",
+                "ReadOnly": false
+            },
+            {
+                "DisplayName": "OS_Args",
+                "DisplayOrder": 24,
+                "Hidden": false,
+                "MenuName": "OsArgs",
+                "MenuPath": "./SystemConfiguration/OsArgs",
+                "ReadOnly": false
+            },
+            {
+                "DisplayName": "UEFI_Args",
+                "DisplayOrder": 25,
+                "Hidden": false,
+                "MenuName": "UefiArgs",
+                "MenuPath": "./SystemConfiguration/UefiArgs",
+                "ReadOnly": false
+            },
+            {
+                "DisplayName": "CeThrehold",
+                "DisplayOrder": 26,
+                "Hidden": false,
+                "MenuName": "CeThreshold",
+                "MenuPath": "./SystemConfiguration/CeThreshold",
+                "ReadOnly": false
+            },
+            {
+                "DisplayName": "ForcePxeRetryDisable",
+                "DisplayOrder": 27,
+                "Hidden": false,
+                "MenuName": "ForcePxeRetryDisable",
+                "MenuPath": "./SystemConfiguration/ForcePxeRetryDisable",
+                "ReadOnly": false
+            },
+            {
+                "DisplayName": "L3CachePartitionLevel",
+                "DisplayOrder": 28,
+                "Hidden": false,
+                "MenuName": "L3CachePartitionLevel",
+                "MenuPath": "./SystemConfiguration/L3CachePartitionLevel",
+                "ReadOnly": false
+            },
+            {
+                "DisplayName": "DisableI2c1",
+                "DisplayOrder": 29,
+                "Hidden": false,
+                "MenuName": "DisableI2c1",
+                "MenuPath": "./SystemConfiguration/DisableI2c1",
+                "ReadOnly": false
+            },
+            {
+                "DisplayName": "Enable DDR 5600",
+                "DisplayOrder": 30,
+                "Hidden": false,
+                "MenuName": "EnableDdr5600",
+                "MenuPath": "./SystemConfiguration/EnableDdr5600",
                 "ReadOnly": false
             }
         ]
@@ -519,9 +841,9 @@
     "RegistryVersion": "1.0.0",
     "SupportedSystems": [
         {
-            "FirmwareVersion": "BlueField:4.5.0-40-gcbe848b",
-            "ProductName": "NVIDIA BF2",
-            "SystemId": "BF2-DPU"
+            "FirmwareVersion": "BlueField:4.9.0-46-g7e3911bd4d",
+            "ProductName": "NVIDIA BF",
+            "SystemId": "BFDPU"
         }
     ]
 }

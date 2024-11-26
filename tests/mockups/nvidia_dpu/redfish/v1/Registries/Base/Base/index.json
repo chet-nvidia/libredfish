@@ -1,8 +1,8 @@
 {
-    "@Redfish.Copyright": "Copyright 2014-2022 DMTF. All rights reserved.",
-    "@odata.type": "#MessageRegistry.v1_5_0.MessageRegistry",
-    "Description": "This registry defines the base messages for Redfish",
-    "Id": "Base.1.15.0",
+    "@Redfish.Copyright": "Copyright 2014-2024 DMTF. All rights reserved.",
+    "@odata.type": "#MessageRegistry.v1_6_2.MessageRegistry",
+    "Description": "This registry defines the base messages for Redfish.",
+    "Id": "Base.1.18.1",
     "Language": "en",
     "Messages": {
         "AccessDenied": {
@@ -17,8 +17,8 @@
             "Severity": "Critical"
         },
         "AccountForSessionNoLongerExists": {
-            "Description": "Indicates that the account for the session has been removed, thus the session has been removed as well.",
-            "Message": "The account for the current session has been removed, thus the current session has been removed as well.",
+            "Description": "Indicates that the account for the session was removed, and so the session was removed as well.",
+            "Message": "The account for the current session was removed, and so the current session was removed as well.",
             "MessageSeverity": "OK",
             "NumberOfArgs": 0,
             "Resolution": "Attempt to connect with a valid account.",
@@ -29,7 +29,7 @@
             "Message": "The account was successfully modified.",
             "MessageSeverity": "OK",
             "NumberOfArgs": 0,
-            "Resolution": "No resolution is required.",
+            "Resolution": "None.",
             "Severity": "OK"
         },
         "AccountNotModified": {
@@ -45,7 +45,7 @@
             "Message": "The account was successfully removed.",
             "MessageSeverity": "OK",
             "NumberOfArgs": 0,
-            "Resolution": "No resolution is required.",
+            "Resolution": "None.",
             "Severity": "OK"
         },
         "ActionDeprecated": {
@@ -60,14 +60,14 @@
             "Severity": "Warning"
         },
         "ActionNotSupported": {
-            "Description": "Indicates that the action supplied with the POST operation is not supported by the resource.",
+            "Description": "Indicates that the action supplied with the `POST` operation is not supported by the resource.",
             "Message": "The action %1 is not supported by the resource.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 1,
             "ParamTypes": [
                 "string"
             ],
-            "Resolution": "The action supplied cannot be resubmitted to the implementation.  Perhaps the action was invalid, the wrong resource was the target or the implementation documentation may be of assistance.",
+            "Resolution": "Check the Actions property in the resource for the supported actions.",
             "Severity": "Critical"
         },
         "ActionParameterDuplicate": {
@@ -119,7 +119,7 @@
             "Severity": "Warning"
         },
         "ActionParameterValueConflict": {
-            "Description": "Indicates that the requested parameter value could not be completed, because of a mismatch with other parameters or properties in the resource.",
+            "Description": "Indicates that the requested parameter value could not be completed because of a mismatch with other parameters or properties in the resource.",
             "Message": "The parameter '%1' with the requested value of '%2' does not meet the constraints of the implementation.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
@@ -127,7 +127,7 @@
                 "string",
                 "string"
             ],
-            "Resolution": "No resolution is required.",
+            "Resolution": "None.",
             "Severity": "Warning"
         },
         "ActionParameterValueError": {
@@ -143,8 +143,8 @@
             "Severity": "Warning"
         },
         "ActionParameterValueFormatError": {
-            "Description": "Indicates that a parameter was given the correct value type but the value of that parameter was not supported.  This includes the value size or length has been exceeded.",
-            "Message": "The value '%1' for the parameter %2 in the action %3 is of a different format than the parameter can accept.",
+            "Description": "Indicates that a parameter was given the correct value type but the format of the value is not supported.",
+            "Message": "The value '%1' for the parameter %2 in the action %3 is not a format that the parameter can accept.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 3,
             "ParamTypes": [
@@ -168,9 +168,9 @@
             "Resolution": "Choose a value from the enumeration list that the implementation can support and resubmit the request if the operation failed.",
             "Severity": "Warning"
         },
-        "ActionParameterValueTypeError": {
-            "Description": "Indicates that a parameter was given the wrong value type, such as when a number is supplied for a parameter that requires a string.",
-            "Message": "The value '%1' for the parameter %2 in the action %3 is of a different type than the parameter can accept.",
+        "ActionParameterValueOutOfRange": {
+            "Description": "Indicates that a parameter was given the correct value type but the value of that parameter is outside the supported range.",
+            "Message": "The value '%1' for the parameter %2 in the action %3 is not in the supported range of acceptable values.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 3,
             "ParamTypes": [
@@ -179,6 +179,43 @@
                 "string"
             ],
             "Resolution": "Correct the value for the parameter in the request body and resubmit the request if the operation failed.",
+            "Severity": "Warning"
+        },
+        "ActionParameterValueTypeError": {
+            "Description": "Indicates that a parameter was given the wrong value type, such as when a number is supplied for a parameter that requires a string.",
+            "Message": "The value '%1' for the parameter %2 in the action %3 is not a type that the parameter can accept.",
+            "MessageSeverity": "Warning",
+            "NumberOfArgs": 3,
+            "ParamTypes": [
+                "string",
+                "string",
+                "string"
+            ],
+            "Resolution": "Correct the value for the parameter in the request body and resubmit the request if the operation failed.",
+            "Severity": "Warning"
+        },
+        "ArraySizeTooLong": {
+            "Description": "Indicates that the size of the array exceeded the maximum number of elements.",
+            "Message": "The array provided for property %1 exceeds the size limit %2.",
+            "MessageSeverity": "Warning",
+            "NumberOfArgs": 2,
+            "ParamTypes": [
+                "string",
+                "number"
+            ],
+            "Resolution": "Resubmit the request with an appropriate array size.",
+            "Severity": "Warning"
+        },
+        "ArraySizeTooShort": {
+            "Description": "Indicates that the size of the array is less than the minimum number of elements.",
+            "Message": "The array provided for property %1 is under the minimum size limit %2.",
+            "MessageSeverity": "Warning",
+            "NumberOfArgs": 2,
+            "ParamTypes": [
+                "string",
+                "number"
+            ],
+            "Resolution": "Resubmit the request with an appropriate array size.",
             "Severity": "Warning"
         },
         "AuthenticationTokenRequired": {
@@ -191,7 +228,7 @@
         },
         "ChassisPowerStateOffRequired": {
             "Description": "Indicates that the request requires a specified chassis to be powered off.",
-            "Message": "The Chassis with Id '%1' requires to be powered off to perform this request.",
+            "Message": "The chassis with Id '%1' is required to be powered off to perform this request.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 1,
             "ParamTypes": [
@@ -202,7 +239,7 @@
         },
         "ChassisPowerStateOnRequired": {
             "Description": "Indicates that the request requires a specified chassis to be powered on.",
-            "Message": "The chassis with Id '%1' requires to be powered on to perform this request.",
+            "Message": "The chassis with Id '%1' is required to be powered on to perform this request.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 1,
             "ParamTypes": [
@@ -227,11 +264,11 @@
             "ParamTypes": [
                 "string"
             ],
-            "Resolution": "Ensure that the URI contains a valid and reachable node name, protocol information and other URI components.",
+            "Resolution": "Ensure that the URI contains a valid and reachable node name, protocol information, and other URI components.",
             "Severity": "Critical"
         },
         "CreateFailedMissingReqProperties": {
-            "Description": "Indicates that a create was attempted on a resource but that properties that are required for the create operation were missing from the request.",
+            "Description": "Indicates that a create operation was attempted on a resource but that properties that are required for the create operation were missing from the request.",
             "Message": "The create operation failed because the required property %1 was missing from the request.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 1,
@@ -250,8 +287,8 @@
             "Severity": "Critical"
         },
         "Created": {
-            "Description": "Indicates that all conditions of a successful create operation have been met.",
-            "Message": "The resource has been created successfully.",
+            "Description": "Indicates that all conditions of a successful create operation were met.",
+            "Message": "The resource was created successfully.",
             "MessageSeverity": "OK",
             "NumberOfArgs": 0,
             "Resolution": "None.",
@@ -274,7 +311,7 @@
             "Severity": "Warning"
         },
         "EventSubscriptionLimitExceeded": {
-            "Description": "Indicates that a event subscription establishment has been requested but the operation failed due to the number of simultaneous connection exceeding the limit of the implementation.",
+            "Description": "Indicates that an event subscription establishment was requested but the operation failed due to the number of simultaneous connections exceeding the limit of the implementation.",
             "Message": "The event subscription failed due to the number of simultaneous subscriptions exceeding the limit of the implementation.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 0,
@@ -320,8 +357,8 @@
             "Severity": "Critical"
         },
         "InsufficientStorage": {
-            "Description": "Indicates that the operation could not be completed due to a lack of storage or memory avaiable to the service.",
-            "Message": "Insufficent storage or memory available to complete the request.",
+            "Description": "Indicates that the operation could not be completed due to a lack of storage or memory available to the service.",
+            "Message": "Insufficient storage or memory available to complete the request.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 0,
             "Resolution": "Increase the free storage space available to the service and resubmit the request.",
@@ -358,7 +395,7 @@
             "Severity": "Critical"
         },
         "InvalidObject": {
-            "Description": "Indicates that the object in question is invalid according to the implementation.  Examples include a firmware update malformed URI.",
+            "Description": "Indicates that the object in question is invalid according to the implementation.  An example is a firmware update malformed URI.",
             "Message": "The object at '%1' is invalid.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 1,
@@ -379,6 +416,17 @@
             "Resolution": "Provide a valid URI and resubmit the request.",
             "Severity": "Critical"
         },
+        "LicenseRequired": {
+            "Description": "Indicates that a license is required to perform the requested operation.",
+            "Message": "A license is required for this operation: %1.",
+            "MessageSeverity": "Critical",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "Install the requested license and resubmit the request.",
+            "Severity": "Critical"
+        },
         "MalformedJSON": {
             "Description": "Indicates that the request body was malformed JSON.",
             "Message": "The request body submitted was malformed JSON and could not be parsed by the receiving service.",
@@ -388,7 +436,7 @@
             "Severity": "Critical"
         },
         "MaximumErrorsExceeded": {
-            "Description": "Indicates that sufficient errors have occurred that the reporting service cannot return them all.",
+            "Description": "Indicates that so many errors have occurred that the reporting service cannot return them all.",
             "Message": "Too many errors have occurred to report them all.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 0,
@@ -404,11 +452,11 @@
             "Severity": "Critical"
         },
         "NetworkNameResolutionNotConfigured": {
-            "Description": "Indicates that network-based name resolution has not been configured on the service.",
-            "Message": "Network name resolution has not been configured on this service.",
+            "Description": "Indicates that network-based name resolution is not configured on the service.",
+            "Message": "Network name resolution is not configured on this service.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 0,
-            "Resolution": "Configure the network name resolution protocol support on this service, or update any URI values to include an IP address instead of a network name and resubmit the request.",
+            "Resolution": "Configure the network-based name resolution protocol support on this service, or update any URI values to include an IP address instead of a network name and resubmit the request.",
             "Severity": "Warning"
         },
         "NetworkNameResolutionNotSupported": {
@@ -435,8 +483,19 @@
             "Resolution": "Establish a session before attempting any operations.",
             "Severity": "Critical"
         },
+        "OneTimePasscodeSent": {
+            "Description": "Indicates that a required one-time passcode was sent to the user.  The code should be provided as the `Token` property in the request to create a session.",
+            "Message": "A one-time passcode was sent to: %1.  Supply the passcode as the Token property in the request to create a session.",
+            "MessageSeverity": "OK",
+            "NumberOfArgs": 1,
+            "ParamTypes": [
+                "string"
+            ],
+            "Resolution": "Obtain the one-time passcode sent to the delivery address and resubmit the request using the passcode as the Token property.",
+            "Severity": "OK"
+        },
         "OperationFailed": {
-            "Description": "Indicates that one of the internal operations necessary to complete the request failed.  Examples of this are when an internal service provider is unable to complete the request, such as in aggregation or RDE.",
+            "Description": "Indicates that one of the internal operations necessary to complete the request failed.  An example of this is when an internal service provider is unable to complete the request, such as in aggregation or RDE.",
             "Message": "An error occurred internal to the service as part of the overall request.  Partial results may have been returned.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 0,
@@ -452,15 +511,15 @@
             "Severity": "Critical"
         },
         "OperationTimeout": {
-            "Description": "Indicates that one of the internal operations necessary to complete the request timed out.  Examples of this are when an internal service provider is unable to complete the request, such as in aggregation or RDE.",
-            "Message": "A timeout internal to the service occured as part of the request.  Partial results may have been returned.",
+            "Description": "Indicates that one of the internal operations necessary to complete the request timed out.  An example of this is when an internal service provider is unable to complete the request, such as in aggregation or RDE.",
+            "Message": "A timeout internal to the service occurred as part of the request.  Partial results may have been returned.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 0,
             "Resolution": "Resubmit the request.  If the problem persists, consider resetting the service or provider.",
             "Severity": "Warning"
         },
         "PasswordChangeRequired": {
-            "Description": "Indicates that the password for the account provided must be changed before accessing the service.  The password can be changed with a PATCH to the `Password` property in the manager account resource instance.  Implementations that provide a default password for an account may require a password change prior to first access to the service.",
+            "Description": "Indicates that the password for the account provided must be changed before accessing the service.  The password can be changed with a `PATCH` to the `Password` property in the manager account resource instance.  Implementations that provide a default password for an account may require a password change prior to first access to the service.",
             "Message": "The password provided for this account must be changed before access is granted.  PATCH the Password property for this account located at the target URI '%1' to complete this process.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 1,
@@ -487,7 +546,7 @@
             "Severity": "Critical"
         },
         "PreconditionRequired": {
-            "Description": "Indicates that the request did not provide the required precondition such as an `If-Match` or `If-None-Match` header, or `@odata.etag` annotations.",
+            "Description": "Indicates that the request did not provide the required precondition such as an `If-Match` or `If-None-Match` header or `@odata.etag` annotations.",
             "Message": "A precondition header or annotation is required to change this resource.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 0,
@@ -539,8 +598,8 @@
             "Severity": "Critical"
         },
         "PropertyNotWritable": {
-            "Description": "Indicates that a property was given a value in the request body, but the property is a readonly property.",
-            "Message": "The property %1 is a read only property and cannot be assigned a value.",
+            "Description": "Indicates that a property was given a value in the request body, but the property is a read-only property.",
+            "Message": "The property %1 is a read-only property and cannot be assigned a value.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 1,
             "ParamTypes": [
@@ -561,7 +620,7 @@
             "Severity": "Warning"
         },
         "PropertyValueConflict": {
-            "Description": "Indicates that the requested write of a property value could not be completed, because of a conflict with another property value.",
+            "Description": "Indicates that the requested write of a property value could not be completed because of a conflict with another property value.",
             "Message": "The property '%1' could not be written because its value would conflict with the value of the '%2' property.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
@@ -569,7 +628,7 @@
                 "string",
                 "string"
             ],
-            "Resolution": "No resolution is required.",
+            "Resolution": "None.",
             "Severity": "Warning"
         },
         "PropertyValueDeprecated": {
@@ -596,7 +655,7 @@
             "Severity": "Warning"
         },
         "PropertyValueExternalConflict": {
-            "Description": "Indicates that the requested write of a property value could not be completed, due to the current state or configuration of the resource.  This can include configuration conflicts with other resources or parameters that are not exposed by this interface.",
+            "Description": "Indicates that the requested write of a property value could not be completed due to the current state or configuration of the resource.  This can include configuration conflicts with other resources or parameters that are not exposed by this interface.",
             "Message": "The property '%1' with the requested value of '%2' could not be written because the value is not available due to a configuration conflict.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
@@ -604,12 +663,12 @@
                 "string",
                 "string"
             ],
-            "Resolution": "No resolution is required.",
+            "Resolution": "None.",
             "Severity": "Warning"
         },
         "PropertyValueFormatError": {
-            "Description": "Indicates that a property was given the correct value type but the value of that property was not supported.",
-            "Message": "The value '%1' for the property %2 is of a different format than the property can accept.",
+            "Description": "Indicates that a property was given the correct value type but the format of the value is not supported.",
+            "Message": "The value '%1' for the property %2 is not a format that the property can accept.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
             "ParamTypes": [
@@ -620,7 +679,7 @@
             "Severity": "Warning"
         },
         "PropertyValueIncorrect": {
-            "Description": "Indicates that the requested write of a property value could not be completed, because of an incorrect value of the property.  Examples include values that do not match a regular expression requirement or passwords that do not match the implementation constraints.",
+            "Description": "Indicates that the requested write of a property value could not be completed because of an incorrect value of the property.  Examples include values that do not match a regular expression requirement or passwords that do not match the implementation constraints.",
             "Message": "The property '%1' with the requested value of '%2' could not be written because the value does not meet the constraints of the implementation.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
@@ -628,7 +687,7 @@
                 "string",
                 "string"
             ],
-            "Resolution": "No resolution is required.",
+            "Resolution": "None.",
             "Severity": "Warning"
         },
         "PropertyValueModified": {
@@ -640,7 +699,7 @@
                 "string",
                 "string"
             ],
-            "Resolution": "No resolution is required.",
+            "Resolution": "None.",
             "Severity": "Warning"
         },
         "PropertyValueNotInList": {
@@ -668,7 +727,7 @@
             "Severity": "Warning"
         },
         "PropertyValueResourceConflict": {
-            "Description": "Indicates that the requested write of a property value could not be completed, due to the current state or configuration of another resource.",
+            "Description": "Indicates that the requested write of a property value could not be completed due to the current state or configuration of another resource.",
             "Message": "The property '%1' with the requested value of '%2' could not be written because the value conflicts with the state or configuration of the resource at '%3'.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 3,
@@ -677,12 +736,12 @@
                 "string",
                 "string"
             ],
-            "Resolution": "No resolution is required.",
+            "Resolution": "None.",
             "Severity": "Warning"
         },
         "PropertyValueTypeError": {
             "Description": "Indicates that a property was given the wrong value type, such as when a number is supplied for a property that requires a string.",
-            "Message": "The value '%1' for the property %2 is of a different type than the property can accept.",
+            "Message": "The value '%1' for the property %2 is not a type that the property can accept.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
             "ParamTypes": [
@@ -693,7 +752,7 @@
             "Severity": "Warning"
         },
         "QueryCombinationInvalid": {
-            "Description": "Indicates the request contains multiple query parameters, and that two or more of them cannot be used together.",
+            "Description": "Indicates the request contains multiple query parameters and that two or more of them cannot be used together.",
             "Message": "Two or more query parameters in the request cannot be used together.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 0,
@@ -709,7 +768,7 @@
             "Severity": "Warning"
         },
         "QueryNotSupportedOnOperation": {
-            "Description": "Indicates that query is not supported with the given operation, such as when the `$expand` query is attempted with a PATCH operation.",
+            "Description": "Indicates that query is not supported with the given operation, such as when the `$expand` query is attempted with a `PATCH` operation.",
             "Message": "Querying is not supported with the requested operation.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 0,
@@ -725,7 +784,7 @@
             "Severity": "Warning"
         },
         "QueryParameterOutOfRange": {
-            "Description": "Indicates that a query parameter was provided that is out of range for the given resource.  This can happen with values that are too low or beyond that possible for the supplied resource, such as when a page is requested that is beyond the last page.",
+            "Description": "Indicates that a query parameter was provided that is out of range for the given resource.  This can happen with values that are too low or that exceed what is possible for the supplied resource, such as when a page is requested that is beyond the last page.",
             "Message": "The value '%1' for the query parameter %2 is out of range %3.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 3,
@@ -734,7 +793,7 @@
                 "string",
                 "string"
             ],
-            "Resolution": "Reduce the value for the query parameter to a value that is within range, such as a start or count value that is within bounds of the number of resources in a collection or a page that is within the range of valid pages.",
+            "Resolution": "Reduce the value for the query parameter to a value that is within range, such as a start or count value that is within bounds of the number of resources in a collection or a page number that is within the range of valid pages.",
             "Severity": "Warning"
         },
         "QueryParameterUnsupported": {
@@ -760,8 +819,8 @@
             "Severity": "Warning"
         },
         "QueryParameterValueFormatError": {
-            "Description": "Indicates that a query parameter was given the correct value type but the value of that parameter was not supported.  This includes the value size or length has been exceeded.",
-            "Message": "The value '%1' for the parameter %2 is of a different format than the parameter can accept.",
+            "Description": "Indicates that a query parameter was given the correct value type but the format of the value is not supported.",
+            "Message": "The value '%1' for the parameter %2 is not a format that the parameter can accept.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
             "ParamTypes": [
@@ -773,7 +832,7 @@
         },
         "QueryParameterValueTypeError": {
             "Description": "Indicates that a query parameter was given the wrong value type, such as when a number is supplied for a query parameter that requires a string.",
-            "Message": "The value '%1' for the query parameter %2 is of a different type than the parameter can accept.",
+            "Message": "The value '%1' for the query parameter %2 is not a type that the parameter can accept.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
             "ParamTypes": [
@@ -784,7 +843,7 @@
             "Severity": "Warning"
         },
         "ResetRecommended": {
-            "Description": "Indicates that a component reset is recommended for error recovery while unaffected applications can continue running without any effects on accuracy and performance.",
+            "Description": "Indicates that a component reset is recommended for error recovery while unaffected applications can continue running without any effect on accuracy and performance.",
             "Message": "In order to recover from errors, a component reset is recommended with the Reset action URI '%1' and ResetType '%2'.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
@@ -817,7 +876,7 @@
                 "string",
                 "string"
             ],
-            "Resolution": "Do not repeat the create operation as the resource has already been created.",
+            "Resolution": "Do not repeat the create operation as the resource was already created.",
             "Severity": "Critical"
         },
         "ResourceAtUriInUnknownFormat": {
@@ -859,7 +918,7 @@
             "ParamTypes": [
                 "string"
             ],
-            "Resolution": "No resolution is required.",
+            "Resolution": "None.",
             "Severity": "Warning"
         },
         "ResourceDeprecated": {
@@ -874,7 +933,7 @@
             "Severity": "Warning"
         },
         "ResourceExhaustion": {
-            "Description": "Indicates that a resource could not satisfy the request due to some unavailability of resources.  An example is that available capacity has been allocated.",
+            "Description": "Indicates that a resource could not satisfy the request due to some unavailability of resources.  An example is that available capacity was allocated.",
             "Message": "The resource '%1' was unable to satisfy the request due to unavailability of resources.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 1,
@@ -901,7 +960,7 @@
             "Severity": "Warning"
         },
         "ResourceMissingAtURI": {
-            "Description": "Indicates that the operation expected an image or other resource at the provided URI but none was found.  Examples of this are in requests that require URIs like firmware update.",
+            "Description": "Indicates that the operation expected an image or other resource at the provided URI but none was found.  Examples of this are in requests that require URIs such as firmware updates.",
             "Message": "The resource at the URI '%1' was not found.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 1,
@@ -924,7 +983,7 @@
             "Severity": "Critical"
         },
         "ResourceTypeIncompatible": {
-            "Description": "Indicates that the resource type of the operation does not match that for the operation destination.  Examples of when this can happen include during a POST to a resource collection using the wrong resource type, an update where the `@odata.type` properties do not match, or on a major version incompatibility.",
+            "Description": "Indicates that the resource type of the operation does not match that of the operation destination.  Examples of this are a `POST` to a resource collection using the wrong resource type, an update where the `@odata.type` properties do not match, or a case of major version incompatibility.",
             "Message": "The @odata.type of the request body %1 is incompatible with the @odata.type of the resource, which is %2.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 2,
@@ -977,7 +1036,7 @@
             "Severity": "Critical"
         },
         "ServiceShuttingDown": {
-            "Description": "Indicates that the operation failed as the service is shutting down, such as when the service reboots.",
+            "Description": "Indicates that the operation failed because the service is shutting down, such as when the service reboots.",
             "Message": "The operation failed because the service is shutting down and can no longer take incoming requests.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 0,
@@ -996,7 +1055,7 @@
             "Severity": "Critical"
         },
         "SessionLimitExceeded": {
-            "Description": "Indicates that a session establishment has been requested but the operation failed due to the number of simultaneous sessions exceeding the limit of the implementation.",
+            "Description": "Indicates that a session establishment was requested but the operation failed due to the number of simultaneous sessions exceeding the limit of the implementation.",
             "Message": "The session establishment failed due to the number of simultaneous sessions exceeding the limit of the implementation.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 0,
@@ -1004,15 +1063,15 @@
             "Severity": "Critical"
         },
         "SessionTerminated": {
-            "Description": "Indicates that the DELETE operation on the session resource resulted in the successful termination of the session.",
+            "Description": "Indicates that the `DELETE` operation on the session resource resulted in the successful termination of the session.",
             "Message": "The session was successfully terminated.",
             "MessageSeverity": "OK",
             "NumberOfArgs": 0,
-            "Resolution": "No resolution is required.",
+            "Resolution": "None.",
             "Severity": "OK"
         },
         "SourceDoesNotSupportProtocol": {
-            "Description": "Indicates that while attempting to access, connect to or transfer a resource, file, or image from another location that the other end of the connection did not support the protocol.",
+            "Description": "Indicates that while attempting to access, connect to, or transfer a resource, file, or image from another location that the other end of the connection did not support the protocol.",
             "Message": "The other end of the connection at '%1' does not support the specified protocol %2.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 2,
@@ -1025,7 +1084,7 @@
         },
         "StrictAccountTypes": {
             "Description": "Indicates the request failed because a set of `AccountTypes` or `OEMAccountTypes` was not accepted while `StrictAccountTypes` is set to `true`.",
-            "Message": "The request was not possible to fulfill with the account types included in property '%1' and property StrictAccountTypes set to true.",
+            "Message": "The request could not be fulfilled with the account types included in property '%1' because the property StrictAccountTypes is set to true.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 1,
             "ParamTypes": [
@@ -1035,7 +1094,7 @@
             "Severity": "Warning"
         },
         "StringValueTooLong": {
-            "Description": "Indicates that a string value passed to the given resource exceeded its length limit.  An example is when a shorter limit is imposed by an implementation than that allowed by the specification.",
+            "Description": "Indicates that a string value passed to the given resource was longer than the maximum allowed length.  An example is when an implementation has imposed a shorter maximum length than that allowed by the specification.",
             "Message": "The string '%1' exceeds the length limit %2.",
             "MessageSeverity": "Warning",
             "NumberOfArgs": 2,
@@ -1046,25 +1105,37 @@
             "Resolution": "Resubmit the request with an appropriate string length.",
             "Severity": "Warning"
         },
+        "StringValueTooShort": {
+            "Description": "Indicates that a string value passed to the given resource was shorter than the minimum required length.  An example is when an implementation has imposed a greater minimum length than that required by the specification.",
+            "Message": "The string '%1' was under the minimum required length %2.",
+            "MessageSeverity": "Warning",
+            "NumberOfArgs": 2,
+            "ParamTypes": [
+                "string",
+                "number"
+            ],
+            "Resolution": "Resubmit the request with an appropriate string length.",
+            "Severity": "Warning"
+        },
         "SubscriptionTerminated": {
-            "Description": "An event subscription has been terminated by the service.  No further events will be delivered.",
-            "Message": "The event subscription has been terminated.",
+            "Description": "An event subscription was terminated by the service.  No further events will be delivered.",
+            "Message": "The event subscription was terminated.",
             "MessageSeverity": "OK",
             "NumberOfArgs": 0,
-            "Resolution": "No resolution is required.",
+            "Resolution": "None.",
             "Severity": "OK"
         },
         "Success": {
-            "Description": "Indicates that all conditions of a successful operation have been met.",
+            "Description": "Indicates that all conditions of a successful operation were met.",
             "Message": "The request completed successfully.",
             "MessageSeverity": "OK",
             "NumberOfArgs": 0,
-            "Resolution": "None",
+            "Resolution": "None.",
             "Severity": "OK"
         },
         "UndeterminedFault": {
             "Description": "Indicates that a fault or error condition exists but the source of the fault cannot be determined or is unknown to the service.",
-            "Message": "A undetermined fault condition has been reported by '%1'.",
+            "Message": "An undetermined fault condition was reported by '%1'.",
             "MessageSeverity": "Critical",
             "NumberOfArgs": 1,
             "ParamTypes": [
@@ -1085,5 +1156,5 @@
     "Name": "Base Message Registry",
     "OwningEntity": "DMTF",
     "RegistryPrefix": "Base",
-    "RegistryVersion": "1.15.0"
+    "RegistryVersion": "1.18.1"
 }

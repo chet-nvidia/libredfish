@@ -19,11 +19,8 @@
         },
         {
             "@odata.id": "/redfish/v1/Systems/Bluefield/SecureBoot/SecureBootDatabases/db/Certificates/5"
-        },
-        {
-            "@odata.id": "/redfish/v1/Systems/Bluefield/SecureBoot/SecureBootDatabases/db/Certificates/6"
         }
     ],
-    "Members@odata.count": 6,
+    "Members@odata.count": 5,
     "Name": "Certificate Collection"
 }

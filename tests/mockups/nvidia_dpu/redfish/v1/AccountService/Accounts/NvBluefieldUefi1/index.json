@@ -1,6 +1,6 @@
 {
     "@odata.id": "/redfish/v1/AccountService/Accounts/NvBluefieldUefi1",
-    "@odata.type": "#ManagerAccount.v1_4_0.ManagerAccount",
+    "@odata.type": "#ManagerAccount.v1_7_0.ManagerAccount",
     "AccountTypes": [
         "Redfish",
         "WebUI"
@@ -21,5 +21,6 @@
     "Password": null,
     "PasswordChangeRequired": false,
     "RoleId": "Administrator",
+    "StrictAccountTypes": true,
     "UserName": "NvBluefieldUefi1"
 }

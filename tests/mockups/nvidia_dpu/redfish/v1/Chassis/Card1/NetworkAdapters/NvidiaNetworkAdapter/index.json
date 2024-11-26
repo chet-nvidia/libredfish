@@ -1,7 +1,7 @@
 {
     "@odata.id": "/redfish/v1/Chassis/Card1/NetworkAdapters/NvidiaNetworkAdapter",
     "@odata.type": "#NetworkAdapter.v1_9_0.NetworkAdapter",
-    "Id": "NetworkAdapter",
+    "Id": "NvidiaNetworkAdapter",
     "Manufacturer": "Nvidia",
     "Name": "NvidiaNetworkAdapter",
     "NetworkDeviceFunctions": {

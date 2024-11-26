@@ -1,5 +1,4 @@
 {
-    "@odata.context": "/redfish/v1/$metadata#JsonSchemaFile.JsonSchemaFile",
     "@odata.id": "/redfish/v1/JsonSchemas/Resource",
     "@odata.type": "#JsonSchemaFile.v1_0_2.JsonSchemaFile",
     "Description": "Resource Schema File Location",
@@ -11,8 +10,8 @@
     "Location": [
         {
             "Language": "en",
-            "PublicationUri": "http://redfish.dmtf.org/schemas/v1/Resource.json",
-            "Uri": "/redfish/v1/JsonSchemas/Resource/Resource.json"
+            "PublicationUri": "http://redfish.dmtf.org/schemas/v1/Resource.v1_19_0.json",
+            "Uri": "/redfish/v1/JsonSchemas/Resource/Resource.v1_19_0.json"
         }
     ],
     "Location@odata.count": 1,

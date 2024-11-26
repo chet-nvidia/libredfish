@@ -4,7 +4,9 @@
     "Actions": {
         "#UpdateService.SimpleUpdate": {
             "TransferProtocol@Redfish.AllowableValues": [
-                "SCP"
+                "SCP",
+                "HTTP",
+                "HTTPS"
             ],
             "target": "/redfish/v1/UpdateService/Actions/UpdateService.SimpleUpdate"
         },
@@ -29,9 +31,8 @@
     },
     "HttpPushUri": "/redfish/v1/UpdateService/update",
     "HttpPushUriOptions": {
-        "ForceUpdate": false,
         "HttpPushUriApplyTime": {
-            "ApplyTime": "OnReset"
+            "ApplyTime": "Immediate"
         }
     },
     "HttpPushUriTargets": [],
@@ -45,6 +46,19 @@
         ]
     },
     "Name": "Update Service",
+    "Oem": {
+        "Nvidia": {
+            "@odata.type": "#NvidiaUpdateService.v1_2_0.NvidiaUpdateService",
+            "MultipartHttpPushUriOptions": {
+                "UpdateOptionSupport": [
+                    "StageAndActivate"
+                ]
+            },
+            "PersistentStorage": {
+                "@odata.id": "/redfish/v1/UpdateService/Oem/Nvidia/PersistentStorage"
+            }
+        }
+    },
     "ServiceEnabled": true,
     "SoftwareInventory": {
         "@odata.id": "/redfish/v1/UpdateService/SoftwareInventory"

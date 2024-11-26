@@ -1,22 +1,30 @@
 {
     "@odata.id": "/redfish/v1/Systems/Bluefield/SecureBoot/SecureBootDatabases/db/Certificates/2",
     "@odata.type": "#Certificate.v1_7_0.Certificate",
-    "CertificateString": "-----BEGIN CERTIFICATE-----\nMIIDxDCCAqygAwIBAgIJAKqNMZlj/1DAMA0GCSqGSIb3DQEBCwUAMHExHjAcBgNV\nBAoMFU1lbGxhbm94IFRlY2hub2xvZ2llczEqMCgGA1UEAwwhTWVsbGFub3ggVGVj\naG5vbG9naWVzIHNpZ25pbmcga2V5MSMwIQYJKoZIhvcNAQkBFhRzdXBwb3J0QG1l\nbGxhbm94LmNvbTAgFw0yMDA5MDQxNjEyNDdaGA8yMTIwMDgxMTE2MTI0N1owcTEe\nMBwGA1UECgwVTWVsbGFub3ggVGVjaG5vbG9naWVzMSowKAYDVQQDDCFNZWxsYW5v\neCBUZWNobm9sb2dpZXMgc2lnbmluZyBrZXkxIzAhBgkqhkiG9w0BCQEWFHN1cHBv\ncnRAbWVsbGFub3guY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA\n4Rv6U0xL7yrTjpPYmeChgf9qnIcvsNmLuECMPwA74bHrbL8wy4Mlzv32prkB90Sr\n5aRlEaY2a8EjCCxlUCU4KkuMkf0Cz0zkhpOwUOd9ZaCrUVBUu+Y9hduUkZODCvFw\nqk2tF0HU56v4ZSPaPAzrnQkmjkKOP+VQ7E3VLjgJOWsmLrJoS/76Gut54F3aUr/X\nxNL9Pw1jeuZ+/eZBsta22MEXEeulvwTzn8a/GH8+jUSTJnP04TOCOoE/VIt8gw7K\nt5wCl4vPqh+40Ls5J8tQsPqt8OLhacFwmQFCciADkRwreKHbgzXVrr78Qsd621m9\n8G1CyDmxW8PkOsjCVmQSOQIDAQABo10wWzAMBgNVHRMBAf8EAjAAMAsGA1UdDwQE\nAwIHgDAdBgNVHQ4EFgQUIBLlEiZp/8DMKIJ8YTQymmvsC4gwHwYDVR0jBBgwFoAU\nIBLlEiZp/8DMKIJ8YTQymmvsC4gwDQYJKoZIhvcNAQELBQADggEBAMTa2BWkN/CT\nhJfeuA97jYvs3btfjb7lZ6AitloHlRVbzU6rqR8uyPlJRbzyl61uvRaM4Rq+woqc\nOVmTdjYIJBX/DKQ8UNl1uQYDlxdoBw7G0A08fsR21t4ggDbqSBFBkzzTuMjc49go\n2d6vuhSqmKkFGcDXqdsHY/YHH/DguO9JZW3Zph+DnS2ySXRj+iv4pAIC66uyL5Ea\nkfRYP4VbqpIRNzHZKoFD2B13iaVUK77dWJFXsaUrdcx4zn5euSLK+8O71i18kO3g\ne+i7iubyRGBYdOml3hmkptFD4qOsl7S3lE+T11QtB8LQwZRHDH/zCl/2Bo9NHewB\nsJvhNeOM5Pk=\n-----END CERTIFICATE-----\n",
+    "CertificateString": "-----BEGIN CERTIFICATE-----\nMIIEEjCCAvqgAwIBAgIJAM64sZiYqZm2MA0GCSqGSIb3DQEBCwUAMIGVMQswCQYD\nVQQGEwJVUzELMAkGA1UECAwCQ0ExFDASBgNVBAcMC1NhbnRhIENsYXJhMRswGQYD\nVQQKDBJOVklESUEgQ29ycG9yYXRpb24xDDAKBgNVBAsMA05CVTE4MDYGA1UEAwwv\nTlZJRElBIEJsdWVGaWVsZCBTZWN1cmUgQm9vdCBFRkkgU2lnbmluZyAyMDIyLUEw\nHhcNMjIwNDEzMDU0MDEzWhcNMzIwNDEwMDU0MDEzWjCBlTELMAkGA1UEBhMCVVMx\nCzAJBgNVBAgMAkNBMRQwEgYDVQQHDAtTYW50YSBDbGFyYTEbMBkGA1UECgwSTlZJ\nRElBIENvcnBvcmF0aW9uMQwwCgYDVQQLDANOQlUxODA2BgNVBAMML05WSURJQSBC\nbHVlRmllbGQgU2VjdXJlIEJvb3QgRUZJIFNpZ25pbmcgMjAyMi1BMIIBIjANBgkq\nhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjZpUi3vQZLmDcMq+j4NtJjHLvKwF6HfR\nPqJp8QPjB9Z9+g04TX1+LXEV96Q+l9WOhAHG1god2+hO27G1Y2eIJUq9LSsBWEQ3\nJsF7USqkqxKdMsK3bC7mFPSvtJIJK7MOegg6H2F3EtF41X9wGL+mr7B/tQqwTXL7\nd4rI1MM/cyRIxvZMx5VdNiUL1KGY/VYsb/TvbZ06c1ZlCJRwIdBR3BKF3yXGEOYX\nZJbuyRXIJiHmR7e5qES/0z7/1aYQRdHp7wrNZSsMeJiaoS9E5zqC58t+0jmCMjrU\nX/I5D+C1Jiu/wzcPJ6rPD1nxTcbNLs6IRqNvvewStijW/RyJK1b8eQIDAQABo2Mw\nYTAdBgNVHQ4EFgQUfq8636UdMjRlg7IZaEwhs82/97QwHwYDVR0jBBgwFoAUfq86\n36UdMjRlg7IZaEwhs82/97QwDwYDVR0TAQH/BAUwAwEB/zAOBgNVHQ8BAf8EBAMC\nAoQwDQYJKoZIhvcNAQELBQADggEBAAb711b7IhkV2Qz1RYMsTLJN7BTGRZnQk4+Y\nWHWrgnE7XtKl9CZ7Zvd+vnClQtTreR5Xz/SuX8rYLpBZ4/HWRgXBcEMFyPdlWdoL\nO6vJyyAo86E2aMDgPTAvTtCcFSfCg0SEVBaiUvRW+3UuEjvQeyVQn3p2KQCiD9UV\n8QRk0T4RCCjS3Nc2NOctFvwtwwRld5c379Z1x3fqT1tzTrq/jwDZWubb/rX1mnTr\ncTypuCpeG5PGEB+4w4fis7CjAirZnNlOx6Ve6ism1P1jzyWQkXo9SoeuzpVGAyUq\nRfJfB2hhXzzv0gHiEMSvexEjPl6ziiH1fPz8AB/jF8sKw+9d+78=\n-----END CERTIFICATE-----\n",
     "CertificateType": "PEM",
     "Id": "2",
     "Issuer": {
-        "CommonName": "Mellanox Technologies signing key",
-        "Organization": "Mellanox Technologies"
+        "City": "Santa Clara",
+        "CommonName": "NVIDIA BlueField Secure Boot EFI Signing 2022-A",
+        "Country": "US",
+        "Organization": "NVIDIA Corporation",
+        "OrganizationalUnit": "NBU",
+        "State": "CA"
     },
     "KeyUsage": [
-        "DigitalSignature"
+        "KeyCertSign"
     ],
     "Name": "db Certificate",
     "Subject": {
-        "CommonName": "Mellanox Technologies signing key",
-        "Organization": "Mellanox Technologies"
+        "City": "Santa Clara",
+        "CommonName": "NVIDIA BlueField Secure Boot EFI Signing 2022-A",
+        "Country": "US",
+        "Organization": "NVIDIA Corporation",
+        "OrganizationalUnit": "NBU",
+        "State": "CA"
     },
     "UefiSignatureOwner": "00000000-0000-0000-0000-000000000000",
-    "ValidNotAfter": "2120-08-11T16:12:47+00:00",
-    "ValidNotBefore": "2020-09-04T16:12:47+00:00"
+    "ValidNotAfter": "2032-04-10T05:40:13+00:00",
+    "ValidNotBefore": "2022-04-13T05:40:13+00:00"
 }
