@@ -112,15 +112,9 @@ mod test {
         let oem = m.oem.unwrap();
         assert!(oem.dell.is_none());
         assert!(oem.lenovo.is_some());
-        assert_eq!(
-            oem
-                .lenovo
-                .as_ref()
-                .unwrap()
-                .recipients_settings
-                .retry_count,
-            5
-        );
+        if let Some(lenovo) = oem.lenovo {
+            assert_eq!(lenovo.recipients_settings.retry_count, 5);
+        }
     }
 
     #[test]
