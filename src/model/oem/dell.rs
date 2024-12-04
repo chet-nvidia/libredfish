@@ -247,6 +247,7 @@ pub struct BiosForgeAttrs {
     pub sriov_global_enable: EnabledDisabled,
     pub tpm_security: OnOff,
     pub tpm2_hierarchy: Tpm2HierarchySettings,
+    pub tpm2_algorithm: Tpm2Algorithm,
     pub boot_mode: String,
     #[serde(rename = "HttpDev1EnDis")]
     pub http_device_1_enabled_disabled: EnabledDisabled,
@@ -411,6 +412,22 @@ pub enum Tpm2HierarchySettings {
 }
 
 impl fmt::Display for Tpm2HierarchySettings {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone, Eq, PartialEq)]
+pub enum Tpm2Algorithm {
+    SHA1,
+    SHA128,
+    SHA256,
+    SHA384,
+    SHA512,
+    SM3,
+}
+
+impl fmt::Display for Tpm2Algorithm {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         fmt::Debug::fmt(self, f)
     }

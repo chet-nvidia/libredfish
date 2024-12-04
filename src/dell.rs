@@ -231,7 +231,9 @@ impl Redfish for Bmc {
 
         let bios = self.s.bios_attributes().await?;
         let nic_slot = self.dpu_nic_slot(None).await?;
-        let expected_attrs = self.forge_setup_attrs(&nic_slot);
+        let mut expected_attrs = self.forge_setup_attrs(&nic_slot);
+
+        expected_attrs.tpm2_hierarchy = dell::Tpm2HierarchySettings::Enabled;
 
         macro_rules! diff {
             ($key:literal, $exp:expr, $act:ty) => {
@@ -300,6 +302,11 @@ impl Redfish for Bmc {
             "Tpm2Hierarchy",
             expected_attrs.tpm2_hierarchy,
             dell::Tpm2HierarchySettings
+        );
+        diff!(
+            "Tpm2Algorithm",
+            expected_attrs.tpm2_algorithm,
+            dell::Tpm2Algorithm
         );
         diff!(
             "HttpDev1EnDis",
@@ -1410,6 +1417,7 @@ impl Bmc {
             sriov_global_enable: EnabledDisabled::Enabled,
             tpm_security: OnOff::On,
             tpm2_hierarchy: dell::Tpm2HierarchySettings::Clear,
+            tpm2_algorithm: dell::Tpm2Algorithm::SHA256,
             http_device_1_enabled_disabled: EnabledDisabled::Enabled,
             pxe_device_1_enabled_disabled: EnabledDisabled::Disabled,
             boot_mode: "Uefi".to_string(),
