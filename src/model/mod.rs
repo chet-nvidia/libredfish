@@ -359,6 +359,7 @@ pub enum ResourceState {
     Quiesced,
     Updating,
     Qualified,
+    Unknown,
 }
 
 impl fmt::Display for ResourceState {
