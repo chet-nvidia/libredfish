@@ -164,13 +164,15 @@ impl Redfish for Bmc {
         }
 
         let bios = self.s.bios_attributes().await?;
-        let key = "Host Privilege Level";
-        let Some(hpl) = bios.get(key) else {
+        let key = "HostPrivilegeLevel";
+        let key_with_spaces = "Host Privilege Level";
+        let Some(hpl) = bios.get(key).or_else(|| bios.get(key_with_spaces)) else {
             return Err(RedfishError::MissingKey {
                 key: key.to_string(),
                 url: "Systems/{}/Bios".to_string(),
             });
         };
+
         let actual = HostPrivilegeLevel::deserialize(hpl).map_err(|e| {
             RedfishError::JsonDeserializeError {
                 url: "Systems/{}/Bios".to_string(),
@@ -187,13 +189,15 @@ impl Redfish for Bmc {
             });
         }
 
-        let key = "Internal CPU Model";
-        let Some(icm) = bios.get(key) else {
+        let key = "InternalCPUModel";
+        let key_with_spaces = "Internal CPU Model";
+        let Some(icm) = bios.get(key).or_else(|| bios.get(key_with_spaces)) else {
             return Err(RedfishError::MissingKey {
                 key: key.to_string(),
                 url: "Systems/{}/Bios".to_string(),
             });
         };
+
         let actual =
             InternalCPUModel::deserialize(icm).map_err(|e| RedfishError::JsonDeserializeError {
                 url: "Systems/{}/Bios".to_string(),
@@ -628,14 +632,10 @@ impl Redfish for Bmc {
 }
 
 impl Bmc {
-    async fn set_host_privilege_level(
+    async fn patch_bios_setting(
         &self,
-        level: HostPrivilegeLevel,
+        data: HashMap<&str, HashMap<&str, String>>,
     ) -> Result<(), RedfishError> {
-        let data = HashMap::from([(
-            "Attributes",
-            HashMap::from([("Host Privilege Level", level.to_string())]),
-        )]);
         let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
         self.s
             .client
@@ -644,15 +644,53 @@ impl Bmc {
             .map(|_status_code| Ok(()))?
     }
 
+    async fn set_host_privilege_level(
+        &self,
+        level: HostPrivilegeLevel,
+    ) -> Result<(), RedfishError> {
+        // There is a change in the Attribute naming in DPU BMC 24.10, it no longer has spaces
+        // Because of this we need to try both cases of the named key
+        let key = "HostPrivilegeLevel";
+        let data = HashMap::from([("Attributes", HashMap::from([(key, level.to_string())]))]);
+
+        match self.patch_bios_setting(data).await {
+            Ok(_) => Ok(()),
+            Err(RedfishError::HTTPErrorCode { response_body, .. })
+                if response_body.contains(key) =>
+            {
+                Ok(())
+            }
+            Err(e) => Err(e),
+        }?;
+
+        let key = "Host Privilege Level";
+        let data = HashMap::from([("Attributes", HashMap::from([(key, level.to_string())]))]);
+
+        self.patch_bios_setting(data)
+            .await
+            .map(|_status_code| Ok(()))?
+    }
+
     async fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError> {
-        let data = HashMap::from([(
-            "Attributes",
-            HashMap::from([("Internal CPU Model", model.to_string())]),
-        )]);
-        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
-        self.s
-            .client
-            .patch(&url, data)
+        // There is a change in the Attribute naming in DPU BMC 24.10, it no longer has spaces
+        // Because of this we need to try both cases of the named key
+        let key = "InternalCPUModel";
+        let data = HashMap::from([("Attributes", HashMap::from([(key, model.to_string())]))]);
+
+        match self.patch_bios_setting(data).await {
+            Ok(_) => Ok(()),
+            Err(RedfishError::HTTPErrorCode { response_body, .. })
+                if response_body.contains(key) =>
+            {
+                Ok(())
+            }
+            Err(e) => Err(e),
+        }?;
+
+        let key = "Internal CPU Model";
+        let data = HashMap::from([("Attributes", HashMap::from([(key, model.to_string())]))]);
+
+        self.patch_bios_setting(data)
             .await
             .map(|_status_code| Ok(()))?
     }
