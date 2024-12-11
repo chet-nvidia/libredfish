@@ -401,24 +401,6 @@ impl Redfish for Bmc {
         let enabled = EnabledDisabled::Enabled.to_string();
         let disabled = EnabledDisabled::Disabled.to_string();
 
-        // BIOS lockdown
-        let url = format!("Systems/{}/Bios", self.s.system_id());
-        let (_status_code, bios): (_, dell::Bios) = self.s.client.get(&url).await?;
-
-        let in_band = bios
-            .attributes
-            .in_band_manageability_interface
-            .unwrap_or_default();
-        let uefi_var = bios.attributes.uefi_variable_access.unwrap_or_default();
-        message.push_str(&format!(
-            "BIOS: in_band_manageability_interface={in_band}, uefi_variable_access={uefi_var}. "
-        ));
-
-        let is_bios_locked = in_band == disabled
-            && uefi_var == dell::UefiVariableAccessSettings::Controlled.to_string();
-        let is_bios_unlocked = in_band == enabled
-            && uefi_var == dell::UefiVariableAccessSettings::Standard.to_string();
-
         // BMC lockdown
 
         let (attrs, url) = self.manager_attributes().await?;
@@ -460,9 +442,9 @@ impl Redfish for Bmc {
 
         Ok(Status {
             message,
-            status: if is_bios_locked && is_bmc_locked {
+            status: if is_bmc_locked {
                 StatusInternal::Enabled
-            } else if is_bios_unlocked && is_bmc_unlocked {
+            } else if is_bmc_unlocked {
                 StatusInternal::Disabled
             } else {
                 StatusInternal::Partial
@@ -1025,11 +1007,24 @@ impl Bmc {
             attributes: lockdown,
         };
         let url = format!("Systems/{}/Bios/Settings/", self.s.system_id());
-        self.s
+        // Sometimes, these settings are read only.  Ignore those errors trying to set them.
+        let ret = self
+            .s
             .client
             .patch(&url, set_lockdown_attrs)
             .await
-            .map(|_status_code| ())
+            .map(|_status_code| ());
+        if let Err(RedfishError::HTTPErrorCode {
+            url: _,
+            status_code,
+            response_body,
+        }) = &ret
+        {
+            if status_code.as_u16() == 400 && response_body.contains("read-only") {
+                return Ok(());
+            }
+        }
+        ret
     }
 
     async fn disable_bmc_lockdown(&self, entry: dell::BootDevices) -> Result<(), RedfishError> {
