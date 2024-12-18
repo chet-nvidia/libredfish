@@ -654,7 +654,7 @@ impl Bmc {
         let data = HashMap::from([("Attributes", HashMap::from([(key, level.to_string())]))]);
 
         match self.patch_bios_setting(data).await {
-            Ok(_) => Ok(()),
+            Ok(_) => return Ok(()),
             Err(RedfishError::HTTPErrorCode { response_body, .. })
                 if response_body.contains(key) =>
             {
@@ -678,7 +678,7 @@ impl Bmc {
         let data = HashMap::from([("Attributes", HashMap::from([(key, model.to_string())]))]);
 
         match self.patch_bios_setting(data).await {
-            Ok(_) => Ok(()),
+            Ok(_) => return Ok(()),
             Err(RedfishError::HTTPErrorCode { response_body, .. })
                 if response_body.contains(key) =>
             {
