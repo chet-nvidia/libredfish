@@ -982,7 +982,7 @@ impl RedfishStandard {
                         let url = drive.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
                         let drive: Drives = self.client.get(&url).await?.1;
                         if let Some(ref id) = drive.id {
-                            if id.contains("USB"){
+                            if id.contains("USB") {
                                 continue;
                             }
                         }
