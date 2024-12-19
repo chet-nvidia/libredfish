@@ -40,7 +40,7 @@ pub struct RecipientSettings {
 pub struct System {
     pub scheduled_power_actions: ODataId,
     #[serde(rename = "FrontPanelUSB")]
-    pub front_panel_usb: FrontPanelUSB,
+    pub front_panel_usb: Option<FrontPanelUSB>,
     pub metrics: ODataId,
     pub system_status: String,
     pub number_of_reboots: i64,
