@@ -1,6 +1,8 @@
 use std::fmt;
 
 use serde::{Deserialize, Serialize};
+use serde_with::serde_as;
+use serde_with::DefaultOnNull;
 
 use super::{boot::Boot, oem::SystemExtensions, OData, ODataId, ODataLinks, RedfishSettings};
 
@@ -201,12 +203,14 @@ pub struct SerialConsoleConnectionType {
     pub console_entry_command: Option<String>, // SSH only
 }
 
+#[serde_as]
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct BootOptions {
     #[serde(flatten)]
     pub odata: ODataLinks,
     pub description: Option<String>,
+    #[serde_as(deserialize_as = "DefaultOnNull")]
     pub members: Vec<ODataId>,
     pub name: String,
 }
