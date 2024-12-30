@@ -3,6 +3,7 @@ use std::{collections::HashMap, path::Path, time::Duration};
 use reqwest::header::HeaderMap;
 use reqwest::Method;
 use serde::Serialize;
+use serde_json::Value;
 use tokio::fs::File;
 use tracing::debug;
 
@@ -1056,48 +1057,68 @@ impl Bmc {
 
     /// Both Intel and AMD have virtualization technologies that help fix the issue of x86 instruction
     /// architecture not being virtualizable.
-    async fn set_virt_enable(&self) -> Result<(), RedfishError> {
-        let bios = self.s.bios_attributes().await?;
-        const INTEL_VIRT_KEY: &str = "Processors_IntelVirtualizationTechnology";
-        const AMD_VIRT_KEY: &str = "Processors_SVMMode";
-        let mut body = HashMap::new();
+    /// get_enable_virtualization_key returns the KEY for enabling virtualization in the bios attributes
+    /// map that the Lenovo's BMC returns when querying the bios attributes registry. The string returned
+    /// will depend on the processors within the given Lenovo. For example, 655v3/675v3s use AMD processors
+    /// whereas, 650v2/670v2s use Intel processors.
+    async fn get_enable_virtualization_key(
+        &self,
+        bios_attributes: &Value,
+    ) -> Result<&str, RedfishError> {
+        const INTEL_ENABLE_VIRTUALIZATION_KEY: &str = "Processors_IntelVirtualizationTechnology";
+        const AMD_ENABLE_VIRTUALIZATION_KEY: &str = "Processors_SVMMode";
 
         // Intel specific
-        if bios.get(INTEL_VIRT_KEY).is_some() {
-            body.insert("Attributes", HashMap::from([(INTEL_VIRT_KEY, "Enabled")]));
-
+        if bios_attributes
+            .get(INTEL_ENABLE_VIRTUALIZATION_KEY)
+            .is_some()
+        {
+            Ok(INTEL_ENABLE_VIRTUALIZATION_KEY)
         // AMD specific
-        } else if bios.get(AMD_VIRT_KEY).is_some() {
-            body.insert("Attributes", HashMap::from([(AMD_VIRT_KEY, "Enabled")]));
+        } else if bios_attributes.get(AMD_ENABLE_VIRTUALIZATION_KEY).is_some() {
+            Ok(AMD_ENABLE_VIRTUALIZATION_KEY)
         } else {
             return Err(RedfishError::MissingKey {
-                key: format!("{}/{}", INTEL_VIRT_KEY, AMD_VIRT_KEY).to_string(),
+                key: format!(
+                    "{}/{}",
+                    INTEL_ENABLE_VIRTUALIZATION_KEY, AMD_ENABLE_VIRTUALIZATION_KEY
+                )
+                .to_string(),
                 url: format!("Systems/{}/Bios", self.s.system_id()),
             });
         }
+    }
 
+    async fn set_virt_enable(&self) -> Result<(), RedfishError> {
+        let bios = self.s.bios_attributes().await?;
+        let mut body = HashMap::new();
+        let enable_virtualization_key = self.get_enable_virtualization_key(&bios).await?;
+        body.insert(
+            "Attributes",
+            HashMap::from([(enable_virtualization_key, "Enabled")]),
+        );
         let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
     async fn get_virt_enabled(&self) -> Result<EnabledDisabled, RedfishError> {
         let bios = self.s.bios_attributes().await?;
-        let key = "Processors_IntelVirtualizationTechnology";
-        let Some(val) = bios.get(key) else {
+        let enable_virtualization_key = self.get_enable_virtualization_key(&bios).await?;
+        let Some(val) = bios.get(enable_virtualization_key) else {
             return Err(RedfishError::MissingKey {
-                key: key.to_string(),
+                key: enable_virtualization_key.to_string(),
                 url: "bios".to_string(),
             });
         };
         let Some(val) = val.as_str() else {
             return Err(RedfishError::InvalidKeyType {
-                key: key.to_string(),
+                key: enable_virtualization_key.to_string(),
                 expected_type: "str".to_string(),
                 url: "bios".to_string(),
             });
         };
         val.parse().map_err(|_e| RedfishError::InvalidKeyType {
-            key: key.to_string(),
+            key: enable_virtualization_key.to_string(),
             expected_type: "EnabledDisabled".to_string(),
             url: "bios".to_string(),
         })
