@@ -1054,12 +1054,28 @@ impl Bmc {
         Ok(is_allowed)
     }
 
+    /// Both Intel and AMD have virtualization technologies that help fix the issue of x86 instruction
+    /// architecture not being virtualizable.
     async fn set_virt_enable(&self) -> Result<(), RedfishError> {
+        let bios = self.s.bios_attributes().await?;
+        const INTEL_VIRT_KEY: &str = "Processors_IntelVirtualizationTechnology";
+        const AMD_VIRT_KEY: &str = "Processors_SVMMode";
         let mut body = HashMap::new();
-        body.insert(
-            "Attributes",
-            HashMap::from([("Processors_IntelVirtualizationTechnology", "Enabled")]),
-        );
+
+        // Intel specific
+        if bios.get(INTEL_VIRT_KEY).is_some() {
+            body.insert("Attributes", HashMap::from([(INTEL_VIRT_KEY, "Enabled")]));
+
+        // AMD specific
+        } else if bios.get(AMD_VIRT_KEY).is_some() {
+            body.insert("Attributes", HashMap::from([(AMD_VIRT_KEY, "Enabled")]));
+        } else {
+            return Err(RedfishError::MissingKey {
+                key: format!("{}/{}", INTEL_VIRT_KEY, AMD_VIRT_KEY).to_string(),
+                url: format!("Systems/{}/Bios", self.s.system_id()),
+            });
+        }
+
         let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
