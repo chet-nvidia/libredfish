@@ -15,7 +15,7 @@ use crate::model::service_root::ServiceRoot;
 use crate::model::task::Task;
 use crate::model::update_service::{ComponentType, TransferProtocolType, UpdateService};
 use crate::model::{secure_boot::SecureBoot, ComputerSystem};
-use crate::model::{Manager, PCIeFunction};
+use crate::model::{InvalidValueError, Manager, PCIeFunction};
 use crate::{
     model::{
         chassis::{Chassis, NetworkAdapter},
@@ -847,16 +847,7 @@ impl Bmc {
         Ok(())
     }
 
-    async fn set_kcs_lenovo(&self, is_allowed: bool) -> Result<(), RedfishError> {
-        let body = HashMap::from([(
-            "Oem",
-            HashMap::from([("Lenovo", HashMap::from([("KCSEnabled", is_allowed)]))]),
-        )]);
-        let url = format!("Managers/{}", self.s.manager_id());
-        self.s.client.patch(&url, body).await.map(|_status_code| ())
-    }
-
-    async fn get_kcs_lenovo(&self) -> Result<bool, RedfishError> {
+    async fn get_kcs_value(&self) -> Result<Value, RedfishError> {
         let url = format!("Managers/{}", self.s.manager_id());
         let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url).await?;
 
@@ -894,15 +885,56 @@ impl Bmc {
             .ok_or_else(|| RedfishError::MissingKey {
                 key: key.to_string(),
                 url: url.to_string(),
-            })?
-            .as_bool()
-            .ok_or_else(|| RedfishError::InvalidKeyType {
-                key: key.to_string(),
-                expected_type: "bool".to_string(),
-                url: url.to_string(),
             })?;
 
-        Ok(is_kcs_enabled)
+        Ok(is_kcs_enabled.clone())
+    }
+
+    async fn set_kcs_lenovo(&self, is_allowed: bool) -> Result<(), RedfishError> {
+        let kcs_val: Value = match self.get_kcs_value().await? {
+            Value::Bool(_) => serde_json::Value::Bool(is_allowed),
+            Value::String(_) => {
+                if is_allowed {
+                    serde_json::Value::String("Enabled".to_owned())
+                } else {
+                    serde_json::Value::String("Disabled".to_owned())
+                }
+            }
+            v => {
+                return Err(RedfishError::InvalidValue {
+                    url: format!("Managers/{}", self.s.manager_id()),
+                    field: format!("KCS"),
+                    err: InvalidValueError(format!(
+                        "expected bool or string as KCS enabled value type; got {v}"
+                    )),
+                })
+            }
+        };
+
+        let body = HashMap::from([(
+            "Oem",
+            HashMap::from([("Lenovo", HashMap::from([("KCSEnabled", kcs_val)]))]),
+        )]);
+        let url = format!("Managers/{}", self.s.manager_id());
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
+    }
+
+    async fn get_kcs_lenovo(&self) -> Result<bool, RedfishError> {
+        let manager = self.get_manager().await?;
+        match &manager.oem {
+            Some(oem) => match &oem.lenovo {
+                Some(lenovo_oem) => Ok(lenovo_oem.kcs_enabled),
+                None => Err(RedfishError::GenericError {
+                    error: format!(
+                        "Manager is missing Lenovo specific OEM field: \n{:#?}",
+                        manager.clone()
+                    ),
+                }),
+            },
+            None => Err(RedfishError::GenericError {
+                error: format!("Manager is missing OEM field: \n{:#?}", manager.clone()),
+            }),
+        }
     }
 
     async fn set_firmware_rollback_lenovo(&self, set: EnabledDisabled) -> Result<(), RedfishError> {
