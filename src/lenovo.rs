@@ -8,7 +8,7 @@ use tokio::fs::File;
 use tracing::debug;
 
 use crate::model::account_service::ManagerAccount;
-use crate::model::oem::lenovo::LenovoBootOrder;
+use crate::model::oem::lenovo::{FrontPanelUSB, LenovoBootOrder};
 use crate::model::resource::ResourceCollection;
 use crate::model::sel::LogService;
 use crate::model::service_root::ServiceRoot;
@@ -988,30 +988,7 @@ impl Bmc {
         Ok(fw_typed)
     }
 
-    async fn set_front_panel_usb_lenovo(
-        &self,
-        mode: lenovo::FrontPanelUSBMode,
-        owner: lenovo::PortSwitchingMode,
-    ) -> Result<(), RedfishError> {
-        let mut body = HashMap::new();
-        body.insert(
-            "Oem",
-            HashMap::from([(
-                "Lenovo",
-                HashMap::from([(
-                    "FrontPanelUSB",
-                    HashMap::from([
-                        ("FPMode", mode.to_string()),
-                        ("PortSwitchingTo", owner.to_string()),
-                    ]),
-                )]),
-            )]),
-        );
-        let url = format!("Systems/{}", self.s.system_id());
-        self.s.client.patch(&url, body).await.map(|_status_code| ())
-    }
-
-    async fn get_front_panel_usb_lenovo(&self) -> Result<lenovo::FrontPanelUSB, RedfishError> {
+    async fn get_front_panel_usb_kv_lenovo(&self) -> Result<(String, FrontPanelUSB), RedfishError> {
         let url = format!("Systems/{}", self.s.system_id());
         let (_, body): (_, HashMap<String, serde_json::Value>) = self.s.client.get(&url).await?;
 
@@ -1043,22 +1020,61 @@ impl Bmc {
                 url: url.to_string(),
             })?;
 
-        let key = "FrontPanelUSB";
-        let fp_usb_val = lenovo_obj
-            .get(key)
-            .ok_or_else(|| RedfishError::MissingKey {
-                key: key.to_string(),
-                url: url.to_string(),
-            })?;
-        let fp_usb = serde_json::from_value(fp_usb_val.clone()).map_err(|err| {
+        let mut front_panel_usb_key = "FrontPanelUSB";
+        let val = match lenovo_obj.get(front_panel_usb_key) {
+            Some(val) => val,
+            None => {
+                front_panel_usb_key = "USBManagementPortAssignment";
+                match lenovo_obj.get(front_panel_usb_key) {
+                    Some(val) => val,
+                    None => {
+                        return Err(RedfishError::MissingKey {
+                            key: front_panel_usb_key.to_string(),
+                            url,
+                        })
+                    }
+                }
+            }
+        };
+
+        let front_panel_usb_val = serde_json::from_value(val.clone()).map_err(|err| {
             RedfishError::JsonDeserializeError {
                 url,
-                body: format!("{fp_usb_val:?}"),
+                body: format!("{val:?}"),
                 source: err,
             }
         })?;
 
-        Ok(fp_usb)
+        Ok((front_panel_usb_key.to_string(), front_panel_usb_val))
+    }
+
+    async fn set_front_panel_usb_lenovo(
+        &self,
+        mode: lenovo::FrontPanelUSBMode,
+        owner: lenovo::PortSwitchingMode,
+    ) -> Result<(), RedfishError> {
+        let mut body = HashMap::new();
+        let (front_panel_usb_key, _) = self.get_front_panel_usb_kv_lenovo().await?;
+        body.insert(
+            "Oem",
+            HashMap::from([(
+                "Lenovo",
+                HashMap::from([(
+                    front_panel_usb_key,
+                    HashMap::from([
+                        ("FPMode", mode.to_string()),
+                        ("PortSwitchingTo", owner.to_string()),
+                    ]),
+                )]),
+            )]),
+        );
+        let url = format!("Systems/{}", self.s.system_id());
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
+    }
+
+    async fn get_front_panel_usb_lenovo(&self) -> Result<lenovo::FrontPanelUSB, RedfishError> {
+        let (_, front_panel_usb_val) = self.get_front_panel_usb_kv_lenovo().await?;
+        Ok(front_panel_usb_val)
     }
 
     async fn set_ethernet_over_usb(&self, is_allowed: bool) -> Result<(), RedfishError> {
