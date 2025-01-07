@@ -707,7 +707,7 @@ impl RedfishStandard {
         };
         let member_ids: Vec<String> = members
             .into_iter()
-            .map(|d| d.odata_id.split('/').last().unwrap().to_string())
+            .filter_map(|d| d.odata_id_get().map(|id| id.to_string()).ok())
             .collect();
         Ok(member_ids)
     }

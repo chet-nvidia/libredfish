@@ -1,5 +1,7 @@
 use std::{collections::HashMap, path::Path, time::Duration};
 
+use reqwest::StatusCode;
+
 use crate::{
     model::{
         account_service::ManagerAccount,
@@ -173,20 +175,34 @@ impl Redfish for Bmc {
             }
         }
 
-        // Supermicro has an Oem/FixedBootOrder separate from regular boot order
+        // Supermicro starting from H13/X13 has an Oem/FixedBootOrder separate from regular boot order
         // Must boot from network
-        let fbo = self.get_boot_order().await?;
-        let actual = fbo.fixed_boot_order.first();
-        if actual.map(|s| s.as_str()) != Some(NETWORK) {
-            diffs.push(ForgeSetupDiff {
-                key: "boot_order".to_string(),
-                expected: NETWORK.to_string(),
-                actual: format!("{actual:?}"),
-            });
+        match self.get_boot_order().await {
+            Ok(fbo) => {
+                let actual = fbo.fixed_boot_order.first();
+                if actual.map(|s| s.as_str()) != Some(NETWORK) {
+                    diffs.push(ForgeSetupDiff {
+                        key: "boot_order".to_string(),
+                        expected: NETWORK.to_string(),
+                        actual: format!("{actual:?}"),
+                    });
+                }
+            }
+            // Older Supermicro platforms still use BootOrder, we can skip that check for them
+            Err(RedfishError::HTTPErrorCode {
+                status_code: StatusCode::NOT_FOUND,
+                ..
+            }) => {}
+            Err(e) => return Err(e),
         }
         // The DPU should be the first NIC we try
         let boot_first = self.s.get_first_boot_option().await?;
-        if !boot_first.display_name.contains(MELLANOX_UEFI_HTTP4) {
+        // We replacing colon as different version of Supermicro platform show name differently
+        if !boot_first
+            .display_name
+            .replace(":", "")
+            .contains(MELLANOX_UEFI_HTTP4)
+        {
             diffs.push(ForgeSetupDiff {
                 key: "boot_first".to_string(),
                 expected: MELLANOX_UEFI_HTTP4.to_string(),
@@ -310,7 +326,15 @@ impl Redfish for Bmc {
     /// Set which device we should boot from first.
     async fn boot_first(&self, target: Boot) -> Result<(), RedfishError> {
         let _ = self.set_mellanox_first().await;
-        self.set_boot_order(target).await
+
+        // Try with FixedBootOptions and fallback to BootOptions if fails
+        match self.set_boot_order(target).await {
+            Err(RedfishError::HTTPErrorCode {
+                status_code: StatusCode::NOT_FOUND,
+                ..
+            }) => self.set_boot_override(target, false).await,
+            res => res,
+        }
     }
 
     /// Supermicro BMC does not appear to have this.
@@ -893,7 +917,7 @@ impl Bmc {
         let mut ordered = Vec::new(); // the final boot options
         let all = self.s.get_boot_options().await?;
         for b in all.members {
-            let id = b.odata_id.split('/').last().unwrap();
+            let id = b.odata_id_get()?;
             let boot_option = self.s.get_boot_option(id).await?;
             if boot_option
                 .display_name

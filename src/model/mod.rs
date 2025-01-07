@@ -14,6 +14,8 @@ pub mod bios;
 pub mod boot;
 pub use bios::*;
 
+use crate::RedfishError;
+
 pub mod oem;
 pub mod secure_boot;
 
@@ -131,6 +133,18 @@ impl From<&str> for ODataId {
         ODataId {
             odata_id: item.to_string(),
         }
+    }
+}
+
+impl ODataId {
+    // Gets last portion of the ID, not including uri path
+    pub fn odata_id_get(&self) -> Result<&str, RedfishError> {
+        self.odata_id
+            .split('/')
+            .last()
+            .ok_or_else(|| RedfishError::GenericError {
+                error: format!("odata_id have invalid format: {}", self.odata_id),
+            })
     }
 }
 

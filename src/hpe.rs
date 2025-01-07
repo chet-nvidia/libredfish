@@ -506,7 +506,7 @@ impl Redfish for Bmc {
         let all = self.get_boot_options().await?;
         let mut boot_ref = None;
         for b in all.members {
-            let id = b.odata_id.split('/').last().unwrap();
+            let id = b.odata_id_get()?;
             let opt = self.get_boot_option(id).await?;
             let opt_name = opt.display_name.to_uppercase();
             if opt_name.contains("HTTP") && opt_name.contains("IPV4") && opt_name.contains(&mac) {
