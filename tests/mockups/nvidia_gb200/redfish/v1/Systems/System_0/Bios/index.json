@@ -58,7 +58,7 @@
         "MpamPartId44CporWayMask": 4095,
         "MpamPartId44MaxBw": 100,
         "MpamPartId44MinBw": 100,
-        "NewDevicePosition": "Bottom",
+        "NewDevicePosition": "Top",
         "ProductAssetTag": "",
         "RedfishHostInterface": "Enabled",
         "SerialPortConfiguration": "ConsoleEnabledSbsa",
@@ -415,7 +415,7 @@
         "Socket1UPHY3config": "PCIeC6x16",
         "Socket1UPHY4config": "PCIeC8x1USB",
         "Socket1UPHY5config": "PCIeC0x2",
-        "TPM": "Disabled",
+        "TPM": "Enabled",
         "UPHYSpreadSpectrum": true,
         "UartBaudRate": "115200",
         "UefiDebugLogLevel": 2147483663

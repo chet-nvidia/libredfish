@@ -479,11 +479,11 @@ impl Redfish for RedfishStandard {
         ))
     }
 
-    async fn get_ports(&self, _chassis_id: &str) -> Result<Vec<String>, RedfishError> {
+    async fn get_ports(&self, _chassis_id: &str, _network_adapter: &str) -> Result<Vec<String>, RedfishError> {
         Err(RedfishError::NotSupported("get_ports".to_string()))
     }
 
-    async fn get_port(&self, _chassis_id: &str, _id: &str) -> Result<NetworkPort, RedfishError> {
+    async fn get_port(&self, _chassis_id: &str, _network_adapter: &str, _id: &str) -> Result<NetworkPort, RedfishError> {
         Err(RedfishError::NotSupported("get_port".to_string()))
     }
 
@@ -510,16 +510,11 @@ impl Redfish for RedfishStandard {
         if systems.members.is_empty() {
             return Ok(vec!["1".to_string()]); // default to DMTF standard suggested
         }
-        let v: Vec<String> = systems
+        let v = systems
             .members
             .into_iter()
-            .map(|d| {
-                d.odata_id
-                    .trim_matches('/')
-                    .split('/')
-                    .last()
-                    .unwrap()
-                    .to_string()
+            .filter_map(|d| {
+                d.odata_id_get().map(|id| id.to_string()).ok()
             })
             .collect();
 
@@ -736,9 +731,8 @@ impl RedfishStandard {
             RedfishVendor::Hpe => Ok(Box::new(crate::hpe::Bmc::new(self.clone())?)),
             RedfishVendor::Lenovo => Ok(Box::new(crate::lenovo::Bmc::new(self.clone())?)),
             RedfishVendor::NvidiaDpu => Ok(Box::new(crate::nvidia_dpu::Bmc::new(self.clone())?)),
-            RedfishVendor::NvidiaGH200 => {
-                Ok(Box::new(crate::nvidia_gh200::Bmc::new(self.clone())?))
-            }
+            RedfishVendor::NvidiaGH200 => Ok(Box::new(crate::nvidia_gh200::Bmc::new(self.clone())?)),
+            RedfishVendor::NvidiaGBx00 => Ok(Box::new(crate::nvidia_gbx00::Bmc::new(self.clone())?)),
             RedfishVendor::Supermicro => Ok(Box::new(crate::supermicro::Bmc::new(self.clone())?)),
             _ => Ok(Box::new(self.clone())),
         }
@@ -991,8 +985,8 @@ impl RedfishStandard {
         let mut drives: Vec<Drives> = Vec::new();
         let url = format!("Systems/{}/Storage/", self.system_id());
         let storage_subsystem: StorageSubsystem = self.client.get(&url).await?.1;
-        if !storage_subsystem.members.is_none() {
-            for member in storage_subsystem.members.unwrap() {
+        if let Some(x) = storage_subsystem.members {
+            for member in x {
                 let url = member
                     .odata_id
                     .replace(&format!("/{REDFISH_ENDPOINT}/"), "");

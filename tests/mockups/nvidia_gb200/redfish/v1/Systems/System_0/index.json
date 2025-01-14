@@ -29,20 +29,20 @@
         "BootOrder": [
             "Boot0011",
             "Boot0002",
-            "Boot0007",
-            "Boot000B",
-            "Boot0008",
-            "Boot000C",
             "Boot0001",
-            "Boot0009",
-            "Boot000A",
-            "Boot000D",
             "Boot000E",
-            "Boot0010",
-            "Boot0003",
-            "Boot0004",
+            "Boot000D",
+            "Boot000C",
+            "Boot000B",
+            "Boot000A",
+            "Boot0009",
+            "Boot0008",
+            "Boot0007",
+            "Boot0006",
             "Boot0005",
-            "Boot0006"
+            "Boot0004",
+            "Boot0003",
+            "Boot0010"
         ],
         "BootOrderPropertySelection": "BootOrder",
         "BootSourceOverrideEnabled": "Disabled",
@@ -61,13 +61,13 @@
             "BiosSetup",
             "Usb"
         ],
-        "RemainingAutomaticRetryAttempts": 3,
+        "RemainingAutomaticRetryAttempts": 2,
         "StopBootOnFault": "Never",
         "TrustedModuleRequiredToBoot": "Disabled"
     },
     "BootProgress": {
         "LastState": "OSRunning",
-        "LastStateTime": "2025-01-06T04:53:27.882896+00:00"
+        "LastStateTime": "2025-01-09T20:11:07.824083+00:00"
     },
     "Description": "Computer System",
     "GraphicalConsole": {

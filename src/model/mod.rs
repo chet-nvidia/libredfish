@@ -333,7 +333,7 @@ pub trait StatusVec {
     fn get_vec(&self) -> Vec<ResourceStatus>;
 }
 
-#[derive(Debug, Serialize, Deserialize, Copy, Clone)]
+#[derive(Default, Debug, Serialize, Deserialize, Copy, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct ResourceStatus {
     pub health: Option<ResourceHealth>,

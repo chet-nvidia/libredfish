@@ -39,9 +39,10 @@ pub enum RedfishVendor {
     Dell,
     NvidiaDpu,
     Supermicro,
-    AMI, // Viking
+    AMI, // Viking DGX H100
     Hpe,
-    NvidiaGH200,
+    NvidiaGH200, // r&d only grace-hopper 200
+    NvidiaGBx00, // all Grace-Blackwell combinations 200, .. since openbmc fw and redfish schema are the same
     Unknown,
 }
 
@@ -71,6 +72,7 @@ impl ServiceRoot {
             "lenovo" => RedfishVendor::Lenovo,
             "nvidia" => match self.product.as_deref() {
                 Some("P3809") => RedfishVendor::NvidiaGH200,
+                Some("GB200 NVL") => RedfishVendor::NvidiaGBx00,
                 _ => RedfishVendor::NvidiaDpu,
             },
             "supermicro" => RedfishVendor::Supermicro,

@@ -434,7 +434,7 @@ impl Redfish for Bmc {
         ))
     }
 
-    async fn get_ports(&self, _chassis_id: &str) -> Result<Vec<String>, RedfishError> {
+    async fn get_ports(&self, _chassis_id: &str, _network_adapter: &str) -> Result<Vec<String>, RedfishError> {
         Err(RedfishError::NotSupported(
             "GH200 doesn't have NetworkAdapters tree".to_string(),
         ))
@@ -443,6 +443,7 @@ impl Redfish for Bmc {
     async fn get_port(
         &self,
         _chassis_id: &str,
+        _network_adapter: &str,
         _id: &str,
     ) -> Result<crate::NetworkPort, RedfishError> {
         Err(RedfishError::NotSupported(
