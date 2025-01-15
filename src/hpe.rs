@@ -1,3 +1,25 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * SPDX-License-Identifier: MIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
 use std::{collections::HashMap, path::Path, time::Duration};
 
 use crate::{
@@ -23,7 +45,7 @@ use crate::{
     standard::RedfishStandard,
     Boot, BootOptions, Collection,
     EnabledDisabled::{self, Disabled, Enabled},
-    ForgeSetupStatus, JobState, ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource,
+    MachineSetupStatus, JobState, ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource,
     RoleId, Status, StatusInternal, SystemPowerControl,
 };
 
@@ -117,7 +139,7 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
-    async fn forge_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
         self.clear_tpm().await?;
         self.set_virt_enable().await?;
@@ -126,11 +148,11 @@ impl Redfish for Bmc {
         self.set_boot_order_dpu_first(boot_interface_mac).await
     }
 
-    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
-        Err(RedfishError::NotSupported("forge_setup_status".to_string()))
+    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
+        Err(RedfishError::NotSupported("machine_setup_status".to_string()))
     }
 
-    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+    async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {
         use serde_json::Value;
         let hpe = Value::Object(serde_json::Map::from_iter(vec![
             (
@@ -407,7 +429,11 @@ impl Redfish for Bmc {
         Ok(body)
     }
 
-    async fn get_ports(&self, chassis_id: &str, network_adapter: &str) -> Result<Vec<String>, RedfishError> {
+    async fn get_ports(
+        &self,
+        chassis_id: &str,
+        network_adapter: &str,
+    ) -> Result<Vec<String>, RedfishError> {
         self.s.get_ports(chassis_id, network_adapter).await
     }
 

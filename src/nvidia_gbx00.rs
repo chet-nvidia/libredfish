@@ -1,26 +1,50 @@
-
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * SPDX-License-Identifier: MIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
 use crate::{Chassis, REDFISH_ENDPOINT};
-use std::{collections::HashMap, path::Path, time::Duration};
 use reqwest::StatusCode;
+use std::{collections::HashMap, path::Path, time::Duration};
 use tokio::fs::File;
 
 use crate::model::account_service::ManagerAccount;
 use crate::model::sensor::{GPUSensors, Sensor, Sensors};
 use crate::model::task::Task;
-use crate::model::update_service::{ComponentType, TransferProtocolType, UpdateService};
-use crate::Boot::UefiHttp;
-use crate::{model::{
-    boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
-    chassis::NetworkAdapter,
-    sel::{LogEntry, LogEntryCollection},
-    service_root::ServiceRoot,
-    storage::Drives,
-    BootOption, ComputerSystem, Manager, PCIeDevices,
-    power::{Power, PowerSupply, Voltages},
-    thermal::{LeakDetector, Temperature, TemperaturesOemNvidia, Thermal},
-}, standard::RedfishStandard, Collection, NetworkDeviceFunction, ODataId, Redfish, RedfishError, Resource, PCIeDevice};
-use crate::{ForgeSetupDiff, ForgeSetupStatus, JobState, RoleId};
 use crate::model::thermal::Fan;
+use crate::model::update_service::{ComponentType, TransferProtocolType, UpdateService};
+use crate::{
+    model::{
+        boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
+        chassis::NetworkAdapter,
+        power::{Power, PowerSupply, Voltages},
+        sel::{LogEntry, LogEntryCollection},
+        service_root::ServiceRoot,
+        storage::Drives,
+        thermal::{LeakDetector, Temperature, TemperaturesOemNvidia, Thermal},
+        BootOption, ComputerSystem, Manager, PCIeDevices,
+    },
+    standard::RedfishStandard,
+    Collection, NetworkDeviceFunction, ODataId, PCIeDevice, Redfish, RedfishError, Resource,
+};
+use crate::{MachineSetupDiff, MachineSetupStatus, JobState, RoleId};
 
 const UEFI_PASSWORD_NAME: &str = "AdminPassword";
 
@@ -115,7 +139,7 @@ impl Redfish for Bmc {
         let mut power_supplies = Vec::new();
         // gb200 bianca has empty PowerSupplies on several chassis items
         // for now assemble power supply details from PDB_0 chassis entries
-        let mut url = format!("Chassis/PDB_0");
+        let mut url = "Chassis/PDB_0".to_string();
         let (_status_code, pdb): (StatusCode, PowerSupply) = self.s.client.get(&url).await?;
         let mut hsc0 = pdb.clone();
         let mut hsc1 = pdb.clone();
@@ -131,30 +155,42 @@ impl Redfish for Bmc {
             url = format!("Chassis/{}/Sensors", chassis_id);
             let (_status_code, sensors): (StatusCode, Sensors) = self.s.client.get(&url).await?;
             for sensor in sensors.members {
-                if chassis_id == "PDB_0".to_string() {
+                if chassis_id == *"PDB_0" {
                     // get amps and watts for power supply
                     if sensor.odata_id.contains("HSC_0_Pwr") {
-                        url = sensor.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
-                        let (_status_code, t): (StatusCode, Sensor) = self.s.client.get(&url).await?;
+                        url = sensor
+                            .odata_id
+                            .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+                        let (_status_code, t): (StatusCode, Sensor) =
+                            self.s.client.get(&url).await?;
                         hsc0.last_power_output_watts = t.reading;
                         hsc0.power_output_watts = t.reading;
                         hsc0.power_capacity_watts = t.reading_range_max;
                     }
                     if sensor.odata_id.contains("HSC_0_Cur") {
-                        url = sensor.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
-                        let (_status_code, t): (StatusCode, Sensor) = self.s.client.get(&url).await?;
+                        url = sensor
+                            .odata_id
+                            .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+                        let (_status_code, t): (StatusCode, Sensor) =
+                            self.s.client.get(&url).await?;
                         hsc0.power_output_amps = t.reading;
                     }
                     if sensor.odata_id.contains("HSC_1_Pwr") {
-                        url = sensor.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
-                        let (_status_code, t): (StatusCode, Sensor) = self.s.client.get(&url).await?;
+                        url = sensor
+                            .odata_id
+                            .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+                        let (_status_code, t): (StatusCode, Sensor) =
+                            self.s.client.get(&url).await?;
                         hsc1.last_power_output_watts = t.reading;
                         hsc1.power_output_watts = t.reading;
                         hsc1.power_capacity_watts = t.reading_range_max;
                     }
                     if sensor.odata_id.contains("HSC_1_Cur") {
-                        url = sensor.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
-                        let (_status_code, t): (StatusCode, Sensor) = self.s.client.get(&url).await?;
+                        url = sensor
+                            .odata_id
+                            .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+                        let (_status_code, t): (StatusCode, Sensor) =
+                            self.s.client.get(&url).await?;
                         hsc1.power_output_amps = t.reading;
                     }
                 }
@@ -162,7 +198,9 @@ impl Redfish for Bmc {
                 if !sensor.odata_id.contains("Volt") {
                     continue;
                 }
-                url = sensor.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+                url = sensor
+                    .odata_id
+                    .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
                 let (_status_code, t): (StatusCode, Sensor) = self.s.client.get(&url).await?;
                 let sensor: Voltages = Voltages::from(t);
                 voltages.push(sensor);
@@ -211,7 +249,8 @@ impl Redfish for Bmc {
             let (_status_code, chassis): (StatusCode, Chassis) = self.s.client.get(&url).await?;
             if chassis.thermal.is_some() {
                 url = format!("Chassis/{}/ThermalSubsystem/ThermalMetrics", chassis_id);
-                let (_status_code, temps): (StatusCode, TemperaturesOemNvidia) = self.s.client.get(&url).await?;
+                let (_status_code, temps): (StatusCode, TemperaturesOemNvidia) =
+                    self.s.client.get(&url).await?;
                 if let Some(temp) = temps.temperature_readings_celsius {
                     for t in temp {
                         let sensor: Temperature = Temperature::from(t);
@@ -220,23 +259,33 @@ impl Redfish for Bmc {
                 }
                 // currently the gb200 bianca board we have uses liquid cooling
                 // walk through leak detection sensors and add those
-                url = format!("Chassis/{}/ThermalSubsystem/LeakDetection/LeakDetectors", chassis_id);
-                let (_status_code, sensors): (StatusCode, Sensors) = self.s.client.get(&url).await?;
+                url = format!(
+                    "Chassis/{}/ThermalSubsystem/LeakDetection/LeakDetectors",
+                    chassis_id
+                );
+                let (_status_code, sensors): (StatusCode, Sensors) =
+                    self.s.client.get(&url).await?;
                 for sensor in sensors.members {
-                    url = sensor.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
-                    let (_status_code, l): (StatusCode, LeakDetector) = self.s.client.get(&url).await?;
+                    url = sensor
+                        .odata_id
+                        .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+                    let (_status_code, l): (StatusCode, LeakDetector) =
+                        self.s.client.get(&url).await?;
                     leak_detectors.push(l);
                 }
             }
             if chassis.sensors.is_some() {
                 // walk through Chassis/*/Sensors/*/*Temp*/
                 url = format!("Chassis/{}/Sensors", chassis_id);
-                let (_status_code, sensors): (StatusCode, Sensors) = self.s.client.get(&url).await?;
+                let (_status_code, sensors): (StatusCode, Sensors) =
+                    self.s.client.get(&url).await?;
                 for sensor in sensors.members {
                     if !sensor.odata_id.contains("Temp") {
                         continue;
                     }
-                    url = sensor.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+                    url = sensor
+                        .odata_id
+                        .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
                     let (_status_code, t): (StatusCode, Sensor) = self.s.client.get(&url).await?;
                     let sensor: Temperature = Temperature::from(t);
                     temperatures.push(sensor);
@@ -244,13 +293,17 @@ impl Redfish for Bmc {
             }
 
             // gb200 has fans under chassis sensors instead of thermal like other vendors, look for them in Chassis_0
-            if chassis_id == "Chassis_0".to_string() {
+            if chassis_id == *"Chassis_0" {
                 url = format!("Chassis/{}/Sensors", chassis_id);
-                let (_status_code, sensors): (StatusCode, Sensors) = self.s.client.get(&url).await?;
+                let (_status_code, sensors): (StatusCode, Sensors) =
+                    self.s.client.get(&url).await?;
                 for sensor in sensors.members {
                     if sensor.odata_id.contains("FAN") {
-                        url = sensor.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
-                        let (_status_code, fan): (StatusCode, Fan) = self.s.client.get(&url).await?;
+                        url = sensor
+                            .odata_id
+                            .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+                        let (_status_code, fan): (StatusCode, Fan) =
+                            self.s.client.get(&url).await?;
                         fans.push(fan);
                     }
                 }
@@ -279,30 +332,30 @@ impl Redfish for Bmc {
         self.s.get_drives_metrics().await
     }
 
-    async fn forge_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.disable_secure_boot().await?;
         self.set_boot_order_dpu_first(boot_interface_mac).await
     }
 
-    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let sb = self.get_secure_boot().await?;
         if sb.secure_boot_enable.unwrap_or(false) {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "SecureBoot".to_string(),
                 expected: "false".to_string(),
                 actual: "true".to_string(),
             });
         }
 
-        Ok(ForgeSetupStatus {
+        Ok(MachineSetupStatus {
             is_done: diffs.is_empty(),
             diffs,
         })
     }
 
-    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+    async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {
         use serde_json::Value::Number;
         // These are also the defaults
         let body = HashMap::from([
@@ -424,14 +477,14 @@ impl Redfish for Bmc {
                     if p.id.is_none()
                         || p.status.is_none()
                         || !p
-                        .status
-                        .as_ref()
-                        .unwrap()
-                        .state
-                        .as_ref()
-                        .unwrap()
-                        .to_lowercase()
-                        .contains("enabled")
+                            .status
+                            .as_ref()
+                            .unwrap()
+                            .state
+                            .as_ref()
+                            .unwrap()
+                            .to_lowercase()
+                            .contains("enabled")
                     {
                         continue;
                     }
@@ -598,11 +651,14 @@ impl Redfish for Bmc {
         ))
     }
 
-    async fn get_ports(&self, chassis_id: &str, network_adapter: &str) -> Result<Vec<String>, RedfishError> {
+    async fn get_ports(
+        &self,
+        chassis_id: &str,
+        network_adapter: &str,
+    ) -> Result<Vec<String>, RedfishError> {
         let url = format!(
             "Chassis/{}/NetworkAdapters/{}/Ports",
-            chassis_id,
-            network_adapter
+            chassis_id, network_adapter
         );
         self.s.get_members(&url).await
     }
@@ -693,10 +749,7 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
-    async fn set_boot_order_dpu_first(
-        &self,
-        address: Option<&str>,
-    ) -> Result<(), RedfishError> {
+    async fn set_boot_order_dpu_first(&self, address: Option<&str>) -> Result<(), RedfishError> {
         let mac_address = match address {
             Some(x) => x.replace(':', "").to_uppercase(),
             None => {
@@ -705,9 +758,14 @@ impl Redfish for Bmc {
                 ));
             }
         };
-        let boot_option_name = format!("{} (MAC:{})", BootOptionName::Http.to_string(), mac_address);
+        let boot_option_name =
+            format!("{} (MAC:{})", BootOptionName::Http.to_string(), mac_address);
         let boot_array = self
-            .get_boot_options_ids_with_first(BootOptionName::Http, BootOptionMatchField::DisplayName, Some(&boot_option_name))
+            .get_boot_options_ids_with_first(
+                BootOptionName::Http,
+                BootOptionMatchField::DisplayName,
+                Some(&boot_option_name),
+            )
             .await?;
         self.change_boot_order(boot_array).await
     }
@@ -803,7 +861,7 @@ impl Bmc {
         match_field: BootOptionMatchField,
         with_name_str: Option<&str>,
     ) -> Result<Vec<String>, RedfishError> {
-        let name_str = with_name_str.unwrap_or(&with_name.to_string());
+        let name_str = with_name_str.unwrap_or(with_name.to_string());
         let mut ordered = Vec::new(); // the final boot options
         let boot_options = self.s.get_system().await?.boot.boot_order;
         for member in boot_options {

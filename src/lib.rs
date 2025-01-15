@@ -1,3 +1,24 @@
+/*
+ * SPDX-License-Identifier: MIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
 use std::{collections::HashMap, fmt, path::Path, time::Duration};
 
 pub mod model;
@@ -147,15 +168,15 @@ pub trait Redfish: Send + Sync + 'static {
     /// - boot_interface_mac: MAC Address of the NIC you wish to boot from
     ///   If not given we look for a Mellanox Bluefield DPU and use that.
     ///   Not applicable to Supermicro and the DPU itself.
-    async fn forge_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError>;
+    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError>;
 
-    /// Is everything that forge_setup does already done?
-    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError>;
+    /// Is everything that machine_setup does already done?
+    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError>;
 
     /// Apply a standard BMC password policy. This varies a lot by vendor,
     /// but at a minimum we want passwords to never expire, because our BMCs are
     /// not actively used by humans.
-    async fn set_forge_password_policy(&self) -> Result<(), RedfishError>;
+    async fn set_machine_password_policy(&self) -> Result<(), RedfishError>;
 
     /// Lock the BIOS and BMC ready for tenant use. Disabled reverses the changes.
     async fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError>;
@@ -274,10 +295,19 @@ pub trait Redfish: Send + Sync + 'static {
     ) -> Result<NetworkAdapter, RedfishError>;
 
     // List all High Speed Ports of a given Chassis
-    async fn get_ports(&self, chassis_id: &str, network_adapter: &str) -> Result<Vec<String>, RedfishError>;
+    async fn get_ports(
+        &self,
+        chassis_id: &str,
+        network_adapter: &str,
+    ) -> Result<Vec<String>, RedfishError>;
 
     // Get High Speed Port details
-    async fn get_port(&self, chassis_id: &str, network_adapter: &str, id: &str) -> Result<NetworkPort, RedfishError>;
+    async fn get_port(
+        &self,
+        chassis_id: &str,
+        network_adapter: &str,
+        id: &str,
+    ) -> Result<NetworkPort, RedfishError>;
 
     // List all Ethernet Interfaces for the default `Manager`
     async fn get_manager_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError>;
@@ -474,12 +504,12 @@ impl Status {
 }
 
 #[derive(Debug)]
-pub struct ForgeSetupStatus {
+pub struct MachineSetupStatus {
     pub is_done: bool,
-    pub diffs: Vec<ForgeSetupDiff>,
+    pub diffs: Vec<MachineSetupDiff>,
 }
 
-impl fmt::Display for ForgeSetupStatus {
+impl fmt::Display for MachineSetupStatus {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         if self.is_done {
             write!(f, "OK")
@@ -499,13 +529,13 @@ impl fmt::Display for ForgeSetupStatus {
 }
 
 #[derive(Debug)]
-pub struct ForgeSetupDiff {
+pub struct MachineSetupDiff {
     pub key: String,
     pub expected: String,
     pub actual: String,
 }
 
-impl fmt::Display for ForgeSetupDiff {
+impl fmt::Display for MachineSetupDiff {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(
             f,

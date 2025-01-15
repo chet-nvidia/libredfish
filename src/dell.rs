@@ -1,3 +1,25 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * SPDX-License-Identifier: MIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
 use std::{collections::HashMap, path::Path, time::Duration};
 
 use reqwest::{header::HeaderMap, Method};
@@ -24,7 +46,7 @@ use crate::{
         BootOption, ComputerSystem, InvalidValueError, Manager, OnOff,
     },
     standard::RedfishStandard,
-    Boot, BootOptions, Collection, EnabledDisabled, ForgeSetupDiff, ForgeSetupStatus, JobState,
+    Boot, BootOptions, Collection, EnabledDisabled, MachineSetupDiff, MachineSetupStatus, JobState,
     ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource, RoleId, Status,
     StatusInternal, SystemPowerControl,
 };
@@ -154,7 +176,7 @@ impl Redfish for Bmc {
         self.s.get_base_mac_address().await
     }
 
-    async fn forge_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.delete_job_queue().await?;
 
         let apply_time = dell::SetSettingsApplyTime {
@@ -175,14 +197,14 @@ impl Redfish for Bmc {
         };
 
         // dell idrac requires applying all bios settings at once.
-        let forge_settings = self.forge_setup_attrs(&nic_slot);
-        let set_forge_attrs = dell::SetBiosForgeAttrs {
+        let machine_settings = self.machine_setup_attrs(&nic_slot);
+        let set_machine_attrs = dell::SetBiosAttrs {
             redfish_settings_apply_time: apply_time,
-            attributes: forge_settings,
+            attributes: machine_settings,
         };
 
         let url = format!("Systems/{}/Bios/Settings/", self.s.system_id());
-        match self.s.client.patch(&url, set_forge_attrs).await? {
+        match self.s.client.patch(&url, set_machine_attrs).await? {
             (_, Some(headers)) => {
                 let key = "location";
                 // return the job_id to the caller in the future
@@ -214,7 +236,7 @@ impl Redfish for Bmc {
             (_, None) => Err(RedfishError::NoHeader),
         }?;
 
-        self.forge_setup_oem().await?;
+        self.machine_setup_oem().await?;
         self.setup_bmc_remote_access().await?;
 
         if has_dpu {
@@ -226,12 +248,12 @@ impl Redfish for Bmc {
         }
     }
 
-    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let bios = self.s.bios_attributes().await?;
         let nic_slot = self.dpu_nic_slot(None).await?;
-        let mut expected_attrs = self.forge_setup_attrs(&nic_slot);
+        let mut expected_attrs = self.machine_setup_attrs(&nic_slot);
 
         expected_attrs.tpm2_hierarchy = dell::Tpm2HierarchySettings::Enabled;
 
@@ -252,7 +274,7 @@ impl Redfish for Bmc {
                         source: e,
                     })?;
                 if exp != act {
-                    diffs.push(ForgeSetupDiff {
+                    diffs.push(MachineSetupDiff {
                         key: key.to_string(),
                         expected: exp.to_string(),
                         actual: act.to_string(),
@@ -337,7 +359,7 @@ impl Redfish for Bmc {
                 });
             };
             if act != exp {
-                diffs.push(ForgeSetupDiff {
+                diffs.push(MachineSetupDiff {
                     key: key.to_string(),
                     expected: exp.to_string(),
                     actual: act.to_string(),
@@ -347,7 +369,7 @@ impl Redfish for Bmc {
 
         let bmc_remote_access = self.bmc_remote_access_status().await?;
         if !bmc_remote_access.is_fully_enabled() {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "bmc_remote_access".to_string(),
                 expected: "Enabled".to_string(),
                 actual: bmc_remote_access.status.to_string(),
@@ -356,14 +378,14 @@ impl Redfish for Bmc {
 
         let lockdown = self.lockdown_status().await?;
         if !lockdown.is_fully_enabled() {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "lockdown".to_string(),
                 expected: "Enabled".to_string(),
                 actual: lockdown.status.to_string(),
             });
         }
 
-        Ok(ForgeSetupStatus {
+        Ok(MachineSetupStatus {
             is_done: diffs.is_empty(),
             diffs,
         })
@@ -371,7 +393,7 @@ impl Redfish for Bmc {
 
     /// iDRAC does not suport changing password policy. They support IP blocking instead.
     /// https://github.com/dell/iDRAC-Redfish-Scripting/issues/295
-    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+    async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {
         // These are all password policy a Dell has, and they are all read only.
         // Redfish will reject attempts to modify them.
         // - AccountLockoutThreshold
@@ -716,7 +738,11 @@ impl Redfish for Bmc {
         self.s.get_base_network_adapter(system_id, id).await
     }
 
-    async fn get_ports(&self, chassis_id: &str, network_adapter: &str) -> Result<Vec<String>, RedfishError> {
+    async fn get_ports(
+        &self,
+        chassis_id: &str,
+        network_adapter: &str,
+    ) -> Result<Vec<String>, RedfishError> {
         self.s.get_ports(chassis_id, network_adapter).await
     }
 
@@ -821,7 +847,7 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
-    // forge_setup does this, but Dell requires all attributes to be sent at once so
+    // machine_setup does this, but Dell requires all attributes to be sent at once so
     // we do not support doing just this part, on a Dell.
     async fn set_boot_order_dpu_first(
         &self,
@@ -1289,7 +1315,7 @@ impl Bmc {
     }
 
     /// Extra Dell-specific attributes we need to set that are not BIOS attributes
-    async fn forge_setup_oem(&self) -> Result<(), RedfishError> {
+    async fn machine_setup_oem(&self) -> Result<(), RedfishError> {
         let manager_id = self.s.manager_id();
         let url = format!("Managers/{manager_id}/Oem/Dell/DellAttributes/{manager_id}");
 
@@ -1401,8 +1427,8 @@ impl Bmc {
         }
     }
 
-    fn forge_setup_attrs(&self, nic_slot: &str) -> dell::BiosForgeAttrs {
-        dell::BiosForgeAttrs {
+    fn machine_setup_attrs(&self, nic_slot: &str) -> dell::MachineBiosAttrs {
+        dell::MachineBiosAttrs {
             in_band_manageability_interface: EnabledDisabled::Disabled,
             uefi_variable_access: dell::UefiVariableAccessSettings::Controlled,
             serial_comm: dell::SerialCommSettings::OnConRedir,

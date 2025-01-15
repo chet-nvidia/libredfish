@@ -1,3 +1,25 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * SPDX-License-Identifier: MIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
 use reqwest::{
     header::{HeaderMap, HeaderName, IF_MATCH, IF_NONE_MATCH},
     Method, StatusCode,
@@ -12,7 +34,7 @@ use crate::{
     model::{
         account_service::ManagerAccount,
         boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
-        chassis::{Chassis, ForgeNetworkAdapter, NetworkAdapter},
+        chassis::{Chassis, MachineNetworkAdapter, NetworkAdapter},
         network_device_function::NetworkDeviceFunction,
         oem::nvidia_viking::*,
         oem::nvidia_viking::{BootDevices, BootDevices::Pxe},
@@ -34,7 +56,7 @@ use crate::{
     standard::RedfishStandard,
     Boot, BootOptions, Collection, EnabledDisabled,
     EnabledDisabled::{Disabled, Enabled},
-    ForgeSetupDiff, ForgeSetupStatus, JobState, ODataId, PCIeDevice, PCIeFunction, PowerState,
+    MachineSetupDiff, MachineSetupStatus, JobState, ODataId, PCIeDevice, PCIeFunction, PowerState,
     Redfish, RedfishError, Resource, RoleId, Status, StatusInternal, SystemPowerControl,
 };
 
@@ -150,19 +172,19 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
-    async fn forge_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.set_bios_attributes().await?;
         self.set_boot_order_dpu_first(boot_interface_mac).await
     }
 
-    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
         // Get the current values
         let bios = self.get_bios().await?;
 
         let sc = self.serial_console_status().await?;
         if !sc.is_fully_enabled() {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "serial_console".to_string(),
                 expected: "Enabled".to_string(),
                 actual: sc.status.to_string(),
@@ -171,7 +193,7 @@ impl Redfish for Bmc {
 
         let virt = self.get_virt_enabled().await?;
         if !virt.is_enabled() {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "virt".to_string(),
                 expected: "Enabled".to_string(),
                 actual: virt.to_string(),
@@ -186,7 +208,7 @@ impl Redfish for Bmc {
         ];
         for (name, current_val, recommended_val) in needed {
             if let Some(current_val) = current_val {
-                diffs.push(ForgeSetupDiff {
+                diffs.push(MachineSetupDiff {
                     key: name.to_string(),
                     expected: recommended_val.to_string(),
                     actual: current_val.to_string(),
@@ -198,7 +220,7 @@ impl Redfish for Bmc {
         // see get_boot_options_ids_with_first
         let boot_first = self.s.get_first_boot_option().await?;
         if boot_first.alias != Some(Pxe.to_string()) {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "boot_first".to_string(),
                 expected: Pxe.to_string(),
                 actual: format!("{:?}", boot_first.alias.as_deref().unwrap_or("_missing_")),
@@ -207,20 +229,20 @@ impl Redfish for Bmc {
 
         let lockdown = self.lockdown_status().await?;
         if !lockdown.is_fully_enabled() {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "lockdown".to_string(),
                 expected: "Enabled".to_string(),
                 actual: lockdown.status.to_string(),
             });
         }
 
-        Ok(ForgeSetupStatus {
+        Ok(MachineSetupStatus {
             is_done: diffs.is_empty(),
             diffs,
         })
     }
 
-    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+    async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {
         use serde_json::Value;
         // TODO: these values are wrong.
         // Setting to (0,0,0,false,0) causes account lockout. So set them to less harmful values
@@ -574,7 +596,11 @@ impl Redfish for Bmc {
         self.s.get_base_network_adapter(system_id, id).await
     }
 
-    async fn get_ports(&self, chassis_id: &str, network_adapter: &str) -> Result<Vec<String>, RedfishError> {
+    async fn get_ports(
+        &self,
+        chassis_id: &str,
+        network_adapter: &str,
+    ) -> Result<Vec<String>, RedfishError> {
         self.s.get_ports(chassis_id, network_adapter).await
     }
 
@@ -1158,8 +1184,8 @@ impl Bmc {
     async fn get_all_network_adapters(
         &self,
         chassis_id: ODataId,
-    ) -> Result<Vec<ForgeNetworkAdapter>, RedfishError> {
-        let mut adapters: Vec<ForgeNetworkAdapter> = Vec::new();
+    ) -> Result<Vec<MachineNetworkAdapter>, RedfishError> {
+        let mut adapters: Vec<MachineNetworkAdapter> = Vec::new();
 
         let odgx: Chassis = self
             .s
@@ -1238,7 +1264,7 @@ impl Bmc {
                     Some(x) => x.mac_address,
                     None => None,
                 };
-                adapters.push(ForgeNetworkAdapter {
+                adapters.push(MachineNetworkAdapter {
                     is_dpu: pcie_func.is_dpu(),
                     mac_address,
                     network_device_function: nw_dev_func,
@@ -1299,7 +1325,7 @@ impl Bmc {
         Ok(())
     }
     ///
-    /// Returns current BIOS attributes that are used/modified by forge
+    /// Returns current BIOS attributes that are used/modified
     ///
     async fn get_bios(&self) -> Result<Bios, RedfishError> {
         let url = &format!("Systems/{}/Bios", self.s.system_id());

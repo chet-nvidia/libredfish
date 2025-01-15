@@ -19,7 +19,7 @@ use crate::{
     standard::RedfishStandard,
     Collection, NetworkDeviceFunction, ODataId, Redfish, RedfishError, Resource,
 };
-use crate::{ForgeSetupDiff, ForgeSetupStatus, JobState, RoleId};
+use crate::{MachineSetupDiff, MachineSetupStatus, JobState, RoleId};
 
 const UEFI_PASSWORD_NAME: &str = "AdminPassword";
 
@@ -74,7 +74,7 @@ impl Redfish for Bmc {
         self.s.change_password(user, new).await
     }
 
-    /// Note that GH200 account_ids are not numbers but usernames: "root", "forge_admin", etc
+    /// Note that GH200 account_ids are not numbers but usernames: "root", "admin", etc
     async fn change_password_by_id(
         &self,
         account_id: &str,
@@ -152,30 +152,30 @@ impl Redfish for Bmc {
         self.s.get_drives_metrics().await
     }
 
-    async fn forge_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.disable_secure_boot().await?;
         self.boot_once(UefiHttp).await
     }
 
-    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let sb = self.get_secure_boot().await?;
         if sb.secure_boot_enable.unwrap_or(false) {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "SecureBoot".to_string(),
                 expected: "false".to_string(),
                 actual: "true".to_string(),
             });
         }
 
-        Ok(ForgeSetupStatus {
+        Ok(MachineSetupStatus {
             is_done: diffs.is_empty(),
             diffs,
         })
     }
 
-    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+    async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {
         use serde_json::Value::Number;
         // These are also the defaults
         let body = HashMap::from([
@@ -434,7 +434,11 @@ impl Redfish for Bmc {
         ))
     }
 
-    async fn get_ports(&self, _chassis_id: &str, _network_adapter: &str) -> Result<Vec<String>, RedfishError> {
+    async fn get_ports(
+        &self,
+        _chassis_id: &str,
+        _network_adapter: &str,
+    ) -> Result<Vec<String>, RedfishError> {
         Err(RedfishError::NotSupported(
             "GH200 doesn't have NetworkAdapters tree".to_string(),
         ))

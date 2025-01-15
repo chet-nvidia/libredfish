@@ -1,3 +1,25 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * SPDX-License-Identifier: MIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
 use std::{collections::HashMap, path::Path, time::Duration};
 
 use reqwest::StatusCode;
@@ -22,7 +44,7 @@ use crate::{
         BootOption, ComputerSystem, EnableDisable, InvalidValueError, Manager,
     },
     standard::RedfishStandard,
-    Boot, BootOptions, Collection, EnabledDisabled, ForgeSetupDiff, ForgeSetupStatus, JobState,
+    Boot, BootOptions, Collection, EnabledDisabled, MachineSetupDiff, MachineSetupStatus, JobState,
     ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource, RoleId, Status,
     StatusInternal, SystemPowerControl,
 };
@@ -123,10 +145,10 @@ impl Redfish for Bmc {
     /// Note that you can't use this for initial setup unless you reboot and run it twice.
     /// `boot_first` won't find the Mellanox HTTP device. `uefi_nic_boot_attrs` enables it,
     /// but it won't show until after reboot so that step will fail on first time through.
-    async fn forge_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
 
-        let bios_attrs = self.forge_setup_attrs().await?;
+        let bios_attrs = self.machine_setup_attrs().await?;
         let mut attrs = HashMap::new();
         attrs.extend(bios_attrs);
         let body = HashMap::from([("Attributes", attrs)]);
@@ -140,12 +162,12 @@ impl Redfish for Bmc {
         self.boot_first(Boot::Pxe).await
     }
 
-    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let sc = self.serial_console_status().await?;
         if !sc.is_fully_enabled() {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "serial_console".to_string(),
                 expected: "Enabled".to_string(),
                 actual: sc.status.to_string(),
@@ -153,10 +175,10 @@ impl Redfish for Bmc {
         }
 
         let bios = self.s.bios_attributes().await?;
-        let expected_attrs = self.forge_setup_attrs().await?;
+        let expected_attrs = self.machine_setup_attrs().await?;
         for (key, expected) in expected_attrs {
             let Some(actual) = bios.get(&key) else {
-                diffs.push(ForgeSetupDiff {
+                diffs.push(MachineSetupDiff {
                     key: key.to_string(),
                     expected: expected.to_string(),
                     actual: "_missing_".to_string(),
@@ -167,7 +189,7 @@ impl Redfish for Bmc {
             let act = actual.to_string();
             let exp = expected.to_string();
             if act != exp {
-                diffs.push(ForgeSetupDiff {
+                diffs.push(MachineSetupDiff {
                     key: key.to_string(),
                     expected: exp,
                     actual: act,
@@ -181,7 +203,7 @@ impl Redfish for Bmc {
             Ok(fbo) => {
                 let actual = fbo.fixed_boot_order.first();
                 if actual.map(|s| s.as_str()) != Some(NETWORK) {
-                    diffs.push(ForgeSetupDiff {
+                    diffs.push(MachineSetupDiff {
                         key: "boot_order".to_string(),
                         expected: NETWORK.to_string(),
                         actual: format!("{actual:?}"),
@@ -203,7 +225,7 @@ impl Redfish for Bmc {
             .replace(":", "")
             .contains(MELLANOX_UEFI_HTTP4)
         {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "boot_first".to_string(),
                 expected: MELLANOX_UEFI_HTTP4.to_string(),
                 actual: boot_first.display_name,
@@ -212,20 +234,20 @@ impl Redfish for Bmc {
 
         let lockdown = self.lockdown_status().await?;
         if !lockdown.is_fully_enabled() {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "lockdown".to_string(),
                 expected: "Enabled".to_string(),
                 actual: lockdown.status.to_string(),
             });
         }
 
-        Ok(ForgeSetupStatus {
+        Ok(MachineSetupStatus {
             is_done: diffs.is_empty(),
             diffs,
         })
     }
 
-    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+    async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {
         use serde_json::Value::Number;
         let body = HashMap::from([
             ("AccountLockoutThreshold", Number(0.into())),
@@ -512,7 +534,11 @@ impl Redfish for Bmc {
         self.s.get_base_network_adapter(system_id, id).await
     }
 
-    async fn get_ports(&self, chassis_id: &str, network_adapter: &str) -> Result<Vec<String>, RedfishError> {
+    async fn get_ports(
+        &self,
+        chassis_id: &str,
+        network_adapter: &str,
+    ) -> Result<Vec<String>, RedfishError> {
         self.s.get_ports(chassis_id, network_adapter).await
     }
 
@@ -649,7 +675,7 @@ impl Redfish for Bmc {
 }
 
 impl Bmc {
-    async fn forge_setup_attrs(&self) -> Result<Vec<(String, serde_json::Value)>, RedfishError> {
+    async fn machine_setup_attrs(&self) -> Result<Vec<(String, serde_json::Value)>, RedfishError> {
         let mut bios_keys = self.bios_attributes_name_map().await?;
         let mut bios_attrs: Vec<(String, serde_json::Value)> = vec![];
 

@@ -1,3 +1,25 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * SPDX-License-Identifier: MIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
 use std::{collections::HashMap, path::Path, time::Duration};
 
 use reqwest::StatusCode;
@@ -24,7 +46,7 @@ use crate::{
     standard::RedfishStandard,
     Collection, NetworkDeviceFunction, ODataId, Redfish, RedfishError, Resource,
 };
-use crate::{ForgeSetupDiff, ForgeSetupStatus, JobState, RoleId};
+use crate::{MachineSetupDiff, MachineSetupStatus, JobState, RoleId};
 
 pub struct Bmc {
     s: RedfishStandard,
@@ -70,7 +92,7 @@ impl Redfish for Bmc {
         self.s.change_password(user, new).await
     }
 
-    /// Note that DPU account_ids are not numbers but usernames: "root", "forge_admin", etc
+    /// Note that DPU account_ids are not numbers but usernames: "root", "admin", etc
     async fn change_password_by_id(
         &self,
         account_id: &str,
@@ -144,19 +166,19 @@ impl Redfish for Bmc {
         self.s.get_drives_metrics().await
     }
 
-    async fn forge_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.disable_secure_boot().await?;
         self.set_host_privilege_level(Restricted).await?;
         self.set_internal_cpu_model(Embedded).await?;
         self.boot_once(UefiHttp).await
     }
 
-    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let sb = self.get_secure_boot().await?;
         if sb.secure_boot_enable.unwrap_or(false) {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "SecureBoot".to_string(),
                 expected: "false".to_string(),
                 actual: "true".to_string(),
@@ -182,7 +204,7 @@ impl Redfish for Bmc {
         })?;
         let expected = HostPrivilegeLevel::Restricted;
         if actual != expected {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: key.to_string(),
                 actual: actual.to_string(),
                 expected: expected.to_string(),
@@ -206,20 +228,20 @@ impl Redfish for Bmc {
             })?;
         let expected = InternalCPUModel::Embedded;
         if actual != expected {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: key.to_string(),
                 actual: actual.to_string(),
                 expected: expected.to_string(),
             });
         }
 
-        Ok(ForgeSetupStatus {
+        Ok(MachineSetupStatus {
             is_done: diffs.is_empty(),
             diffs,
         })
     }
 
-    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+    async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {
         use serde_json::Value::Number;
         let body = HashMap::from([
             ("AccountLockoutThreshold", Number(0.into())),
@@ -459,12 +481,15 @@ impl Redfish for Bmc {
         self.s.get_system_ethernet_interface(id).await
     }
 
-    async fn get_ports(&self, chassis_id: &str, network_adapter: &str) -> Result<Vec<String>, RedfishError> {
+    async fn get_ports(
+        &self,
+        chassis_id: &str,
+        network_adapter: &str,
+    ) -> Result<Vec<String>, RedfishError> {
         // http://redfish.dmtf.org/schemas/v1/NetworkPortCollection.json
         let url = format!(
             "Chassis/{}/NetworkAdapters/{}/Ports",
-            chassis_id,
-            network_adapter
+            chassis_id, network_adapter
         );
         self.s.get_members(&url).await
     }

@@ -1,3 +1,25 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * SPDX-License-Identifier: MIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
 use std::{
     collections::{HashMap, HashSet},
     default,
@@ -32,7 +54,7 @@ use crate::{
 };
 use crate::{
     model::chassis::{Chassis, NetworkAdapter},
-    ForgeSetupStatus,
+    MachineSetupStatus,
 };
 use crate::{BootOptions, Collection, PCIeDevice, RedfishError, Resource};
 
@@ -188,15 +210,15 @@ impl Redfish for RedfishStandard {
         self.clear_pending_with_url(&url).await
     }
 
-    async fn forge_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
-        Err(RedfishError::NotSupported("forge_setup".to_string()))
+    async fn machine_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+        Err(RedfishError::NotSupported("machine_setup".to_string()))
     }
 
-    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
-        Err(RedfishError::NotSupported("forge_setup_status".to_string()))
+    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
+        Err(RedfishError::NotSupported("machine_setup_status".to_string()))
     }
 
-    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+    async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {
         use serde_json::Value::Number;
         let body = HashMap::from([
             ("AccountLockoutThreshold", Number(0.into())),
@@ -479,11 +501,20 @@ impl Redfish for RedfishStandard {
         ))
     }
 
-    async fn get_ports(&self, _chassis_id: &str, _network_adapter: &str) -> Result<Vec<String>, RedfishError> {
+    async fn get_ports(
+        &self,
+        _chassis_id: &str,
+        _network_adapter: &str,
+    ) -> Result<Vec<String>, RedfishError> {
         Err(RedfishError::NotSupported("get_ports".to_string()))
     }
 
-    async fn get_port(&self, _chassis_id: &str, _network_adapter: &str, _id: &str) -> Result<NetworkPort, RedfishError> {
+    async fn get_port(
+        &self,
+        _chassis_id: &str,
+        _network_adapter: &str,
+        _id: &str,
+    ) -> Result<NetworkPort, RedfishError> {
         Err(RedfishError::NotSupported("get_port".to_string()))
     }
 
@@ -513,9 +544,7 @@ impl Redfish for RedfishStandard {
         let v = systems
             .members
             .into_iter()
-            .filter_map(|d| {
-                d.odata_id_get().map(|id| id.to_string()).ok()
-            })
+            .filter_map(|d| d.odata_id_get().map(|id| id.to_string()).ok())
             .collect();
 
         Ok(v)
@@ -731,8 +760,12 @@ impl RedfishStandard {
             RedfishVendor::Hpe => Ok(Box::new(crate::hpe::Bmc::new(self.clone())?)),
             RedfishVendor::Lenovo => Ok(Box::new(crate::lenovo::Bmc::new(self.clone())?)),
             RedfishVendor::NvidiaDpu => Ok(Box::new(crate::nvidia_dpu::Bmc::new(self.clone())?)),
-            RedfishVendor::NvidiaGH200 => Ok(Box::new(crate::nvidia_gh200::Bmc::new(self.clone())?)),
-            RedfishVendor::NvidiaGBx00 => Ok(Box::new(crate::nvidia_gbx00::Bmc::new(self.clone())?)),
+            RedfishVendor::NvidiaGH200 => {
+                Ok(Box::new(crate::nvidia_gh200::Bmc::new(self.clone())?))
+            }
+            RedfishVendor::NvidiaGBx00 => {
+                Ok(Box::new(crate::nvidia_gbx00::Bmc::new(self.clone())?))
+            }
             RedfishVendor::Supermicro => Ok(Box::new(crate::supermicro::Bmc::new(self.clone())?)),
             _ => Ok(Box::new(self.clone())),
         }
@@ -991,7 +1024,7 @@ impl RedfishStandard {
                     .odata_id
                     .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
                 let storage: Storage = self.client.get(&url).await?.1;
-                if !storage.drives.is_none() {
+                if storage.drives.is_some() {
                     for drive in storage.drives.unwrap() {
                         let url = drive.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
                         let drive: Drives = self.client.get(&url).await?.1;

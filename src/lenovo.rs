@@ -1,3 +1,25 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+ * SPDX-License-Identifier: MIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
 use std::{collections::HashMap, path::Path, time::Duration};
 
 use reqwest::header::HeaderMap;
@@ -31,7 +53,7 @@ use crate::{
     },
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
-    Boot, BootOptions, Collection, EnabledDisabled, ForgeSetupDiff, ForgeSetupStatus, ODataId,
+    Boot, BootOptions, Collection, EnabledDisabled, MachineSetupDiff, MachineSetupStatus, ODataId,
     PCIeDevice, PowerState, Redfish, RedfishError, Resource, Status, StatusInternal,
     SystemPowerControl,
 };
@@ -124,7 +146,7 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
-    async fn forge_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
         self.clear_tpm().await?;
         self.boot_first(Boot::Pxe).await?;
@@ -137,12 +159,12 @@ impl Redfish for Bmc {
         Ok(())
     }
 
-    async fn forge_setup_status(&self) -> Result<ForgeSetupStatus, RedfishError> {
+    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let sc = self.serial_console_status().await?;
         if !sc.is_fully_enabled() {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "serial_console".to_string(),
                 expected: "Enabled".to_string(),
                 actual: sc.status.to_string(),
@@ -154,7 +176,7 @@ impl Redfish for Bmc {
         let boot_first = self.s.get_first_boot_option().await?;
         if boot_first.name != "Network" {
             // Boot::Pxe maps to lenovo::BootOptionName::Network
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "boot_first".to_string(),
                 expected: lenovo::BootOptionName::Network.to_string(),
                 actual: boot_first.name.to_string(),
@@ -163,7 +185,7 @@ impl Redfish for Bmc {
 
         let virt = self.get_virt_enabled().await?;
         if virt != EnabledDisabled::Enabled {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "Processors_IntelVirtualizationTechnology".to_string(),
                 expected: EnabledDisabled::Enabled.to_string(),
                 actual: virt.to_string(),
@@ -173,7 +195,7 @@ impl Redfish for Bmc {
         let bios = self.s.bios_attributes().await?;
         for (key, expected) in self.uefi_boot_only_attributes() {
             let Some(actual) = bios.get(key) else {
-                diffs.push(ForgeSetupDiff {
+                diffs.push(MachineSetupDiff {
                     key: key.to_string(),
                     expected: expected.to_string(),
                     actual: "_missing_".to_string(),
@@ -181,7 +203,7 @@ impl Redfish for Bmc {
                 continue;
             };
             if actual.as_str().unwrap_or("_wrong_type_") != expected {
-                diffs.push(ForgeSetupDiff {
+                diffs.push(MachineSetupDiff {
                     key: key.to_string(),
                     expected: expected.to_string(),
                     actual: actual.to_string(),
@@ -191,21 +213,21 @@ impl Redfish for Bmc {
 
         let lockdown = self.lockdown_status().await?;
         if !lockdown.is_fully_enabled() {
-            diffs.push(ForgeSetupDiff {
+            diffs.push(MachineSetupDiff {
                 key: "lockdown".to_string(),
                 expected: "Enabled".to_string(),
                 actual: lockdown.status.to_string(),
             });
         }
 
-        Ok(ForgeSetupStatus {
+        Ok(MachineSetupStatus {
             is_done: diffs.is_empty(),
             diffs,
         })
     }
 
     /// Redfish equivalent of `accseccfg -pew 0 -pe 0 -chgnew off -rc 0 -ci 0 -lf 0`
-    async fn set_forge_password_policy(&self) -> Result<(), RedfishError> {
+    async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {
         use serde_json::Value;
         let mut body = HashMap::from([
             (
@@ -609,7 +631,11 @@ impl Redfish for Bmc {
         self.s.get_base_network_adapter(system_id, id).await
     }
 
-    async fn get_ports(&self, chassis_id: &str, network_adapter: &str) -> Result<Vec<String>, RedfishError> {
+    async fn get_ports(
+        &self,
+        chassis_id: &str,
+        network_adapter: &str,
+    ) -> Result<Vec<String>, RedfishError> {
         self.s.get_ports(chassis_id, network_adapter).await
     }
 
@@ -904,7 +930,7 @@ impl Bmc {
             v => {
                 return Err(RedfishError::InvalidValue {
                     url: format!("Managers/{}", self.s.manager_id()),
-                    field: format!("KCS"),
+                    field: "KCS".to_string(),
                     err: InvalidValueError(format!(
                         "expected bool or string as KCS enabled value type; got {v}"
                     )),

@@ -1,6 +1,27 @@
-use serde::{Deserialize, Serialize};
-use crate::model::sensor::Sensor;
+/*
+ * SPDX-License-Identifier: MIT
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
 use super::{LinkType, ODataId, ODataLinks, ResourceStatus, StatusVec};
+use crate::model::sensor::Sensor;
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
@@ -106,7 +127,7 @@ pub struct PowerSupply {
     pub name: String,
     pub input_ranges: Option<Vec<InputRanges>>, // only present sometimes on Supermicro
     pub power_output_amps: Option<f64>,
-    pub power_capacity_watts: Option<f64>,      // present but 'null' on Supermicro
+    pub power_capacity_watts: Option<f64>, // present but 'null' on Supermicro
     pub power_input_watts: Option<f64>,
     pub power_output_watts: Option<f64>,
     pub power_supply_type: Option<String>,
@@ -140,10 +161,7 @@ pub struct Voltages {
 
 impl From<Sensor> for Voltages {
     fn from(sensor: Sensor) -> Self {
-        let physical_context = match sensor.physical_context {
-            Some(physical_context) => Some(physical_context.to_string()),
-            None => None,
-        };
+        let physical_context = sensor.physical_context.map(|physical_context| physical_context.to_string());
         Self {
             name: sensor.name.unwrap_or_default(),
             physical_context,
