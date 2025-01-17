@@ -169,6 +169,7 @@ impl Redfish for Bmc {
     async fn machine_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.disable_secure_boot().await?;
         self.set_host_privilege_level(Restricted).await?;
+        self.set_host_rshim(false).await?;
         self.set_internal_cpu_model(Embedded).await?;
         self.boot_once(UefiHttp).await
     }
@@ -696,6 +697,18 @@ impl Bmc {
         self.patch_bios_setting(data)
             .await
             .map(|_status_code| Ok(()))?
+    }
+
+    async fn set_host_rshim(&self, enabled: bool) -> Result<(), RedfishError> {
+        let value = if enabled { "Enabled" } else { "Disabled" };
+
+        let data = HashMap::from([("HostRshim", value)]);
+        let url = format!(
+            "Systems/{}/Oem/Nvidia/Actions/HostRshim.Set",
+            self.s.system_id()
+        );
+        self.s.client.post(&url, data).await?;
+        Ok(())
     }
 
     async fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError> {
