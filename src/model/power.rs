@@ -57,10 +57,10 @@ pub struct PowerLimit {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub struct PowerMetrics {
-    pub average_consumed_watts: i64, // we need to track this metric
-    pub interval_in_min: i64,
-    pub max_consumed_watts: i64,
-    pub min_consumed_watts: i64,
+    pub average_consumed_watts: Option<i64>, // we need to track this metric
+    pub interval_in_min: Option<i64>,
+    pub max_consumed_watts: Option<i64>,
+    pub min_consumed_watts: Option<i64>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

@@ -391,11 +391,11 @@ pub struct LogicalDrives {
 pub struct StorageSubsystem {
     #[serde(flatten)]
     pub odata: ODataLinks,
-    pub description: String,
+    pub description: Option<String>,
     pub members: Option<Vec<ODataId>>,
     #[serde(rename = "Members@odata.count")]
-    pub members_odata_count: i64,
-    pub name: String,
+    pub members_odata_count: Option<i64>,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -403,8 +403,8 @@ pub struct StorageSubsystem {
 pub struct Storage {
     #[serde(flatten)]
     pub odata: ODataLinks,
-    pub id: String,
-    pub name: String,
+    pub id: Option<String>,
+    pub name: Option<String>,
     pub description: Option<String>,
     pub drives: Option<Vec<ODataId>>,
     pub volumes: Option<ODataId>,
