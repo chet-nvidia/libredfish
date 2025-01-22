@@ -45,7 +45,7 @@ use crate::{
     standard::RedfishStandard,
     Boot, BootOptions, Collection,
     EnabledDisabled::{self, Disabled, Enabled},
-    MachineSetupStatus, JobState, ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource,
+    JobState, MachineSetupStatus, ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource,
     RoleId, Status, StatusInternal, SystemPowerControl,
 };
 
@@ -149,7 +149,9 @@ impl Redfish for Bmc {
     }
 
     async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
-        Err(RedfishError::NotSupported("machine_setup_status".to_string()))
+        Err(RedfishError::NotSupported(
+            "machine_setup_status".to_string(),
+        ))
     }
 
     async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {

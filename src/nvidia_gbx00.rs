@@ -44,7 +44,7 @@ use crate::{
     standard::RedfishStandard,
     Collection, NetworkDeviceFunction, ODataId, PCIeDevice, Redfish, RedfishError, Resource,
 };
-use crate::{MachineSetupDiff, MachineSetupStatus, JobState, RoleId};
+use crate::{JobState, MachineSetupDiff, MachineSetupStatus, RoleId};
 
 const UEFI_PASSWORD_NAME: &str = "AdminPassword";
 

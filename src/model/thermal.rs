@@ -146,7 +146,9 @@ impl From<TemperatureOemNvidia> for Temperature {
 
 impl From<Sensor> for Temperature {
     fn from(sensor: Sensor) -> Self {
-        let physical_context = sensor.physical_context.map(|physical_context| physical_context.to_string());
+        let physical_context = sensor
+            .physical_context
+            .map(|physical_context| physical_context.to_string());
         Self {
             name: sensor.name.unwrap_or("".to_string()),
             sensor_number: None,

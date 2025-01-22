@@ -161,7 +161,9 @@ pub struct Voltages {
 
 impl From<Sensor> for Voltages {
     fn from(sensor: Sensor) -> Self {
-        let physical_context = sensor.physical_context.map(|physical_context| physical_context.to_string());
+        let physical_context = sensor
+            .physical_context
+            .map(|physical_context| physical_context.to_string());
         Self {
             name: sensor.name.unwrap_or_default(),
             physical_context,

@@ -20,3 +20,9 @@ pub struct SystemExtensions {
     pub dell: Option<dell::SystemWrapper>,
     pub lenovo: Option<lenovo::System>,
 }
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct ChassisExtensions {
+    pub nvidia: Option<nvidia_dpu::Chassis>,
+}

@@ -46,7 +46,7 @@ use crate::{
     standard::RedfishStandard,
     Collection, NetworkDeviceFunction, ODataId, Redfish, RedfishError, Resource,
 };
-use crate::{MachineSetupDiff, MachineSetupStatus, JobState, RoleId};
+use crate::{JobState, MachineSetupDiff, MachineSetupStatus, RoleId};
 
 pub struct Bmc {
     s: RedfishStandard,

@@ -46,7 +46,7 @@ use crate::{
         BootOption, ComputerSystem, InvalidValueError, Manager, OnOff,
     },
     standard::RedfishStandard,
-    Boot, BootOptions, Collection, EnabledDisabled, MachineSetupDiff, MachineSetupStatus, JobState,
+    Boot, BootOptions, Collection, EnabledDisabled, JobState, MachineSetupDiff, MachineSetupStatus,
     ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource, RoleId, Status,
     StatusInternal, SystemPowerControl,
 };

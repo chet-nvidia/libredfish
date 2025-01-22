@@ -24,6 +24,7 @@ use serde::{Deserialize, Deserializer, Serialize};
 use serde_json::Value;
 use tracing::debug;
 
+use super::oem::ChassisExtensions;
 use super::resource::OData;
 use super::{ODataId, ODataLinks, OnOff, PCIeFunction, ResourceStatus};
 use crate::NetworkDeviceFunction;
@@ -124,6 +125,7 @@ pub struct Chassis {
     pub thermal: Option<ODataId>,
     pub thermal_subsystem: Option<ODataId>,
     pub trusted_components: Option<ODataId>,
+    pub oem: Option<ChassisExtensions>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

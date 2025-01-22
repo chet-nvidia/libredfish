@@ -56,7 +56,7 @@ use crate::{
     standard::RedfishStandard,
     Boot, BootOptions, Collection, EnabledDisabled,
     EnabledDisabled::{Disabled, Enabled},
-    MachineSetupDiff, MachineSetupStatus, JobState, ODataId, PCIeDevice, PCIeFunction, PowerState,
+    JobState, MachineSetupDiff, MachineSetupStatus, ODataId, PCIeDevice, PCIeFunction, PowerState,
     Redfish, RedfishError, Resource, RoleId, Status, StatusInternal, SystemPowerControl,
 };
 
