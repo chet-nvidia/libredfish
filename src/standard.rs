@@ -546,7 +546,14 @@ impl Redfish for RedfishStandard {
         let v = systems
             .members
             .into_iter()
-            .filter_map(|d| d.odata_id_get().map(|id| id.to_string()).ok())
+            .map(|d| {
+                d.odata_id
+                    .trim_matches('/')
+                    .split('/')
+                    .last()
+                    .unwrap()
+                    .to_string()
+            })
             .collect();
 
         Ok(v)
