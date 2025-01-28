@@ -699,7 +699,18 @@ impl Bmc {
             .map(|_status_code| Ok(()))?
     }
 
+    async fn is_bf2(&self) -> Result<bool, RedfishError> {
+        let chassis = self.get_chassis("Card1").await?;
+        Ok(chassis
+            .model
+            .is_none_or(|m| m.as_str().to_lowercase().as_str().contains("bluefield 2")))
+    }
+
     async fn set_host_rshim(&self, enabled: bool) -> Result<(), RedfishError> {
+        if self.is_bf2().await? {
+            return Ok(());
+        }
+
         let value = if enabled { "Enabled" } else { "Disabled" };
 
         let data = HashMap::from([("HostRshim", value)]);
