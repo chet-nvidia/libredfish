@@ -111,7 +111,19 @@ impl Redfish for Bmc {
     }
 
     async fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError> {
-        self.s.power(action).await
+        let power_action = if action == SystemPowerControl::ForceRestart
+            && self.is_lenovo_sr_675_v3_ovx().await?
+        {
+            // We observed that issuing a ForceRestart to SR 675 V3 OVX machines (adding the log at a high trace level as we are initially introducing it)
+            tracing::info!(
+                "over-riding force restart issued against an SR 675 V3 OVX with a graceful restart"
+            );
+            SystemPowerControl::GracefulRestart
+        } else {
+            action
+        };
+
+        self.s.power(power_action).await
     }
 
     async fn bmc_reset(&self) -> Result<(), RedfishError> {
@@ -1373,6 +1385,22 @@ impl Bmc {
                 .unwrap_or_default()
                 .trim_matches('"')
                 .to_string()),
+        }
+    }
+
+    async fn is_lenovo_sr_675_v3_ovx(&self) -> Result<bool, RedfishError> {
+        let system = self.get_system().await?;
+        match system.sku {
+            /*  7D9RCTOLWW is the SKU for Lenovo ThinkSystem SR675 V3 OVX
+                Taken from sample redfish response against an SR675 in AZ51:
+                curl -k -D - --user root:'password' -H 'Content-Type: application/json' -X GET https://10.91.48.100:443/redfish/v1/Systems/1
+                {..."SKU":"7D9RCTOLWW","PowerState":"On"...}
+            */
+            Some(sku) => Ok(sku == "7D9RCTOLWW"),
+            None => Err(RedfishError::MissingKey {
+                key: "sku".to_string(),
+                url: "Systems".to_string(),
+            }),
         }
     }
 }
