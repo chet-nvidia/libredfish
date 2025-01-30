@@ -243,16 +243,12 @@ impl Redfish for Bmc {
     }
 
     async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {
-        use serde_json::Value::Number;
-        let body = HashMap::from([
-            ("AccountLockoutThreshold", Number(0.into())),
-            ("AccountLockoutDuration", Number(0.into())),
-        ]);
-        self.s
-            .client
-            .patch("AccountService", body)
-            .await
-            .map(|_status_code| ())
+        /*
+        We used to try to PATCH AccountLockoutThreshold and AccountLockoutDuration
+        But, I tried this against multiple DPUs, both BF2 and BF3. When I issued the same
+        request, the DPU's BMC returns an error indicating that these properties are read only.
+        */
+        Ok(())
     }
 
     async fn lockdown(&self, target: crate::EnabledDisabled) -> Result<(), RedfishError> {
