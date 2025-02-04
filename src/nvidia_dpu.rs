@@ -169,7 +169,11 @@ impl Redfish for Bmc {
     async fn machine_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
         self.disable_secure_boot().await?;
         self.set_host_privilege_level(Restricted).await?;
-        self.set_host_rshim(false).await?;
+        // we have found that only newer BMC fws support this action.
+        // Until we re-enable DPU BMC firmware updates in preingestion,
+        // ignore an error from trying to disable host rshim against
+        // BF3s that have a BMC that is too old.
+        self.set_host_rshim(false, true).await?;
         self.set_internal_cpu_model(Embedded).await?;
         self.boot_once(UefiHttp).await
     }
@@ -702,7 +706,11 @@ impl Bmc {
             .is_none_or(|m| m.as_str().to_lowercase().as_str().contains("bluefield 2")))
     }
 
-    async fn set_host_rshim(&self, enabled: bool) -> Result<(), RedfishError> {
+    async fn set_host_rshim(
+        &self,
+        enabled: bool,
+        ignore_if_unsupported: bool,
+    ) -> Result<(), RedfishError> {
         if self.is_bf2().await? {
             return Ok(());
         }
@@ -714,8 +722,21 @@ impl Bmc {
             "Systems/{}/Oem/Nvidia/Actions/HostRshim.Set",
             self.s.system_id()
         );
-        self.s.client.post(&url, data).await?;
-        Ok(())
+
+        match self.s.client.post(&url, data).await {
+            Ok(_) => Ok(()),
+            Err(e) => match e {
+                RedfishError::HTTPErrorCode { status_code, .. }
+                    if status_code == StatusCode::NOT_FOUND && ignore_if_unsupported =>
+                {
+                    tracing::warn!(
+                        "This BF3 does not support setting host rshim; the BMC fw maybe too old"
+                    );
+                    Ok(())
+                }
+                e => Err(e),
+            },
+        }
     }
 
     async fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError> {
