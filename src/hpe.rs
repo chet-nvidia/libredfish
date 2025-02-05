@@ -22,6 +22,8 @@
  */
 use std::{collections::HashMap, path::Path, time::Duration};
 
+use serde_json::Value;
+
 use crate::{
     model::{
         account_service::ManagerAccount,
@@ -43,7 +45,7 @@ use crate::{
         BootOption, ComputerSystem, Manager, PCIeFunction,
     },
     standard::RedfishStandard,
-    Boot, BootOptions, Collection,
+    Boot, BootOptions, Collection, MachineSetupDiff,
     EnabledDisabled::{self, Disabled, Enabled},
     JobState, MachineSetupStatus, ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource,
     RoleId, Status, StatusInternal, SystemPowerControl,
@@ -149,9 +151,32 @@ impl Redfish for Bmc {
     }
 
     async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
-        Err(RedfishError::NotSupported(
-            "machine_setup_status".to_string(),
-        ))
+        let mut diffs = vec![];
+
+        let sc = self.serial_console_status().await?;
+        if !sc.is_fully_enabled() {
+            diffs.push(MachineSetupDiff {
+                key: "serial_console".to_string(),
+                expected: "Enabled".to_string(),
+                actual: sc.status.to_string(),
+            });
+        }
+
+        // clear_tpm has no 'check' operation, so skip that
+
+        let virt = self.get_virt_enabled().await?;
+        if virt != EnabledDisabled::Enabled {
+            diffs.push(MachineSetupDiff {
+                key: "Processors_IntelVirtualizationTechnology".to_string(),
+                expected: EnabledDisabled::Enabled.to_string(),
+                actual: virt.to_string(),
+            });
+        }
+
+        Ok(MachineSetupStatus {
+            is_done: diffs.is_empty(),
+            diffs,
+        })
     }
 
     async fn set_machine_password_policy(&self) -> Result<(), RedfishError> {
@@ -159,15 +184,15 @@ impl Redfish for Bmc {
         let hpe = Value::Object(serde_json::Map::from_iter(vec![
             (
                 "AuthFailureDelayTimeSeconds".to_string(),
-                Value::Number(0.into()),
+                Value::Number(2.into()),        // Hpe iLO 5 only allows 2, 5, 10, 30 
             ),
             (
                 "AuthFailureLoggingThreshold".to_string(),
-                Value::Number(0.into()),
+                Value::Number(0.into()),        // Hpe iLO 5 only allows 0, 1, 2, 3, 5
             ),
             (
                 "AuthFailuresBeforeDelay".to_string(),
-                Value::Number(0.into()),
+                Value::Number(0.into()),        // Hpe iLO 5 only allows 0, 1, 3, 5
             ),
             ("EnforcePasswordComplexity".to_string(), Value::Bool(false)),
         ]));
@@ -391,7 +416,7 @@ impl Redfish for Bmc {
     }
 
     async fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_chassis_all().await
+        self.s.get_members("Chassis").await
     }
 
     async fn get_chassis(&self, id: &str) -> Result<Chassis, RedfishError> {
@@ -629,7 +654,47 @@ impl Bmc {
             .map(|_status_code| ())
     }
 
+    async fn enable_bmc_lockdown2(&self) -> Result<(), RedfishError> {
+        let netlockdown_attrs = hpe::OemHpeLockdownNetworkProtocolAttrs {
+            kcs_enabled: true,
+        };
+        let set_netlockdown1 = hpe::OemHpeNetLockdown {
+            hpe: netlockdown_attrs,
+        };
+        let set_netlockdown2 = hpe::SetOemHpeNetLockdown { oem: set_netlockdown1 };
+        let url = format!("Managers/{}/NetworkProtocol", self.s.manager_id());
+        self.s
+            .client
+            .patch(&url, set_netlockdown2)
+            .await
+            .map(|_status_code| ())
+    }
+
+    async fn check_fw_version(&self) -> bool {
+        let ilo_manager = self.get_manager().await;
+        match ilo_manager {
+            Ok(manager) => {
+                let fw_parts: Vec<&str> = manager.firmware_version.split_whitespace().collect();
+                let fw_major:i32 = match fw_parts[1].parse() {
+                    Ok(n) => n,
+                    Err(_) => 0
+                };
+                let fw_minor: f32 = match (&fw_parts[2][1..]).parse() {
+                    Ok(f) => f,
+                    Err(_) => 0.0
+                };
+                fw_major >= 6 && fw_minor >= 1.40
+            }
+            Err(_) => {
+                false
+            }
+        }
+    }
+
     async fn enable_lockdown(&self) -> Result<(), RedfishError> {
+        if self.check_fw_version().await {
+            self.enable_bmc_lockdown2().await?;
+        }
         self.enable_bios_lockdown().await?;
         self.enable_bmc_lockdown().await
     }
@@ -666,25 +731,100 @@ impl Bmc {
             .map(|_status_code| ())
     }
 
+    async fn disable_bmc_lockdown2(&self) -> Result<(), RedfishError> {
+        let netlockdown_attrs = hpe::OemHpeLockdownNetworkProtocolAttrs {
+            kcs_enabled: false,
+        };
+        let set_netlockdown1 = hpe::OemHpeNetLockdown {
+            hpe: netlockdown_attrs,
+        };
+        let set_netlockdown2 = hpe::SetOemHpeNetLockdown { oem: set_netlockdown1 };
+        let url = format!("Managers/{}/NetworkProtocol", self.s.manager_id());
+        self.s
+            .client
+            .patch(&url, set_netlockdown2)
+            .await
+            .map(|_status_code| ())
+    }
+
     async fn disable_lockdown(&self) -> Result<(), RedfishError> {
+        if self.check_fw_version().await {
+            self.disable_bmc_lockdown2().await?;
+        }
         self.disable_bios_lockdown().await?;
         self.disable_bmc_lockdown().await
     }
 
+    /// Both Intel and AMD have virtualization technologies that help fix the issue of x86 instruction
+    /// architecture not being virtualizable.
+    /// get_enable_virtualization_key returns the KEY for enabling virtualization in the bios attributes
+    /// map that the Lenovo's BMC returns when querying the bios attributes registry. The string returned
+    /// will depend on the processors within the given HPE.
+    async fn get_enable_virtualization_key(
+        &self,
+        bios_attributes: &Value,
+    ) -> Result<&str, RedfishError> {
+        const INTEL_ENABLE_VIRTUALIZATION_KEY: &str = "IntelProcVtd";
+        const AMD_ENABLE_VIRTUALIZATION_KEY: &str = "ProcAmdIoVt";
+
+        // Intel specific
+        if bios_attributes
+            .get(INTEL_ENABLE_VIRTUALIZATION_KEY)
+            .is_some()
+        {
+            Ok(INTEL_ENABLE_VIRTUALIZATION_KEY)
+        // AMD specific
+        } else if bios_attributes.get(AMD_ENABLE_VIRTUALIZATION_KEY).is_some() {
+            Ok(AMD_ENABLE_VIRTUALIZATION_KEY)
+        } else {
+            return Err(RedfishError::MissingKey {
+                key: format!(
+                    "{}/{}",
+                    INTEL_ENABLE_VIRTUALIZATION_KEY, AMD_ENABLE_VIRTUALIZATION_KEY
+                )
+                .to_string(),
+                url: format!("Systems/{}/Bios", self.s.system_id()),
+            });
+        }
+    }
+
     async fn set_virt_enable(&self) -> Result<(), RedfishError> {
-        let virt_attrs = hpe::VirtAttributes {
-            proc_amd_io_vt: Enabled,
-            sriov: Enabled,
-        };
-        let set_virt_attrs = hpe::SetVirtAttributes {
-            attributes: virt_attrs,
-        };
-        let url = format!("Systems/{}/Bios/settings/", self.s.system_id());
+        let bios = self.s.bios_attributes().await?;
+        let mut body = HashMap::new();
+        let enable_virtualization_key = self.get_enable_virtualization_key(&bios).await?;
+        body.insert(
+            "Attributes",
+            HashMap::from([(enable_virtualization_key, "Enabled")]),
+        );
+        let url = format!("Systems/{}/Bios/settings", self.s.system_id());
         self.s
             .client
-            .patch(&url, set_virt_attrs)
+            .patch(&url, body)
             .await
             .map(|_status_code| ())
+    }
+
+    async fn get_virt_enabled(&self) -> Result<EnabledDisabled, RedfishError> {
+        let bios = self.s.bios_attributes().await?;
+        let enable_virtualization_key = self.get_enable_virtualization_key(&bios).await?;
+        let Some(val) = bios.get(enable_virtualization_key) else {
+            return Err(RedfishError::MissingKey {
+                key: enable_virtualization_key.to_string(),
+                url: "bios".to_string(),
+            });
+        };
+        let Some(val) = val.as_str() else {
+            return Err(RedfishError::InvalidKeyType {
+                key: enable_virtualization_key.to_string(),
+                expected_type: "str".to_string(),
+                url: "bios".to_string(),
+            });
+        };
+        val.parse().map_err(|_e| RedfishError::InvalidKeyType {
+            key: enable_virtualization_key.to_string(),
+            expected_type: "EnabledDisabled".to_string(),
+            url: "bios".to_string(),
+        })
     }
 
     async fn set_uefi_nic_boot(&self) -> Result<(), RedfishError> {

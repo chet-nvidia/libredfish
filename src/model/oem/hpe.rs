@@ -503,6 +503,24 @@ pub struct SetOemHpeLockdown {
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
+pub struct OemHpeLockdownNetworkProtocolAttrs {
+    #[serde(rename = "KcsEnabled")]
+    pub kcs_enabled: bool,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct OemHpeNetLockdown {
+    pub hpe: OemHpeLockdownNetworkProtocolAttrs,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct SetOemHpeNetLockdown {
+    pub oem: OemHpeNetLockdown,
+}
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
 pub struct OemHpeBootSource {
     pub boot_option_number: String,
     pub boot_string: String,
