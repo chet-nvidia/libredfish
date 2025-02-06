@@ -27,6 +27,7 @@ use reqwest::Method;
 use serde::Serialize;
 use serde_json::Value;
 use tokio::fs::File;
+use tokio::time::sleep;
 use tracing::debug;
 
 use crate::model::account_service::ManagerAccount;
@@ -111,19 +112,20 @@ impl Redfish for Bmc {
     }
 
     async fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError> {
-        let power_action = if action == SystemPowerControl::ForceRestart
-            && self.is_lenovo_sr_675_v3_ovx().await?
+        if self.is_lenovo_sr_675_v3_ovx().await?
         {
-            // We observed that issuing a ForceRestart to SR 675 V3 OVX machines (adding the log at a high trace level as we are initially introducing it)
-            tracing::info!(
-                "over-riding force restart issued against an SR 675 V3 OVX with a graceful restart"
-            );
-            SystemPowerControl::GracefulRestart
+            // We observed that issuing a ForceRestart to SR 675 V3 OVX machines can cause them to hang
+            // We have observed that GracefulRestart is not a reliable mechanism to reboot hosts.
+            // The most reliable workaround provided by Lenovo is to power off the machine, wait, and power on the machine
+            self.s.power(SystemPowerControl::ForceOff).await?;
+            sleep(Duration::from_secs(10)).await;            
+            if self.get_power_state().await? != PowerState::Off {
+                return Err(RedfishError::GenericError { error: format!("Server did not turn off within 10 seconds after issuing a ForceOff") })
+            }
+            self.s.power(SystemPowerControl::On).await
         } else {
-            action
-        };
-
-        self.s.power(power_action).await
+            self.s.power(action).await
+        }
     }
 
     async fn bmc_reset(&self) -> Result<(), RedfishError> {
