@@ -112,7 +112,7 @@ impl Redfish for Bmc {
     }
 
     async fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError> {
-        if self.is_lenovo_sr_675_v3_ovx().await?
+        if action == SystemPowerControl::ForceRestart && self.is_lenovo_sr_675_v3_ovx().await?
         {
             // We observed that issuing a ForceRestart to SR 675 V3 OVX machines can cause them to hang
             // We have observed that GracefulRestart is not a reliable mechanism to reboot hosts.
