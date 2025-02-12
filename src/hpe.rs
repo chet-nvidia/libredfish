@@ -37,18 +37,12 @@ use crate::{
         sensor::GPUSensors,
         service_root::ServiceRoot,
         software_inventory::SoftwareInventory,
-        storage,
-        storage::Drives,
+        storage::{self, Drives},
         task::Task,
         thermal::Thermal,
         update_service::{ComponentType, TransferProtocolType, UpdateService},
         BootOption, ComputerSystem, Manager, PCIeFunction,
-    },
-    standard::RedfishStandard,
-    Boot, BootOptions, Collection, MachineSetupDiff,
-    EnabledDisabled::{self, Disabled, Enabled},
-    JobState, MachineSetupStatus, ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource,
-    RoleId, Status, StatusInternal, SystemPowerControl,
+    }, standard::RedfishStandard, Boot, BootOptions, Collection, EnabledDisabled::{self, Disabled, Enabled}, JobState, MachineSetupDiff, MachineSetupStatus, ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource, RoleId, Status, StatusInternal, SystemPowerControl
 };
 
 pub struct Bmc {
@@ -147,7 +141,19 @@ impl Redfish for Bmc {
         self.set_virt_enable().await?;
         self.set_uefi_nic_boot().await?;
         self.set_boot_order(BootDevices::Pxe).await?;
-        self.set_boot_order_dpu_first(boot_interface_mac).await
+        let setup_result = self.set_boot_order_dpu_first(boot_interface_mac).await;
+        match setup_result {
+            Err(RedfishError::HTTPErrorCode { url, status_code, response_body}) => {
+                if response_body.contains("UnableToModifyDuringSystemPOST") {
+                tracing::info!("redfish forge_setup might fail due to HPE POST race condition, ignore.");
+                Ok(())
+                } else {
+                    Err(RedfishError::HTTPErrorCode{url, status_code, response_body})
+                }
+            }
+            Ok(()) => Ok(()),
+            Err(e) => Err(e),
+        }
     }
 
     async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
@@ -427,7 +433,15 @@ impl Redfish for Bmc {
         &self,
         chassis_id: &str,
     ) -> Result<Vec<String>, RedfishError> {
-        self.s.get_chassis_network_adapters(chassis_id).await
+        // self.s.get_chassis_network_adapters(chassis_id).await
+        let chassis = self.s.get_chassis(chassis_id).await?;
+        if chassis.network_adapters.is_some() {
+            let url = chassis.network_adapters.unwrap().odata_id;
+            // let url = format!("Chassis/{}/NetworkAdapters", chassis_id);
+            self.s.get_members(&url).await
+        } else {
+            Ok(Vec::new())
+        }
     }
 
     async fn get_chassis_network_adapter(
@@ -656,7 +670,7 @@ impl Bmc {
 
     async fn enable_bmc_lockdown2(&self) -> Result<(), RedfishError> {
         let netlockdown_attrs = hpe::OemHpeLockdownNetworkProtocolAttrs {
-            kcs_enabled: true,
+            kcs_enabled: false,
         };
         let set_netlockdown1 = hpe::OemHpeNetLockdown {
             hpe: netlockdown_attrs,
@@ -733,7 +747,7 @@ impl Bmc {
 
     async fn disable_bmc_lockdown2(&self) -> Result<(), RedfishError> {
         let netlockdown_attrs = hpe::OemHpeLockdownNetworkProtocolAttrs {
-            kcs_enabled: false,
+            kcs_enabled: true,
         };
         let set_netlockdown1 = hpe::OemHpeNetLockdown {
             hpe: netlockdown_attrs,
