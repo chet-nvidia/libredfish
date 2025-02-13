@@ -726,6 +726,15 @@ impl RedfishStandard {
 
     pub async fn get_members(&self, url: &str) -> Result<Vec<String>, RedfishError> {
         let (_, mut body): (_, HashMap<String, serde_json::Value>) = self.client.get(url).await?;
+        self.parse_members(url, body)
+    }
+
+    pub async fn get_members_with_timout(&self, url: &str, timeout: Option<Duration>) -> Result<Vec<String>, RedfishError> {
+        let (_, mut body): (_, HashMap<String, serde_json::Value>) = self.client.get_with_timeout(url, timeout).await?;
+        self.parse_members(url, body)
+    }
+
+    fn parse_members(&self, url: &str, mut body: HashMap<String, serde_json::Value>) -> Result<Vec<String>, RedfishError> {
         let key = "Members";
         let members_json = body.remove(key).ok_or_else(|| RedfishError::MissingKey {
             key: key.to_string(),
@@ -744,7 +753,6 @@ impl RedfishStandard {
             .collect();
         Ok(member_ids)
     }
-
     /// Fetch root URL and record the vendor, if any
     pub fn set_vendor(
         &mut self,

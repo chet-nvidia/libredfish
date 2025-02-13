@@ -511,7 +511,7 @@ impl Redfish for Bmc {
     }
 
     async fn get_software_inventories(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_software_inventories().await
+        self.s.get_members_with_timout("UpdateService/FirmwareInventory", Some(Duration::from_secs(180))).await
     }
 
     async fn get_system(&self) -> Result<ComputerSystem, RedfishError> {

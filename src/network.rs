@@ -226,15 +226,20 @@ impl RedfishHttpClient {
     where
         T: DeserializeOwned + ::std::fmt::Debug,
     {
+        self.get_with_timeout(api, None).await
+    }
+    pub async fn get_with_timeout<T>(&self, api: &str, timeout: Option<Duration>) -> Result<(StatusCode, T), RedfishError>
+    where
+        T: DeserializeOwned + ::std::fmt::Debug,
+    {
         let (status_code, resp_opt, _resp_headers) = self
-            .req::<T, String>(Method::GET, api, None, None, None, Vec::new())
+            .req::<T, String>(Method::GET, api, None, timeout, None, Vec::new())
             .await?;
         match resp_opt {
             Some(response_body) => Ok((status_code, response_body)),
             None => Err(RedfishError::NoContent),
         }
     }
-
     pub async fn post<B>(
         &self,
         api: &str,
@@ -414,7 +419,6 @@ impl RedfishHttpClient {
             url,
             body_enc.as_deref().unwrap_or_default()
         );
-
         let mut req_b = match *method {
             Method::GET => self.http_client.get(&url),
             Method::POST => self.http_client.post(&url),
