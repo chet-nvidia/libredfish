@@ -55,6 +55,8 @@ pub enum SystemPowerControl {
     /// - Will not restart DPUs
     /// - Will apply pending BIOS/UEFI setting changes
     ForceRestart,
+    /// Do an AC powercycle.  Not supported on all platforms.
+    ACPowercycle,
     // Dell also has: PushPowerButton, PowerCycle, and Nmi
     // Lenovo also has: ForceOn and Nmi
 }

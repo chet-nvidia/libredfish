@@ -150,6 +150,11 @@ impl Redfish for RedfishStandard {
     }
 
     async fn power(&self, action: model::SystemPowerControl) -> Result<(), RedfishError> {
+        if action == model::SystemPowerControl::ACPowercycle {
+            return Err(RedfishError::NotSupported(
+                "AC power cycle not supported on this platform".to_string(),
+            ));
+        }
         let url = format!("Systems/{}/Actions/ComputerSystem.Reset", self.system_id);
         let mut arg = HashMap::new();
         arg.insert("ResetType", action.to_string());
@@ -725,16 +730,25 @@ impl RedfishStandard {
     //
 
     pub async fn get_members(&self, url: &str) -> Result<Vec<String>, RedfishError> {
-        let (_, mut body): (_, HashMap<String, serde_json::Value>) = self.client.get(url).await?;
+        let (_, body): (_, HashMap<String, serde_json::Value>) = self.client.get(url).await?;
         self.parse_members(url, body)
     }
 
-    pub async fn get_members_with_timout(&self, url: &str, timeout: Option<Duration>) -> Result<Vec<String>, RedfishError> {
-        let (_, mut body): (_, HashMap<String, serde_json::Value>) = self.client.get_with_timeout(url, timeout).await?;
+    pub async fn get_members_with_timout(
+        &self,
+        url: &str,
+        timeout: Option<Duration>,
+    ) -> Result<Vec<String>, RedfishError> {
+        let (_, body): (_, HashMap<String, serde_json::Value>) =
+            self.client.get_with_timeout(url, timeout).await?;
         self.parse_members(url, body)
     }
 
-    fn parse_members(&self, url: &str, mut body: HashMap<String, serde_json::Value>) -> Result<Vec<String>, RedfishError> {
+    fn parse_members(
+        &self,
+        url: &str,
+        mut body: HashMap<String, serde_json::Value>,
+    ) -> Result<Vec<String>, RedfishError> {
         let key = "Members";
         let members_json = body.remove(key).ok_or_else(|| RedfishError::MissingKey {
             key: key.to_string(),
