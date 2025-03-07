@@ -30,7 +30,7 @@ use model::oem::nvidia_dpu::{HostPrivilegeLevel, InternalCPUModel};
 pub use model::port::NetworkPort;
 pub use model::resource::{Collection, OData, Resource};
 use model::sensor::GPUSensors;
-use model::service_root::ServiceRoot;
+use model::service_root::{RedfishVendor, ServiceRoot};
 use model::software_inventory::SoftwareInventory;
 pub use model::system::{BootOptions, PCIeDevice, PowerState, SystemPowerControl, Systems};
 use model::task::Task;
@@ -168,7 +168,15 @@ pub trait Redfish: Send + Sync + 'static {
     /// - boot_interface_mac: MAC Address of the NIC you wish to boot from
     ///   If not given we look for a Mellanox Bluefield DPU and use that.
     ///   Not applicable to Supermicro and the DPU itself.
-    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError>;
+    /// bios_profiles: Map of vendor/model (with spaces replaced by underscores)/profile/type
+    ///   to extra settings; expected to come from config rather than hardcoded.
+    /// selected_profile: Profile to use (if present)
+    async fn machine_setup(
+        &self,
+        boot_interface_mac: Option<&str>,
+        bios_profiles: &BiosProfileVendor,
+        selected_profile: BiosProfileType,
+    ) -> Result<(), RedfishError>;
 
     /// Is everything that machine_setup does already done?
     async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError>;
@@ -240,6 +248,12 @@ pub trait Redfish: Send + Sync + 'static {
      */
     /// All the BIOS values for this provider. Very OEM specific.
     async fn bios(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError>;
+
+    /// Modify specific BIOS values.  Also very OEM and model specific.
+    async fn set_bios(
+        &self,
+        values: HashMap<String, serde_json::Value>,
+    ) -> Result<(), RedfishError>;
 
     /// Pending BIOS attributes. Changes that were requested but not applied yet because
     /// they need a reboot.
@@ -565,4 +579,23 @@ impl JobState {
             _ => JobState::Unknown,
         }
     }
+}
+
+#[derive(
+    Debug, Clone, Serialize, Deserialize, Eq, PartialEq, Hash, Copy, clap::ValueEnum, Default,
+)]
+#[serde(rename_all = "lowercase")]
+pub enum BiosProfileType {
+    #[default]
+    Performance,
+    PowerEfficiency,
+}
+
+pub type BiosProfileProfiles = HashMap<BiosProfileType, HashMap<String, serde_json::Value>>;
+pub type BiosProfileModel = HashMap<String, BiosProfileProfiles>;
+pub type BiosProfileVendor = HashMap<RedfishVendor, BiosProfileModel>;
+
+// Simplify model names so that we can put them in toml files as categories
+pub fn model_coerce(original: &str) -> String {
+    str::replace(original, " ", "_")
 }

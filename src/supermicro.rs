@@ -35,7 +35,7 @@ use crate::{
         secure_boot::SecureBoot,
         sel::LogEntry,
         sensor::GPUSensors,
-        service_root::ServiceRoot,
+        service_root::{RedfishVendor, ServiceRoot},
         software_inventory::SoftwareInventory,
         storage::Drives,
         task::Task,
@@ -44,9 +44,9 @@ use crate::{
         BootOption, ComputerSystem, EnableDisable, InvalidValueError, Manager,
     },
     standard::RedfishStandard,
-    Boot, BootOptions, Collection, EnabledDisabled, JobState, MachineSetupDiff, MachineSetupStatus,
-    ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource, RoleId, Status,
-    StatusInternal, SystemPowerControl,
+    BiosProfileType, Boot, BootOptions, Collection, EnabledDisabled, JobState, MachineSetupDiff,
+    MachineSetupStatus, ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource, RoleId,
+    Status, StatusInternal, SystemPowerControl,
 };
 
 const MELLANOX_UEFI_HTTP4: &str = "UEFI HTTP IPv4 Mellanox Network Adapter";
@@ -142,10 +142,25 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
+    async fn set_bios(
+        &self,
+        values: HashMap<String, serde_json::Value>,
+    ) -> Result<(), RedfishError> {
+        self.s.set_bios(values).await
+    }
+
     /// Note that you can't use this for initial setup unless you reboot and run it twice.
     /// `boot_first` won't find the Mellanox HTTP device. `uefi_nic_boot_attrs` enables it,
     /// but it won't show until after reboot so that step will fail on first time through.
-    async fn machine_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(
+        &self,
+        _boot_interface_mac: Option<&str>,
+        _bios_profiles: &HashMap<
+            RedfishVendor,
+            HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
+        >,
+        _selected_profile: BiosProfileType,
+    ) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
 
         let bios_attrs = self.machine_setup_attrs().await?;

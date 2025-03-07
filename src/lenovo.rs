@@ -34,7 +34,7 @@ use crate::model::account_service::ManagerAccount;
 use crate::model::oem::lenovo::{FrontPanelUSB, LenovoBootOrder};
 use crate::model::resource::ResourceCollection;
 use crate::model::sel::LogService;
-use crate::model::service_root::ServiceRoot;
+use crate::model::service_root::{RedfishVendor, ServiceRoot};
 use crate::model::task::Task;
 use crate::model::update_service::{ComponentType, TransferProtocolType, UpdateService};
 use crate::model::{secure_boot::SecureBoot, ComputerSystem};
@@ -54,9 +54,9 @@ use crate::{
     },
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
-    Boot, BootOptions, Collection, EnabledDisabled, MachineSetupDiff, MachineSetupStatus, ODataId,
-    PCIeDevice, PowerState, Redfish, RedfishError, Resource, Status, StatusInternal,
-    SystemPowerControl,
+    BiosProfileType, Boot, BootOptions, Collection, EnabledDisabled, MachineSetupDiff,
+    MachineSetupStatus, ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource, Status,
+    StatusInternal, SystemPowerControl,
 };
 use crate::{JobState, RoleId};
 
@@ -173,12 +173,45 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
-    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn set_bios(
+        &self,
+        values: HashMap<String, serde_json::Value>,
+    ) -> Result<(), RedfishError> {
+        let mut body = HashMap::new();
+        body.insert("Attributes", values);
+        let url = format!("Systems/{}/Bios/Pending", self.s.system_id());
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
+    }
+
+    async fn machine_setup(
+        &self,
+        boot_interface_mac: Option<&str>,
+        bios_profiles: &HashMap<
+            RedfishVendor,
+            HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
+        >,
+        selected_profile: BiosProfileType,
+    ) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
         self.clear_tpm().await?;
         self.boot_first(Boot::Pxe).await?;
         self.set_virt_enable().await?;
         self.set_uefi_boot_only().await?;
+        if let Some(lenovo) = bios_profiles.get(&RedfishVendor::Lenovo) {
+            let model = crate::model_coerce(
+                self.get_system()
+                    .await?
+                    .model
+                    .unwrap_or("".to_string())
+                    .as_str(),
+            );
+            if let Some(all_extra_values) = lenovo.get(&model) {
+                if let Some(extra_values) = all_extra_values.get(&selected_profile) {
+                    tracing::debug!("Setting extra BIOS values: {extra_values:?}");
+                    self.set_bios(extra_values.clone()).await?;
+                }
+            }
+        }
         // non-fatal error because possibly we need a reboot between set_uefi_boot_only and this
         if let Err(err) = self.set_boot_order_dpu_first(boot_interface_mac).await {
             tracing::warn!(%err, "libredfish Lenovo set_boot_order_dpu_first");

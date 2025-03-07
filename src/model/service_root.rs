@@ -55,7 +55,7 @@ pub struct ServiceRoot {
     pub telemetry_service: Option<ODataId>,
 }
 
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Hash, Eq, Serialize, Deserialize)]
 pub enum RedfishVendor {
     Lenovo,
     Dell,

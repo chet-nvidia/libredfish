@@ -49,8 +49,8 @@ use crate::model::{sel::LogEntry, ManagerResetType};
 use crate::model::{storage::Drives, storage::Storage, storage::StorageSubsystem};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{
-    model, Boot, EnabledDisabled, JobState, NetworkDeviceFunction, NetworkPort, PowerState,
-    Redfish, RoleId, Status, Systems,
+    model, BiosProfileType, Boot, EnabledDisabled, JobState, NetworkDeviceFunction, NetworkPort,
+    PowerState, Redfish, RoleId, Status, Systems,
 };
 use crate::{
     model::chassis::{Chassis, NetworkAdapter},
@@ -205,6 +205,15 @@ impl Redfish for RedfishStandard {
         Ok(body)
     }
 
+    async fn set_bios(
+        &self,
+        _values: HashMap<String, serde_json::Value>,
+    ) -> Result<(), RedfishError> {
+        Err(RedfishError::NotSupported(
+            "set_bios is vendor specific and not available on this platform".to_string(),
+        ))
+    }
+
     async fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
         let url = format!("Systems/{}/Bios/Settings", self.system_id());
         self.pending_with_url(&url).await
@@ -215,7 +224,15 @@ impl Redfish for RedfishStandard {
         self.clear_pending_with_url(&url).await
     }
 
-    async fn machine_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(
+        &self,
+        _boot_interface_mac: Option<&str>,
+        _bios_profiles: &HashMap<
+            RedfishVendor,
+            HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
+        >,
+        _selected_profile: BiosProfileType,
+    ) -> Result<(), RedfishError> {
         Err(RedfishError::NotSupported("machine_setup".to_string()))
     }
 

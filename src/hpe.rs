@@ -35,14 +35,19 @@ use crate::{
         secure_boot::SecureBoot,
         sel::{LogEntry, LogEntryCollection},
         sensor::GPUSensors,
-        service_root::ServiceRoot,
+        service_root::{RedfishVendor, ServiceRoot},
         software_inventory::SoftwareInventory,
         storage::{self, Drives},
         task::Task,
         thermal::Thermal,
         update_service::{ComponentType, TransferProtocolType, UpdateService},
         BootOption, ComputerSystem, Manager, PCIeFunction,
-    }, standard::RedfishStandard, Boot, BootOptions, Collection, EnabledDisabled::{self, Disabled, Enabled}, JobState, MachineSetupDiff, MachineSetupStatus, ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource, RoleId, Status, StatusInternal, SystemPowerControl
+    },
+    standard::RedfishStandard,
+    BiosProfileType, Boot, BootOptions, Collection,
+    EnabledDisabled::{self, Disabled, Enabled},
+    JobState, MachineSetupDiff, MachineSetupStatus, ODataId, PCIeDevice, PowerState, Redfish,
+    RedfishError, Resource, RoleId, Status, StatusInternal, SystemPowerControl,
 };
 
 pub struct Bmc {
@@ -135,7 +140,22 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
-    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn set_bios(
+        &self,
+        values: HashMap<String, serde_json::Value>,
+    ) -> Result<(), RedfishError> {
+        self.s.set_bios(values).await
+    }
+
+    async fn machine_setup(
+        &self,
+        boot_interface_mac: Option<&str>,
+        _bios_profiles: &HashMap<
+            RedfishVendor,
+            HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
+        >,
+        _selected_profile: BiosProfileType,
+    ) -> Result<(), RedfishError> {
         self.setup_serial_console().await?;
         self.clear_tpm().await?;
         self.set_virt_enable().await?;
@@ -143,12 +163,22 @@ impl Redfish for Bmc {
         self.set_boot_order(BootDevices::Pxe).await?;
         let setup_result = self.set_boot_order_dpu_first(boot_interface_mac).await;
         match setup_result {
-            Err(RedfishError::HTTPErrorCode { url, status_code, response_body}) => {
+            Err(RedfishError::HTTPErrorCode {
+                url,
+                status_code,
+                response_body,
+            }) => {
                 if response_body.contains("UnableToModifyDuringSystemPOST") {
-                tracing::info!("redfish forge_setup might fail due to HPE POST race condition, ignore.");
-                Ok(())
+                    tracing::info!(
+                        "redfish forge_setup might fail due to HPE POST race condition, ignore."
+                    );
+                    Ok(())
                 } else {
-                    Err(RedfishError::HTTPErrorCode{url, status_code, response_body})
+                    Err(RedfishError::HTTPErrorCode {
+                        url,
+                        status_code,
+                        response_body,
+                    })
                 }
             }
             Ok(()) => Ok(()),
@@ -190,15 +220,15 @@ impl Redfish for Bmc {
         let hpe = Value::Object(serde_json::Map::from_iter(vec![
             (
                 "AuthFailureDelayTimeSeconds".to_string(),
-                Value::Number(2.into()),        // Hpe iLO 5 only allows 2, 5, 10, 30 
+                Value::Number(2.into()), // Hpe iLO 5 only allows 2, 5, 10, 30
             ),
             (
                 "AuthFailureLoggingThreshold".to_string(),
-                Value::Number(0.into()),        // Hpe iLO 5 only allows 0, 1, 2, 3, 5
+                Value::Number(0.into()), // Hpe iLO 5 only allows 0, 1, 2, 3, 5
             ),
             (
                 "AuthFailuresBeforeDelay".to_string(),
-                Value::Number(0.into()),        // Hpe iLO 5 only allows 0, 1, 3, 5
+                Value::Number(0.into()), // Hpe iLO 5 only allows 0, 1, 3, 5
             ),
             ("EnforcePasswordComplexity".to_string(), Value::Bool(false)),
         ]));
@@ -669,13 +699,13 @@ impl Bmc {
     }
 
     async fn enable_bmc_lockdown2(&self) -> Result<(), RedfishError> {
-        let netlockdown_attrs = hpe::OemHpeLockdownNetworkProtocolAttrs {
-            kcs_enabled: false,
-        };
+        let netlockdown_attrs = hpe::OemHpeLockdownNetworkProtocolAttrs { kcs_enabled: false };
         let set_netlockdown1 = hpe::OemHpeNetLockdown {
             hpe: netlockdown_attrs,
         };
-        let set_netlockdown2 = hpe::SetOemHpeNetLockdown { oem: set_netlockdown1 };
+        let set_netlockdown2 = hpe::SetOemHpeNetLockdown {
+            oem: set_netlockdown1,
+        };
         let url = format!("Managers/{}/NetworkProtocol", self.s.manager_id());
         self.s
             .client
@@ -689,19 +719,17 @@ impl Bmc {
         match ilo_manager {
             Ok(manager) => {
                 let fw_parts: Vec<&str> = manager.firmware_version.split_whitespace().collect();
-                let fw_major:i32 = match fw_parts[1].parse() {
+                let fw_major: i32 = match fw_parts[1].parse() {
                     Ok(n) => n,
-                    Err(_) => 0
+                    Err(_) => 0,
                 };
                 let fw_minor: f32 = match (&fw_parts[2][1..]).parse() {
                     Ok(f) => f,
-                    Err(_) => 0.0
+                    Err(_) => 0.0,
                 };
                 fw_major >= 6 && fw_minor >= 1.40
             }
-            Err(_) => {
-                false
-            }
+            Err(_) => false,
         }
     }
 
@@ -746,13 +774,13 @@ impl Bmc {
     }
 
     async fn disable_bmc_lockdown2(&self) -> Result<(), RedfishError> {
-        let netlockdown_attrs = hpe::OemHpeLockdownNetworkProtocolAttrs {
-            kcs_enabled: true,
-        };
+        let netlockdown_attrs = hpe::OemHpeLockdownNetworkProtocolAttrs { kcs_enabled: false };
         let set_netlockdown1 = hpe::OemHpeNetLockdown {
             hpe: netlockdown_attrs,
         };
-        let set_netlockdown2 = hpe::SetOemHpeNetLockdown { oem: set_netlockdown1 };
+        let set_netlockdown2 = hpe::SetOemHpeNetLockdown {
+            oem: set_netlockdown1,
+        };
         let url = format!("Managers/{}/NetworkProtocol", self.s.manager_id());
         self.s
             .client
@@ -811,11 +839,7 @@ impl Bmc {
             HashMap::from([(enable_virtualization_key, "Enabled")]),
         );
         let url = format!("Systems/{}/Bios/settings", self.s.system_id());
-        self.s
-            .client
-            .patch(&url, body)
-            .await
-            .map(|_status_code| ())
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
     async fn get_virt_enabled(&self) -> Result<EnabledDisabled, RedfishError> {

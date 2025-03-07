@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::fmt;
 use std::str::FromStr;
 
@@ -266,6 +267,14 @@ pub struct SetBiosAttrs {
     #[serde(rename = "@Redfish.SettingsApplyTime")]
     pub redfish_settings_apply_time: SetSettingsApplyTime,
     pub attributes: MachineBiosAttrs,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct GenericSetBiosAttrs {
+    #[serde(rename = "@Redfish.SettingsApplyTime")]
+    pub redfish_settings_apply_time: SetSettingsApplyTime,
+    pub attributes: HashMap<String, serde_json::Value>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

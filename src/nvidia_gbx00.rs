@@ -27,6 +27,7 @@ use tokio::fs::File;
 
 use crate::model::account_service::ManagerAccount;
 use crate::model::sensor::{GPUSensors, Sensor, Sensors};
+use crate::model::service_root::RedfishVendor;
 use crate::model::task::Task;
 use crate::model::thermal::Fan;
 use crate::model::update_service::{ComponentType, TransferProtocolType, UpdateService};
@@ -42,7 +43,8 @@ use crate::{
         BootOption, ComputerSystem, Manager, PCIeDevices,
     },
     standard::RedfishStandard,
-    Collection, NetworkDeviceFunction, ODataId, PCIeDevice, Redfish, RedfishError, Resource,
+    BiosProfileType, Collection, NetworkDeviceFunction, ODataId, PCIeDevice, Redfish, RedfishError,
+    Resource,
 };
 use crate::{JobState, MachineSetupDiff, MachineSetupStatus, RoleId};
 
@@ -332,7 +334,15 @@ impl Redfish for Bmc {
         self.s.get_drives_metrics().await
     }
 
-    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(
+        &self,
+        boot_interface_mac: Option<&str>,
+        _bios_profiles: &HashMap<
+            RedfishVendor,
+            HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
+        >,
+        _selected_profile: BiosProfileType,
+    ) -> Result<(), RedfishError> {
         self.disable_secure_boot().await?;
         self.set_boot_order_dpu_first(boot_interface_mac).await
     }
@@ -555,6 +565,13 @@ impl Redfish for Bmc {
         &self,
     ) -> Result<std::collections::HashMap<String, serde_json::Value>, RedfishError> {
         self.s.bios().await
+    }
+
+    async fn set_bios(
+        &self,
+        values: HashMap<String, serde_json::Value>,
+    ) -> Result<(), RedfishError> {
+        self.s.set_bios(values).await
     }
 
     async fn pending(

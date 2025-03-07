@@ -37,7 +37,7 @@ use crate::{
         secure_boot::SecureBoot,
         sel::{LogEntry, LogEntryCollection},
         sensor::GPUSensors,
-        service_root::ServiceRoot,
+        service_root::{RedfishVendor, ServiceRoot},
         software_inventory::SoftwareInventory,
         storage::Drives,
         task::Task,
@@ -46,9 +46,9 @@ use crate::{
         BootOption, ComputerSystem, InvalidValueError, Manager, OnOff,
     },
     standard::RedfishStandard,
-    Boot, BootOptions, Collection, EnabledDisabled, JobState, MachineSetupDiff, MachineSetupStatus,
-    ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource, RoleId, Status,
-    StatusInternal, SystemPowerControl,
+    BiosProfileType, Boot, BootOptions, Collection, EnabledDisabled, JobState, MachineSetupDiff,
+    MachineSetupStatus, ODataId, PCIeDevice, PowerState, Redfish, RedfishError, Resource, RoleId,
+    Status, StatusInternal, SystemPowerControl,
 };
 
 const UEFI_PASSWORD_NAME: &str = "SetupPassword";
@@ -172,11 +172,40 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
+    async fn set_bios(
+        &self,
+        values: HashMap<String, serde_json::Value>,
+    ) -> Result<(), RedfishError> {
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
+        };
+
+        let set_attrs = dell::GenericSetBiosAttrs {
+            redfish_settings_apply_time: apply_time,
+            attributes: values,
+        };
+
+        let url = format!("Systems/{}/Bios/Settings/", self.s.system_id());
+        self.s
+            .client
+            .patch(&url, set_attrs)
+            .await
+            .map(|_status_code| ())
+    }
+
     async fn get_base_mac_address(&self) -> Result<Option<String>, RedfishError> {
         self.s.get_base_mac_address().await
     }
 
-    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(
+        &self,
+        boot_interface_mac: Option<&str>,
+        bios_profiles: &HashMap<
+            RedfishVendor,
+            HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
+        >,
+        selected_profile: BiosProfileType,
+    ) -> Result<(), RedfishError> {
         self.delete_job_queue().await?;
 
         let apply_time = dell::SetSettingsApplyTime {
@@ -202,6 +231,30 @@ impl Redfish for Bmc {
             redfish_settings_apply_time: apply_time,
             attributes: machine_settings,
         };
+        // Convert to a more generic HashMap to allow merging with the extra BIOS values
+        let as_json =
+            serde_json::to_string(&set_machine_attrs).map_err(|e| RedfishError::GenericError {
+                error: { e.to_string() },
+            })?;
+        let mut set_machine_attrs: HashMap<String, serde_json::Value> =
+            serde_json::from_str(as_json.as_str()).map_err(|e| RedfishError::GenericError {
+                error: { e.to_string() },
+            })?;
+        if let Some(dell) = bios_profiles.get(&RedfishVendor::Dell) {
+            let model = crate::model_coerce(
+                self.get_system()
+                    .await?
+                    .model
+                    .unwrap_or("".to_string())
+                    .as_str(),
+            );
+            if let Some(all_extra_values) = dell.get(&model) {
+                if let Some(extra_values) = all_extra_values.get(&selected_profile) {
+                    tracing::debug!("Setting extra BIOS values: {extra_values:?}");
+                    set_machine_attrs.extend(extra_values.clone());
+                }
+            }
+        }
 
         let url = format!("Systems/{}/Bios/Settings/", self.s.system_id());
         match self.s.client.patch(&url, set_machine_attrs).await? {

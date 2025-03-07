@@ -36,14 +36,16 @@ use crate::{
         boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
         chassis::{Chassis, MachineNetworkAdapter, NetworkAdapter},
         network_device_function::NetworkDeviceFunction,
-        oem::nvidia_viking::*,
-        oem::nvidia_viking::{BootDevices, BootDevices::Pxe},
+        oem::nvidia_viking::{
+            BootDevices::{self, Pxe},
+            *,
+        },
         power::Power,
         resource::{IsResource, ResourceCollection},
         secure_boot::SecureBoot,
         sel::{LogEntry, LogEntryCollection},
         sensor::{GPUSensors, Sensor},
-        service_root::ServiceRoot,
+        service_root::{RedfishVendor, ServiceRoot},
         software_inventory::SoftwareInventory,
         storage::Drives,
         system::PCIeDevices,
@@ -54,8 +56,8 @@ use crate::{
     },
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
-    Boot, BootOptions, Collection, EnabledDisabled,
-    EnabledDisabled::{Disabled, Enabled},
+    BiosProfileType, Boot, BootOptions, Collection,
+    EnabledDisabled::{self, Disabled, Enabled},
     JobState, MachineSetupDiff, MachineSetupStatus, ODataId, PCIeDevice, PCIeFunction, PowerState,
     Redfish, RedfishError, Resource, RoleId, Status, StatusInternal, SystemPowerControl,
 };
@@ -172,7 +174,22 @@ impl Redfish for Bmc {
         self.s.bios().await
     }
 
-    async fn machine_setup(&self, boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn set_bios(
+        &self,
+        values: HashMap<String, serde_json::Value>,
+    ) -> Result<(), RedfishError> {
+        self.s.set_bios(values).await
+    }
+
+    async fn machine_setup(
+        &self,
+        boot_interface_mac: Option<&str>,
+        _bios_profiles: &HashMap<
+            RedfishVendor,
+            HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
+        >,
+        _selected_profile: BiosProfileType,
+    ) -> Result<(), RedfishError> {
         self.set_bios_attributes().await?;
         self.set_boot_order_dpu_first(boot_interface_mac).await
     }

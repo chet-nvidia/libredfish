@@ -4,6 +4,7 @@ use tokio::fs::File;
 
 use crate::model::account_service::ManagerAccount;
 use crate::model::sensor::GPUSensors;
+use crate::model::service_root::RedfishVendor;
 use crate::model::task::Task;
 use crate::model::update_service::{ComponentType, TransferProtocolType, UpdateService};
 use crate::Boot::UefiHttp;
@@ -17,7 +18,7 @@ use crate::{
         BootOption, ComputerSystem, Manager,
     },
     standard::RedfishStandard,
-    Collection, NetworkDeviceFunction, ODataId, Redfish, RedfishError, Resource,
+    BiosProfileType, Collection, NetworkDeviceFunction, ODataId, Redfish, RedfishError, Resource,
 };
 use crate::{JobState, MachineSetupDiff, MachineSetupStatus, RoleId};
 
@@ -152,7 +153,15 @@ impl Redfish for Bmc {
         self.s.get_drives_metrics().await
     }
 
-    async fn machine_setup(&self, _boot_interface_mac: Option<&str>) -> Result<(), RedfishError> {
+    async fn machine_setup(
+        &self,
+        _boot_interface_mac: Option<&str>,
+        _bios_profiles: &HashMap<
+            RedfishVendor,
+            HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
+        >,
+        _selected_profile: BiosProfileType,
+    ) -> Result<(), RedfishError> {
         self.disable_secure_boot().await?;
         self.boot_once(UefiHttp).await
     }
@@ -332,6 +341,13 @@ impl Redfish for Bmc {
         &self,
     ) -> Result<std::collections::HashMap<String, serde_json::Value>, RedfishError> {
         self.s.bios().await
+    }
+
+    async fn set_bios(
+        &self,
+        values: HashMap<String, serde_json::Value>,
+    ) -> Result<(), RedfishError> {
+        self.s.set_bios(values).await
     }
 
     /// gh200 has no bios attributes
