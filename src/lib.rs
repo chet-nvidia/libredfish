@@ -26,7 +26,7 @@ use model::account_service::ManagerAccount;
 pub use model::chassis::{Chassis, NetworkAdapter};
 pub use model::ethernet_interface::EthernetInterface;
 pub use model::network_device_function::NetworkDeviceFunction;
-use model::oem::nvidia_dpu::{HostPrivilegeLevel, InternalCPUModel};
+use model::oem::nvidia_dpu::{HostPrivilegeLevel, InternalCPUModel, NicMode};
 pub use model::port::NetworkPort;
 pub use model::resource::{Collection, OData, Resource};
 use model::sensor::GPUSensors;
@@ -424,6 +424,12 @@ pub trait Redfish: Send + Sync + 'static {
 
     // Only applicable to Vikings
     async fn clear_nvram(&self) -> Result<(), RedfishError>;
+
+    // Only applicable to DPUs
+    async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError>;
+
+    // Currently only implemented for Lenovos and Dells
+    async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError>;
 }
 
 // When Carbide drops it's `IpmiCommand.launch_command` background job system, we can

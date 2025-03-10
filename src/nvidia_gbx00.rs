@@ -1,3 +1,4 @@
+use crate::model::oem::nvidia_dpu::NicMode;
 /*
  * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
  * SPDX-License-Identifier: MIT
@@ -830,6 +831,14 @@ impl Redfish for Bmc {
 
     async fn clear_nvram(&self) -> Result<(), RedfishError> {
         self.s.clear_nvram().await
+    }
+
+    async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError> {
+        self.s.get_nic_mode().await
+    }
+
+    async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
+        self.s.is_infinite_boot_enabled().await
     }
 }
 

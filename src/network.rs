@@ -228,7 +228,11 @@ impl RedfishHttpClient {
     {
         self.get_with_timeout(api, None).await
     }
-    pub async fn get_with_timeout<T>(&self, api: &str, timeout: Option<Duration>) -> Result<(StatusCode, T), RedfishError>
+    pub async fn get_with_timeout<T>(
+        &self,
+        api: &str,
+        timeout: Option<Duration>,
+    ) -> Result<(StatusCode, T), RedfishError>
     where
         T: DeserializeOwned + ::std::fmt::Debug,
     {

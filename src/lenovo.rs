@@ -32,6 +32,7 @@ use tracing::debug;
 
 use crate::model::account_service::ManagerAccount;
 use crate::model::oem::lenovo::{FrontPanelUSB, LenovoBootOrder};
+use crate::model::oem::nvidia_dpu::NicMode;
 use crate::model::resource::ResourceCollection;
 use crate::model::sel::LogService;
 use crate::model::service_root::{RedfishVendor, ServiceRoot};
@@ -882,6 +883,34 @@ impl Redfish for Bmc {
 
     async fn clear_nvram(&self) -> Result<(), RedfishError> {
         self.s.clear_nvram().await
+    }
+
+    async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError> {
+        self.s.get_nic_mode().await
+    }
+
+    async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
+        let bios = self.bios().await?;
+        let bios_attributes = match bios.get("Attributes") {
+            Some(attributes) => attributes,
+            None => {
+                return Err(RedfishError::MissingKey {
+                    key: "Attributes".to_owned(),
+                    url: format!("Systems/{}/Bios", self.s.system_id()),
+                })
+            }
+        };
+
+        let infinite_boot_status = bios_attributes
+            .get("BootModes_InfiniteBootRetry")
+            .and_then(|v| v.as_str())
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: "BootModes_InfiniteBootRetry".to_string(),
+                url: "Bios attributes".to_string(),
+            })?;
+        Ok(Some(
+            infinite_boot_status == EnabledDisabled::Enabled.to_string(),
+        ))
     }
 }
 

@@ -30,7 +30,10 @@ use crate::{
         boot,
         chassis::{Chassis, NetworkAdapter},
         network_device_function::NetworkDeviceFunction,
-        oem::supermicro::{self, FixedBootOrder},
+        oem::{
+            nvidia_dpu::NicMode,
+            supermicro::{self, FixedBootOrder},
+        },
         power::Power,
         secure_boot::SecureBoot,
         sel::LogEntry,
@@ -686,6 +689,14 @@ impl Redfish for Bmc {
 
     async fn clear_nvram(&self) -> Result<(), RedfishError> {
         self.s.clear_nvram().await
+    }
+
+    async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError> {
+        self.s.get_nic_mode().await
+    }
+
+    async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
+        self.s.is_infinite_boot_enabled().await
     }
 }
 

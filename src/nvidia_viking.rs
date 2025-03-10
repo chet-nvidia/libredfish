@@ -36,9 +36,12 @@ use crate::{
         boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
         chassis::{Chassis, MachineNetworkAdapter, NetworkAdapter},
         network_device_function::NetworkDeviceFunction,
-        oem::nvidia_viking::{
-            BootDevices::{self, Pxe},
-            *,
+        oem::{
+            nvidia_dpu::NicMode,
+            nvidia_viking::{
+                BootDevices::{self, Pxe},
+                *,
+            },
         },
         power::Power,
         resource::{IsResource, ResourceCollection},
@@ -528,7 +531,12 @@ impl Redfish for Bmc {
     }
 
     async fn get_software_inventories(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_members_with_timout("UpdateService/FirmwareInventory", Some(Duration::from_secs(180))).await
+        self.s
+            .get_members_with_timout(
+                "UpdateService/FirmwareInventory",
+                Some(Duration::from_secs(180)),
+            )
+            .await
     }
 
     async fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
@@ -935,6 +943,14 @@ impl Redfish for Bmc {
             )
             .await
             .map(|_status_code| Ok(()))?
+    }
+
+    async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError> {
+        self.s.get_nic_mode().await
+    }
+
+    async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
+        self.s.is_infinite_boot_enabled().await
     }
 }
 

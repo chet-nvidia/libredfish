@@ -1,3 +1,4 @@
+use std::str::FromStr;
 /*
  * SPDX-FileCopyrightText: Copyright (c) 2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
  * SPDX-License-Identifier: MIT
@@ -27,6 +28,7 @@ use serde::Deserialize;
 use tokio::fs::File;
 
 use crate::model::account_service::ManagerAccount;
+use crate::model::oem::nvidia_dpu::NicMode;
 use crate::model::sensor::GPUSensors;
 use crate::model::service_root::RedfishVendor;
 use crate::model::task::Task;
@@ -673,6 +675,83 @@ impl Redfish for Bmc {
     async fn clear_nvram(&self) -> Result<(), RedfishError> {
         self.s.clear_nvram().await
     }
+
+    async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError> {
+        let nic_mode = match self.s.bios().await {
+            Ok(bios) => self.get_nic_mode_from_bios(bios).await,
+            Err(e) => match e {
+                RedfishError::HTTPErrorCode {
+                    url,
+                    status_code,
+                    response_body,
+                } if status_code == StatusCode::INTERNAL_SERVER_ERROR => {
+                    let current_bmc_firmware_version = match self.get_bmc_firmware_version().await {
+                        Ok(version) => version,
+                        Err(bmc_fw_err) => {
+                            tracing::warn!("could not retrieve BMC firmware version, returning the original error to the caller: {bmc_fw_err}");
+                            return Err(RedfishError::HTTPErrorCode {
+                                url,
+                                status_code,
+                                response_body,
+                            });
+                        }
+                    };
+                    // If the BMC firmware version is less than 24.07, querying the bios attributes on a DPU in NIC mode will return an internal 500 error.
+                    let min_bmc_fw_version_to_query_nic_mode_without_error = "BF-24.07-14";
+                    match version_compare::compare(
+                        current_bmc_firmware_version,
+                        min_bmc_fw_version_to_query_nic_mode_without_error,
+                    )
+                    .is_ok_and(|c| c == version_compare::Cmp::Lt)
+                    {
+                        true => {
+                            let bios: HashMap<String, serde_json::Value> =
+                                serde_json::from_str(&response_body).map_err(|e| {
+                                    tracing::warn!("could not parse BIOS from the response body, returning the original error to the caller: {e}");
+                                    RedfishError::HTTPErrorCode {
+                                        url: url.clone(),
+                                        status_code,
+                                        response_body: response_body.clone(),
+                                    }
+                                })?;
+
+                            let nic_mode = self.get_nic_mode_from_bios(bios).await.map_err(|e| {
+                                tracing::warn!("could not retrieve NIC mode value, returning the original error to the caller: {e}");
+                                RedfishError::HTTPErrorCode {
+                                    url: url.clone(),
+                                    status_code,
+                                    response_body: response_body.clone(),
+                                }
+                            })?;
+
+                            // we only want to parse the NIC mode from the response body if the DPU is actually in NIC mode
+                            // it is unexpected for a DPU to return an error when querying the BIOS attributes if it is in DPU mode
+                            match nic_mode {
+                                NicMode::Dpu => Err(RedfishError::HTTPErrorCode {
+                                    url,
+                                    status_code,
+                                    response_body,
+                                }),
+                                NicMode::Nic => Ok(nic_mode),
+                            }
+                        }
+                        false => Err(RedfishError::HTTPErrorCode {
+                            url,
+                            status_code,
+                            response_body,
+                        }),
+                    }
+                }
+                _ => Err(e),
+            },
+        }?;
+
+        Ok(Some(nic_mode))
+    }
+
+    async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
+        self.s.is_infinite_boot_enabled().await
+    }
 }
 
 impl Bmc {
@@ -846,5 +925,54 @@ impl Bmc {
             self.s.client.get(&url).await?;
         let log_entries = log_entry_collection.members;
         Ok(log_entries)
+    }
+
+    // get bmc firmware version for the DPU
+    async fn get_bmc_firmware_version(&self) -> Result<String, RedfishError> {
+        let inventory_list = self.get_software_inventories().await?;
+        if let Some(bmc_firmware) = inventory_list.iter().find(|i| i.contains("BMC_Firmware")) {
+            if let Some(bmc_firmware_version) =
+                self.get_firmware(bmc_firmware.as_str()).await?.version
+            {
+                Ok(bmc_firmware_version)
+            } else {
+                Err(RedfishError::MissingKey {
+                    key: "BMC_Firmware".to_owned(),
+                    url: format!("UpdateService/FirmwareInventory/{bmc_firmware}"),
+                })
+            }
+        } else {
+            Err(RedfishError::MissingKey {
+                key: "BMC_Firmware".to_owned(),
+                url: "UpdateService/FirmwareInventory".to_owned(),
+            })
+        }
+    }
+
+    async fn get_nic_mode_from_bios(
+        &self,
+        bios: HashMap<String, serde_json::Value>,
+    ) -> Result<NicMode, RedfishError> {
+        match bios.get("Attributes") {
+            Some(bios_attributes) => {
+                if let Some(nic_mode) = bios_attributes
+                    .get("NicMode")
+                    .and_then(|v| v.as_str().and_then(|v| NicMode::from_str(v).ok()))
+                {
+                    Ok(nic_mode)
+                } else {
+                    return Err(RedfishError::MissingKey {
+                        key: "NicMode".to_owned(),
+                        url: format!("Systems/{}/Bios", self.s.system_id()),
+                    });
+                }
+            }
+            None => {
+                return Err(RedfishError::MissingKey {
+                    key: "Attributes".to_owned(),
+                    url: format!("Systems/{}/Bios", self.s.system_id()),
+                });
+            }
+        }
     }
 }

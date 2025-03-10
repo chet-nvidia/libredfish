@@ -31,7 +31,10 @@ use crate::{
         account_service::ManagerAccount,
         chassis::{Chassis, NetworkAdapter},
         network_device_function::NetworkDeviceFunction,
-        oem::dell::{self, ShareParameters, SystemConfiguration},
+        oem::{
+            dell::{self, ShareParameters, SystemConfiguration},
+            nvidia_dpu::NicMode,
+        },
         power::Power,
         resource::ResourceCollection,
         secure_boot::SecureBoot,
@@ -953,6 +956,35 @@ impl Redfish for Bmc {
 
     async fn clear_nvram(&self) -> Result<(), RedfishError> {
         self.s.clear_nvram().await
+    }
+
+    async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError> {
+        self.s.get_nic_mode().await
+    }
+
+    async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
+        let bios = self.bios().await?;
+        let bios_attributes = match bios.get("Attributes") {
+            Some(attributes) => attributes,
+            None => {
+                return Err(RedfishError::MissingKey {
+                    key: "Attributes".to_owned(),
+                    url: format!("Systems/{}/Bios", self.s.system_id()),
+                })
+            }
+        };
+
+        let infinite_boot_status = bios_attributes
+            .get("BootSeqRetry")
+            .and_then(|v| v.as_str())
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: "BootSeqRetry".to_string(),
+                url: "Bios attributes".to_string(),
+            })?;
+
+        Ok(Some(
+            infinite_boot_status == EnabledDisabled::Enabled.to_string(),
+        ))
     }
 }
 

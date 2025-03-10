@@ -3,6 +3,7 @@ use std::{collections::HashMap, path::Path, time::Duration};
 use tokio::fs::File;
 
 use crate::model::account_service::ManagerAccount;
+use crate::model::oem::nvidia_dpu::NicMode;
 use crate::model::sensor::GPUSensors;
 use crate::model::service_root::RedfishVendor;
 use crate::model::task::Task;
@@ -604,6 +605,14 @@ impl Redfish for Bmc {
 
     async fn clear_nvram(&self) -> Result<(), RedfishError> {
         self.s.clear_nvram().await
+    }
+
+    async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError> {
+        self.s.get_nic_mode().await
+    }
+
+    async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
+        self.s.is_infinite_boot_enabled().await
     }
 }
 

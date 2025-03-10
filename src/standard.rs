@@ -31,7 +31,6 @@ use reqwest::{header::HeaderName, Method, StatusCode};
 use serde_json::json;
 use tracing::debug;
 
-use crate::model::job::Job;
 use crate::model::serial_interface::SerialInterface;
 use crate::model::service_root::ServiceRoot;
 use crate::model::software_inventory::SoftwareInventory;
@@ -39,6 +38,7 @@ use crate::model::task::Task;
 use crate::model::thermal::Thermal;
 use crate::model::update_service::ComponentType;
 use crate::model::{account_service::ManagerAccount, service_root::RedfishVendor};
+use crate::model::{job::Job, oem::nvidia_dpu::NicMode};
 use crate::model::{
     manager_network_protocol::ManagerNetworkProtocol, update_service::TransferProtocolType,
 };
@@ -738,6 +738,14 @@ impl Redfish for RedfishStandard {
 
     async fn clear_nvram(&self) -> Result<(), RedfishError> {
         Err(RedfishError::NotSupported("clear_nvram".to_string()))
+    }
+
+    async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError> {
+        Ok(None)
+    }
+
+    async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
+        Ok(None)
     }
 }
 

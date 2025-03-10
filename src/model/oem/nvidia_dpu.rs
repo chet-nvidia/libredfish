@@ -1,4 +1,4 @@
-use std::fmt;
+use std::{fmt, str::FromStr};
 
 use serde::{Deserialize, Serialize};
 
@@ -85,5 +85,24 @@ pub enum BackgroundCopyStatus {
 impl fmt::Display for BackgroundCopyStatus {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Copy, Clone, PartialEq, Eq, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "PascalCase")]
+pub enum NicMode {
+    Dpu,
+    Nic,
+}
+
+impl FromStr for NicMode {
+    type Err = ();
+
+    fn from_str(input: &str) -> Result<NicMode, Self::Err> {
+        match input {
+            "NicMode" => Ok(NicMode::Nic),
+            "DpuMode" => Ok(NicMode::Dpu),
+            _ => Err(()),
+        }
     }
 }
