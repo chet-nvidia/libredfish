@@ -259,6 +259,7 @@ pub struct MachineBiosAttrs {
     pub set_boot_order_en: String,
     #[serde(rename = "HttpDev1TlsMode")]
     pub http_device_1_tls_mode: TlsMode,
+    pub set_boot_order_dis: String,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

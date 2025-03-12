@@ -229,7 +229,7 @@ impl Redfish for Bmc {
         };
 
         // dell idrac requires applying all bios settings at once.
-        let machine_settings = self.machine_setup_attrs(&nic_slot);
+        let machine_settings = self.machine_setup_attrs(&nic_slot).await?;
         let set_machine_attrs = dell::SetBiosAttrs {
             redfish_settings_apply_time: apply_time,
             attributes: machine_settings,
@@ -309,7 +309,7 @@ impl Redfish for Bmc {
 
         let bios = self.s.bios_attributes().await?;
         let nic_slot = self.dpu_nic_slot(None).await?;
-        let mut expected_attrs = self.machine_setup_attrs(&nic_slot);
+        let mut expected_attrs = self.machine_setup_attrs(&nic_slot).await?;
 
         expected_attrs.tpm2_hierarchy = dell::Tpm2HierarchySettings::Enabled;
 
@@ -1512,8 +1512,29 @@ impl Bmc {
         }
     }
 
-    fn machine_setup_attrs(&self, nic_slot: &str) -> dell::MachineBiosAttrs {
-        dell::MachineBiosAttrs {
+    async fn machine_setup_attrs(
+        &self,
+        nic_slot: &str,
+    ) -> Result<dell::MachineBiosAttrs, RedfishError> {
+        let curr_bios_attributes = self.s.bios_attributes().await?;
+        let curr_enabled_boot_options = match curr_bios_attributes.get("SetBootOrderEn") {
+            Some(enabled_boot_options) => enabled_boot_options.as_str().unwrap_or_default(),
+            None => {
+                return Err(RedfishError::MissingKey {
+                    key: "SetBootOrderEn".to_owned(),
+                    url: format!("Systems/{}/Bios", self.s.system_id()),
+                });
+            }
+        };
+
+        // We want to disable all boot options other than HTTP Device 1.
+        let boot_options_to_disable_arr: Vec<&str> = curr_enabled_boot_options
+            .split(",")
+            .filter(|boot_option| boot_option.as_ref() != "NIC.HttpDevice.1-1".to_string())
+            .collect();
+        let boot_options_to_disable_str = boot_options_to_disable_arr.join(",");
+
+        Ok(dell::MachineBiosAttrs {
             in_band_manageability_interface: EnabledDisabled::Disabled,
             uefi_variable_access: dell::UefiVariableAccessSettings::Controlled,
             serial_comm: dell::SerialCommSettings::OnConRedir,
@@ -1531,7 +1552,8 @@ impl Bmc {
             http_device_1_interface: nic_slot.to_string(),
             set_boot_order_en: nic_slot.to_string(),
             http_device_1_tls_mode: dell::TlsMode::None,
-        }
+            set_boot_order_dis: boot_options_to_disable_str,
+        })
     }
 
     /// Dells endpoint to change the UEFI password has a bug for updating it once it is set.
