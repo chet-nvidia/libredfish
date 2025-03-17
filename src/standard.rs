@@ -744,6 +744,10 @@ impl Redfish for RedfishStandard {
         Ok(None)
     }
 
+    async fn set_nic_mode(&self, _mode: NicMode) -> Result<(), RedfishError> {
+        Err(RedfishError::NotSupported("set_nic_mode".to_string()))
+    }
+
     async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
         Ok(None)
     }

@@ -949,6 +949,10 @@ impl Redfish for Bmc {
         self.s.get_nic_mode().await
     }
 
+    async fn set_nic_mode(&self, mode: NicMode) -> Result<(), RedfishError> {
+        self.s.set_nic_mode(mode).await
+    }
+
     async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
         self.s.is_infinite_boot_enabled().await
     }

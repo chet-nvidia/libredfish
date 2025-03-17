@@ -428,6 +428,9 @@ pub trait Redfish: Send + Sync + 'static {
     // Only applicable to DPUs
     async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError>;
 
+    // Only applicable to DPUs
+    async fn set_nic_mode(&self, mode: NicMode) -> Result<(), RedfishError>;
+
     // Currently only implemented for Lenovos and Dells
     async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError>;
 }

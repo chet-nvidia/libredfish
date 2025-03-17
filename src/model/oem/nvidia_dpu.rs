@@ -91,7 +91,9 @@ impl fmt::Display for BackgroundCopyStatus {
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub enum NicMode {
+    #[serde(rename = "DpuMode")]
     Dpu,
+    #[serde(rename = "NicMode")]
     Nic,
 }
 
@@ -105,4 +107,18 @@ impl FromStr for NicMode {
             _ => Err(()),
         }
     }
+}
+
+impl fmt::Display for NicMode {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        fmt::Debug::fmt(self, f)
+    }
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct System {
+    pub mode: NicMode,
+    #[serde(rename = "BaseMAC")]
+    pub base_mac: Option<String>,
 }
