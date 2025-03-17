@@ -114,11 +114,3 @@ impl fmt::Display for NicMode {
         fmt::Debug::fmt(self, f)
     }
 }
-
-#[derive(Debug, Serialize, Deserialize, Clone)]
-#[serde(rename_all = "PascalCase")]
-pub struct System {
-    pub mode: NicMode,
-    #[serde(rename = "BaseMAC")]
-    pub base_mac: Option<String>,
-}
