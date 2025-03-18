@@ -75,6 +75,7 @@ pub enum PowerState {
     PoweringOff,
     PoweringOn,
     Paused,
+    Reset,
 }
 
 impl fmt::Display for PowerState {

@@ -318,6 +318,7 @@ pub enum OnOff {
     On,
     #[default]
     Off,
+    Reset,
 }
 
 impl fmt::Display for OnOff {
