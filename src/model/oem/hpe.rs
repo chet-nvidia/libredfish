@@ -79,7 +79,9 @@ pub struct BiosAttributes {
     pub embedded_serial_port: Option<String>,
     pub embedded_uefi_shell: Option<String>,
     pub ems_console: Option<String>,
-    pub enabled_cores_per_proc: Option<String>,
+    // In Jan 2024 this was listed as an Option<String>, current observation is that this is an int.  Due to uncertainty about
+    // whether it previously returned a string, we're leaving it out unless we actually need it.
+    // pub enabled_cores_per_proc: Option<String>,
     #[serde(rename = "EnhancedPreferredIOBusEnable")]
     pub enhanced_preferred_io_bus_enable: Option<String>,
     pub erase_user_defaults: Option<String>,
