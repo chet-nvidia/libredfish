@@ -91,9 +91,9 @@ impl fmt::Display for BackgroundCopyStatus {
 #[derive(Copy, Clone, PartialEq, Eq, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "PascalCase")]
 pub enum NicMode {
-    #[serde(rename = "DpuMode")]
+    #[serde(rename = "DpuMode", alias = "Dpu")]
     Dpu,
-    #[serde(rename = "NicMode")]
+    #[serde(rename = "NicMode", alias = "Nic")]
     Nic,
 }
 
@@ -101,10 +101,14 @@ impl FromStr for NicMode {
     type Err = ();
 
     fn from_str(input: &str) -> Result<NicMode, Self::Err> {
-        match input {
-            "NicMode" => Ok(NicMode::Nic),
-            "DpuMode" => Ok(NicMode::Dpu),
-            _ => Err(()),
+        // strip quotes from the string
+        let normalized_input = input.replace('"', "");
+        if normalized_input == "NicMode".to_string() {
+            Ok(NicMode::Nic)
+        } else if normalized_input == "DpuMode".to_string() {
+            Ok(NicMode::Dpu)
+        } else {
+            Err(())
         }
     }
 }

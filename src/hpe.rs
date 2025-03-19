@@ -44,25 +44,23 @@ use crate::{
         task::Task,
         thermal::Thermal,
         update_service::{ComponentType, TransferProtocolType, UpdateService},
-        BootOption, ComputerSystem, Manager, PCIeFunction,
-        SystemStatus, Slot,
+        BootOption, ComputerSystem, Manager, PCIeFunction, Slot, SystemStatus,
     },
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
-    BiosProfileType, Boot, BootOptions, Collection,
+    BiosProfileType, Boot, BootOptions, Collection, Deserialize,
     EnabledDisabled::{self, Disabled, Enabled},
-    JobState, MachineSetupDiff, MachineSetupStatus, ODataId, PCIeDevice, PowerState, Redfish,
-    RedfishError, Resource, RoleId, Status, StatusInternal, SystemPowerControl,
-    Serialize, Deserialize, OData,
+    JobState, MachineSetupDiff, MachineSetupStatus, OData, ODataId, PCIeDevice, PowerState,
+    Redfish, RedfishError, Resource, RoleId, Serialize, Status, StatusInternal, SystemPowerControl,
 };
 
-// The following is specific for the HPE machine since the HPE redfish 
+// The following is specific for the HPE machine since the HPE redfish
 // doesn't return pcie odata.id during power on transition
 // HpeOData structure will try to capture all those 4 properties.
 #[derive(Debug, Default, Serialize, Deserialize, Clone)]
 pub struct HpeOData {
     #[serde(rename = "@odata.id")]
-    pub odata_id: Option<String>,       // This is unique for HPE machine
+    pub odata_id: Option<String>, // This is unique for HPE machine
     #[serde(rename = "@odata.type")]
     pub odata_type: String,
     #[serde(rename = "@odata.etag")]
@@ -404,7 +402,9 @@ impl Redfish for Bmc {
         let mut devices: Vec<HpePCIeDevice> = Vec::new();
         let mut iter = chassis.pcie_devices.into_iter();
         while let Some(pcie_oid) = iter.next() {
-            let url = pcie_oid.odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+            let url = pcie_oid
+                .odata_id
+                .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
             let (_, hpe_pcie) = self.s.client.get(&url).await?;
             devices.push(hpe_pcie);
         }
@@ -528,7 +528,11 @@ impl Redfish for Bmc {
         // self.s.get_chassis_network_adapters(chassis_id).await
         let chassis = self.s.get_chassis(chassis_id).await?;
         if chassis.network_adapters.is_some() {
-            let url = chassis.network_adapters.unwrap().odata_id.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+            let url = chassis
+                .network_adapters
+                .unwrap()
+                .odata_id
+                .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
             // let url = format!("Chassis/{}/NetworkAdapters", chassis_id);
             self.s.get_members(&url).await
         } else {
