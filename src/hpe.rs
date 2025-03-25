@@ -194,11 +194,19 @@ impl Redfish for Bmc {
         >,
         _selected_profile: BiosProfileType,
     ) -> Result<(), RedfishError> {
-        self.setup_serial_console().await?;
-        self.clear_tpm().await?;
-        self.set_virt_enable().await?;
-        self.set_uefi_nic_boot().await?;
-        self.set_boot_order(BootDevices::Pxe).await?;
+        // skip trying to set few bios settings again if there are pending bios settings
+        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
+        let (_status_code, bios): (_, hpe::Bios) = self.s.client.get(url.as_str()).await?;
+        let bios = bios.attributes;
+        if let Some(tpm_clear) = &bios.tpm2_operation {
+            if tpm_clear != "Clear" {
+                self.setup_serial_console().await?;
+                self.clear_tpm().await?;
+                self.set_virt_enable().await?;
+                self.set_uefi_nic_boot().await?;
+                self.set_boot_order(BootDevices::Pxe).await?;
+            }
+        }
         let setup_result = self.set_boot_order_dpu_first(boot_interface_mac).await;
         match setup_result {
             Err(RedfishError::HTTPErrorCode {
