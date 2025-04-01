@@ -1044,7 +1044,6 @@ impl Bmc {
         if self.is_bf2().await? {
             let mut attributes = HashMap::new();
             data.insert("NicMode", val);
-            tracing::warn!("data: {data:#?}");
             attributes.insert("Attributes", data);
             let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
             return self
