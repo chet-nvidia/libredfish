@@ -220,13 +220,26 @@ impl Redfish for Bmc {
             });
         }
 
-        let needed = [
+        let enabled_disabled_attributes_needed = [
             ("Ipv4Http", bios.attributes.ipv4_http, FORGE_IPV4_HTTP),
             ("Ipv4Pxe", bios.attributes.ipv4_pxe, FORGE_IPV4_PXE),
             ("Ipv6Http", bios.attributes.ipv6_http, FORGE_IPV6_HTTP),
             ("Ipv6Pxe", bios.attributes.ipv6_pxe, FORGE_IPV6_PXE),
         ];
-        for (name, current_val, recommended_val) in needed {
+        for (name, current_val, recommended_val) in enabled_disabled_attributes_needed {
+            if let Some(current_val) = current_val {
+                diffs.push(MachineSetupDiff {
+                    key: name.to_string(),
+                    expected: recommended_val.to_string(),
+                    actual: current_val.to_string(),
+                });
+            }
+        }
+
+        let enable_disable_attributes_needed = [
+            ("NvidiaInfiniteboot", bios.attributes.nvidia_infiniteboot, FORGE_NVIDIA_INFINITEBOOT),
+        ];
+        for (name, current_val, recommended_val) in enable_disable_attributes_needed {
             if let Some(current_val) = current_val {
                 diffs.push(MachineSetupDiff {
                     key: name.to_string(),
@@ -954,7 +967,13 @@ impl Redfish for Bmc {
     }
 
     async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
-        self.s.is_infinite_boot_enabled().await
+        let bios = self.get_bios().await?;
+        match bios.attributes.nvidia_infiniteboot {
+            Some(is_infinite_boot_enabled) => {
+                Ok(Some(is_infinite_boot_enabled == FORGE_NVIDIA_INFINITEBOOT))
+            },
+            None => Ok(None),
+        }
     }
 }
 
@@ -1412,6 +1431,7 @@ impl Bmc {
             ipv6_http: current_values.ipv6_http.and(FORGE_IPV6_HTTP.into()),
             ipv6_pxe: current_values.ipv6_pxe.and(FORGE_IPV6_PXE.into()),
             redfish_enable: None,
+            nvidia_infiniteboot: current_values.nvidia_infiniteboot.and(FORGE_NVIDIA_INFINITEBOOT.into()),
         };
 
         self.patch_bios_attributes(SetBiosAttributes {

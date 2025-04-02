@@ -22,6 +22,7 @@ pub const FORGE_IPV4_PXE: EnabledDisabled = EnabledDisabled::Disabled;
 pub const FORGE_IPV6_HTTP: EnabledDisabled = EnabledDisabled::Enabled;
 pub const FORGE_IPV6_PXE: EnabledDisabled = EnabledDisabled::Disabled;
 pub const FORGE_REDFISH_ENABLE: EnabledDisabled = EnabledDisabled::Enabled;
+pub const FORGE_NVIDIA_INFINITEBOOT: EnableDisable = EnableDisable::Enable;
 
 pub const FORGE_KCS_INTERFACE_DISABLE: &str = KCS_INTERFACE_DISABLE_DENY_ALL;
 pub const KCS_INTERFACE_DISABLE_DENY_ALL: &str = "Deny All";
@@ -98,6 +99,8 @@ pub struct BiosAttributes {
     pub kcs_interface_disable: Option<String>,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub redfish_enable: Option<EnabledDisabled>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub nvidia_infiniteboot: Option<EnableDisable>,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
