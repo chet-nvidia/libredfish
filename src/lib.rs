@@ -160,6 +160,12 @@ pub trait Redfish: Send + Sync + 'static {
     /// get system event log similar to ipmitool sel
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError>;
 
+    /// get bmc event log (power events, etc.)
+    async fn get_bmc_event_log(
+        &self,
+        from: Option<chrono::DateTime<chrono::Utc>>,
+    ) -> Result<Vec<LogEntry>, RedfishError>;
+
     /// get drives metrics
     async fn get_drives_metrics(&self) -> Result<Vec<Drives>, RedfishError>;
 

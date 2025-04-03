@@ -22,6 +22,7 @@
  */
 use std::{collections::HashMap, path::Path, time::Duration};
 
+use chrono::Utc;
 use reqwest::header::HeaderMap;
 use reqwest::Method;
 use serde::Serialize;
@@ -164,6 +165,14 @@ impl Redfish for Bmc {
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
         self.get_system_event_log().await
+    }
+
+    async fn get_bmc_event_log(
+        &self,
+        from: Option<chrono::DateTime<Utc>>,
+    ) -> Result<Vec<LogEntry>, RedfishError> {
+        let url = format!("Systems/{}/LogServices/AuditLog", self.s.system_id());
+        self.s.fetch_bmc_event_log(url, from).await
     }
 
     async fn get_drives_metrics(&self) -> Result<Vec<Drives>, RedfishError> {

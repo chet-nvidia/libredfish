@@ -31,7 +31,6 @@ use reqwest::{header::HeaderName, Method, StatusCode};
 use serde_json::json;
 use tracing::debug;
 
-use crate::model::serial_interface::SerialInterface;
 use crate::model::service_root::ServiceRoot;
 use crate::model::software_inventory::SoftwareInventory;
 use crate::model::task::Task;
@@ -46,6 +45,7 @@ use crate::model::{power, thermal, BootOption, InvalidValueError, Manager, Manag
 use crate::model::{power::Power, update_service::UpdateService};
 use crate::model::{secure_boot::SecureBoot, sensor::GPUSensors};
 use crate::model::{sel::LogEntry, ManagerResetType};
+use crate::model::{sel::LogEntryCollection, serial_interface::SerialInterface};
 use crate::model::{storage::Drives, storage::Storage, storage::StorageSubsystem};
 use crate::network::{RedfishHttpClient, REDFISH_ENDPOINT};
 use crate::{
@@ -192,6 +192,13 @@ impl Redfish for RedfishStandard {
 
     async fn get_system_event_log(&self) -> Result<Vec<LogEntry>, RedfishError> {
         Err(RedfishError::NotSupported("SEL".to_string()))
+    }
+
+    async fn get_bmc_event_log(
+        &self,
+        _from: Option<chrono::DateTime<chrono::Utc>>,
+    ) -> Result<Vec<LogEntry>, RedfishError> {
+        Err(RedfishError::NotSupported("BMC Event Log".to_string()))
     }
 
     async fn get_drives_metrics(&self) -> Result<Vec<Drives>, RedfishError> {
@@ -900,6 +907,28 @@ impl RedfishStandard {
             .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
         let b: BootOption = self.client.get(&url).await?.1;
         Ok(b)
+    }
+
+    pub async fn fetch_bmc_event_log(
+        &self,
+        url: String,
+        from: Option<chrono::DateTime<chrono::Utc>>,
+    ) -> Result<Vec<LogEntry>, RedfishError> {
+        let url_with_filter = match from {
+            Some(from) => {
+                let filter_value = format!(
+                    "Created ge '{}'",
+                    from.to_rfc3339_opts(chrono::SecondsFormat::Secs, true)
+                );
+                let encoded_filter = urlencoding::encode(&filter_value).into_owned();
+                format!("{}?$filter={}", url, encoded_filter)
+            }
+            None => url,
+        };
+
+        let (_status_code, log_entry_collection): (_, LogEntryCollection) =
+            self.client.get(&url_with_filter).await?;
+        Ok(log_entry_collection.members)
     }
 
     // The URL differs for Lenovo, but the rest is the same

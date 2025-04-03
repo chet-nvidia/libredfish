@@ -7,7 +7,7 @@ authors = [
 ]
 repository = "https://gitlab-master.nvidia.com/nvmetal/libredfish"
 license = "MIT"
-version = "0.29.16"
+version = "0.29.17"
 edition = "2021"
 
 [dependencies]
@@ -29,6 +29,8 @@ tokio = { version = "1", features = ["full"], registry = "cratesio" }
 tracing = { version = "0.1", registry = "cratesio" }
 version-compare = { version = "0.1", registry = "cratesio" }
 regex = "1.10"
+chrono = "0.4.34"
+urlencoding = "2.1.3"
 
 [dev-dependencies]
 anyhow = { version = "1", registry = "cratesio" }
