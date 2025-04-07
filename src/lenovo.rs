@@ -171,7 +171,10 @@ impl Redfish for Bmc {
         &self,
         from: Option<chrono::DateTime<Utc>>,
     ) -> Result<Vec<LogEntry>, RedfishError> {
-        let url = format!("Systems/{}/LogServices/AuditLog", self.s.system_id());
+        let url = format!(
+            "Systems/{}/LogServices/AuditLog/Entries",
+            self.s.system_id()
+        );
         self.s.fetch_bmc_event_log(url, from).await
     }
 
