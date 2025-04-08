@@ -39,7 +39,7 @@ use crate::{
         oem::{
             nvidia_dpu::NicMode,
             nvidia_viking::{
-                BootDevices::{self, Pxe},
+                BootDevices::{self, UefiHttp},
                 *,
             },
         },
@@ -233,36 +233,41 @@ impl Redfish for Bmc {
             ("Ipv6Http", bios.attributes.ipv6_http, FORGE_IPV6_HTTP),
             ("Ipv6Pxe", bios.attributes.ipv6_pxe, FORGE_IPV6_PXE),
         ];
-        for (name, current_val, recommended_val) in enabled_disabled_attributes_needed {
-            if let Some(current_val) = current_val {
-                diffs.push(MachineSetupDiff {
-                    key: name.to_string(),
-                    expected: recommended_val.to_string(),
-                    actual: current_val.to_string(),
-                });
+
+        for (bios_attribute_name, current_value, expected_value) in enabled_disabled_attributes_needed {
+            if let Some(current_val) = current_value {
+                if current_val != expected_value {
+                    diffs.push(MachineSetupDiff {
+                        key: bios_attribute_name.to_string(),
+                        expected: expected_value.to_string(),
+                        actual: current_val.to_string(),
+                    });    
+                }
             }
         }
 
         let enable_disable_attributes_needed = [
             ("NvidiaInfiniteboot", bios.attributes.nvidia_infiniteboot, FORGE_NVIDIA_INFINITEBOOT),
         ];
-        for (name, current_val, recommended_val) in enable_disable_attributes_needed {
-            if let Some(current_val) = current_val {
-                diffs.push(MachineSetupDiff {
-                    key: name.to_string(),
-                    expected: recommended_val.to_string(),
-                    actual: current_val.to_string(),
-                });
+        for (name, current_value, expected_value) in enable_disable_attributes_needed {
+            if let Some(current_val) = current_value {
+                if current_val != expected_value {
+                    diffs.push(MachineSetupDiff {
+                        key: name.to_string(),
+                        expected: expected_value.to_string(),
+                        actual: current_val.to_string(),
+                    });
+               }
             }
         }
 
         // TODO: Many BootOptions have Alias="Pxe". This probably isn't doing what we want.
         // see get_boot_options_ids_with_first
         let boot_first = self.s.get_first_boot_option().await?;
-        if boot_first.alias != Some(Pxe.to_string()) {
+        if boot_first.alias != Some(UefiHttp.to_string()) {
             diffs.push(MachineSetupDiff {
                 key: "boot_first".to_string(),
-                expected: Pxe.to_string(),
+                expected: UefiHttp.to_string(),
                 actual: format!("{:?}", boot_first.alias.as_deref().unwrap_or("_missing_")),
             });
         }
