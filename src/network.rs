@@ -30,9 +30,7 @@ use reqwest::{
 use serde::{de::DeserializeOwned, Serialize};
 use tracing::debug;
 
-use crate::{
-    model::error, model::InvalidValueError, standard::RedfishStandard, Redfish, RedfishError,
-};
+use crate::{model::InvalidValueError, standard::RedfishStandard, Redfish, RedfishError};
 
 pub const REDFISH_ENDPOINT: &str = "redfish/v1";
 const DEFAULT_CONNECT_TIMEOUT: Duration = Duration::from_secs(10);
@@ -500,27 +498,24 @@ impl RedfishHttpClient {
 
         if !status_code.is_success() {
             if status_code == StatusCode::FORBIDDEN && !response_body.is_empty() {
-                let err: error::Error = match serde_json::from_str(&response_body) {
-                    Ok(redfish_err) => redfish_err,
-                    Err(e) => {
-                        return Err(RedfishError::JsonDeserializeError {
-                            url,
-                            body: response_body,
-                            source: e,
-                        });
-                    }
-                };
-                if err
-                    .error
-                    .extended
-                    .iter()
-                    // TODO(ajf) The actual message ID is specified in DTMF RedFish 9.5.11.2 so we
-                    // should properly parse it into a type since the error may come from different
-                    // MessageRegistries
-                    .any(|ext| ext.message_id.ends_with("PasswordChangeRequired"))
+                // If PasswordChangeRequired is in the response, return a PasswordChangeRequired error.
+                if let Ok(err) = serde_json::from_str::<crate::model::error::Error>(&response_body)
                 {
-                    return Err(RedfishError::PasswordChangeRequired);
+                    if err
+                        .error
+                        .extended
+                        .iter()
+                        // TODO(ajf) The actual message ID is specified in DTMF RedFish 9.5.11.2 so we
+                        // should properly parse it into a type since the error may come from different
+                        // MessageRegistries
+                        .any(|ext| ext.message_id.ends_with("PasswordChangeRequired"))
+                    {
+                        return Err(RedfishError::PasswordChangeRequired);
+                    }
                 }
+                // If we can't decode the error JSON, just return the normal HTTPErrorCode. Some
+                // misbehaved BMCs will return an XHTML document for forbidden responses, for
+                // instance.
             }
             return Err(RedfishError::HTTPErrorCode {
                 url,

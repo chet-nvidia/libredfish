@@ -61,6 +61,7 @@ const SUPERMICRO_PORT: &str = "8738";
 const DELL_MULTI_DPU_PORT: &str = "8739";
 const NVIDIA_GH200_PORT: &str = "8740";
 const NVIDIA_GB200_PORT: &str = "8741";
+const GENERIC_PORT: &str = "8742";
 
 static SETUP: Once = Once::new();
 
@@ -107,6 +108,35 @@ async fn test_nvidia_gh200() -> Result<(), anyhow::Error> {
 #[tokio::test]
 async fn test_nvidia_gb200() -> Result<(), anyhow::Error> {
     run_integration_test("nvidia_gb200", NVIDIA_GB200_PORT).await
+}
+
+#[tokio::test]
+async fn test_forbidden_error_handling() -> anyhow::Result<()> {
+    let _mockup_server = run_mockup_server("forbidden", GENERIC_PORT); // stops on drop
+
+    let endpoint = libredfish::Endpoint {
+        host: format!("127.0.0.1:{GENERIC_PORT}"),
+        ..Default::default()
+    };
+
+    let pool = libredfish::RedfishClientPool::builder().build()?;
+    let redfish = pool.create_standard_client(endpoint)?;
+
+    match redfish.get_chassis_all().await {
+        Ok(_) => panic!("Request should have failed with password change required"),
+        Err(libredfish::RedfishError::PasswordChangeRequired) => {} // what we want
+        Err(err) => panic!("Unexpected error response: {}", err),
+    }
+
+    match redfish.get_systems().await {
+        Ok(_) => panic!("Request should have failed with an HTTP error code"),
+        Err(libredfish::RedfishError::HTTPErrorCode { status_code, .. }) => {
+            assert_eq!(status_code, 403, "Response status code should be forbidden");
+        }
+        Err(err) => panic!("Unexpected error response: {}", err),
+    }
+
+    Ok(())
 }
 
 async fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
@@ -169,10 +199,7 @@ async fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow
     Ok(())
 }
 
-async fn run_integration_test(
-    vendor_dir: &'static str,
-    port: &'static str,
-) -> Result<(), anyhow::Error> {
+fn run_mockup_server(vendor_dir: &'static str, port: &'static str) -> anyhow::Result<MockupServer> {
     SETUP.call_once(move || {
         use tracing_subscriber::fmt::Layer;
         use tracing_subscriber::prelude::*;
@@ -209,6 +236,14 @@ async fn run_integration_test(
         process: None,
     };
     mockup_server.start()?; // stops on drop
+    Ok(mockup_server)
+}
+
+async fn run_integration_test(
+    vendor_dir: &'static str,
+    port: &'static str,
+) -> Result<(), anyhow::Error> {
+    let _mockup_server = run_mockup_server(vendor_dir, port); // stops on drop
 
     let endpoint = libredfish::Endpoint {
         host: format!("127.0.0.1:{port}"),

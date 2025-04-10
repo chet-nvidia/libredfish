@@ -231,6 +231,26 @@ class RfMockupServer(BaseHTTPRequestHandler):
                 if k.lower() not in dont_send:
                     self.send_header(k, v)
 
+    def send_response_file(self, fpath):
+        """send_response_file
+
+        :param fpath:
+        """
+        with open(fpath) as response_data:
+            d = json.load(response_data)
+        if isinstance(d.get("status"), int):
+            self.send_response(d.get("status"))
+        else:
+            self.send_response(200)
+        if isinstance(d.get("headers"), dict):
+            for k, v in d["headers"].items():
+                if k.lower() not in dont_send:
+                    self.send_header(k, v)
+        body = d.get("body")
+        self.send_header("Content-Length", len(body))
+        self.end_headers()
+        self.wfile.write(bytes(body, "utf8"))
+
     def add_new_member(self, payload, data_received):
         members = payload.get("Members")
         n = 1
@@ -544,6 +564,7 @@ class RfMockupServer(BaseHTTPRequestHandler):
         fpath = self.construct_path(self.path, "index.json")
         fpath_xml = self.construct_path(self.path, "index.xml")
         fpath_headers = self.construct_path(self.path, "headers.json")
+        fpath_custom = self.construct_path(self.path, "custom.json")
         fpath_direct = self.construct_path(self.path, "")
 
         success, payload = self.get_cached_link(fpath)
@@ -553,9 +574,13 @@ class RfMockupServer(BaseHTTPRequestHandler):
 
         self.try_to_sleep("GET", self.path)
 
+        # Handle custom responses written to custom.json
+        if os.path.isfile(fpath_custom):
+            self.send_response_file(fpath_custom)
+
         # handle resource paths that don't exist for shortForm
         # '/' and '/redfish'
-        if self.path == "/" and self.server.shortForm:
+        elif self.path == "/" and self.server.shortForm:
             self.send_response(404)
             self.end_headers()
 
