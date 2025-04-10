@@ -1010,6 +1010,26 @@ impl Bmc {
         .is_ok_and(|c| c == version_compare::Cmp::Lt))
     }
 
+    // BMC FW BF-24.04-5 times out when accessing "redfish/v1/Systems/Bluefield/Oem/Nvidia" on DPUs in NIC mode 
+    fn query_bios_attributes_for_nic_mode(
+        &self,
+        current_bmc_firmware_version: &str,
+    ) -> Result<bool, RedfishError> {
+        // right now, we know that BF-24.04-5 on BF3 times out when accessing redfish/v1/Systems/Bluefield/Oem/Nvidia
+        let bmc_versions_without_oem_extension_support = vec!["BF-24.04-5"];
+        for version in bmc_versions_without_oem_extension_support {
+            if version_compare::compare(
+                current_bmc_firmware_version,
+                version,
+            )
+            .is_ok_and(|c| c == version_compare::Cmp::Eq) {
+                return Ok(true);
+            }
+        }
+
+        Ok(false)
+    }
+
     async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError> {
         let current_bmc_firmware_version = self.get_bmc_firmware_version().await?;
         if self.nic_mode_unsupported(&current_bmc_firmware_version)? {
@@ -1019,7 +1039,7 @@ impl Bmc {
             return Ok(None);
         }
 
-        if self.is_bf2().await? {
+        if self.is_bf2().await? || self.query_bios_attributes_for_nic_mode(&current_bmc_firmware_version)? {
             let nic_mode = self
                 .get_nic_mode_from_bios(&current_bmc_firmware_version)
                 .await?;
