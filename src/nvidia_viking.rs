@@ -96,12 +96,19 @@ impl Redfish for Bmc {
         self.s.change_password(user, new).await
     }
 
+    /* 
+        https://docs.nvidia.com/dgx/dgxh100-user-guide/redfish-api-supp.html
+        curl -k -u <bmc-user>:<password> --request PATCH 'https://<bmc-ip-address>/redfish/v1/AccountService/Accounts/2' --header 'If-Match: *'  --header 'Content-Type: application/json' --data-raw '{ "Password" : "<password>" }'
+    */
     async fn change_password_by_id(
         &self,
         account_id: &str,
         new_pass: &str,
     ) -> Result<(), RedfishError> {
-        self.s.change_password_by_id(account_id, new_pass).await
+        let url = format!("AccountService/Accounts/{}", account_id);
+        let mut data = HashMap::new();
+        data.insert("Password", new_pass);
+        self.patch_with_if_match(url, data).await
     }
 
     async fn get_accounts(&self) -> Result<Vec<ManagerAccount>, RedfishError> {
