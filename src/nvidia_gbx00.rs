@@ -344,15 +344,14 @@ impl Redfish for Bmc {
 
     async fn machine_setup(
         &self,
-        boot_interface_mac: Option<&str>,
+        _boot_interface_mac: Option<&str>,
         _bios_profiles: &HashMap<
             RedfishVendor,
             HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
         >,
         _selected_profile: BiosProfileType,
     ) -> Result<(), RedfishError> {
-        self.disable_secure_boot().await?;
-        self.set_boot_order_dpu_first(boot_interface_mac).await
+        self.disable_secure_boot().await
     }
 
     async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {

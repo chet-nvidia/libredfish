@@ -196,49 +196,18 @@ impl Redfish for Bmc {
 
     async fn machine_setup(
         &self,
-        boot_interface_mac: Option<&str>,
+        _boot_interface_mac: Option<&str>,
         _bios_profiles: &HashMap<
             RedfishVendor,
             HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
         >,
         _selected_profile: BiosProfileType,
     ) -> Result<(), RedfishError> {
-        // skip trying to set few bios settings again if there are pending bios settings
-        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
-        let (_status_code, bios): (_, hpe::Bios) = self.s.client.get(url.as_str()).await?;
-        let bios = bios.attributes;
-        if let Some(tpm_clear) = &bios.tpm2_operation {
-            if tpm_clear != "Clear" {
-                self.setup_serial_console().await?;
-                self.clear_tpm().await?;
-                self.set_virt_enable().await?;
-                self.set_uefi_nic_boot().await?;
-                self.set_boot_order(BootDevices::Pxe).await?;
-            }
-        }
-        let setup_result = self.set_boot_order_dpu_first(boot_interface_mac).await;
-        match setup_result {
-            Err(RedfishError::HTTPErrorCode {
-                url,
-                status_code,
-                response_body,
-            }) => {
-                if response_body.contains("UnableToModifyDuringSystemPOST") {
-                    tracing::info!(
-                        "redfish forge_setup might fail due to HPE POST race condition, ignore."
-                    );
-                    Ok(())
-                } else {
-                    Err(RedfishError::HTTPErrorCode {
-                        url,
-                        status_code,
-                        response_body,
-                    })
-                }
-            }
-            Ok(()) => Ok(()),
-            Err(e) => Err(e),
-        }
+        self.setup_serial_console().await?;
+        self.clear_tpm().await?;
+        self.set_virt_enable().await?;
+        self.set_uefi_nic_boot().await?;
+        self.set_boot_order(BootDevices::Pxe).await
     }
 
     async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
@@ -699,7 +668,28 @@ impl Redfish for Bmc {
             return Err(RedfishError::MissingBootOption(format!("HTTP IPv4 {mac}")));
         };
 
-        self.set_first_boot(&boot_ref).await
+        match self.set_first_boot(&boot_ref).await {
+            Err(RedfishError::HTTPErrorCode {
+                url,
+                status_code,
+                response_body,
+            }) => {
+                if response_body.contains("UnableToModifyDuringSystemPOST") {
+                    tracing::info!(
+                        "redfish set_first_boot might fail due to HPE POST race condition, ignore."
+                    );
+                    Ok(())
+                } else {
+                    Err(RedfishError::HTTPErrorCode {
+                        url,
+                        status_code,
+                        response_body,
+                    })
+                }
+            }
+            Ok(()) => Ok(()),
+            Err(e) => Err(e),
+        }
     }
 
     async fn clear_uefi_password(

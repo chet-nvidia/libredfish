@@ -198,7 +198,7 @@ impl Redfish for Bmc {
 
     async fn machine_setup(
         &self,
-        boot_interface_mac: Option<&str>,
+        _boot_interface_mac: Option<&str>,
         bios_profiles: &HashMap<
             RedfishVendor,
             HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
@@ -225,10 +225,7 @@ impl Redfish for Bmc {
                 }
             }
         }
-        // non-fatal error because possibly we need a reboot between set_uefi_boot_only and this
-        if let Err(err) = self.set_boot_order_dpu_first(boot_interface_mac).await {
-            tracing::warn!(%err, "libredfish Lenovo set_boot_order_dpu_first");
-        };
+
         Ok(())
     }
 

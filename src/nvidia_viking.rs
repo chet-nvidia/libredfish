@@ -193,15 +193,14 @@ impl Redfish for Bmc {
 
     async fn machine_setup(
         &self,
-        boot_interface_mac: Option<&str>,
+        _boot_interface_mac: Option<&str>,
         _bios_profiles: &HashMap<
             RedfishVendor,
             HashMap<String, HashMap<BiosProfileType, HashMap<String, serde_json::Value>>>,
         >,
         _selected_profile: BiosProfileType,
     ) -> Result<(), RedfishError> {
-        self.set_bios_attributes().await?;
-        self.set_boot_order_dpu_first(boot_interface_mac).await
+        self.set_bios_attributes().await
     }
 
     async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
@@ -234,21 +233,25 @@ impl Redfish for Bmc {
             ("Ipv6Pxe", bios.attributes.ipv6_pxe, FORGE_IPV6_PXE),
         ];
 
-        for (bios_attribute_name, current_value, expected_value) in enabled_disabled_attributes_needed {
+        for (bios_attribute_name, current_value, expected_value) in
+            enabled_disabled_attributes_needed
+        {
             if let Some(current_val) = current_value {
                 if current_val != expected_value {
                     diffs.push(MachineSetupDiff {
                         key: bios_attribute_name.to_string(),
                         expected: expected_value.to_string(),
                         actual: current_val.to_string(),
-                    });    
+                    });
                 }
             }
         }
 
-        let enable_disable_attributes_needed = [
-            ("NvidiaInfiniteboot", bios.attributes.nvidia_infiniteboot, FORGE_NVIDIA_INFINITEBOOT),
-        ];
+        let enable_disable_attributes_needed = [(
+            "NvidiaInfiniteboot",
+            bios.attributes.nvidia_infiniteboot,
+            FORGE_NVIDIA_INFINITEBOOT,
+        )];
         for (name, current_value, expected_value) in enable_disable_attributes_needed {
             if let Some(current_val) = current_value {
                 if current_val != expected_value {
@@ -257,7 +260,7 @@ impl Redfish for Bmc {
                         expected: expected_value.to_string(),
                         actual: current_val.to_string(),
                     });
-               }
+                }
             }
         }
 
@@ -854,8 +857,7 @@ impl Redfish for Bmc {
             None => {
                 return Err(RedfishError::GenericError {
                     error: format!(
-                        "no IPv4 Uefi Http boot option found for mac address {}",
-                        mac_address
+                        "no IPv4 Uefi Http boot option found for mac address {mac_address}; current boot options:\n {all_boot_options:?}",
                     ),
                 })
             }
@@ -983,7 +985,7 @@ impl Redfish for Bmc {
         match bios.attributes.nvidia_infiniteboot {
             Some(is_infinite_boot_enabled) => {
                 Ok(Some(is_infinite_boot_enabled == FORGE_NVIDIA_INFINITEBOOT))
-            },
+            }
             None => Ok(None),
         }
     }
@@ -1443,7 +1445,9 @@ impl Bmc {
             ipv6_http: current_values.ipv6_http.and(FORGE_IPV6_HTTP.into()),
             ipv6_pxe: current_values.ipv6_pxe.and(FORGE_IPV6_PXE.into()),
             redfish_enable: None,
-            nvidia_infiniteboot: current_values.nvidia_infiniteboot.and(FORGE_NVIDIA_INFINITEBOOT.into()),
+            nvidia_infiniteboot: current_values
+                .nvidia_infiniteboot
+                .and(FORGE_NVIDIA_INFINITEBOOT.into()),
         };
 
         self.patch_bios_attributes(SetBiosAttributes {
