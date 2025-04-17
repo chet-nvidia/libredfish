@@ -178,13 +178,7 @@ impl Redfish for Bmc {
         attrs.extend(bios_attrs);
         let body = HashMap::from([("Attributes", attrs)]);
         let url = format!("Systems/{}/Bios", self.s.system_id());
-        self.s
-            .client
-            .patch(&url, body)
-            .await
-            .map(|_status_code| ())?;
-
-        self.boot_first(Boot::Pxe).await
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
     async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
@@ -364,16 +358,11 @@ impl Redfish for Bmc {
 
     /// Boot from this device once then go back to the normal boot order
     async fn boot_once(&self, target: Boot) -> Result<(), RedfishError> {
-        if target == Boot::Pxe || target == Boot::UefiHttp {
-            let _ = self.set_mellanox_first().await;
-        }
         self.set_boot_override(target, true).await
     }
 
     /// Set which device we should boot from first.
     async fn boot_first(&self, target: Boot) -> Result<(), RedfishError> {
-        let _ = self.set_mellanox_first().await;
-
         // Try with FixedBootOptions and fallback to BootOptions if fails
         match self.set_boot_order(target).await {
             Err(RedfishError::HTTPErrorCode {
@@ -646,11 +635,8 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
-    async fn set_boot_order_dpu_first(
-        &self,
-        mac_address: Option<&str>,
-    ) -> Result<(), RedfishError> {
-        self.s.set_boot_order_dpu_first(mac_address).await
+    async fn set_boot_order_dpu_first(&self, mac_address: &str) -> Result<(), RedfishError> {
+        self.set_mellanox_first(mac_address).await
     }
 
     async fn clear_uefi_password(
@@ -742,8 +728,8 @@ impl Bmc {
 
         // UEFI NIC boot
         add_keys!("IPv4HTTPSupport", EnabledDisabled::Enabled);
-        add_keys!("IPv4PXESupport", EnabledDisabled::Enabled);
-        add_keys!("IPv6HTTPSupport", EnabledDisabled::Enabled);
+        add_keys!("IPv4PXESupport", EnabledDisabled::Disabled);
+        add_keys!("IPv6HTTPSupport", EnabledDisabled::Disabled);
         add_keys!("IPv6PXESupport", EnabledDisabled::Disabled);
 
         Ok(bios_attrs)
@@ -976,17 +962,18 @@ impl Bmc {
     /// will only appear after IPv4HTTPSupport bios setting is enabled and the host rebooted.
     /// If the Mellanox adapter is not first everything still works, but boot takes a little longer
     /// because it tries the other adapters too.
-    async fn set_mellanox_first(&self) -> Result<(), RedfishError> {
+    async fn set_mellanox_first(&self, boot_interface: &str) -> Result<(), RedfishError> {
+        let ipv4_http4_regex = format!(
+            "{MELLANOX_UEFI_HTTP4} - {boot_interface}(MAC:{})",
+            boot_interface.replace(':', "").to_uppercase()
+        );
         let mut with_name_match = None; // the ID of the option matching with_name
         let mut ordered = Vec::new(); // the final boot options
         let all = self.s.get_boot_options().await?;
         for b in all.members {
             let id = b.odata_id_get()?;
             let boot_option = self.s.get_boot_option(id).await?;
-            if boot_option
-                .display_name
-                .contains("UEFI HTTP IPv4 Mellanox Network Adapter")
-            {
+            if boot_option.display_name.contains(&ipv4_http4_regex) {
                 with_name_match = Some(boot_option.id);
             } else {
                 ordered.push(boot_option.id);
@@ -1007,6 +994,7 @@ impl Bmc {
     //       TXTSupport -> [TXTSupport#0062, TXTSupport#0072] }
     async fn bios_attributes_name_map(&self) -> Result<HashMap<String, Vec<String>>, RedfishError> {
         let bios_attrs = self.s.bios_attributes().await?;
+
         let Some(attrs_map) = bios_attrs.as_object() else {
             return Err(RedfishError::InvalidKeyType {
                 key: "Attributes".to_string(),
@@ -1016,7 +1004,7 @@ impl Bmc {
         };
         let mut by_name: HashMap<String, Vec<String>> = HashMap::with_capacity(attrs_map.len());
         for k in attrs_map.keys() {
-            let clean_key = k.split('#').next().unwrap().to_string();
+            let clean_key = k.split('_').next().unwrap().to_string();
             by_name
                 .entry(clean_key)
                 .and_modify(|e| e.push(k.clone()))

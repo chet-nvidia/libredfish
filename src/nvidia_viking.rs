@@ -34,7 +34,7 @@ use crate::{
     model::{
         account_service::ManagerAccount,
         boot::{BootSourceOverrideEnabled, BootSourceOverrideTarget},
-        chassis::{Chassis, MachineNetworkAdapter, NetworkAdapter},
+        chassis::{Chassis, NetworkAdapter},
         network_device_function::NetworkDeviceFunction,
         oem::{
             nvidia_dpu::NicMode,
@@ -44,7 +44,7 @@ use crate::{
             },
         },
         power::Power,
-        resource::{IsResource, ResourceCollection},
+        resource::IsResource,
         secure_boot::SecureBoot,
         sel::{LogEntry, LogEntryCollection},
         sensor::{GPUSensors, Sensor},
@@ -61,8 +61,8 @@ use crate::{
     standard::RedfishStandard,
     BiosProfileType, Boot, BootOptions, Collection,
     EnabledDisabled::{self, Disabled, Enabled},
-    JobState, MachineSetupDiff, MachineSetupStatus, ODataId, PCIeDevice, PCIeFunction, PowerState,
-    Redfish, RedfishError, Resource, RoleId, Status, StatusInternal, SystemPowerControl,
+    JobState, MachineSetupDiff, MachineSetupStatus, ODataId, PCIeDevice, PowerState, Redfish,
+    RedfishError, Resource, RoleId, Status, StatusInternal, SystemPowerControl,
 };
 
 const UEFI_PASSWORD_NAME: &str = "AdminPassword";
@@ -96,7 +96,7 @@ impl Redfish for Bmc {
         self.s.change_password(user, new).await
     }
 
-    /* 
+    /*
         https://docs.nvidia.com/dgx/dgxh100-user-guide/redfish-api-supp.html
         curl -k -u <bmc-user>:<password> --request PATCH 'https://<bmc-ip-address>/redfish/v1/AccountService/Accounts/2' --header 'If-Match: *'  --header 'Content-Type: application/json' --data-raw '{ "Password" : "<password>" }'
     */
@@ -424,7 +424,7 @@ impl Redfish for Bmc {
         match target {
             Boot::Pxe => self.set_boot_order(BootDevices::Pxe).await,
             Boot::HardDisk => self.set_boot_order(BootDevices::Hdd).await,
-            Boot::UefiHttp => self.set_boot_order_dpu_first(None).await,
+            Boot::UefiHttp => self.set_boot_order(BootDevices::UefiHttp).await,
         }
     }
 
@@ -749,48 +749,9 @@ impl Redfish for Bmc {
     // Details of changing boot order in DGX H100 can be found at
     // https://docs.nvidia.com/dgx/dgxh100-user-guide/redfish-api-supp.html#modifying-the-boot-order-on-dgx-h100-using-redfish.
 
-    async fn set_boot_order_dpu_first(&self, address: Option<&str>) -> Result<(), RedfishError> {
+    async fn set_boot_order_dpu_first(&self, address: &str) -> Result<(), RedfishError> {
         let mut system: ComputerSystem = self.s.get_system().await?;
-        let mac_address = match address {
-            Some(x) => x.replace(':', "").to_uppercase(),
-            None => {
-                // We will find dpu mac address
-                // First find the chassis that contains this system.
-                let mut chassis_id: ODataId = "/redfish/v1/Chassis/DGX".into();
-                if let Some(links) = system.links {
-                    if let Some(chassis_links) = links.chassis {
-                        if !chassis_links.is_empty() {
-                            // We will select only the first
-                            chassis_links.first().unwrap().clone_into(&mut chassis_id)
-                        }
-                    }
-                }
-
-                let adapters = self.get_all_network_adapters(chassis_id).await?;
-                // Will ignore ones without mac address
-                let dpu_mac_addresses: Vec<String> = adapters
-                    .into_iter()
-                    .filter_map(|x3| {
-                        if x3.is_dpu && x3.mac_address.is_some() {
-                            return Some(
-                                x3.mac_address
-                                    .unwrap()
-                                    .to_string()
-                                    .replace(':', "")
-                                    .to_uppercase(),
-                            );
-                        }
-                        None
-                    })
-                    .collect();
-
-                debug!("dpu mac_address: {}", dpu_mac_addresses.join(","));
-                if dpu_mac_addresses.is_empty() {
-                    return Err(RedfishError::NoDpu);
-                }
-                dpu_mac_addresses.first().unwrap().to_owned()
-            }
-        };
+        let mac_address = address.replace(':', "").to_uppercase();
 
         debug!("Using DPU with mac_address {}", mac_address);
 
@@ -1253,103 +1214,6 @@ impl Bmc {
             self.s.client.get(&url).await?;
         let log_entries = log_entry_collection.members;
         Ok(log_entries)
-    }
-
-    // This func will return a list of ForgeNetworkAdapter, that is convenient container for all
-    // networking related Redfish resources such as NetworkAdapter, PCIeDevice etc.,
-    // We will identify DPU by PCI VENDOR ID and PCI DEVICE ID
-    async fn get_all_network_adapters(
-        &self,
-        chassis_id: ODataId,
-    ) -> Result<Vec<MachineNetworkAdapter>, RedfishError> {
-        let mut adapters: Vec<MachineNetworkAdapter> = Vec::new();
-
-        let odgx: Chassis = self
-            .s
-            .get_resource(chassis_id)
-            .await
-            .and_then(|r| r.try_get())?;
-
-        let na_id = match odgx.network_adapters {
-            Some(id) => id,
-            None => {
-                return Err(RedfishError::MissingKey {
-                    key: "network_adapters".to_string(),
-                    url: odgx.odata.unwrap().odata_id,
-                })
-            }
-        };
-
-        let rc_nw_adapter: ResourceCollection<NetworkAdapter> = self
-            .s
-            .get_collection(na_id)
-            .await
-            .and_then(|r| r.try_get())?;
-
-        debug!("Got {} NAs ", rc_nw_adapter.count);
-
-        // Get nw_device_functions
-        for nw_adapter in rc_nw_adapter.members {
-            let nw_dev_func_oid = match nw_adapter.network_device_functions {
-                Some(x) => x,
-                None => {
-                    // TODO debug
-                    continue;
-                }
-            };
-
-            let rc_nw_func: ResourceCollection<NetworkDeviceFunction> = self
-                .get_collection(nw_dev_func_oid)
-                .await
-                .and_then(|r| r.try_get())?;
-            debug!(
-                "Got {} nw dev funcs for {}",
-                rc_nw_func.count, rc_nw_adapter.name
-            );
-
-            for nw_dev_func in rc_nw_func.members {
-                let nw_dev_func_oid = match nw_dev_func.odata.clone() {
-                    Some(x) => x.odata_id,
-                    None => {
-                        debug!(
-                            "NetworkDeviceFunction without odata_id: {}",
-                            nw_dev_func.id.unwrap_or_default()
-                        );
-                        continue;
-                    }
-                };
-                let pcie_func_id = match nw_dev_func.links.clone() {
-                    Some(l) => match l.pcie_function {
-                        Some(p) => p,
-                        None => {
-                            debug!("links.pcie_function is missing in {}", nw_dev_func_oid);
-                            continue;
-                        }
-                    },
-                    None => {
-                        debug!("links_function is missing in {}", nw_dev_func_oid);
-                        continue;
-                    }
-                };
-
-                let pcie_func: PCIeFunction = self
-                    .get_resource(pcie_func_id)
-                    .await
-                    .and_then(|r| r.try_get())?;
-
-                let mac_address: Option<String> = match nw_dev_func.ethernet.clone() {
-                    Some(x) => x.mac_address,
-                    None => None,
-                };
-                adapters.push(MachineNetworkAdapter {
-                    is_dpu: pcie_func.is_dpu(),
-                    mac_address,
-                    network_device_function: nw_dev_func,
-                    pcie_function: pcie_func,
-                });
-            }
-        }
-        Ok(adapters)
     }
 
     async fn change_boot_order_with_etag(

@@ -37,7 +37,7 @@ use model::task::Task;
 use model::update_service::{ComponentType, TransferProtocolType, UpdateService};
 pub use model::EnabledDisabled;
 use model::Manager;
-use model::{secure_boot::SecureBoot, BootOption, ComputerSystem, ODataId, PCIeFunction};
+use model::{secure_boot::SecureBoot, BootOption, ComputerSystem, ODataId};
 use serde::{Deserialize, Serialize};
 mod dell;
 mod error;
@@ -408,8 +408,7 @@ pub trait Redfish: Send + Sync + 'static {
     /// It will choose Uefi Http IPv4 option if any.
     /// If dpu's mac can be passed in as  mac_address to identify the dpu, otherwise method will attempt to find the dpu
     /// by enumeration NetworkAdapters and associated resources.
-    async fn set_boot_order_dpu_first(&self, mac_address: Option<&str>)
-        -> Result<(), RedfishError>;
+    async fn set_boot_order_dpu_first(&self, mac_address: &str) -> Result<(), RedfishError>;
 
     async fn clear_uefi_password(
         &self,

@@ -652,7 +652,7 @@ impl Redfish for RedfishStandard {
         })
     }
 
-    async fn set_boot_order_dpu_first(&self, _address: Option<&str>) -> Result<(), RedfishError> {
+    async fn set_boot_order_dpu_first(&self, _address: &str) -> Result<(), RedfishError> {
         Err(RedfishError::NotSupported(
             "set_boot_order_dpu_first".to_string(),
         ))
@@ -1018,6 +1018,7 @@ impl RedfishStandard {
     // Current BIOS attributes
     pub async fn bios_attributes(&self) -> Result<serde_json::Value, RedfishError> {
         let mut b = self.bios().await?;
+
         b.remove("Attributes")
             .ok_or_else(|| RedfishError::MissingKey {
                 key: "Attributes".to_string(),

@@ -376,7 +376,6 @@ async fn run_integration_test(
     }
 
     if vendor_dir == "nvidia_viking" {
-        redfish.set_boot_order_dpu_first(None).await?;
         let gpus = redfish.get_gpu_sensors().await?;
         for gpu in gpus {
             for sensor in gpu.sensors {

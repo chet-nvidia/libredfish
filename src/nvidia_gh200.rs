@@ -551,10 +551,7 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
-    async fn set_boot_order_dpu_first(
-        &self,
-        _mac_address: Option<&str>,
-    ) -> Result<(), RedfishError> {
+    async fn set_boot_order_dpu_first(&self, _mac_address: &str) -> Result<(), RedfishError> {
         // TODO: If a mac_address is given
         // read all the boot options
         // look for "DisplayName" of "UEFI HTTPv4 (MAC:58A2E1BBB10F)"

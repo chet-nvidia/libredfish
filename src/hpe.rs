@@ -34,7 +34,6 @@ use crate::{
             nvidia_dpu::NicMode,
         },
         power::Power,
-        resource::ResourceCollection,
         secure_boot::SecureBoot,
         sel::{LogEntry, LogEntryCollection},
         sensor::GPUSensors,
@@ -44,7 +43,7 @@ use crate::{
         task::Task,
         thermal::Thermal,
         update_service::{ComponentType, TransferProtocolType, UpdateService},
-        BootOption, ComputerSystem, Manager, PCIeFunction, Slot, SystemStatus,
+        BootOption, ComputerSystem, Manager, Slot, SystemStatus,
     },
     network::REDFISH_ENDPOINT,
     standard::RedfishStandard,
@@ -641,17 +640,8 @@ impl Redfish for Bmc {
         self.s.get_update_service().await
     }
 
-    async fn set_boot_order_dpu_first(
-        &self,
-        mac_address: Option<&str>,
-    ) -> Result<(), RedfishError> {
-        let mac = {
-            match mac_address {
-                Some(mac) => mac.to_string(),
-                None => self.dpu_mac().await?,
-            }
-        }
-        .to_uppercase();
+    async fn set_boot_order_dpu_first(&self, mac_address: &str) -> Result<(), RedfishError> {
+        let mac = mac_address.to_string().to_uppercase();
 
         let all = self.get_boot_options().await?;
         let mut boot_ref = None;
@@ -1080,88 +1070,6 @@ impl Bmc {
                 _ => StatusInternal::Partial,
             },
         })
-    }
-
-    async fn dpu_mac(&self) -> Result<String, RedfishError> {
-        let dpu_serial = self.dpu_serial_number().await?;
-        self.mac_for_serial(&dpu_serial).await
-    }
-
-    /// Find the DPU's serial number
-    async fn dpu_serial_number(&self) -> Result<String, RedfishError> {
-        let pcie_devices = self.pcie_devices().await?;
-        let mut dpu_serial = None;
-        for device in pcie_devices {
-            if device.serial_number.is_none() {
-                // we won't be able to match it to it's NetworkAdapter without the serial
-                continue;
-            }
-            let pcie_functions: ResourceCollection<PCIeFunction> = self
-                .get_collection(device.pcie_functions.unwrap())
-                .await
-                .and_then(|r| r.try_get())?;
-            if pcie_functions.members.iter().any(|p| p.is_dpu()) {
-                // We found it
-                // Safety: serial_number.is_none() check at start of loop
-                dpu_serial = Some(device.serial_number.as_ref().unwrap().trim().to_string());
-                break;
-            }
-        }
-        let Some(dpu_serial) = dpu_serial else {
-            return Err(RedfishError::NoDpu);
-        };
-        Ok(dpu_serial)
-    }
-
-    async fn mac_for_serial(&self, serial_number: &str) -> Result<String, RedfishError> {
-        let chassis = self.get_chassis(self.s.system_id()).await?;
-        let na_id = match chassis.network_adapters {
-            Some(id) => id,
-            None => {
-                return Err(RedfishError::MissingKey {
-                    key: "network_adapters".to_string(),
-                    url: chassis.odata.unwrap().odata_id,
-                })
-            }
-        };
-        let network_adapter: Option<NetworkAdapter> = self
-            .s
-            .get_collection(na_id)
-            .await
-            .and_then(|r| r.try_get::<NetworkAdapter>())?
-            .members
-            .into_iter()
-            .find(|adapter| adapter.serial_number.as_deref() == Some(serial_number));
-        let Some(network_adapter) = network_adapter else {
-            return Err(RedfishError::MissingBootOption(format!(
-                "No NetworkAdapter for PCIeDevice serial {serial_number}"
-            )));
-        };
-
-        let nw_dev_func_oid = match network_adapter.network_device_functions {
-            Some(x) => x,
-            None => {
-                return Err(RedfishError::MissingBootOption(format!(
-                    "NetworkAdapter with serial {serial_number} has no NetworkDeviceFunctions"
-                )));
-            }
-        };
-
-        let device_function: Option<NetworkDeviceFunction> = self
-            .s
-            .get_collection(nw_dev_func_oid)
-            .await
-            .and_then(|r| r.try_get::<NetworkDeviceFunction>())?
-            .members
-            .into_iter()
-            .next();
-        let Some(device_function) = device_function else {
-            return Err(RedfishError::MissingBootOption(format!(
-                "NetworkAdapter with serial {serial_number} has no fetched NetworkDeviceFunctions"
-            )));
-        };
-        device_function.ethernet.and_then(|eth| eth.mac_address).ok_or_else(||
-            RedfishError::MissingBootOption(format!("NetworkDeviceFunction of NetworkAdapter with serial {serial_number} has no Ethernet/MACAddress")))
     }
 
     /// Set this option as the first one in BootOrder.

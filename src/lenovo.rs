@@ -34,13 +34,12 @@ use tracing::debug;
 use crate::model::account_service::ManagerAccount;
 use crate::model::oem::lenovo::{FrontPanelUSB, LenovoBootOrder};
 use crate::model::oem::nvidia_dpu::NicMode;
-use crate::model::resource::ResourceCollection;
 use crate::model::sel::LogService;
 use crate::model::service_root::{RedfishVendor, ServiceRoot};
 use crate::model::task::Task;
 use crate::model::update_service::{ComponentType, TransferProtocolType, UpdateService};
 use crate::model::{secure_boot::SecureBoot, ComputerSystem};
-use crate::model::{InvalidValueError, Manager, PCIeFunction};
+use crate::model::{InvalidValueError, Manager};
 use crate::{
     model::{
         chassis::{Chassis, NetworkAdapter},
@@ -806,17 +805,8 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
-    async fn set_boot_order_dpu_first(
-        &self,
-        mac_address: Option<&str>,
-    ) -> Result<(), RedfishError> {
-        let mac = match mac_address {
-            Some(mac) => mac.to_string(),
-            None => {
-                let slot_name = self.dpu_slot().await?;
-                self.slot_mac(&slot_name).await?
-            }
-        };
+    async fn set_boot_order_dpu_first(&self, mac_address: &str) -> Result<(), RedfishError> {
+        let mac = mac_address.to_string();
 
         // Now we have the MAC, make it the only boot option
 
@@ -1407,75 +1397,6 @@ impl Bmc {
             self.s.client.get(&url).await?;
         let log_entries = log_entry_collection.members;
         Ok(log_entries)
-    }
-
-    // The name of the PCIe slot the DPU is in, usually "Slot15"
-    async fn dpu_slot(&self) -> Result<String, RedfishError> {
-        let pcie_devices = self.pcie_devices().await?;
-        for device in pcie_devices {
-            if device.slot.is_none()
-                || device.pcie_functions.is_none()
-                || device.slot.as_ref().unwrap().location.is_none()
-            {
-                // we won't be able to locate it in the BIOS without a slot
-                // we won't be able to identify it as a DPU without pcie_functions
-                continue;
-            }
-            let pcie_functions: ResourceCollection<PCIeFunction> = self
-                .get_collection(device.pcie_functions.unwrap())
-                .await
-                .and_then(|r| r.try_get())?;
-            if pcie_functions.members.iter().any(|p| p.is_dpu()) {
-                // We found it
-                // Safety: we checked slot.is_none() and location.is_none() at start of loop
-                if let Some(pl) = &device
-                    .slot
-                    .as_ref()
-                    .unwrap()
-                    .location
-                    .as_ref()
-                    .unwrap()
-                    .part_location
-                {
-                    if let Some(loc_type) = pl.location_type.as_ref() {
-                        if let Some(ord_val) = pl.location_ordinal_value {
-                            let bios_slot_name = format!("{loc_type}{ord_val}");
-                            return Ok(bios_slot_name);
-                        }
-                    }
-                }
-            }
-        }
-        Err(RedfishError::NoDpu)
-    }
-
-    // The MAC address for a specific PCIeDevice slot. The slot name must look like "Slot15",
-    // get it with `dpu_slot()`.
-    // We are looking for a BIOS entry like this:
-    // "MellanoxNetworkAdapter_A088C2C36F6E__Slot15_MACAddress"
-    // That is the only currently known way to match a PCIeDevice slot to a MAC.
-    async fn slot_mac(&self, slot_name: &str) -> Result<String, RedfishError> {
-        let slot_mac_suffix = format!("{slot_name}_MACAddress");
-        let bios_attrs = self.s.bios_attributes().await?;
-        let Some(attrs_map) = bios_attrs.as_object() else {
-            return Err(RedfishError::InvalidKeyType {
-                key: "Attributes".to_string(),
-                expected_type: "Map".to_string(),
-                url: String::new(),
-            });
-        };
-        match attrs_map.keys().find(|k| k.ends_with(&slot_mac_suffix)) {
-            None => Err(RedfishError::MissingBootOption(format!(
-                "No BIOS entry ending '{slot_mac_suffix}'"
-            ))),
-            Some(key) => Ok(attrs_map
-                .get(key)
-                .unwrap()
-                .as_str() // json::Value -> &str
-                .unwrap_or_default()
-                .trim_matches('"')
-                .to_string()),
-        }
     }
 
     async fn is_lenovo_sr_675_v3_ovx(&self) -> Result<bool, RedfishError> {

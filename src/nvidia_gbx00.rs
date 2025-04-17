@@ -773,15 +773,8 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
-    async fn set_boot_order_dpu_first(&self, address: Option<&str>) -> Result<(), RedfishError> {
-        let mac_address = match address {
-            Some(x) => x.replace(':', "").to_uppercase(),
-            None => {
-                return Err(RedfishError::NotSupported(
-                    "set_dpu_first_boot_order without mac address is not possible on GB200 since NetworkDeviceFunctions and PCIeDevices are missing".to_string(),
-                ));
-            }
-        };
+    async fn set_boot_order_dpu_first(&self, address: &str) -> Result<(), RedfishError> {
+        let mac_address = address.replace(':', "").to_uppercase();
         let boot_option_name =
             format!("{} (MAC:{})", BootOptionName::Http.to_string(), mac_address);
         let boot_array = self

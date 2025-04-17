@@ -913,10 +913,7 @@ impl Redfish for Bmc {
 
     // machine_setup does this, but Dell requires all attributes to be sent at once so
     // we do not support doing just this part, on a Dell.
-    async fn set_boot_order_dpu_first(
-        &self,
-        _mac_address: Option<&str>,
-    ) -> Result<(), RedfishError> {
+    async fn set_boot_order_dpu_first(&self, _mac_address: &str) -> Result<(), RedfishError> {
         Err(RedfishError::UnnecessaryOperation)
     }
 
