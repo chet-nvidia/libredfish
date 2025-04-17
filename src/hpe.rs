@@ -385,12 +385,14 @@ impl Redfish for Bmc {
             return Ok(vec![]);
         }
         let mut devices: Vec<HpePCIeDevice> = Vec::new();
-        let mut iter = chassis.pcie_devices.into_iter();
-        while let Some(pcie_oid) = iter.next() {
-            let url = pcie_oid
-                .odata_id
-                .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
-            let (_, hpe_pcie) = self.s.client.get(&url).await?;
+        let url = chassis.pcie_devices
+            .unwrap()
+            .odata_id
+            .replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+        let pcie_devices = self.s.get_members(&url).await?;
+        for pcie_oid in pcie_devices {
+            let dev_url = format!("{}/{}", &url, pcie_oid);
+            let (_, hpe_pcie) = self.s.client.get(&dev_url).await?;
             devices.push(hpe_pcie);
         }
         // for mut pcie in devices.members {
