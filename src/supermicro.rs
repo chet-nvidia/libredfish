@@ -52,7 +52,8 @@ use crate::{
     Status, StatusInternal, SystemPowerControl,
 };
 
-const MELLANOX_UEFI_HTTP4: &str = "UEFI HTTP IPv4 Mellanox Network Adapter";
+const MELLANOX_UEFI_HTTP_IPV4: &str = "UEFI HTTP IPv4 Mellanox Network Adapter";
+const NVIDIA_UEFI_HTTP_IPV4: &str = "UEFI HTTP IPv4 Nvidia Network Adapter";
 const HARD_DISK: &str = "UEFI Hard Disk";
 const NETWORK: &str = "UEFI Network";
 
@@ -239,14 +240,18 @@ impl Redfish for Bmc {
         // The DPU should be the first NIC we try
         let boot_first = self.s.get_first_boot_option().await?;
         // We replacing colon as different version of Supermicro platform show name differently
-        if !boot_first
+        if !(boot_first
             .display_name
             .replace(":", "")
-            .contains(MELLANOX_UEFI_HTTP4)
+            .contains(MELLANOX_UEFI_HTTP_IPV4)
+            || boot_first
+                .display_name
+                .replace(":", "")
+                .contains(NVIDIA_UEFI_HTTP_IPV4))
         {
             diffs.push(MachineSetupDiff {
                 key: "boot_first".to_string(),
-                expected: MELLANOX_UEFI_HTTP4.to_string(),
+                expected: NVIDIA_UEFI_HTTP_IPV4.to_string(),
                 actual: boot_first.display_name,
             });
         }
@@ -963,17 +968,25 @@ impl Bmc {
     /// If the Mellanox adapter is not first everything still works, but boot takes a little longer
     /// because it tries the other adapters too.
     async fn set_mellanox_first(&self, boot_interface: &str) -> Result<(), RedfishError> {
-        let ipv4_http4_regex = format!(
-            "{MELLANOX_UEFI_HTTP4} - {boot_interface}(MAC:{})",
+        let mellanox_http_ipv4_regex = format!(
+            "{MELLANOX_UEFI_HTTP_IPV4} - {boot_interface}(MAC:{})",
             boot_interface.replace(':', "").to_uppercase()
         );
+
+        let nvidia_http_ipv4_regex = format!(
+            "{NVIDIA_UEFI_HTTP_IPV4} - {boot_interface}(MAC:{})",
+            boot_interface.replace(':', "").to_uppercase()
+        );
+
         let mut with_name_match = None; // the ID of the option matching with_name
         let mut ordered = Vec::new(); // the final boot options
         let all = self.s.get_boot_options().await?;
         for b in all.members {
             let id = b.odata_id_get()?;
             let boot_option = self.s.get_boot_option(id).await?;
-            if boot_option.display_name.contains(&ipv4_http4_regex) {
+            if boot_option.display_name.contains(&mellanox_http_ipv4_regex)
+                || boot_option.display_name.contains(&nvidia_http_ipv4_regex)
+            {
                 with_name_match = Some(boot_option.id);
             } else {
                 ordered.push(boot_option.id);
