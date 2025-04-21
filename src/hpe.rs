@@ -597,9 +597,26 @@ impl Redfish for Bmc {
         current_uefi_password: &str,
         new_uefi_password: &str,
     ) -> Result<Option<String>, RedfishError> {
-        self.s
-            .change_uefi_password(current_uefi_password, new_uefi_password)
-            .await
+        let hp_bios = self.s.bios().await?;
+        // Access the Actions map
+        let actions = hp_bios.get("Actions").and_then(|v| v.as_object())
+            .ok_or(RedfishError::NoContent)?;
+        // Access the "#Bios.ChangePassword" action
+        let change_password = actions.get("#Bios.ChangePassword").and_then(|v| v.as_object())
+            .ok_or(RedfishError::NoContent)?;
+        // Access the "target" URL
+        let target = change_password.get("target").and_then(|v| v.as_str())
+            .ok_or(RedfishError::NoContent)?;
+
+        let mut arg = HashMap::new();
+        arg.insert("PasswordName", "AdministratorPassword".to_string());
+        arg.insert("OldPassword", current_uefi_password.to_string());
+        arg.insert("NewPassword", new_uefi_password.to_string());
+        
+        let url = target.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
+        self.s.client.post(&url, arg).await?;
+        
+        Ok(None)
     }
 
     async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
