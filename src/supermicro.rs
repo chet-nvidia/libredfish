@@ -968,25 +968,20 @@ impl Bmc {
     /// If the Mellanox adapter is not first everything still works, but boot takes a little longer
     /// because it tries the other adapters too.
     async fn set_mellanox_first(&self, boot_interface: &str) -> Result<(), RedfishError> {
-        let mellanox_http_ipv4_regex = format!(
-            "{MELLANOX_UEFI_HTTP_IPV4} - {boot_interface}(MAC:{})",
-            boot_interface.replace(':', "").to_uppercase()
-        );
-
-        let nvidia_http_ipv4_regex = format!(
-            "{NVIDIA_UEFI_HTTP_IPV4} - {boot_interface}(MAC:{})",
-            boot_interface.replace(':', "").to_uppercase()
-        );
-
         let mut with_name_match = None; // the ID of the option matching with_name
         let mut ordered = Vec::new(); // the final boot options
         let all = self.s.get_boot_options().await?;
         for b in all.members {
             let id = b.odata_id_get()?;
             let boot_option = self.s.get_boot_option(id).await?;
-            if boot_option.display_name.contains(&mellanox_http_ipv4_regex)
-                || boot_option.display_name.contains(&nvidia_http_ipv4_regex)
+
+            if (boot_option.display_name.contains(&MELLANOX_UEFI_HTTP_IPV4)
+                || boot_option.display_name.contains(&NVIDIA_UEFI_HTTP_IPV4))
+                && boot_option.display_name.contains(&boot_interface)
             {
+                // Here are the patterns we have seen so far:
+                // UEFI HTTP IPv4 Mellanox Network Adapter - A0:88:C2:EA:84:D0(MAC:A088C2EA84D0)
+                // UEFI HTTP IPv4 Nvidia Network Adapter - C4:70:BD:F0:40:AA - C470BDF040AA"
                 with_name_match = Some(boot_option.id);
             } else {
                 ordered.push(boot_option.id);
