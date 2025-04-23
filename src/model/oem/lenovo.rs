@@ -4,7 +4,7 @@ use serde::{de, Deserialize, Deserializer, Serialize};
 use serde_json::Value;
 
 use crate::{
-    model::{BiosCommon, ODataId},
+    model::{BiosCommon, ODataId, ODataLinks},
     EnabledDisabled,
 };
 
@@ -235,6 +235,16 @@ pub struct Bios {
     #[serde(flatten)]
     pub common: BiosCommon,
     pub attributes: BiosAttributes,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct BootSettings {
+    #[serde(flatten)]
+    pub odata: ODataLinks,
+    pub description: Option<String>,
+    pub members: Vec<ODataId>,
+    pub name: String,
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone)]

@@ -32,7 +32,7 @@ use tokio::time::sleep;
 use tracing::debug;
 
 use crate::model::account_service::ManagerAccount;
-use crate::model::oem::lenovo::{FrontPanelUSB, LenovoBootOrder};
+use crate::model::oem::lenovo::{BootSettings, FrontPanelUSB, LenovoBootOrder};
 use crate::model::oem::nvidia_dpu::NicMode;
 use crate::model::sel::LogService;
 use crate::model::service_root::{RedfishVendor, ServiceRoot};
@@ -806,16 +806,10 @@ impl Redfish for Bmc {
     }
 
     async fn set_boot_order_dpu_first(&self, mac_address: &str) -> Result<(), RedfishError> {
+        // Now we have the MAC, make it the only boot option
         let mac = mac_address.to_string();
 
-        // Now we have the MAC, make it the only boot option
-
-        let url = format!(
-            "Systems/{}/Oem/Lenovo/BootSettings/BootOrder.NetworkBootOrder",
-            self.s.system_id()
-        );
-        let (_status_code, mut net_boot_order): (_, LenovoBootOrder) =
-            self.s.client.get(&url).await?;
+        let mut net_boot_order = self.get_network_boot_order().await?;
 
         // We only check boot_order_next because that's what will happen when we reboot.
         // boot_order_current has already happened.
@@ -835,6 +829,7 @@ impl Redfish for Bmc {
         net_boot_order.boot_order_next.swap(0, dpu_pos);
 
         // Patch remote
+        let url = self.get_boot_settings_uri();
         let body = HashMap::from([("BootOrderNext", net_boot_order.boot_order_next.clone())]);
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
@@ -1413,6 +1408,31 @@ impl Bmc {
                 url: "Systems".to_string(),
             }),
         }
+    }
+
+    fn get_boot_settings_uri(&self) -> String {
+        return format!("Systems/{}/Oem/Lenovo/BootSettings", self.s.system_id());
+    }
+
+    async fn get_network_boot_order(&self) -> Result<LenovoBootOrder, RedfishError> {
+        let url = self.get_boot_settings_uri();
+        let (_status_code, boot_settings): (_, BootSettings) = self.s.client.get(&url).await?;
+        for member in &boot_settings.members {
+            let id = member.odata_id_get()?;
+            if id.contains("BootOrder.NetworkBootOrder") {
+                let (_status_code, net_boot_order): (_, LenovoBootOrder) =
+                    self.s.client.get(&format!("{url}/{id}")).await?;
+
+                return Ok(net_boot_order);
+            }
+        }
+
+        return Err(RedfishError::GenericError {
+            error: format!(
+                "Could not find the NetworkBootOrder out of Boot Settings members: {:#?}",
+                boot_settings.members
+            ),
+        });
     }
 }
 
