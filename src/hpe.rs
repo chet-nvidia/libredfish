@@ -194,7 +194,20 @@ impl Redfish for Bmc {
     }
 
     async fn reset_bios(&self) -> Result<(), RedfishError> {
-        self.s.factory_reset_bios().await
+        let hp_bios = self.s.bios().await?;
+        // Access the Actions map
+        let actions = hp_bios.get("Actions").and_then(|v: &Value| v.as_object())
+            .ok_or(RedfishError::NoContent)?;
+        // Access the "#Bios.ResetBios" action
+        let reset = actions.get("#Bios.ResetBios").and_then(|v| v.as_object())
+            .ok_or(RedfishError::NoContent)?;
+        // Access the "target" URL
+        let target = reset.get("target").and_then(|v| v.as_str())
+            .ok_or(RedfishError::NoContent)?;
+        self.s.client
+            .req::<(), ()>(reqwest::Method::POST, &target, None, None, None, Vec::new())
+            .await
+            .map(|_resp| Ok(()))?
     }
 
     async fn machine_setup(
