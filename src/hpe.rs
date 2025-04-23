@@ -193,6 +193,10 @@ impl Redfish for Bmc {
         self.s.set_bios(values).await
     }
 
+    async fn reset_bios(&self) -> Result<(), RedfishError> {
+        self.s.factory_reset_bios().await
+    }
+
     async fn machine_setup(
         &self,
         _boot_interface_mac: Option<&str>,
@@ -647,7 +651,11 @@ impl Redfish for Bmc {
     }
 
     async fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
-        self.s.bmc_reset_to_defaults().await
+        let url = format!("Managers/{}/Actions/Oem/Hpe/HpeiLO.ResetToFactoryDefaults", self.s.manager_id());
+        let mut arg = HashMap::new();
+        arg.insert("Action", "HpeiLO.ResetToFactoryDefaults".to_string());
+        arg.insert("ResetType", "Default".to_string());
+        self.s.client.post(&url, arg).await.map(|_resp| Ok(()))?
     }
 
     async fn get_job_state(&self, job_id: &str) -> Result<JobState, RedfishError> {

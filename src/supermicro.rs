@@ -160,6 +160,10 @@ impl Redfish for Bmc {
         self.s.set_bios(values).await
     }
 
+    async fn reset_bios(&self) -> Result<(), RedfishError> {
+        self.s.factory_reset_bios().await
+    }
+
     /// Note that you can't use this for initial setup unless you reboot and run it twice.
     /// `boot_first` won't find the Mellanox HTTP device. `uefi_nic_boot_attrs` enables it,
     /// but it won't show until after reboot so that step will fail on first time through.

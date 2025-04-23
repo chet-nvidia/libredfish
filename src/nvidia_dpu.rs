@@ -421,6 +421,19 @@ impl Redfish for Bmc {
         self.s.set_bios(values).await
     }
 
+    async fn reset_bios(&self) -> Result<(), RedfishError> {
+        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
+        let mut attributes = HashMap::new();
+        let mut data = HashMap::new();
+        data.insert("ResetEfiVars", true);
+        attributes.insert("Attributes", data);
+        self.s
+            .client
+            .patch(&url, attributes)
+            .await
+            .map(|_resp| Ok(()))?
+    }
+
     async fn pending(
         &self,
     ) -> Result<std::collections::HashMap<String, serde_json::Value>, RedfishError> {

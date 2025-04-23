@@ -198,6 +198,10 @@ impl Redfish for Bmc {
         self.s.set_bios(values).await
     }
 
+    async fn reset_bios(&self) -> Result<(), RedfishError> {
+        self.clear_nvram().await
+    }
+
     async fn machine_setup(
         &self,
         _boot_interface_mac: Option<&str>,

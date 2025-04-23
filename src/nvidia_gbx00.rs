@@ -581,6 +581,10 @@ impl Redfish for Bmc {
         self.s.set_bios(values).await
     }
 
+    async fn reset_bios(&self) -> Result<(), RedfishError> {
+        self.s.reset_bios().await
+    }
+
     async fn pending(
         &self,
     ) -> Result<std::collections::HashMap<String, serde_json::Value>, RedfishError> {

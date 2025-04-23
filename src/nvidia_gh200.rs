@@ -358,6 +358,10 @@ impl Redfish for Bmc {
         self.s.set_bios(values).await
     }
 
+    async fn reset_bios(&self) -> Result<(), RedfishError> {
+        self.s.reset_bios().await
+    }
+
     /// gh200 has no bios attributes
     async fn pending(
         &self,

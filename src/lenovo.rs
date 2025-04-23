@@ -195,6 +195,13 @@ impl Redfish for Bmc {
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
+    async fn reset_bios(&self) -> Result<(), RedfishError> {
+        let url = format!("Systems/{}/Bios/Actions/Bios.ResetBios", self.s.system_id());
+        let mut arg = HashMap::new();
+        arg.insert("ResetType", "Reset".to_string());
+        self.s.client.post(&url, arg).await.map(|_resp| Ok(()))?
+    }
+
     async fn machine_setup(
         &self,
         _boot_interface_mac: Option<&str>,

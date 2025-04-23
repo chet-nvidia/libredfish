@@ -221,6 +221,12 @@ impl Redfish for RedfishStandard {
         ))
     }
 
+    async fn reset_bios(&self) -> Result<(), RedfishError> {
+        Err(RedfishError::NotSupported(
+            "reset_bios is vendor specific and not available on this platform".to_string(),
+        ))
+    }
+
     async fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError> {
         let url = format!("Systems/{}/Bios/Settings", self.system_id());
         self.pending_with_url(&url).await
@@ -1026,6 +1032,14 @@ impl RedfishStandard {
             })
     }
 
+    pub async fn factory_reset_bios(&self) -> Result<(), RedfishError> {
+        let url = format!("Systems/{}/Bios/Actions/Bios.ResetBios", self.system_id());
+        self.client
+            .req::<(), ()>(Method::POST, &url, None, None, None, Vec::new())
+            .await
+            .map(|_resp| Ok(()))?
+    }
+    
     pub async fn get_account_by_id(
         &self,
         account_id: &str,

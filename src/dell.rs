@@ -204,6 +204,10 @@ impl Redfish for Bmc {
             .map(|_status_code| ())
     }
 
+    async fn reset_bios(&self) -> Result<(), RedfishError> {
+        self.s.factory_reset_bios().await
+    }
+
     async fn get_base_mac_address(&self) -> Result<Option<String>, RedfishError> {
         self.s.get_base_mac_address().await
     }

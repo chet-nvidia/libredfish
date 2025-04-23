@@ -261,6 +261,9 @@ pub trait Redfish: Send + Sync + 'static {
         values: HashMap<String, serde_json::Value>,
     ) -> Result<(), RedfishError>;
 
+    /// Reset BIOS to factory settings
+    async fn reset_bios(&self) -> Result<(), RedfishError>;
+
     /// Pending BIOS attributes. Changes that were requested but not applied yet because
     /// they need a reboot.
     async fn pending(&self) -> Result<HashMap<String, serde_json::Value>, RedfishError>;
