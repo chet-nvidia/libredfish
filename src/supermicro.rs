@@ -979,9 +979,9 @@ impl Bmc {
             let id = b.odata_id_get()?;
             let boot_option = self.s.get_boot_option(id).await?;
 
-            if (boot_option.display_name.contains(&MELLANOX_UEFI_HTTP_IPV4)
-                || boot_option.display_name.contains(&NVIDIA_UEFI_HTTP_IPV4))
-                && boot_option.display_name.contains(&boot_interface)
+            if (boot_option.display_name.contains(MELLANOX_UEFI_HTTP_IPV4)
+                || boot_option.display_name.contains(NVIDIA_UEFI_HTTP_IPV4))
+                && boot_option.display_name.contains(boot_interface)
             {
                 // Here are the patterns we have seen so far:
                 // UEFI HTTP IPv4 Mellanox Network Adapter - A0:88:C2:EA:84:D0(MAC:A088C2EA84D0)

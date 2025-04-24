@@ -131,9 +131,8 @@ impl Redfish for Bmc {
             sleep(Duration::from_secs(10)).await;
             if self.get_power_state().await? != PowerState::Off {
                 return Err(RedfishError::GenericError {
-                    error: format!(
-                        "Server did not turn off within 10 seconds after issuing a ForceOff"
-                    ),
+                    error: "Server did not turn off within 10 seconds after issuing a ForceOff"
+                        .to_string(),
                 });
             }
             self.s.power(SystemPowerControl::On).await
@@ -1418,7 +1417,7 @@ impl Bmc {
     }
 
     fn get_boot_settings_uri(&self) -> String {
-        return format!("Systems/{}/Oem/Lenovo/BootSettings", self.s.system_id());
+        format!("Systems/{}/Oem/Lenovo/BootSettings", self.s.system_id())
     }
 
     async fn get_network_boot_order(&self) -> Result<LenovoBootOrder, RedfishError> {
@@ -1434,12 +1433,12 @@ impl Bmc {
             }
         }
 
-        return Err(RedfishError::GenericError {
+        Err(RedfishError::GenericError {
             error: format!(
                 "Could not find the NetworkBootOrder out of Boot Settings members: {:#?}",
                 boot_settings.members
             ),
-        });
+        })
     }
 }
 

@@ -905,7 +905,7 @@ impl Bmc {
         }
     }
 
-    async fn parse_nic_mode_from_bios(
+    fn parse_nic_mode_from_bios(
         &self,
         bios: HashMap<String, serde_json::Value>,
     ) -> Result<NicMode, RedfishError> {
@@ -917,18 +917,16 @@ impl Bmc {
                 {
                     Ok(nic_mode)
                 } else {
-                    return Err(RedfishError::MissingKey {
+                    Err(RedfishError::MissingKey {
                         key: "NicMode".to_owned(),
                         url: format!("Systems/{}/Bios", self.s.system_id()),
-                    });
+                    })
                 }
             }
-            None => {
-                return Err(RedfishError::MissingKey {
-                    key: "Attributes".to_owned(),
-                    url: format!("Systems/{}/Bios", self.s.system_id()),
-                });
-            }
+            None => Err(RedfishError::MissingKey {
+                key: "Attributes".to_owned(),
+                url: format!("Systems/{}/Bios", self.s.system_id()),
+            }),
         }
     }
 
@@ -937,66 +935,60 @@ impl Bmc {
         current_bmc_firmware_version: &str,
     ) -> Result<NicMode, RedfishError> {
         let nic_mode = match self.s.bios().await {
-            Ok(bios) => self.parse_nic_mode_from_bios(bios).await,
-            Err(e) => match e {
-                RedfishError::HTTPErrorCode {
-                    url,
-                    status_code,
-                    response_body,
-                } if status_code == StatusCode::INTERNAL_SERVER_ERROR => {
-                    // If the BMC firmware version is less than 24.07, querying the bios attributes on a DPU in NIC mode will return an internal 500 error.
-                    let min_bmc_fw_version_to_query_nic_mode_without_error = "BF-24.07-14";
-                    match version_compare::compare(
-                        current_bmc_firmware_version,
-                        min_bmc_fw_version_to_query_nic_mode_without_error,
-                    )
-                    .is_ok_and(|c| c == version_compare::Cmp::Lt)
-                    {
-                        true => {
-                            let bios: HashMap<String, serde_json::Value> =
-                                serde_json::from_str(&response_body).map_err(|e| {
-                                    tracing::warn!("could not parse BIOS from the response body, returning the original error to the caller: {e}");
-                                    RedfishError::HTTPErrorCode {
-                                        url: url.clone(),
-                                        status_code,
-                                        response_body: response_body.clone(),
-                                    }
-                                })?;
+            Ok(bios) => self.parse_nic_mode_from_bios(bios),
+            Err(e) => {
+                // If the BMC firmware version is less than 24.07, querying the bios attributes on a DPU in NIC mode will return an internal 500 error.
+                let min_bmc_fw_version_to_query_nic_mode_without_error = "BF-24.07-14";
 
-                            let nic_mode = self.parse_nic_mode_from_bios(bios).await.map_err(|e| {
-                                tracing::warn!("could not retrieve NIC mode value, returning the original error to the caller: {e}");
-                                RedfishError::HTTPErrorCode {
-                                    url: url.clone(),
-                                    status_code,
-                                    response_body: response_body.clone(),
-                                }
-                            })?;
-
-                            // we only want to parse the NIC mode from the response body if the DPU is actually in NIC mode
-                            // it is unexpected for a DPU to return an error when querying the BIOS attributes if it is in DPU mode
-                            match nic_mode {
-                                NicMode::Dpu => Err(RedfishError::HTTPErrorCode {
-                                    url,
-                                    status_code,
-                                    response_body,
-                                }),
-                                NicMode::Nic => Ok(nic_mode),
-                            }
-                        }
-                        false => Err(RedfishError::HTTPErrorCode {
-                            url,
-                            status_code,
-                            response_body,
-                        }),
-                    }
+                if version_compare::compare(
+                    current_bmc_firmware_version,
+                    min_bmc_fw_version_to_query_nic_mode_without_error,
+                )
+                .is_ok_and(|c| c == version_compare::Cmp::Lt)
+                    && self.check_bios_error_is_dpu_in_nic_mode(&e)
+                {
+                    return Ok(NicMode::Nic);
                 }
-                _ => Err(e),
-            },
+
+                return Err(e);
+            }
         }?;
+
         Ok(nic_mode)
     }
 
-    async fn get_nic_mode_bf3(&self) -> Result<Option<NicMode>, RedfishError> {
+    fn check_bios_error_is_dpu_in_nic_mode(&self, e: &RedfishError) -> bool {
+        match e {
+            RedfishError::HTTPErrorCode {
+                url: _,
+                status_code,
+                response_body,
+            } if *status_code == StatusCode::INTERNAL_SERVER_ERROR => {
+                let bios: HashMap<String, serde_json::Value> =
+                    serde_json::from_str(response_body).unwrap_or_default();
+                if let Ok(NicMode::Nic) = self.parse_nic_mode_from_bios(bios) {
+                    return true;
+                }
+            }
+            _ => {}
+        }
+
+        false
+    }
+
+    /*
+    There is a known bug with querying a BF3's mode when it is in NIC mode on certain BMC firmwares: the OEM extension times out
+    and querying the BIOS attributes returns an Internal Server Error with the NicMode value populated properly within the BIOS attributes.
+    */
+    async fn check_bios_is_bf3_in_nic_mode(&self) -> bool {
+        if let Err(e) = self.s.bios().await {
+            return self.check_bios_error_is_dpu_in_nic_mode(&e);
+        }
+
+        false
+    }
+
+    async fn get_nic_mode_bf3_oem_extension(&self) -> Result<Option<NicMode>, RedfishError> {
         let url = format!("Systems/{}/Oem/Nvidia", self.s.system_id());
         let (_sc, body): (reqwest::StatusCode, HashMap<String, serde_json::Value>) =
             self.s.client.get(url.as_str()).await?;
@@ -1006,6 +998,19 @@ impl Bmc {
             None => None,
         };
         Ok(nic_mode)
+    }
+
+    async fn get_nic_mode_bf3(
+        &self,
+        current_bmc_firmware_version: &str,
+    ) -> Result<Option<NicMode>, RedfishError> {
+        if self.will_oem_extension_timeout_in_nic_mode(current_bmc_firmware_version)
+            && self.check_bios_is_bf3_in_nic_mode().await
+        {
+            return Ok(Some(NicMode::Nic));
+        }
+
+        self.get_nic_mode_bf3_oem_extension().await
     }
 
     fn nic_mode_unsupported(
@@ -1021,21 +1026,18 @@ impl Bmc {
     }
 
     // BMC FW BF-24.04-5 times out when accessing "redfish/v1/Systems/Bluefield/Oem/Nvidia" on DPUs in NIC mode
-    fn query_bios_attributes_for_nic_mode(
-        &self,
-        current_bmc_firmware_version: &str,
-    ) -> Result<bool, RedfishError> {
+    fn will_oem_extension_timeout_in_nic_mode(&self, current_bmc_firmware_version: &str) -> bool {
         // right now, we know that BF-24.04-5 on BF3 times out when accessing redfish/v1/Systems/Bluefield/Oem/Nvidia
         let bmc_versions_without_oem_extension_support = vec!["BF-24.04-5"];
         for version in bmc_versions_without_oem_extension_support {
             if version_compare::compare(current_bmc_firmware_version, version)
                 .is_ok_and(|c| c == version_compare::Cmp::Eq)
             {
-                return Ok(true);
+                return true;
             }
         }
 
-        Ok(false)
+        false
     }
 
     async fn get_nic_mode(&self) -> Result<Option<NicMode>, RedfishError> {
@@ -1047,16 +1049,14 @@ impl Bmc {
             return Ok(None);
         }
 
-        if self.is_bf2().await?
-            || self.query_bios_attributes_for_nic_mode(&current_bmc_firmware_version)?
-        {
+        if self.is_bf2().await? {
             let nic_mode = self
                 .get_nic_mode_from_bios(&current_bmc_firmware_version)
                 .await?;
             return Ok(Some(nic_mode));
         }
 
-        let nic_mode = match self.get_nic_mode_bf3().await? {
+        let nic_mode = match self.get_nic_mode_bf3(&current_bmc_firmware_version).await? {
             Some(mode) => mode,
             None => {
                 tracing::warn!("could not retrieve a nic mode from the system oem extension on a BF3--trying to parse nic mode from the DPU's BIOS attributes");

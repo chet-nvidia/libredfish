@@ -664,7 +664,10 @@ impl Redfish for Bmc {
     }
 
     async fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
-        let url = format!("Managers/{}/Actions/Oem/Hpe/HpeiLO.ResetToFactoryDefaults", self.s.manager_id());
+        let url = format!(
+            "Managers/{}/Actions/Oem/Hpe/HpeiLO.ResetToFactoryDefaults",
+            self.s.manager_id()
+        );
         let mut arg = HashMap::new();
         arg.insert("Action", "HpeiLO.ResetToFactoryDefaults".to_string());
         arg.insert("ResetType", "Default".to_string());

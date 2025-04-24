@@ -1039,7 +1039,7 @@ impl RedfishStandard {
             .await
             .map(|_resp| Ok(()))?
     }
-    
+
     pub async fn get_account_by_id(
         &self,
         account_id: &str,
