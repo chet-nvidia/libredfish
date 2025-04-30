@@ -83,6 +83,15 @@ enum BootOptionMatchField {
     UefiDevicePath,
 }
 
+impl BootOptionMatchField {
+    fn to_string(self) -> &'static str {
+        match self {
+            BootOptionMatchField::DisplayName => "Display Name",
+            BootOptionMatchField::UefiDevicePath => "Uefi Device Path",
+        }
+    }
+}
+
 #[async_trait::async_trait]
 impl Redfish for Bmc {
     async fn create_user(
@@ -895,7 +904,8 @@ impl Bmc {
         let name_str = with_name_str.unwrap_or(with_name.to_string());
         let mut ordered = Vec::new(); // the final boot options
         let boot_options = self.s.get_system().await?.boot.boot_order;
-        for member in boot_options {
+        let mut found_matching_boot_option = false;
+        for member in &boot_options {
             let b: BootOption = self.s.get_boot_option(member.as_str()).await?;
             let is_match = match match_field {
                 BootOptionMatchField::DisplayName => b.display_name.starts_with(name_str),
@@ -905,10 +915,16 @@ impl Bmc {
             };
             if is_match {
                 ordered.insert(0, b.id);
+                found_matching_boot_option = true;
             } else {
                 ordered.push(b.id);
             }
         }
+
+        if !found_matching_boot_option {
+            return Err(RedfishError::GenericError { error: format!("Could not find boot option matching {name_str} on {}; boot options: {boot_options:#?}", match_field.to_string()) });
+        }
+
         Ok(ordered)
     }
 
