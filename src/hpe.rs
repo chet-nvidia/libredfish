@@ -210,9 +210,10 @@ impl Redfish for Bmc {
             .get("target")
             .and_then(|v| v.as_str())
             .ok_or(RedfishError::NoContent)?;
+        let url = target.replace(&format!("/{REDFISH_ENDPOINT}/"), "");
         self.s
             .client
-            .req::<(), ()>(reqwest::Method::POST, &target, None, None, None, Vec::new())
+            .req::<(), ()>(reqwest::Method::POST, &url, None, None, None, Vec::new())
             .await
             .map(|_resp| Ok(()))?
     }
