@@ -448,9 +448,7 @@ impl Redfish for Bmc {
     }
 
     async fn get_system_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
-        Err(RedfishError::NotSupported(
-            "GH200 doesn't have Systems EthernetInterface".to_string(),
-        ))
+        Ok(vec![])
     }
 
     async fn get_system_ethernet_interface(

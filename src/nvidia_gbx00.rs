@@ -360,7 +360,14 @@ impl Redfish for Bmc {
         >,
         _selected_profile: BiosProfileType,
     ) -> Result<(), RedfishError> {
-        self.disable_secure_boot().await
+        self.disable_secure_boot().await?;
+
+        let bios_attrs = self.machine_setup_attrs().await?;
+        let mut attrs = HashMap::new();
+        attrs.extend(bios_attrs);
+        let body = HashMap::from([("Attributes", attrs)]);
+        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
+        self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
     async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
@@ -373,6 +380,29 @@ impl Redfish for Bmc {
                 expected: "false".to_string(),
                 actual: "true".to_string(),
             });
+        }
+
+        let bios = self.s.bios_attributes().await?;
+        let expected_attrs = self.machine_setup_attrs().await?;
+        for (key, expected) in expected_attrs {
+            let Some(actual) = bios.get(&key) else {
+                diffs.push(MachineSetupDiff {
+                    key: key.to_string(),
+                    expected: expected.to_string(),
+                    actual: "_missing_".to_string(),
+                });
+                continue;
+            };
+            // expected and actual are serde_json::Value which are not comparable, so to_string
+            let act = actual.to_string();
+            let exp = expected.to_string();
+            if act != exp {
+                diffs.push(MachineSetupDiff {
+                    key: key.to_string(),
+                    expected: exp,
+                    actual: act,
+                });
+            }
         }
 
         Ok(MachineSetupStatus {
@@ -679,11 +709,11 @@ impl Redfish for Bmc {
 
     async fn get_system_ethernet_interface(
         &self,
-        _id: &str,
+        id: &str,
     ) -> Result<crate::EthernetInterface, RedfishError> {
-        Err(RedfishError::NotSupported(
-            "GB200 doesn't have Systems EthernetInterface".to_string(),
-        ))
+        Err(RedfishError::NotSupported(format!(
+            "GB200 doesn't have Systems EthernetInterface {id}"
+        )))
     }
 
     async fn get_ports(
@@ -934,5 +964,24 @@ impl Bmc {
             self.s.client.get(&url).await?;
         let log_entries = log_entry_collection.members;
         Ok(log_entries)
+    }
+
+    async fn machine_setup_attrs(&self) -> Result<Vec<(String, serde_json::Value)>, RedfishError> {
+        let mut bios_attrs: Vec<(String, serde_json::Value)> = vec![];
+
+        // Enabled TPM
+        bios_attrs.push(("TPM".into(), "Enabled".into()));
+
+        // Enable Option ROM so that the DPU will show up in the Host's network devce list
+        // Otherwise, we will never see the DPU's Host PF MAC in the boot option list
+        if let Some(curr_bios_attributes) = self.s.bios_attributes().await?.as_object() {
+            for attribute in curr_bios_attributes.keys() {
+                if attribute.contains("Pcie6DisableOptionROM") {
+                    bios_attrs.push((attribute.into(), false.into()));
+                }
+            }
+        }
+
+        Ok(bios_attrs)
     }
 }
