@@ -127,7 +127,14 @@ impl Redfish for Bmc {
         &self,
         id: &str,
     ) -> Result<crate::model::software_inventory::SoftwareInventory, RedfishError> {
-        self.s.get_firmware(id).await
+        let mut inv = self.s.get_firmware(id).await?;
+        // BMC firmware gets prepended with "GB200Nvl-", (L, not 1!) so trim that off when we see it.
+        inv.version = inv.version.map(|x| {
+            x.strip_prefix("GB200Nvl-")
+                .unwrap_or(x.as_str())
+                .to_string()
+        });
+        Ok(inv)
     }
 
     async fn get_software_inventories(&self) -> Result<Vec<String>, RedfishError> {
