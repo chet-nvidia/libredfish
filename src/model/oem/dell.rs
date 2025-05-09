@@ -132,6 +132,7 @@ pub enum BootDevices {
     SD,
     F10,
     F11,
+    UefiHttp,
 }
 
 impl fmt::Display for BootDevices {

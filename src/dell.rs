@@ -473,13 +473,19 @@ impl Redfish for Bmc {
 
     async fn lockdown(&self, target: EnabledDisabled) -> Result<(), RedfishError> {
         use EnabledDisabled::*;
+        // XE9680's can't PXE boot for some reason
+        let system = self.s.get_system().await?;
+        let entry = match system.model.as_deref() {
+            Some("PowerEdge XE9680") => dell::BootDevices::UefiHttp,
+            _ => dell::BootDevices::PXE,
+        };
         match target {
             Enabled => {
                 //self.enable_bios_lockdown().await?;
-                self.enable_bmc_lockdown(dell::BootDevices::PXE).await
+                self.enable_bmc_lockdown(entry).await
             }
             Disabled => {
-                self.disable_bmc_lockdown(dell::BootDevices::PXE).await?;
+                self.disable_bmc_lockdown(entry).await?;
                 // BIOS lockdown blocks impi, ensure it's disabled even though we never set it
                 self.disable_bios_lockdown().await
             }
