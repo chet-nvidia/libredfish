@@ -123,7 +123,9 @@ impl Redfish for Bmc {
             return self.s.client.post(&url, args).await.map(|_status_code| ());
         }
 
-        if action == SystemPowerControl::ForceRestart && self.is_lenovo_sr_675_v3_ovx().await? {
+        if action == SystemPowerControl::ForceRestart
+            && self.use_workaround_for_force_restart().await?
+        {
             // We observed that issuing a ForceRestart to SR 675 V3 OVX machines can cause them to hang
             // We have observed that GracefulRestart is not a reliable mechanism to reboot hosts.
             // The most reliable workaround provided by Lenovo is to power off the machine, wait, and power on the machine
@@ -1414,6 +1416,35 @@ impl Bmc {
                 url: "Systems".to_string(),
             }),
         }
+    }
+
+    async fn get_bmc_version(&self) -> Result<String, RedfishError> {
+        let uefi_fw_info = self.get_firmware("BMC-Primary").await?;
+        Ok(uefi_fw_info.version.unwrap_or_default())
+    }
+
+    async fn get_uefi_version(&self) -> Result<String, RedfishError> {
+        let uefi_fw_info = self.get_firmware("UEFI").await?;
+        Ok(uefi_fw_info.version.unwrap_or_default())
+    }
+
+    async fn use_workaround_for_force_restart(&self) -> Result<bool, RedfishError> {
+        if self.is_lenovo_sr_675_v3_ovx().await? {
+            let uefi_version = self.get_uefi_version().await?;
+            let bmc_version = self.get_bmc_version().await?;
+
+            let is_uefi_at_7_10 = version_compare::compare(uefi_version, "7.10")
+                .is_ok_and(|c| c == version_compare::Cmp::Eq);
+
+            let is_bmc_at_9_10 = version_compare::compare(bmc_version, "9.10")
+                .is_ok_and(|c| c == version_compare::Cmp::Eq);
+
+            if is_uefi_at_7_10 && is_bmc_at_9_10 {
+                return Ok(true);
+            }
+        }
+
+        Ok(false)
     }
 
     fn get_boot_settings_uri(&self) -> String {
