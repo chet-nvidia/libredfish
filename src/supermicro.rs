@@ -23,6 +23,8 @@
 use std::{collections::HashMap, path::Path, time::Duration};
 
 use reqwest::StatusCode;
+use serde::Serialize;
+use tokio::fs::File;
 
 use crate::{
     model::{
@@ -452,13 +454,51 @@ impl Redfish for Bmc {
     async fn update_firmware_multipart(
         &self,
         filename: &Path,
-        reboot: bool,
+        _reboot: bool,
         timeout: Duration,
         component_type: ComponentType,
     ) -> Result<String, RedfishError> {
-        self.s
-            .update_firmware_multipart(filename, reboot, timeout, component_type)
+        let firmware = File::open(&filename)
             .await
+            .map_err(|e| RedfishError::FileError(format!("Could not open file: {}", e)))?;
+
+        let update_service = self.s.get_update_service().await?;
+
+        if update_service.multipart_http_push_uri.is_empty() {
+            return Err(RedfishError::NotSupported(
+                "Host BMC does not support HTTP multipart push".to_string(),
+            ));
+        }
+
+        let parameters =
+            serde_json::to_string(&UpdateParameters::new(component_type)).map_err(|e| {
+                RedfishError::JsonSerializeError {
+                    url: "".to_string(),
+                    object_debug: "".to_string(),
+                    source: e,
+                }
+            })?;
+        let (_status_code, _loc, body) = self
+            .s
+            .client
+            .req_update_firmware_multipart(
+                filename,
+                firmware,
+                parameters,
+                &update_service.multipart_http_push_uri,
+                true,
+                timeout,
+            )
+            .await?;
+
+        let task: Task =
+            serde_json::from_str(&body).map_err(|e| RedfishError::JsonDeserializeError {
+                url: update_service.multipart_http_push_uri,
+                body,
+                source: e,
+            })?;
+
+        Ok(task.id)
     }
 
     async fn get_update_service(&self) -> Result<UpdateService, RedfishError> {
@@ -1023,5 +1063,62 @@ impl Bmc {
                 .or_insert(vec![k.clone()]);
         }
         Ok(by_name)
+    }
+}
+
+// UpdateParameters is what is sent for a multipart firmware upload's metadata.
+#[derive(Serialize)]
+#[serde(rename_all = "PascalCase")]
+struct UpdateParameters {
+    targets: Vec<String>,
+    #[serde(rename = "@Redfish.OperationApplyTime")]
+    pub apply_time: String,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    oem: Option<HashMap<String, HashMap<String, HashMap<String, bool>>>>,
+}
+
+impl UpdateParameters {
+    pub fn new(component_type: ComponentType) -> UpdateParameters {
+        let target = match component_type {
+            ComponentType::UEFI => "/redfish/v1/Systems/1/Bios",
+            ComponentType::BMC => "/redfish/v1/Managers/1",
+            ComponentType::CPLDMB => "/redfish/v1/UpdateService/FirmwareInventory/CPLD_Motherboard",
+            ComponentType::CPLMID => "/redfish/v1/UpdateService/FirmwareInventory/CPLD_Backplane_1",
+            _ => "Unrecognized component type",
+        }
+        .to_string();
+
+        let oem = match component_type {
+            ComponentType::UEFI => Some(HashMap::from([(
+                "Supermicro".to_string(),
+                HashMap::from([(
+                    "BIOS".to_string(),
+                    HashMap::from([
+                        ("PreserveME".to_string(), true),
+                        ("PreserveNVRAM".to_string(), true),
+                        ("PreserveSMBIOS".to_string(), true),
+                        ("BackupBIOS".to_string(), false),
+                    ]),
+                )]),
+            )])),
+            ComponentType::BMC => Some(HashMap::from([(
+                "Supermicro".to_string(),
+                HashMap::from([(
+                    "BMC".to_string(),
+                    HashMap::from([
+                        ("PreserveCfg".to_string(), true),
+                        ("PreserveSdr".to_string(), true),
+                        ("PreserveSsl".to_string(), true),
+                        ("BackupBMC".to_string(), true),
+                    ]),
+                )]),
+            )])),
+            _ => None,
+        };
+        UpdateParameters {
+            targets: vec![target],
+            apply_time: "Immediate".to_string(),
+            oem,
+        }
     }
 }
