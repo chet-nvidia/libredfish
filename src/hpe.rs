@@ -796,6 +796,14 @@ impl Redfish for Bmc {
     async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
         self.s.is_infinite_boot_enabled().await
     }
+
+    async fn set_host_rshim(&self, enabled: EnabledDisabled) -> Result<(), RedfishError> {
+        self.s.set_host_rshim(enabled).await
+    }
+
+    async fn get_host_rshim(&self) -> Result<Option<EnabledDisabled>, RedfishError> {
+        self.s.get_host_rshim().await
+    }
 }
 
 impl Bmc {

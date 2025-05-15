@@ -133,4 +133,13 @@ impl RedfishError {
             } if *status_code == StatusCode::UNAUTHORIZED
                 || *status_code == StatusCode::FORBIDDEN)
     }
+
+    pub fn not_found(&self) -> bool {
+        // clippy wants use of matches! macro
+        matches!(self, RedfishError::HTTPErrorCode {
+                url: _,
+                status_code,
+                response_body: _,
+            } if *status_code == StatusCode::NOT_FOUND)
+    }
 }

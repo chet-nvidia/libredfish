@@ -744,6 +744,14 @@ impl Redfish for Bmc {
     async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
         self.s.is_infinite_boot_enabled().await
     }
+
+    async fn set_host_rshim(&self, enabled: EnabledDisabled) -> Result<(), RedfishError> {
+        self.s.set_host_rshim(enabled).await
+    }
+
+    async fn get_host_rshim(&self) -> Result<Option<EnabledDisabled>, RedfishError> {
+        self.s.get_host_rshim().await
+    }
 }
 
 impl Bmc {
@@ -819,7 +827,24 @@ impl Bmc {
             self.s.manager_id()
         );
         let body = HashMap::from([("Privilege", privilege.to_string())]);
-        self.s.client.patch(&url, body).await.map(|_status_code| ())
+        self.s
+            .client
+            .patch(&url, body)
+            .await
+            .or_else(|err| {
+                // The Grace-Grace Supermicros in our GB200 lab do not seem to support
+                // disabling KCS access from the host to its BMC. Use this workaround to
+                // temporarily enable ingesting these servers.
+                if err.not_found() {
+                    tracing::warn!(
+                        "Supermicro was uanble to find {url}: {err}; not returning error to caller"
+                    );
+                    Ok((StatusCode::OK, None))
+                } else {
+                    Err(err)
+                }
+            })
+            .map(|_status_code| ())
     }
 
     async fn is_host_interface_enabled(&self) -> Result<bool, RedfishError> {

@@ -764,6 +764,14 @@ impl Redfish for RedfishStandard {
     async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
         Ok(None)
     }
+
+    async fn set_host_rshim(&self, _enabled: EnabledDisabled) -> Result<(), RedfishError> {
+        Err(RedfishError::NotSupported("set_nic_mode".to_string()))
+    }
+
+    async fn get_host_rshim(&self) -> Result<Option<EnabledDisabled>, RedfishError> {
+        Ok(None)
+    }
 }
 
 impl RedfishStandard {

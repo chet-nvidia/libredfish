@@ -441,6 +441,12 @@ pub trait Redfish: Send + Sync + 'static {
 
     // Currently only implemented for Lenovos and Dells
     async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError>;
+
+    // Only applicable to DPUs
+    async fn set_host_rshim(&self, enabled: EnabledDisabled) -> Result<(), RedfishError>;
+
+    // Only applicable to DPUs
+    async fn get_host_rshim(&self) -> Result<Option<EnabledDisabled>, RedfishError>;
 }
 
 // When Carbide drops it's `IpmiCommand.launch_command` background job system, we can

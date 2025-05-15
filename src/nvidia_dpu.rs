@@ -49,7 +49,7 @@ use crate::{
     standard::RedfishStandard,
     BiosProfileType, Collection, NetworkDeviceFunction, ODataId, Redfish, RedfishError, Resource,
 };
-use crate::{JobState, MachineSetupDiff, MachineSetupStatus, RoleId};
+use crate::{EnabledDisabled, JobState, MachineSetupDiff, MachineSetupStatus, RoleId};
 
 pub struct Bmc {
     s: RedfishStandard,
@@ -195,7 +195,7 @@ impl Redfish for Bmc {
         // Until we re-enable DPU BMC firmware updates in preingestion,
         // ignore an error from trying to disable host rshim against
         // BF3s that have a BMC that is too old.
-        self.set_host_rshim(false, true).await?;
+        self.set_host_rshim(EnabledDisabled::Disabled).await?;
         self.set_internal_cpu_model(Embedded).await?;
         self.boot_once(UefiHttp).await
     }
@@ -708,6 +708,39 @@ impl Redfish for Bmc {
     async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
         self.s.is_infinite_boot_enabled().await
     }
+
+    async fn set_host_rshim(&self, enabled: EnabledDisabled) -> Result<(), RedfishError> {
+        if self.is_bf2().await? {
+            return Ok(());
+        }
+
+        let mut data: HashMap<&str, String> = HashMap::new();
+        data.insert("HostRshim", enabled.to_string());
+        let url = format!(
+            "Systems/{}/Oem/Nvidia/Actions/HostRshim.Set",
+            self.s.system_id()
+        );
+
+        self.s.client.post(&url, data).await.map(|_resp| Ok(()))?
+    }
+
+    async fn get_host_rshim(&self) -> Result<Option<EnabledDisabled>, RedfishError> {
+        if self.is_bf2().await? {
+            return Ok(None);
+        }
+
+        let url = format!("Systems/{}/Oem/Nvidia", self.s.system_id());
+        let (_sc, body): (reqwest::StatusCode, HashMap<String, serde_json::Value>) =
+            self.s.client.get(url.as_str()).await?;
+        let val = body.get("HostRshim").map(|v| v.to_string());
+        let is_host_rshim_enabled = match val {
+            Some(is_host_rshim_enabled) => {
+                EnabledDisabled::from_str(is_host_rshim_enabled.trim_matches('"')).ok()
+            }
+            None => None,
+        };
+        Ok(is_host_rshim_enabled)
+    }
 }
 
 impl Bmc {
@@ -755,39 +788,6 @@ impl Bmc {
         Ok(chassis
             .model
             .is_none_or(|m| m.as_str().to_lowercase().as_str().contains("bluefield 2")))
-    }
-
-    async fn set_host_rshim(
-        &self,
-        enabled: bool,
-        ignore_if_unsupported: bool,
-    ) -> Result<(), RedfishError> {
-        if self.is_bf2().await? {
-            return Ok(());
-        }
-
-        let value = if enabled { "Enabled" } else { "Disabled" };
-
-        let data = HashMap::from([("HostRshim", value)]);
-        let url = format!(
-            "Systems/{}/Oem/Nvidia/Actions/HostRshim.Set",
-            self.s.system_id()
-        );
-
-        match self.s.client.post(&url, data).await {
-            Ok(_) => Ok(()),
-            Err(e) => match e {
-                RedfishError::HTTPErrorCode { status_code, .. }
-                    if status_code == StatusCode::NOT_FOUND && ignore_if_unsupported =>
-                {
-                    tracing::warn!(
-                        "This BF3 does not support setting host rshim; the BMC fw maybe too old"
-                    );
-                    Ok(())
-                }
-                e => Err(e),
-            },
-        }
     }
 
     async fn set_internal_cpu_model(&self, model: InternalCPUModel) -> Result<(), RedfishError> {
