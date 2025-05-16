@@ -312,13 +312,32 @@ impl Redfish for Bmc {
 
     async fn lockdown_status(&self) -> Result<Status, RedfishError> {
         let is_hi_on = self.is_host_interface_enabled().await?;
-        let kcs_privilege = self.get_kcs_privilege().await?;
+        let kcs_privilege = match self.get_kcs_privilege().await {
+            Ok(priviledge) => Ok(Some(priviledge)),
+            Err(e) => {
+                // The Grace-Grace Supermicros in our GB200 lab do not seem to support
+                // querying KCS access from the host to its BMC. Use this workaround to
+                // temporarily enable ingesting these servers.
+                if e.not_found() {
+                    Ok(None)
+                } else {
+                    Err(e)
+                }
+            }
+        }?;
+
         let is_syslockdown = self.get_syslockdown().await?;
-        let message = format!("SysLockdownEnabled={is_syslockdown}, kcs_privilege={kcs_privilege}, host_interface_enabled={is_hi_on}");
-        let is_locked =
-            is_syslockdown && kcs_privilege == supermicro::Privilege::Callback && !is_hi_on;
-        let is_unlocked =
-            !is_syslockdown && kcs_privilege == supermicro::Privilege::Administrator && is_hi_on;
+        let message = format!("SysLockdownEnabled={is_syslockdown}, kcs_privilege={kcs_privilege:#?}, host_interface_enabled={is_hi_on}");
+        let is_locked = is_syslockdown
+            && kcs_privilege
+                .clone()
+                .unwrap_or(supermicro::Privilege::Callback)
+                == supermicro::Privilege::Callback
+            && !is_hi_on;
+        let is_unlocked = !is_syslockdown
+            && kcs_privilege.unwrap_or(supermicro::Privilege::Administrator)
+                == supermicro::Privilege::Administrator
+            && is_hi_on;
         Ok(Status {
             message,
             status: if is_locked {
