@@ -378,6 +378,7 @@ impl RedfishHttpClient {
     }
 
     // All the HTTP requests happen from here.
+    #[tracing::instrument(name = "libredfish::request", skip_all, fields(uri=api), level = tracing::Level::DEBUG)]
     async fn _req<T, B>(
         &self,
         method: &Method,
