@@ -24,6 +24,7 @@ use std::{collections::HashMap, path::Path, time::Duration};
 
 use reqwest::{header::HeaderMap, Method};
 use serde::{Deserialize, Serialize};
+use serde_json::Value;
 use tokio::fs::File;
 
 use crate::{
@@ -32,7 +33,7 @@ use crate::{
         chassis::{Chassis, NetworkAdapter},
         network_device_function::NetworkDeviceFunction,
         oem::{
-            dell::{self, ShareParameters, SystemConfiguration},
+            dell::{self, ShareParameters, StorageCollection, SystemConfiguration},
             nvidia_dpu::NicMode,
         },
         power::Power,
@@ -273,34 +274,7 @@ impl Redfish for Bmc {
 
         let url = format!("Systems/{}/Bios/Settings/", self.s.system_id());
         match self.s.client.patch(&url, set_machine_attrs).await? {
-            (_, Some(headers)) => {
-                let key = "location";
-                // return the job_id to the caller in the future
-                // for now, make sure to return an error if a BIOS config job is not created
-                let _job_id = headers
-                    .get(key)
-                    .ok_or_else(|| RedfishError::MissingKey {
-                        key: key.to_string(),
-                        url: url.to_string(),
-                    })?
-                    .to_str()
-                    .map_err(|e| RedfishError::InvalidValue {
-                        url: url.to_string(),
-                        field: key.to_string(),
-                        err: InvalidValueError(e.to_string()),
-                    })?
-                    .split('/')
-                    .last()
-                    .ok_or_else(|| RedfishError::InvalidValue {
-                        url: url.to_string(),
-                        field: key.to_string(),
-                        err: InvalidValueError(
-                            "unable to parse job_id from location string".to_string(),
-                        ),
-                    })?
-                    .to_string();
-                Ok(())
-            }
+            (_, Some(headers)) => self.parse_job_id_from_response_headers(&url, headers).await,
             (_, None) => Err(RedfishError::NoHeader),
         }?;
 
@@ -1013,6 +987,34 @@ impl Redfish for Bmc {
     async fn get_host_rshim(&self) -> Result<Option<EnabledDisabled>, RedfishError> {
         self.s.get_host_rshim().await
     }
+
+    async fn set_idrac_lockdown(&self, enabled: EnabledDisabled) -> Result<(), RedfishError> {
+        self.set_idrac_lockdown(enabled).await
+    }
+
+    async fn get_boss_controller(&self) -> Result<Option<String>, RedfishError> {
+        self.get_boss_controller().await
+    }
+
+    async fn decommission_storage_controller(
+        &self,
+        controller_id: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        Ok(Some(self.decommission_controller(controller_id).await?))
+    }
+
+    async fn create_storage_volume(
+        &self,
+        controller_id: &str,
+        volume_name: &str,
+        raid_type: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        let drives = self.get_storage_drives(controller_id).await?;
+        Ok(Some(
+            self.create_storage_volume(controller_id, volume_name, raid_type, drives)
+                .await?,
+        ))
+    }
 }
 
 impl Bmc {
@@ -1084,6 +1086,24 @@ impl Bmc {
         self.s
             .client
             .patch(&url, set_boot)
+            .await
+            .map(|_status_code| ())
+    }
+
+    // curl -k -u root:'x' -X PATCH 'https://10.217.157.215/redfish/v1/Managers/iDRAC.Embedded.1/Attributes' -H "Content-Type: application/json" -d '{"Attributes": {"Lockdown.1.SystemLockdown": "Enabled"}}' -i
+    async fn set_idrac_lockdown(&self, enabled: EnabledDisabled) -> Result<(), RedfishError> {
+        let manager_id: &str = self.s.manager_id();
+        let url = format!("Managers/{manager_id}/Attributes/");
+
+        let mut lockdown = HashMap::new();
+        lockdown.insert("Lockdown.1.SystemLockdown", enabled.to_string());
+
+        let mut attributes = HashMap::new();
+        attributes.insert("Attributes", lockdown);
+
+        self.s
+            .client
+            .patch(&url, attributes)
             .await
             .map(|_status_code| ())
     }
@@ -1510,31 +1530,7 @@ impl Bmc {
         );
 
         match self.s.client.post(url, arg).await? {
-            (_, Some(headers)) => {
-                let key = "location";
-                Ok(headers
-                    .get(key)
-                    .ok_or_else(|| RedfishError::MissingKey {
-                        key: key.to_string(),
-                        url: url.to_string(),
-                    })?
-                    .to_str()
-                    .map_err(|e| RedfishError::InvalidValue {
-                        url: url.to_string(),
-                        field: key.to_string(),
-                        err: InvalidValueError(e.to_string()),
-                    })?
-                    .split('/')
-                    .last()
-                    .ok_or_else(|| RedfishError::InvalidValue {
-                        url: url.to_string(),
-                        field: key.to_string(),
-                        err: InvalidValueError(
-                            "unable to parse job_id from location string".to_string(),
-                        ),
-                    })?
-                    .to_string())
-            }
+            (_, Some(headers)) => self.parse_job_id_from_response_headers(url, headers).await,
             (_, None) => Err(RedfishError::NoHeader),
         }
     }
@@ -1603,6 +1599,34 @@ impl Bmc {
         self.import_system_configuration(system_configuration).await
     }
 
+    async fn parse_job_id_from_response_headers(
+        &self,
+        url: &str,
+        resp_headers: HeaderMap,
+    ) -> Result<String, RedfishError> {
+        let key = "location";
+        Ok(resp_headers
+            .get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })?
+            .to_str()
+            .map_err(|e| RedfishError::InvalidValue {
+                url: url.to_string(),
+                field: key.to_string(),
+                err: InvalidValueError(e.to_string()),
+            })?
+            .split('/')
+            .last()
+            .ok_or_else(|| RedfishError::InvalidValue {
+                url: url.to_string(),
+                field: key.to_string(),
+                err: InvalidValueError("unable to parse job_id from location string".to_string()),
+            })?
+            .to_string())
+    }
+
     /// import_system_configuration returns the job ID for importing this sytem configuration
     async fn import_system_configuration(
         &self,
@@ -1627,31 +1651,7 @@ impl Bmc {
             .await?;
 
         match resp_headers {
-            Some(headers) => {
-                let key = "location";
-                Ok(headers
-                    .get(key)
-                    .ok_or_else(|| RedfishError::MissingKey {
-                        key: key.to_string(),
-                        url: url.to_string(),
-                    })?
-                    .to_str()
-                    .map_err(|e| RedfishError::InvalidValue {
-                        url: url.to_string(),
-                        field: key.to_string(),
-                        err: InvalidValueError(e.to_string()),
-                    })?
-                    .split('/')
-                    .last()
-                    .ok_or_else(|| RedfishError::InvalidValue {
-                        url: url.to_string(),
-                        field: key.to_string(),
-                        err: InvalidValueError(
-                            "unable to parse job_id from location string".to_string(),
-                        ),
-                    })?
-                    .to_string())
-            }
+            Some(headers) => self.parse_job_id_from_response_headers(url, headers).await,
             None => Err(RedfishError::NoHeader),
         }
     }
@@ -1758,6 +1758,83 @@ impl Bmc {
         }
 
         Err(RedfishError::NoDpu)
+    }
+
+    async fn get_boss_controller(&self) -> Result<Option<String>, RedfishError> {
+        let url: String = format!("Systems/System.Embedded.1/Storage");
+        let (_status_code, storage_collection): (_, StorageCollection) =
+            self.s.client.get(&url).await?;
+        for controller in storage_collection.members {
+            if controller.odata_id.contains("BOSS") {
+                let boss_controller_id =
+                    controller.odata_id.split('/').last().ok_or_else(|| {
+                        RedfishError::InvalidValue {
+                            url: url.to_string(),
+                            field: "odata_id".to_string(),
+                            err: InvalidValueError(format!(
+                                "unable to parse boss_controller_id from {}",
+                                controller.odata_id
+                            )),
+                        }
+                    })?;
+                return Ok(Some(boss_controller_id.to_string()));
+            }
+        }
+
+        return Ok(None);
+    }
+
+    async fn decommission_controller(&self, controller_id: &str) -> Result<String, RedfishError> {
+        let url: String = format!("Systems/System.Embedded.1/Storage/{controller_id}/Actions/Oem/DellStorage.ControllerDrivesDecommission");
+        let mut arg = HashMap::new();
+        arg.insert("@Redfish.OperationApplyTime", "Immediate");
+
+        match self.s.client.post(&url, arg).await? {
+            (_, Some(headers)) => self.parse_job_id_from_response_headers(&url, headers).await,
+            (_, None) => Err(RedfishError::NoHeader),
+        }
+    }
+
+    async fn get_storage_drives(&self, controller_id: &str) -> Result<Value, RedfishError> {
+        let url = format!("Systems/System.Embedded.1/Storage/{controller_id}");
+        let (_status_code, body): (_, HashMap<String, serde_json::Value>) =
+            self.s.client.get(&url).await?;
+
+        let key = "Drives";
+        body.get(key)
+            .ok_or_else(|| RedfishError::MissingKey {
+                key: key.to_string(),
+                url: url.to_string(),
+            })
+            .cloned()
+    }
+
+    async fn create_storage_volume(
+        &self,
+        controller_id: &str,
+        volume_name: &str,
+        raid_type: &str,
+        drive_info: Value,
+    ) -> Result<String, RedfishError> {
+        if volume_name.len() > 15 || volume_name.len() < 1 {
+            return Err(RedfishError::GenericError {
+                error: format!(
+                    "invalid volume name ({volume_name}); must be between 1 and 15 characters long"
+                ),
+            });
+        }
+
+        let url: String = format!("Systems/System.Embedded.1/Storage/{controller_id}/Volumes");
+        let mut arg = HashMap::new();
+
+        arg.insert("Name", Value::String(volume_name.to_string()));
+        arg.insert("RAIDType", Value::String(raid_type.to_string()));
+        arg.insert("Drives", drive_info);
+
+        match self.s.client.post(&url, arg).await? {
+            (_, Some(headers)) => self.parse_job_id_from_response_headers(&url, headers).await,
+            (_, None) => Err(RedfishError::NoHeader),
+        }
     }
 }
 

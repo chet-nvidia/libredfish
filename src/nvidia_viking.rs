@@ -969,6 +969,32 @@ impl Redfish for Bmc {
     async fn get_host_rshim(&self) -> Result<Option<EnabledDisabled>, RedfishError> {
         self.s.get_host_rshim().await
     }
+
+    async fn set_idrac_lockdown(&self, enabled: EnabledDisabled) -> Result<(), RedfishError> {
+        self.s.set_idrac_lockdown(enabled).await
+    }
+
+    async fn get_boss_controller(&self) -> Result<Option<String>, RedfishError> {
+        self.s.get_boss_controller().await
+    }
+
+    async fn decommission_storage_controller(
+        &self,
+        controller_id: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        self.s.decommission_storage_controller(controller_id).await
+    }
+
+    async fn create_storage_volume(
+        &self,
+        controller_id: &str,
+        volume_name: &str,
+        raid_type: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        self.s
+            .create_storage_volume(controller_id, volume_name, raid_type)
+            .await
+    }
 }
 
 impl Bmc {

@@ -447,6 +447,26 @@ pub trait Redfish: Send + Sync + 'static {
 
     // Only applicable to DPUs
     async fn get_host_rshim(&self) -> Result<Option<EnabledDisabled>, RedfishError>;
+
+    // Only applicable to Dells
+    async fn set_idrac_lockdown(&self, enabled: EnabledDisabled) -> Result<(), RedfishError>;
+
+    // Only applicable to Dells
+    async fn get_boss_controller(&self) -> Result<Option<String>, RedfishError>;
+
+    // Only applicable to Dells
+    async fn decommission_storage_controller(
+        &self,
+        controller_id: &str,
+    ) -> Result<Option<String>, RedfishError>;
+
+    // Only applicable to Dells
+    async fn create_storage_volume(
+        &self,
+        controller_id: &str,
+        volume_name: &str,
+        raid_type: &str,
+    ) -> Result<Option<String>, RedfishError>;
 }
 
 // When Carbide drops it's `IpmiCommand.launch_command` background job system, we can

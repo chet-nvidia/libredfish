@@ -7,6 +7,7 @@ use serde::{Deserialize, Serialize};
 use crate::model::BiosCommon;
 use crate::model::InvalidValueError;
 use crate::model::OnOff;
+use crate::ODataId;
 use crate::{model::ODataLinks, EnabledDisabled};
 
 serde_with::with_prefix!(prefix_ssh "SSH.1.");
@@ -1318,6 +1319,16 @@ pub struct SystemConfiguration {
     pub shutdown_type: String,
     pub share_parameters: ShareParameters,
     pub import_buffer: String,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(rename_all = "PascalCase")]
+pub struct StorageCollection {
+    #[serde(flatten)]
+    pub odata: ODataLinks,
+    pub description: Option<String>,
+    pub members: Vec<ODataId>,
+    pub name: String,
 }
 
 #[cfg(test)]

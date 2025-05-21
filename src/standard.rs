@@ -766,11 +766,37 @@ impl Redfish for RedfishStandard {
     }
 
     async fn set_host_rshim(&self, _enabled: EnabledDisabled) -> Result<(), RedfishError> {
-        Err(RedfishError::NotSupported("set_nic_mode".to_string()))
+        Err(RedfishError::NotSupported("set_host_rshim".to_string()))
     }
 
     async fn get_host_rshim(&self) -> Result<Option<EnabledDisabled>, RedfishError> {
         Ok(None)
+    }
+
+    async fn set_idrac_lockdown(&self, _enabled: EnabledDisabled) -> Result<(), RedfishError> {
+        Err(RedfishError::NotSupported("set_idrac_lockdown".to_string()))
+    }
+
+    async fn get_boss_controller(&self) -> Result<Option<String>, RedfishError> {
+        Ok(None)
+    }
+
+    async fn decommission_storage_controller(
+        &self,
+        _controller_id: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        Err(RedfishError::NotSupported(
+            "decommission_controller".to_string(),
+        ))
+    }
+
+    async fn create_storage_volume(
+        &self,
+        _controller_id: &str,
+        _volume_name: &str,
+        _raid_type: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        Err(RedfishError::NotSupported("create_vdisk".to_string()))
     }
 }
 
