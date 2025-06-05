@@ -22,7 +22,7 @@
  */
 use reqwest::{
     header::{HeaderMap, HeaderName, IF_MATCH, IF_NONE_MATCH},
-    Method, StatusCode,
+    Method,
 };
 use serde::Serialize;
 use std::{collections::HashMap, path::Path, time::Duration, vec};
@@ -108,7 +108,7 @@ impl Redfish for Bmc {
         let url = format!("AccountService/Accounts/{}", account_id);
         let mut data = HashMap::new();
         data.insert("Password", new_pass);
-        self.patch_with_if_match(url, data).await
+        self.s.client.patch_with_if_match(&url, data).await
     }
 
     async fn get_accounts(&self) -> Result<Vec<ManagerAccount>, RedfishError> {
@@ -313,7 +313,9 @@ impl Redfish for Bmc {
             ("AuthFailureLoggingThreshold", Value::Number(2.into())),
         ]);
         return self
-            .patch_with_if_match("AccountService".to_string(), body)
+            .s
+            .client
+            .patch_with_if_match("AccountService", body)
             .await;
     }
 
@@ -594,14 +596,14 @@ impl Redfish for Bmc {
         let mut data = HashMap::new();
         data.insert("SecureBootEnable", true);
         let url = format!("Systems/{}/SecureBoot", self.s.system_id());
-        return self.patch_with_if_match(url, data).await;
+        return self.s.client.patch_with_if_match(&url, data).await;
     }
 
     async fn disable_secure_boot(&self) -> Result<(), RedfishError> {
         let mut data = HashMap::new();
         data.insert("SecureBootEnable", false);
         let url = format!("Systems/{}/SecureBoot", self.s.system_id());
-        return self.patch_with_if_match(url, data).await;
+        return self.s.client.patch_with_if_match(&url, data).await;
     }
 
     async fn get_network_device_function(
@@ -1370,39 +1372,7 @@ impl Bmc {
         B: Serialize + ::std::fmt::Debug,
     {
         let url = format!("Systems/{}/Bios/SD", self.s.system_id());
-        self.patch_with_if_match(url, data).await
-    }
-
-    async fn patch_with_if_match<B>(&self, url: String, data: B) -> Result<(), RedfishError>
-    where
-        B: Serialize + ::std::fmt::Debug,
-    {
-        let timeout = Duration::from_secs(60);
-        let headers: Vec<(HeaderName, String)> = vec![(IF_MATCH, "*".to_string())];
-        let (status_code, resp_body, _): (
-            _,
-            Option<HashMap<String, serde_json::Value>>,
-            Option<HeaderMap>,
-        ) = self
-            .s
-            .client
-            .req(
-                Method::PATCH,
-                &url,
-                Some(data),
-                Some(timeout),
-                None,
-                headers,
-            )
-            .await?;
-        match status_code {
-            StatusCode::NO_CONTENT => Ok(()),
-            _ => Err(RedfishError::HTTPErrorCode {
-                url,
-                status_code,
-                response_body: format!("{:?}", resp_body.unwrap_or_default()),
-            }),
-        }
+        self.s.client.patch_with_if_match(&url, data).await
     }
 }
 

@@ -23,7 +23,7 @@
 use std::{collections::HashMap, path::Path, time::Duration};
 
 use reqwest::{
-    header::{HeaderMap, HeaderName, HeaderValue, ACCEPT, CONTENT_TYPE},
+    header::{HeaderMap, HeaderName, HeaderValue, ACCEPT, CONTENT_TYPE, IF_MATCH},
     multipart::{Form, Part},
     Client as HttpClient, ClientBuilder as HttpClientBuilder, Method, Proxy, StatusCode,
 };
@@ -325,6 +325,29 @@ impl RedfishHttpClient {
             .req(Method::PATCH, api, Some(data), None, None, Vec::new())
             .await?;
         Ok((status_code, resp_headers))
+    }
+
+    pub async fn patch_with_if_match<B>(&self, api: &str, data: B) -> Result<(), RedfishError>
+    where
+        B: Serialize + ::std::fmt::Debug,
+    {
+        let timeout = Duration::from_secs(60);
+        let headers: Vec<(HeaderName, String)> = vec![(IF_MATCH, "*".to_string())];
+        let (status_code, resp_body, _): (
+            _,
+            Option<HashMap<String, serde_json::Value>>,
+            Option<HeaderMap>,
+        ) = self
+            .req(Method::PATCH, api, Some(data), Some(timeout), None, headers)
+            .await?;
+        match status_code {
+            StatusCode::NO_CONTENT => Ok(()),
+            _ => Err(RedfishError::HTTPErrorCode {
+                url: api.to_string(),
+                status_code,
+                response_body: format!("{:?}", resp_body.unwrap_or_default()),
+            }),
+        }
     }
 
     // Various parts of Redfish do use DELETE, but we don't implement any of those yet,

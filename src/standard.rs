@@ -122,10 +122,15 @@ impl Redfish for RedfishStandard {
         let url = format!("AccountService/Accounts/{}", account_id);
         let mut data = HashMap::new();
         data.insert("Password", new_pass);
-        self.client
-            .patch(&url, &data)
-            .await
-            .map(|_status_code| Ok(()))?
+        let service_root = self.get_service_root().await?;
+        if service_root.vendor() == Some(RedfishVendor::AMI) {
+            self.client.patch_with_if_match(&url, &data).await
+        } else {
+            self.client
+                .patch(&url, &data)
+                .await
+                .map(|_status_code| Ok(()))?
+        }
     }
 
     async fn get_accounts(&self) -> Result<Vec<ManagerAccount>, RedfishError> {
