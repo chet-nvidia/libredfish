@@ -831,13 +831,18 @@ impl Redfish for Bmc {
             )));
         };
         if dpu_pos == 0 {
-            tracing::debug!("DPU will already be the first netboot option after reboot");
+            tracing::info!(
+                "NO-OP: DPU ({mac_address}) will already be the first netboot option after reboot"
+            );
             return Ok(());
         }
         net_boot_order.boot_order_next.swap(0, dpu_pos);
 
         // Patch remote
-        let url = self.get_boot_settings_uri();
+        let url = format!(
+            "{}/BootOrder.NetworkBootOrder",
+            self.get_boot_settings_uri()
+        );
         let body = HashMap::from([("BootOrderNext", net_boot_order.boot_order_next.clone())]);
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
