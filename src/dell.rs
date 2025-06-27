@@ -1785,6 +1785,10 @@ impl Bmc {
     }
 
     async fn decommission_controller(&self, controller_id: &str) -> Result<String, RedfishError> {
+        // wait for the lifecycle controller status to become Ready before decomissioning the boss controller
+        // https://github.com/dell/idrac-Redfish-Scripting/issues/323
+        self.lifecycle_controller_is_ready().await?;
+
         let url: String = format!("Systems/System.Embedded.1/Storage/{controller_id}/Actions/Oem/DellStorage.ControllerDrivesDecommission");
         let mut arg = HashMap::new();
         arg.insert("@Redfish.OperationApplyTime", "Immediate");
@@ -1824,6 +1828,9 @@ impl Bmc {
             });
         }
 
+        // wait for the lifecycle controller status to become Ready
+        self.lifecycle_controller_is_ready().await?;
+
         let url: String = format!("Systems/System.Embedded.1/Storage/{controller_id}/Volumes");
         let mut arg = HashMap::new();
 
@@ -1835,6 +1842,39 @@ impl Bmc {
             (_, Some(headers)) => self.parse_job_id_from_response_headers(&url, headers).await,
             (_, None) => Err(RedfishError::NoHeader),
         }
+    }
+
+    async fn get_lifecycle_controller_status(&self) -> Result<String, RedfishError> {
+        let url = format!(
+            "Dell/Managers/{}/DellLCService/Actions/DellLCService.GetRemoteServicesAPIStatus",
+            self.s.manager_id()
+        );
+        let arg: HashMap<&'static str, Value> = HashMap::new();
+        let (_status_code, resp_body, _resp_headers): (
+            _,
+            Option<HashMap<String, serde_json::Value>>,
+            Option<HeaderMap>,
+        ) = self
+            .s
+            .client
+            .req(Method::POST, &url, Some(arg), None, None, Vec::new())
+            .await?;
+
+        let lc_status = match resp_body.unwrap_or_default().get("LCStatus") {
+            Some(status) => status.as_str().unwrap_or_default().to_string(),
+            None => todo!(),
+        };
+
+        Ok(lc_status)
+    }
+
+    async fn lifecycle_controller_is_ready(&self) -> Result<(), RedfishError> {
+        let lc_status = self.get_lifecycle_controller_status().await?;
+        if lc_status == "Ready" {
+            return Ok(());
+        }
+
+        Err(RedfishError::GenericError { error: format!("the lifecycle controller is not ready to accept provisioning requests; lc_status: {lc_status}") })
     }
 }
 
