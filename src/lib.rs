@@ -612,6 +612,7 @@ impl fmt::Display for MachineSetupDiff {
 #[serde(rename_all = "lowercase")] // No tag requried - this is not nested
 pub enum JobState {
     Scheduled,
+    ScheduledWithErrors,
     Running,
     Completed,
     CompletedWithErrors,

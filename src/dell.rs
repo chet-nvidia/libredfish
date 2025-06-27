@@ -864,21 +864,67 @@ impl Redfish for Bmc {
         let url = format!("Managers/iDRAC.Embedded.1/Jobs/{}", job_id);
         let (_status_code, body): (_, HashMap<String, serde_json::Value>) =
             self.s.client.get(&url).await?;
-        let key = "JobState";
-        let val = body
-            .get(key)
+        let job_state_key = "JobState";
+        let job_state_value = body
+            .get(job_state_key)
             .ok_or_else(|| RedfishError::MissingKey {
-                key: key.to_string(),
+                key: job_state_key.to_string(),
                 url: url.to_string(),
             })?
             .as_str()
             .ok_or_else(|| RedfishError::InvalidKeyType {
-                key: key.to_string(),
+                key: job_state_key.to_string(),
                 expected_type: "&str".to_string(),
                 url: url.to_string(),
             })?;
 
-        Ok(JobState::from_str(val))
+        let job_state = match JobState::from_str(job_state_value) {
+            JobState::Scheduled => {
+                let message_key = "Message";
+                let message_value = body
+                    .get(message_key)
+                    .ok_or_else(|| RedfishError::MissingKey {
+                        key: message_key.to_string(),
+                        url: url.to_string(),
+                    })?
+                    .as_str()
+                    .ok_or_else(|| RedfishError::InvalidKeyType {
+                        key: message_key.to_string(),
+                        expected_type: "&str".to_string(),
+                        url: url.to_string(),
+                    })?;
+                match message_value {
+                    /* Example JSON response body for a job that is Scheduled but will never complete: the job remains stuck in a Scheduled state indefinitely.
+                    {
+                        "@odata.context": "/redfish/v1/$metadata#DellJob.DellJob",
+                        "@odata.id": "/redfish/v1/Managers/iDRAC.Embedded.1/Oem/Dell/Jobs/JID_510613515077",
+                        "@odata.type": "#DellJob.v1_5_0.DellJob",
+                        "ActualRunningStartTime": null,
+                        "ActualRunningStopTime": null,
+                        "CompletionTime": null,
+                        "Description": "Job Instance",
+                        "EndTime": "TIME_NA",
+                        "Id": "JID_510613515077",
+                        "JobState": "Scheduled",
+                        "JobType": "RAIDConfiguration",
+                        "Message": "Job processing initialization failure.",
+                        "MessageArgs": [],
+                        "MessageArgs@odata.count": 0,
+                        "MessageId": "PR30",
+                        "Name": "Configure: BOSS.SL.16-1",
+                        "PercentComplete": 1,
+                        "StartTime": "2025-06-27T16:55:51",
+                        "TargetSettingsURI": null
+                    }
+                    */
+                    "Job processing initialization failure." => JobState::ScheduledWithErrors,
+                    _ => JobState::Scheduled,
+                }
+            }
+            state => state,
+        };
+
+        Ok(job_state)
     }
 
     async fn get_collection(&self, id: ODataId) -> Result<Collection, RedfishError> {
