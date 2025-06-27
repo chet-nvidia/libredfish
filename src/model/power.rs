@@ -123,7 +123,7 @@ pub struct PowerSupply {
     pub efficiency_percent: Option<f64>, // not in Supermicro or NVIDIA DPU
     pub hot_pluggable: Option<bool>,
     pub manufacturer: Option<String>,
-    pub model: String,
+    pub model: Option<String>,
     pub name: String,
     pub input_ranges: Option<Vec<InputRanges>>, // only present sometimes on Supermicro
     pub power_output_amps: Option<f64>,
@@ -131,7 +131,7 @@ pub struct PowerSupply {
     pub power_input_watts: Option<f64>,
     pub power_output_watts: Option<f64>,
     pub power_supply_type: Option<String>,
-    pub serial_number: String,
+    pub serial_number: Option<String>,
     pub spare_part_number: Option<String>,
     pub part_number: Option<String>, // Supermicro
     pub status: ResourceStatus,
