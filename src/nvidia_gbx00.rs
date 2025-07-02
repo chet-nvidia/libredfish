@@ -422,8 +422,16 @@ impl Redfish for Bmc {
         use serde_json::Value::Number;
         // These are also the defaults
         let body = HashMap::from([
-            // Never lock
-            ("AccountLockoutThreshold", Number(0.into())),
+            /* we were able to set AccountLockoutThreshold on the initial 3 GB200 trays we received in pdx-lab
+               however, with the recent trays we received, it is not happy with setting a value of 0
+               for AccountLockoutThreshold: "The property 'AccountLockoutThreshold' with the requested value 
+               of '0' could not be written because the value does not meet the constraints of the implementation."
+               Never lock
+              ("AccountLockoutThreshold", Number(0.into())), 
+
+              instead, use the same threshold that we picked for vikings: the bmc will lock the account out after 4 attempts  
+            */
+            ("AccountLockoutThreshold", Number(4.into())),
             // 600 is the smallest value it will accept. 10 minutes, in seconds.
             ("AccountLockoutDuration", Number(600.into())),
         ]);
