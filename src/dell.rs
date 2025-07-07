@@ -59,15 +59,6 @@ const UEFI_PASSWORD_NAME: &str = "SetupPassword";
 
 const MAX_ACCOUNT_ID: u8 = 16;
 
-const MELLANOX_DELL_VENDOR_ID: &str = "15b3";
-const MELLANOX_DELL_DPU_DEVICE_IDS: [&str; 5] = [
-    "a2df", // BF3 Family integrated network controller [BlueField-3 integrated network controller]
-    "a2d9", // MT43162 BlueField-3 Lx integrated ConnectX-7 network controller
-    "a2dc", // MT43244 BlueField-3 integrated ConnectX-7 network controller
-    "a2d2", // MT416842 BlueField integrated ConnectX-5 network controller
-    "a2d6", // MT42822 BlueField-2 integrated ConnectX-6 Dx network controller
-];
-
 pub struct Bmc {
     s: RedfishStandard,
 }
@@ -228,17 +219,13 @@ impl Redfish for Bmc {
             apply_time: dell::RedfishSettingsApplyTime::OnReset, // requires reboot to apply
         };
 
-        // Find the DPU
-        let mut has_dpu = true;
-        let nic_slot = match self.dpu_nic_slot(boot_interface_mac).await {
-            Ok(slot) => slot,
-            Err(RedfishError::NoDpu) => {
-                has_dpu = false;
-                "".to_string()
+        let (nic_slot, has_dpu) = match boot_interface_mac {
+            Some(mac) => {
+                let slot: String = self.dpu_nic_slot(mac).await?;
+                (slot, true)
             }
-            Err(err) => {
-                return Err(err);
-            }
+            // Zero-DPU case
+            None => ("".to_string(), false),
         };
 
         // dell idrac requires applying all bios settings at once.
@@ -290,11 +277,18 @@ impl Redfish for Bmc {
         }
     }
 
-    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
+    async fn machine_setup_status(
+        &self,
+        boot_interface_mac: Option<&str>,
+    ) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let bios = self.s.bios_attributes().await?;
-        let nic_slot = self.dpu_nic_slot(None).await?;
+        let nic_slot = match boot_interface_mac {
+            Some(mac) => self.dpu_nic_slot(mac).await?,
+            None => "".to_string(),
+        };
+
         let mut expected_attrs = self.machine_setup_attrs(&nic_slot).await?;
 
         expected_attrs.tpm2_hierarchy = dell::Tpm2HierarchySettings::Enabled;
@@ -895,10 +889,35 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
-    // machine_setup does this, but Dell requires all attributes to be sent at once so
-    // we do not support doing just this part, on a Dell.
-    async fn set_boot_order_dpu_first(&self, _mac_address: &str) -> Result<(), RedfishError> {
-        Err(RedfishError::UnnecessaryOperation)
+    // set_boot_order_dpu_first configures the boot order on the Dell to set the HTTP boot
+    // option that corresponds to the primary DPU as the first boot option in the list.
+    async fn set_boot_order_dpu_first(
+        &self,
+        boot_interface_mac: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        let expected_boot_option_name: String = self
+            .get_expected_dpu_boot_option_name(boot_interface_mac)
+            .await?;
+        let boot_options = self.get_boot_options().await?;
+        for boot_option in boot_options.members {
+            let id = boot_option.odata_id_get()?;
+            let boot_option = self.get_boot_option(id).await?;
+            if boot_option.display_name == expected_boot_option_name {
+                let url = format!("Systems/{}", self.s.system_id());
+                let body =
+                    HashMap::from([("Boot", HashMap::from([("BootOrder", vec![boot_option.id])]))]);
+
+                let job_id = match self.s.client.patch(&url, body).await? {
+                    (_, Some(headers)) => {
+                        self.parse_job_id_from_response_headers(&url, headers).await
+                    }
+                    (_, None) => Err(RedfishError::NoHeader),
+                }?;
+                return Ok(Some(job_id));
+            }
+        }
+
+        return Err(RedfishError::MissingBootOption(expected_boot_option_name));
     }
 
     async fn clear_uefi_password(
@@ -1656,8 +1675,10 @@ impl Bmc {
         }
     }
 
-    // Returns a string like "NIC.Slot.5-1"
-    async fn dpu_nic_slot(&self, mac_address: Option<&str>) -> Result<String, RedfishError> {
+    async fn get_dpu_nw_device_function(
+        &self,
+        boot_interface_mac_address: &str,
+    ) -> Result<NetworkDeviceFunction, RedfishError> {
         let chassis = self.get_chassis(self.s.system_id()).await?;
         let na_id = match chassis.network_adapters {
             Some(id) => id,
@@ -1691,73 +1712,69 @@ impl Bmc {
                 .and_then(|r| r.try_get())?;
 
             for nw_dev_func in rc_nw_func.members {
-                if mac_address.is_some() && nw_dev_func.ethernet.is_none() {
-                    // can match on a MAC the interface doesn't report
-                    continue;
-                }
-                if mac_address.is_none() && nw_dev_func.oem.is_none() {
-                    // The vendor and device ids are in the OEM section
-                    continue;
-                }
-                let oem = nw_dev_func.oem.unwrap();
-                let Some(oem_dell) = oem.get("Dell") else {
-                    continue;
-                };
-                let Some(oem_dell_map) = oem_dell.as_object() else {
-                    continue;
-                };
-                let Some(dell_nic) = oem_dell_map.get("DellNIC") else {
-                    continue;
-                };
-                let Some(dell_nic) = dell_nic.as_object() else {
-                    continue;
-                };
-                let Some(nic_slot) = dell_nic
-                    .get("Id")
-                    .and_then(|id| id.as_str())
-                    .map(|id| id.to_string())
-                else {
-                    continue;
-                };
-                match mac_address {
-                    // Caller wants to match a specific MAC address
-                    Some(want_mac) => {
-                        if nw_dev_func
-                            .ethernet
-                            .unwrap()
-                            .mac_address
-                            .map(|x| x.to_lowercase())
-                            .as_deref()
-                            == Some(&want_mac.to_lowercase())
-                        {
-                            // we found a match by MAC address
-                            return Ok(nic_slot);
-                        }
-                    }
-                    // Caller wants the first DPU
-                    None => {
-                        let Some(vendor_id) =
-                            dell_nic.get("PCIVendorID").and_then(|vid| vid.as_str())
-                        else {
-                            continue;
-                        };
-                        let Some(device_id) =
-                            dell_nic.get("PCIDeviceID").and_then(|did| did.as_str())
-                        else {
-                            continue;
-                        };
-                        if vendor_id == MELLANOX_DELL_VENDOR_ID
-                            && MELLANOX_DELL_DPU_DEVICE_IDS.contains(&device_id)
-                        {
-                            // we found a match by vendor and device id address
-                            return Ok(nic_slot);
+                if let Some(ref ethernet_info) = nw_dev_func.ethernet {
+                    if let Some(ref mac) = ethernet_info.mac_address {
+                        let standardized_mac = mac.to_lowercase();
+                        if standardized_mac == boot_interface_mac_address.to_lowercase() {
+                            return Ok(nw_dev_func);
                         }
                     }
                 }
             }
         }
 
-        Err(RedfishError::NoDpu)
+        Err(RedfishError::GenericError {
+            error: format!(
+                "could not find network device function for {boot_interface_mac_address}"
+            ),
+        })
+    }
+
+    async fn get_dell_nic_info(
+        &self,
+        mac_address: &str,
+    ) -> Result<serde_json::Map<String, Value>, RedfishError> {
+        let nw_device_function = self.get_dpu_nw_device_function(mac_address).await?;
+
+        let oem = nw_device_function
+            .oem
+            .ok_or_else(|| RedfishError::GenericError {
+                error: "OEM information is missing".to_string(),
+            })?;
+
+        let oem_dell = oem.get("Dell").ok_or_else(|| RedfishError::GenericError {
+            error: "Dell OEM information is missing".to_string(),
+        })?;
+
+        let oem_dell_map = oem_dell
+            .as_object()
+            .ok_or_else(|| RedfishError::GenericError {
+                error: "Dell OEM information is not a valid object".to_string(),
+            })?;
+
+        let dell_nic_map = oem_dell_map
+            .get("DellNIC")
+            .and_then(|dell_nic| dell_nic.as_object())
+            .ok_or_else(|| RedfishError::GenericError {
+                error: "DellNIC information is not a valid object or is missing".to_string(),
+            })?;
+
+        Ok(dell_nic_map.to_owned())
+    }
+
+    // Returns a string like "NIC.Slot.5-1"
+    async fn dpu_nic_slot(&self, mac_address: &str) -> Result<String, RedfishError> {
+        let dell_nic_info = self.get_dell_nic_info(mac_address).await?;
+
+        let nic_slot = dell_nic_info
+            .get("Id")
+            .and_then(|id| id.as_str())
+            .ok_or_else(|| RedfishError::GenericError {
+                error: "NIC slot ID is missing or not a valid string".to_string(),
+            })?
+            .to_string();
+
+        Ok(nic_slot)
     }
 
     async fn get_boss_controller(&self) -> Result<Option<String>, RedfishError> {
@@ -1875,6 +1892,26 @@ impl Bmc {
         }
 
         Err(RedfishError::GenericError { error: format!("the lifecycle controller is not ready to accept provisioning requests; lc_status: {lc_status}") })
+    }
+
+    // get_expected_dpu_boot_option_name assumes that assumes that the HTTP Device One boot option has been enabled
+    // and points to the NIC for the boot interface MAC address. In the future, we can relax the string matching if
+    // we configure other HTTP devices and just match on the NIC's device description.
+    async fn get_expected_dpu_boot_option_name(
+        &self,
+        boot_interface_mac: &str,
+    ) -> Result<String, RedfishError> {
+        let dell_nic_info = self.get_dell_nic_info(boot_interface_mac).await?;
+
+        let device_description = dell_nic_info
+            .get("DeviceDescription")
+            .and_then(|device_description| device_description.as_str())
+            .ok_or_else(|| RedfishError::GenericError {
+                error: format!("the NIC Device Description for {boot_interface_mac} is missing or not a valid string").to_string(),
+            })?
+            .to_string();
+
+        Ok(format!("HTTP Device 1: {device_description}",))
     }
 }
 

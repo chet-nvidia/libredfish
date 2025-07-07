@@ -174,7 +174,10 @@ impl Redfish for Bmc {
         self.boot_once(UefiHttp).await
     }
 
-    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
+    async fn machine_setup_status(
+        &self,
+        _boot_interface_mac: Option<&str>,
+    ) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let sb = self.get_secure_boot().await?;
@@ -553,7 +556,10 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
-    async fn set_boot_order_dpu_first(&self, _mac_address: &str) -> Result<(), RedfishError> {
+    async fn set_boot_order_dpu_first(
+        &self,
+        _mac_address: &str,
+    ) -> Result<Option<String>, RedfishError> {
         // TODO: If a mac_address is given
         // read all the boot options
         // look for "DisplayName" of "UEFI HTTPv4 (MAC:58A2E1BBB10F)"

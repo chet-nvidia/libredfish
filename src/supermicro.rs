@@ -188,7 +188,10 @@ impl Redfish for Bmc {
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
-    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
+    async fn machine_setup_status(
+        &self,
+        _boot_interface_mac: Option<&str>,
+    ) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let sc = self.serial_console_status().await?;
@@ -703,8 +706,12 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
-    async fn set_boot_order_dpu_first(&self, mac_address: &str) -> Result<(), RedfishError> {
-        self.set_mellanox_first(mac_address).await
+    async fn set_boot_order_dpu_first(
+        &self,
+        mac_address: &str,
+    ) -> Result<Option<String>, RedfishError> {
+        self.set_mellanox_first(mac_address).await?;
+        Ok(None)
     }
 
     async fn clear_uefi_password(

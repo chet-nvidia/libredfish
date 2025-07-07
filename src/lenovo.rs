@@ -236,7 +236,10 @@ impl Redfish for Bmc {
         Ok(())
     }
 
-    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
+    async fn machine_setup_status(
+        &self,
+        _boot_interface_mac: Option<&str>,
+    ) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let sc = self.serial_console_status().await?;
@@ -813,7 +816,10 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
-    async fn set_boot_order_dpu_first(&self, mac_address: &str) -> Result<(), RedfishError> {
+    async fn set_boot_order_dpu_first(
+        &self,
+        mac_address: &str,
+    ) -> Result<Option<String>, RedfishError> {
         // Now we have the MAC, make it the only boot option
         let mac = mac_address.to_string();
 
@@ -834,7 +840,7 @@ impl Redfish for Bmc {
             tracing::info!(
                 "NO-OP: DPU ({mac_address}) will already be the first netboot option after reboot"
             );
-            return Ok(());
+            return Ok(None);
         }
         net_boot_order.boot_order_next.swap(0, dpu_pos);
 
@@ -844,7 +850,12 @@ impl Redfish for Bmc {
             self.get_boot_settings_uri()
         );
         let body = HashMap::from([("BootOrderNext", net_boot_order.boot_order_next.clone())]);
-        self.s.client.patch(&url, body).await.map(|_status_code| ())
+        self.s
+            .client
+            .patch(&url, body)
+            .await
+            .map(|_status_code| ())?;
+        Ok(None)
     }
 
     async fn clear_uefi_password(

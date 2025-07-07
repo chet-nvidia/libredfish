@@ -254,7 +254,10 @@ impl Redfish for RedfishStandard {
         Err(RedfishError::NotSupported("machine_setup".to_string()))
     }
 
-    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
+    async fn machine_setup_status(
+        &self,
+        _boot_interface_mac: Option<&str>,
+    ) -> Result<MachineSetupStatus, RedfishError> {
         Err(RedfishError::NotSupported(
             "machine_setup_status".to_string(),
         ))
@@ -663,7 +666,10 @@ impl Redfish for RedfishStandard {
         })
     }
 
-    async fn set_boot_order_dpu_first(&self, _address: &str) -> Result<(), RedfishError> {
+    async fn set_boot_order_dpu_first(
+        &self,
+        _address: &str,
+    ) -> Result<Option<String>, RedfishError> {
         Err(RedfishError::NotSupported(
             "set_boot_order_dpu_first".to_string(),
         ))

@@ -185,7 +185,10 @@ pub trait Redfish: Send + Sync + 'static {
     ) -> Result<(), RedfishError>;
 
     /// Is everything that machine_setup does already done?
-    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError>;
+    async fn machine_setup_status(
+        &self,
+        boot_interface_mac: Option<&str>,
+    ) -> Result<MachineSetupStatus, RedfishError>;
 
     /// Apply a standard BMC password policy. This varies a lot by vendor,
     /// but at a minimum we want passwords to never expire, because our BMCs are
@@ -411,7 +414,10 @@ pub trait Redfish: Send + Sync + 'static {
     /// It will choose Uefi Http IPv4 option if any.
     /// If dpu's mac can be passed in as  mac_address to identify the dpu, otherwise method will attempt to find the dpu
     /// by enumeration NetworkAdapters and associated resources.
-    async fn set_boot_order_dpu_first(&self, mac_address: &str) -> Result<(), RedfishError>;
+    async fn set_boot_order_dpu_first(
+        &self,
+        mac_address: &str,
+    ) -> Result<Option<String>, RedfishError>;
 
     async fn clear_uefi_password(
         &self,

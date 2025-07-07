@@ -234,7 +234,10 @@ impl Redfish for Bmc {
         self.set_boot_order(BootDevices::Pxe).await
     }
 
-    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
+    async fn machine_setup_status(
+        &self,
+        _boot_interface_mac: Option<&str>,
+    ) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let sc = self.serial_console_status().await?;
@@ -698,7 +701,10 @@ impl Redfish for Bmc {
         self.s.get_update_service().await
     }
 
-    async fn set_boot_order_dpu_first(&self, mac_address: &str) -> Result<(), RedfishError> {
+    async fn set_boot_order_dpu_first(
+        &self,
+        mac_address: &str,
+    ) -> Result<Option<String>, RedfishError> {
         let mac = mac_address.to_string().to_uppercase();
 
         let all = self.get_boot_options().await?;
@@ -726,7 +732,7 @@ impl Redfish for Bmc {
                     tracing::info!(
                         "redfish set_first_boot might fail due to HPE POST race condition, ignore."
                     );
-                    Ok(())
+                    Ok(None)
                 } else {
                     Err(RedfishError::HTTPErrorCode {
                         url,
@@ -735,7 +741,7 @@ impl Redfish for Bmc {
                     })
                 }
             }
-            Ok(()) => Ok(()),
+            Ok(()) => Ok(None),
             Err(e) => Err(e),
         }
     }

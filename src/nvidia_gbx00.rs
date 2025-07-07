@@ -377,7 +377,10 @@ impl Redfish for Bmc {
         self.s.client.patch(&url, body).await.map(|_status_code| ())
     }
 
-    async fn machine_setup_status(&self) -> Result<MachineSetupStatus, RedfishError> {
+    async fn machine_setup_status(
+        &self,
+        _boot_interface_mac: Option<&str>,
+    ) -> Result<MachineSetupStatus, RedfishError> {
         let mut diffs = vec![];
 
         let sb = self.get_secure_boot().await?;
@@ -424,12 +427,12 @@ impl Redfish for Bmc {
         let body = HashMap::from([
             /* we were able to set AccountLockoutThreshold on the initial 3 GB200 trays we received in pdx-lab
                however, with the recent trays we received, it is not happy with setting a value of 0
-               for AccountLockoutThreshold: "The property 'AccountLockoutThreshold' with the requested value 
+               for AccountLockoutThreshold: "The property 'AccountLockoutThreshold' with the requested value
                of '0' could not be written because the value does not meet the constraints of the implementation."
                Never lock
-              ("AccountLockoutThreshold", Number(0.into())), 
+              ("AccountLockoutThreshold", Number(0.into())),
 
-              instead, use the same threshold that we picked for vikings: the bmc will lock the account out after 4 attempts  
+              instead, use the same threshold that we picked for vikings: the bmc will lock the account out after 4 attempts
             */
             ("AccountLockoutThreshold", Number(4.into())),
             // 600 is the smallest value it will accept. 10 minutes, in seconds.
@@ -829,7 +832,10 @@ impl Redfish for Bmc {
         self.s.get_resource(id).await
     }
 
-    async fn set_boot_order_dpu_first(&self, address: &str) -> Result<(), RedfishError> {
+    async fn set_boot_order_dpu_first(
+        &self,
+        address: &str,
+    ) -> Result<Option<String>, RedfishError> {
         let mac_address = address.replace(':', "").to_uppercase();
         let boot_option_name =
             format!("{} (MAC:{})", BootOptionName::Http.to_string(), mac_address);
@@ -840,7 +846,8 @@ impl Redfish for Bmc {
                 Some(&boot_option_name),
             )
             .await?;
-        self.change_boot_order(boot_array).await
+        self.change_boot_order(boot_array).await?;
+        Ok(None)
     }
 
     async fn clear_uefi_password(
