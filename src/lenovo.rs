@@ -23,6 +23,7 @@
 use std::{collections::HashMap, path::Path, time::Duration};
 
 use chrono::Utc;
+use regex::Regex;
 use reqwest::header::HeaderMap;
 use reqwest::Method;
 use serde::Serialize;
@@ -822,27 +823,54 @@ impl Redfish for Bmc {
     ) -> Result<Option<String>, RedfishError> {
         // Now we have the MAC, make it the only boot option
         let mac = mac_address.to_string();
+        // We see two patterns for HTTP IPv4 DPU boot option names in a Lenovo's network boot order:
+        // "UEFI:   SLOT2 (31/0/0) HTTP IPv4  Nvidia Network Adapter - A0:88:C2:08:53:C4",
+        // "UEFI:   SLOT1 (4B/0/0) HTTP IPv4  Mellanox Network Adapter - B8:3F:D2:90:99:C4"
+        let net_boot_option_pattern =
+            format!("HTTP IPv4  (Mellanox|Nvidia) Network Adapter - {}", mac);
+        let net_boot_option_regex =
+            Regex::new(&net_boot_option_pattern).map_err(|err| RedfishError::GenericError {
+                error: format!(
+                    "could not create net_boot_option_regex from {net_boot_option_pattern}: {err}"
+                ),
+            })?;
 
+        // Check boot_order_supported for the list of currently supported boot options.
+        // Set boot_order_next because that's what will happen when we reboot.
+        // boot_order_current is the current order.
         let mut net_boot_order = self.get_network_boot_order().await?;
+        let dpu_boot_option = net_boot_order
+            .boot_order_supported
+            .iter()
+            .find(|s| net_boot_option_regex.is_match(s))
+            .ok_or_else(|| {
+                RedfishError::MissingBootOption(format!(
+                    "Oem/Lenovo NetworkBootOrder BootOrderSupported {mac} (matching on {net_boot_option_pattern}); currently supported boot options: {:#?}",
+                    net_boot_order.boot_order_supported
+                ))
+            })?;
 
-        // We only check boot_order_next because that's what will happen when we reboot.
-        // boot_order_current has already happened.
-        let maybe_pos = net_boot_order
+        if let Some(pos) = net_boot_order
             .boot_order_next
             .iter()
-            .position(|s: &String| s.to_lowercase().contains(&mac.to_lowercase()));
-        let Some(dpu_pos) = maybe_pos else {
-            return Err(RedfishError::MissingBootOption(format!(
-                "Oem/Lenovo NetworkBootOrder BootOrderNext {mac}"
-            )));
-        };
-        if dpu_pos == 0 {
-            tracing::info!(
-                "NO-OP: DPU ({mac_address}) will already be the first netboot option after reboot"
-            );
-            return Ok(None);
+            .position(|s| s == dpu_boot_option)
+        {
+            // the DPU boot option is already at the first index of the boot_order_next list
+            if pos == 0 {
+                tracing::info!(
+                    "NO-OP: DPU ({mac_address}) will already be the first netboot option ({dpu_boot_option}) after reboot"
+                );
+                return Ok(None);
+            } else {
+                // boot_order_next contains the DPU boot option. move it to the front.
+                net_boot_order.boot_order_next.swap(0, pos);
+            }
+        } else {
+            // boot_order_next did not have the DPU boot option. add it to the beginning.
+            net_boot_order
+                .boot_order_next
+                .insert(0, dpu_boot_option.clone());
         }
-        net_boot_order.boot_order_next.swap(0, dpu_pos);
 
         // Patch remote
         let url = format!(
