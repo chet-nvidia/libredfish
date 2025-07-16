@@ -899,10 +899,18 @@ impl Redfish for Bmc {
             .get_expected_dpu_boot_option_name(boot_interface_mac)
             .await?;
         let boot_options = self.get_boot_options().await?;
-        for boot_option in boot_options.members {
+        for (idx, boot_option) in boot_options.members.iter().enumerate() {
             let id = boot_option.odata_id_get()?;
             let boot_option = self.get_boot_option(id).await?;
             if boot_option.display_name == expected_boot_option_name {
+                if idx == 0 {
+                    // Dells will not generate a bios config job below if the boot orders already configured correctly
+                    tracing::info!(
+                        "NO-OP: DPU ({boot_interface_mac}) will already be the first netboot option ({expected_boot_option_name}) after reboot"
+                    );
+                    return Ok(None);
+                }
+
                 let url = format!("Systems/{}", self.s.system_id());
                 let body =
                     HashMap::from([("Boot", HashMap::from([("BootOrder", vec![boot_option.id])]))]);
