@@ -119,6 +119,20 @@ impl Redfish for Bmc {
     }
 
     async fn power(&self, action: crate::SystemPowerControl) -> Result<(), RedfishError> {
+        if action == crate::SystemPowerControl::ACPowercycle {
+            let args: HashMap<String, String> =
+                HashMap::from([("ResetType".to_string(), "AuxPowerCycle".to_string())]);
+            return self
+                .s
+                .client
+                .post(
+                    &"Chassis/BMC_0/Actions/Oem/NvidiaChassis.AuxPowerReset".to_string(),
+                    args,
+                )
+                .await
+                .map(|_status_code| ());
+        }
+
         self.s.power(action).await
     }
 
