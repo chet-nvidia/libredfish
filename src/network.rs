@@ -350,9 +350,6 @@ impl RedfishHttpClient {
         }
     }
 
-    // Various parts of Redfish do use DELETE, but we don't implement any of those yet,
-    // hence allow dead_code.
-    #[allow(dead_code)]
     pub async fn delete(&self, api: &str) -> Result<StatusCode, RedfishError> {
         let (status_code, _resp_body, _resp_headers): (
             _,

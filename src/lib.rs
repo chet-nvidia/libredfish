@@ -89,6 +89,9 @@ pub trait Redfish: Send + Sync + 'static {
         role_id: RoleId,
     ) -> Result<(), RedfishError>;
 
+    /// Delete a BMC user
+    async fn delete_user(&self, username: &str) -> Result<(), RedfishError>;
+
     // Get firmware version for particular firmware inventory id
     async fn get_firmware(&self, id: &str) -> Result<SoftwareInventory, RedfishError>;
 

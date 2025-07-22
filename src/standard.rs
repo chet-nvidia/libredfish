@@ -88,6 +88,11 @@ impl Redfish for RedfishStandard {
             .map(|_resp| Ok(()))?
     }
 
+    async fn delete_user(&self, username: &str) -> Result<(), RedfishError> {
+        let url = format!("AccountService/Accounts/{}", username);
+        self.client.delete(&url).await.map(|_status_code| Ok(()))?
+    }
+
     async fn change_username(&self, old_name: &str, new_name: &str) -> Result<(), RedfishError> {
         let account = self.get_account_by_name(old_name).await?;
         let Some(account_id) = account.id else {
