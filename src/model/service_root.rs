@@ -97,6 +97,7 @@ impl ServiceRoot {
                 Some("GB200 NVL") => RedfishVendor::NvidiaGBx00,
                 _ => RedfishVendor::NvidiaDpu,
             },
+            "wiwynn" => RedfishVendor::NvidiaGBx00,
             "supermicro" => RedfishVendor::Supermicro,
             _ => RedfishVendor::Unknown,
         })

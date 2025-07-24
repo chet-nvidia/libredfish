@@ -87,10 +87,7 @@ impl Redfish for Bmc {
         self.s.create_user(username, password, role_id).await
     }
 
-                async fn delete_user(
-        &self,
-        username: &str,
-    ) -> Result<(), RedfishError> {
+    async fn delete_user(&self, username: &str) -> Result<(), RedfishError> {
         self.s.delete_user(username).await
     }
 
