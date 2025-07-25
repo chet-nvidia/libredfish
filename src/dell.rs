@@ -132,7 +132,20 @@ impl Redfish for Bmc {
     }
 
     async fn power(&self, action: SystemPowerControl) -> Result<(), RedfishError> {
-        self.s.power(action).await
+        if action == SystemPowerControl::ACPowercycle {
+            let is_lockdown = self.is_lockdown().await?;
+            let bios_attrs = self.s.bios_attributes().await?;
+            let uefi_var_access = bios_attrs.get("UefiVariableAccess").and_then(|v| v.as_str()).unwrap_or("");
+            
+            if is_lockdown || uefi_var_access == "Controlled" {
+                return Err(RedfishError::GenericError {
+                    error: "Cannot perform AC power cycle while system is locked down. Disable lockdown, reboot, verify BIOS attribute 'UefiVariableAccess' is 'Standard', and then try again.".to_string(),
+                });
+            }
+            self.perform_ac_power_cycle().await
+        } else {
+            self.s.power(action).await
+        }
     }
 
     async fn bmc_reset(&self) -> Result<(), RedfishError> {
@@ -1098,6 +1111,47 @@ impl Bmc {
     pub fn new(s: RedfishStandard) -> Result<Bmc, RedfishError> {
         Ok(Bmc { s })
     }
+
+    async fn perform_ac_power_cycle(&self) -> Result<(), RedfishError> {
+        self.clear_pending().await?;
+        
+        // Set PowerCycleRequest in BIOS settings
+        let apply_time = dell::SetSettingsApplyTime {
+            apply_time: dell::RedfishSettingsApplyTime::OnReset,
+        };
+
+        let mut attributes = HashMap::new();
+        attributes.insert(
+            "PowerCycleRequest".to_string(),
+            serde_json::Value::String("FullPowerCycle".to_string()),
+        );
+
+        let set_attrs = dell::GenericSetBiosAttrs {
+            redfish_settings_apply_time: apply_time,
+            attributes,
+        };
+
+        let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
+        let result = self.s.client.patch(&url, set_attrs).await;
+        
+        // Handle intermittent 400 errors for read-only attributes
+        if let Err(RedfishError::HTTPErrorCode { status_code, response_body, .. }) = &result {
+            if status_code.as_u16() == 400 && response_body.contains("read-only") {
+                return Err(RedfishError::GenericError {
+                    error: "Failed to set PowerCycleRequest BIOS attribute due to read-only dependencies. Please reboot the machine and try again.".to_string(),
+                });
+            }
+        }
+        result?;
+
+        // Apply the setting based on current power state
+        let current_power_state = self.s.get_power_state().await?;
+        match current_power_state {
+            PowerState::Off => self.s.power(SystemPowerControl::On).await,
+            _ => self.s.power(SystemPowerControl::GracefulRestart).await,
+        }
+    }
+    
     // No changes can be applied if there are pending jobs
     async fn delete_job_queue(&self) -> Result<(), RedfishError> {
         // The queue can't be cleared if system lockdown is enabled

@@ -144,6 +144,21 @@ impl Redfish for Bmc {
         if action == SystemPowerControl::ForceRestart {
             // hpe ilo does warm reset with gracefulrestart op
             self.s.power(SystemPowerControl::GracefulRestart).await
+        } else if action == SystemPowerControl::ACPowercycle {
+            let power_state = self.get_power_state().await?;
+            match power_state {
+                PowerState::Off => {}
+                _ => {
+                    self.s.power(SystemPowerControl::ForceOff).await?;
+                }
+            }
+            let args: HashMap<String, String> =
+                HashMap::from([("ResetType".to_string(), "AuxCycle".to_string())]);
+            let url = format!(
+                "Systems/{}/Actions/Oem/Hpe/HpeComputerSystemExt.SystemReset",
+                self.s.system_id()
+            );
+            return self.s.client.post(&url, args).await.map(|_status_code| ());
         } else {
             self.s.power(action).await
         }

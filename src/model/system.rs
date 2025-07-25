@@ -57,7 +57,7 @@ pub enum SystemPowerControl {
     ForceRestart,
     /// Do an AC powercycle.  Not supported on all platforms.
     ACPowercycle,
-    /// Implemented by Dells and DPUs. Not supported on all platforms
+    /// Implemented by Dells and DPUs. Not supported on Vikings.
     PowerCycle,
     // Dell also has: PushPowerButton and Nmi
     // Lenovo also has: ForceOn and Nmi
