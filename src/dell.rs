@@ -135,8 +135,11 @@ impl Redfish for Bmc {
         if action == SystemPowerControl::ACPowercycle {
             let is_lockdown = self.is_lockdown().await?;
             let bios_attrs = self.s.bios_attributes().await?;
-            let uefi_var_access = bios_attrs.get("UefiVariableAccess").and_then(|v| v.as_str()).unwrap_or("");
-            
+            let uefi_var_access = bios_attrs
+                .get("UefiVariableAccess")
+                .and_then(|v| v.as_str())
+                .unwrap_or("");
+
             if is_lockdown || uefi_var_access == "Controlled" {
                 return Err(RedfishError::GenericError {
                     error: "Cannot perform AC power cycle while system is locked down. Disable lockdown, reboot, verify BIOS attribute 'UefiVariableAccess' is 'Standard', and then try again.".to_string(),
@@ -1114,7 +1117,7 @@ impl Bmc {
 
     async fn perform_ac_power_cycle(&self) -> Result<(), RedfishError> {
         self.clear_pending().await?;
-        
+
         // Set PowerCycleRequest in BIOS settings
         let apply_time = dell::SetSettingsApplyTime {
             apply_time: dell::RedfishSettingsApplyTime::OnReset,
@@ -1133,9 +1136,14 @@ impl Bmc {
 
         let url = format!("Systems/{}/Bios/Settings", self.s.system_id());
         let result = self.s.client.patch(&url, set_attrs).await;
-        
+
         // Handle intermittent 400 errors for read-only attributes
-        if let Err(RedfishError::HTTPErrorCode { status_code, response_body, .. }) = &result {
+        if let Err(RedfishError::HTTPErrorCode {
+            status_code,
+            response_body,
+            ..
+        }) = &result
+        {
             if status_code.as_u16() == 400 && response_body.contains("read-only") {
                 return Err(RedfishError::GenericError {
                     error: "Failed to set PowerCycleRequest BIOS attribute due to read-only dependencies. Please reboot the machine and try again.".to_string(),
@@ -1151,7 +1159,7 @@ impl Bmc {
             _ => self.s.power(SystemPowerControl::GracefulRestart).await,
         }
     }
-    
+
     // No changes can be applied if there are pending jobs
     async fn delete_job_queue(&self) -> Result<(), RedfishError> {
         // The queue can't be cleared if system lockdown is enabled
@@ -1684,7 +1692,7 @@ impl Bmc {
         // We want to disable all boot options other than HTTP Device 1.
         let boot_options_to_disable_arr: Vec<&str> = curr_enabled_boot_options
             .split(",")
-            .filter(|boot_option| boot_option.as_ref() != "NIC.HttpDevice.1-1".to_string())
+            .filter(|boot_option| *boot_option != "NIC.HttpDevice.1-1")
             .collect();
         let boot_options_to_disable_str = boot_options_to_disable_arr.join(",");
 
@@ -1890,7 +1898,7 @@ impl Bmc {
     }
 
     async fn get_boss_controller(&self) -> Result<Option<String>, RedfishError> {
-        let url: String = format!("Systems/System.Embedded.1/Storage");
+        let url = "Systems/System.Embedded.1/Storage".to_string();
         let (_status_code, storage_collection): (_, StorageCollection) =
             self.s.client.get(&url).await?;
         for controller in storage_collection.members {
@@ -1910,7 +1918,7 @@ impl Bmc {
             }
         }
 
-        return Ok(None);
+        Ok(None)
     }
 
     async fn decommission_controller(&self, controller_id: &str) -> Result<String, RedfishError> {
@@ -1949,7 +1957,7 @@ impl Bmc {
         raid_type: &str,
         drive_info: Value,
     ) -> Result<String, RedfishError> {
-        if volume_name.len() > 15 || volume_name.len() < 1 {
+        if volume_name.len() > 15 || volume_name.is_empty() {
             return Err(RedfishError::GenericError {
                 error: format!(
                     "invalid volume name ({volume_name}); must be between 1 and 15 characters long"

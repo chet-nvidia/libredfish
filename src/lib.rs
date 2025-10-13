@@ -46,6 +46,7 @@ mod lenovo;
 mod network;
 mod nvidia_dpu;
 
+mod nvidia_gbswitch;
 mod nvidia_gbx00;
 mod nvidia_gh200;
 mod nvidia_viking;

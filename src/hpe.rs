@@ -911,14 +911,8 @@ impl Bmc {
         match ilo_manager {
             Ok(manager) => {
                 let fw_parts: Vec<&str> = manager.firmware_version.split_whitespace().collect();
-                let fw_major: i32 = match fw_parts[1].parse() {
-                    Ok(n) => n,
-                    Err(_) => 0,
-                };
-                let fw_minor: f32 = match (&fw_parts[2][1..]).parse() {
-                    Ok(f) => f,
-                    Err(_) => 0.0,
-                };
+                let fw_major: i32 = fw_parts[1].parse().unwrap_or(0);
+                let fw_minor: f32 = fw_parts[2][1..].parse().unwrap_or(0.0);
                 fw_major >= 6 && fw_minor >= 1.40
             }
             Err(_) => false,

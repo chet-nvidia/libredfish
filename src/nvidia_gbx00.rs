@@ -23,6 +23,8 @@ use crate::model::oem::nvidia_dpu::NicMode;
  */
 use crate::{Chassis, EnabledDisabled, REDFISH_ENDPOINT};
 use reqwest::StatusCode;
+use serde::{Deserialize, Serialize};
+use std::fmt::Display;
 use std::{collections::HashMap, path::Path, time::Duration};
 use tokio::fs::File;
 
@@ -78,35 +80,20 @@ impl BootOptionName {
     }
 }
 
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 enum BootOptionMatchField {
     DisplayName,
     UefiDevicePath,
 }
 
-impl BootOptionMatchField {
-    fn to_string(self) -> &'static str {
-        match self {
-            BootOptionMatchField::DisplayName => "Display Name",
-            BootOptionMatchField::UefiDevicePath => "Uefi Device Path",
-        }
+impl Display for BootOptionMatchField {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::fmt::Debug::fmt(&self, f)
     }
 }
 
 #[async_trait::async_trait]
 impl Redfish for Bmc {
-    async fn create_user(
-        &self,
-        username: &str,
-        password: &str,
-        role_id: RoleId,
-    ) -> Result<(), RedfishError> {
-        self.s.create_user(username, password, role_id).await
-    }
-
-    async fn delete_user(&self, username: &str) -> Result<(), RedfishError> {
-        self.s.delete_user(username).await
-    }
-
     async fn change_username(&self, old_name: &str, new_name: &str) -> Result<(), RedfishError> {
         self.s.change_username(old_name, new_name).await
     }
@@ -125,6 +112,19 @@ impl Redfish for Bmc {
 
     async fn get_accounts(&self) -> Result<Vec<ManagerAccount>, RedfishError> {
         self.s.get_accounts().await
+    }
+
+    async fn create_user(
+        &self,
+        username: &str,
+        password: &str,
+        role_id: RoleId,
+    ) -> Result<(), RedfishError> {
+        self.s.create_user(username, password, role_id).await
+    }
+
+    async fn delete_user(&self, username: &str) -> Result<(), RedfishError> {
+        self.s.delete_user(username).await
     }
 
     async fn get_firmware(
@@ -155,6 +155,42 @@ impl Redfish for Bmc {
 
     async fn get_power_state(&self) -> Result<crate::PowerState, RedfishError> {
         self.s.get_power_state().await
+    }
+
+    async fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
+        self.s.get_service_root().await
+    }
+
+    async fn get_systems(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_systems().await
+    }
+
+    async fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
+        self.s.get_system().await
+    }
+
+    async fn get_managers(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_managers().await
+    }
+
+    async fn get_manager(&self) -> Result<Manager, RedfishError> {
+        self.s.get_manager().await
+    }
+
+    async fn get_secure_boot(&self) -> Result<crate::model::secure_boot::SecureBoot, RedfishError> {
+        self.s.get_secure_boot().await
+    }
+
+    async fn disable_secure_boot(&self) -> Result<(), RedfishError> {
+        self.s.disable_secure_boot().await
+    }
+
+    async fn enable_secure_boot(&self) -> Result<(), RedfishError> {
+        self.s.enable_secure_boot().await
+    }
+
+    async fn add_secure_boot_certificate(&self, pem_cert: &str) -> Result<Task, RedfishError> {
+        self.s.add_secure_boot_certificate(pem_cert).await
     }
 
     async fn get_power_metrics(&self) -> Result<crate::Power, RedfishError> {
@@ -252,7 +288,7 @@ impl Redfish for Bmc {
                 .s
                 .client
                 .post(
-                    &"Chassis/BMC_0/Actions/Oem/NvidiaChassis.AuxPowerReset".to_string(),
+                    "Chassis/BMC_0/Actions/Oem/NvidiaChassis.AuxPowerReset",
                     args,
                 )
                 .await
@@ -272,6 +308,10 @@ impl Redfish for Bmc {
         reset_type: crate::SystemPowerControl,
     ) -> Result<(), RedfishError> {
         self.s.chassis_reset(chassis_id, reset_type).await
+    }
+
+    async fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
+        self.s.bmc_reset_to_defaults().await
     }
 
     async fn get_thermal_metrics(&self) -> Result<crate::Thermal, RedfishError> {
@@ -536,6 +576,13 @@ impl Redfish for Bmc {
         }
     }
 
+    async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
+        let body = HashMap::from([("Boot", HashMap::from([("BootOrder", boot_array)]))]);
+        let url = format!("Systems/{}/Settings", self.s.system_id());
+        self.s.client.patch(&url, body).await?;
+        Ok(())
+    }
+
     async fn clear_tpm(&self) -> Result<(), RedfishError> {
         self.s.clear_tpm().await
     }
@@ -595,10 +642,6 @@ impl Redfish for Bmc {
         self.s.update_firmware(firmware).await
     }
 
-    async fn get_update_service(&self) -> Result<UpdateService, RedfishError> {
-        self.s.get_update_service().await
-    }
-
     async fn update_firmware_multipart(
         &self,
         filename: &Path,
@@ -643,6 +686,17 @@ impl Redfish for Bmc {
         Ok(task.id)
     }
 
+    async fn update_firmware_simple_update(
+        &self,
+        image_uri: &str,
+        targets: Vec<String>,
+        transfer_protocol: TransferProtocolType,
+    ) -> Result<Task, RedfishError> {
+        self.s
+            .update_firmware_simple_update(image_uri, targets, transfer_protocol)
+            .await
+    }
+
     async fn bios(
         &self,
     ) -> Result<std::collections::HashMap<String, serde_json::Value>, RedfishError> {
@@ -670,24 +724,25 @@ impl Redfish for Bmc {
         self.s.clear_pending().await
     }
 
-    async fn get_system(&self) -> Result<ComputerSystem, RedfishError> {
-        self.s.get_system().await
+    /// http://redfish.dmtf.org/schemas/v1/NetworkDeviceFunctionCollection.json
+    async fn get_network_device_functions(
+        &self,
+        _chassis_id: &str,
+    ) -> Result<Vec<String>, RedfishError> {
+        Err(RedfishError::NotSupported(
+            "GB200 doesn't have Device Functions in NetworkAdapters yet".to_string(),
+        ))
     }
 
-    async fn get_secure_boot(&self) -> Result<crate::model::secure_boot::SecureBoot, RedfishError> {
-        self.s.get_secure_boot().await
-    }
-
-    async fn enable_secure_boot(&self) -> Result<(), RedfishError> {
-        self.s.enable_secure_boot().await
-    }
-
-    async fn disable_secure_boot(&self) -> Result<(), RedfishError> {
-        self.s.disable_secure_boot().await
-    }
-
-    async fn add_secure_boot_certificate(&self, pem_cert: &str) -> Result<Task, RedfishError> {
-        self.s.add_secure_boot_certificate(pem_cert).await
+    async fn get_network_device_function(
+        &self,
+        _chassis_id: &str,
+        _id: &str,
+        _port: Option<&str>,
+    ) -> Result<NetworkDeviceFunction, RedfishError> {
+        Err(RedfishError::NotSupported(
+            "GB200 doesn't have Device Functions in NetworkAdapters yet".to_string(),
+        ))
     }
 
     async fn get_chassis_all(&self) -> Result<Vec<String>, RedfishError> {
@@ -728,30 +783,6 @@ impl Redfish for Bmc {
         self.s.get_base_network_adapter(system_id, id).await
     }
 
-    async fn get_manager_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_manager_ethernet_interfaces().await
-    }
-
-    async fn get_manager_ethernet_interface(
-        &self,
-        id: &str,
-    ) -> Result<crate::EthernetInterface, RedfishError> {
-        self.s.get_manager_ethernet_interface(id).await
-    }
-
-    async fn get_system_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
-        Ok(vec![])
-    }
-
-    async fn get_system_ethernet_interface(
-        &self,
-        id: &str,
-    ) -> Result<crate::EthernetInterface, RedfishError> {
-        Err(RedfishError::NotSupported(format!(
-            "GB200 doesn't have Systems EthernetInterface {id}"
-        )))
-    }
-
     async fn get_ports(
         &self,
         chassis_id: &str,
@@ -778,25 +809,28 @@ impl Redfish for Bmc {
         Ok(body)
     }
 
-    async fn get_network_device_function(
-        &self,
-        _chassis_id: &str,
-        _id: &str,
-        _port: Option<&str>,
-    ) -> Result<NetworkDeviceFunction, RedfishError> {
-        Err(RedfishError::NotSupported(
-            "GB200 doesn't have Device Functions in NetworkAdapters yet".to_string(),
-        ))
+    async fn get_manager_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
+        self.s.get_manager_ethernet_interfaces().await
     }
 
-    /// http://redfish.dmtf.org/schemas/v1/NetworkDeviceFunctionCollection.json
-    async fn get_network_device_functions(
+    async fn get_manager_ethernet_interface(
         &self,
-        _chassis_id: &str,
-    ) -> Result<Vec<String>, RedfishError> {
-        Err(RedfishError::NotSupported(
-            "GB200 doesn't have Device Functions in NetworkAdapters yet".to_string(),
-        ))
+        id: &str,
+    ) -> Result<crate::EthernetInterface, RedfishError> {
+        self.s.get_manager_ethernet_interface(id).await
+    }
+
+    async fn get_system_ethernet_interfaces(&self) -> Result<Vec<String>, RedfishError> {
+        Ok(vec![])
+    }
+
+    async fn get_system_ethernet_interface(
+        &self,
+        id: &str,
+    ) -> Result<crate::EthernetInterface, RedfishError> {
+        Err(RedfishError::NotSupported(format!(
+            "GB200 doesn't have Systems EthernetInterface {id}"
+        )))
     }
 
     // Set current_uefi_password to "" if there isn't one yet. By default there isn't a password.
@@ -811,43 +845,16 @@ impl Redfish for Bmc {
             .await
     }
 
-    async fn change_boot_order(&self, boot_array: Vec<String>) -> Result<(), RedfishError> {
-        let body = HashMap::from([("Boot", HashMap::from([("BootOrder", boot_array)]))]);
-        let url = format!("Systems/{}/Settings", self.s.system_id());
-        self.s.client.patch(&url, body).await?;
-        Ok(())
-    }
-
-    async fn get_service_root(&self) -> Result<ServiceRoot, RedfishError> {
-        self.s.get_service_root().await
-    }
-
-    async fn get_systems(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_systems().await
-    }
-
-    async fn get_managers(&self) -> Result<Vec<String>, RedfishError> {
-        self.s.get_managers().await
-    }
-
-    async fn get_manager(&self) -> Result<Manager, RedfishError> {
-        self.s.get_manager().await
-    }
-
-    async fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
-        self.s.bmc_reset_to_defaults().await
-    }
-
     async fn get_job_state(&self, job_id: &str) -> Result<JobState, RedfishError> {
         self.s.get_job_state(job_id).await
     }
 
-    async fn get_collection(&self, id: ODataId) -> Result<Collection, RedfishError> {
-        self.s.get_collection(id).await
-    }
-
     async fn get_resource(&self, id: ODataId) -> Result<Resource, RedfishError> {
         self.s.get_resource(id).await
+    }
+
+    async fn get_collection(&self, id: ODataId) -> Result<Collection, RedfishError> {
+        self.s.get_collection(id).await
     }
 
     async fn set_boot_order_dpu_first(
@@ -875,6 +882,10 @@ impl Redfish for Bmc {
         self.change_uefi_password(current_uefi_password, "").await
     }
 
+    async fn get_update_service(&self) -> Result<UpdateService, RedfishError> {
+        self.s.get_update_service().await
+    }
+
     async fn get_base_mac_address(&self) -> Result<Option<String>, RedfishError> {
         self.s.get_base_mac_address().await
     }
@@ -892,17 +903,6 @@ impl Redfish for Bmc {
         target: crate::EnabledDisabled,
     ) -> Result<(), RedfishError> {
         self.s.enable_ipmi_over_lan(target).await
-    }
-
-    async fn update_firmware_simple_update(
-        &self,
-        image_uri: &str,
-        targets: Vec<String>,
-        transfer_protocol: TransferProtocolType,
-    ) -> Result<Task, RedfishError> {
-        self.s
-            .update_firmware_simple_update(image_uri, targets, transfer_protocol)
-            .await
     }
 
     async fn enable_rshim_bmc(&self) -> Result<(), RedfishError> {
@@ -1026,7 +1026,7 @@ impl Bmc {
         }
 
         if !found_matching_boot_option {
-            return Err(RedfishError::GenericError { error: format!("Could not find boot option matching {name_str} on {}; boot options: {boot_options:#?}", match_field.to_string()) });
+            return Err(RedfishError::GenericError { error: format!("Could not find boot option matching {name_str} on {}; boot options: {boot_options:#?}", match_field) });
         }
 
         Ok(ordered)

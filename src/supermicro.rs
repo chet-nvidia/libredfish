@@ -458,7 +458,7 @@ impl Redfish for Bmc {
     }
 
     async fn pcie_devices(&self) -> Result<Vec<PCIeDevice>, RedfishError> {
-        let Some(chassis_id) = self.get_chassis_all().await?.into_iter().next().take() else {
+        let Some(chassis_id) = self.get_chassis_all().await?.into_iter().next() else {
             return Err(RedfishError::NoContent);
         };
         let url = format!("Chassis/{chassis_id}/PCIeDevices");
@@ -1148,6 +1148,7 @@ impl Bmc {
 }
 
 // UpdateParameters is what is sent for a multipart firmware upload's metadata.
+#[allow(clippy::type_complexity)]
 #[derive(Serialize)]
 #[serde(rename_all = "PascalCase")]
 struct UpdateParameters {

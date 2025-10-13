@@ -80,6 +80,7 @@ pub struct Chassis {
 pub enum BackgroundCopyStatus {
     InProgress,
     Completed,
+    Pending,
 }
 
 impl fmt::Display for BackgroundCopyStatus {
@@ -103,9 +104,9 @@ impl FromStr for NicMode {
     fn from_str(input: &str) -> Result<NicMode, Self::Err> {
         // strip quotes from the string
         let normalized_input = input.replace('"', "");
-        if normalized_input == "NicMode".to_string() {
+        if normalized_input == *"NicMode" {
             Ok(NicMode::Nic)
-        } else if normalized_input == "DpuMode".to_string() {
+        } else if normalized_input == *"DpuMode" {
             Ok(NicMode::Dpu)
         } else {
             Err(())

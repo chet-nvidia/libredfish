@@ -30,6 +30,7 @@ use reqwest::{
 use serde::{de::DeserializeOwned, Serialize};
 use tracing::debug;
 
+use crate::model::service_root::RedfishVendor;
 use crate::{model::InvalidValueError, standard::RedfishStandard, Redfish, RedfishError};
 
 pub const REDFISH_ENDPOINT: &str = "redfish/v1";
@@ -163,14 +164,23 @@ impl RedfishClientPool {
         let managers = s.get_managers().await?;
         let system_id = systems.first().unwrap();
         let manager_id = managers.first().unwrap();
+        let chassis = s.get_chassis_all().await?;
+
         s.set_system_id(system_id)?;
         // call set_system_id always before calling set_vendor
         s.set_manager_id(manager_id)?;
         s.set_service_root(service_root.clone())?;
 
-        let Some(vendor) = service_root.vendor() else {
+        let Some(mut vendor) = service_root.vendor() else {
             return Err(RedfishError::MissingVendor);
         };
+        if vendor == RedfishVendor::P3809 {
+            if chassis.contains(&"MGX_NVSwitch_0".to_string()) {
+                vendor = RedfishVendor::NvidiaGBSwitch;
+            } else {
+                vendor = RedfishVendor::NvidiaGH200;
+            }
+        }
         // returns the vendor specific object
         s.set_vendor(vendor)
     }

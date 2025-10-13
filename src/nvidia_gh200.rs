@@ -130,7 +130,7 @@ impl Redfish for Bmc {
                 .s
                 .client
                 .post(
-                    &"Chassis/BMC_0/Actions/Oem/NvidiaChassis.AuxPowerReset".to_string(),
+                    "Chassis/BMC_0/Actions/Oem/NvidiaChassis.AuxPowerReset",
                     args,
                 )
                 .await

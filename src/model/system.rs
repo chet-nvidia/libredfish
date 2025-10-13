@@ -137,6 +137,7 @@ pub struct TrustedModule {
     pub status: StatusState,
 }
 
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub enum BootProgressTypes {
@@ -320,10 +321,10 @@ pub struct PCIeFunction {
 impl PCIeFunction {
     // Is this a Mellanox Bluefield DPU?
     pub fn is_dpu(&self) -> bool {
-        let is_mellanox = self.vendor_id.as_ref().map_or(false, |v_id| {
+        let is_mellanox = self.vendor_id.as_ref().is_some_and(|v_id| {
             v_id.to_uppercase() == MELLANOX_VENDOR_ID_HEX || v_id == MELLANOX_VENDOR_ID_DEC
         });
-        let is_bluefield = self.device_id.as_ref().map_or(false, |candidate_id| {
+        let is_bluefield = self.device_id.as_ref().is_some_and(|candidate_id| {
             let u_candidate_id = candidate_id.to_uppercase();
             let as_hex = MELLANOX_DPU_DEVICE_IDS_HEX
                 .iter()

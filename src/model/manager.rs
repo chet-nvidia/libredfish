@@ -46,7 +46,7 @@ pub struct Manager {
     pub description: Option<String>,
     pub ethernet_interfaces: ODataId,
     pub firmware_version: String,
-    pub graphical_console: Commandshell,
+    pub graphical_console: Option<Commandshell>,
     pub id: String,
     pub log_services: ODataId,
     pub manager_type: String,
@@ -92,6 +92,7 @@ pub struct Availableaction {
     pub action: String,
 }
 
+#[allow(clippy::enum_variant_names)]
 #[derive(Debug, Deserialize, Serialize, PartialEq, Clone, Copy)]
 pub enum ManagerResetType {
     GracefulRestart,

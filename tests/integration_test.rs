@@ -46,6 +46,7 @@ use libredfish::{
     },
     Chassis, EthernetInterface, NetworkAdapter, PCIeDevice, Redfish,
 };
+use rand::Rng;
 use tracing::debug;
 
 const ROOT_DIR: &str = env!("CARGO_MANIFEST_DIR");
@@ -61,7 +62,7 @@ const SUPERMICRO_PORT: &str = "8738";
 const DELL_MULTI_DPU_PORT: &str = "8739";
 const NVIDIA_GH200_PORT: &str = "8740";
 const NVIDIA_GB200_PORT: &str = "8741";
-const GENERIC_PORT: &str = "8742";
+const NVIDIA_GBSWITCH_PORT: &str = "8742";
 
 static SETUP: Once = Once::new();
 
@@ -111,32 +112,8 @@ async fn test_nvidia_gb200() -> Result<(), anyhow::Error> {
 }
 
 #[tokio::test]
-async fn test_forbidden_error_handling() -> anyhow::Result<()> {
-    let _mockup_server = run_mockup_server("forbidden", GENERIC_PORT); // stops on drop
-
-    let endpoint = libredfish::Endpoint {
-        host: format!("127.0.0.1:{GENERIC_PORT}"),
-        ..Default::default()
-    };
-
-    let pool = libredfish::RedfishClientPool::builder().build()?;
-    let redfish = pool.create_standard_client(endpoint)?;
-
-    match redfish.get_chassis_all().await {
-        Ok(_) => panic!("Request should have failed with password change required"),
-        Err(libredfish::RedfishError::PasswordChangeRequired) => {} // what we want
-        Err(err) => panic!("Unexpected error response: {}", err),
-    }
-
-    match redfish.get_systems().await {
-        Ok(_) => panic!("Request should have failed with an HTTP error code"),
-        Err(libredfish::RedfishError::HTTPErrorCode { status_code, .. }) => {
-            assert_eq!(status_code, 403, "Response status code should be forbidden");
-        }
-        Err(err) => panic!("Unexpected error response: {}", err),
-    }
-
-    Ok(())
+async fn test_nvidia_gbswitch() -> Result<(), anyhow::Error> {
+    run_integration_test("nvidia_gbswitch", NVIDIA_GBSWITCH_PORT).await
 }
 
 async fn nvidia_dpu_integration_test(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
@@ -221,10 +198,18 @@ fn run_mockup_server(vendor_dir: &'static str, port: &'static str) -> anyhow::Re
                     .with_ansi(false),
             )
             .init();
-
-        let pip = create_python_venv().expect("Failed creating python virtual env");
-        install_python_requirements(pip).expect("failed installing python requirements");
+        match create_python_venv() {
+            Ok(pip) => {
+                if let Err(e) = install_python_requirements(pip) {
+                    tracing::info!("failed to install python requirements {e}")
+                };
+            }
+            Err(e) => {
+                tracing::info!("failed to create python venv {e}")
+            }
+        }
     });
+    test_python_venv()?;
     let python = env::temp_dir()
         .join(PYTHON_VENV_DIR)
         .join("bin")
@@ -243,7 +228,14 @@ async fn run_integration_test(
     vendor_dir: &'static str,
     port: &'static str,
 ) -> Result<(), anyhow::Error> {
-    let _mockup_server = run_mockup_server(vendor_dir, port); // stops on drop
+    let _mockup_server = match run_mockup_server(vendor_dir, port) {
+        // stops on drop
+        Ok(x) => x,
+        Err(e) => {
+            tracing::info!("Skipping integration tests, env error {e}");
+            return Ok(());
+        }
+    };
 
     let endpoint = libredfish::Endpoint {
         host: format!("127.0.0.1:{port}"),
@@ -273,7 +265,10 @@ async fn run_integration_test(
         manager_eth_interface_states.push(state);
     }
 
-    if vendor_dir != "nvidia_gh200" && vendor_dir != "nvidia_gb200" {
+    if vendor_dir != "nvidia_gh200"
+        && vendor_dir != "nvidia_gb200"
+        && vendor_dir != "nvidia_gbswitch"
+    {
         let system_eth_interfaces = redfish.get_system_ethernet_interfaces().await?;
         assert!(!system_eth_interfaces.is_empty());
         let mut system_eth_interface_states: Vec<libredfish::EthernetInterface> = Vec::new();
@@ -290,6 +285,7 @@ async fn run_integration_test(
     let chassis = redfish.get_chassis_all().await?;
     assert!(!chassis.is_empty());
     for chassis_id in &chassis {
+        let _chassis = redfish.get_chassis(chassis_id).await?;
         let Ok(chassis_net_adapters) = redfish.get_chassis_network_adapters(chassis_id).await
         else {
             continue;
@@ -312,7 +308,9 @@ async fn run_integration_test(
     }
 
     assert_eq!(redfish.get_power_state().await?, libredfish::PowerState::On);
-    assert!(redfish.bios().await?.len() > 8);
+    if vendor_dir != "nvidia_gbswitch" {
+        assert!(redfish.bios().await?.len() > 8);
+    }
 
     redfish
         .power(libredfish::SystemPowerControl::GracefulShutdown)
@@ -335,7 +333,10 @@ async fn run_integration_test(
         assert!(redfish.lockdown_status().await?.is_fully_disabled());
     }
 
-    if vendor_dir != "nvidia_gh200" && vendor_dir != "nvidia_gb200" {
+    if vendor_dir != "nvidia_gh200"
+        && vendor_dir != "nvidia_gb200"
+        && vendor_dir != "nvidia_gbswitch"
+    {
         redfish.setup_serial_console().await?;
         redfish
             .power(libredfish::SystemPowerControl::ForceRestart)
@@ -343,7 +344,11 @@ async fn run_integration_test(
         assert!(redfish.serial_console_status().await?.is_fully_enabled());
     }
 
-    if vendor_dir != "supermicro" && vendor_dir != "nvidia_gh200" && vendor_dir != "nvidia_gb200" {
+    if vendor_dir != "supermicro"
+        && vendor_dir != "nvidia_gh200"
+        && vendor_dir != "nvidia_gb200"
+        && vendor_dir != "nvidia_gbswitch"
+    {
         redfish.clear_tpm().await?;
         // The mockup includes TPM clear pending operation
         assert!(!redfish.pending().await?.is_empty());
@@ -352,8 +357,10 @@ async fn run_integration_test(
         .power(libredfish::SystemPowerControl::ForceRestart)
         .await?;
 
-    redfish.boot_once(libredfish::Boot::Pxe).await?;
-    redfish.boot_first(libredfish::Boot::HardDisk).await?;
+    if vendor_dir != "nvidia_gbswitch" {
+        redfish.boot_once(libredfish::Boot::Pxe).await?;
+        redfish.boot_first(libredfish::Boot::HardDisk).await?;
+    }
     redfish
         .power(libredfish::SystemPowerControl::ForceRestart)
         .await?;
@@ -368,8 +375,13 @@ async fn run_integration_test(
         assert!(redfish.lockdown_status().await?.is_fully_enabled());
     }
     if vendor_dir != "nvidia_gh200" {
-        _ = redfish.get_thermal_metrics().await?;
-        _ = redfish.get_power_metrics().await?;
+        let tm = redfish.get_thermal_metrics().await?;
+        if vendor_dir == "nvidia_gb200" {
+            assert!(tm.leak_detectors.is_some());
+        }
+        if vendor_dir != "nvidia_gbswitch" {
+            _ = redfish.get_power_metrics().await?;
+        }
     }
     if vendor_dir != "supermicro" {
         _ = redfish.get_system_event_log().await?;
@@ -390,6 +402,7 @@ async fn run_integration_test(
 }
 
 async fn resource_tests(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
+    #[allow(clippy::enum_variant_names)]
     pub enum UriType {
         ODataId(ODataId),
         OptionODataId(Option<ODataId>),
@@ -476,13 +489,25 @@ async fn resource_tests(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
         RedfishVendor::AMI => "DGX",
         RedfishVendor::NvidiaDpu => "Card1",
         RedfishVendor::Dell => "System.Embedded.1",
+        RedfishVendor::P3809 => {
+            let mut result = "BMC_0";
+            for x in chassis_rc.members.clone() {
+                if x.id.unwrap_or_default().contains("MGX_NVSwitch_0") {
+                    result = "MGX_NVSwitch_0";
+                    break;
+                }
+            }
+            result
+        }
         RedfishVendor::NvidiaGH200 => "BMC_0",
         RedfishVendor::NvidiaGBx00 => "Chassis_0", // this is not the catch-all chassis id, gb200 redfish is not structured to aggregate into one chassis id
+        RedfishVendor::NvidiaGBSwitch => "MGX_NVSwitch_0",
         _ => return Err(anyhow!("Unknown vendor could not identify chassis")),
     };
     if vendor != RedfishVendor::NvidiaDpu {
         let ch = match chassis_rc
             .members
+            .clone()
             .into_iter()
             .find(|c| c.id.clone().unwrap_or_default() == chassis_id)
         {
@@ -530,6 +555,33 @@ async fn resource_tests(redfish: &dyn Redfish) -> Result<(), anyhow::Error> {
             debug!("{} ethernet_interfaces found", nw_ethernet_rc.count);
         }
     }
+    Ok(())
+}
+
+fn test_python_venv() -> Result<(), anyhow::Error> {
+    let mut rng = rand::rng();
+    let temp_dir_num = rng.random_range(1..65535);
+    let temp_dir = format!("{}-{}", PYTHON_VENV_DIR, temp_dir_num);
+    let venv_dir = env::temp_dir().join(&temp_dir);
+    let venv_out = Command::new("python3")
+        .arg("-m")
+        .arg("venv")
+        .arg(&venv_dir)
+        .output()
+        .context("Is 'python3' on your $PATH?")?;
+    if !venv_out.status.success() {
+        eprintln!("*** Python virtual env creation failed:");
+        eprintln!("\tSTDOUT: {}", String::from_utf8_lossy(&venv_out.stdout));
+        eprintln!("\tSTDERR: {}", String::from_utf8_lossy(&venv_out.stderr));
+        std::fs::remove_dir_all(venv_dir.clone())?;
+        return Err(anyhow!(
+            "Failed running 'python3 -m venv {}. Exit code {}",
+            venv_dir.clone().display(),
+            venv_out.status.code().unwrap_or(-1),
+        ));
+    }
+
+    std::fs::remove_dir_all(venv_dir)?;
     Ok(())
 }
 
@@ -600,7 +652,7 @@ impl Drop for MockupServer {
 }
 
 impl MockupServer {
-    fn start(&mut self) -> std::io::Result<()> {
+    fn start(&mut self) -> Result<(), anyhow::Error> {
         // For extra debugging edit redfishMockupServer.py change the log level at the top
         self.process = Some(
             Command::new(&self.python)

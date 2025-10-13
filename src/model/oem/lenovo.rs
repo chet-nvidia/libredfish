@@ -82,6 +82,7 @@ pub struct FrontPanelUSB {
     pub fp_mode: FrontPanelUSBMode,
 }
 
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub enum PortSwitchingMode {
     BMC,
@@ -97,6 +98,7 @@ impl fmt::Display for PortSwitchingMode {
     }
 }
 
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq, Eq)]
 pub enum FrontPanelUSBMode {
     Server,
@@ -194,6 +196,7 @@ pub struct BiosAttributes {
     pub secure_boot_configuration_secure_boot_setting: EnabledDisabled,
 }
 
+#[allow(clippy::upper_case_acronyms, clippy::enum_variant_names)]
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub enum BootMode {
     UEFIMode,
