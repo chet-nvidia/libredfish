@@ -137,6 +137,7 @@ pub struct TrustedModule {
     pub status: StatusState,
 }
 
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, Serialize, Deserialize, Clone)]
 #[serde(rename_all = "PascalCase")]
 pub enum BootProgressTypes {

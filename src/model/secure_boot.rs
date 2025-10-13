@@ -40,6 +40,7 @@ pub struct SecureBoot {
     pub secure_boot_mode: Option<SecureBootMode>,
 }
 
+#[allow(clippy::enum_variant_names)]
 #[derive(Debug, Serialize, Default, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum SecureBootMode {
     SetupMode,

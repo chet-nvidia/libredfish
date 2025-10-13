@@ -319,7 +319,8 @@ impl Redfish for Bmc {
         let serial_console = BiosAttributes {
             acpi_spcr_baud_rate: DEFAULT_ACPI_SPCR_BAUD_RATE.to_string().into(),
             baud_rate0: DEFAULT_BAUD_RATE0.to_string().into(),
-            acpi_spcr_console_redirection_enable: DEFAULT_ACPI_SPCR_CONSOLE_REDIRECTION_ENABLE.into(),
+            acpi_spcr_console_redirection_enable: DEFAULT_ACPI_SPCR_CONSOLE_REDIRECTION_ENABLE
+                .into(),
             acpi_spcr_flow_control: DEFAULT_ACPI_SPCR_FLOW_CONTROL.to_string().into(),
             acpi_spcr_port: DEFAULT_ACPI_SPCR_PORT.to_string().into(),
             acpi_spcr_terminal_type: DEFAULT_ACPI_SPCR_TERMINAL_TYPE.to_string().into(),
@@ -913,9 +914,9 @@ impl Redfish for Bmc {
     async fn is_infinite_boot_enabled(&self) -> Result<Option<bool>, RedfishError> {
         let bios = self.get_bios().await?;
         match bios.attributes.nvidia_infiniteboot {
-            Some(is_infinite_boot_enabled) => {
-                Ok(Some(is_infinite_boot_enabled == DEFAULT_NVIDIA_INFINITEBOOT))
-            }
+            Some(is_infinite_boot_enabled) => Ok(Some(
+                is_infinite_boot_enabled == DEFAULT_NVIDIA_INFINITEBOOT,
+            )),
             None => Ok(None),
         }
     }

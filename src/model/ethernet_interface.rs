@@ -73,6 +73,7 @@ pub struct EthernetInterface {
     pub uefi_device_path: Option<String>,
 }
 
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum IPv4AddressOrigin {
     Static,
@@ -87,6 +88,7 @@ impl std::fmt::Display for IPv4AddressOrigin {
     }
 }
 
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 pub enum IPv6AddressOrigin {
     Static,

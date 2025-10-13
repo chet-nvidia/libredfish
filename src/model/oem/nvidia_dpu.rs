@@ -80,6 +80,7 @@ pub struct Chassis {
 pub enum BackgroundCopyStatus {
     InProgress,
     Completed,
+    Pending,
 }
 
 impl fmt::Display for BackgroundCopyStatus {

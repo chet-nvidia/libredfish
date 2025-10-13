@@ -32,6 +32,7 @@ pub struct UpdateService {
     pub multipart_http_push_uri: String,
 }
 
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub enum TransferProtocolType {
     FTP,
@@ -44,6 +45,7 @@ pub enum TransferProtocolType {
     NFS,
 }
 
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, clap::ValueEnum, Clone, Serialize, Deserialize, Eq, PartialEq)]
 pub enum ComponentType {
     BMC,

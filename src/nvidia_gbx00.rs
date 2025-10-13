@@ -23,7 +23,8 @@
 use crate::{Chassis, EnabledDisabled, REDFISH_ENDPOINT};
 use regex::Regex;
 use reqwest::StatusCode;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
+use std::fmt::Display;
 use std::sync::OnceLock;
 use std::{collections::HashMap, path::Path, time::Duration};
 use tokio::fs::File;
@@ -83,17 +84,25 @@ impl BootOptionName {
     }
 }
 
+#[derive(Debug, Serialize, Deserialize, Copy, Clone, Eq, PartialEq)]
 enum BootOptionMatchField {
     DisplayName,
     UefiDevicePath,
 }
 
 impl BootOptionMatchField {
-    fn to_string(&self) -> &'static str {
+    #[allow(dead_code)]
+    fn to_string(self) -> &'static str {
         match self {
             BootOptionMatchField::DisplayName => "Display Name",
             BootOptionMatchField::UefiDevicePath => "Uefi Device Path",
         }
+    }
+}
+
+impl Display for BootOptionMatchField {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        std::fmt::Debug::fmt(&self, f)
     }
 }
 
@@ -278,10 +287,6 @@ impl Redfish for Bmc {
         }
 
         self.s.power(action).await
-    }
-
-    fn ac_powercycle_supported_by_power(&self) -> bool {
-        true
     }
 
     async fn bmc_reset(&self) -> Result<(), RedfishError> {
@@ -873,6 +878,10 @@ impl Redfish for Bmc {
         self.s.get_manager().await
     }
 
+    fn ac_powercycle_supported_by_power(&self) -> bool {
+        true
+    }
+
     async fn bmc_reset_to_defaults(&self) -> Result<(), RedfishError> {
         self.s.bmc_reset_to_defaults().await
     }
@@ -1217,7 +1226,7 @@ impl Bmc {
         }
 
         if !found_matching_boot_option {
-            return Err(RedfishError::GenericError { error: format!("Could not find boot option matching {name_str} on {}; boot options: {boot_options:#?}", match_field.to_string()) });
+            return Err(RedfishError::GenericError { error: format!("Could not find boot option matching {name_str} on {}; boot options: {boot_options:#?}", match_field) });
         }
 
         Ok(ordered)
