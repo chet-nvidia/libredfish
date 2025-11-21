@@ -57,6 +57,7 @@ pub struct Sensors {
     pub description: Option<String>,
 }
 
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Debug, Serialize, Deserialize, Default, Copy, Clone, Eq, PartialEq)]
 pub enum PhysicalContext {
     #[default]

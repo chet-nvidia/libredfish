@@ -1421,6 +1421,7 @@ impl Bmc {
 }
 
 // UpdateParameters is what is sent for a multipart firmware upload's metadata.
+#[allow(clippy::type_complexity)]
 #[derive(Serialize)]
 #[serde(rename_all = "PascalCase")]
 struct UpdateParameters {

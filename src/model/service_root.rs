@@ -56,6 +56,7 @@ pub struct ServiceRoot {
     pub telemetry_service: Option<ODataId>,
 }
 
+#[allow(clippy::upper_case_acronyms)]
 #[derive(Clone, Copy, Debug, PartialEq, Hash, Eq, Serialize, Deserialize)]
 pub enum RedfishVendor {
     Lenovo,
@@ -64,7 +65,10 @@ pub enum RedfishVendor {
     Supermicro,
     AMI, // Viking DGX H100
     Hpe,
+    NvidiaGH200,    // r&d only grace-hopper 200
     NvidiaGBx00, // all Grace-Blackwell combinations 200, .. since openbmc fw and redfish schema are the same
+    NvidiaGBSwitch, // GB NVLink switch
+    P3809, // dummy for P3809, needs to be set to NvidiaGH200 or NvidiaGBSwitch based on chassis
     Unknown,
 }
 
@@ -93,6 +97,7 @@ impl ServiceRoot {
             "hpe" => RedfishVendor::Hpe,
             "lenovo" => RedfishVendor::Lenovo,
             "nvidia" => match self.product.as_deref() {
+                Some("P3809") => RedfishVendor::P3809, // could be gh200 compute or nvswitch
                 Some("GB200 NVL") => RedfishVendor::NvidiaGBx00,
                 _ => RedfishVendor::NvidiaDpu,
             },

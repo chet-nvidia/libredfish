@@ -979,6 +979,12 @@ impl RedfishStandard {
             RedfishVendor::NvidiaGBx00 => {
                 Ok(Box::new(crate::nvidia_gbx00::Bmc::new(self.clone())?))
             }
+            RedfishVendor::NvidiaGBSwitch => {
+                Ok(Box::new(crate::nvidia_gbswitch::Bmc::new(self.clone())?))
+            }
+            RedfishVendor::NvidiaGH200 => {
+                Ok(Box::new(crate::nvidia_gh200::Bmc::new(self.clone())?))
+            }
             RedfishVendor::Supermicro => Ok(Box::new(crate::supermicro::Bmc::new(self.clone())?)),
             _ => Ok(Box::new(self.clone())),
         }
